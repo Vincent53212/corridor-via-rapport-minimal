@@ -72,7 +72,8 @@ STATIONS = {
     "MTL-Ott": [("Montréal", "226", 0.0), ("Dorval", "332", 17.79),
                 ("Coteau", "351", 62.28), ("Alexandria", "344", 99.43),
                 ("Casselman", "419", 138.78), ("Ottawa", "617", 185.42)],
-    "Ott-TO":  [("Ottawa", "617", 0.0), ("Smiths Falls", "377", 64.62),
+    "Ott-TO":  [("Ottawa", "617", 0.0), ("Fallowfield", "576", None),
+                ("Smiths Falls", "377", 64.62),
                 ("Brockville", "35", 110.0), ("Gananoque", "200", 155.83),
                 ("Kingston", "58", 191.99), ("Napanee", "309", 227.49),
                 ("Belleville", "415", 262.44), ("Trenton Junction", "413", 281.92),
@@ -80,6 +81,7 @@ STATIONS = {
                 ("Oshawa", "367", 393.31), ("Guildwood", "450", 423.93),
                 ("Toronto", "119", 444.05)],
     "MTL-TO":  [("Montréal", "226", 0.0), ("Dorval", "332", 17.79),
+                ("Cornwall", "602", None),
                 ("Brockville", "35", 204.72), ("Gananoque", "200", 249.75),
                 ("Kingston", "58", 285.97), ("Napanee", "309", 321.47),
                 ("Belleville", "415", 356.42), ("Trenton Junction", "413", 375.9),
@@ -97,6 +99,7 @@ OWNER = {
 }
 
 EXCLUDED_PAIRS = {
+    ("Ott-TO", "Ottawa", "Fallowfield"): "bloc urbain (approche d'Ottawa)",
     ("MTL-QC", "Montréal", "Saint-Lambert"): "bloc urbain (pont Victoria)",
     ("MTL-QC", "Saint-Lambert", "Saint-Hyacinthe"): "adjacente au pont Victoria",
     ("MTL-QC", "Charny", "Sainte-Foy"): "adjacente au pont de Québec",
@@ -106,7 +109,7 @@ EXCLUDED_PAIRS = {
     ("Ott-TO", "Guildwood", "Toronto"): "bloc urbain",
     ("MTL-TO", "Guildwood", "Toronto"): "bloc urbain",
 }
-OTTAWA_FLAG = {("MTL-Ott", "Casselman", "Ottawa"), ("Ott-TO", "Ottawa", "Smiths Falls")}
+OTTAWA_FLAG = {("MTL-Ott", "Casselman", "Ottawa")}
 
 
 def pair_owner(t: str, km0: float, km1: float) -> str:
@@ -155,6 +158,39 @@ def tbase_pair(by_t, t: str, km0: float, km1: float) -> float:
     return minutes
 
 
+def resolve_missing_kms() -> None:
+    """Complète les km None de STATIONS par projection du point d'arrêt GTFS
+    sur le tracé matché du tronçon (même référence km que segments.geojson,
+    écart < 0,3 % dû au rééchantillonnage)."""
+    import io
+    import zipfile
+
+    import geopandas as gpd
+    from shapely.geometry import LineString, Point
+
+    need = {(t, i) for t, sts in STATIONS.items() for (_, i, k) in sts if k is None}
+    if not need:
+        return
+    with zipfile.ZipFile(t21.GTFS_ZIP) as z:
+        stops = pd.read_csv(io.BytesIO(z.read("stops.txt")), dtype=str)
+    coords = {r.stop_id: (float(r.stop_lon), float(r.stop_lat))
+              for r in stops.itertuples() if r.stop_id in {i for _, i in need}}
+    gj = json.load(open(INTERMEDIATES / "corridor_matched.geojson", encoding="utf-8"))
+    lines = {f["properties"]["troncon_id"]: LineString(f["geometry"]["coordinates"])
+             for f in gj["features"]
+             if f["geometry"]["type"] == "LineString" and f["properties"].get("troncon_id")}
+    lines_m = gpd.GeoSeries(list(lines.values()), crs="EPSG:4326").to_crs("EPSG:3978")
+    lines_m = dict(zip(lines.keys(), lines_m))
+    for t, sts in STATIONS.items():
+        for idx, (name, sid, km) in enumerate(sts):
+            if km is None:
+                pt = gpd.GeoSeries([Point(coords[sid])], crs="EPSG:4326").to_crs("EPSG:3978")[0]
+                km_proj = lines_m[t].project(pt) / 1000.0
+                sts[idx] = (name, sid, round(km_proj, 2))
+                print(f"  km projeté : {name} ({t}) = {km_proj:.2f} km "
+                      f"(écart au tracé {lines_m[t].distance(pt):.0f} m)")
+
+
 def gtfs_pair_samples() -> dict[tuple[str, str], list[float]]:
     import io
     import zipfile
@@ -189,13 +225,19 @@ def gtfs_pair_samples() -> dict[tuple[str, str], list[float]]:
 def main() -> None:
     by_t = t21.load_segments()
     voies = load_voies()
+    resolve_missing_kms()
     samples = gtfs_pair_samples()
 
     rows = []
+    seen_physical: dict[tuple[str, str], str] = {}
     for t, sts in STATIONS.items():
         for (na, ia, ka), (nb, ib, kb) in zip(sts, sts[1:]):
             s = samples.get((ia, ib), [])
             t_hor = median(s) if s else None
+            phys = tuple(sorted((ia, ib)))
+            dup_of = seen_physical.get(phys, "")
+            if not dup_of:
+                seen_physical[phys] = t
             t_base = tbase_pair(by_t, t, ka, kb)
             shares = track_shares(voies, t, ka, kb)
             owner = pair_owner(t, ka, kb)
@@ -204,6 +246,12 @@ def main() -> None:
             excl = EXCLUDED_PAIRS.get(key, "")
             marge = (100 * (t_hor - t_base) / t_base) if (t_hor and t_base > 0) else None
             m100 = (100 * (t_hor - t_base) / (kb - ka)) if (t_hor and kb > ka) else None
+            if len(s) >= 4:
+                ss = sorted(s)
+                q25, q75 = ss[int(0.25 * (len(ss) - 1))], ss[int(0.75 * (len(ss) - 1))]
+                iqr = q75 - q25
+            else:
+                iqr = None
             rows.append({
                 "troncon": t, "de": na, "a": nb,
                 "km_debut": ka, "km_fin": kb, "longueur_km": round(kb - ka, 1),
@@ -215,6 +263,10 @@ def main() -> None:
                 "t_base_S1cap160_min": round(t_base, 1),
                 "marge_pct": round(marge, 1) if marge is not None else "",
                 "marge_min_par_100km": round(m100, 1) if m100 is not None else "",
+                "dispersion_iqr_min": round(iqr, 1) if iqr is not None else "",
+                "dispersion_iqr_pct": round(100 * iqr / t_hor, 1)
+                                      if (iqr is not None and t_hor) else "",
+                "doublon_physique_de": dup_of,
                 "exclue_du_2x2": excl,
                 "note": "contient l'approche d'Ottawa (±10 km urbains)"
                         if key in OTTAWA_FLAG or (t, nb, na) in OTTAWA_FLAG else "",
@@ -222,13 +274,17 @@ def main() -> None:
     df = pd.DataFrame(rows)
     df.to_csv(OUT_PAIRS, sep=";", index=False, encoding="utf-8-sig")
 
-    kept = df[(df.exclue_du_2x2 == "") & (df.marge_pct != "")].copy()
+    kept = df[(df.exclue_du_2x2 == "") & (df.marge_pct != "")
+              & (df.doublon_physique_de == "")].copy()
     kept["marge_pct"] = pd.to_numeric(kept["marge_pct"])
+    kept["dispersion_iqr_pct"] = pd.to_numeric(kept["dispersion_iqr_pct"], errors="coerce")
     synth = (kept[kept.cellule != "mixte"]
-             .groupby("cellule")["marge_pct"]
-             .agg(n="count", mediane="median",
-                  q25=lambda x: x.quantile(.25), q75=lambda x: x.quantile(.75),
-                  minimum="min", maximum="max")
+             .groupby("cellule")
+             .agg(n=("marge_pct", "count"), mediane=("marge_pct", "median"),
+                  q25=("marge_pct", lambda x: x.quantile(.25)),
+                  q75=("marge_pct", lambda x: x.quantile(.75)),
+                  minimum=("marge_pct", "min"), maximum=("marge_pct", "max"),
+                  disp_iqr_pct_med=("dispersion_iqr_pct", "median"))
              .round(1).reset_index())
     synth.to_csv(OUT_SYNTH, sep=";", index=False, encoding="utf-8-sig")
 
