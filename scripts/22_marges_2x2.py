@@ -299,17 +299,38 @@ def main() -> None:
     print("\nSynthèse par cellule (paires retenues, hors mixte) :")
     print(synth.to_string(index=False))
 
+    # ---- Sensibilité à la pénalité d'arrêt (critique « dénominateur » 2026-08-06) :
+    # T_base de paire n'inclut pas l'accélération/freinage des arrêts d'extrémité,
+    # ce qui gonfle la marge des paires COURTES. Conservateur pour la lecture
+    # doublement (les paires simple-CN sont longues), ANTI-conservateur pour la
+    # lecture régime (le double-CN a les paires les plus courtes). On teste donc
+    # le classement avec une pénalité p ajoutée à T_base (p ≈ v/2·(1/a+1/d) :
+    # ~1,5-2 min à 160 km/h pour a≈0,4 / d≈0,5 m/s² ; 3 min = borne haute).
+    print("\nSensibilité à la pénalité d'arrêt p (médianes de marge par cellule) :")
+    kt = kept[kept.cellule != "mixte"].copy()
+    kt["t_hor"] = pd.to_numeric(kt["t_horaire_med_min"])
+    kt["t_base"] = pd.to_numeric(kt["t_base_S1cap160_min"])
+    print(f"  {'p (min)':>8} {'double-CN':>10} {'simple-VIA':>11} {'simple-CN':>10}")
+    for p in (0.0, 1.5, 3.0):
+        m = (100 * (kt.t_hor - (kt.t_base + p)) / (kt.t_base + p))
+        med_p = m.groupby(kt.cellule).median()
+        print(f"  {p:>8} {med_p.get('double-CN', float('nan')):>10.1f} "
+              f"{med_p.get('simple-VIA', float('nan')):>11.1f} "
+              f"{med_p.get('simple-CN', float('nan')):>10.1f}")
+
     med = {r["cellule"]: r["mediane"] for _, r in synth.iterrows()}
     via_pure = kept[(kept.cellule == "simple-VIA") & (kept.note == "")]["marge_pct"]
     print("\nLecture « doublement » (simple-CN vs double-CN, même propriétaire) :")
     print(f"  médianes {med.get('simple-CN')} % vs {med.get('double-CN')} % : "
           f"le doublement achète ≈ {med.get('simple-CN', 0) - med.get('double-CN', 0):.0f} points "
           f"de marge (échantillon simple-CN MINCE, n=2 : publier en bornes)")
-    print("Lecture « régime » (simple-VIA vs double-CN) :")
-    print(f"  médiane simple-VIA {med.get('simple-VIA')} % "
-          f"(hors paires d'approche d'Ottawa : {via_pure.median():.1f} %) vs "
-          f"double-CN {med.get('double-CN')} % : une voie de moins sous régime "
-          f"VIA-VIA fait jeu égal ou mieux qu'une voie de plus sous régime CN")
+    print("Lecture « régime » (formulation robuste au biais de dénominateur) :")
+    print(f"  le coût de la voie simple = simple-VIA − double-CN "
+          f"({med.get('simple-VIA', 0) - med.get('double-CN', 0):+.1f} pts, stable 3-6 pts "
+          f"à toute pénalité d'arrêt) CONTRE simple-CN − double-CN "
+          f"({med.get('simple-CN', 0) - med.get('double-CN', 0):+.1f} pts, 27-33 pts). "
+          f"Sous régime VIA, la voie simple coûte quelques points ; sous régime CN, "
+          f"elle en coûte ~7 fois plus. C'est le régime qui fixe le prix du béton.")
     print("\nCaveat de mesure : T_horaire de paire inclut l'effet d'accélération/"
           "freinage des arrêts d'extrémité, que T_base ne modélise pas → les paires "
           "COURTES sont gonflées. Le double-CN ayant les paires les plus courtes, "
