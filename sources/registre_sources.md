@@ -60,9 +60,39 @@ verdicts reportés ci-dessous. **Les corrections aux affirmations du plan v3 son
 - **Statut** : VÉRIFIÉE (2026-08-06, rapport dépouillé). Rapport phase I au Congrès (2001) : https://rosap.ntl.bts.gov/view/dot/34005 (clé secondaire possible `fra2001sealed`).
 
 ### `uic2000f451`
-- **APA** : Union internationale des chemins de fer. (2000). *Marges de régularité à prévoir dans les horaires* (fiche UIC 451-1, 4e éd.). UIC.
-- **Appuie** : élément 5, borne basse de la marge. Existence et objet confirmés (distingue temps de base, marges de régularité, marges supplémentaires). **Les VALEURS chiffrées sont derrière un paywall (108,67 €) : ne citer aucune valeur sans acheter la fiche ou passer par une bibliothèque.** Décision à prendre avec Vincent : achat, bibliothèque, ou borne basse via une autre source ouverte (ex. lignes directrices d'exploitation publiées).
-- **Statut** : VÉRIFIÉE pour l'existence ; valeurs INTROUVABLES en accès libre.
+- **APA** : Union internationale des chemins de fer. (2000). *Marges de régularité à prévoir dans les horaires dans le but de garantir la ponctualité du service : marges de régularité* (fiche UIC 451-1/F/4, 4e éd., ISBN 2-7461-0221-8). UIC.
+- **Appuie** : élément 5, borne basse de la marge. **RÉSOLU (2026-08-06) : les valeurs chiffrées sont reproduites intégralement (tableaux 4-6) dans `schittenhelm2011`, source évaluée par les pairs — achat de la fiche non nécessaire.** Valeurs : voyageurs tractés = 1,5 min/100 km + 3-7 % selon masse/vitesse ; automotrices = 1,0 min/100 km + 3-7 % ; total ≈ 7 % à 160 km/h, 9 % à 200 (tracté ≤300 t).
+- **Statut** : VÉRIFIÉE (texte intégral non consulté ; valeurs par source secondaire fiable, citer les deux ensemble).
+
+### `schittenhelm2011`
+- **APA** : Schittenhelm, B. (2011). *Planning with timetable supplements in railway timetables*. Trafikdage på Aalborg Universitet 2011 (ISSN 1603-9696). https://journals.aau.dk/index.php/td/article/download/5554/4887
+- **Local** : `ressources/schitt2011.pdf`
+- **Appuie** : valeurs UIC 451-1 (tableaux 4-6 reproduits) ; décomposition canonique du temps horaire en 4 termes (marche minimale, arrêts, suppléments, attente programmée) : LA grille pour ne pas confondre marge UIC et agrégat type WCML ; repère mesuré Copenhague-Odense 16,3 % (ratio ~0,86 sans fret). Auteur DTU + Rail Net Denmark. NB : le DOI 404, citer l'URL directe.
+- **Statut** : VÉRIFIÉE (2026-08-06).
+
+### `sncf2023drr`
+- **APA** : SNCF Réseau. (2023). *Document de référence du réseau : annexe 4.1, horaire de service 2025* (version du 7 décembre 2023). https://www.sncf-reseau.com/medias-publics/2023-12/DRR2025-annexe-4-1.pdf
+- **Local** : `ressources/sncf.pdf`
+- **Appuie** : règle primaire publiée : marge de régularité **4,5 min/100 km** lignes classiques (Marge-A 2 + Marge-T 2,5) ; **5 %** LGV ; dérogation ≥3 min/100 km sous analyse de risque.
+- **Statut** : VÉRIFIÉE (2026-08-06, mot pour mot).
+
+### `trafikverket2025jnb`
+- **APA** : Trafikverket. (2025). *Järnvägsnätsbeskrivning 2027, annexe 4 D : Kvalitetstillägg* (éd. du 5 décembre 2025). https://bransch.trafikverket.se/contentassets/6526f430ae7f489aae8e88c06f2eef6b/jnb-2027-2025-12-05.pdf
+- **Local** : `ressources/jnb.pdf`
+- **Appuie** : élément 2 ET 5 : le gestionnaire suédois CHIFFRE la pénalité de voie : **voie unique 3 min/100 km vs double voie 2 min/100 km**, + 60 s par croisement (120 s si passage sans arrêt) ; pendulaire X2 : 1 min/100 km. Corroboration indépendante de ce que notre 2×2 mesure.
+- **Statut** : VÉRIFIÉE (2026-08-06).
+
+### `amtrakoig2019`
+- **APA** : Amtrak Office of Inspector General. (2019, 14 octobre). *Train operations : Better estimates needed of the financial impacts of poor on-time performance* (OIG-A-2020-001). https://amtrakoig.gov/sites/default/files/reports/OIG-A-2020-001%20OTP%20mandate.pdf
+- **Local** : `ressources/amtrak.pdf`
+- **Appuie** : analogue nord-américain primaire de la cohabitation VIA/CN : California Zephyr Reno-Sacramento = 52 min de tampon intégré (ratio idéal/commercial **0,846**) ; « ~70 % du temps additionnel des horaires = retards anticipés des chemins de fer hôtes » ; fret responsable de ~59 % des retards longs parcours ; 32,8 M$ US/an de paiements incitatifs aux hôtes.
+- **Statut** : VÉRIFIÉE (2026-08-06).
+
+### `uic2004c406`
+- **APA** : Union internationale des chemins de fer. (2004). *Capacity* (fiche UIC 406, 1re éd.). UIC.
+- **Local** : `ressources/uic406.pdf`
+- **Appuie** : « The value of this time supplement is about 5 % of journey time » : corroboration UIC gratuite de l'ordre de grandeur.
+- **Statut** : VÉRIFIÉE (2026-08-06).
 
 ### `via2024requete`
 - **APA** : La Presse Canadienne. (2024, 13 novembre). *Via Rail seeks judicial review of CN Rail's speed restrictions*. Global News. https://globalnews.ca/news/10868587/via-rail-judicial-review-cn-rail-speed-restrictions/
@@ -111,9 +141,9 @@ verdicts reportés ci-dessous. **Les corrections aux affirmations du plan v3 son
 | Clé provisoire | Affirmation à appuyer | Piste |
 |---|---|---|
 | `via2024avis-cf` | Texte de l'avis de demande de VIA (12 nov. 2024, Cour fédérale) et décision de radiation (20 févr. 2025) : citations directes des 304 passages | CanLII (décision Moore), registre Cour fédérale ; renforcerait `via2024requete` |
-| `wcml-072` | Calibration WCML ~0,72 commercial/plafond en cohabitation fret | Études West Coast Main line ; Network Rail ; littérature timetabling |
+| `wcml-072` | Ratio WCML ~0,72 commercial/plafond | Aucune source ne publie le 0,72 directement ; il se RECONSTRUIT (399 mi, 125 mph, 4 h 25 → 0,723) mais sur distance/temps Wikipédia : resourcer Network Rail/ORR avant publication. ⚠ MÉTHODO : 0,72 = agrégat (marge + arrêts + ralentissements + attente de cohabitation), PAS une marge UIC (aucune règle publiée ne dépasse 15 %) ; utiliser la décomposition de `schittenhelm2011` |
 | `en13803` | EN 13803 : limites d'insuffisance pour matériel pendulaire (appuie S3 270 mm et la sensibilité 225 mm) | CEN ; norme payante, chercher valeurs citées dans littérature ouverte |
-| `uic451-valeurs` | Valeurs chiffrées des suppléments UIC 451-1 | Paywall UIC : décision Vincent (achat 108,67 € / bibliothèque / source de rechange) |
+| `tfl-nr-marges` | Rail for London 10 % (TPR 2026) et Network Rail ~5 % | Mentionnés par l'agent mais NON revérifiés sur les primaires : à confirmer avant citation |
 | `via-ponctualite-corridor` | Valeurs de ponctualité CORRIDOR (vs réseau) par année | Rapport annuel VIA 2024, p. 8 (graphique) : relire le PDF et extraire |
 
 Note d'usage : dans les brouillons, une affirmation non encore vérifiée est étiquetée

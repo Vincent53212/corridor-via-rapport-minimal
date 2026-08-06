@@ -1,0 +1,925 @@
+﻿tc_number;troncon_principal;km_segment;subdivision;mille;localisation;acces;juridiction;autorite_routiere;protection;trains_jour;vehicules_jour;voies_route;urbain;vmax_S1_kmh;vmax_S2_kmh;vmax_S3_kmh;bande_S1;bande_S2;bande_S3;intervention;dist_trace_m
+14523;Ott-TO;43.55;Smiths Falls;23.45;Montague Boundary Rd;Public;F;Montague (ON);Active - FLBG;12;50;2;N;199.9;251.7;300.2;178-201;>201;>201;standard (municipal, ≤2 voies, non urbain);0.0
+300161;Ott-TO;121.27;Kingston - CN;132.87;-;Private;F;Private Road Authority #1;Passive;40;2;1;N;199.3;250.9;299.3;178-201;>201;>201;fermeture (HYPOTHÈSE : alternative routière non vérifiée);0.0
+45935;MTL-Ott;121.4;Alexandria - VIA;39.53;-;Private;F;Private Road Authority #1;Passive;14;2;1;N;127.1;160.0;190.9;≤153;154-177;178-201;fermeture (HYPOTHÈSE : alternative routière non vérifiée);0.0
+52296;MTL-Ott;75.71;Alexandria - VIA;9.44;Farm Crossing;Private;F;Private Road Authority #1;Passive;14;-;-;N;251.0;316.1;360.0;>201;>201;>201;fermeture (HYPOTHÈSE : alternative routière non vérifiée);0.0
+7998;Ott-TO;110.03;Kingston - CN;125.65;Perth St;Public;F;Brockville (ON);Active - FLBG;40;8300;2;Y;76.1;95.8;114.3;≤153;≤153;≤153;complexe (urbain / multi-voies / autorité provinciale);0.0
+142581;MTL-QC;36.3;St-Hyacinthe;45.0;Private;Private;F;Private Road Authority #1;Passive;-;-;-;N;241.4;304.0;360.0;>201;>201;>201;fermeture (HYPOTHÈSE : alternative routière non vérifiée);0.0
+140736;MTL-QC;94.39;Drummondville;101.85;Private;Private;F;Private Road Authority #1;Passive;-;-;-;N;200.5;252.5;301.2;178-201;>201;>201;fermeture (HYPOTHÈSE : alternative routière non vérifiée);0.0
+7949;MTL-TO;108.68;Kingston - CN;66.51;Tenth St;Public;F;Cornwall (ON);Active - FLBG;40;1000;2;N;239.7;301.8;360.0;>201;>201;>201;standard (municipal, ≤2 voies, non urbain);0.0
+52298;MTL-Ott;79.19;Alexandria - VIA;10.34;Farm Crossing;Private;F;Private Road Authority #1;Passive;14;-;-;N;243.4;306.5;360.0;>201;>201;>201;fermeture (HYPOTHÈSE : alternative routière non vérifiée);0.0
+19660;Ott-TO;97.13;Brockville - VIA;22.57;Fairfield Rd;Public;F;Elizabethtown-Kitley (ON);Active - FLBG;12;300;2;N;250.9;315.9;360.0;>201;>201;>201;standard (municipal, ≤2 voies, non urbain);0.1
+51408;MTL-TO;59.06;Kingston - CN;35.87;Ferme;Private;F;Private Road Authority #1;Passive;54;2;1;N;199.4;251.0;299.4;178-201;>201;>201;fermeture (HYPOTHÈSE : alternative routière non vérifiée);0.1
+35919;Ott-TO;97.13;Brockville - VIA;25.8;Laurier Blvd;Public;F;Brockville (ON);Active - FLBG;12;3400;2;Y;250.9;315.9;360.0;>201;>201;>201;complexe (urbain / multi-voies / autorité provinciale);0.1
+45905;MTL-Ott;87.16;Alexandria - VIA;21.9;-;Private;F;Private Road Authority #1;Passive;14;2;1;N;127.3;160.2;191.1;≤153;154-177;178-201;fermeture (HYPOTHÈSE : alternative routière non vérifiée);0.1
+140744;MTL-QC;80.87;Drummondville;106.48;Private;Private;F;Private Road Authority #1;Passive;-;-;-;N;199.6;251.4;299.8;178-201;>201;>201;fermeture (HYPOTHÈSE : alternative routière non vérifiée);0.1
+4823;MTL-QC;132.42;Drummondville;74.11;Chemin Du 10 Rang;Public;F;Saint-Wenceslas (QC);Active - FLBG;27;210;2;N;202.2;254.6;303.7;>201;>201;>201;standard (municipal, ≤2 voies, non urbain);0.1
+45686;MTL-TO;192.49;Kingston - CN;119.98;-;Private;F;Private Road Authority #1;Passive;40;2;1;N;239.0;300.9;358.9;>201;>201;>201;fermeture (HYPOTHÈSE : alternative routière non vérifiée);0.1
+45884;MTL-Ott;87.16;Alexandria - VIA;16.04;-;Private;F;Private Road Authority #1;Passive;14;2;1;N;127.3;160.2;191.1;≤153;154-177;178-201;fermeture (HYPOTHÈSE : alternative routière non vérifiée);0.1
+8147;MTL-TO;378.16;Kingston - CN;233.67;2nd Dug Hill Rd (Trenton);Public;F;Quinte West (ON);Active - FLBG;40;2996;2;N;173.8;218.8;261.0;154-177;>201;>201;standard (municipal, ≤2 voies, non urbain);0.1
+45873;MTL-Ott;82.75;Alexandria - VIA;12.9;-;Private;F;Private Road Authority #1;Passive;14;2;1;N;160.6;202.2;241.2;154-177;>201;>201;fermeture (HYPOTHÈSE : alternative routière non vérifiée);0.1
+51934;Ott-TO;23.4;Smiths Falls;9.46;Farm Crossing;Private;F;Private Road Authority #1;Other;12;-;-;N;198.7;250.2;298.5;178-201;>201;>201;fermeture (HYPOTHÈSE : alternative routière non vérifiée);0.1
+36123;MTL-QC;251.48;Bridge;4.59;Ch. Plage J.-Cartier;Public;F;Québec (QC);Active - FLBG;13;240;2;Y;240.1;302.4;360.0;>201;>201;>201;complexe (urbain / multi-voies / autorité provinciale);0.1
+4815;MTL-QC;151.98;Drummondville;64.03;Chemin Des Cyprès;Public;F;Lemieux (QC);Active - FLBG;27;296;2;N;160.1;201.5;240.4;154-177;>201;>201;standard (municipal, ≤2 voies, non urbain);0.1
+8069;MTL-TO;306.17;Kingston - CN;190.13;County Rd  7;Public;F;Lennox & Addington (Ontario);Active - FLBG;40;1100;2;N;159.4;200.6;239.3;154-177;178-201;>201;standard (municipal, ≤2 voies, non urbain);0.1
+52305;MTL-Ott;81.66;Alexandria - VIA;11.8;Farm Crossing;Private;F;Private Road Authority #1;Passive;14;-;-;N;163.7;206.1;245.8;154-177;>201;>201;fermeture (HYPOTHÈSE : alternative routière non vérifiée);0.1
+7991;MTL-TO;201.62;Kingston - CN;124.09;Oxford Ave;Public;F;Brockville (ON);Active - FLBG;40;1200;2;Y;159.2;200.4;239.0;154-177;178-201;>201;complexe (urbain / multi-voies / autorité provinciale);0.1
+200;MTL-Ott;87.16;Alexandria - VIA;21.22;MacPhee Rd;Public;F;North Glengarry (ON);Active - FLBG;14;49;2;N;127.3;160.2;191.1;≤153;154-177;178-201;standard (municipal, ≤2 voies, non urbain);0.1
+45885;MTL-Ott;87.16;Alexandria - VIA;16.32;-;Private;F;Private Road Authority #1;Passive;14;2;1;N;127.3;160.2;191.1;≤153;154-177;178-201;fermeture (HYPOTHÈSE : alternative routière non vérifiée);0.1
+140732;MTL-QC;107.62;Drummondville;93.57;Private;Private;F;Private Road Authority #1;Passive;-;-;-;N;207.0;260.7;310.9;>201;>201;>201;fermeture (HYPOTHÈSE : alternative routière non vérifiée);0.2
+52293;MTL-Ott;75.71;Alexandria - VIA;9.07;Farm Crossing;Private;F;Private Road Authority #1;Passive;14;-;-;N;251.0;316.1;360.0;>201;>201;>201;fermeture (HYPOTHÈSE : alternative routière non vérifiée);0.2
+778613;MTL-Ott;139.16;Alexandria - VIA;48.31;Maria (Emergency Access road);Public;F;Casselman (ON);Active - FLBG;20;-;2;N;124.9;157.2;187.5;≤153;154-177;178-201;standard (municipal, ≤2 voies, non urbain);0.2
+45673;MTL-TO;175.7;Kingston - CN;107.85;-;Private;F;Private Road Authority #1;Passive;40;2;1;N;237.1;298.5;356.1;>201;>201;>201;fermeture (HYPOTHÈSE : alternative routière non vérifiée);0.2
+45728;MTL-TO;259.23;Kingston - CN;162.25;-;Private;F;Private Road Authority #1;Passive;-;-;1;N;217.3;273.6;326.4;>201;>201;>201;fermeture (HYPOTHÈSE : alternative routière non vérifiée);0.2
+45810;MTL-TO;173.68;Kingston - CN;106.6;-;Private;F;Private Road Authority #1;Passive;40;2;1;N;230.7;290.4;346.5;>201;>201;>201;fermeture (HYPOTHÈSE : alternative routière non vérifiée);0.2
+45785;MTL-TO;388.28;Kingston - CN;243.52;Farm;Private;F;Private Road Authority #1;Passive;40;2;1;N;193.6;243.7;290.7;178-201;>201;>201;fermeture (HYPOTHÈSE : alternative routière non vérifiée);0.2
+45729;MTL-TO;259.23;Kingston - CN;162.44;-;Private;F;Private Road Authority #1;Passive;40;2;1;N;217.3;273.6;326.4;>201;>201;>201;fermeture (HYPOTHÈSE : alternative routière non vérifiée);0.2
+140719;MTL-QC;121.71;Drummondville;84.7;Private;Private;F;Private Road Authority #1;Passive;-;-;-;N;128.1;161.3;192.4;≤153;154-177;178-201;fermeture (HYPOTHÈSE : alternative routière non vérifiée);0.2
+19654;Ott-TO;88.77;Brockville - VIA;14.29;Rock Springs Rd;Public;F;Elizabethtown-Kitley (ON);Active - FLBG;12;60;2;Y;238.3;300.0;357.9;>201;>201;>201;complexe (urbain / multi-voies / autorité provinciale);0.2
+8168;MTL-TO;399.0;Kingston - CN;248.79;Durham St;Public;F;Cramahe (ON);Active - FLBG;40;300;2;N;238.6;300.4;358.3;>201;>201;>201;standard (municipal, ≤2 voies, non urbain);0.2
+237;MTL-Ott;151.27;Alexandria - VIA;58.7;Dunning Rd;Public;F;Ottawa (ON);Active - FLBG;14;250;2;N;360.0;360.0;360.0;>201;>201;>201;standard (municipal, ≤2 voies, non urbain);0.2
+140670;MTL-QC;151.98;Drummondville;65.12;Private;Private;F;Private Road Authority #1;Passive;-;-;-;N;160.1;201.5;240.4;154-177;>201;>201;fermeture (HYPOTHÈSE : alternative routière non vérifiée);0.2
+19639;Ott-TO;67.02;Brockville - VIA;0.73;Lorne St;Public;F;Smiths Falls (ON);Active - FLBG;12;3387;2;Y;93.0;117.1;139.7;≤153;≤153;≤153;complexe (urbain / multi-voies / autorité provinciale);0.2
+52306;MTL-Ott;82.05;Alexandria - VIA;12.2;Farm Crossing;Private;F;Private Road Authority #1;Passive;14;-;-;N;166.7;209.9;250.3;154-177;>201;>201;fermeture (HYPOTHÈSE : alternative routière non vérifiée);0.2
+300155;MTL-TO;215.43;Kingston - CN;133.13;-;Private;F;Private Road Authority #1;Passive;40;2;1;N;198.9;250.4;298.7;178-201;>201;>201;fermeture (HYPOTHÈSE : alternative routière non vérifiée);0.2
+52304;MTL-Ott;80.48;Alexandria - VIA;11.22;Farm Crossing;Private;F;Private Road Authority #1;Active - FLB;20;0.01;1;N;139.4;175.5;209.3;≤153;154-177;>201;fermeture (HYPOTHÈSE : alternative routière non vérifiée);0.2
+45928;MTL-Ott;121.4;Alexandria - VIA;37.96;-;Private;F;Private Road Authority #1;Passive;14;2;1;N;127.1;160.0;190.9;≤153;154-177;178-201;fermeture (HYPOTHÈSE : alternative routière non vérifiée);0.2
+190;MTL-Ott;63.8;Alexandria - VIA;2.13;Montee Chenier;Public;F;Saint-Polycarpe (QC);Active - FLBG;14;194;2;N;199.3;250.9;299.3;178-201;>201;>201;standard (municipal, ≤2 voies, non urbain);0.2
+140679;MTL-QC;140.14;Drummondville;70.65;Private;Private;F;Private Road Authority #1;Passive;-;-;-;N;239.8;302.0;360.0;>201;>201;>201;fermeture (HYPOTHÈSE : alternative routière non vérifiée);0.3
+140714;MTL-QC;121.71;Drummondville;83.98;Private;Private;F;Private Road Authority #1;Passive;-;-;-;N;128.1;161.3;192.4;≤153;154-177;178-201;fermeture (HYPOTHÈSE : alternative routière non vérifiée);0.3
+50848;MTL-Ott;75.71;Alexandria - VIA;10.0;Farm Crossing;Private;F;Sainte-Justine-de-Newton (QC);Other;14;2;1;N;251.0;316.1;360.0;>201;>201;>201;fermeture (HYPOTHÈSE : alternative routière non vérifiée);0.3
+4810;MTL-QC;161.53;Drummondville;58.92;Chemin Du Domaine;Public;F;Lemieux (QC);Active - FLBG;27;510;2;N;201.1;253.1;302.0;>201;>201;>201;standard (municipal, ≤2 voies, non urbain);0.3
+52394;MTL-QC;36.3;St-Hyacinthe;44.17;-;Private;F;Private Road Authority #1;Passive;-;-;-;N;241.4;304.0;360.0;>201;>201;>201;fermeture (HYPOTHÈSE : alternative routière non vérifiée);0.3
+140662;MTL-QC;170.87;Drummondville;53.15;Private;Private;F;Private Road Authority #1;Passive;-;-;-;N;127.2;160.2;191.1;≤153;154-177;178-201;fermeture (HYPOTHÈSE : alternative routière non vérifiée);0.3
+19642;Ott-TO;68.02;Brockville - VIA;2.02;Eric Hutchinson Rd;Public;F;Rideau Lakes (ON);Active - FLBG;12;2102;2;N;135.9;171.1;204.0;≤153;154-177;>201;standard (municipal, ≤2 voies, non urbain);0.3
+4828;MTL-QC;129.02;Drummondville;80.17;Rue Beliveau;Public;F;Saint-Léonard d'Aston (QC);Active - FLBG;27;2000;2;Y;159.0;200.2;238.8;154-177;178-201;>201;complexe (urbain / multi-voies / autorité provinciale);0.3
+45731;MTL-TO;259.23;Kingston - CN;163.03;Farm Hose & Fields;Private;F;Private Road Authority #1;Passive;40;2;1;N;217.3;273.6;326.4;>201;>201;>201;fermeture (HYPOTHÈSE : alternative routière non vérifiée);0.3
+52299;MTL-Ott;79.19;Alexandria - VIA;10.38;Farm Crossing;Private;F;Private Road Authority #1;Passive;14;-;-;N;243.4;306.5;360.0;>201;>201;>201;fermeture (HYPOTHÈSE : alternative routière non vérifiée);0.3
+140638;MTL-QC;201.35;Drummondville;35.55;Private;Private;F;Private Road Authority #1;Passive;-;-;-;N;167.0;210.3;250.8;154-177;>201;>201;fermeture (HYPOTHÈSE : alternative routière non vérifiée);0.3
+142610;MTL-QC;20.19;St-Hyacinthe;58.83;Private;Private;F;Private Road Authority #1;Passive;-;-;-;N;200.4;252.3;300.9;178-201;>201;>201;fermeture (HYPOTHÈSE : alternative routière non vérifiée);0.3
+198;MTL-Ott;87.16;Alexandria - VIA;18.09;Rolland Masssie Rd;Public;F;North Glengarry (ON);Active - FLBG;14;199;2;N;127.3;160.2;191.1;≤153;154-177;178-201;standard (municipal, ≤2 voies, non urbain);0.3
+45939;MTL-Ott;140.84;Alexandria - VIA;49.15;-;Private;F;Private Road Authority #1;Passive;14;2;1;N;197.8;249.1;297.1;178-201;>201;>201;fermeture (HYPOTHÈSE : alternative routière non vérifiée);0.3
+140680;MTL-QC;140.14;Drummondville;70.77;Private;Private;F;Private Road Authority #1;Passive;-;-;-;N;239.8;302.0;360.0;>201;>201;>201;fermeture (HYPOTHÈSE : alternative routière non vérifiée);0.3
+45901;MTL-Ott;87.16;Alexandria - VIA;20.59;-;Private;F;Private Road Authority #1;Passive;14;2;1;N;127.3;160.2;191.1;≤153;154-177;178-201;fermeture (HYPOTHÈSE : alternative routière non vérifiée);0.3
+8331;Ott-TO;421.81;Kingston - GO;320.65;Poplar Rd;Public;P;Toronto (ON);Active - FLBG;103;750;2;Y;241.2;303.7;360.0;>201;>201;>201;complexe (urbain / multi-voies / autorité provinciale);0.3
+7919;MTL-Ott;59.08;Kingston - CN;35.77;Riviere Delisle Sud;Public;F;Coteau-du-Lac (QC);Active - FLBG;54;24;2;N;199.3;250.9;299.3;178-201;>201;>201;standard (municipal, ≤2 voies, non urbain);0.4
+4857;MTL-QC;69.45;Drummondville;110.96;Rang Brodeur;Public;F;MTQ.;Active - FLBG;27;1108;2;N;239.6;301.7;359.8;>201;>201;>201;complexe (urbain / multi-voies / autorité provinciale);0.4
+14512;Ott-TO;20.98;Smiths Falls;7.96;Moodie Dr;Public;F;Ottawa (ON);Active - FLBG;12;2500;2;N;160.6;202.2;241.2;154-177;>201;>201;standard (municipal, ≤2 voies, non urbain);0.4
+52295;MTL-Ott;75.71;Alexandria - VIA;9.35;Farm Crossing;Private;F;Private Road Authority #1;Passive;14;-;-;N;251.0;316.1;360.0;>201;>201;>201;fermeture (HYPOTHÈSE : alternative routière non vérifiée);0.4
+45929;MTL-Ott;121.4;Alexandria - VIA;38.14;-;Private;F;Private Road Authority #1;Passive;14;2;1;N;127.1;160.0;190.9;≤153;154-177;178-201;fermeture (HYPOTHÈSE : alternative routière non vérifiée);0.4
+4831;MTL-QC;126.24;Drummondville;82.14;Rang Des Martin;Public;F;Saint-Léonard d'Aston (QC);Active - FLBG;27;132;2;N;199.5;251.2;299.7;178-201;>201;>201;standard (municipal, ≤2 voies, non urbain);0.4
+51759;Ott-TO;10.04;Smiths Falls;3.3;Transit Way;Private;F;Ottawa (ON);Active - FLBG;30;1002;2;N;268.3;337.8;360.0;>201;>201;>201;fermeture (HYPOTHÈSE : alternative routière non vérifiée);0.4
+8158;Ott-TO;294.1;Kingston - CN;242.07;Ontario St (Reg)  (Bright;Public;F;Northumberland (Ontario);Active - FLBG;40;4000;2;Y;199.8;251.6;300.1;178-201;>201;>201;complexe (urbain / multi-voies / autorité provinciale);0.4
+45683;MTL-TO;187.5;Kingston - CN;114.94;-;Private;F;Private Road Authority #1;Passive;40;2;1;N;250.1;314.9;360.0;>201;>201;>201;fermeture (HYPOTHÈSE : alternative routière non vérifiée);0.4
+45927;MTL-Ott;121.4;Alexandria - VIA;37.77;-;Private;F;Private Road Authority #1;Passive;14;2;1;N;127.1;160.0;190.9;≤153;154-177;178-201;fermeture (HYPOTHÈSE : alternative routière non vérifiée);0.4
+205;MTL-Ott;103.3;Alexandria - VIA;25.52;Kenyon  Concession Road 4;Public;F;North Glengarry (ON);Active - FLBG;14;199;2;N;115.5;145.4;173.4;≤153;≤153;154-177;standard (municipal, ≤2 voies, non urbain);0.4
+253;MTL-Ott;160.68;Alexandria - VIA;71.98;Rd 43 (Ramsayville Road);Public;F;Ottawa (ON);Active - FLBG;14;1600;2;N;306.1;360.0;360.0;>201;>201;>201;standard (municipal, ≤2 voies, non urbain);0.4
+300156;Ott-TO;121.27;Kingston - CN;133.24;-;Private;F;Private Road Authority #1;Passive;40;2;1;N;199.3;250.9;299.3;178-201;>201;>201;fermeture (HYPOTHÈSE : alternative routière non vérifiée);0.4
+8169;MTL-TO;403.37;Kingston - CN;249.43;Victoria St (Colborne);Public;F;Cramahe (ON);Active - FLBG;40;300;2;N;301.8;360.0;360.0;>201;>201;>201;standard (municipal, ≤2 voies, non urbain);0.4
+240;MTL-Ott;160.68;Alexandria - VIA;60.87;Buckland Rd;Public;F;Ottawa (ON);Active - FLBG;14;450;2;N;306.1;360.0;360.0;>201;>201;>201;standard (municipal, ≤2 voies, non urbain);0.4
+52300;MTL-Ott;79.19;Alexandria - VIA;10.41;Farm Crossing;Private;F;Private Road Authority #1;Passive;14;-;-;N;243.4;306.5;360.0;>201;>201;>201;fermeture (HYPOTHÈSE : alternative routière non vérifiée);0.4
+4805;MTL-QC;175.01;Drummondville;46.35;Rue Principale;Public;F;MTQ.;Active - FLBG;27;2090;2;N;124.5;156.7;187.0;≤153;154-177;178-201;complexe (urbain / multi-voies / autorité provinciale);0.4
+7923;MTL-TO;61.75;Kingston - CN;43.48;Rue Principale;Public;F;MTQ.;Active - FLBG;40;2300;2;Y;267.4;336.7;360.0;>201;>201;>201;complexe (urbain / multi-voies / autorité provinciale);0.4
+8141;MTL-TO;370.75;Kingston - CN;230.65;Lester Rd;Public;F;Quinte West (ON);Active - FLBG;40;384;2;N;199.0;250.6;298.9;178-201;>201;>201;standard (municipal, ≤2 voies, non urbain);0.5
+45906;MTL-Ott;99.84;Alexandria - VIA;23.95;-;Private;F;Private Road Authority #1;Passive;14;2;1;N;127.4;160.4;191.3;≤153;154-177;178-201;fermeture (HYPOTHÈSE : alternative routière non vérifiée);0.5
+7929;MTL-TO;61.75;Kingston - CN;52.3;1st Line Road;Public;F;South Glengarry (ON);Active - FLBG;40;46;1;N;267.4;336.7;360.0;>201;>201;>201;standard (municipal, ≤2 voies, non urbain);0.5
+8248;Ott-TO;384.94;Kingston - CN;296.22;Parkway Rd;Public;F;Clarington (ON);Active - FLBG;40;250;2;N;160.9;202.6;241.7;154-177;>201;>201;standard (municipal, ≤2 voies, non urbain);0.5
+51502;MTL-QC;140.14;Drummondville;72.9;Ferme;Private;F;Private Road Authority #1;Passive;27;2;1;N;239.8;302.0;360.0;>201;>201;>201;fermeture (HYPOTHÈSE : alternative routière non vérifiée);0.5
+214;MTL-Ott;117.27;Alexandria - VIA;35.74;Cumming Rd;Public;F;North Stormont (ON);Active - FLBG;14;164;2;N;130.4;164.2;195.9;≤153;154-177;178-201;standard (municipal, ≤2 voies, non urbain);0.5
+4860;MTL-QC;69.45;Drummondville;115.34;Chemin 2E Rang Est;Public;F;Sainte-Hélène (QC);Active - FLBG;27;1004;2;N;239.6;301.7;359.8;>201;>201;>201;standard (municipal, ≤2 voies, non urbain);0.5
+140643;MTL-QC;193.51;Drummondville;39.67;Private;Private;F;Private Road Authority #1;Passive;-;-;-;N;199.1;250.7;299.1;178-201;>201;>201;fermeture (HYPOTHÈSE : alternative routière non vérifiée);0.5
+7979;MTL-TO;177.79;Kingston - CN;110.64;Frederick St;Public;F;Edwardsburgh/Cardinal (ON);Active - FLBG;40;20;2;N;235.1;296.0;353.1;>201;>201;>201;standard (municipal, ≤2 voies, non urbain);0.5
+140696;MTL-QC;132.42;Drummondville;76.58;Private;Private;F;Private Road Authority #1;Passive;-;-;-;N;202.2;254.6;303.7;>201;>201;>201;fermeture (HYPOTHÈSE : alternative routière non vérifiée);0.5
+8065;Ott-TO;204.03;Kingston - CN;184.01;County Rd 6;Public;F;Lennox & Addington (Ontario);Active - FLBG;40;2200;2;N;154.3;194.3;231.8;154-177;178-201;>201;standard (municipal, ≤2 voies, non urbain);0.5
+50846;MTL-Ott;75.71;Alexandria - VIA;9.67;Farm Crossing;Private;F;Sainte-Justine-de-Newton (QC);Passive;14;2;1;N;251.0;316.1;360.0;>201;>201;>201;fermeture (HYPOTHÈSE : alternative routière non vérifiée);0.5
+45691;MTL-TO;198.58;Kingston - CN;121.99;-;Private;F;Private Road Authority #1;Passive;40;2;1;N;225.3;283.7;338.4;>201;>201;>201;fermeture (HYPOTHÈSE : alternative routière non vérifiée);0.5
+8149;MTL-TO;379.04;Kingston - CN;234.8;Morningstar Road;Public;F;Quinte West (ON);Active - FLBG;40;50;1;N;239.4;301.5;359.6;>201;>201;>201;standard (municipal, ≤2 voies, non urbain);0.5
+45907;MTL-Ott;99.84;Alexandria - VIA;24.01;-;Private;F;Private Road Authority #1;Passive;14;2;1;N;127.4;160.4;191.3;≤153;154-177;178-201;fermeture (HYPOTHÈSE : alternative routière non vérifiée);0.5
+142591;MTL-QC;36.3;St-Hyacinthe;46.39;Private;Private;F;Private Road Authority #1;Passive;-;-;-;N;241.4;304.0;360.0;>201;>201;>201;fermeture (HYPOTHÈSE : alternative routière non vérifiée);0.5
+45735;MTL-TO;309.22;Kingston - CN;191.02;Private Drive;Private;F;Private Road Authority #1;Active - FLB;40;2;1;N;156.2;196.6;234.6;154-177;178-201;>201;fermeture (HYPOTHÈSE : alternative routière non vérifiée);0.5
+45719;MTL-TO;190.83;Kingston - CN;117.04;-;Private;F;Private Road Authority #1;Passive;40;2;1;N;234.8;295.7;352.7;>201;>201;>201;fermeture (HYPOTHÈSE : alternative routière non vérifiée);0.6
+8220;Ott-TO;356.34;Kingston - CN;278.54;East Townline Rd;Public;F;Port Hope (ON);Active - FLBG;40;600;1;N;198.6;250.1;298.3;178-201;>201;>201;standard (municipal, ≤2 voies, non urbain);0.6
+19656;Ott-TO;90.22;Brockville - VIA;15.85;Jellyby Rd;Public;F;Elizabethtown-Kitley (ON);Active - FLBG;12;150;2;N;158.8;199.9;238.5;154-177;178-201;>201;standard (municipal, ≤2 voies, non urbain);0.6
+52301;MTL-Ott;79.55;Alexandria - VIA;10.46;Farm Crossing;Private;F;Private Road Authority #1;Passive;14;-;-;N;160.3;201.8;240.8;154-177;>201;>201;fermeture (HYPOTHÈSE : alternative routière non vérifiée);0.6
+45908;MTL-Ott;99.84;Alexandria - VIA;24.28;-;Private;F;Private Road Authority #1;Passive;14;2;1;N;127.4;160.4;191.3;≤153;154-177;178-201;fermeture (HYPOTHÈSE : alternative routière non vérifiée);0.6
+45740;Ott-TO;222.91;Kingston - CN;195.87;Farm;Private;F;Private Road Authority #1;Passive;40;2;1;N;159.1;200.4;239.0;154-177;178-201;>201;fermeture (HYPOTHÈSE : alternative routière non vérifiée);0.6
+142605;MTL-QC;36.3;St-Hyacinthe;50.64;Private;Private;F;Private Road Authority #1;Passive;-;-;-;N;241.4;304.0;360.0;>201;>201;>201;fermeture (HYPOTHÈSE : alternative routière non vérifiée);0.6
+7907;MTL-Ott;36.75;Kingston - CN;22.07;Perrot Blvd;Public;F;L'Ile-Perrot (Quebec);Active - FLBG;54;1370;2;N;221.7;279.1;332.9;>201;>201;>201;standard (municipal, ≤2 voies, non urbain);0.6
+19638;Ott-TO;66.18;Brockville - VIA;0.3;Chambers St;Public;F;Smiths Falls (ON);Active - FLBG;12;800;2;Y;77.8;98.0;116.9;≤153;≤153;≤153;complexe (urbain / multi-voies / autorité provinciale);0.6
+52302;MTL-Ott;79.55;Alexandria - VIA;10.55;Farm Crossing;Private;F;Private Road Authority #1;Passive;14;-;-;N;160.3;201.8;240.8;154-177;>201;>201;fermeture (HYPOTHÈSE : alternative routière non vérifiée);0.6
+51662;MTL-Ott;87.16;Alexandria - VIA;21.7;Farm Crossing;Private;F;Private Road Authority #1;Other;14;2;1;N;127.3;160.2;191.1;≤153;154-177;178-201;fermeture (HYPOTHÈSE : alternative routière non vérifiée);0.6
+140765;MTL-QC;58.44;Drummondville;122.47;Private;Private;F;Private Road Authority #1;Passive;-;-;-;N;159.2;200.5;239.1;154-177;178-201;>201;fermeture (HYPOTHÈSE : alternative routière non vérifiée);0.6
+45923;MTL-Ott;121.17;Alexandria - VIA;36.35;-;Private;F;Private Road Authority #1;Passive;14;2;1;N;161.8;203.7;243.0;154-177;>201;>201;fermeture (HYPOTHÈSE : alternative routière non vérifiée);0.6
+8155;Ott-TO;284.85;Kingston - CN;238.97;Lawson Settlement Rd;Public;F;Brighton (ON);Active - FLBG;40;300;2;N;239.4;301.4;359.5;>201;>201;>201;standard (municipal, ≤2 voies, non urbain);0.7
+140726;MTL-QC;112.2;Drummondville;89.02;Private;Private;F;Private Road Authority #1;Passive;-;-;-;N;158.3;199.4;237.8;154-177;178-201;>201;fermeture (HYPOTHÈSE : alternative routière non vérifiée);0.7
+50118;MTL-QC;140.14;Drummondville;69.1;Passage De Ferme;Private;F;Private Road Authority #1;Passive;27;2;1;N;239.8;302.0;360.0;>201;>201;>201;fermeture (HYPOTHÈSE : alternative routière non vérifiée);0.7
+194;MTL-Ott;79.55;Alexandria - VIA;10.97;Montee De La Station (Route 425);Public;F;Sainte-Justine-de-Newton (QC);Active - FLBG;13;770;2;N;160.3;201.8;240.8;154-177;>201;>201;standard (municipal, ≤2 voies, non urbain);0.7
+140616;MTL-QC;201.75;Drummondville;31.5;Private;Private;F;Private Road Authority #1;Passive;-;-;-;N;127.6;160.7;191.6;≤153;154-177;178-201;fermeture (HYPOTHÈSE : alternative routière non vérifiée);0.7
+140667;MTL-QC;151.98;Drummondville;63.5;Private;Private;F;Private Road Authority #1;Passive;-;-;-;N;160.1;201.5;240.4;154-177;>201;>201;fermeture (HYPOTHÈSE : alternative routière non vérifiée);0.7
+45872;MTL-Ott;82.75;Alexandria - VIA;12.43;-;Private;F;Private Road Authority #1;Other;20;0.01;1;N;160.6;202.2;241.2;154-177;>201;>201;fermeture (HYPOTHÈSE : alternative routière non vérifiée);0.7
+140614;MTL-QC;201.75;Drummondville;31.2;Private;Private;F;Private Road Authority #1;Passive;-;-;-;N;127.6;160.7;191.6;≤153;154-177;178-201;fermeture (HYPOTHÈSE : alternative routière non vérifiée);0.7
+244;MTL-Ott;160.68;Alexandria - VIA;63.95;Sabourin Rd;Public;F;Ottawa (ON);Active - FLBG;14;35;2;N;306.1;360.0;360.0;>201;>201;>201;standard (municipal, ≤2 voies, non urbain);0.7
+8003;MTL-TO;223.3;Kingston - CN;137.19;County Rd  5;Public;F;Leeds & Grenville (Ontario);Active - FLBG;40;500;2;N;238.8;300.7;358.7;>201;>201;>201;standard (municipal, ≤2 voies, non urbain);0.7
+140760;MTL-QC;80.87;Drummondville;110.0;Private;Private;F;Private Road Authority #1;Passive;-;-;-;N;199.6;251.4;299.8;178-201;>201;>201;fermeture (HYPOTHÈSE : alternative routière non vérifiée);0.7
+45716;Ott-TO;160.49;Kingston - CN;157.01;-;Private;F;Private Road Authority #1;Active - FLB;40;2;1;N;172.8;217.6;259.5;154-177;>201;>201;fermeture (HYPOTHÈSE : alternative routière non vérifiée);0.7
+142571;MTL-QC;36.3;St-Hyacinthe;43.12;Private;Private;F;Private Road Authority #1;Passive;-;-;-;N;241.4;304.0;360.0;>201;>201;>201;fermeture (HYPOTHÈSE : alternative routière non vérifiée);0.7
+142574;MTL-QC;36.3;St-Hyacinthe;43.52;Private;Private;F;Private Road Authority #1;Passive;-;-;-;N;241.4;304.0;360.0;>201;>201;>201;fermeture (HYPOTHÈSE : alternative routière non vérifiée);0.7
+45756;MTL-TO;335.83;Kingston - CN;210.01;-;Private;F;Private Road Authority #1;Active - FLB;40;2;1;N;211.6;266.5;317.9;>201;>201;>201;fermeture (HYPOTHÈSE : alternative routière non vérifiée);0.7
+45693;MTL-TO;199.55;Kingston - CN;122.78;-;Private;F;Private Road Authority #1;Passive;40;2;1;N;239.2;301.1;359.2;>201;>201;>201;fermeture (HYPOTHÈSE : alternative routière non vérifiée);0.7
+52294;MTL-Ott;75.71;Alexandria - VIA;9.25;Farm Crossing;Private;F;Private Road Authority #1;Passive;14;-;-;N;251.0;316.1;360.0;>201;>201;>201;fermeture (HYPOTHÈSE : alternative routière non vérifiée);0.7
+52502;MTL-Ott;63.8;Alexandria - VIA;5.57;Farm;Private;F;Private Road Authority #1;Passive;-;-;-;N;199.3;250.9;299.3;178-201;>201;>201;fermeture (HYPOTHÈSE : alternative routière non vérifiée);0.7
+52303;MTL-Ott;79.55;Alexandria - VIA;10.62;Farm Crossing;Private;F;Private Road Authority #1;Passive;14;-;-;N;160.3;201.8;240.8;154-177;>201;>201;fermeture (HYPOTHÈSE : alternative routière non vérifiée);0.7
+7970;MTL-TO;160.51;Kingston - CN;98.9;Brinston Road (C Rd 16);Public;F;Stormont Dundas&Glengarry (Ontario);Active - FLBG;40;958;2;N;238.4;300.2;358.1;>201;>201;>201;standard (municipal, ≤2 voies, non urbain);0.7
+251;MTL-Ott;160.68;Alexandria - VIA;68.94;Farmers Way;Public;F;Ottawa (ON);Active - FLBG;14;25;2;N;306.1;360.0;360.0;>201;>201;>201;standard (municipal, ≤2 voies, non urbain);0.7
+300162;Ott-TO;119.27;Kingston - CN;131.05;-;Private;F;Private Road Authority #1;Active - FLB;40;2;1;N;253.5;319.1;360.0;>201;>201;>201;fermeture (HYPOTHÈSE : alternative routière non vérifiée);0.7
+140654;MTL-QC;175.01;Drummondville;45.9;Private;Private;F;Private Road Authority #1;Passive;-;-;-;N;124.5;156.7;187.0;≤153;154-177;178-201;fermeture (HYPOTHÈSE : alternative routière non vérifiée);0.7
+7935;MTL-TO;97.22;Kingston - CN;59.52;Summerstown Rd (Cnty 27);Public;F;Stormont Dundas&Glengarry (Ontario);Active - FLBG;40;673;2;Y;200.5;252.5;301.2;178-201;>201;>201;complexe (urbain / multi-voies / autorité provinciale);0.7
+14514;Ott-TO;23.4;Smiths Falls;9.88;Twin Elm Rd;Public;F;Ottawa (ON);Active - FLBG;12;400;2;N;198.7;250.2;298.5;178-201;>201;>201;standard (municipal, ≤2 voies, non urbain);0.7
+142582;MTL-QC;36.3;St-Hyacinthe;45.12;Private;Private;F;Private Road Authority #1;Passive;-;-;-;N;241.4;304.0;360.0;>201;>201;>201;fermeture (HYPOTHÈSE : alternative routière non vérifiée);0.8
+51497;MTL-QC;149.55;Drummondville;67.76;Ferme;Private;F;Private Road Authority #1;Passive;27;2;1;N;232.1;292.2;348.6;>201;>201;>201;fermeture (HYPOTHÈSE : alternative routière non vérifiée);0.8
+50849;MTL-Ott;75.71;Alexandria - VIA;10.08;Farm Crossing;Private;F;Sainte-Justine-de-Newton (QC);Other;14;2;1;N;251.0;316.1;360.0;>201;>201;>201;fermeture (HYPOTHÈSE : alternative routière non vérifiée);0.8
+8170;MTL-TO;403.37;Kingston - CN;249.83;Ontario St (Cnty 31) (Col;Public;F;Northumberland (Ontario);Active - FLBG;40;550;2;N;301.8;360.0;360.0;>201;>201;>201;standard (municipal, ≤2 voies, non urbain);0.8
+52289;MTL-Ott;75.71;Alexandria - VIA;8.6;Farm Crossing;Private;F;Private Road Authority #1;Passive;14;-;-;N;251.0;316.1;360.0;>201;>201;>201;fermeture (HYPOTHÈSE : alternative routière non vérifiée);0.8
+140663;MTL-QC;170.87;Drummondville;53.25;Private;Private;F;Private Road Authority #1;Passive;-;-;-;N;127.2;160.2;191.1;≤153;154-177;178-201;fermeture (HYPOTHÈSE : alternative routière non vérifiée);0.8
+8028;MTL-TO;259.23;Kingston - CN;160.22;Findlay Station Rd;Public;F;Kingston (ON);Active - FLBG;40;250;1;N;217.3;273.6;326.4;>201;>201;>201;standard (municipal, ≤2 voies, non urbain);0.8
+140713;MTL-QC;121.71;Drummondville;83.72;Private;Private;F;Private Road Authority #1;Passive;-;-;-;N;128.1;161.3;192.4;≤153;154-177;178-201;fermeture (HYPOTHÈSE : alternative routière non vérifiée);0.8
+45763;Ott-TO;252.75;Kingston - CN;214.42;-;Private;F;Private Road Authority #1;Active - FLB;40;2;1;N;159.4;200.7;239.4;154-177;178-201;>201;fermeture (HYPOTHÈSE : alternative routière non vérifiée);0.8
+19658;Ott-TO;97.13;Brockville - VIA;19.79;Consession 7;Public;F;Elizabethtown-Kitley (ON);Active - FLBG;12;100;1;N;250.9;315.9;360.0;>201;>201;>201;standard (municipal, ≤2 voies, non urbain);0.8
+140618;MTL-QC;201.75;Drummondville;31.75;Private;Private;F;Private Road Authority #1;Passive;-;-;-;N;127.6;160.7;191.6;≤153;154-177;178-201;fermeture (HYPOTHÈSE : alternative routière non vérifiée);0.8
+45652;MTL-TO;61.75;Kingston - CN;52.91;-;Private;F;Private Road Authority #1;Passive;40;2;1;N;267.4;336.7;360.0;>201;>201;>201;fermeture (HYPOTHÈSE : alternative routière non vérifiée);0.8
+141139;MTL-TO;59.8;Kingston - CN;36.84;Private;Private;F;Private Road Authority #1;Passive;-;-;-;N;302.8;360.0;360.0;>201;>201;>201;fermeture (HYPOTHÈSE : alternative routière non vérifiée);0.8
+140624;MTL-QC;201.75;Drummondville;32.85;Private;Private;F;Private Road Authority #1;Passive;-;-;-;N;127.6;160.7;191.6;≤153;154-177;178-201;fermeture (HYPOTHÈSE : alternative routière non vérifiée);0.8
+8089;Ott-TO;234.18;Kingston - CN;202.77;Olivers Side Rd;Public;F;Greater Napanee (ON);Active - FLBG;40;100;1;N;200.6;252.6;301.3;178-201;>201;>201;standard (municipal, ≤2 voies, non urbain);0.9
+8001;Ott-TO;114.76;Kingston - CN;129.91;Hallecks Rd;Public;F;Elizabethtown-Kitley (ON);Active - FLBG;40;400;2;N;200.1;252.0;300.6;178-201;>201;>201;standard (municipal, ≤2 voies, non urbain);0.9
+7939;MTL-TO;103.93;Kingston - CN;63.72;Purcell Rd;Public;F;South Glengarry (ON);Active - FLBG;40;199;2;N;161.3;203.1;242.2;154-177;>201;>201;standard (municipal, ≤2 voies, non urbain);0.9
+45953;MTL-Ott;160.68;Alexandria - VIA;65.28;-;Private;F;Private Road Authority #1;Passive;14;2;1;N;306.1;360.0;360.0;>201;>201;>201;fermeture (HYPOTHÈSE : alternative routière non vérifiée);0.9
+45900;MTL-Ott;87.16;Alexandria - VIA;20.38;-;Private;F;Private Road Authority #1;Passive;14;2;1;N;127.3;160.2;191.1;≤153;154-177;178-201;fermeture (HYPOTHÈSE : alternative routière non vérifiée);0.9
+51937;Ott-TO;10.04;Smiths Falls;2.77;Farm Crossing;Private;F;Private Road Authority #1;Passive;26;-;1;N;268.3;337.8;360.0;>201;>201;>201;fermeture (HYPOTHÈSE : alternative routière non vérifiée);0.9
+50843;MTL-Ott;75.71;Alexandria - VIA;8.75;Farm Crossing;Private;F;Private Road Authority #1;Passive;14;2;1;N;251.0;316.1;360.0;>201;>201;>201;fermeture (HYPOTHÈSE : alternative routière non vérifiée);0.9
+300154;MTL-TO;215.43;Kingston - CN;134.55;-;Private;F;Private Road Authority #1;Passive;40;2;1;N;198.9;250.4;298.7;178-201;>201;>201;fermeture (HYPOTHÈSE : alternative routière non vérifiée);0.9
+4835;MTL-QC;116.22;Drummondville;87.38;Chemin Du 10E Rang;Public;F;Notre-Dame-du-Bon-Conseil (QC);Active - FLBG;27;702;2;N;128.0;161.2;192.2;≤153;154-177;178-201;standard (municipal, ≤2 voies, non urbain);0.9
+4813;MTL-QC;158.2;Drummondville;60.8;Chemin Des Jardins;Public;F;MTQ.;Active - FLBG;27;990;2;N;128.7;162.1;193.3;≤153;154-177;178-201;complexe (urbain / multi-voies / autorité provinciale);0.9
+45670;MTL-TO;174.21;Kingston - CN;107.09;-;Private;F;Private Road Authority #1;Passive;40;2;1;N;303.8;360.0;360.0;>201;>201;>201;fermeture (HYPOTHÈSE : alternative routière non vérifiée);0.9
+45750;Ott-TO;241.69;Kingston - CN;207.69;Farm Crossing;Private;F;Private Road Authority #1;Active - FLB;40;2;1;N;213.7;269.1;321.0;>201;>201;>201;fermeture (HYPOTHÈSE : alternative routière non vérifiée);0.9
+8071;Ott-TO;215.72;Kingston - CN;193.28;Townline Rd;Public;F;Greater Napanee (ON);Active - FLBG;40;20;2;N;228.0;287.0;342.4;>201;>201;>201;standard (municipal, ≤2 voies, non urbain);0.9
+45909;MTL-Ott;99.84;Alexandria - VIA;24.4;-;Private;F;Private Road Authority #1;Passive;14;2;1;N;127.4;160.4;191.3;≤153;154-177;178-201;fermeture (HYPOTHÈSE : alternative routière non vérifiée);0.9
+45891;MTL-Ott;87.16;Alexandria - VIA;18.4;-;Private;F;Private Road Authority #1;Passive;14;2;1;N;127.3;160.2;191.1;≤153;154-177;178-201;fermeture (HYPOTHÈSE : alternative routière non vérifiée);1.0
+50701;MTL-QC;20.19;St-Hyacinthe;58.65;Ferme;Private;F;Private Road Authority #1;Passive;55;2;1;N;200.4;252.3;300.9;178-201;>201;>201;fermeture (HYPOTHÈSE : alternative routière non vérifiée);1.0
+778976;MTL-TO;61.08;Kingston - CN;37.08;Ferme;Private;F;Private Road Authority #1;Passive;-;-;-;N;208.2;262.1;312.6;>201;>201;>201;fermeture (HYPOTHÈSE : alternative routière non vérifiée);1.0
+140703;MTL-QC;132.42;Drummondville;77.95;Private;Private;F;Private Road Authority #1;Passive;-;-;-;N;202.2;254.6;303.7;>201;>201;>201;fermeture (HYPOTHÈSE : alternative routière non vérifiée);1.0
+51495;MTL-QC;149.93;Drummondville;67.49;Ferme;Private;F;Private Road Authority #1;Passive;27;10;2;N;101.5;127.8;152.5;≤153;≤153;≤153;fermeture (HYPOTHÈSE : alternative routière non vérifiée);1.0
+140660;MTL-QC;175.01;Drummondville;51.4;Private;Private;F;Private Road Authority #1;Passive;-;-;-;N;124.5;156.7;187.0;≤153;154-177;178-201;fermeture (HYPOTHÈSE : alternative routière non vérifiée);1.0
+45926;MTL-Ott;121.4;Alexandria - VIA;37.51;-;Private;F;Private Road Authority #1;Passive;14;2;1;N;127.1;160.0;190.9;≤153;154-177;178-201;fermeture (HYPOTHÈSE : alternative routière non vérifiée);1.0
+197;MTL-Ott;87.16;Alexandria - VIA;15.52;Pitt St - Cnty 23;Public;F;Stormont Dundas&Glengarry (Ontario);Active - FLBG;14;460;2;N;127.3;160.2;191.1;≤153;154-177;178-201;standard (municipal, ≤2 voies, non urbain);1.0
+200739;MTL-QC;266.46;Bridge;12.98;Passage Pieton/Velo;Public;F;Québec (QC);Active - FLBG;13;25;2;Y;265.6;334.5;360.0;>201;>201;>201;complexe (urbain / multi-voies / autorité provinciale);1.0
+142592;MTL-QC;36.3;St-Hyacinthe;46.5;Private;Private;F;Private Road Authority #1;Passive;-;-;-;N;241.4;304.0;360.0;>201;>201;>201;fermeture (HYPOTHÈSE : alternative routière non vérifiée);1.0
+140658;MTL-QC;175.01;Drummondville;50.8;Private;Private;F;Private Road Authority #1;Passive;-;-;-;N;124.5;156.7;187.0;≤153;154-177;178-201;fermeture (HYPOTHÈSE : alternative routière non vérifiée);1.0
+140715;MTL-QC;121.71;Drummondville;84.12;Private;Private;F;Private Road Authority #1;Passive;-;-;-;N;128.1;161.3;192.4;≤153;154-177;178-201;fermeture (HYPOTHÈSE : alternative routière non vérifiée);1.0
+45794;MTL-TO;415.04;Kingston - CN;257.3;-;Private;F;Private Road Authority #1;Active - FLB;40;2;1;N;250.4;315.3;360.0;>201;>201;>201;fermeture (HYPOTHÈSE : alternative routière non vérifiée);1.0
+7918;MTL-TO;59.01;Kingston - CN;35.74;Rte Riviere Delisle;Public;F;Coteau-du-Lac (QC);Active - FLBG;54;1000;2;N;163.5;205.8;245.5;154-177;>201;>201;standard (municipal, ≤2 voies, non urbain);1.0
+140672;MTL-QC;147.97;Drummondville;68.3;Private;Private;F;Private Road Authority #1;Passive;-;-;-;N;238.6;300.4;358.4;>201;>201;>201;fermeture (HYPOTHÈSE : alternative routière non vérifiée);1.0
+45913;MTL-Ott;103.22;Alexandria - VIA;25.18;Farm Field To Field;Private;F;Private Road Authority #1;Active - FLB;14;2;1;N;93.1;117.2;139.8;≤153;≤153;≤153;fermeture (HYPOTHÈSE : alternative routière non vérifiée);1.0
+45744;MTL-TO;327.93;Kingston - CN;202.53;Farm Crossing;Private;F;Private Road Authority #1;Active - FLB;40;2;1;N;266.4;335.4;360.0;>201;>201;>201;fermeture (HYPOTHÈSE : alternative routière non vérifiée);1.0
+140648;MTL-QC;175.01;Drummondville;41.7;Private;Private;F;Private Road Authority #1;Passive;-;-;-;N;124.5;156.7;187.0;≤153;154-177;178-201;fermeture (HYPOTHÈSE : alternative routière non vérifiée);1.0
+4841;MTL-QC;110.88;Drummondville;91.77;Chemin Du 7E Rang;Public;F;MTQ.;Active - FLBG;27;1680;2;N;127.5;160.6;191.5;≤153;154-177;178-201;complexe (urbain / multi-voies / autorité provinciale);1.0
+140762;MTL-QC;66.89;Drummondville;118.12;Private;Private;F;Private Road Authority #1;Passive;-;-;-;N;133.9;168.6;201.1;≤153;154-177;>201;fermeture (HYPOTHÈSE : alternative routière non vérifiée);1.0
+45888;MTL-Ott;87.16;Alexandria - VIA;16.99;-;Private;F;Private Road Authority #1;Passive;14;2;1;N;127.3;160.2;191.1;≤153;154-177;178-201;fermeture (HYPOTHÈSE : alternative routière non vérifiée);1.0
+52283;MTL-Ott;75.71;Alexandria - VIA;9.94;Farm Crossing;Private;F;Private Road Authority #1;Passive;14;-;-;N;251.0;316.1;360.0;>201;>201;>201;fermeture (HYPOTHÈSE : alternative routière non vérifiée);1.1
+140751;MTL-QC;80.87;Drummondville;108.25;Private;Private;F;Private Road Authority #1;Passive;-;-;-;N;199.6;251.4;299.8;178-201;>201;>201;fermeture (HYPOTHÈSE : alternative routière non vérifiée);1.1
+52484;MTL-Ott;63.8;Alexandria - VIA;1.53;Farm;Private;F;Private Road Authority #1;Passive;-;-;-;N;199.3;250.9;299.3;178-201;>201;>201;fermeture (HYPOTHÈSE : alternative routière non vérifiée);1.1
+142580;MTL-QC;36.3;St-Hyacinthe;44.88;Private;Private;F;Private Road Authority #1;Passive;-;-;-;N;241.4;304.0;360.0;>201;>201;>201;fermeture (HYPOTHÈSE : alternative routière non vérifiée);1.1
+45703;MTL-TO;245.26;Kingston - CN;151.02;-;Private;F;Private Road Authority #1;Passive;40;2;1;N;160.3;201.8;240.8;154-177;>201;>201;fermeture (HYPOTHÈSE : alternative routière non vérifiée);1.1
+45784;MTL-TO;388.28;Kingston - CN;242.84;Farm;Private;F;Private Road Authority #1;Passive;40;2;1;N;193.6;243.7;290.7;178-201;>201;>201;fermeture (HYPOTHÈSE : alternative routière non vérifiée);1.1
+300242;MTL-TO;220.67;Kingston - CN;135.84;-;Private;F;Private Road Authority #1;Passive;40;2;1;N;250.7;315.6;360.0;>201;>201;>201;fermeture (HYPOTHÈSE : alternative routière non vérifiée);1.1
+50981;MTL-QC;147.97;Drummondville;68.6;Privé;Private;F;Private Road Authority #1;Passive;27;10;2;N;238.6;300.4;358.4;>201;>201;>201;fermeture (HYPOTHÈSE : alternative routière non vérifiée);1.1
+45899;MTL-Ott;87.16;Alexandria - VIA;19.85;-;Private;F;Private Road Authority #1;Passive;14;2;1;N;127.3;160.2;191.1;≤153;154-177;178-201;fermeture (HYPOTHÈSE : alternative routière non vérifiée);1.1
+140724;MTL-QC;116.22;Drummondville;88.5;Private;Private;F;Private Road Authority #1;Passive;-;-;-;N;128.0;161.2;192.2;≤153;154-177;178-201;fermeture (HYPOTHÈSE : alternative routière non vérifiée);1.1
+140745;MTL-QC;80.87;Drummondville;106.7;Private;Private;F;Private Road Authority #1;Passive;-;-;-;N;199.6;251.4;299.8;178-201;>201;>201;fermeture (HYPOTHÈSE : alternative routière non vérifiée);1.1
+51757;Ott-TO;264.76;Kingston - CN;222.72;Farm Xng;Private;F;Private Road Authority #1;Passive;40;-;2;N;250.1;314.9;360.0;>201;>201;>201;fermeture (HYPOTHÈSE : alternative routière non vérifiée);1.1
+45904;MTL-Ott;87.16;Alexandria - VIA;21.3;-;Private;F;Private Road Authority #1;Passive;14;2;1;N;127.3;160.2;191.1;≤153;154-177;178-201;fermeture (HYPOTHÈSE : alternative routière non vérifiée);1.1
+45787;Ott-TO;294.1;Kingston - CN;243.79;Farm;Private;F;Private Road Authority #1;Passive;40;2;1;N;199.8;251.6;300.1;178-201;>201;>201;fermeture (HYPOTHÈSE : alternative routière non vérifiée);1.1
+4854;MTL-QC;80.87;Drummondville;107.61;Chemin Duncan;Public;F;Saint-Germain (QC);Active - FLBG;27;1000;2;N;199.6;251.4;299.8;178-201;>201;>201;standard (municipal, ≤2 voies, non urbain);1.2
+45955;MTL-Ott;160.68;Alexandria - VIA;69.38;-;Private;F;Private Road Authority #1;Passive;14;2;1;N;306.1;360.0;360.0;>201;>201;>201;fermeture (HYPOTHÈSE : alternative routière non vérifiée);1.2
+13971;MTL-QC;7.07;St-Hyacinthe;69.51;Rue St-Georges;Public;F;Longueuil (QC);Active - FLBG;55;6020;2;Y;219.1;275.9;329.1;>201;>201;>201;complexe (urbain / multi-voies / autorité provinciale);1.2
+52503;MTL-Ott;63.8;Alexandria - VIA;5.75;Farm;Private;F;Private Road Authority #1;Passive;-;-;-;N;199.3;250.9;299.3;178-201;>201;>201;fermeture (HYPOTHÈSE : alternative routière non vérifiée);1.2
+7931;MTL-TO;87.96;Kingston - CN;56.65;Fraser Rd;Public;F;South Glengarry (ON);Active - FLBG;40;710;2;N;238.6;300.5;358.4;>201;>201;>201;standard (municipal, ≤2 voies, non urbain);1.2
+45882;MTL-Ott;87.16;Alexandria - VIA;15.3;-;Private;F;Private Road Authority #1;Passive;14;10;1;N;127.3;160.2;191.1;≤153;154-177;178-201;fermeture (HYPOTHÈSE : alternative routière non vérifiée);1.2
+14527;Ott-TO;48.97;Smiths Falls;30.21;Rosedale Rd;Public;F;Montague (ON);Active - FLBG;12;200;2;N;200.5;252.4;301.1;178-201;>201;>201;standard (municipal, ≤2 voies, non urbain);1.2
+14522;Ott-TO;43.55;Smiths Falls;21.24;Dwyer Hill Rd;Public;F;Ottawa (ON);Active - FLBG;12;550;2;N;199.9;251.7;300.2;178-201;>201;>201;standard (municipal, ≤2 voies, non urbain);1.2
+45799;Ott-TO;360.52;Kingston - CN;281.21;Farm Crossing;Private;F;Private Road Authority #1;Passive;40;2;1;N;253.9;319.7;360.0;>201;>201;>201;fermeture (HYPOTHÈSE : alternative routière non vérifiée);1.2
+140749;MTL-QC;80.87;Drummondville;107.18;Private;Private;F;Private Road Authority #1;Passive;-;-;-;N;199.6;251.4;299.8;178-201;>201;>201;fermeture (HYPOTHÈSE : alternative routière non vérifiée);1.2
+140693;MTL-QC;132.42;Drummondville;76.25;Private;Private;F;Private Road Authority #1;Passive;-;-;-;N;202.2;254.6;303.7;>201;>201;>201;fermeture (HYPOTHÈSE : alternative routière non vérifiée);1.2
+300164;MTL-TO;212.2;Kingston - CN;130.35;-;Private;F;Private Road Authority #1;Active - FLB;40;2;1;N;166.8;210.0;250.5;154-177;>201;>201;fermeture (HYPOTHÈSE : alternative routière non vérifiée);1.2
+140753;MTL-QC;80.87;Drummondville;108.7;Private;Private;F;Private Road Authority #1;Passive;-;-;-;N;199.6;251.4;299.8;178-201;>201;>201;fermeture (HYPOTHÈSE : alternative routière non vérifiée);1.2
+4817;MTL-QC;149.93;Drummondville;66.8;Rue Principale;Public;F;MTQ.;Active - FLBG;27;1462;2;Y;101.5;127.8;152.5;≤153;≤153;≤153;complexe (urbain / multi-voies / autorité provinciale);1.2
+4861;MTL-QC;69.45;Drummondville;117.22;Rang Ste-Charlotte;Public;F;MTQ.;Active - FLBG;27;5900;2;N;239.6;301.7;359.8;>201;>201;>201;complexe (urbain / multi-voies / autorité provinciale);1.2
+45931;MTL-Ott;121.4;Alexandria - VIA;38.57;-;Private;F;Private Road Authority #1;Passive;14;2;1;N;127.1;160.0;190.9;≤153;154-177;178-201;fermeture (HYPOTHÈSE : alternative routière non vérifiée);1.2
+8330;MTL-TO;516.0;Kingston - GO;320.41;Morningside Dr;Public;P;Toronto (ON);Active - FLBG;103;5000;4;Y;307.0;360.0;360.0;>201;>201;>201;complexe (urbain / multi-voies / autorité provinciale);1.2
+45751;MTL-TO;335.83;Kingston - CN;208.09;Farm Crossing;Private;F;Private Road Authority #1;Active - FLB;40;2;1;N;211.6;266.5;317.9;>201;>201;>201;fermeture (HYPOTHÈSE : alternative routière non vérifiée);1.3
+50847;MTL-Ott;75.71;Alexandria - VIA;9.75;Farm Crossing;Private;F;Sainte-Justine-de-Newton (QC);Other;14;2;1;N;251.0;316.1;360.0;>201;>201;>201;fermeture (HYPOTHÈSE : alternative routière non vérifiée);1.3
+140678;MTL-QC;140.14;Drummondville;70.45;Private;Private;F;Private Road Authority #1;Passive;-;-;-;N;239.8;302.0;360.0;>201;>201;>201;fermeture (HYPOTHÈSE : alternative routière non vérifiée);1.3
+8180;Ott-TO;330.51;Kingston - CN;263.45;D'Arcy St;Public;F;Cobourg (ON);Active - FLBG;40;5000;2;Y;158.5;199.6;238.1;154-177;178-201;>201;complexe (urbain / multi-voies / autorité provinciale);1.3
+7920;MTL-TO;61.75;Kingston - CN;37.54;Rue Sauve;Public;F;MTQ.;Active - FLBG;54;4000;2;Y;267.4;336.7;360.0;>201;>201;>201;complexe (urbain / multi-voies / autorité provinciale);1.3
+777228;Ott-TO;336.66;Kingston - CN;266.26;Private Drive;Private;F;Private Road Authority #1;Passive;-;-;1;N;197.1;248.2;296.0;178-201;>201;>201;fermeture (HYPOTHÈSE : alternative routière non vérifiée);1.3
+45893;MTL-Ott;87.16;Alexandria - VIA;18.68;-;Private;F;Private Road Authority #1;Passive;14;2;1;N;127.3;160.2;191.1;≤153;154-177;178-201;fermeture (HYPOTHÈSE : alternative routière non vérifiée);1.3
+140729;MTL-QC;112.2;Drummondville;90.15;Private;Private;F;Private Road Authority #1;Passive;-;-;-;N;158.3;199.4;237.8;154-177;178-201;>201;fermeture (HYPOTHÈSE : alternative routière non vérifiée);1.3
+779122;MTL-TO;61.75;Kingston - CN;48.44;-;Private;F;Private Road Authority #1;Passive;1;1;1;N;267.4;336.7;360.0;>201;>201;>201;fermeture (HYPOTHÈSE : alternative routière non vérifiée);1.3
+45662;MTL-TO;139.16;Kingston - CN;85.9;-;Private;F;Private Road Authority #1;Passive;40;2;1;N;300.7;360.0;360.0;>201;>201;>201;fermeture (HYPOTHÈSE : alternative routière non vérifiée);1.3
+779121;MTL-TO;61.75;Kingston - CN;48.17;-;Private;F;Private Road Authority #1;Passive;1;1;1;N;267.4;336.7;360.0;>201;>201;>201;fermeture (HYPOTHÈSE : alternative routière non vérifiée);1.3
+300176;MTL-TO;221.84;Kingston - CN;136.75;Farm;Private;F;Private Road Authority #1;Passive;40;2;1;N;300.7;360.0;360.0;>201;>201;>201;fermeture (HYPOTHÈSE : alternative routière non vérifiée);1.3
+8068;MTL-TO;306.17;Kingston - CN;189.49;Ham Rd;Public;F;Loyalist (ON);Active - FLBG;40;100;1;N;159.4;200.6;239.3;154-177;178-201;>201;standard (municipal, ≤2 voies, non urbain);1.4
+8026;MTL-TO;256.33;Kingston - CN;158.23;Boundry Rd;Public;F;Kingston (ON);Active - FLBG;40;40;2;N;238.7;300.6;358.5;>201;>201;>201;standard (municipal, ≤2 voies, non urbain);1.4
+8154;Ott-TO;284.85;Kingston - CN;238.15;Stoney Point Rd;Public;F;Quinte West (ON);Active - FLBG;40;250;2;N;239.4;301.4;359.5;>201;>201;>201;standard (municipal, ≤2 voies, non urbain);1.4
+45760;Ott-TO;241.69;Kingston - CN;211.06;-;Private;F;Private Road Authority #1;Passive;40;2;1;N;213.7;269.1;321.0;>201;>201;>201;fermeture (HYPOTHÈSE : alternative routière non vérifiée);1.4
+50941;MTL-Ott;63.8;Alexandria - VIA;2.02;Farm Crossing;Private;F;Unknown;Other;14;2;1;N;199.3;250.9;299.3;178-201;>201;>201;fermeture (HYPOTHÈSE : alternative routière non vérifiée);1.4
+45878;MTL-Ott;84.41;Alexandria - VIA;14.04;-;Private;F;Private Road Authority #1;Passive;14;2;1;N;112.8;142.0;169.4;≤153;≤153;154-177;fermeture (HYPOTHÈSE : alternative routière non vérifiée);1.4
+140706;MTL-QC;131.88;Drummondville;78.75;Private;Private;F;Private Road Authority #1;Passive;-;-;-;N;180.8;227.6;271.5;178-201;>201;>201;fermeture (HYPOTHÈSE : alternative routière non vérifiée);1.4
+223;MTL-Ott;138.79;Alexandria - VIA;47.37;Rue Principale St (Casselman);Public;F;Prescott & Russell (Ontario);Active - FLBG;14;3350;2;Y;221.9;279.4;333.2;>201;>201;>201;complexe (urbain / multi-voies / autorité provinciale);1.4
+52287;MTL-Ott;74.98;Alexandria - VIA;7.65;Farm Crossing;Private;F;Private Road Authority #1;Passive;14;-;-;N;167.2;210.5;251.1;154-177;>201;>201;fermeture (HYPOTHÈSE : alternative routière non vérifiée);1.4
+8173;MTL-TO;403.37;Kingston - CN;253.98;Wicklow Beach Rd;Public;F;Alnwick/Haldimand (ON);Active - FLBG;40;700;1;N;301.8;360.0;360.0;>201;>201;>201;standard (municipal, ≤2 voies, non urbain);1.4
+300175;MTL-TO;221.84;Kingston - CN;136.45;-;Private;F;Private Road Authority #1;Passive;40;2;1;N;300.7;360.0;360.0;>201;>201;>201;fermeture (HYPOTHÈSE : alternative routière non vérifiée);1.4
+141138;MTL-TO;59.8;Kingston - CN;36.77;Private;Private;F;Private Road Authority #1;Passive;-;-;-;N;302.8;360.0;360.0;>201;>201;>201;fermeture (HYPOTHÈSE : alternative routière non vérifiée);1.4
+45911;MTL-Ott;102.69;Alexandria - VIA;24.98;Farm Field To Field (limited use WS with walk);Private;F;Private Road Authority #1;Active - FLB;14;2;1;N;102.2;128.6;153.4;≤153;≤153;154-177;fermeture (HYPOTHÈSE : alternative routière non vérifiée);1.4
+140712;MTL-QC;121.71;Drummondville;83.57;Private;Private;F;Private Road Authority #1;Passive;-;-;-;N;128.1;161.3;192.4;≤153;154-177;178-201;fermeture (HYPOTHÈSE : alternative routière non vérifiée);1.4
+45932;MTL-Ott;121.4;Alexandria - VIA;38.92;-;Private;F;Private Road Authority #1;Passive;14;2;1;N;127.1;160.0;190.9;≤153;154-177;178-201;fermeture (HYPOTHÈSE : alternative routière non vérifiée);1.4
+142589;MTL-QC;36.3;St-Hyacinthe;46.16;Private;Private;F;Private Road Authority #1;Passive;-;-;-;N;241.4;304.0;360.0;>201;>201;>201;fermeture (HYPOTHÈSE : alternative routière non vérifiée);1.4
+4812;MTL-QC;160.84;Drummondville;60.54;Chemin De L'Eglise;Public;F;Lemieux (QC);Active - FLBG;27;250;2;N;107.1;134.9;160.9;≤153;≤153;154-177;standard (municipal, ≤2 voies, non urbain);1.4
+7969;MTL-TO;139.16;Kingston - CN;95.9;Flagg Rd;Public;F;South Dundas (ON);Active - FLBG;40;199;2;N;300.7;360.0;360.0;>201;>201;>201;standard (municipal, ≤2 voies, non urbain);1.4
+45811;MTL-TO;108.68;Kingston - CN;69.37;-;Private;F;Private Road Authority #1;Passive;40;2;1;N;239.7;301.8;360.0;>201;>201;>201;fermeture (HYPOTHÈSE : alternative routière non vérifiée);1.4
+4834;MTL-QC;116.22;Drummondville;86.41;Route Mitchell;Public;F;Notre-Dame-du-Bon-Conseil (QC);Active - FLB;27;6;2;N;128.0;161.2;192.2;≤153;154-177;178-201;standard (municipal, ≤2 voies, non urbain);1.5
+300120;Ott-TO;255.11;Kingston - CN;216.01;-;Private;F;Private Road Authority #1;Passive;40;10;2;N;300.1;360.0;360.0;>201;>201;>201;fermeture (HYPOTHÈSE : alternative routière non vérifiée);1.5
+7926;MTL-TO;61.75;Kingston - CN;47.02;4Th Line Rd;Public;F;Stormont Dundas&Glengarry (Ontario);Active - FLBG;40;996;2;N;267.4;336.7;360.0;>201;>201;>201;standard (municipal, ≤2 voies, non urbain);1.5
+8325;Ott-TO;418.36;Kingston - GO;317.21;Chesterton Shores Rd;Public;P;Toronto (ON);Active - FLBG;103;200;1;Y;200.1;251.9;300.5;178-201;>201;>201;complexe (urbain / multi-voies / autorité provinciale);1.5
+19643;Ott-TO;69.4;Brockville - VIA;3.03;Mccaw Rd;Public;F;Rideau Lakes (ON);Active - FLBG;12;15;1;N;239.0;300.9;359.0;>201;>201;>201;standard (municipal, ≤2 voies, non urbain);1.5
+200510;MTL-QC;264.89;Bridge;12.4;Passage Pieton/Velo;Public;F;Québec (QC);Active - FLBG;13;1;1;Y;300.0;360.0;360.0;>201;>201;>201;complexe (urbain / multi-voies / autorité provinciale);1.5
+140722;MTL-QC;121.0;Drummondville;85.39;Private;Private;F;Private Road Authority #1;Passive;-;-;-;N;118.9;149.7;178.5;≤153;≤153;178-201;fermeture (HYPOTHÈSE : alternative routière non vérifiée);1.5
+45676;MTL-TO;175.7;Kingston - CN;108.43;-;Private;F;Private Road Authority #1;Passive;40;2;1;N;237.1;298.5;356.1;>201;>201;>201;fermeture (HYPOTHÈSE : alternative routière non vérifiée);1.5
+45674;MTL-TO;175.7;Kingston - CN;107.95;-;Private;F;Private Road Authority #1;Passive;40;2;1;N;237.1;298.5;356.1;>201;>201;>201;fermeture (HYPOTHÈSE : alternative routière non vérifiée);1.5
+140687;MTL-QC;132.42;Drummondville;74.07;Private;Private;F;Private Road Authority #1;Passive;-;-;-;N;202.2;254.6;303.7;>201;>201;>201;fermeture (HYPOTHÈSE : alternative routière non vérifiée);1.5
+142587;MTL-QC;36.3;St-Hyacinthe;45.62;Private;Private;F;Private Road Authority #1;Passive;-;-;-;N;241.4;304.0;360.0;>201;>201;>201;fermeture (HYPOTHÈSE : alternative routière non vérifiée);1.5
+610826;MTL-TO;358.95;Kingston - CN;222.99;Kurt Kaiser'S Rd;Private;F;Private Road Authority #1;Passive;40;2;1;N;250.9;315.9;360.0;>201;>201;>201;fermeture (HYPOTHÈSE : alternative routière non vérifiée);1.5
+51505;MTL-QC;140.14;Drummondville;73.3;Ferme;Private;F;Private Road Authority #1;Passive;27;2;1;N;239.8;302.0;360.0;>201;>201;>201;fermeture (HYPOTHÈSE : alternative routière non vérifiée);1.5
+45892;MTL-Ott;87.16;Alexandria - VIA;18.5;-;Private;F;Private Road Authority #1;Passive;14;2;1;N;127.3;160.2;191.1;≤153;154-177;178-201;fermeture (HYPOTHÈSE : alternative routière non vérifiée);1.6
+19650;Ott-TO;81.48;Brockville - VIA;9.75;Bates Rd;Public;F;Merrickville-Wolford (ON);Active - FLBG;12;50;2;N;300.0;360.0;360.0;>201;>201;>201;standard (municipal, ≤2 voies, non urbain);1.6
+8235;Ott-TO;369.39;Kingston - CN;287.26;Cobbledick Rd;Public;F;Clarington (ON);Active - FLBG;40;150;1;N;238.9;300.8;358.8;>201;>201;>201;standard (municipal, ≤2 voies, non urbain);1.6
+45924;MTL-Ott;121.4;Alexandria - VIA;37.39;-;Private;F;Private Road Authority #1;Passive;14;2;1;N;127.1;160.0;190.9;≤153;154-177;178-201;fermeture (HYPOTHÈSE : alternative routière non vérifiée);1.6
+4818;MTL-QC;140.14;Drummondville;69.29;Chemin Du 2E Rang;Public;F;MTQ.;Active - FLBG;27;1410;2;N;239.8;302.0;360.0;>201;>201;>201;complexe (urbain / multi-voies / autorité provinciale);1.6
+140664;MTL-QC;170.87;Drummondville;53.37;Private;Private;F;Private Road Authority #1;Passive;-;-;-;N;127.2;160.2;191.1;≤153;154-177;178-201;fermeture (HYPOTHÈSE : alternative routière non vérifiée);1.6
+19661;Ott-TO;97.13;Brockville - VIA;25.23;Centennial Rd;Public;F;Brockville (ON);Active - FLBG;12;3100;2;N;250.9;315.9;360.0;>201;>201;>201;standard (municipal, ≤2 voies, non urbain);1.6
+45727;Ott-TO;165.06;Kingston - CN;161.15;Farm Xng;Private;F;Private Road Authority #1;Passive;-;-;1;N;194.0;244.3;291.4;178-201;>201;>201;fermeture (HYPOTHÈSE : alternative routière non vérifiée);1.6
+51504;MTL-QC;140.14;Drummondville;73.2;Ferme;Private;F;Private Road Authority #1;Passive;27;2;1;N;239.8;302.0;360.0;>201;>201;>201;fermeture (HYPOTHÈSE : alternative routière non vérifiée);1.6
+14509;Ott-TO;15.92;Smiths Falls;5.73;Jockvale Rd;Public;F;Ottawa (ON);Active - FLBG;12;11329;2;Y;158.9;200.1;238.7;154-177;178-201;>201;complexe (urbain / multi-voies / autorité provinciale);1.6
+140718;MTL-QC;121.71;Drummondville;84.5;Private;Private;F;Private Road Authority #1;Passive;-;-;-;N;128.1;161.3;192.4;≤153;154-177;178-201;fermeture (HYPOTHÈSE : alternative routière non vérifiée);1.6
+235;MTL-Ott;151.27;Alexandria - VIA;57.88;St Thomas Rd;Public;F;Russell (Ontario);Active - FLBG;14;224;2;N;360.0;360.0;360.0;>201;>201;>201;standard (municipal, ≤2 voies, non urbain);1.6
+140685;MTL-QC;140.14;Drummondville;71.92;Private;Private;F;Private Road Authority #1;Passive;-;-;-;N;239.8;302.0;360.0;>201;>201;>201;fermeture (HYPOTHÈSE : alternative routière non vérifiée);1.6
+140743;MTL-QC;80.87;Drummondville;106.3;Private;Private;F;Private Road Authority #1;Passive;-;-;-;N;199.6;251.4;299.8;178-201;>201;>201;fermeture (HYPOTHÈSE : alternative routière non vérifiée);1.7
+45930;MTL-Ott;121.4;Alexandria - VIA;38.26;-;Private;F;Private Road Authority #1;Passive;14;2;1;N;127.1;160.0;190.9;≤153;154-177;178-201;fermeture (HYPOTHÈSE : alternative routière non vérifiée);1.7
+51971;Ott-TO;75.3;Brockville - VIA;6.47;Farm Crossing;Private;F;Private Road Authority #1;Other;-;-;1;N;304.1;360.0;360.0;>201;>201;>201;fermeture (HYPOTHÈSE : alternative routière non vérifiée);1.7
+7913;MTL-TO;46.39;Kingston - CN;28.19;Rte St-Gregoire;Public;F;Les Cèdres (QC);Passive;54;10;2;N;302.1;360.0;360.0;>201;>201;>201;standard (municipal, ≤2 voies, non urbain);1.7
+8034;Ott-TO;176.12;Kingston - CN;168.96;Station Rd;Public;F;Kingston (ON);Active - FLBG;40;300;2;N;156.9;197.5;235.6;154-177;178-201;>201;standard (municipal, ≤2 voies, non urbain);1.7
+8327;MTL-TO;515.43;Kingston - GO;318.88;Beechgrove Dr;Public;P;Toronto (ON);Active - FLBG;103;720;2;Y;153.1;192.7;229.9;154-177;178-201;>201;complexe (urbain / multi-voies / autorité provinciale);1.7
+52290;MTL-Ott;75.71;Alexandria - VIA;8.82;Farm Crossing;Private;F;Private Road Authority #1;Passive;14;-;-;N;251.0;316.1;360.0;>201;>201;>201;fermeture (HYPOTHÈSE : alternative routière non vérifiée);1.7
+45890;MTL-Ott;87.16;Alexandria - VIA;17.75;-;Private;F;Private Road Authority #1;Passive;14;2;1;N;127.3;160.2;191.1;≤153;154-177;178-201;fermeture (HYPOTHÈSE : alternative routière non vérifiée);1.7
+140755;MTL-QC;80.87;Drummondville;109.54;Private;Private;F;Private Road Authority #1;Passive;-;-;-;N;199.6;251.4;299.8;178-201;>201;>201;fermeture (HYPOTHÈSE : alternative routière non vérifiée);1.7
+19657;Ott-TO;95.08;Brockville - VIA;18.13;Cnty Rd 28 (New Dublin Rd;Public;F;Leeds & Grenville (Ontario);Active - FLBG;12;714;2;Y;179.2;225.6;269.1;178-201;>201;>201;complexe (urbain / multi-voies / autorité provinciale);1.7
+45950;MTL-Ott;151.27;Alexandria - VIA;60.35;-;Private;F;Private Road Authority #1;Passive;14;2;1;N;360.0;360.0;360.0;>201;>201;>201;fermeture (HYPOTHÈSE : alternative routière non vérifiée);1.7
+142602;MTL-QC;36.3;St-Hyacinthe;47.87;Private;Private;F;Private Road Authority #1;Passive;-;-;-;N;241.4;304.0;360.0;>201;>201;>201;fermeture (HYPOTHÈSE : alternative routière non vérifiée);1.7
+52491;MTL-Ott;63.8;Alexandria - VIA;2.72;Farm;Private;F;Private Road Authority #1;Passive;-;-;-;N;199.3;250.9;299.3;178-201;>201;>201;fermeture (HYPOTHÈSE : alternative routière non vérifiée);1.7
+300163;MTL-TO;212.2;Kingston - CN;130.85;-;Private;F;Private Road Authority #1;Passive;40;2;1;N;166.8;210.0;250.5;154-177;>201;>201;fermeture (HYPOTHÈSE : alternative routière non vérifiée);1.7
+140701;MTL-QC;132.42;Drummondville;77.72;Private;Private;F;Private Road Authority #1;Passive;-;-;-;N;202.2;254.6;303.7;>201;>201;>201;fermeture (HYPOTHÈSE : alternative routière non vérifiée);1.7
+300181;Ott-TO;133.08;Kingston - CN;141.08;Farm;Private;F;Private Road Authority #1;Active - FLB;40;2;1;N;159.7;201.0;239.8;154-177;178-201;>201;fermeture (HYPOTHÈSE : alternative routière non vérifiée);1.7
+142590;MTL-QC;36.3;St-Hyacinthe;46.31;Private;Private;F;Private Road Authority #1;Passive;-;-;-;N;241.4;304.0;360.0;>201;>201;>201;fermeture (HYPOTHÈSE : alternative routière non vérifiée);1.7
+142599;MTL-QC;36.3;St-Hyacinthe;47.35;Private;Private;F;Private Road Authority #1;Passive;-;-;-;N;241.4;304.0;360.0;>201;>201;>201;fermeture (HYPOTHÈSE : alternative routière non vérifiée);1.7
+52486;MTL-Ott;63.8;Alexandria - VIA;1.98;Farm;Private;F;Private Road Authority #1;Passive;-;-;-;N;199.3;250.9;299.3;178-201;>201;>201;fermeture (HYPOTHÈSE : alternative routière non vérifiée);1.7
+142595;MTL-QC;36.3;St-Hyacinthe;46.89;Private;Private;F;Private Road Authority #1;Passive;-;-;-;N;241.4;304.0;360.0;>201;>201;>201;fermeture (HYPOTHÈSE : alternative routière non vérifiée);1.7
+8005;MTL-TO;226.44;Kingston - CN;139.3;Escott/Young Rd;Public;F;Leeds and the 1000 Isl. (ON);Active - FLBG;40;75;1;N;223.8;281.8;336.2;>201;>201;>201;standard (municipal, ≤2 voies, non urbain);1.7
+8178;MTL-TO;424.68;Kingston - CN;262.91;Brook Rd N (Cnty 20);Public;F;Northumberland (Ontario);Active - FLBG;40;3000;2;N;158.5;199.6;238.1;154-177;178-201;>201;standard (municipal, ≤2 voies, non urbain);1.7
+189;MTL-Ott;62.75;Alexandria - VIA;0.56;Rue Delisle;Public;F;Les Coteaux (QC);Active - FLBG;13;980;2;N;88.4;111.3;132.8;≤153;≤153;≤153;standard (municipal, ≤2 voies, non urbain);1.7
+140623;MTL-QC;201.75;Drummondville;32.65;Private;Private;F;Private Road Authority #1;Passive;-;-;-;N;127.6;160.7;191.6;≤153;154-177;178-201;fermeture (HYPOTHÈSE : alternative routière non vérifiée);1.8
+300172;Ott-TO;127.29;Kingston - CN;136.09;Farm;Private;F;Private Road Authority #1;Passive;40;2;1;N;239.7;301.8;360.0;>201;>201;>201;fermeture (HYPOTHÈSE : alternative routière non vérifiée);1.8
+45949;MTL-Ott;151.27;Alexandria - VIA;60.18;-;Private;F;Private Road Authority #1;Passive;14;2;1;N;360.0;360.0;360.0;>201;>201;>201;fermeture (HYPOTHÈSE : alternative routière non vérifiée);1.8
+4845;MTL-QC;100.3;Drummondville;98.17;Rue Brock;Public;F;Drummondville (QC);Active - FLBG;27;7030;2;Y;130.4;164.1;195.8;≤153;154-177;178-201;complexe (urbain / multi-voies / autorité provinciale);1.8
+140695;MTL-QC;132.42;Drummondville;76.47;Private;Private;F;Private Road Authority #1;Passive;-;-;-;N;202.2;254.6;303.7;>201;>201;>201;fermeture (HYPOTHÈSE : alternative routière non vérifiée);1.8
+212;MTL-Ott;117.27;Alexandria - VIA;34.23;Main St - Cnty 20  (Maxville);Public;F;Stormont Dundas&Glengarry (Ontario);Active - FLBG;14;1123;2;N;130.4;164.2;195.9;≤153;154-177;178-201;standard (municipal, ≤2 voies, non urbain);1.8
+7902;MTL-TO;27.96;Kingston - CN;17.52;Woodland Avenue;Public;F;Beaconsfield (QC);Active - FLBG;54;2700;2;Y;238.8;300.7;358.7;>201;>201;>201;complexe (urbain / multi-voies / autorité provinciale);1.8
+140694;MTL-QC;132.42;Drummondville;76.4;Private;Private;F;Private Road Authority #1;Passive;-;-;-;N;202.2;254.6;303.7;>201;>201;>201;fermeture (HYPOTHÈSE : alternative routière non vérifiée);1.8
+51663;MTL-Ott;151.27;Alexandria - VIA;55.12;Farm Crossing;Private;F;Private Road Authority #1;Other;14;2;1;N;360.0;360.0;360.0;>201;>201;>201;fermeture (HYPOTHÈSE : alternative routière non vérifiée);1.8
+19649;Ott-TO;75.3;Brockville - VIA;8.41;Ireland Rd;Public;F;Merrickville-Wolford (ON);Active - FLBG;12;50;2;N;304.1;360.0;360.0;>201;>201;>201;standard (municipal, ≤2 voies, non urbain);1.8
+4855;MTL-QC;80.87;Drummondville;107.96;Route 239;Public;F;MTQ.;Active - FLBG;27;3504;2;N;199.6;251.4;299.8;178-201;>201;>201;complexe (urbain / multi-voies / autorité provinciale);1.8
+52488;MTL-Ott;63.8;Alexandria - VIA;2.52;Farm;Private;F;Private Road Authority #1;Passive;-;-;-;N;199.3;250.9;299.3;178-201;>201;>201;fermeture (HYPOTHÈSE : alternative routière non vérifiée);1.8
+140619;MTL-QC;201.75;Drummondville;31.9;Private;Private;F;Private Road Authority #1;Passive;-;-;-;N;127.6;160.7;191.6;≤153;154-177;178-201;fermeture (HYPOTHÈSE : alternative routière non vérifiée);1.8
+49324;Ott-TO;383.31;Kingston - CN;295.12;Waste Disposal Road;Private;F;Private Road Authority #1;Active - FLBG;40;100;1;N;167.0;210.3;250.8;154-177;>201;>201;fermeture (HYPOTHÈSE : alternative routière non vérifiée);1.8
+140733;MTL-QC;102.27;Drummondville;96.88;Private;Private;F;Private Road Authority #1;Passive;-;-;-;N;108.3;136.4;162.7;≤153;≤153;154-177;fermeture (HYPOTHÈSE : alternative routière non vérifiée);1.8
+242;MTL-Ott;160.68;Alexandria - VIA;62.8;Sand Rd;Public;F;Ottawa (ON);Active - FLBG;14;25;1;N;306.1;360.0;360.0;>201;>201;>201;standard (municipal, ≤2 voies, non urbain);1.8
+140620;MTL-QC;201.75;Drummondville;32.25;Private;Private;F;Private Road Authority #1;Passive;-;-;-;N;127.6;160.7;191.6;≤153;154-177;178-201;fermeture (HYPOTHÈSE : alternative routière non vérifiée);1.9
+19652;Ott-TO;83.28;Brockville - VIA;12.08;Yule Rd;Public;F;Merrickville-Wolford (ON);Active - FLBG;12;50;1;N;300.1;360.0;360.0;>201;>201;>201;standard (municipal, ≤2 voies, non urbain);1.9
+36260;MTL-TO;31.48;Kingston - CN;19.21;Morgan Rue;Public;F;Baie-D'Urfé (QC);Active - FLBG;54;1;1;Y;241.1;303.6;360.0;>201;>201;>201;complexe (urbain / multi-voies / autorité provinciale);1.9
+140612;MTL-QC;243.87;Drummondville;9.3;Private;Private;F;Private Road Authority #1;Passive;-;-;-;N;160.8;202.4;241.5;154-177;>201;>201;fermeture (HYPOTHÈSE : alternative routière non vérifiée);1.9
+4816;MTL-QC;151.28;Drummondville;66.58;Rang De La Rivîere;Public;F;Maddington (QC);Active - FLBG;27;720;2;N;87.0;109.6;130.7;≤153;≤153;≤153;standard (municipal, ≤2 voies, non urbain);1.9
+19636;Ott-TO;66.12;Brockville - VIA;0.17;William St;Public;F;Smiths Falls (ON);Active - FLBG;12;600;2;Y;92.0;115.9;138.2;≤153;≤153;≤153;complexe (urbain / multi-voies / autorité provinciale);1.9
+52485;MTL-Ott;63.8;Alexandria - VIA;1.74;Farm;Private;F;Private Road Authority #1;Passive;-;-;-;N;199.3;250.9;299.3;178-201;>201;>201;fermeture (HYPOTHÈSE : alternative routière non vérifiée);1.9
+45937;MTL-Ott;128.46;Alexandria - VIA;42.45;-;Private;F;Private Road Authority #1;Passive;14;2;1;N;250.4;315.3;360.0;>201;>201;>201;fermeture (HYPOTHÈSE : alternative routière non vérifiée);1.9
+142588;MTL-QC;36.3;St-Hyacinthe;45.98;Private;Private;F;Private Road Authority #1;Passive;-;-;-;N;241.4;304.0;360.0;>201;>201;>201;fermeture (HYPOTHÈSE : alternative routière non vérifiée);1.9
+45736;MTL-TO;309.87;Kingston - CN;192.11;Farm;Private;F;Private Road Authority #1;Passive;40;2;1;N;229.2;288.6;344.3;>201;>201;>201;fermeture (HYPOTHÈSE : alternative routière non vérifiée);1.9
+140674;MTL-QC;140.14;Drummondville;69.55;Private;Private;F;Private Road Authority #1;Passive;-;-;-;N;239.8;302.0;360.0;>201;>201;>201;fermeture (HYPOTHÈSE : alternative routière non vérifiée);1.9
+14518;Ott-TO;27.04;Smiths Falls;12.88;Mcbean St;Public;F;Ottawa (ON);Active - FLBG;21;1904;2;Y;240.3;302.6;360.0;>201;>201;>201;complexe (urbain / multi-voies / autorité provinciale);1.9
+142583;MTL-QC;36.3;St-Hyacinthe;45.2;Private;Private;F;Private Road Authority #1;Passive;-;-;-;N;241.4;304.0;360.0;>201;>201;>201;fermeture (HYPOTHÈSE : alternative routière non vérifiée);1.9
+45881;MTL-Ott;86.9;Alexandria - VIA;15.05;-;Private;F;Private Road Authority #1;Passive;14;2;1;N;286.6;360.0;360.0;>201;>201;>201;fermeture (HYPOTHÈSE : alternative routière non vérifiée);1.9
+8428;MTL-QC;269.33;Bridge;15.58;Piste Cyclo-Piéton;Public;F;Québec (QC);Active - FLBG;13;25;2;Y;161.1;202.8;242.0;154-177;>201;>201;complexe (urbain / multi-voies / autorité provinciale);1.9
+45667;MTL-TO;172.09;Kingston - CN;106.03;-;Private;F;Private Road Authority #1;Passive;40;2;1;N;239.3;301.3;359.5;>201;>201;>201;fermeture (HYPOTHÈSE : alternative routière non vérifiée);1.9
+140665;MTL-QC;170.87;Drummondville;53.8;Private;Private;F;Private Road Authority #1;Passive;-;-;-;N;127.2;160.2;191.1;≤153;154-177;178-201;fermeture (HYPOTHÈSE : alternative routière non vérifiée);2.0
+45954;MTL-Ott;160.68;Alexandria - VIA;65.43;-;Private;F;Private Road Authority #1;Passive;14;2;1;N;306.1;360.0;360.0;>201;>201;>201;fermeture (HYPOTHÈSE : alternative routière non vérifiée);2.0
+140631;MTL-QC;201.75;Drummondville;34.27;Private;Private;F;Private Road Authority #1;Passive;-;-;-;N;127.6;160.7;191.6;≤153;154-177;178-201;fermeture (HYPOTHÈSE : alternative routière non vérifiée);2.0
+46391;MTL-QC;121.71;Drummondville;82.86;Route Bureau;Public;F;Saint-Léonard d'Aston (QC);Active - FLBG;27;590;2;N;128.1;161.3;192.4;≤153;154-177;178-201;standard (municipal, ≤2 voies, non urbain);2.0
+50125;MTL-QC;20.19;St-Hyacinthe;58.27;-;Private;F;Private Road Authority #1;Passive;55;10;2;N;200.4;252.3;300.9;178-201;>201;>201;fermeture (HYPOTHÈSE : alternative routière non vérifiée);2.0
+14519;Ott-TO;33.57;Smiths Falls;17.88;Kettles Rd;Public;F;Ottawa (ON);Active - FLBG;12;10;1;N;300.2;360.0;360.0;>201;>201;>201;standard (municipal, ≤2 voies, non urbain);2.0
+45749;MTL-TO;335.83;Kingston - CN;207.56;Farm Crossing;Private;F;Private Road Authority #1;Active - FLB;40;2;1;N;211.6;266.5;317.9;>201;>201;>201;fermeture (HYPOTHÈSE : alternative routière non vérifiée);2.0
+45646;MTL-TO;61.75;Kingston - CN;49.45;-;Private;F;Private Road Authority #1;Passive;40;2;1;N;267.4;336.7;360.0;>201;>201;>201;fermeture (HYPOTHÈSE : alternative routière non vérifiée);2.0
+45762;Ott-TO;249.37;Kingston - CN;212.5;-;Private;F;Private Road Authority #1;Passive;40;2;1;N;199.3;250.9;299.3;178-201;>201;>201;fermeture (HYPOTHÈSE : alternative routière non vérifiée);2.0
+19641;Ott-TO;68.02;Brockville - VIA;1.56;County Rd 17 (Jasper Ave);Public;F;Leeds & Grenville (Ontario);Active - FLBG;12;3544;2;N;135.9;171.1;204.0;≤153;154-177;>201;standard (municipal, ≤2 voies, non urbain);2.0
+52500;MTL-Ott;63.8;Alexandria - VIA;5.01;Farm;Private;F;Private Road Authority #1;Passive;-;-;-;N;199.3;250.9;299.3;178-201;>201;>201;fermeture (HYPOTHÈSE : alternative routière non vérifiée);2.0
+142569;MTL-QC;36.3;St-Hyacinthe;42.85;Private;Private;F;Private Road Authority #1;Passive;-;-;-;N;241.4;304.0;360.0;>201;>201;>201;fermeture (HYPOTHÈSE : alternative routière non vérifiée);2.0
+52282;MTL-Ott;74.98;Alexandria - VIA;9.53;Farm Crossing;Private;F;Private Road Authority #1;Passive;14;-;-;N;167.2;210.5;251.1;154-177;>201;>201;fermeture (HYPOTHÈSE : alternative routière non vérifiée);2.0
+51818;Ott-TO;165.06;Kingston - CN;159.9;Farm Crossing;Private;F;Private Road Authority #1;Passive;-;-;2;N;194.0;244.3;291.4;178-201;>201;>201;fermeture (HYPOTHÈSE : alternative routière non vérifiée);2.0
+8152;Ott-TO;284.85;Kingston - CN;237.03;Flindall Rd;Public;F;Quinte West (ON);Active - FLBG;40;300;2;N;239.4;301.4;359.5;>201;>201;>201;standard (municipal, ≤2 voies, non urbain);2.0
+8009;MTL-TO;240.16;Kingston - CN;148.28;Kidd Rd S.  (Ervens Rd);Public;F;Leeds and the 1000 Isl. (ON);Active - FLBG;40;10;1;N;239.0;300.9;359.0;>201;>201;>201;standard (municipal, ≤2 voies, non urbain);2.0
+45933;MTL-Ott;121.4;Alexandria - VIA;39.03;-;Private;F;Private Road Authority #1;Passive;14;2;1;N;127.1;160.0;190.9;≤153;154-177;178-201;fermeture (HYPOTHÈSE : alternative routière non vérifiée);2.1
+224;MTL-Ott;139.16;Alexandria - VIA;47.42;St Isidore St (Casselman);Public;F;Casselman (ON);Active - FLBG;14;1300;2;Y;124.9;157.2;187.5;≤153;154-177;178-201;complexe (urbain / multi-voies / autorité provinciale);2.1
+45741;MTL-TO;322.8;Kingston - CN;200.19;-;Private;F;Private Road Authority #1;Active - FLB;40;2;1;N;300.0;360.0;360.0;>201;>201;>201;fermeture (HYPOTHÈSE : alternative routière non vérifiée);2.1
+52489;MTL-Ott;63.8;Alexandria - VIA;1.02;Farm;Private;F;Private Road Authority #1;Passive;-;-;-;N;199.3;250.9;299.3;178-201;>201;>201;fermeture (HYPOTHÈSE : alternative routière non vérifiée);2.1
+226;MTL-Ott;139.16;Alexandria - VIA;47.66;Dollard St (Casselman);Public;F;Casselman (ON);Active - FLBG;14;200;2;Y;124.9;157.2;187.5;≤153;154-177;178-201;complexe (urbain / multi-voies / autorité provinciale);2.1
+610917;MTL-QC;36.3;St-Hyacinthe;45.8;-;Private;F;Private Road Authority #1;Passive;55;2;1;N;241.4;304.0;360.0;>201;>201;>201;fermeture (HYPOTHÈSE : alternative routière non vérifiée);2.1
+140730;MTL-QC;112.2;Drummondville;90.7;Private;Private;F;Private Road Authority #1;Passive;-;-;-;N;158.3;199.4;237.8;154-177;178-201;>201;fermeture (HYPOTHÈSE : alternative routière non vérifiée);2.1
+45895;MTL-Ott;87.16;Alexandria - VIA;19.1;-;Private;F;Private Road Authority #1;Passive;14;2;1;N;127.3;160.2;191.1;≤153;154-177;178-201;fermeture (HYPOTHÈSE : alternative routière non vérifiée);2.1
+50369;MTL-QC;258.36;Bridge;8.24;Private;Private;F;Private Road Authority #1;Passive;13;10;2;N;200.7;252.7;301.4;178-201;>201;>201;fermeture (HYPOTHÈSE : alternative routière non vérifiée);2.1
+8150;MTL-TO;379.04;Kingston - CN;235.3;Tate Rd;Public;F;Quinte West (ON);Active - FLBG;40;135;2;N;239.4;301.5;359.6;>201;>201;>201;standard (municipal, ≤2 voies, non urbain);2.1
+4850;MTL-QC;94.39;Drummondville;101.05;Chemin Du 5E Rang;Public;F;Drummondville (QC);Active - FLBG;27;900;2;N;200.5;252.5;301.2;178-201;>201;>201;standard (municipal, ≤2 voies, non urbain);2.1
+140676;MTL-QC;140.14;Drummondville;69.8;Private;Private;F;Private Road Authority #1;Passive;-;-;-;N;239.8;302.0;360.0;>201;>201;>201;fermeture (HYPOTHÈSE : alternative routière non vérifiée);2.1
+50980;MTL-QC;147.55;Drummondville;68.9;Privé;Private;F;Private Road Authority #1;Passive;27;10;2;N;227.6;286.5;341.8;>201;>201;>201;fermeture (HYPOTHÈSE : alternative routière non vérifiée);2.1
+4840;MTL-QC;112.2;Drummondville;90.89;Route 122;Public;F;MTQ.;Active - FLBG;27;3900;2;N;158.3;199.4;237.8;154-177;178-201;>201;complexe (urbain / multi-voies / autorité provinciale);2.1
+140630;MTL-QC;201.75;Drummondville;34.15;Private;Private;F;Private Road Authority #1;Passive;-;-;-;N;127.6;160.7;191.6;≤153;154-177;178-201;fermeture (HYPOTHÈSE : alternative routière non vérifiée);2.1
+52496;MTL-Ott;63.8;Alexandria - VIA;3.44;Farm;Private;F;Private Road Authority #1;Passive;-;-;-;N;199.3;250.9;299.3;178-201;>201;>201;fermeture (HYPOTHÈSE : alternative routière non vérifiée);2.1
+140700;MTL-QC;132.42;Drummondville;77.48;Private;Private;F;Private Road Authority #1;Passive;-;-;-;N;202.2;254.6;303.7;>201;>201;>201;fermeture (HYPOTHÈSE : alternative routière non vérifiée);2.1
+52505;MTL-Ott;79.19;Alexandria - VIA;10.22;Farm;Private;F;Private Road Authority #1;Passive;-;-;-;N;243.4;306.5;360.0;>201;>201;>201;fermeture (HYPOTHÈSE : alternative routière non vérifiée);2.2
+142600;MTL-QC;36.3;St-Hyacinthe;47.7;Private;Private;F;Private Road Authority #1;Passive;-;-;-;N;241.4;304.0;360.0;>201;>201;>201;fermeture (HYPOTHÈSE : alternative routière non vérifiée);2.2
+140683;MTL-QC;140.14;Drummondville;71.05;Private;Private;F;Private Road Authority #1;Passive;-;-;-;N;239.8;302.0;360.0;>201;>201;>201;fermeture (HYPOTHÈSE : alternative routière non vérifiée);2.2
+51936;Ott-TO;20.98;Smiths Falls;7.8;Farm Crossing;Private;F;Private Road Authority #1;Passive;13;-;1;N;160.6;202.2;241.2;154-177;>201;>201;fermeture (HYPOTHÈSE : alternative routière non vérifiée);2.2
+14515;Ott-TO;27.04;Smiths Falls;11.75;Barnsdale Rd;Public;F;Ottawa (ON);Active - FLBG;12;2614;2;N;240.3;302.6;360.0;>201;>201;>201;standard (municipal, ≤2 voies, non urbain);2.2
+8329;Ott-TO;421.81;Kingston - GO;319.9;Manse Rd;Public;P;Toronto (ON);Active - FLBG;103;827;2;Y;241.2;303.7;360.0;>201;>201;>201;complexe (urbain / multi-voies / autorité provinciale);2.2
+45738;Ott-TO;220.82;Kingston - CN;194.56;Farm;Private;F;Private Road Authority #1;Passive;40;2;1;N;157.6;198.4;236.7;154-177;178-201;>201;fermeture (HYPOTHÈSE : alternative routière non vérifiée);2.2
+140632;MTL-QC;201.75;Drummondville;34.4;Private;Private;F;Private Road Authority #1;Passive;-;-;-;N;127.6;160.7;191.6;≤153;154-177;178-201;fermeture (HYPOTHÈSE : alternative routière non vérifiée);2.2
+50629;MTL-QC;20.19;St-Hyacinthe;60.87;Boulevard De Boucherville;Public;F;St.-Bruno-De-Montarville (Quebec);Active - FLBG;55;5000;4;Y;200.4;252.3;300.9;178-201;>201;>201;complexe (urbain / multi-voies / autorité provinciale);2.2
+4833;MTL-QC;121.71;Drummondville;84.95;Rang St Joseph;Public;F;MTQ.;Active - FLBG;27;2100;2;N;128.1;161.3;192.4;≤153;154-177;178-201;complexe (urbain / multi-voies / autorité provinciale);2.2
+45915;MTL-Ott;106.16;Alexandria - VIA;27.02;-;Private;F;Private Road Authority #1;Passive;14;2;1;N;360.0;360.0;360.0;>201;>201;>201;fermeture (HYPOTHÈSE : alternative routière non vérifiée);2.2
+51935;Ott-TO;23.4;Smiths Falls;8.85;Farm Crossing;Private;F;Private Road Authority #1;Passive;12;-;1;N;198.7;250.2;298.5;178-201;>201;>201;fermeture (HYPOTHÈSE : alternative routière non vérifiée);2.2
+141137;MTL-Ott;59.82;Kingston - CN;36.64;Private;Private;F;Private Road Authority #1;Passive;-;-;-;N;304.0;360.0;360.0;>201;>201;>201;fermeture (HYPOTHÈSE : alternative routière non vérifiée);2.2
+140673;MTL-QC;147.97;Drummondville;68.4;Private;Private;F;Private Road Authority #1;Passive;-;-;-;N;238.6;300.4;358.4;>201;>201;>201;fermeture (HYPOTHÈSE : alternative routière non vérifiée);2.3
+45672;MTL-TO;174.21;Kingston - CN;107.35;-;Private;F;Private Road Authority #1;Passive;40;2;1;N;303.8;360.0;360.0;>201;>201;>201;fermeture (HYPOTHÈSE : alternative routière non vérifiée);2.3
+36581;Ott-TO;75.3;Brockville - VIA;6.81;County Rd16 (Jasper);Public;F;Leeds & Grenville (Ontario);Active - FLBG;12;1717;2;N;304.1;360.0;360.0;>201;>201;>201;standard (municipal, ≤2 voies, non urbain);2.3
+8165;MTL-TO;399.0;Kingston - CN;246.75;Peters Rd;Public;F;Cramahe (ON);Active - FLBG;40;100;2;N;238.6;300.4;358.3;>201;>201;>201;standard (municipal, ≤2 voies, non urbain);2.3
+19662;Ott-TO;97.13;Brockville - VIA;26.55;Parkedale Ave;Public;F;Brockville (ON);Active - FLBG;12;12100;4;Y;250.9;315.9;360.0;>201;>201;>201;complexe (urbain / multi-voies / autorité provinciale);2.3
+140728;MTL-QC;112.2;Drummondville;89.65;Private;Private;F;Private Road Authority #1;Passive;-;-;-;N;158.3;199.4;237.8;154-177;178-201;>201;fermeture (HYPOTHÈSE : alternative routière non vérifiée);2.3
+140666;MTL-QC;151.98;Drummondville;62.9;Private;Private;F;Private Road Authority #1;Passive;-;-;-;N;160.1;201.5;240.4;154-177;>201;>201;fermeture (HYPOTHÈSE : alternative routière non vérifiée);2.3
+45656;MTL-TO;87.96;Kingston - CN;55.77;-;Private;F;Private Road Authority #1;Passive;40;2;1;N;238.6;300.5;358.4;>201;>201;>201;fermeture (HYPOTHÈSE : alternative routière non vérifiée);2.3
+52494;MTL-Ott;63.8;Alexandria - VIA;3.09;Farm;Private;F;Private Road Authority #1;Passive;-;-;-;N;199.3;250.9;299.3;178-201;>201;>201;fermeture (HYPOTHÈSE : alternative routière non vérifiée);2.3
+51503;MTL-QC;140.14;Drummondville;73.1;Ferme;Private;F;Private Road Authority #1;Passive;27;2;1;N;239.8;302.0;360.0;>201;>201;>201;fermeture (HYPOTHÈSE : alternative routière non vérifiée);2.4
+4851;MTL-QC;90.53;Drummondville;102.72;Chemin Du 7E Rang;Public;F;Saint-Germain (QC);Active - FLBG;27;2000;2;N;200.4;252.4;301.0;178-201;>201;>201;standard (municipal, ≤2 voies, non urbain);2.4
+140635;MTL-QC;201.75;Drummondville;34.9;Private;Private;F;Private Road Authority #1;Passive;-;-;-;N;127.6;160.7;191.6;≤153;154-177;178-201;fermeture (HYPOTHÈSE : alternative routière non vérifiée);2.4
+8226;MTL-TO;455.15;Kingston - CN;281.6;Lakeshore Rd;Public;F;Clarington (ON);Active - FLBG;40;80;2;N;238.3;300.1;357.9;>201;>201;>201;standard (municipal, ≤2 voies, non urbain);2.4
+52487;MTL-Ott;63.8;Alexandria - VIA;2.41;Farm;Private;F;Private Road Authority #1;Passive;-;-;-;N;199.3;250.9;299.3;178-201;>201;>201;fermeture (HYPOTHÈSE : alternative routière non vérifiée);2.4
+45692;MTL-TO;198.58;Kingston - CN;122.27;-;Private;F;Private Road Authority #1;Passive;40;2;1;N;225.3;283.7;338.4;>201;>201;>201;fermeture (HYPOTHÈSE : alternative routière non vérifiée);2.4
+8222;Ott-TO;358.09;Kingston - CN;279.58;Elliot Rd;Public;F;Clarington (ON);Active - FLBG;40;5;2;N;250.6;315.5;360.0;>201;>201;>201;standard (municipal, ≤2 voies, non urbain);2.4
+19645;Ott-TO;72.97;Brockville - VIA;4.42;Kitley Line 1;Public;F;Rideau Lakes (ON);Active - FLBG;12;200;2;N;239.2;301.2;359.3;>201;>201;>201;standard (municipal, ≤2 voies, non urbain);2.4
+7972;MTL-TO;164.47;Kingston - CN;102.1;Broken 2nd Rd;Public;F;South Dundas (ON);Active - FLBG;40;199;2;N;211.8;266.6;318.0;>201;>201;>201;standard (municipal, ≤2 voies, non urbain);2.4
+140735;MTL-QC;94.39;Drummondville;101.68;Private;Private;F;Private Road Authority #1;Passive;-;-;-;N;200.5;252.5;301.2;178-201;>201;>201;fermeture (HYPOTHÈSE : alternative routière non vérifiée);2.4
+4848;MTL-QC;96.75;Drummondville;98.72;Rue Notre-Dame;Public;F;Drummondville (QC);Active - FLBG;27;11010;2;Y;242.2;305.0;360.0;>201;>201;>201;complexe (urbain / multi-voies / autorité provinciale);2.4
+7961;MTL-TO;124.32;Kingston - CN;77.54;Wales Rd;Public;F;Stormont Dundas&Glengarry (Ontario);Active - FLBG;40;859;2;N;238.1;299.7;357.5;>201;>201;>201;standard (municipal, ≤2 voies, non urbain);2.4
+140688;MTL-QC;132.42;Drummondville;74.22;Private;Private;F;Private Road Authority #1;Passive;-;-;-;N;202.2;254.6;303.7;>201;>201;>201;fermeture (HYPOTHÈSE : alternative routière non vérifiée);2.5
+140757;MTL-QC;80.87;Drummondville;109.7;Private;Private;F;Private Road Authority #1;Passive;-;-;-;N;199.6;251.4;299.8;178-201;>201;>201;fermeture (HYPOTHÈSE : alternative routière non vérifiée);2.5
+140636;MTL-QC;201.75;Drummondville;34.95;Private;Private;F;Private Road Authority #1;Passive;-;-;-;N;127.6;160.7;191.6;≤153;154-177;178-201;fermeture (HYPOTHÈSE : alternative routière non vérifiée);2.5
+45914;MTL-Ott;104.19;Alexandria - VIA;25.88;-;Private;F;Private Road Authority #1;Passive;14;2;1;N;127.2;160.2;191.1;≤153;154-177;178-201;fermeture (HYPOTHÈSE : alternative routière non vérifiée);2.5
+8090;Ott-TO;236.47;Kingston - CN;204.27;Deseronto Rd (Cnty 10);Public;F;Lennox & Addington (Ontario);Active - FLBG;40;30;1;N;175.4;220.8;263.4;154-177;>201;>201;standard (municipal, ≤2 voies, non urbain);2.5
+45947;MTL-Ott;151.27;Alexandria - VIA;58.8;-;Private;F;Private Road Authority #1;Passive;14;2;1;N;360.0;360.0;360.0;>201;>201;>201;fermeture (HYPOTHÈSE : alternative routière non vérifiée);2.5
+8093;Ott-TO;241.69;Kingston - CN;209.02;Wymans Rd;Public;F;Tyendinaga (ON);Active - FLBG;40;300;2;N;213.7;269.1;321.0;>201;>201;>201;standard (municipal, ≤2 voies, non urbain);2.5
+46458;MTL-QC;16.82;St-Hyacinthe;62.18;Seigneurial Blvd;Public;F;St.-Bruno-De-Montarville (Quebec);Active - FLBG;55;9400;5;Y;198.6;250.1;298.3;178-201;>201;>201;complexe (urbain / multi-voies / autorité provinciale);2.5
+4843;MTL-QC;103.57;Drummondville;95.71;3Ième Rang Simpson;Public;F;Saint-Cyrille-de-Wendover (QC);Active - FLBG;27;1000;2;N;238.5;300.3;358.2;>201;>201;>201;standard (municipal, ≤2 voies, non urbain);2.5
+45912;MTL-Ott;103.22;Alexandria - VIA;25.05;Farm Field To Field (limited use WS with walk);Private;F;Private Road Authority #1;Active - FLB;14;2;1;N;93.1;117.2;139.8;≤153;≤153;≤153;fermeture (HYPOTHÈSE : alternative routière non vérifiée);2.5
+140682;MTL-QC;140.14;Drummondville;71.0;Private;Private;F;Private Road Authority #1;Passive;-;-;-;N;239.8;302.0;360.0;>201;>201;>201;fermeture (HYPOTHÈSE : alternative routière non vérifiée);2.5
+4866;MTL-QC;57.09;Drummondville;124.95;Des Seigneurs Est;Public;F;MTQ.;Active - FLBG;27;9430;2;Y;239.4;301.4;359.5;>201;>201;>201;complexe (urbain / multi-voies / autorité provinciale);2.5
+140669;MTL-QC;151.98;Drummondville;64.85;Private;Private;F;Private Road Authority #1;Passive;-;-;-;N;160.1;201.5;240.4;154-177;>201;>201;fermeture (HYPOTHÈSE : alternative routière non vérifiée);2.5
+140748;MTL-QC;80.87;Drummondville;107.06;Private;Private;F;Private Road Authority #1;Passive;-;-;-;N;199.6;251.4;299.8;178-201;>201;>201;fermeture (HYPOTHÈSE : alternative routière non vérifiée);2.5
+779165;MTL-TO;215.43;Kingston - CN;134.1;Private;Private;F;Private Road Authority #1;Other;-;-;-;N;198.9;250.4;298.7;178-201;>201;>201;fermeture (HYPOTHÈSE : alternative routière non vérifiée);2.6
+209;MTL-Ott;110.16;Alexandria - VIA;29.53;Cnty Rd 30  (Greenfield);Public;F;Stormont Dundas&Glengarry (Ontario);Active - FLBG;14;571;2;N;105.4;132.7;158.3;≤153;≤153;154-177;standard (municipal, ≤2 voies, non urbain);2.6
+45804;Ott-TO;362.97;Kingston - CN;282.94;-;Private;F;Private Road Authority #1;Passive;40;2;1;N;200.3;252.2;300.8;178-201;>201;>201;fermeture (HYPOTHÈSE : alternative routière non vérifiée);2.6
+45010;MTL-QC;264.89;Bridge;12.21;Passage Pieton/Velo;Public;F;Québec (QC);Active - FLBG;13;1;1;Y;300.0;360.0;360.0;>201;>201;>201;complexe (urbain / multi-voies / autorité provinciale);2.6
+228;MTL-Ott;140.84;Alexandria - VIA;49.27;Route 500 W (Cnty 3);Public;F;Prescott & Russell (Ontario);Active - FLBG;17.5;4100;2;N;197.8;249.1;297.1;178-201;>201;>201;standard (municipal, ≤2 voies, non urbain);2.6
+45710;MTL-TO;245.26;Kingston - CN;154.29;Farm Field;Private;F;Private Road Authority #1;Active - FLB;40;2;1;N;160.3;201.8;240.8;154-177;>201;>201;fermeture (HYPOTHÈSE : alternative routière non vérifiée);2.6
+140705;MTL-QC;131.88;Drummondville;78.53;Private;Private;F;Private Road Authority #1;Passive;-;-;-;N;180.8;227.6;271.5;178-201;>201;>201;fermeture (HYPOTHÈSE : alternative routière non vérifiée);2.6
+300507;MTL-TO;370.75;Kingston - CN;229.7;Hamiilton Rd  (Twp Rd);Public;F;Quinte West (ON);Active - FLBG;40;3563;2;N;199.0;250.6;298.9;178-201;>201;>201;standard (municipal, ≤2 voies, non urbain);2.6
+140689;MTL-QC;132.42;Drummondville;74.47;Private;Private;F;Private Road Authority #1;Passive;-;-;-;N;202.2;254.6;303.7;>201;>201;>201;fermeture (HYPOTHÈSE : alternative routière non vérifiée);2.6
+140716;MTL-QC;121.71;Drummondville;84.22;Private;Private;F;Private Road Authority #1;Passive;-;-;-;N;128.1;161.3;192.4;≤153;154-177;178-201;fermeture (HYPOTHÈSE : alternative routière non vérifiée);2.6
+45711;MTL-TO;252.6;Kingston - CN;155.45;Pykeview Dr.;Private;F;Private Road Authority #1;Active - FLB;40;10;1;N;160.2;201.7;240.5;154-177;>201;>201;fermeture (HYPOTHÈSE : alternative routière non vérifiée);2.6
+140768;MTL-QC;58.44;Drummondville;123.0;Private;Private;F;Private Road Authority #1;Passive;-;-;-;N;159.2;200.5;239.1;154-177;178-201;>201;fermeture (HYPOTHÈSE : alternative routière non vérifiée);2.6
+50839;MTL-Ott;63.8;Alexandria - VIA;5.1;Farm Crossing;Private;F;Saint-Polycarpe (QC);Other;14;2;1;N;199.3;250.9;299.3;178-201;>201;>201;fermeture (HYPOTHÈSE : alternative routière non vérifiée);2.6
+610808;MTL-QC;80.87;Drummondville;109.82;-;Private;F;Private Road Authority #1;Passive;27;2;1;N;199.6;251.4;299.8;178-201;>201;>201;fermeture (HYPOTHÈSE : alternative routière non vérifiée);2.6
+45919;MTL-Ott;114.96;Alexandria - VIA;32.66;-;Private;F;Private Road Authority #1;Passive;14;2;1;N;118.1;148.7;177.3;≤153;≤153;178-201;fermeture (HYPOTHÈSE : alternative routière non vérifiée);2.6
+4865;MTL-QC;57.09;Drummondville;124.52;Rue Guy;Public;F;Saint-Hyacinthe (QC);Active - FLBG;27;2125;2;Y;239.4;301.4;359.5;>201;>201;>201;complexe (urbain / multi-voies / autorité provinciale);2.7
+8324;Ott-TO;417.05;Kingston - GO;315.94;Rodd Ave;Public;P;Pickering (ON);Active - FLBG;103;200;2;Y;166.8;210.0;250.5;154-177;>201;>201;complexe (urbain / multi-voies / autorité provinciale);2.7
+45723;MTL-TO;256.33;Kingston - CN;159.01;Farm Crossing;Private;F;Kingston (ON);Passive;40;25;2;N;238.7;300.6;358.5;>201;>201;>201;fermeture (HYPOTHÈSE : alternative routière non vérifiée);2.7
+45650;MTL-TO;61.75;Kingston - CN;51.24;-;Private;F;Private Road Authority #1;Passive;40;2;1;N;267.4;336.7;360.0;>201;>201;>201;fermeture (HYPOTHÈSE : alternative routière non vérifiée);2.7
+140727;MTL-QC;112.2;Drummondville;89.15;Private;Private;F;Private Road Authority #1;Passive;-;-;-;N;158.3;199.4;237.8;154-177;178-201;>201;fermeture (HYPOTHÈSE : alternative routière non vérifiée);2.7
+141136;MTL-Ott;59.82;Kingston - CN;36.51;Private;Private;F;Private Road Authority #1;Passive;-;-;-;N;304.0;360.0;360.0;>201;>201;>201;fermeture (HYPOTHÈSE : alternative routière non vérifiée);2.7
+8010;MTL-TO;240.16;Kingston - CN;149.87;Kyes Rd;Public;F;Leeds and the 1000 Isl. (ON);Active - FLBG;40;270;2;N;239.0;300.9;359.0;>201;>201;>201;standard (municipal, ≤2 voies, non urbain);2.7
+45938;MTL-Ott;139.16;Alexandria - VIA;48.12;-;Private;F;Private Road Authority #1;Passive;14;10;1;N;124.9;157.2;187.5;≤153;154-177;178-201;fermeture (HYPOTHÈSE : alternative routière non vérifiée);2.7
+140656;MTL-QC;175.01;Drummondville;47.66;Private;Private;F;Private Road Authority #1;Passive;-;-;-;N;124.5;156.7;187.0;≤153;154-177;178-201;fermeture (HYPOTHÈSE : alternative routière non vérifiée);2.7
+45806;Ott-TO;362.97;Kingston - CN;283.15;-;Private;F;Private Road Authority #1;Passive;40;2;1;N;200.3;252.2;300.8;178-201;>201;>201;fermeture (HYPOTHÈSE : alternative routière non vérifiée);2.7
+246;MTL-Ott;160.68;Alexandria - VIA;65.93;Boundary Rd (County Rd 41);Public;F;Ottawa (ON);Active - FLBG;17.5;3345;2;N;306.1;360.0;360.0;>201;>201;>201;standard (municipal, ≤2 voies, non urbain);2.7
+45677;MTL-TO;175.7;Kingston - CN;108.73;-;Private;F;Private Road Authority #1;Passive;40;2;1;N;237.1;298.5;356.1;>201;>201;>201;fermeture (HYPOTHÈSE : alternative routière non vérifiée);2.7
+140690;MTL-QC;132.42;Drummondville;74.53;Private;Private;F;Private Road Authority #1;Passive;-;-;-;N;202.2;254.6;303.7;>201;>201;>201;fermeture (HYPOTHÈSE : alternative routière non vérifiée);2.7
+142567;MTL-QC;54.35;St-Hyacinthe;39.44;Private;Private;F;Private Road Authority #1;Passive;-;-;-;N;121.2;152.6;182.0;≤153;≤153;178-201;fermeture (HYPOTHÈSE : alternative routière non vérifiée);2.7
+610805;MTL-QC;147.97;Drummondville;68.0;Privé;Private;F;Private Road Authority #1;Passive;27;2;1;N;238.6;300.4;358.4;>201;>201;>201;fermeture (HYPOTHÈSE : alternative routière non vérifiée);2.7
+8161;MTL-TO;388.28;Kingston - CN;244.42;Union Rd;Public;F;Cramahe (ON);Active - FLBG;40;150;2;N;193.6;243.7;290.7;178-201;>201;>201;standard (municipal, ≤2 voies, non urbain);2.7
+45649;MTL-TO;61.75;Kingston - CN;51.0;-;Private;F;Private Road Authority #1;Passive;40;2;1;N;267.4;336.7;360.0;>201;>201;>201;fermeture (HYPOTHÈSE : alternative routière non vérifiée);2.7
+140731;MTL-QC;108.15;Drummondville;92.82;Private;Private;F;Private Road Authority #1;Passive;-;-;-;N;159.3;200.5;239.2;154-177;178-201;>201;fermeture (HYPOTHÈSE : alternative routière non vérifiée);2.7
+213;MTL-Ott;117.27;Alexandria - VIA;34.48;Prince St (Maxville);Public;F;North Glengarry (ON);Active - FLBG;14;49;2;Y;130.4;164.2;195.9;≤153;154-177;178-201;complexe (urbain / multi-voies / autorité provinciale);2.7
+241;MTL-Ott;160.68;Alexandria - VIA;61.7;Frank Kenny Rd;Public;F;Ottawa (ON);Active - FLBG;20;2000;2;N;306.1;360.0;360.0;>201;>201;>201;standard (municipal, ≤2 voies, non urbain);2.7
+4842;MTL-QC;107.62;Drummondville;93.77;4Ième Rang St-Hilaire;Public;F;Saint-Cyrille-de-Wendover (QC);Active - FLBG;27;2507;2;Y;207.0;260.7;310.9;>201;>201;>201;complexe (urbain / multi-voies / autorité provinciale);2.7
+7914;MTL-TO;46.39;Kingston - CN;29.2;Rte St-Fereol;Public;F;MTQ.;Active - FLBG;54;2700;2;Y;302.1;360.0;360.0;>201;>201;>201;complexe (urbain / multi-voies / autorité provinciale);2.7
+51500;MTL-QC;140.14;Drummondville;72.7;Ferme;Private;F;Private Road Authority #1;Passive;27;2;1;N;239.8;302.0;360.0;>201;>201;>201;fermeture (HYPOTHÈSE : alternative routière non vérifiée);2.7
+140641;MTL-QC;193.51;Drummondville;39.43;Private;Private;F;Private Road Authority #1;Passive;-;-;-;N;199.1;250.7;299.1;178-201;>201;>201;fermeture (HYPOTHÈSE : alternative routière non vérifiée);2.7
+4858;MTL-QC;69.45;Drummondville;112.56;Rang St-Augustin;Public;F;Sainte-Hélène (QC);Active - FLBG;27;250;2;N;239.6;301.7;359.8;>201;>201;>201;standard (municipal, ≤2 voies, non urbain);2.7
+50944;MTL-Ott;103.3;Alexandria - VIA;25.3;Farm Crossing;Private;F;Unknown;Active - FLB;14;2;1;N;115.5;145.4;173.4;≤153;≤153;154-177;fermeture (HYPOTHÈSE : alternative routière non vérifiée);2.7
+50841;MTL-Ott;63.8;Alexandria - VIA;5.75;Farm Crossing;Private;F;Saint-Polycarpe (QC);Other;14;2;1;N;199.3;250.9;299.3;178-201;>201;>201;fermeture (HYPOTHÈSE : alternative routière non vérifiée);2.8
+8027;MTL-TO;256.33;Kingston - CN;158.95;Best Chase Rd;Public;F;Kingston (ON);Active - FLBG;40;20;1;N;238.7;300.6;358.5;>201;>201;>201;standard (municipal, ≤2 voies, non urbain);2.8
+45898;MTL-Ott;87.16;Alexandria - VIA;19.51;-;Private;F;Private Road Authority #1;Passive;14;2;1;N;127.3;160.2;191.1;≤153;154-177;178-201;fermeture (HYPOTHÈSE : alternative routière non vérifiée);2.8
+8130;Ott-TO;263.35;Kingston - CN;221.14;Moira St;Public;F;Belleville (ON);Active - FLBG;40;3000;2;N;250.7;315.6;360.0;>201;>201;>201;standard (municipal, ≤2 voies, non urbain);2.8
+45874;MTL-Ott;83.64;Alexandria - VIA;13.07;-;Private;F;Private Road Authority #1;Passive;14;2;1;N;109.5;137.9;164.5;≤153;≤153;154-177;fermeture (HYPOTHÈSE : alternative routière non vérifiée);2.8
+140746;MTL-QC;80.87;Drummondville;106.88;Private;Private;F;Private Road Authority #1;Passive;-;-;-;N;199.6;251.4;299.8;178-201;>201;>201;fermeture (HYPOTHÈSE : alternative routière non vérifiée);2.8
+200738;MTL-QC;258.36;Bridge;8.05;Passage Pieton/Velo;Public;F;Québec (QC);Active - FLB;13;25;2;Y;200.7;252.7;301.4;178-201;>201;>201;complexe (urbain / multi-voies / autorité provinciale);2.8
+45941;MTL-Ott;143.84;Alexandria - VIA;52.8;-;Private;F;Private Road Authority #1;Passive;14;2;1;N;301.6;360.0;360.0;>201;>201;>201;fermeture (HYPOTHÈSE : alternative routière non vérifiée);2.8
+8070;Ott-TO;215.72;Kingston - CN;191.51;Mcintyre Rd;Public;F;Loyalist (ON);Active - FLBG;40;100;1;N;228.0;287.0;342.4;>201;>201;>201;standard (municipal, ≤2 voies, non urbain);2.8
+192;MTL-Ott;63.8;Alexandria - VIA;4.5;Chemin Ste-Marie;Public;F;Saint-Polycarpe (QC);Active - FLBG;13;1200;2;N;199.3;250.9;299.3;178-201;>201;>201;standard (municipal, ≤2 voies, non urbain);2.9
+7983;MTL-TO;183.98;Kingston - CN;114.02;Sophia St  (Prescott);Public;F;Prescott (ON);Active - FLBG;40;500;2;N;307.8;360.0;360.0;>201;>201;>201;standard (municipal, ≤2 voies, non urbain);2.9
+140738;MTL-QC;93.75;Drummondville;101.98;Private;Private;F;Private Road Authority #1;Passive;-;-;-;N;161.9;203.9;243.2;154-177;>201;>201;fermeture (HYPOTHÈSE : alternative routière non vérifiée);2.9
+142601;MTL-QC;36.3;St-Hyacinthe;47.82;Private;Private;F;Private Road Authority #1;Passive;-;-;-;N;241.4;304.0;360.0;>201;>201;>201;fermeture (HYPOTHÈSE : alternative routière non vérifiée);2.9
+201;MTL-Ott;97.98;Alexandria - VIA;22.29;McCormick Rd;Public;F;North Glengarry (ON);Active - FLBG;14;399;2;N;120.8;152.1;181.4;≤153;≤153;178-201;standard (municipal, ≤2 voies, non urbain);2.9
+140720;MTL-QC;121.71;Drummondville;85.07;Private;Private;F;Private Road Authority #1;Passive;-;-;-;N;128.1;161.3;192.4;≤153;154-177;178-201;fermeture (HYPOTHÈSE : alternative routière non vérifiée);2.9
+142608;MTL-QC;20.19;St-Hyacinthe;57.56;Private;Private;F;Private Road Authority #1;Passive;-;-;-;N;200.4;252.3;300.9;178-201;>201;>201;fermeture (HYPOTHÈSE : alternative routière non vérifiée);2.9
+777111;MTL-TO;104.91;Kingston - CN;64.35;Private Driveway;Private;F;Private Road Authority #1;Passive;1;2;1;N;199.3;250.9;299.3;178-201;>201;>201;fermeture (HYPOTHÈSE : alternative routière non vérifiée);2.9
+45801;MTL-TO;456.43;Kingston - CN;282.2;-;Private;F;Private Road Authority #1;Active - FLB;40;2;1;N;225.6;284.0;338.8;>201;>201;>201;fermeture (HYPOTHÈSE : alternative routière non vérifiée);2.9
+45721;Ott-TO;162.17;Kingston - CN;158.45;Farm;Private;F;Private Road Authority #1;Passive;40;2;1;N;239.6;301.7;359.8;>201;>201;>201;fermeture (HYPOTHÈSE : alternative routière non vérifiée);2.9
+45897;MTL-Ott;87.16;Alexandria - VIA;19.3;-;Private;F;Private Road Authority #1;Passive;14;2;1;N;127.3;160.2;191.1;≤153;154-177;178-201;fermeture (HYPOTHÈSE : alternative routière non vérifiée);3.0
+8167;Ott-TO;304.82;Kingston - CN;248.29;Colton St;Public;F;Cramahe (ON);Active - FLBG;40;140;1;N;239.0;301.0;359.0;>201;>201;>201;standard (municipal, ≤2 voies, non urbain);3.0
+8004;MTL-TO;223.3;Kingston - CN;138.21;Quabbin Rd  (Cnty 4);Public;F;Leeds & Grenville (Ontario);Active - FLBG;40;500;2;Y;238.8;300.7;358.7;>201;>201;>201;complexe (urbain / multi-voies / autorité provinciale);3.0
+140752;MTL-QC;80.87;Drummondville;108.52;Private;Private;F;Private Road Authority #1;Passive;-;-;-;N;199.6;251.4;299.8;178-201;>201;>201;fermeture (HYPOTHÈSE : alternative routière non vérifiée);3.0
+140686;MTL-QC;140.14;Drummondville;71.97;Private;Private;F;Private Road Authority #1;Passive;-;-;-;N;239.8;302.0;360.0;>201;>201;>201;fermeture (HYPOTHÈSE : alternative routière non vérifiée);3.0
+45922;MTL-Ott;115.7;Alexandria - VIA;33.43;-;Private;F;Private Road Authority #1;Passive;14;2;1;N;198.3;249.7;297.8;178-201;>201;>201;fermeture (HYPOTHÈSE : alternative routière non vérifiée);3.0
+238;MTL-Ott;151.27;Alexandria - VIA;60.57;Devine Rd;Public;F;Ottawa (ON);Active - FLBG;14;300;2;N;360.0;360.0;360.0;>201;>201;>201;standard (municipal, ≤2 voies, non urbain);3.0
+140659;MTL-QC;175.01;Drummondville;51.1;Private;Private;F;Private Road Authority #1;Passive;-;-;-;N;124.5;156.7;187.0;≤153;154-177;178-201;fermeture (HYPOTHÈSE : alternative routière non vérifiée);3.0
+45896;MTL-Ott;87.16;Alexandria - VIA;19.18;-;Private;F;Private Road Authority #1;Passive;14;2;1;N;127.3;160.2;191.1;≤153;154-177;178-201;fermeture (HYPOTHÈSE : alternative routière non vérifiée);3.0
+45918;MTL-Ott;114.96;Alexandria - VIA;32.65;-;Private;F;Private Road Authority #1;Passive;14;2;1;N;118.1;148.7;177.3;≤153;≤153;178-201;fermeture (HYPOTHÈSE : alternative routière non vérifiée);3.0
+8230;MTL-TO;461.29;Kingston - CN;285.38;Metcalfe St;Public;F;Clarington (ON);Active - FLBG;40;350;2;N;171.2;215.5;257.1;154-177;>201;>201;standard (municipal, ≤2 voies, non urbain);3.0
+221;MTL-Ott;128.46;Alexandria - VIA;46.23;7th Concession (Route 700);Public;F;The Nation / La Nation (ON);Active - FLBG;14;75;2;N;250.4;315.3;360.0;>201;>201;>201;standard (municipal, ≤2 voies, non urbain);3.0
+45680;MTL-TO;177.79;Kingston - CN;109.9;-;Private;F;Private Road Authority #1;Passive;40;2;1;N;235.1;296.0;353.1;>201;>201;>201;fermeture (HYPOTHÈSE : alternative routière non vérifiée);3.1
+140615;MTL-QC;201.75;Drummondville;31.25;Private;Private;F;Private Road Authority #1;Passive;-;-;-;N;127.6;160.7;191.6;≤153;154-177;178-201;fermeture (HYPOTHÈSE : alternative routière non vérifiée);3.1
+300180;MTL-TO;227.24;Kingston - CN;140.97;Farm;Private;F;Private Road Authority #1;Active - FLB;40;2;1;N;159.5;200.8;239.5;154-177;178-201;>201;fermeture (HYPOTHÈSE : alternative routière non vérifiée);3.1
+45754;Ott-TO;241.69;Kingston - CN;209.37;-;Private;F;Private Road Authority #1;Active - FLB;40;2;1;N;213.7;269.1;321.0;>201;>201;>201;fermeture (HYPOTHÈSE : alternative routière non vérifiée);3.1
+51756;Ott-TO;264.76;Kingston - CN;223.63;Farm Xng;Private;F;Private Road Authority #1;Passive;40;-;2;N;250.1;314.9;360.0;>201;>201;>201;fermeture (HYPOTHÈSE : alternative routière non vérifiée);3.1
+300538;MTL-TO;475.33;Kingston - CN;294.65;-;Private;F;Private Road Authority #1;Passive;40;2;1;N;198.6;250.1;298.3;178-201;>201;>201;fermeture (HYPOTHÈSE : alternative routière non vérifiée);3.1
+45802;MTL-TO;456.43;Kingston - CN;282.42;-;Private;F;Private Road Authority #1;Active - FLB;40;2;1;N;225.6;284.0;338.8;>201;>201;>201;fermeture (HYPOTHÈSE : alternative routière non vérifiée);3.1
+140707;MTL-QC;130.43;Drummondville;78.9;Private;Private;F;Private Road Authority #1;Passive;-;-;-;N;200.7;252.7;301.5;178-201;>201;>201;fermeture (HYPOTHÈSE : alternative routière non vérifiée);3.2
+7916;MTL-Ott;46.41;Kingston - CN;33.19;Rte St-Emmanuel;Public;F;Coteau-du-Lac (QC);Active - FLBG;54;650;2;N;303.7;360.0;360.0;>201;>201;>201;standard (municipal, ≤2 voies, non urbain);3.2
+142593;MTL-QC;36.3;St-Hyacinthe;46.71;Private;Private;F;Private Road Authority #1;Passive;-;-;-;N;241.4;304.0;360.0;>201;>201;>201;fermeture (HYPOTHÈSE : alternative routière non vérifiée);3.2
+142573;MTL-QC;36.3;St-Hyacinthe;43.4;Private;Private;F;Private Road Authority #1;Passive;-;-;-;N;241.4;304.0;360.0;>201;>201;>201;fermeture (HYPOTHÈSE : alternative routière non vérifiée);3.2
+4856;MTL-QC;80.87;Drummondville;109.1;Rang De L'Eglise;Public;F;MTQ.;Active - FLBG;27;1130;2;N;199.6;251.4;299.8;178-201;>201;>201;complexe (urbain / multi-voies / autorité provinciale);3.2
+19651;Ott-TO;81.48;Brockville - VIA;10.13;Weedmark Rd;Public;F;Merrickville-Wolford (ON);Active - FLBG;12;50;1;N;300.0;360.0;360.0;>201;>201;>201;standard (municipal, ≤2 voies, non urbain);3.3
+45651;MTL-TO;61.75;Kingston - CN;51.5;-;Private;F;Private Road Authority #1;Passive;40;2;1;N;267.4;336.7;360.0;>201;>201;>201;fermeture (HYPOTHÈSE : alternative routière non vérifiée);3.3
+45920;MTL-Ott;115.7;Alexandria - VIA;32.9;-;Private;F;Private Road Authority #1;Passive;14;2;1;N;198.3;249.7;297.8;178-201;>201;>201;fermeture (HYPOTHÈSE : alternative routière non vérifiée);3.3
+7930;MTL-TO;87.96;Kingston - CN;53.82;Main St (Lancaster) HWY 34;Public;F;Stormont Dundas&Glengarry (Ontario);Active - FLBG;40;4011;2;N;238.6;300.5;358.4;>201;>201;>201;standard (municipal, ≤2 voies, non urbain);3.3
+14507;Ott-TO;10.04;Smiths Falls;3.88;Fallowfield Rd;Public;F;Ottawa (ON);Active - FLBG;21.29;28897;4;Y;268.3;337.8;360.0;>201;>201;>201;complexe (urbain / multi-voies / autorité provinciale);3.3
+45647;MTL-TO;61.75;Kingston - CN;49.8;-;Private;F;Private Road Authority #1;Passive;40;2;1;N;267.4;336.7;360.0;>201;>201;>201;fermeture (HYPOTHÈSE : alternative routière non vérifiée);3.3
+233;MTL-Ott;151.27;Alexandria - VIA;55.71;Main St;Public;F;The Nation / La Nation (ON);Active - FLBG;14;450;2;N;360.0;360.0;360.0;>201;>201;>201;standard (municipal, ≤2 voies, non urbain);3.3
+208;MTL-Ott;109.07;Alexandria - VIA;28.93;Kenyon Concession Road 5;Public;F;North Glengarry (ON);Active - FLBG;14;199;2;N;127.7;160.7;191.7;≤153;154-177;178-201;standard (municipal, ≤2 voies, non urbain);3.3
+8191;MTL-TO;428.23;Kingston - CN;264.51;Ontario St;Public;F;Cobourg (ON);Active - FLBG;40;3000;2;Y;159.0;200.1;238.7;154-177;178-201;>201;complexe (urbain / multi-voies / autorité provinciale);3.3
+141135;MTL-Ott;46.41;Kingston - CN;29.45;Private;Private;F;Private Road Authority #1;Passive;-;-;-;N;303.7;360.0;360.0;>201;>201;>201;fermeture (HYPOTHÈSE : alternative routière non vérifiée);3.3
+45748;Ott-TO;241.69;Kingston - CN;207.3;Private;Private;F;Private Road Authority #1;Active - FLB;40;2;1;N;213.7;269.1;321.0;>201;>201;>201;fermeture (HYPOTHÈSE : alternative routière non vérifiée);3.3
+140617;MTL-QC;201.75;Drummondville;31.65;Private;Private;F;Private Road Authority #1;Passive;-;-;-;N;127.6;160.7;191.6;≤153;154-177;178-201;fermeture (HYPOTHÈSE : alternative routière non vérifiée);3.3
+4836;MTL-QC;116.22;Drummondville;88.27;Blake Road;Private;F;Private Road Authority #1;Passive;27;1;1;N;128.0;161.2;192.2;≤153;154-177;178-201;fermeture (HYPOTHÈSE : alternative routière non vérifiée);3.3
+46233;MTL-TO;59.35;Kingston - CN;36.1;-;Private;F;Private Road Authority #1;Passive;54;2;1;N;191.9;241.6;288.2;178-201;>201;>201;fermeture (HYPOTHÈSE : alternative routière non vérifiée);3.3
+34927;MTL-QC;62.09;Drummondville;121.72;De La Traverse;Public;F;Saint-Hyacinthe (QC);Active - FLBG;27;1000;2;N;133.4;168.0;200.3;≤153;154-177;178-201;standard (municipal, ≤2 voies, non urbain);3.3
+8064;Ott-TO;200.09;Kingston - CN;181.71;Coronation Blvd (Cnty 24);Public;F;Lennox & Addington (Ontario);Active - FLBG;40;1500;2;Y;101.4;127.7;152.3;≤153;≤153;≤153;complexe (urbain / multi-voies / autorité provinciale);3.4
+45658;MTL-TO;87.96;Kingston - CN;56.05;-;Private;F;Private Road Authority #1;Passive;40;2;1;N;238.6;300.5;358.4;>201;>201;>201;fermeture (HYPOTHÈSE : alternative routière non vérifiée);3.4
+229;MTL-Ott;143.84;Alexandria - VIA;51.53;Faucher-Baker Rds;Public;F;The Nation / La Nation (ON);Active - FLBG;14;150;2;N;301.6;360.0;360.0;>201;>201;>201;standard (municipal, ≤2 voies, non urbain);3.4
+247;MTL-Ott;160.68;Alexandria - VIA;65.99;Eighth Line Rd;Public;F;Ottawa (ON);Active - FLBG;17.5;350;2;N;306.1;360.0;360.0;>201;>201;>201;standard (municipal, ≤2 voies, non urbain);3.4
+210;MTL-Ott;112.96;Alexandria - VIA;32.06;County Rd 22;Public;F;Stormont Dundas&Glengarry (Ontario);Active - FLBG;14;650;2;N;127.1;160.0;190.9;≤153;154-177;178-201;standard (municipal, ≤2 voies, non urbain);3.4
+140725;MTL-QC;112.2;Drummondville;88.9;Private;Private;F;Private Road Authority #1;Passive;-;-;-;N;158.3;199.4;237.8;154-177;178-201;>201;fermeture (HYPOTHÈSE : alternative routière non vérifiée);3.4
+140698;MTL-QC;132.42;Drummondville;77.15;Private;Private;F;Private Road Authority #1;Passive;-;-;-;N;202.2;254.6;303.7;>201;>201;>201;fermeture (HYPOTHÈSE : alternative routière non vérifiée);3.4
+50935;MTL-Ott;75.71;Alexandria - VIA;8.49;Farm Crossing;Private;F;Private Road Authority #1;Other;14;2;1;N;251.0;316.1;360.0;>201;>201;>201;fermeture (HYPOTHÈSE : alternative routière non vérifiée);3.4
+45945;MTL-Ott;151.27;Alexandria - VIA;57.32;-;Private;F;Private Road Authority #1;Passive;14;2;1;N;360.0;360.0;360.0;>201;>201;>201;fermeture (HYPOTHÈSE : alternative routière non vérifiée);3.4
+7908;MTL-Ott;36.75;Kingston - CN;23.57;3 Ieme Avenue;Public;F;MTQ.;Active - FLBG;54;5670;2;N;221.7;279.1;332.9;>201;>201;>201;complexe (urbain / multi-voies / autorité provinciale);3.4
+140702;MTL-QC;132.42;Drummondville;77.78;Private;Private;F;Private Road Authority #1;Passive;-;-;-;N;202.2;254.6;303.7;>201;>201;>201;fermeture (HYPOTHÈSE : alternative routière non vérifiée);3.4
+45660;MTL-TO;124.32;Kingston - CN;78.96;-;Private;F;Private Road Authority #1;Passive;40;2;1;N;238.1;299.7;357.5;>201;>201;>201;fermeture (HYPOTHÈSE : alternative routière non vérifiée);3.4
+7959;MTL-TO;108.68;Kingston - CN;73.86;Avonmore Rd (Cnty 15);Public;F;Stormont Dundas&Glengarry (Ontario);Active - FLBG;40;2117;2;N;239.7;301.8;360.0;>201;>201;>201;standard (municipal, ≤2 voies, non urbain);3.4
+51496;MTL-QC;149.55;Drummondville;67.63;Ferme;Private;F;Private Road Authority #1;Passive;27;2;1;N;232.1;292.2;348.6;>201;>201;>201;fermeture (HYPOTHÈSE : alternative routière non vérifiée);3.5
+45880;MTL-Ott;85.58;Alexandria - VIA;14.83;-;Private;F;Private Road Authority #1;Passive;14;2;1;N;301.6;360.0;360.0;>201;>201;>201;fermeture (HYPOTHÈSE : alternative routière non vérifiée);3.5
+8166;MTL-TO;399.0;Kingston - CN;247.0;Blyth Park Rd;Public;F;Cramahe (ON);Active - FLBG;40;320;2;N;238.6;300.4;358.3;>201;>201;>201;standard (municipal, ≤2 voies, non urbain);3.5
+45724;Ott-TO;165.06;Kingston - CN;159.59;Farm Crossing;Private;F;Private Road Authority #1;Passive;40;2;1;N;194.0;244.3;291.4;178-201;>201;>201;fermeture (HYPOTHÈSE : alternative routière non vérifiée);3.5
+45796;MTL-TO;422.31;Kingston - CN;261.13;-;Private;F;Private Road Authority #1;Active - FLB;40;2;1;N;301.4;360.0;360.0;>201;>201;>201;fermeture (HYPOTHÈSE : alternative routière non vérifiée);3.5
+140711;MTL-QC;121.71;Drummondville;83.42;Private;Private;F;Private Road Authority #1;Passive;-;-;-;N;128.1;161.3;192.4;≤153;154-177;178-201;fermeture (HYPOTHÈSE : alternative routière non vérifiée);3.5
+45708;MTL-TO;245.26;Kingston - CN;153.9;Farm House & Fields;Private;F;Private Road Authority #1;Active - FLB;40;2;1;N;160.3;201.8;240.8;154-177;>201;>201;fermeture (HYPOTHÈSE : alternative routière non vérifiée);3.5
+140737;MTL-QC;93.75;Drummondville;101.92;Private;Private;F;Private Road Authority #1;Passive;-;-;1;N;161.9;203.9;243.2;154-177;>201;>201;fermeture (HYPOTHÈSE : alternative routière non vérifiée);3.5
+7928;MTL-TO;61.75;Kingston - CN;50.64;2Nd Line Rd - Cnty 26;Public;F;Stormont Dundas&Glengarry (Ontario);Active - FLBG;40;199;2;N;267.4;336.7;360.0;>201;>201;>201;standard (municipal, ≤2 voies, non urbain);3.5
+4837;MTL-QC;115.88;Drummondville;88.6;Chemin Du 9E Rang;Public;F;MTQ.;Active - FLBG;27;1000;2;N;160.2;201.6;240.5;154-177;>201;>201;complexe (urbain / multi-voies / autorité provinciale);3.5
+200508;MTL-QC;246.85;Bridge;0.93;Passage Pieton/Velo;Public;F;Levis (Quebec);Active - FLB;13;1;1;Y;174.9;220.2;262.7;154-177;>201;>201;complexe (urbain / multi-voies / autorité provinciale);3.6
+45732;Ott-TO;209.02;Kingston - CN;188.41;-;Private;F;Private Road Authority #1;Passive;40;2;1;N;239.2;301.1;359.2;>201;>201;>201;fermeture (HYPOTHÈSE : alternative routière non vérifiée);3.6
+300124;Ott-TO;264.76;Kingston - CN;223.78;Farm Xng;Private;F;Private Road Authority #1;Passive;40;10;2;N;250.1;314.9;360.0;>201;>201;>201;fermeture (HYPOTHÈSE : alternative routière non vérifiée);3.6
+200568;MTL-QC;100.3;Drummondville;98.23;Rue Lindsay;Public;F;Drummondville (QC);Active - FLBG;27;13020;2;Y;130.4;164.1;195.8;≤153;154-177;178-201;complexe (urbain / multi-voies / autorité provinciale);3.6
+227;MTL-Ott;140.84;Alexandria - VIA;48.64;Lafontaine Rd;Public;F;The Nation / La Nation (ON);Active - FLBG;14;50;1;N;197.8;249.1;297.1;178-201;>201;>201;standard (municipal, ≤2 voies, non urbain);3.6
+8196;MTL-TO;430.83;Kingston - CN;266.63;Bob Carr Rd;Private;F;Hamilton (ON);Passive;40;1;1;N;197.2;248.2;296.1;178-201;>201;>201;fermeture (HYPOTHÈSE : alternative routière non vérifiée);3.6
+142594;MTL-QC;36.3;St-Hyacinthe;46.8;Private;Private;F;Private Road Authority #1;Passive;-;-;-;N;241.4;304.0;360.0;>201;>201;>201;fermeture (HYPOTHÈSE : alternative routière non vérifiée);3.6
+45690;MTL-TO;197.57;Kingston - CN;121.72;-;Private;F;Private Road Authority #1;Passive;40;2;1;N;239.3;301.3;359.4;>201;>201;>201;fermeture (HYPOTHÈSE : alternative routière non vérifiée);3.6
+142579;MTL-QC;36.3;St-Hyacinthe;44.52;Private;Private;F;Private Road Authority #1;Passive;-;-;-;N;241.4;304.0;360.0;>201;>201;>201;fermeture (HYPOTHÈSE : alternative routière non vérifiée);3.6
+45883;MTL-Ott;87.16;Alexandria - VIA;15.95;-;Private;F;Private Road Authority #1;Passive;14;10;1;N;127.3;160.2;191.1;≤153;154-177;178-201;fermeture (HYPOTHÈSE : alternative routière non vérifiée);3.6
+140655;MTL-QC;175.01;Drummondville;47.45;Private;Private;F;Private Road Authority #1;Passive;-;-;-;N;124.5;156.7;187.0;≤153;154-177;178-201;fermeture (HYPOTHÈSE : alternative routière non vérifiée);3.6
+140717;MTL-QC;121.71;Drummondville;84.4;Private;Private;F;Private Road Authority #1;Passive;-;-;-;N;128.1;161.3;192.4;≤153;154-177;178-201;fermeture (HYPOTHÈSE : alternative routière non vérifiée);3.6
+52497;MTL-Ott;63.8;Alexandria - VIA;4.53;Farm;Private;F;Private Road Authority #1;Passive;-;-;-;N;199.3;250.9;299.3;178-201;>201;>201;fermeture (HYPOTHÈSE : alternative routière non vérifiée);3.7
+45803;MTL-TO;457.14;Kingston - CN;282.66;-;Private;F;Private Road Authority #1;Passive;40;10;1;N;200.2;252.1;300.8;178-201;>201;>201;fermeture (HYPOTHÈSE : alternative routière non vérifiée);3.7
+300167;Ott-TO;160.49;Kingston - CN;156.63;-;Private;F;Private Road Authority #1;Passive;40;2;1;N;172.8;217.6;259.5;154-177;>201;>201;fermeture (HYPOTHÈSE : alternative routière non vérifiée);3.7
+8157;MTL-TO;388.28;Kingston - CN;241.59;Prince Edward-Cnty 63 (Br;Public;F;Northumberland (Ontario);Active - FLBG;40;2700;2;Y;193.6;243.7;290.7;178-201;>201;>201;complexe (urbain / multi-voies / autorité provinciale);3.7
+140750;MTL-QC;80.87;Drummondville;108.02;Private;Private;F;Private Road Authority #1;Passive;-;-;-;N;199.6;251.4;299.8;178-201;>201;>201;fermeture (HYPOTHÈSE : alternative routière non vérifiée);3.7
+51507;MTL-QC;140.14;Drummondville;73.56;Ferme;Private;F;Private Road Authority #1;Passive;27;2;1;N;239.8;302.0;360.0;>201;>201;>201;fermeture (HYPOTHÈSE : alternative routière non vérifiée);3.7
+140668;MTL-QC;151.98;Drummondville;64.45;Private;Private;F;Private Road Authority #1;Passive;-;-;-;N;160.1;201.5;240.4;154-177;>201;>201;fermeture (HYPOTHÈSE : alternative routière non vérifiée);3.7
+52501;MTL-Ott;63.8;Alexandria - VIA;5.34;Farm;Private;F;Private Road Authority #1;Passive;-;-;-;N;199.3;250.9;299.3;178-201;>201;>201;fermeture (HYPOTHÈSE : alternative routière non vérifiée);3.7
+14529;Ott-TO;63.92;Smiths Falls;33.79;Hwy   15;Public;F;ON -Ministry of Transportation;Active - FLBG;12;6600;2;N;195.5;246.1;293.6;178-201;>201;>201;complexe (urbain / multi-voies / autorité provinciale);3.7
+50834;MTL-Ott;63.8;Alexandria - VIA;4.1;Farm Crossing;Private;F;Private Road Authority #1;Passive;14;2;1;N;199.3;250.9;299.3;178-201;>201;>201;fermeture (HYPOTHÈSE : alternative routière non vérifiée);3.7
+778926;MTL-TO;174.21;Kingston - CN;107.46;-;Private;F;Private Road Authority #1;Passive;-;-;1;N;303.8;360.0;360.0;>201;>201;>201;fermeture (HYPOTHÈSE : alternative routière non vérifiée);3.7
+45737;Ott-TO;215.72;Kingston - CN;192.44;Farm;Private;F;Private Road Authority #1;Passive;40;2;1;N;228.0;287.0;342.4;>201;>201;>201;fermeture (HYPOTHÈSE : alternative routière non vérifiée);3.7
+45921;MTL-Ott;115.7;Alexandria - VIA;33.15;-;Private;F;Private Road Authority #1;Passive;14;2;1;N;198.3;249.7;297.8;178-201;>201;>201;fermeture (HYPOTHÈSE : alternative routière non vérifiée);3.7
+52285;MTL-Ott;75.71;Alexandria - VIA;8.51;Farm Crossing;Private;F;Private Road Authority #1;Passive;14;-;-;N;251.0;316.1;360.0;>201;>201;>201;fermeture (HYPOTHÈSE : alternative routière non vérifiée);3.8
+140754;MTL-QC;80.87;Drummondville;109.39;Private;Private;F;Private Road Authority #1;Passive;-;-;-;N;199.6;251.4;299.8;178-201;>201;>201;fermeture (HYPOTHÈSE : alternative routière non vérifiée);3.8
+8234;Ott-TO;369.39;Kingston - CN;286.75;Toronto St;Public;F;Clarington (ON);Active - FLBG;40;30;1;N;238.9;300.8;358.8;>201;>201;>201;standard (municipal, ≤2 voies, non urbain);3.8
+45944;MTL-Ott;151.27;Alexandria - VIA;57.1;-;Private;F;Private Road Authority #1;Passive;14;2;1;N;360.0;360.0;360.0;>201;>201;>201;fermeture (HYPOTHÈSE : alternative routière non vérifiée);3.8
+300165;MTL-TO;208.92;Kingston - CN;129.61;-;Private;F;Private Road Authority #1;Passive;40;2;1;N;199.7;251.5;299.9;178-201;>201;>201;fermeture (HYPOTHÈSE : alternative routière non vérifiée);3.8
+8162;Ott-TO;294.1;Kingston - CN;244.94;Hunt Club Rd;Public;F;Cramahe (ON);Active - FLBG;40;40;2;N;199.8;251.6;300.1;178-201;>201;>201;standard (municipal, ≤2 voies, non urbain);3.8
+8512;MTL-QC;263.61;Bridge;11.75;Boul Pere Lelievre;Public;F;Québec (QC);Active - FLBG;13;13000;4;Y;302.3;360.0;360.0;>201;>201;>201;complexe (urbain / multi-voies / autorité provinciale);3.8
+300177;MTL-TO;221.84;Kingston - CN;136.9;Farm;Private;F;Private Road Authority #1;Passive;40;2;1;N;300.7;360.0;360.0;>201;>201;>201;fermeture (HYPOTHÈSE : alternative routière non vérifiée);3.8
+45755;Ott-TO;241.69;Kingston - CN;209.51;-;Private;F;Private Road Authority #1;Active - FLB;40;2;1;N;213.7;269.1;321.0;>201;>201;>201;fermeture (HYPOTHÈSE : alternative routière non vérifiée);3.8
+140671;MTL-QC;151.98;Drummondville;66.1;Private;Private;F;Private Road Authority #1;Passive;-;-;-;N;160.1;201.5;240.4;154-177;>201;>201;fermeture (HYPOTHÈSE : alternative routière non vérifiée);3.8
+14516;Ott-TO;27.04;Smiths Falls;11.97;Eagleson Rd;Public;F;Ottawa (ON);Active - FLBG;12;2300;2;N;240.3;302.6;360.0;>201;>201;>201;standard (municipal, ≤2 voies, non urbain);3.8
+140763;MTL-QC;66.89;Drummondville;118.67;Private;Private;F;Private Road Authority #1;Passive;-;-;-;N;133.9;168.6;201.1;≤153;154-177;>201;fermeture (HYPOTHÈSE : alternative routière non vérifiée);3.8
+8335;Ott-TO;426.6;Kingston - GO;321.97;Golf Club Rd;Public;P;Toronto (ON);Active - FLBG;103;7500;2;Y;96.7;121.8;145.3;≤153;≤153;≤153;complexe (urbain / multi-voies / autorité provinciale);3.8
+45681;MTL-TO;182.36;Kingston - CN;111.89;-;Private;F;Private Road Authority #1;Other;40;2;1;N;199.4;251.0;299.4;178-201;>201;>201;fermeture (HYPOTHÈSE : alternative routière non vérifiée);3.8
+45886;MTL-Ott;87.16;Alexandria - VIA;16.58;-;Private;F;Private Road Authority #1;Passive;14;2;1;N;127.3;160.2;191.1;≤153;154-177;178-201;fermeture (HYPOTHÈSE : alternative routière non vérifiée);3.8
+140740;MTL-QC;80.87;Drummondville;105.16;Private;Private;F;Private Road Authority #1;Passive;-;-;-;N;199.6;251.4;299.8;178-201;>201;>201;fermeture (HYPOTHÈSE : alternative routière non vérifiée);3.8
+610807;MTL-QC;80.87;Drummondville;105.12;-;Private;F;Private Road Authority #1;Passive;27;10;1;N;199.6;251.4;299.8;178-201;>201;>201;fermeture (HYPOTHÈSE : alternative routière non vérifiée);3.8
+45661;MTL-TO;139.16;Kingston - CN;85.4;-;Private;F;Private Road Authority #1;Passive;40;2;1;N;300.7;360.0;360.0;>201;>201;>201;fermeture (HYPOTHÈSE : alternative routière non vérifiée);3.8
+140723;MTL-QC;120.25;Drummondville;85.6;Private;Private;F;Private Road Authority #1;Passive;-;-;-;N;127.1;160.0;190.9;≤153;154-177;178-201;fermeture (HYPOTHÈSE : alternative routière non vérifiée);3.8
+45875;MTL-Ott;83.64;Alexandria - VIA;13.2;-;Private;F;Private Road Authority #1;Passive;14;2;1;N;109.5;137.9;164.5;≤153;≤153;154-177;fermeture (HYPOTHÈSE : alternative routière non vérifiée);3.9
+140625;MTL-QC;201.75;Drummondville;33.05;Private;Private;F;Private Road Authority #1;Passive;-;-;-;N;127.6;160.7;191.6;≤153;154-177;178-201;fermeture (HYPOTHÈSE : alternative routière non vérifiée);3.9
+142575;MTL-QC;36.3;St-Hyacinthe;43.65;Private;Private;F;Private Road Authority #1;Passive;-;-;-;N;241.4;304.0;360.0;>201;>201;>201;fermeture (HYPOTHÈSE : alternative routière non vérifiée);3.9
+195;MTL-Ott;80.48;Alexandria - VIA;11.61;Ch. Du 4E Rang;Public;F;Sainte-Justine-de-Newton (QC);Active - FLBG;14;25;2;N;139.4;175.5;209.3;≤153;154-177;>201;standard (municipal, ≤2 voies, non urbain);3.9
+140646;MTL-QC;175.01;Drummondville;41.05;Private;Private;F;Private Road Authority #1;Passive;-;-;-;N;124.5;156.7;187.0;≤153;154-177;178-201;fermeture (HYPOTHÈSE : alternative routière non vérifiée);3.9
+8238;MTL-TO;469.92;Kingston - CN;290.44;Port Darlington Rd;Public;F;Clarington (ON);Active - FLBG;40;1500;2;N;160.7;202.3;241.3;154-177;>201;>201;standard (municipal, ≤2 voies, non urbain);3.9
+7981;MTL-TO;183.98;Kingston - CN;112.95;Boundary St  (Prescott);Public;F;Prescott (ON);Active - FLBG;40;1300;2;N;307.8;360.0;360.0;>201;>201;>201;standard (municipal, ≤2 voies, non urbain);3.9
+300981;Ott-TO;109.31;Brockville - VIA;27.12;Hislop Ave;Public;F;Brockville (ON);Active - FLBG;24;2;1;N;77.2;97.3;116.0;≤153;≤153;≤153;standard (municipal, ≤2 voies, non urbain);3.9
+7977;MTL-TO;173.68;Kingston - CN;106.43;Blair Rd;Public;F;Edwardsburgh/Cardinal (ON);Active - FLBG;40;50;2;N;230.7;290.4;346.5;>201;>201;>201;standard (municipal, ≤2 voies, non urbain);3.9
+232;MTL-Ott;151.27;Alexandria - VIA;55.15;Rue Des Pins (Rd 200);Public;F;The Nation / La Nation (ON);Active - FLBG;14;325;2;N;360.0;360.0;360.0;>201;>201;>201;standard (municipal, ≤2 voies, non urbain);3.9
+8008;MTL-TO;236.01;Kingston - CN;146.7;Prince St (Cnty 3);Public;F;Leeds & Grenville (Ontario);Active - FLBG;40;3500;2;Y;239.6;301.7;359.8;>201;>201;>201;complexe (urbain / multi-voies / autorité provinciale);3.9
+45936;MTL-Ott;128.46;Alexandria - VIA;42.2;-;Private;F;Private Road Authority #1;Passive;13;2;1;N;250.4;315.3;360.0;>201;>201;>201;fermeture (HYPOTHÈSE : alternative routière non vérifiée);4.0
+14513;Ott-TO;23.4;Smiths Falls;9.73;Cambrian Rd;Public;F;Ottawa (ON);Active - FLBG;12;400;2;Y;198.7;250.2;298.5;178-201;>201;>201;complexe (urbain / multi-voies / autorité provinciale);4.0
+45726;MTL-TO;259.23;Kingston - CN;160.89;Farm Xng;Private;F;Private Road Authority #1;Passive;-;-;1;N;217.3;273.6;326.4;>201;>201;>201;fermeture (HYPOTHÈSE : alternative routière non vérifiée);4.0
+8007;MTL-TO;234.59;Kingston - CN;144.23;Blue Mountain Rd;Public;F;Leeds and the 1000 Isl. (ON);Active - FLBG;40;150;2;N;302.2;360.0;360.0;>201;>201;>201;standard (municipal, ≤2 voies, non urbain);4.0
+8198;MTL-TO;436.02;Kingston - CN;270.05;Hope St South;Public;F;Port Hope (ON);Active - FLBG;40;450;2;Y;77.3;97.4;116.1;≤153;≤153;≤153;complexe (urbain / multi-voies / autorité provinciale);4.0
+216;MTL-Ott;126.54;Alexandria - VIA;39.99;McNeil Rd;Public;F;North Stormont (ON);Active - FLBG;14;573;2;N;116.8;147.1;175.4;≤153;≤153;154-177;standard (municipal, ≤2 voies, non urbain);4.0
+13953;MTL-QC;32.51;St-Hyacinthe;53.55;Rue Ste-Anne;Public;F;Mont-Saint-Hilaire (QC);Active - FLBG;55;5010;2;Y;127.3;160.3;191.3;≤153;154-177;178-201;complexe (urbain / multi-voies / autorité provinciale);4.1
+46169;MTL-TO;289.69;Kingston - CN;179.0;Private;Private;F;Private Road Authority #1;Passive;40;10;2;N;154.4;194.4;231.9;154-177;178-201;>201;fermeture (HYPOTHÈSE : alternative routière non vérifiée);4.1
+19653;Ott-TO;83.28;Brockville - VIA;13.9;Island Rd;Public;F;Elizabethtown-Kitley (ON);Active - FLBG;12;10;1;N;300.1;360.0;360.0;>201;>201;>201;standard (municipal, ≤2 voies, non urbain);4.1
+45655;MTL-TO;61.75;Kingston - CN;53.51;-;Private;F;Private Road Authority #1;Passive;40;2;1;N;267.4;336.7;360.0;>201;>201;>201;fermeture (HYPOTHÈSE : alternative routière non vérifiée);4.1
+45664;MTL-TO;139.16;Kingston - CN;94.43;-;Private;F;Private Road Authority #1;Passive;40;10;1;N;300.7;360.0;360.0;>201;>201;>201;fermeture (HYPOTHÈSE : alternative routière non vérifiée);4.1
+140756;MTL-QC;80.87;Drummondville;109.63;Private;Private;F;Private Road Authority #1;Passive;-;-;-;N;199.6;251.4;299.8;178-201;>201;>201;fermeture (HYPOTHÈSE : alternative routière non vérifiée);4.1
+13961;MTL-QC;20.19;St-Hyacinthe;59.36;Rue Robert;Public;F;Saint-Basile-le-Grand (QC);Active - FLBG;55;12720;2;Y;200.4;252.3;300.9;178-201;>201;>201;complexe (urbain / multi-voies / autorité provinciale);4.1
+140741;MTL-QC;80.87;Drummondville;105.52;Private;Private;F;Private Road Authority #1;Passive;-;-;-;N;199.6;251.4;299.8;178-201;>201;>201;fermeture (HYPOTHÈSE : alternative routière non vérifiée);4.2
+8031;MTL-TO;270.28;Kingston - CN;168.22;John F. Scott;Public;F;Kingston (ON);Active - FLBG;40;600;2;N;156.8;197.5;235.6;154-177;178-201;>201;standard (municipal, ≤2 voies, non urbain);4.2
+8054;MTL-TO;284.46;Kingston - CN;175.9;Counter St;Public;F;Kingston (ON);Active - FLBG;40;8400;2;Y;201.2;253.3;302.1;>201;>201;>201;complexe (urbain / multi-voies / autorité provinciale);4.2
+52495;MTL-Ott;63.8;Alexandria - VIA;3.38;Farm;Private;F;Private Road Authority #1;Passive;-;-;-;N;199.3;250.9;299.3;178-201;>201;>201;fermeture (HYPOTHÈSE : alternative routière non vérifiée);4.2
+140634;MTL-QC;201.75;Drummondville;34.8;Private;Private;F;Private Road Authority #1;Passive;-;-;-;N;127.6;160.7;191.6;≤153;154-177;178-201;fermeture (HYPOTHÈSE : alternative routière non vérifiée);4.2
+45778;MTL-TO;358.95;Kingston - CN;227.33;Farm Xng;Private;F;Private Road Authority #1;Passive;40;2;1;N;250.9;315.9;360.0;>201;>201;>201;fermeture (HYPOTHÈSE : alternative routière non vérifiée);4.2
+52499;MTL-Ott;63.8;Alexandria - VIA;4.74;Farm;Private;F;Private Road Authority #1;Passive;-;-;-;N;199.3;250.9;299.3;178-201;>201;>201;fermeture (HYPOTHÈSE : alternative routière non vérifiée);4.2
+140677;MTL-QC;140.14;Drummondville;70.35;Private;Private;F;Private Road Authority #1;Passive;-;-;-;N;239.8;302.0;360.0;>201;>201;>201;fermeture (HYPOTHÈSE : alternative routière non vérifiée);4.3
+140681;MTL-QC;140.14;Drummondville;70.8;Private;Private;F;Private Road Authority #1;Passive;-;-;-;N;239.8;302.0;360.0;>201;>201;>201;fermeture (HYPOTHÈSE : alternative routière non vérifiée);4.3
+45675;MTL-TO;175.7;Kingston - CN;108.25;-;Private;F;Private Road Authority #1;Passive;40;2;1;N;237.1;298.5;356.1;>201;>201;>201;fermeture (HYPOTHÈSE : alternative routière non vérifiée);4.3
+13948;MTL-QC;36.3;St-Hyacinthe;48.37;Chemin St-Simon;Public;F;MTQ.;Active - FLBG;34;5130;2;Y;241.4;304.0;360.0;>201;>201;>201;complexe (urbain / multi-voies / autorité provinciale);4.3
+46776;MTL-QC;20.19;St-Hyacinthe;60.04;Boul Du Millénaire;Public;F;Saint-Basile-le-Grand (QC);Active - FLBG;55;10310;4;Y;200.4;252.3;300.9;178-201;>201;>201;complexe (urbain / multi-voies / autorité provinciale);4.3
+142584;MTL-QC;36.3;St-Hyacinthe;45.3;Private;Private;F;Private Road Authority #1;Passive;-;-;-;N;241.4;304.0;360.0;>201;>201;>201;fermeture (HYPOTHÈSE : alternative routière non vérifiée);4.3
+140691;MTL-QC;132.42;Drummondville;74.73;Private;Private;F;Private Road Authority #1;Passive;-;-;-;N;202.2;254.6;303.7;>201;>201;>201;fermeture (HYPOTHÈSE : alternative routière non vérifiée);4.3
+45733;Ott-TO;212.01;Kingston - CN;190.38;Farm;Private;F;Private Road Authority #1;Passive;40;2;1;N;159.3;200.5;239.2;154-177;178-201;>201;fermeture (HYPOTHÈSE : alternative routière non vérifiée);4.3
+4859;MTL-QC;69.45;Drummondville;113.82;Rang Ste-Helene;Public;F;Sainte-Hélène (QC);Active - FLBG;27;375;2;N;239.6;301.7;359.8;>201;>201;>201;standard (municipal, ≤2 voies, non urbain);4.3
+8332;MTL-TO;516.0;Kingston - GO;320.95;Galloway Rd;Public;P;Toronto (ON);Active - FLBG;103;3500;4;Y;307.0;360.0;360.0;>201;>201;>201;complexe (urbain / multi-voies / autorité provinciale);4.3
+249;MTL-Ott;160.68;Alexandria - VIA;67.98;Russell Rd 26;Public;F;Ottawa (ON);Active - FLBG;17.5;3800;2;N;306.1;360.0;360.0;>201;>201;>201;standard (municipal, ≤2 voies, non urbain);4.3
+140649;MTL-QC;175.01;Drummondville;43.51;Private;Private;F;Private Road Authority #1;Passive;-;-;-;N;124.5;156.7;187.0;≤153;154-177;178-201;fermeture (HYPOTHÈSE : alternative routière non vérifiée);4.3
+45745;MTL-TO;328.33;Kingston - CN;203.1;-;Private;F;Private Road Authority #1;Active - FLB;40;2;1;N;199.6;251.3;299.7;178-201;>201;>201;fermeture (HYPOTHÈSE : alternative routière non vérifiée);4.3
+140650;MTL-QC;175.01;Drummondville;44.45;Private;Private;F;Private Road Authority #1;Passive;-;-;-;N;124.5;156.7;187.0;≤153;154-177;178-201;fermeture (HYPOTHÈSE : alternative routière non vérifiée);4.3
+45946;MTL-Ott;151.27;Alexandria - VIA;57.64;-;Private;F;Private Road Authority #1;Passive;14;2;1;N;360.0;360.0;360.0;>201;>201;>201;fermeture (HYPOTHÈSE : alternative routière non vérifiée);4.3
+193;MTL-Ott;63.8;Alexandria - VIA;6.17;Chemin De Beaujeu;Public;F;Saint-Polycarpe (QC);Active - FLBG;14;300;2;N;199.3;250.9;299.3;178-201;>201;>201;standard (municipal, ≤2 voies, non urbain);4.3
+140684;MTL-QC;140.14;Drummondville;71.32;Private;Private;F;Private Road Authority #1;Passive;-;-;-;N;239.8;302.0;360.0;>201;>201;>201;fermeture (HYPOTHÈSE : alternative routière non vérifiée);4.4
+8160;Ott-TO;294.1;Kingston - CN;243.14;Huff Rd;Public;F;Brighton (ON);Active - FLBG;40;300;2;N;199.8;251.6;300.1;178-201;>201;>201;standard (municipal, ≤2 voies, non urbain);4.4
+140747;MTL-QC;80.87;Drummondville;106.96;Private;Private;F;Private Road Authority #1;Passive;-;-;-;N;199.6;251.4;299.8;178-201;>201;>201;fermeture (HYPOTHÈSE : alternative routière non vérifiée);4.4
+191;MTL-Ott;63.8;Alexandria - VIA;3.61;Route Cite Des Jeunes (340);Public;F;Saint-Polycarpe (QC);Active - FLBG;14;2375;2;N;199.3;250.9;299.3;178-201;>201;>201;standard (municipal, ≤2 voies, non urbain);4.4
+778869;MTL-QC;58.44;Drummondville;122.89;-;Private;F;Private Road Authority #1;Passive;-;-;-;N;159.2;200.5;239.1;154-177;178-201;>201;fermeture (HYPOTHÈSE : alternative routière non vérifiée);4.4
+140739;MTL-QC;80.87;Drummondville;104.9;Private;Private;F;Private Road Authority #1;Passive;-;-;-;N;199.6;251.4;299.8;178-201;>201;>201;fermeture (HYPOTHÈSE : alternative routière non vérifiée);4.4
+50255;MTL-TO;245.26;Kingston - CN;153.65;Farm Xng;Private;F;Private Road Authority #1;Passive;-;-;1;N;160.3;201.8;240.8;154-177;>201;>201;fermeture (HYPOTHÈSE : alternative routière non vérifiée);4.4
+8012;MTL-TO;245.26;Kingston - CN;153.21;Hiscocks Rd (Cnty 34);Public;F;Leeds & Grenville (Ontario);Active - FLBG;40;600;2;N;160.3;201.8;240.8;154-177;>201;>201;standard (municipal, ≤2 voies, non urbain);4.4
+4852;MTL-QC;90.53;Drummondville;103.68;Chemin Du 8E Rang;Public;F;Saint-Germain (QC);Active - FLBG;27;300;2;N;200.4;252.4;301.0;178-201;>201;>201;standard (municipal, ≤2 voies, non urbain);4.5
+8063;MTL-TO;291.69;Kingston - CN;180.27;Collins Bay Rd;Public;F;Kingston (ON);Active - FLBG;40;6060;2;Y;153.1;192.7;229.9;154-177;178-201;>201;complexe (urbain / multi-voies / autorité provinciale);4.5
+200725;MTL-QC;260.9;Bridge;9.7;Passage Pieton/Velo;Public;F;Québec (QC);Active - FLB;13;25;2;Y;100.1;126.0;150.3;≤153;≤153;≤153;complexe (urbain / multi-voies / autorité provinciale);4.5
+140651;MTL-QC;175.01;Drummondville;45.31;Private;Private;F;Private Road Authority #1;Passive;-;-;-;N;124.5;156.7;187.0;≤153;154-177;178-201;fermeture (HYPOTHÈSE : alternative routière non vérifiée);4.5
+8137;Ott-TO;264.76;Kingston - CN;226.97;Aikins Road;Public;F;Quinte West (ON);Active - FLBG;40;471;2;N;250.1;314.9;360.0;>201;>201;>201;standard (municipal, ≤2 voies, non urbain);4.5
+14505;Ott-TO;10.04;Smiths Falls;1.63;Merivale Rd;Public;F;Ottawa (ON);Active - FLBG;12;19554;3;Y;268.3;337.8;360.0;>201;>201;>201;complexe (urbain / multi-voies / autorité provinciale);4.5
+19647;Ott-TO;75.3;Brockville - VIA;6.03;Kilmarnock Rd;Public;F;Merrickville-Wolford (ON);Active - FLBG;12;500;2;N;304.1;360.0;360.0;>201;>201;>201;standard (municipal, ≤2 voies, non urbain);4.5
+300158;Ott-TO;121.27;Kingston - CN;133.81;-;Private;F;Private Road Authority #1;Passive;40;2;1;N;199.3;250.9;299.3;178-201;>201;>201;fermeture (HYPOTHÈSE : alternative routière non vérifiée);4.5
+140613;MTL-QC;242.96;Drummondville;9.9;Private;Private;F;Private Road Authority #1;Other;-;-;-;N;157.4;198.2;236.4;154-177;178-201;>201;fermeture (HYPOTHÈSE : alternative routière non vérifiée);4.5
+779146;MTL-Ott;107.73;Alexandria - VIA;27.94;Road allowance - Greenfield;Private;F;North Glengarry (ON);Other;-;49;2;N;199.9;251.8;300.3;178-201;>201;>201;fermeture (HYPOTHÈSE : alternative routière non vérifiée);4.5
+252;MTL-Ott;160.68;Alexandria - VIA;70.44;Anderson Rd  27;Public;F;Ottawa (ON);Active - FLBG;14;2350;2;N;306.1;360.0;360.0;>201;>201;>201;standard (municipal, ≤2 voies, non urbain);4.5
+8229;Ott-TO;367.12;Kingston - CN;285.05;Riley Rd;Public;F;Clarington (ON);Active - FLBG;40;70;1;N;171.2;215.5;257.1;154-177;>201;>201;standard (municipal, ≤2 voies, non urbain);4.5
+140697;MTL-QC;132.42;Drummondville;76.93;Private;Private;F;Private Road Authority #1;Passive;-;-;-;N;202.2;254.6;303.7;>201;>201;>201;fermeture (HYPOTHÈSE : alternative routière non vérifiée);4.5
+45782;MTL-TO;370.75;Kingston - CN;229.02;Farm Xng;Private;F;Private Road Authority #1;Passive;40;2;1;N;199.0;250.6;298.9;178-201;>201;>201;fermeture (HYPOTHÈSE : alternative routière non vérifiée);4.6
+45798;MTL-TO;448.4;Kingston - CN;277.42;-;Private;F;Private Road Authority #1;Passive;40;2;1;N;201.2;253.3;302.1;>201;>201;>201;fermeture (HYPOTHÈSE : alternative routière non vérifiée);4.6
+140758;MTL-QC;80.87;Drummondville;109.79;Private;Private;F;Private Road Authority #1;Passive;-;-;-;N;199.6;251.4;299.8;178-201;>201;>201;fermeture (HYPOTHÈSE : alternative routière non vérifiée);4.6
+14517;Ott-TO;27.04;Smiths Falls;12.54;Ottawa St;Public;F;Ottawa (ON);Active - FLBG;12;2400;2;N;240.3;302.6;360.0;>201;>201;>201;standard (municipal, ≤2 voies, non urbain);4.6
+45790;Ott-TO;294.1;Kingston - CN;244.16;Farm;Private;F;Private Road Authority #1;Passive;40;2;1;N;199.8;251.6;300.1;178-201;>201;>201;fermeture (HYPOTHÈSE : alternative routière non vérifiée);4.6
+140652;MTL-QC;175.01;Drummondville;45.5;Private;Private;F;Private Road Authority #1;Passive;-;-;-;N;124.5;156.7;187.0;≤153;154-177;178-201;fermeture (HYPOTHÈSE : alternative routière non vérifiée);4.6
+52383;MTL-TO;325.91;Kingston - CN;202.1;Farm;Private;F;Private Road Authority #1;Active - FLB;-;-;-;N;301.6;360.0;360.0;>201;>201;>201;fermeture (HYPOTHÈSE : alternative routière non vérifiée);4.6
+45777;MTL-TO;349.25;Kingston - CN;218.61;-;Private;F;Private Road Authority #1;Other;40;2;1;N;300.9;360.0;360.0;>201;>201;>201;fermeture (HYPOTHÈSE : alternative routière non vérifiée);4.7
+300153;MTL-TO;215.43;Kingston - CN;134.35;-;Private;F;Private Road Authority #1;Passive;40;10;2;N;198.9;250.4;298.7;178-201;>201;>201;fermeture (HYPOTHÈSE : alternative routière non vérifiée);4.7
+7995;MTL-TO;202.74;Kingston - CN;125.06;Ormond St;Public;F;Brockville (ON);Active - FLBG;40;4900;2;Y;133.2;167.7;200.1;≤153;154-177;178-201;complexe (urbain / multi-voies / autorité provinciale);4.7
+7915;MTL-Ott;46.41;Kingston - CN;31.33;Rte St-Dominique;Public;F;Les Cèdres (QC);Active - FLBG;54;665;2;N;303.7;360.0;360.0;>201;>201;>201;standard (municipal, ≤2 voies, non urbain);4.7
+140692;MTL-QC;132.42;Drummondville;75.25;Private;Private;F;Private Road Authority #1;Passive;-;-;-;N;202.2;254.6;303.7;>201;>201;>201;fermeture (HYPOTHÈSE : alternative routière non vérifiée);4.7
+7922;MTL-TO;61.75;Kingston - CN;41.59;Chemin St-Thomas;Public;F;Saint-Zotique (QC);Active - FLBG;40;600;2;N;267.4;336.7;360.0;>201;>201;>201;standard (municipal, ≤2 voies, non urbain);4.7
+236;MTL-Ott;151.27;Alexandria - VIA;58.5;Russland Rd;Public;F;Ottawa (ON);Active - FLBG;14;1200;2;N;360.0;360.0;360.0;>201;>201;>201;standard (municipal, ≤2 voies, non urbain);4.7
+300179;MTL-TO;223.3;Kingston - CN;137.85;-;Private;F;Private Road Authority #1;Passive;40;2;1;N;238.8;300.7;358.7;>201;>201;>201;fermeture (HYPOTHÈSE : alternative routière non vérifiée);4.7
+8193;MTL-TO;428.23;Kingston - CN;265.05;Burnham St;Public;F;Cobourg (ON);Active - FLBG;40;3600;2;N;159.0;200.1;238.7;154-177;178-201;>201;standard (municipal, ≤2 voies, non urbain);4.8
+4864;MTL-QC;58.44;Drummondville;123.4;4 Ieme Rang;Public;F;Saint-Hyacinthe (QC);Active - FLBG;27;200;2;N;159.2;200.5;239.1;154-177;178-201;>201;standard (municipal, ≤2 voies, non urbain);4.8
+140721;MTL-QC;121.0;Drummondville;85.23;Private;Private;F;Private Road Authority #1;Passive;-;-;-;N;118.9;149.7;178.5;≤153;≤153;178-201;fermeture (HYPOTHÈSE : alternative routière non vérifiée);4.8
+8096;Ott-TO;249.37;Kingston - CN;213.45;Shannonville Rd (Twp Rd);Public;F;Tyendinaga (ON);Active - FLBG;40;1200;2;N;199.3;250.9;299.3;178-201;>201;>201;standard (municipal, ≤2 voies, non urbain);4.8
+45665;MTL-TO;164.47;Kingston - CN;101.2;-;Private;F;Private Road Authority #1;Passive;40;2;1;N;211.8;266.6;318.0;>201;>201;>201;fermeture (HYPOTHÈSE : alternative routière non vérifiée);4.8
+45789;MTL-TO;388.28;Kingston - CN;244.0;Farm;Private;F;Private Road Authority #1;Passive;40;2;1;N;193.6;243.7;290.7;178-201;>201;>201;fermeture (HYPOTHÈSE : alternative routière non vérifiée);4.8
+4863;MTL-QC;64.16;Drummondville;120.38;Rang St-Georges;Public;F;MTQ.;Active - FLBG;27;2500;2;N;166.9;210.2;250.7;154-177;>201;>201;complexe (urbain / multi-voies / autorité provinciale);4.8
+45757;MTL-TO;335.83;Kingston - CN;210.16;-;Private;F;Private Road Authority #1;Passive;40;2;1;N;211.6;266.5;317.9;>201;>201;>201;fermeture (HYPOTHÈSE : alternative routière non vérifiée);4.8
+14526;Ott-TO;48.97;Smiths Falls;27.67;Holbrook Rd;Public;F;Montague (ON);Active - FLBG;12;20;2;N;200.5;252.4;301.1;178-201;>201;>201;standard (municipal, ≤2 voies, non urbain);4.8
+140699;MTL-QC;132.42;Drummondville;77.4;Private;Private;F;Private Road Authority #1;Passive;-;-;-;N;202.2;254.6;303.7;>201;>201;>201;fermeture (HYPOTHÈSE : alternative routière non vérifiée);4.8
+300170;Ott-TO;125.95;Kingston - CN;135.2;-;Private;F;Private Road Authority #1;Active - FLB;40;2;1;N;175.1;220.4;262.9;154-177;>201;>201;fermeture (HYPOTHÈSE : alternative routière non vérifiée);4.9
+199;MTL-Ott;87.16;Alexandria - VIA;20.01;Massiedale Rd;Public;F;North Glengarry (ON);Active - FLBG;14;199;2;N;127.3;160.2;191.1;≤153;154-177;178-201;standard (municipal, ≤2 voies, non urbain);4.9
+142596;MTL-QC;36.3;St-Hyacinthe;47.0;Private;Private;F;Private Road Authority #1;Passive;-;-;-;N;241.4;304.0;360.0;>201;>201;>201;fermeture (HYPOTHÈSE : alternative routière non vérifiée);4.9
+142607;MTL-QC;34.63;St-Hyacinthe;52.02;Private;Private;F;Private Road Authority #1;Passive;-;-;-;N;248.0;312.2;360.0;>201;>201;>201;fermeture (HYPOTHÈSE : alternative routière non vérifiée);4.9
+140653;MTL-QC;175.01;Drummondville;45.75;Private;Private;F;Private Road Authority #1;Passive;-;-;-;N;124.5;156.7;187.0;≤153;154-177;178-201;fermeture (HYPOTHÈSE : alternative routière non vérifiée);4.9
+140637;MTL-QC;201.35;Drummondville;35.4;Private;Private;F;Private Road Authority #1;Passive;-;-;-;N;167.0;210.3;250.8;154-177;>201;>201;fermeture (HYPOTHÈSE : alternative routière non vérifiée);4.9
+46658;Ott-TO;252.75;Kingston - CN;215.24;Farm Crossing;Private;F;Private Road Authority #1;Active - FLB;40;2;1;N;159.4;200.7;239.4;154-177;178-201;>201;fermeture (HYPOTHÈSE : alternative routière non vérifiée);4.9
+778867;MTL-QC;69.45;Drummondville;115.75;-;Private;F;Private Road Authority #1;Passive;-;-;-;N;239.6;301.7;359.8;>201;>201;>201;fermeture (HYPOTHÈSE : alternative routière non vérifiée);4.9
+51405;MTL-TO;57.98;Kingston - CN;35.25;Ferme;Private;F;Private Road Authority #1;Passive;54;2;1;N;222.6;280.3;334.3;>201;>201;>201;fermeture (HYPOTHÈSE : alternative routière non vérifiée);4.9
+51506;MTL-QC;140.14;Drummondville;73.42;Ferme;Private;F;Private Road Authority #1;Passive;27;2;1;N;239.8;302.0;360.0;>201;>201;>201;fermeture (HYPOTHÈSE : alternative routière non vérifiée);4.9
+140628;MTL-QC;201.75;Drummondville;33.95;Private;Private;F;Private Road Authority #1;Passive;-;-;-;N;127.6;160.7;191.6;≤153;154-177;178-201;fermeture (HYPOTHÈSE : alternative routière non vérifiée);5.0
+245;MTL-Ott;160.68;Alexandria - VIA;64.9;Carlsbad Lane;Public;F;Ottawa (ON);Active - FLBG;14;216;2;N;306.1;360.0;360.0;>201;>201;>201;standard (municipal, ≤2 voies, non urbain);5.0
+19646;Ott-TO;72.97;Brockville - VIA;5.48;Jasper Rd - Cnty 17;Public;F;Leeds & Grenville (Ontario);Active - FLBG;24;2379;2;N;239.2;301.2;359.3;>201;>201;>201;standard (municipal, ≤2 voies, non urbain);5.0
+45663;MTL-TO;139.16;Kingston - CN;93.75;-;Private;F;Private Road Authority #1;Passive;40;2;1;N;300.7;360.0;360.0;>201;>201;>201;fermeture (HYPOTHÈSE : alternative routière non vérifiée);5.0
+7987;MTL-TO;192.49;Kingston - CN;119.05;Brockem Rd;Public;F;Augusta (ON);Active - FLBG;40;650;2;N;239.0;300.9;358.9;>201;>201;>201;standard (municipal, ≤2 voies, non urbain);5.0
+8030;Ott-TO;165.06;Kingston - CN;163.34;Joyceville Rd;Public;F;Kingston (ON);Active - FLBG;40;1000;2;N;194.0;244.3;291.4;178-201;>201;>201;standard (municipal, ≤2 voies, non urbain);5.0
+14506;Ott-TO;10.04;Smiths Falls;3.28;Woodroffe Rd;Public;F;Ottawa (ON);Active - FLBG;30;20753;4;Y;268.3;337.8;360.0;>201;>201;>201;complexe (urbain / multi-voies / autorité provinciale);5.0
+140704;MTL-QC;132.42;Drummondville;78.2;Private;Private;F;Private Road Authority #1;Passive;-;-;-;N;202.2;254.6;303.7;>201;>201;>201;fermeture (HYPOTHÈSE : alternative routière non vérifiée);5.0
+13955;MTL-QC;31.23;St-Hyacinthe;54.34;Montee Des Trente;Public;F;Mont-Saint-Hilaire (QC);Active - FLBG;55;3510;2;Y;222.8;280.5;334.6;>201;>201;>201;complexe (urbain / multi-voies / autorité provinciale);5.0
+4809;MTL-QC;161.53;Drummondville;55.66;Chemin Belgique;Public;F;Manseau (QC);Active - FLBG;27;10;1;N;201.1;253.1;302.0;>201;>201;>201;standard (municipal, ≤2 voies, non urbain);5.1
+140710;MTL-QC;130.43;Drummondville;79.4;Private;Private;F;Private Road Authority #1;Passive;-;-;-;N;200.7;252.7;301.5;178-201;>201;>201;fermeture (HYPOTHÈSE : alternative routière non vérifiée);5.1
+140661;MTL-QC;174.42;Drummondville;52.39;Private;Private;F;Private Road Authority #1;Passive;-;-;-;N;121.0;152.3;181.7;≤153;≤153;178-201;fermeture (HYPOTHÈSE : alternative routière non vérifiée);5.1
+300174;MTL-TO;221.45;Kingston - CN;136.25;Farm;Private;F;Private Road Authority #1;Passive;40;2;1;N;239.8;302.0;360.0;>201;>201;>201;fermeture (HYPOTHÈSE : alternative routière non vérifiée);5.1
+51498;MTL-QC;140.14;Drummondville;72.12;Ferme;Private;F;Private Road Authority #1;Passive;27;2;1;N;239.8;302.0;360.0;>201;>201;>201;fermeture (HYPOTHÈSE : alternative routière non vérifiée);5.1
+140675;MTL-QC;140.14;Drummondville;69.7;Private;Private;F;Private Road Authority #1;Passive;-;-;-;N;239.8;302.0;360.0;>201;>201;>201;fermeture (HYPOTHÈSE : alternative routière non vérifiée);5.1
+300122;Ott-TO;264.76;Kingston - CN;223.27;Zebedee'S Rd;Private;F;Private Road Authority #1;Active - FLBG;40;10;2;N;250.1;314.9;360.0;>201;>201;>201;fermeture (HYPOTHÈSE : alternative routière non vérifiée);5.2
+46226;MTL-QC;147.55;Drummondville;69.0;Privé;Private;F;Private Road Authority #1;Passive;27;2;1;N;227.6;286.5;341.8;>201;>201;>201;fermeture (HYPOTHÈSE : alternative routière non vérifiée);5.2
+4792;MTL-QC;175.01;Drummondville;46.07;Rang 16  Est;Public;F;Villeroy (QC);Active - FLBG;27;510;2;N;124.5;156.7;187.0;≤153;154-177;178-201;standard (municipal, ≤2 voies, non urbain);5.2
+142598;MTL-QC;36.3;St-Hyacinthe;47.2;Private;Private;F;Private Road Authority #1;Passive;-;-;-;N;241.4;304.0;360.0;>201;>201;>201;fermeture (HYPOTHÈSE : alternative routière non vérifiée);5.2
+45775;Ott-TO;255.11;Kingston - CN;218.01;Private Access;Private;F;Private Road Authority #1;Active - FLB;40;2;1;N;300.1;360.0;360.0;>201;>201;>201;fermeture (HYPOTHÈSE : alternative routière non vérifiée);5.2
+239;MTL-Ott;151.27;Alexandria - VIA;60.71;Rockdale Dr - Cnty 33;Public;F;Ottawa (ON);Active - FLBG;14;3350;2;N;360.0;360.0;360.0;>201;>201;>201;standard (municipal, ≤2 voies, non urbain);5.2
+217;MTL-Ott;127.34;Alexandria - VIA;40.38;Valley St;Public;F;North Stormont (ON);Active - FLBG;14;830;2;N;308.2;360.0;360.0;>201;>201;>201;standard (municipal, ≤2 voies, non urbain);5.2
+218;MTL-Ott;128.46;Alexandria - VIA;40.89;Rue Labrosse - Cnty 15;Public;F;Stormont Dundas&Glengarry (Ontario);Active - FLBG;14;495;2;Y;250.4;315.3;360.0;>201;>201;>201;complexe (urbain / multi-voies / autorité provinciale);5.2
+300159;MTL-TO;215.43;Kingston - CN;133.84;-;Private;F;Private Road Authority #1;Passive;40;2;1;N;198.9;250.4;298.7;178-201;>201;>201;fermeture (HYPOTHÈSE : alternative routière non vérifiée);5.3
+215;MTL-Ott;121.4;Alexandria - VIA;38.68;Hwy  138;Public;F;ON -Ministry of Transportation;Active - FLBG;14;7800;2;N;127.1;160.0;190.9;≤153;154-177;178-201;complexe (urbain / multi-voies / autorité provinciale);5.3
+8072;Ott-TO;215.72;Kingston - CN;193.68;Big Creek Rd;Public;F;Greater Napanee (ON);Active - FLBG;40;100;1;N;228.0;287.0;342.4;>201;>201;>201;standard (municipal, ≤2 voies, non urbain);5.3
+45697;MTL-TO;236.01;Kingston - CN;145.9;Farm;Private;F;Private Road Authority #1;Active - FLB;40;2;1;N;239.6;301.7;359.8;>201;>201;>201;fermeture (HYPOTHÈSE : alternative routière non vérifiée);5.4
+7925;MTL-TO;61.75;Kingston - CN;45.29;5th Line Rd;Public;F;South Glengarry (ON);Active - FLBG;40;199;1;N;267.4;336.7;360.0;>201;>201;>201;standard (municipal, ≤2 voies, non urbain);5.4
+8236;MTL-TO;467.61;Kingston - CN;289.08;Bennets Rd;Public;F;Clarington (ON);Active - FLBG;40;120;1;N;160.4;202.0;240.9;154-177;>201;>201;standard (municipal, ≤2 voies, non urbain);5.4
+45730;Ott-TO;165.06;Kingston - CN;162.5;-;Private;F;Private Road Authority #1;Passive;40;2;1;N;194.0;244.3;291.4;178-201;>201;>201;fermeture (HYPOTHÈSE : alternative routière non vérifiée);5.4
+140633;MTL-QC;201.75;Drummondville;34.6;Private;Private;F;Private Road Authority #1;Passive;-;-;-;N;127.6;160.7;191.6;≤153;154-177;178-201;fermeture (HYPOTHÈSE : alternative routière non vérifiée);5.4
+14521;Ott-TO;33.57;Smiths Falls;20.64;O'Neill Rd;Public;F;Ottawa (ON);Active - FLBG;12;50;1;N;300.2;360.0;360.0;>201;>201;>201;standard (municipal, ≤2 voies, non urbain);5.4
+4788;MTL-QC;193.51;Drummondville;36.96;Route Trepanier;Public;F;Val-Alain (QC);Active - FLBG;27;150;2;N;199.1;250.7;299.1;178-201;>201;>201;standard (municipal, ≤2 voies, non urbain);5.4
+140759;MTL-QC;80.87;Drummondville;109.96;Private;Private;F;Private Road Authority #1;Passive;-;-;-;N;199.6;251.4;299.8;178-201;>201;>201;fermeture (HYPOTHÈSE : alternative routière non vérifiée);5.4
+45752;Ott-TO;241.69;Kingston - CN;208.35;-;Private;F;Private Road Authority #1;Active - FLB;40;2;1;N;213.7;269.1;321.0;>201;>201;>201;fermeture (HYPOTHÈSE : alternative routière non vérifiée);5.4
+778864;MTL-QC;80.87;Drummondville;106.12;-;Private;F;Private Road Authority #1;Passive;-;-;-;N;199.6;251.4;299.8;178-201;>201;>201;fermeture (HYPOTHÈSE : alternative routière non vérifiée);5.4
+45766;Ott-TO;255.11;Kingston - CN;215.7;Private Road;Private;F;Private Road Authority #1;Active - FLB;40;2;1;N;300.1;360.0;360.0;>201;>201;>201;fermeture (HYPOTHÈSE : alternative routière non vérifiée);5.4
+52498;MTL-Ott;63.8;Alexandria - VIA;4.67;Farm;Private;F;Private Road Authority #1;Passive;-;-;-;N;199.3;250.9;299.3;178-201;>201;>201;fermeture (HYPOTHÈSE : alternative routière non vérifiée);5.5
+45889;MTL-Ott;87.16;Alexandria - VIA;17.5;-;Private;F;Private Road Authority #1;Passive;14;10;1;N;127.3;160.2;191.1;≤153;154-177;178-201;fermeture (HYPOTHÈSE : alternative routière non vérifiée);5.5
+45916;MTL-Ott;106.41;Alexandria - VIA;27.15;-;Private;F;Private Road Authority #1;Passive;14;2;1;N;242.3;305.1;360.0;>201;>201;>201;fermeture (HYPOTHÈSE : alternative routière non vérifiée);5.5
+52382;MTL-TO;325.91;Kingston - CN;201.5;Farm;Private;F;Private Road Authority #1;Active - FLB;-;-;-;N;301.6;360.0;360.0;>201;>201;>201;fermeture (HYPOTHÈSE : alternative routière non vérifiée);5.5
+45653;MTL-TO;61.75;Kingston - CN;53.03;-;Private;F;Private Road Authority #1;Passive;40;2;1;N;267.4;336.7;360.0;>201;>201;>201;fermeture (HYPOTHÈSE : alternative routière non vérifiée);5.5
+50370;MTL-QC;263.61;Bridge;11.3;Passage Privé;Private;F;Private Road Authority #1;Passive;13;10;2;N;302.3;360.0;360.0;>201;>201;>201;fermeture (HYPOTHÈSE : alternative routière non vérifiée);5.5
+45698;Ott-TO;146.0;Kingston - CN;147.75;-;Private;F;Private Road Authority #1;Active - FLB;40;2;1;N;239.2;301.2;359.3;>201;>201;>201;fermeture (HYPOTHÈSE : alternative routière non vérifiée);5.5
+45917;MTL-Ott;106.41;Alexandria - VIA;27.32;-;Private;F;Private Road Authority #1;Passive;14;2;1;N;242.3;305.1;360.0;>201;>201;>201;fermeture (HYPOTHÈSE : alternative routière non vérifiée);5.5
+52392;MTL-QC;36.3;St-Hyacinthe;43.03;-;Private;F;Private Road Authority #1;Passive;-;-;-;N;241.4;304.0;360.0;>201;>201;>201;fermeture (HYPOTHÈSE : alternative routière non vérifiée);5.5
+4821;MTL-QC;140.14;Drummondville;72.03;Rue Vigneault;Public;F;Aston-Jonction (QC);Active - FLBG;27;700;2;N;239.8;302.0;360.0;>201;>201;>201;standard (municipal, ≤2 voies, non urbain);5.5
+140622;MTL-QC;201.75;Drummondville;32.55;Private;Private;F;Private Road Authority #1;Passive;-;-;-;N;127.6;160.7;191.6;≤153;154-177;178-201;fermeture (HYPOTHÈSE : alternative routière non vérifiée);5.5
+13951;MTL-QC;36.3;St-Hyacinthe;51.36;Chemin Rouillard;Public;F;Mont-Saint-Hilaire (QC);Active - FLBG;55;504;2;Y;241.4;304.0;360.0;>201;>201;>201;complexe (urbain / multi-voies / autorité provinciale);5.5
+45759;MTL-TO;335.83;Kingston - CN;210.67;-;Private;F;Private Road Authority #1;Active - FLB;40;2;1;N;211.6;266.5;317.9;>201;>201;>201;fermeture (HYPOTHÈSE : alternative routière non vérifiée);5.6
+46171;Ott-TO;255.11;Kingston - CN;217.75;Private Road;Private;F;Private Road Authority #1;Active - FLBG;40;2;1;N;300.1;360.0;360.0;>201;>201;>201;fermeture (HYPOTHÈSE : alternative routière non vérifiée);5.6
+4844;MTL-QC;100.3;Drummondville;98.13;Rue Heriot;Public;F;Drummondville (QC);Active - FLBG;27;8020;2;Y;130.4;164.1;195.8;≤153;154-177;178-201;complexe (urbain / multi-voies / autorité provinciale);5.6
+142578;MTL-QC;36.3;St-Hyacinthe;44.4;Private;Private;F;Private Road Authority #1;Passive;-;-;-;N;241.4;304.0;360.0;>201;>201;>201;fermeture (HYPOTHÈSE : alternative routière non vérifiée);5.6
+45694;Ott-TO;141.85;Kingston - CN;145.37;Farm;Private;F;Private Road Authority #1;Active - FLB;40;1;1;N;239.8;302.0;360.0;>201;>201;>201;fermeture (HYPOTHÈSE : alternative routière non vérifiée);5.6
+45679;MTL-TO;177.79;Kingston - CN;108.92;-;Private;F;Private Road Authority #1;Passive;40;2;1;N;235.1;296.0;353.1;>201;>201;>201;fermeture (HYPOTHÈSE : alternative routière non vérifiée);5.6
+234;MTL-Ott;151.27;Alexandria - VIA;55.97;Chem. Limoges  (Cnty 5);Public;F;Prescott & Russell (Ontario);Active - FLBG;14;1600;2;N;360.0;360.0;360.0;>201;>201;>201;standard (municipal, ≤2 voies, non urbain);5.6
+8171;Ott-TO;309.19;Kingston - CN;250.61;Townline Rd (Lakeport Rd);Public;F;Alynwick - Haldimand (Ontario);Active - FLBG;40;200;2;N;300.3;360.0;360.0;>201;>201;>201;standard (municipal, ≤2 voies, non urbain);5.6
+8504;MTL-QC;264.89;Bridge;12.59;Avenue Plante;Public;F;Québec (QC);Active - FLBG;13;5300;4;Y;300.0;360.0;360.0;>201;>201;>201;complexe (urbain / multi-voies / autorité provinciale);5.7
+50254;MTL-TO;252.6;Kingston - CN;154.88;Farm Xng;Private;F;Private Road Authority #1;Active - FLB;40;2;1;N;160.2;201.7;240.5;154-177;>201;>201;fermeture (HYPOTHÈSE : alternative routière non vérifiée);5.7
+52292;MTL-Ott;75.71;Alexandria - VIA;8.97;Farm Crossing;Private;F;Private Road Authority #1;Passive;14;-;-;N;251.0;316.1;360.0;>201;>201;>201;fermeture (HYPOTHÈSE : alternative routière non vérifiée);5.7
+300160;MTL-TO;215.43;Kingston - CN;132.61;-;Private;F;Private Road Authority #1;Passive;40;2;1;N;198.9;250.4;298.7;178-201;>201;>201;fermeture (HYPOTHÈSE : alternative routière non vérifiée);5.7
+52393;MTL-QC;36.3;St-Hyacinthe;43.92;Greenbank Road (Diversion);Private;F;Private Road Authority #1;Passive;-;-;1;N;241.4;304.0;360.0;>201;>201;>201;fermeture (HYPOTHÈSE : alternative routière non vérifiée);5.7
+45695;Ott-TO;141.85;Kingston - CN;145.74;Farm;Private;F;Private Road Authority #1;Active - FLB;40;2;1;N;239.8;302.0;360.0;>201;>201;>201;fermeture (HYPOTHÈSE : alternative routière non vérifiée);5.7
+7996;MTL-TO;202.74;Kingston - CN;125.15;Park St;Public;F;Brockville (ON);Active - FLBG;40;3027;2;Y;133.2;167.7;200.1;≤153;154-177;178-201;complexe (urbain / multi-voies / autorité provinciale);5.8
+45770;Ott-TO;255.11;Kingston - CN;216.81;Farm Crossing;Private;F;Private Road Authority #1;Active - FLB;40;2;1;N;300.1;360.0;360.0;>201;>201;>201;fermeture (HYPOTHÈSE : alternative routière non vérifiée);5.8
+140657;MTL-QC;175.01;Drummondville;47.9;Private;Private;F;Private Road Authority #1;Passive;-;-;-;N;124.5;156.7;187.0;≤153;154-177;178-201;fermeture (HYPOTHÈSE : alternative routière non vérifiée);5.8
+13950;MTL-QC;36.3;St-Hyacinthe;50.84;Chemin Benoit;Public;F;MTQ.;Active - FLBG;55;3000;2;Y;241.4;304.0;360.0;>201;>201;>201;complexe (urbain / multi-voies / autorité provinciale);5.8
+14525;Ott-TO;48.97;Smiths Falls;26.43;Weedmark Rd;Public;F;Montague (ON);Active - FLBG;12;20;1;N;200.5;252.4;301.1;178-201;>201;>201;standard (municipal, ≤2 voies, non urbain);5.8
+610806;MTL-QC;140.14;Drummondville;70.2;Ferme;Private;F;Private Road Authority #1;Passive;27;10;2;N;239.8;302.0;360.0;>201;>201;>201;fermeture (HYPOTHÈSE : alternative routière non vérifiée);5.8
+8172;Ott-TO;309.19;Kingston - CN;252.68;Thomas Rd;Public;F;Alnwick/Haldimand (ON);Active - FLBG;40;100;1;N;300.3;360.0;360.0;>201;>201;>201;standard (municipal, ≤2 voies, non urbain);5.8
+45666;MTL-TO;172.09;Kingston - CN;105.75;-;Private;F;Private Road Authority #1;Passive;40;2;1;N;239.3;301.3;359.5;>201;>201;>201;fermeture (HYPOTHÈSE : alternative routière non vérifiée);5.8
+45678;MTL-TO;177.69;Kingston - CN;108.85;-;Private;F;Private Road Authority #1;Passive;40;2;1;N;242.6;305.4;360.0;>201;>201;>201;fermeture (HYPOTHÈSE : alternative routière non vérifiée);5.9
+140627;MTL-QC;201.75;Drummondville;33.4;Private;Private;F;Private Road Authority #1;Passive;-;-;-;N;127.6;160.7;191.6;≤153;154-177;178-201;fermeture (HYPOTHÈSE : alternative routière non vérifiée);5.9
+7940;MTL-TO;104.91;Kingston - CN;64.71;Boundary Rd;Public;F;Cornwall (ON);Active - FLBG;40;9400;2;N;199.3;250.9;299.3;178-201;>201;>201;standard (municipal, ≤2 voies, non urbain);5.9
+45715;MTL-TO;254.66;Kingston - CN;156.78;-;Private;F;Private Road Authority #1;Active - FLB;40;2;1;N;172.8;217.6;259.6;154-177;>201;>201;fermeture (HYPOTHÈSE : alternative routière non vérifiée);5.9
+45767;Ott-TO;255.11;Kingston - CN;215.74;Private Road;Private;F;Private Road Authority #1;Active - FLB;40;2;1;N;300.1;360.0;360.0;>201;>201;>201;fermeture (HYPOTHÈSE : alternative routière non vérifiée);5.9
+10336;MTL-QC;245.52;Drummondville;8.16;Chemin de Charny;Public;F;Levis (Quebec);Active - FLBG;27;7500;2;Y;101.2;127.4;151.9;≤153;≤153;≤153;complexe (urbain / multi-voies / autorité provinciale);6.0
+45786;Ott-TO;294.1;Kingston - CN;243.65;Farm;Private;F;Private Road Authority #1;Passive;40;2;1;N;199.8;251.6;300.1;178-201;>201;>201;fermeture (HYPOTHÈSE : alternative routière non vérifiée);6.0
+52492;MTL-Ott;63.8;Alexandria - VIA;2.88;Farm;Private;F;Private Road Authority #1;Passive;-;-;-;N;199.3;250.9;299.3;178-201;>201;>201;fermeture (HYPOTHÈSE : alternative routière non vérifiée);6.0
+219;MTL-Ott;128.46;Alexandria - VIA;41.45;Eighth Rd (Route 800);Public;F;North Stormont (ON);Active - FLBG;14;486;2;N;250.4;315.3;360.0;>201;>201;>201;standard (municipal, ≤2 voies, non urbain);6.0
+51509;MTL-QC;132.42;Drummondville;73.99;Ferme;Private;F;Private Road Authority #1;Passive;27;2;1;N;202.2;254.6;303.7;>201;>201;>201;fermeture (HYPOTHÈSE : alternative routière non vérifiée);6.1
+8098;Ott-TO;255.11;Kingston - CN;216.24;Mitchell'S Sideroad;Public;F;Belleville (ON);Active - FLBG;40;300;2;N;300.1;360.0;360.0;>201;>201;>201;standard (municipal, ≤2 voies, non urbain);6.1
+8214;Ott-TO;345.35;Kingston - CN;273.46;Haskall Rd;Public;F;Port Hope (ON);Active - FLBG;40;10;2;N;238.9;300.8;358.9;>201;>201;>201;standard (municipal, ≤2 voies, non urbain);6.1
+8250;Ott-TO;390.05;Kingston - CN;299.58;Wilson Rd South;Public;F;Durham (ON);Active - FLBG;40;6540;2;Y;238.9;300.7;358.7;>201;>201;>201;complexe (urbain / multi-voies / autorité provinciale);6.1
+46278;MTL-QC;20.19;St-Hyacinthe;58.75;-;Private;F;Private Road Authority #1;Passive;55;10;2;N;200.4;252.3;300.9;178-201;>201;>201;fermeture (HYPOTHÈSE : alternative routière non vérifiée);6.1
+52483;MTL-Ott;63.8;Alexandria - VIA;1.36;Pepiniere;Private;F;Private Road Authority #1;Other;-;-;-;N;199.3;250.9;299.3;178-201;>201;>201;fermeture (HYPOTHÈSE : alternative routière non vérifiée);6.1
+4819;MTL-QC;140.14;Drummondville;69.98;Rte Bussiere;Private;F;Private Road Authority #1;Passive;27;10;1;N;239.8;302.0;360.0;>201;>201;>201;fermeture (HYPOTHÈSE : alternative routière non vérifiée);6.1
+51407;MTL-TO;57.98;Kingston - CN;35.43;Ferme;Private;F;Private Road Authority #1;Passive;54;2;1;N;222.6;280.3;334.3;>201;>201;>201;fermeture (HYPOTHÈSE : alternative routière non vérifiée);6.2
+300978;Ott-TO;19.43;Smiths Falls;6.81;Strandherd Dr;Public;F;Ottawa (ON);Active - FLBG;12;13490;2;Y;303.6;360.0;360.0;>201;>201;>201;complexe (urbain / multi-voies / autorité provinciale);6.2
+4787;MTL-QC;201.75;Drummondville;33.63;Route Du Village;Public;F;Saint-Janvier-de-Joly (QC);Active - FLBG;27;1025;2;N;127.6;160.7;191.6;≤153;154-177;178-201;standard (municipal, ≤2 voies, non urbain);6.2
+7924;MTL-TO;61.75;Kingston - CN;43.64;Ste-Claire Road;Public;F;Rivière-Beaudette (QC);Active - FLBG;40;638;2;Y;267.4;336.7;360.0;>201;>201;>201;complexe (urbain / multi-voies / autorité provinciale);6.2
+45797;Ott-TO;345.35;Kingston - CN;271.84;-;Private;F;Private Road Authority #1;Passive;40;2;1;N;238.9;300.8;358.9;>201;>201;>201;fermeture (HYPOTHÈSE : alternative routière non vérifiée);6.3
+52504;MTL-Ott;63.8;Alexandria - VIA;5.98;Farm;Private;F;Private Road Authority #1;Passive;-;-;-;N;199.3;250.9;299.3;178-201;>201;>201;fermeture (HYPOTHÈSE : alternative routière non vérifiée);6.3
+8745;MTL-Ott;62.75;Alexandria - VIA;0.41;Rue Lippée;Public;F;Les Coteaux (QC);Active - FLBG;14;200;2;N;88.4;111.3;132.8;≤153;≤153;≤153;standard (municipal, ≤2 voies, non urbain);6.3
+7964;MTL-TO;138.73;Kingston - CN;85.3;Nudell Bush Anderson Rd;Public;F;South Dundas (ON);Active - FLBG;40;199;2;N;225.3;283.7;338.4;>201;>201;>201;standard (municipal, ≤2 voies, non urbain);6.3
+45764;MTL-TO;346.89;Kingston - CN;215.0;Farm Access;Private;F;Private Road Authority #1;Active - FLB;40;2;1;N;159.5;200.8;239.5;154-177;178-201;>201;fermeture (HYPOTHÈSE : alternative routière non vérifiée);6.3
+8138;Ott-TO;264.76;Kingston - CN;228.24;Whites Road;Public;F;Quinte West (ON);Active - FLBG;40;1363;2;N;250.1;314.9;360.0;>201;>201;>201;standard (municipal, ≤2 voies, non urbain);6.4
+50697;MTL-QC;36.3;St-Hyacinthe;49.33;Ferme;Private;F;Private Road Authority #1;Other;55;2;1;N;241.4;304.0;360.0;>201;>201;>201;fermeture (HYPOTHÈSE : alternative routière non vérifiée);6.4
+8164;Ott-TO;294.1;Kingston - CN;246.24;Bellamy Rd;Public;F;Cramahe (ON);Active - FLBG;40;40;2;N;199.8;251.6;300.1;178-201;>201;>201;standard (municipal, ≤2 voies, non urbain);6.4
+45788;Ott-TO;294.1;Kingston - CN;243.91;Farm;Private;F;Private Road Authority #1;Passive;40;2;1;N;199.8;251.6;300.1;178-201;>201;>201;fermeture (HYPOTHÈSE : alternative routière non vérifiée);6.5
+142585;MTL-QC;36.3;St-Hyacinthe;45.4;Private;Private;F;Private Road Authority #1;Passive;-;-;-;N;241.4;304.0;360.0;>201;>201;>201;fermeture (HYPOTHÈSE : alternative routière non vérifiée);6.5
+4853;MTL-QC;80.87;Drummondville;105.6;Chemin Du 10E Rang;Public;F;Saint-Germain (QC);Active - FLBG;27;264;2;N;199.6;251.4;299.8;178-201;>201;>201;standard (municipal, ≤2 voies, non urbain);6.5
+45702;MTL-TO;240.16;Kingston - CN;149.35;-;Private;F;Private Road Authority #1;Active - FLB;40;2;1;N;239.0;300.9;359.0;>201;>201;>201;fermeture (HYPOTHÈSE : alternative routière non vérifiée);6.5
+50699;MTL-QC;20.19;St-Hyacinthe;58.0;Ferme;Private;F;Private Road Authority #1;Passive;55;2;1;N;200.4;252.3;300.9;178-201;>201;>201;fermeture (HYPOTHÈSE : alternative routière non vérifiée);6.5
+45800;MTL-TO;455.15;Kingston - CN;281.77;Private Farm Entrance;Private;F;Private Road Authority #1;Active - FLBG;-;-;1;N;238.3;300.1;357.9;>201;>201;>201;fermeture (HYPOTHÈSE : alternative routière non vérifiée);6.6
+248;MTL-Ott;160.68;Alexandria - VIA;67.44;Hall Rd;Public;F;Ottawa (ON);Active - FLBG;14;200;2;N;306.1;360.0;360.0;>201;>201;>201;standard (municipal, ≤2 voies, non urbain);6.6
+7994;MTL-TO;202.74;Kingston - CN;124.88;Bartholomew St;Public;F;Brockville (ON);Active - FLBG;40;2300;2;Y;133.2;167.7;200.1;≤153;154-177;178-201;complexe (urbain / multi-voies / autorité provinciale);6.6
+45688;MTL-TO;197.57;Kingston - CN;121.19;-;Private;F;Private Road Authority #1;Passive;40;2;1;N;239.3;301.3;359.4;>201;>201;>201;fermeture (HYPOTHÈSE : alternative routière non vérifiée);6.6
+46221;MTL-QC;270.61;Bridge;15.62;Pssage Privé Daishowa Cie;Private;F;Private Road Authority #1;Other;13;1000;2;N;149.3;187.9;224.2;≤153;178-201;>201;fermeture (HYPOTHÈSE : alternative routière non vérifiée);6.6
+140766;MTL-QC;58.44;Drummondville;122.84;Private;Private;F;Private Road Authority #1;Passive;-;-;-;N;159.2;200.5;239.1;154-177;178-201;>201;fermeture (HYPOTHÈSE : alternative routière non vérifiée);6.6
+51406;MTL-Ott;58.0;Kingston - CN;35.34;Ferme;Private;F;Private Road Authority #1;Passive;54;2;1;N;212.0;267.0;318.4;>201;>201;>201;fermeture (HYPOTHÈSE : alternative routière non vérifiée);6.6
+142572;MTL-QC;36.3;St-Hyacinthe;43.3;Private;Private;F;Private Road Authority #1;Passive;-;-;-;N;241.4;304.0;360.0;>201;>201;>201;fermeture (HYPOTHÈSE : alternative routière non vérifiée);6.7
+200728;MTL-QC;259.59;Bridge;8.82;Passage Pieton/Velo;Public;F;Québec (QC);Active - FLB;13;25;2;Y;107.2;134.9;161.0;≤153;≤153;154-177;complexe (urbain / multi-voies / autorité provinciale);6.7
+4820;MTL-QC;140.14;Drummondville;71.24;Rue Principale;Public;F;MTQ.;Active - FLBG;27;490;2;N;239.8;302.0;360.0;>201;>201;>201;complexe (urbain / multi-voies / autorité provinciale);6.8
+13949;MTL-QC;36.3;St-Hyacinthe;49.92;Chemin Petit Rang;Public;F;Sainte-Marie (QC);Active - FLBG;55;2;1;N;241.4;304.0;360.0;>201;>201;>201;standard (municipal, ≤2 voies, non urbain);6.8
+13947;MTL-QC;36.3;St-Hyacinthe;47.4;Ch. Du Grand Rang;Public;F;Sainte-Marie (QC);Active - FLBG;55;600;2;N;241.4;304.0;360.0;>201;>201;>201;standard (municipal, ≤2 voies, non urbain);6.8
+50845;MTL-Ott;75.71;Alexandria - VIA;9.16;Farm Crossing;Private;F;Sainte-Justine-de-Newton (QC);Other;14;2;1;N;251.0;316.1;360.0;>201;>201;>201;fermeture (HYPOTHÈSE : alternative routière non vérifiée);6.8
+7921;MTL-TO;61.75;Kingston - CN;39.83;Chemin Ste-Catherine;Public;F;MTQ.;Active - FLBG;40;2500;2;N;267.4;336.7;360.0;>201;>201;>201;complexe (urbain / multi-voies / autorité provinciale);6.8
+10337;MTL-QC;245.52;Drummondville;8.36;Rue De La Traverse;Public;F;Levis (Quebec);Active - FLBG;27;500;2;Y;101.2;127.4;151.9;≤153;≤153;≤153;complexe (urbain / multi-voies / autorité provinciale);6.8
+8011;MTL-TO;245.26;Kingston - CN;151.26;Cliff Rd;Public;F;Leeds and the 1000 Isl. (ON);Active - FLBG;40;270;2;N;160.3;201.8;240.8;154-177;>201;>201;standard (municipal, ≤2 voies, non urbain);6.8
+45768;Ott-TO;255.11;Kingston - CN;215.89;Farm Crossing;Private;F;Private Road Authority #1;Active - FLB;40;2;1;N;300.1;360.0;360.0;>201;>201;>201;fermeture (HYPOTHÈSE : alternative routière non vérifiée);6.8
+140626;MTL-QC;201.75;Drummondville;33.28;Private;Private;F;Private Road Authority #1;Passive;-;-;-;N;127.6;160.7;191.6;≤153;154-177;178-201;fermeture (HYPOTHÈSE : alternative routière non vérifiée);6.8
+19659;Ott-TO;97.13;Brockville - VIA;21.17;6Th Concession;Public;F;Elizabethtown-Kitley (ON);Active - FLBG;21;150;2;N;250.9;315.9;360.0;>201;>201;>201;standard (municipal, ≤2 voies, non urbain);6.8
+142597;MTL-QC;36.3;St-Hyacinthe;47.1;Private;Private;F;Private Road Authority #1;Passive;-;-;-;N;241.4;304.0;360.0;>201;>201;>201;fermeture (HYPOTHÈSE : alternative routière non vérifiée);6.9
+779408;MTL-QC;20.19;St-Hyacinthe;57.47;-;Public;F;Saint-Basile-le-Grand (QC);Active - FLBG;-;-;2;-;200.4;252.3;300.9;178-201;>201;>201;standard (municipal, ≤2 voies, non urbain);6.9
+19664;Ott-TO;109.31;Brockville - VIA;27.07;Central Ave West;Public;F;Brockville (ON);Active - FLBG;12;7855;2;Y;77.2;97.3;116.0;≤153;≤153;≤153;complexe (urbain / multi-voies / autorité provinciale);6.9
+7973;MTL-TO;166.6;Kingston - CN;103.86;Marine Station Rd;Public;F;South Dundas (ON);Active - FLBG;40;199;2;N;239.0;300.9;358.9;>201;>201;>201;standard (municipal, ≤2 voies, non urbain);6.9
+45701;Ott-TO;146.0;Kingston - CN;149.12;Farm;Private;F;Private Road Authority #1;Active - FLB;40;2;1;N;239.2;301.2;359.3;>201;>201;>201;fermeture (HYPOTHÈSE : alternative routière non vérifiée);6.9
+51508;MTL-QC;132.42;Drummondville;73.83;Ferme;Private;F;Private Road Authority #1;Passive;27;2;1;N;202.2;254.6;303.7;>201;>201;>201;fermeture (HYPOTHÈSE : alternative routière non vérifiée);7.0
+36583;MTL-Ott;84.41;Alexandria - VIA;13.6;Glen Robertson Road (County Rd 10);Public;F;Stormont Dundas&Glengarry (Ontario);Active - FLBG;14;730;2;N;112.8;142.0;169.4;≤153;≤153;154-177;standard (municipal, ≤2 voies, non urbain);7.0
+47891;MTL-TO;289.22;Kingston - CN;178.58;Frontenac;Public;F;Kingston (ON);Active - FLBG;40;1;2;N;159.4;200.7;239.4;154-177;178-201;>201;standard (municipal, ≤2 voies, non urbain);7.0
+1833;MTL-QC;246.03;Bridge;0.58;Avenue Des Eglises;Public;F;Levis (Quebec);Active - FLBG;12;10900;2;Y;81.3;102.4;122.1;≤153;≤153;≤153;complexe (urbain / multi-voies / autorité provinciale);7.0
+50694;MTL-QC;36.3;St-Hyacinthe;48.07;Ferme;Private;F;Private Road Authority #1;Passive;55;2;1;N;241.4;304.0;360.0;>201;>201;>201;fermeture (HYPOTHÈSE : alternative routière non vérifiée);7.0
+140639;MTL-QC;200.93;Drummondville;35.85;Private;Private;F;Private Road Authority #1;Passive;-;-;-;N;167.0;210.3;250.8;154-177;>201;>201;fermeture (HYPOTHÈSE : alternative routière non vérifiée);7.0
+45774;MTL-TO;349.25;Kingston - CN;217.9;Private Access;Private;F;Private Road Authority #1;Active - FLB;40;2;1;N;300.9;360.0;360.0;>201;>201;>201;fermeture (HYPOTHÈSE : alternative routière non vérifiée);7.0
+142586;MTL-QC;36.3;St-Hyacinthe;45.5;Private;Private;F;Private Road Authority #1;Passive;-;-;-;N;241.4;304.0;360.0;>201;>201;>201;fermeture (HYPOTHÈSE : alternative routière non vérifiée);7.0
+140764;MTL-QC;66.89;Drummondville;118.75;Private;Private;F;Private Road Authority #1;Passive;-;-;-;N;133.9;168.6;201.1;≤153;154-177;>201;fermeture (HYPOTHÈSE : alternative routière non vérifiée);7.0
+4814;MTL-QC;158.2;Drummondville;61.83;Chemin De La Rivière;Public;F;Lemieux (QC);Passive;27;4;1;N;128.7;162.1;193.3;≤153;154-177;178-201;standard (municipal, ≤2 voies, non urbain);7.1
+140642;MTL-QC;193.51;Drummondville;39.55;Private;Private;F;Private Road Authority #1;Passive;-;-;-;N;199.1;250.7;299.1;178-201;>201;>201;fermeture (HYPOTHÈSE : alternative routière non vérifiée);7.1
+19644;Ott-TO;69.4;Brockville - VIA;3.97;Kitley South Elmsley Townline Rd;Public;F;Rideau Lakes (ON);Active - FLBG;12;50;2;N;239.0;300.9;359.0;>201;>201;>201;standard (municipal, ≤2 voies, non urbain);7.1
+610809;MTL-QC;58.44;Drummondville;122.35;Privé;Private;F;Private Road Authority #1;Passive;27;2;1;N;159.2;200.5;239.1;154-177;178-201;>201;fermeture (HYPOTHÈSE : alternative routière non vérifiée);7.2
+45747;MTL-TO;333.17;Kingston - CN;206.51;Farm;Private;F;Private Road Authority #1;Active - FLB;40;2;1;N;158.3;199.3;237.7;154-177;178-201;>201;fermeture (HYPOTHÈSE : alternative routière non vérifiée);7.2
+45765;MTL-TO;346.89;Kingston - CN;215.16;Private Access;Private;F;Private Road Authority #1;Active - FLB;40;2;1;N;159.5;200.8;239.5;154-177;178-201;>201;fermeture (HYPOTHÈSE : alternative routière non vérifiée);7.2
+142577;MTL-QC;36.3;St-Hyacinthe;44.35;Private;Private;F;Private Road Authority #1;Passive;-;-;-;N;241.4;304.0;360.0;>201;>201;>201;fermeture (HYPOTHÈSE : alternative routière non vérifiée);7.3
+142568;MTL-QC;36.3;St-Hyacinthe;42.2;Private;Private;F;Private Road Authority #1;Passive;-;-;-;N;241.4;304.0;360.0;>201;>201;>201;fermeture (HYPOTHÈSE : alternative routière non vérifiée);7.3
+8029;Ott-TO;165.06;Kingston - CN;161.85;Hitchcock Rd;Public;F;Kingston (ON);Active - FLBG;40;40;1;N;194.0;244.3;291.4;178-201;>201;>201;standard (municipal, ≤2 voies, non urbain);7.3
+140644;MTL-QC;193.51;Drummondville;39.74;Private;Private;F;Private Road Authority #1;Passive;-;-;-;N;199.1;250.7;299.1;178-201;>201;>201;fermeture (HYPOTHÈSE : alternative routière non vérifiée);7.4
+8174;Ott-TO;320.41;Kingston - CN;256.3;Station Rd;Public;F;Northumberland (ON);Active - FLBG;40;350;2;N;350.9;360.0;360.0;>201;>201;>201;standard (municipal, ≤2 voies, non urbain);7.4
+50700;MTL-QC;20.19;St-Hyacinthe;58.35;Ferme;Private;F;Private Road Authority #1;Passive;55;2;1;N;200.4;252.3;300.9;178-201;>201;>201;fermeture (HYPOTHÈSE : alternative routière non vérifiée);7.5
+45758;Ott-TO;241.69;Kingston - CN;210.42;-;Private;F;Private Road Authority #1;Passive;40;2;1;N;213.7;269.1;321.0;>201;>201;>201;fermeture (HYPOTHÈSE : alternative routière non vérifiée);7.5
+7985;MTL-TO;187.72;Kingston - CN;115.93;South Campbell Rd;Public;F;Augusta (ON);Active - FLBG;40;52;1;N;238.0;299.7;357.5;>201;>201;>201;standard (municipal, ≤2 voies, non urbain);7.5
+4806;MTL-QC;175.01;Drummondville;51.72;Chemin Petit 9E Rang;Public;F;Manseau (QC);Active - FLBG;27;100;2;N;124.5;156.7;187.0;≤153;154-177;178-201;standard (municipal, ≤2 voies, non urbain);7.5
+45669;MTL-TO;174.21;Kingston - CN;106.8;-;Private;F;Private Road Authority #1;Passive;40;2;1;N;303.8;360.0;360.0;>201;>201;>201;fermeture (HYPOTHÈSE : alternative routière non vérifiée);7.5
+140629;MTL-QC;201.75;Drummondville;34.1;Private;Private;F;Private Road Authority #1;Passive;-;-;-;N;127.6;160.7;191.6;≤153;154-177;178-201;fermeture (HYPOTHÈSE : alternative routière non vérifiée);7.6
+45668;MTL-TO;174.21;Kingston - CN;106.7;-;Private;F;Private Road Authority #1;Passive;40;2;1;N;303.8;360.0;360.0;>201;>201;>201;fermeture (HYPOTHÈSE : alternative routière non vérifiée);7.6
+140621;MTL-QC;201.75;Drummondville;32.4;Private;Private;F;Private Road Authority #1;Passive;-;-;-;N;127.6;160.7;191.6;≤153;154-177;178-201;fermeture (HYPOTHÈSE : alternative routière non vérifiée);7.6
+142606;MTL-QC;36.26;St-Hyacinthe;51.52;Private;Private;F;Private Road Authority #1;Passive;-;-;-;N;203.5;256.2;305.6;>201;>201;>201;fermeture (HYPOTHÈSE : alternative routière non vérifiée);7.6
+8131;Ott-TO;263.35;Kingston - CN;221.34;Geddes St;Public;F;Belleville (ON);Active - FLBG;40;1200;2;Y;250.7;315.6;360.0;>201;>201;>201;complexe (urbain / multi-voies / autorité provinciale);7.6
+8097;Ott-TO;252.75;Kingston - CN;214.81;Farm Crossing;Private;F;Private Road Authority #1;Active - FLB;40;5;1;N;159.4;200.7;239.4;154-177;178-201;>201;fermeture (HYPOTHÈSE : alternative routière non vérifiée);7.6
+140769;MTL-QC;58.44;Drummondville;123.15;Private;Private;F;Private Road Authority #1;Passive;-;-;-;N;159.2;200.5;239.1;154-177;178-201;>201;fermeture (HYPOTHÈSE : alternative routière non vérifiée);7.6
+7984;MTL-TO;186.66;Kingston - CN;114.43;Merwin Lane Rd;Public;F;Augusta (ON);Active - FLBG;40;372;2;N;303.6;360.0;360.0;>201;>201;>201;standard (municipal, ≤2 voies, non urbain);7.7
+8135;Ott-TO;264.76;Kingston - CN;224.76;Township Rd;Public;F;Quinte West (ON);Passive;40;10;2;N;250.1;314.9;360.0;>201;>201;>201;standard (municipal, ≤2 voies, non urbain);7.9
+8002;MTL-TO;215.43;Kingston - CN;134.16;Yonge Mills Rd;Public;F;Leeds & Grenville (Ontario);Active - FLBG;40;300;2;N;198.9;250.4;298.7;178-201;>201;>201;standard (municipal, ≤2 voies, non urbain);7.9
+45687;MTL-TO;196.45;Kingston - CN;121.08;-;Private;F;Private Road Authority #1;Passive;54;2;1;N;225.8;284.3;339.1;>201;>201;>201;fermeture (HYPOTHÈSE : alternative routière non vérifiée);8.1
+4786;MTL-QC;210.97;Drummondville;29.43;Boul St-Joseph;Public;F;MTQ.;Active - FLBG;27;9000;2;Y;118.1;148.7;177.4;≤153;≤153;178-201;complexe (urbain / multi-voies / autorité provinciale);8.1
+8176;Ott-TO;327.23;Kingston - CN;260.7;Pentecostal Rd;Public;F;Hamilton (ON);Active - FLBG;40;150;2;Y;250.7;315.6;360.0;>201;>201;>201;complexe (urbain / multi-voies / autorité provinciale);8.1
+140709;MTL-QC;130.43;Drummondville;79.25;Private;Private;F;Private Road Authority #1;Passive;-;-;-;N;200.7;252.7;301.5;178-201;>201;>201;fermeture (HYPOTHÈSE : alternative routière non vérifiée);8.2
+610825;MTL-Ott;43.63;Kingston - CN;26.41;-;Private;F;Private Road Authority #1;Passive;54;2;1;N;254.7;320.7;360.0;>201;>201;>201;fermeture (HYPOTHÈSE : alternative routière non vérifiée);8.3
+140645;MTL-QC;193.51;Drummondville;39.9;Private;Private;F;Private Road Authority #1;Passive;-;-;-;N;199.1;250.7;299.1;178-201;>201;>201;fermeture (HYPOTHÈSE : alternative routière non vérifiée);8.3
+19665;Ott-TO;109.79;Brockville - VIA;27.31;Front Ave;Public;F;Brockville (ON);Active - FLBG;12;1838;2;Y;80.0;100.8;120.2;≤153;≤153;≤153;complexe (urbain / multi-voies / autorité provinciale);8.3
+10475;MTL-TO;4.25;Montréal;2.94;Rue St-Ambroise;Public;F;Montréal (QC);Active - FLBG;55;6300;2;Y;100.5;126.5;150.9;≤153;≤153;≤153;complexe (urbain / multi-voies / autorité provinciale);8.4
+140708;MTL-QC;130.43;Drummondville;79.1;Private;Private;F;Private Road Authority #1;Passive;-;-;-;N;200.7;252.7;301.5;178-201;>201;>201;fermeture (HYPOTHÈSE : alternative routière non vérifiée);8.5
+4862;MTL-QC;66.89;Drummondville;118.9;Ch. Rang St-Edouard;Public;F;MTQ.;Active - FLBG;27;3400;2;N;133.9;168.6;201.1;≤153;154-177;>201;complexe (urbain / multi-voies / autorité provinciale);8.5
+50698;MTL-QC;36.3;St-Hyacinthe;50.28;Privé;Private;F;Private Road Authority #1;Other;55;10;2;N;241.4;304.0;360.0;>201;>201;>201;fermeture (HYPOTHÈSE : alternative routière non vérifiée);8.7
+45671;MTL-TO;174.21;Kingston - CN;107.15;416??????;Private;F;Private Road Authority #1;Passive;40;2;1;N;303.8;360.0;360.0;>201;>201;>201;fermeture (HYPOTHÈSE : alternative routière non vérifiée);8.7
+45902;Ott-TO;33.57;Alexandria - VIA;20.73;Private;Private;F;Private Road Authority #1;Passive;14;2;1;N;300.2;360.0;360.0;>201;>201;>201;fermeture (HYPOTHÈSE : alternative routière non vérifiée);8.8
+7927;MTL-TO;61.75;Kingston - CN;48.71;3rd Line Rd (Bainsville);Public;F;South Glengarry (ON);Active - FLBG;40;143;2;Y;267.4;336.7;360.0;>201;>201;>201;complexe (urbain / multi-voies / autorité provinciale);8.8
+8073;Ott-TO;215.72;Kingston - CN;194.15;Perry Rd;Public;F;Greater Napanee (ON);Active - FLBG;40;200;1;N;228.0;287.0;342.4;>201;>201;>201;standard (municipal, ≤2 voies, non urbain);9.0
+7963;MTL-TO;133.82;Kingston - CN;84.23;Aultsville Rd;Public;F;South Stormont (ON);Active - FLBG;40;358;2;N;238.8;300.6;358.6;>201;>201;>201;standard (municipal, ≤2 voies, non urbain);9.1
+7989;MTL-TO;196.45;Kingston - CN;120.48;Maitland Rd (Cnty 15)(Mai;Public;F;Leeds & Grenville (Ontario);Active - FLBG;40;1200;2;N;225.8;284.3;339.1;>201;>201;>201;standard (municipal, ≤2 voies, non urbain);9.1
+142576;MTL-QC;36.3;St-Hyacinthe;43.78;Private;Private;F;Private Road Authority #1;Passive;-;-;-;N;241.4;304.0;360.0;>201;>201;>201;fermeture (HYPOTHÈSE : alternative routière non vérifiée);9.1
+230;MTL-Ott;143.84;Alexandria - VIA;53.39;Calypso Rd. (Route 300);Public;F;Prescott & Russell (Ontario);Active - FLBG;14;175;2;N;301.6;360.0;360.0;>201;>201;>201;standard (municipal, ≤2 voies, non urbain);9.1
+45657;MTL-TO;87.96;Kingston - CN;56.0;-;Private;F;Private Road Authority #1;Passive;40;2;1;N;238.6;300.5;358.4;>201;>201;>201;fermeture (HYPOTHÈSE : alternative routière non vérifiée);9.3
+140647;MTL-QC;175.01;Drummondville;41.3;Private;Private;F;Private Road Authority #1;Passive;-;-;-;N;124.5;156.7;187.0;≤153;154-177;178-201;fermeture (HYPOTHÈSE : alternative routière non vérifiée);9.3
+7917;MTL-TO;57.44;Kingston - CN;34.72;Rue Germain;Public;F;MTQ.;Active - FLBG;54;5400;2;N;274.0;345.0;360.0;>201;>201;>201;complexe (urbain / multi-voies / autorité provinciale);9.3
+46170;Ott-TO;255.11;Kingston - CN;216.89;Farm Road;Private;F;Private Road Authority #1;Active - FLB;40;10;2;N;300.1;360.0;360.0;>201;>201;>201;fermeture (HYPOTHÈSE : alternative routière non vérifiée);9.4
+52381;MTL-TO;325.25;Kingston - CN;200.67;Grand Boulevard Nord;Private;F;Private Road Authority #1;Active - FLB;-;-;-;N;256.2;322.6;360.0;>201;>201;>201;fermeture (HYPOTHÈSE : alternative routière non vérifiée);9.4
+7952;MTL-TO;108.68;Kingston - CN;68.6;Tollgate Rd;Public;F;Cornwall (ON);Active - FLBG;40;2800;2;Y;239.7;301.8;360.0;>201;>201;>201;complexe (urbain / multi-voies / autorité provinciale);9.5
+7986;MTL-TO;187.72;Kingston - CN;116.57;Blue Church Rd ((Cnty 31);Public;F;Leeds & Grenville (Ontario);Active - FLBG;40;1000;2;N;238.0;299.7;357.5;>201;>201;>201;standard (municipal, ≤2 voies, non urbain);9.5
+11829;MTL-Ott;183.83;Alexandria - VIA;75.37;Michael St;Public;F;Ottawa (ON);Active - FLBG;14;5900;2;Y;159.1;200.3;238.9;154-177;178-201;>201;complexe (urbain / multi-voies / autorité provinciale);9.6
+7956;MTL-TO;108.68;Kingston - CN;70.6;Power Dam Rd;Public;F;Cornwall (ON);Active - FLBG;42;2500;2;Y;239.7;301.8;360.0;>201;>201;>201;complexe (urbain / multi-voies / autorité provinciale);9.6
+45705;MTL-TO;245.26;Kingston - CN;151.97;Farm;Private;F;Private Road Authority #1;Passive;40;2;1;N;160.3;201.8;240.8;154-177;>201;>201;fermeture (HYPOTHÈSE : alternative routière non vérifiée);9.7
+8139;MTL-TO;370.75;Kingston - CN;229.31;Meyers Creek Rd;Public;F;Quinte West (ON);Active - FLBG;40;415;1;N;199.0;250.6;298.9;178-201;>201;>201;standard (municipal, ≤2 voies, non urbain);9.8
+300246;MTL-TO;240.16;Kingston - CN;147.91;-;Private;F;Private Road Authority #1;Active - FLB;40;2;1;N;239.0;300.9;359.0;>201;>201;>201;fermeture (HYPOTHÈSE : alternative routière non vérifiée);9.9
+45753;Ott-TO;241.69;Kingston - CN;208.6;-;Private;F;Private Road Authority #1;Active - FLB;40;2;1;N;213.7;269.1;321.0;>201;>201;>201;fermeture (HYPOTHÈSE : alternative routière non vérifiée);10.1
+7957;MTL-TO;108.68;Kingston - CN;71.4;Cornwall Centre Rd;Public;F;Cornwall (ON);Active - FLBG;40;200;2;N;239.7;301.8;360.0;>201;>201;>201;standard (municipal, ≤2 voies, non urbain);10.4
+202;MTL-Ott;99.84;Alexandria - VIA;23.09;Main St N- Cnty 34 (Alexandria);Public;F;Stormont Dundas&Glengarry (Ontario);Active - FLBG;14;5628;2;N;127.4;160.4;191.3;≤153;154-177;178-201;standard (municipal, ≤2 voies, non urbain);10.6
+45739;MTL-TO;316.29;Kingston - CN;194.99;Farm;Private;F;Private Road Authority #1;Passive;40;2;1;N;160.2;201.7;240.6;154-177;>201;>201;fermeture (HYPOTHÈSE : alternative routière non vérifiée);10.8
+140640;MTL-QC;193.51;Drummondville;39.2;Private;Private;F;Private Road Authority #1;Passive;-;-;-;N;199.1;250.7;299.1;178-201;>201;>201;fermeture (HYPOTHÈSE : alternative routière non vérifiée);11.1
+13946;MTL-QC;36.3;St-Hyacinthe;43.27;Grand Range Road;Public;F;MTQ.;Active - FLBG;55;4630;2;Y;241.4;304.0;360.0;>201;>201;>201;complexe (urbain / multi-voies / autorité provinciale);11.3
+45685;MTL-TO;192.49;Kingston - CN;119.41;-;Private;F;Private Road Authority #1;Passive;40;2;1;N;239.0;300.9;358.9;>201;>201;>201;fermeture (HYPOTHÈSE : alternative routière non vérifiée);11.3
+300157;MTL-TO;215.43;Kingston - CN;133.65;-;Private;F;Private Road Authority #1;Passive;40;2;1;N;198.9;250.4;298.7;178-201;>201;>201;fermeture (HYPOTHÈSE : alternative routière non vérifiée);11.6
+7966;MTL-TO;139.16;Kingston - CN;89.8;Church Rd (Cnty 8);Public;F;Stormont Dundas&Glengarry (Ontario);Active - FLBG;40;825;2;N;300.7;360.0;360.0;>201;>201;>201;standard (municipal, ≤2 voies, non urbain);11.9
+8108;MTL-TO;349.25;Kingston - CN;218.18;Elmwood Dr;Public;F;Belleville (ON);Active - FLBG;40;450;2;N;300.9;360.0;360.0;>201;>201;>201;standard (municipal, ≤2 voies, non urbain);11.9
+7958;MTL-TO;108.68;Kingston - CN;72.3;Richmond Dr;Public;F;South Stormont (ON);Active - FLBG;40;214;2;N;239.7;301.8;360.0;>201;>201;>201;standard (municipal, ≤2 voies, non urbain);12.0
+46277;MTL-QC;36.3;St-Hyacinthe;48.29;Privé;Private;F;Private Road Authority #1;Passive;55;10;2;N;241.4;304.0;360.0;>201;>201;>201;fermeture (HYPOTHÈSE : alternative routière non vérifiée);12.7
+7990;MTL-TO;199.55;Kingston - CN;123.11;Sharpe's Lane;Public;F;Elizabethtown-Kitley (ON);Active - FLBG;40;500;2;N;239.2;301.1;359.2;>201;>201;>201;standard (municipal, ≤2 voies, non urbain);12.7
+46225;MTL-QC;175.01;Drummondville;41.4;-;Private;F;Val-Alain (QC);Passive;27;10;2;N;124.5;156.7;187.0;≤153;154-177;178-201;fermeture (HYPOTHÈSE : alternative routière non vérifiée);13.0
+51510;MTL-QC;69.45;Drummondville;114.4;Ferme;Private;F;Private Road Authority #1;Other;27;2;1;N;239.6;301.7;359.8;>201;>201;>201;fermeture (HYPOTHÈSE : alternative routière non vérifiée);13.7
+45772;Ott-TO;255.11;Kingston - CN;217.21;Airport Road;Private;F;Belleville (ON);Active - FLBG;40;2;1;N;300.1;360.0;360.0;>201;>201;>201;fermeture (HYPOTHÈSE : alternative routière non vérifiée);14.6
+45704;Ott-TO;151.1;Kingston - CN;151.7;Farm;Private;F;Private Road Authority #1;Passive;40;2;1;N;159.3;200.6;239.2;154-177;178-201;>201;fermeture (HYPOTHÈSE : alternative routière non vérifiée);14.7
+4789;MTL-QC;193.51;Drummondville;40.02;Route De La Station;Public;F;Val-Alain (QC);Active - FLBG;27;1000;2;N;199.1;250.7;299.1;178-201;>201;>201;standard (municipal, ≤2 voies, non urbain);15.6
+19029;MTL-TO;379.04;Belleville;109.66;Lawson Settlement Road;Public;F;Brighton (ON);Active - FLBG;10;300;2;N;239.4;301.5;359.6;>201;>201;>201;standard (municipal, ≤2 voies, non urbain);18.4
+10492;MTL-TO;4.64;Montréal;3.6;Rue De Courcelle;Public;F;Montréal (QC);Active - FLBG;55;4430;2;Y;93.7;118.0;140.7;≤153;≤153;≤153;complexe (urbain / multi-voies / autorité provinciale);19.3
+4807;MTL-QC;173.48;Drummondville;52.59;Rue St-Albert;Public;F;MTQ.;Active - FLBG;27;1120;2;N;114.5;144.2;172.0;≤153;≤153;154-177;complexe (urbain / multi-voies / autorité provinciale);22.1
+46657;MTL-TO;192.49;Kingston - CN;118.3;Private Crossing;Private;F;Private Road Authority #1;Passive;40;10;2;N;239.0;300.9;358.9;>201;>201;>201;fermeture (HYPOTHÈSE : alternative routière non vérifiée);24.6
+19053;MTL-TO;424.68;Belleville;133.79;Brook Road North;Public;F;Northumberland (Ontario);Active - FLBG;10;3000;2;N;158.5;199.6;238.1;154-177;178-201;>201;standard (municipal, ≤2 voies, non urbain);24.6
+45689;MTL-TO;198.58;Kingston - CN;121.38;-;Private;F;Private Road Authority #1;Passive;40;2;1;N;225.3;283.7;338.4;>201;>201;>201;fermeture (HYPOTHÈSE : alternative routière non vérifiée);25.7
+19051;MTL-TO;421.4;Belleville;131.57;Pentecostal Road;Public;F;Hamilton (ON);Active - FLBG;10;350;2;N;250.2;315.0;360.0;>201;>201;>201;standard (municipal, ≤2 voies, non urbain);25.8
+45761;MTL-TO;335.83;Kingston - CN;211.44;-;Private;F;Private Road Authority #1;Passive;40;2;1;N;211.6;266.5;317.9;>201;>201;>201;fermeture (HYPOTHÈSE : alternative routière non vérifiée);26.0
+19047;MTL-TO;403.37;Belleville;123.55;Thomas Road;Public;F;Alnwick/Haldimand (ON);Active - FLBG;10;100;2;N;301.8;360.0;360.0;>201;>201;>201;standard (municipal, ≤2 voies, non urbain);29.2
+4808;MTL-QC;170.87;Drummondville;53.6;Chemin Belgique;Public;F;Manseau (QC);Active - FLBG;27;30;2;N;127.2;160.2;191.1;≤153;154-177;178-201;standard (municipal, ≤2 voies, non urbain);29.4
+19022;MTL-TO;379.04;Belleville;105.48;Morningstar Road;Public;F;Quinte West (ON);Active - FLBG;10;50;1;N;239.4;301.5;359.6;>201;>201;>201;standard (municipal, ≤2 voies, non urbain);30.4
+19031;Ott-TO;294.1;Belleville;112.29;Prince Edward St (Reg 64);Public;F;Northumberland (Ontario);Active - FLBG;10;8500;2;Y;199.8;251.6;300.1;178-201;>201;>201;complexe (urbain / multi-voies / autorité provinciale);30.8
+19049;MTL-TO;414.58;Belleville;127.3;Station Road ;Public;F;Northumberland (Ontario);Active - FLBG;10;200;2;Y;314.7;360.0;360.0;>201;>201;>201;complexe (urbain / multi-voies / autorité provinciale);31.8
+19055;Ott-TO;330.51;Belleville;134.32;Darcy Street;Public;F;Cobourg (ON);Active - FLBG;10;5000;2;Y;158.5;199.6;238.1;154-177;178-201;>201;complexe (urbain / multi-voies / autorité provinciale);31.9
+19023;Ott-TO;284.85;Belleville;106.0;Tate Rd;Public;F;Quinte West (ON);Active - FLBG;10;135;2;N;239.4;301.4;359.5;>201;>201;>201;standard (municipal, ≤2 voies, non urbain);34.2
+19059;MTL-TO;428.23;Belleville;135.37;Ontario Street;Public;F;Cobourg (ON);Active - FLBG;10;1000;2;Y;159.0;200.1;238.7;154-177;178-201;>201;complexe (urbain / multi-voies / autorité provinciale);35.1
+19048;Ott-TO;309.19;Belleville;124.85;Lakeport Rd (Cnty 31);Public;F;Alnwick/Haldimand (ON);Active - FLBG;10;700;2;N;300.3;360.0;360.0;>201;>201;>201;standard (municipal, ≤2 voies, non urbain);35.2
+610804;MTL-QC;201.13;Drummondville;35.7;Privé;Private;F;Private Road Authority #1;Passive;27;2;1;N;162.1;204.0;243.4;154-177;>201;>201;fermeture (HYPOTHÈSE : alternative routière non vérifiée);35.5
+52490;MTL-Ott;63.8;Alexandria - VIA;2.64;Farm;Private;F;Private Road Authority #1;Passive;-;-;-;N;199.3;250.9;299.3;178-201;>201;>201;fermeture (HYPOTHÈSE : alternative routière non vérifiée);35.8
+51821;Ott-TO;328.14;Belleville;132.0;Farm Crossing;Private;F;Private Road Authority #1;Passive;-;-;2;N;302.1;360.0;360.0;>201;>201;>201;fermeture (HYPOTHÈSE : alternative routière non vérifiée);37.7
+19032;MTL-TO;388.28;Belleville;112.79;Ontario St (Reg Xx);Public;F;Brighton (ON);Active - FLBG;10;3400;2;Y;193.6;243.7;290.7;178-201;>201;>201;complexe (urbain / multi-voies / autorité provinciale);38.1
+51827;MTL-TO;415.04;Belleville;128.22;Farm Crossing;Private;F;Private Road Authority #1;Passive;-;-;-;N;250.4;315.3;360.0;>201;>201;>201;fermeture (HYPOTHÈSE : alternative routière non vérifiée);40.2
+19025;MTL-TO;379.04;Belleville;107.73;Flindall Rd;Public;F;Quinte West (ON);Active - FLBG;10;300;2;N;239.4;301.5;359.6;>201;>201;>201;standard (municipal, ≤2 voies, non urbain);41.2
+19057;MTL-TO;427.45;Belleville;134.98;George Street;Public;F;Cobourg (ON);Active - FLBG;10;2308;2;Y;160.0;201.5;240.4;154-177;>201;>201;complexe (urbain / multi-voies / autorité provinciale);44.1
+49246;Ott-TO;362.26;Belleville;153.53;-;Private;F;Private Road Authority #1;Passive;26;2;1;N;225.6;284.0;338.8;>201;>201;>201;fermeture (HYPOTHÈSE : alternative routière non vérifiée);44.2
+52201;Ott-TO;360.52;Belleville;152.52;Farm Crossing;Private;F;Private Road Authority #1;Passive;-;-;-;N;253.9;319.7;360.0;>201;>201;>201;fermeture (HYPOTHÈSE : alternative routière non vérifiée);45.9
+19027;MTL-TO;379.04;Belleville;108.85;Stoney Point Rd (Brighton);Public;F;Quinte West (ON);Active - FLBG;10;250;2;N;239.4;301.5;359.6;>201;>201;>201;standard (municipal, ≤2 voies, non urbain);46.1
+19080;Ott-TO;356.34;Belleville;149.86;East Townline Road;Public;F;Clarington (ON);Active - FLB;10;100;2;N;198.6;250.1;298.3;178-201;>201;>201;standard (municipal, ≤2 voies, non urbain);47.4
+300294;Ott-TO;365.25;Belleville;155.23;-;Private;F;Private Road Authority #1;Passive;26;2;1;N;160.0;201.5;240.4;154-177;>201;>201;fermeture (HYPOTHÈSE : alternative routière non vérifiée);48.9
+52202;Ott-TO;360.98;Belleville;153.09;Private Farm Entrance;Private;F;Private Road Authority #1;Passive;-;-;-;N;238.3;300.1;357.9;>201;>201;>201;fermeture (HYPOTHÈSE : alternative routière non vérifiée);50.4
+19073;Ott-TO;345.35;Belleville;143.96;Brand Road (Lot 14-15 Concession 1);Public;F;Port Hope (ON);Active - FLB;10;10;2;N;238.9;300.8;358.9;>201;>201;>201;standard (municipal, ≤2 voies, non urbain);53.0
+19086;MTL-TO;455.15;Belleville;152.9;Glovers Road (Lakeshore Road);Public;F;Clarington (ON);Active - FLB;10;100;2;N;238.3;300.1;357.9;>201;>201;>201;standard (municipal, ≤2 voies, non urbain);54.0
+19087;Ott-TO;365.65;Belleville;155.66;Lakeshore Road (Stephenson);Public;F;Clarington (ON);Active - FLBG;10;150;2;N;159.7;201.0;239.8;154-177;178-201;>201;standard (municipal, ≤2 voies, non urbain);54.6
+19034;Ott-TO;294.1;Belleville;113.83;Huff Road;Public;F;Brighton (ON);Active - FLB;10;75;2;Y;199.8;251.6;300.1;178-201;>201;>201;complexe (urbain / multi-voies / autorité provinciale);73.8

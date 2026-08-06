@@ -1,0 +1,39 @@
+PASSAGES À NIVEAU — MÉTHODE ET AVERTISSEMENTS (2026-08)
+
+Source : Inventaire des passages à niveau, Transports Canada, mise à jour 2023
+(données ouvertes, SOURCE tc2023inventairepn au registre). 9733 passages
+ON+QC géolocalisés hors embranchements ; 924 rattachés au corridor
+(buffer 75 m au tracé matché ; sensibilité avant filtre de subdivision :
+904 passages à 25 m, 939 à 125 m —
+l'écart provient de voies parallèles proches et de la précision des coordonnées).
+11 passages exclus car leur subdivision n'est pas une subdivision du corridor
+(lignes croisantes ou parallèles tombées dans le buffer) ; subdivisions retenues :
+Alexandria - VIA, Belleville, Bridge, Brockville - VIA, Drummondville, Kingston - CN, Kingston - GO, Montréal, Smiths Falls, St-Hyacinthe.
+
+Chaque passage hérite de la vitesse géométrique (plafond, PAS une vitesse
+d'exploitation) du segment porteur, par scénario. Bandes de l'escalier
+réglementaire : ≤153 (régime actuel, précédent Turbo cité comme seuil) ;
+154-177 (corridor scellé : traiter ou fermer) ; 178-201 (49 CFR 213.347(b),
+classe 7 : système approuvé FRA fonctionnel) ; >201 (213.347(a) : zéro passage).
+Le 49 CFR est cité comme PRÉCÉDENT réglementaire nord-américain ; il ne
+s'applique pas de plein droit au Canada.
+
+Total corridor DÉDOUBLONNÉ : un même passage physique (TC Number) emprunté par
+deux trajets ne compte qu'une fois, classé à la vmax maximale des trajets.
+
+Tri d'intervention (règles sur données ouvertes) :
+  fermeture  = accès privé (HYPOTHÈSE : l'existence d'une alternative < 2 km
+               n'est pas vérifiée — réseau routier hors périmètre)
+  standard   = public, municipal, ≤2 voies, hors zone urbaine
+  complexe   = public urbain, ou ≥3 voies, ou autorité provinciale
+Le lecteur applique ses propres coûts unitaires à ces trois classes.
+
+Ancrage opposable : corridor dédoublonné : 924 passages physiques ; publics à protection active : 352 (ancrage VIA nov. 2024 : 304 à prédicteurs).
+L'écart avec 304 s'explique par le périmètre : le chiffre de la requête VIA vise
+les passages à PRÉDICTEURS (un équipement précis, non codé dans l'inventaire
+ouvert) sur les subdivisions du CN concernées par le supplément d'octobre 2024 ;
+notre compte couvre tous les passages publics à protection active du corridor
+(toutes subdivisions, y compris VIA Alexandria/Smiths Falls).
+
+AVERTISSEMENT : compte et tri = données ouvertes, sans visite de site ; les
+vitesses sont des plafonds géométriques par scénario, jamais des promesses.
