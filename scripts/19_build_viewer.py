@@ -4,7 +4,7 @@
 Produit `livrables/visualiseur.html` : un SEUL fichier autonome (hors-ligne,
 ouvrable par double-clic, sans CDN ni serveur) qui embarque toutes les tables
 de livrables en JSON et offre tri + filtres par colonne + filtres-presets
-(p.ex. « toutes les courbes < 150 km/h de vitesse commerciale en S3 »).
+(p.ex. « toutes les courbes sous 200 km/h de plafond géométrique en S3 »).
 
 « Se met à jour quand on rechange les scripts » : c'est un ÉTAGE DE PIPELINE.
 Relancer ce script ré-embarque les données courantes des CSV. (Un fichier
@@ -22,7 +22,7 @@ from datetime import datetime
 from pathlib import Path
 
 sys.path.insert(0, str(Path(__file__).resolve().parent))
-from utils import DELIVERABLES, COMMERCIAL_FACTOR
+from utils import DELIVERABLES
 from scenarios import SCENARIOS
 
 DUAL_HEADER = {"segments_courbature.csv"}
@@ -47,8 +47,6 @@ ORDER = list(LABELS.keys())
 # `op` ∈ {<, <=, >, >=, ==, contains}.
 PRESETS = {
     "segments_courbature.csv": [
-        {"label": "Commercial S3 < 150 km/h", "conds": [{"col": "vcom_s3", "op": "<", "val": 150}]},
-        {"label": "Commercial S2 < 150 km/h", "conds": [{"col": "vcom_s2", "op": "<", "val": 150}]},
         {"label": "Plafond S3 < 200 km/h", "conds": [{"col": "vmax_s3_kmh", "op": "<", "val": 200}]},
         {"label": "Plafond S3 ≥ 300 km/h", "conds": [{"col": "vmax_s3_kmh", "op": ">=", "val": 300}]},
         {"label": "Classe S3 = F (sévère)", "conds": [{"col": "classe_s3", "op": "==", "val": "F"}]},
@@ -90,26 +88,15 @@ def coerce(v):
     return v
 
 
-def add_commercial_columns(header: list[str], data: list[list]) -> None:
-    """Ajoute vcom_S{n} = vmax_S{n}_kmh × facteur commercial (in place)."""
-    for n in (1, 2, 3):
-        idx = next((i for i, h in enumerate(header)
-                    if f"vmax_s{n}_kmh" in h.lower()), None)
-        if idx is None:
-            continue
-        header.append(f"vcom_S{n}_kmh_×{str(COMMERCIAL_FACTOR).replace('.', ',')} (commercial)")
-        for row in data:
-            raw = row[idx] if idx < len(row) else ""
-            row.append(str(round(float(raw) * COMMERCIAL_FACTOR, 1))
-                       if NUM_RE.match(str(raw)) else "")
+# NB (audit 2026-08-06) : l'ancien ajout de colonnes « vitesse commerciale =
+# plafond × 0,75 » (facteur de transposition) est RETIRÉ — interdit du plan v3,
+# remplacé par le moteur d'intégration T_base (script 21).
 
 
 def build_dataset(path: Path) -> dict | None:
     header, data = read_table(path)
     if not header or (len(header) <= 1 and len(data) <= 1):
         return None
-    if path.name == "segments_courbature.csv":
-        add_commercial_columns(header, data)
     numeric = []
     for c in range(len(header)):
         nonempty = [row[c] for row in data if c < len(row) and row[c] not in (None, "")]
@@ -128,7 +115,6 @@ def build_dataset(path: Path) -> dict | None:
 def build_meta() -> dict:
     return {
         "generated": datetime.now().strftime("%Y-%m-%d %H:%M"),
-        "factor": COMMERCIAL_FACTOR,
         "scenarios": [{
             "id": s.id, "name_fr": s.name_fr,
             "cant_mm": s.cant_mm, "cant_in": round(s.cant_in, 2),
@@ -235,8 +221,9 @@ HTML_TEMPLATE = r"""<!DOCTYPE html>
   </div>
 </div>
 <footer>
-  Fichier autonome (hors-ligne). « Vitesse commerciale » = plafond géométrique × <span id="fac"></span>
-  (<i>indicatif</i>, Annexe E), non opérationnel. Régénéré par <code>scripts/19_build_viewer.py</code>
+  Fichier autonome (hors-ligne). Les vitesses affichées sont des <b>plafonds géométriques</b>,
+  pas des vitesses d'horaire : les temps de parcours viennent du moteur T_base
+  (<code>tbase_par_bande.csv</code>). Régénéré par <code>scripts/19_build_viewer.py</code>
   à partir des CSV de <code>livrables/</code>.
 </footer>
 
@@ -258,7 +245,6 @@ function findCol(sub){
 
 function banner(){
   $('#gen').textContent = 'généré le ' + DB.meta.generated;
-  $('#fac').textContent = String(DB.meta.factor).replace('.', ',');
   $('#cards').innerHTML = DB.meta.scenarios.map(s =>
     `<div class="card${s.cant_assumed?' assumed':''}">
        <b>${s.id}</b> ${s.name_fr}<br>

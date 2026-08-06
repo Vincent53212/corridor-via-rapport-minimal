@@ -3,9 +3,10 @@
 
 Reframe (2026-06-15) : ce n'est PLUS un document « km à rectifier ». Le tracé
 est CONSERVÉ tel quel ; on documente, pour chaque section qui reste sous
-200 km/h en S3, sa vitesse géométrique (plafond imposé par la courbe) et sa
-vitesse commerciale estimée (facteur de transposition documenté). But : alimenter
-l'estimation ultérieure des temps de parcours en S3 sans modification du tracé.
+200 km/h en S3, sa vitesse géométrique (plafond imposé par la courbe). But :
+alimenter le moteur T_base (script 21) sans modification du tracé.
+NB audit 2026-08-06 : la colonne « vitesse commerciale estimée » (facteur de
+transposition 0,75) est RETIRÉE — interdit du plan v3, remplacée par T_base.
 
 Lit le CSV DÉJÀ VALIDÉ `livrables/cible_sites_a_rectifier.csv` (étape 11), filtré
 scénario S3 × seuil 200 km/h (= sections dont le plafond géométrique S3 < 200).
@@ -32,14 +33,9 @@ SCENARIO = "S3"
 SEUIL = "200"
 DATE = "2026-07"
 
-# Coefficient S3 — source unique scenarios.py (Package A : h=127, CD=152, G=1524)
+# Coefficient S3 — source unique scenarios.py (nomenclature 2026-08 : h=127, CD=270)
 COEFF_S3 = SCENARIOS["S3"].coeff
-R_SEVERE = (100 / COEFF_S3) ** 2              # 328 m : sous ce rayon, < 100 km/h en S3
-# Facteur de transposition vitesse géométrique → commerciale (Annexe E,
-# rapport moyenne/pointe de HSR réels modernisés : Paris-Lyon, Nozomi,
-# Madrid-Barcelone). Fourchette 0,70–0,80 ; médiane retenue pour l'affichage.
-FACTEUR_COM = 0.75
-FACTEUR_BANDE = (0.70, 0.80)
+R_SEVERE = (100 / COEFF_S3) ** 2              # sous ce rayon, < 100 km/h en S3
 
 TRONCONS = [
     ("MTL-QC", "Montréal → Québec", 269.42),
@@ -76,7 +72,6 @@ def table_for(tr_id, by):
     for i, r in enumerate(rows, 1):
         R = float(r["R_actuel_min_m"]) if r["R_actuel_min_m"] else None
         vg = vgeo(R) if R else None
-        vc = FACTEUR_COM * vg if vg else None
         severe = R is not None and R < R_SEVERE
         tr_style = " style='background:#fbeaea'" if severe else ""
         gares = f"{r['gare_amont']} → {r['gare_aval']}".strip(" →")
@@ -84,7 +79,6 @@ def table_for(tr_id, by):
                 "contrainte</span>") if severe else ""
         vg_txt = f"{fr(vg)} ({fr(kmh_to_mph(vg))} mph)" if vg else "—"
         vg_cell = f"<b style='color:#8b0000'>{vg_txt}</b>" if (severe and vg) else vg_txt
-        vc_txt = f"{fr(vc)} ({fr(kmh_to_mph(vc))} mph)" if vc else "—"
         dc_txt = (fr(degre_courbure(R), 2) + "°") if R else "—"
         dc_cell = f"<b style='color:#8b0000'>{dc_txt}</b>" if (severe and R) else dc_txt
         body.append(
@@ -96,7 +90,6 @@ def table_for(tr_id, by):
             f"<td style='text-align:right'>{dc_cell}</td>"
             f"<td style='text-align:right'>{fr(R) if R else '—'}</td>"
             f"<td style='text-align:right'>{vg_cell}</td>"
-            f"<td style='text-align:right'>{vc_txt}</td>"
             f"<td>{gares}{flag}</td>"
             f"</tr>"
         )
@@ -111,7 +104,6 @@ def table_for(tr_id, by):
         "<th style='text-align:right'>Degré de courbure<br>(max, °/100 pi)</th>"
         "<th style='text-align:right'>Rayon courbe<br>la plus serrée (m)</th>"
         "<th style='text-align:right'>Vitesse<br>géométrique (km/h · mph)</th>"
-        "<th style='text-align:right'>Vitesse commerciale<br>estimée (km/h · mph)</th>"
         "<th style='text-align:left'>Entre gares</th>"
         "</tr></thead>"
     )
@@ -201,30 +193,28 @@ def main():
     {fr(pct_tot,1)} % du corridor</b> ont un <b>plafond géométrique inférieur à
     200 km/h</b> dans le scénario S3 (modernisation maximale). Ces sections
     <b>conservent le tracé existant</b> ; le tableau donne, pour chacune, sa
-    <b>vitesse géométrique</b> (plafond imposé par la courbe) et sa <b>vitesse
-    commerciale estimée</b> — base pour l'estimation des temps de parcours en S3
-    sans modification du tracé.</div>
+    <b>vitesse géométrique</b> (plafond imposé par la courbe). Les temps de
+    parcours sont calculés par le moteur d'intégration du projet
+    (<code>tbase_par_bande.csv</code>), sans facteur de transposition.</div>
     """
 
     intro = f"""
     <div class='intro'>
-      <p><b>Scénario S3.</b> Modernisation maximale de la voie existante, <b>sans
-      refaire le tracé</b> : dévers relevé au maximum standard CN (5 po = 127 mm,
-      MR 1305-0) + train <b>pendulaire type LRC</b>. C'est l'hypothèse la plus
-      permissive de l'étude. Les
-      sections ci-dessous restent sous 200 km/h <b>même en S3</b> : c'est la
-      <b>géométrie du tracé</b> (le rayon de courbure) qui fixe leur plafond.</p>
+      <p><b>Scénario S3.</b> Le plus permissif de l'étude : dévers au maximum
+      standard CN (5 po = 127 mm, MR 1305-0) + matériel <b>pendulaire moderne</b>
+      (insuffisance de dévers 270 mm, hors précédent nord-américain, voie
+      d'approbation par équipement RRTS Subpart C 4.3), <b>sans refaire le
+      tracé</b>. Les sections ci-dessous restent sous 200 km/h <b>même en S3</b> :
+      c'est la <b>géométrie du tracé</b> (le rayon de courbure) qui fixe leur
+      plafond.</p>
 
       <p><b>Vitesse géométrique vs vitesse commerciale.</b> La <b>vitesse
       géométrique</b> est le plafond physique d'une courbe (équilibre dévers /
-      accélération latérale) — pas la vitesse réellement tenue. La <b>vitesse
-      commerciale</b> est <b>inférieure</b> (accélérations, freinages, arrêts,
-      marges). On l'estime par un <b>facteur de transposition documenté</b> : le
-      rapport moyenne/pointe mesuré sur des lignes à grande vitesse réellement
-      modernisées — <b>0,70–0,80</b> (médiane <b>0,75</b> retenue ici ; sources
-      Annexe E : Paris–Lyon, Nozomi, Madrid–Barcelone). Donc <b>V. commerciale ≈
-      0,75 × V. géométrique</b>. C'est une <b>estimation indicative</b> (facteur
-      uniforme), pas une simulation de marche de train.</p>
+      accélération latérale), pas la vitesse réellement tenue. La <b>vitesse
+      commerciale</b> (inférieure : plafonds réglementaires, blocs urbains,
+      arrêts, marge) est calculée ailleurs dans le projet par un <b>moteur
+      d'intégration</b> segment par segment (<code>tbase_par_bande.csv</code>),
+      jamais par un facteur uniforme.</p>
 
       <p><b>Lecture.</b> Chaque ligne est une <b>section continue</b> dont le
       plafond géométrique reste &lt; 200 km/h en S3, tracé inchangé.
@@ -241,15 +231,13 @@ def main():
     correspondant (mesuré de façon robuste, minimum d'une médiane glissante
     ~150 m) est donné en regard ; il fixe la vitesse géométrique
     (V<sub>géo</sub> = {COEFF_S3:.2f} × √R, scénario S3). <i>Autres mesures de
-    rayon disponibles sur demande.</i> &nbsp;·&nbsp; <b>Vitesse commerciale
-    estimée</b> = 0,75 × vitesse géométrique (facteur 0,70–0,80, Annexe E).</p>
+    rayon disponibles sur demande.</i></p>
 
     <div class='avert'><b>Périmètre.</b> Étude de <b>courbure uniquement</b>
     (Phase 1), préliminaire / stratégique. La <b>vitesse géométrique</b> est un
-    plafond — <b>à ne pas citer comme vitesse opérationnelle</b>. La <b>vitesse
-    commerciale</b> est une <b>estimation indicative</b> par facteur de
-    transposition (rapport moyenne/pointe de HSR modernisés), pas une simulation
-    de marche de train. Ne sont pas évalués : ponts, tunnels, passages à niveau,
+    plafond — <b>à ne pas citer comme vitesse opérationnelle</b>. Les temps de
+    parcours et vitesses commerciales relèvent du moteur d'intégration du projet,
+    pas d'un facteur uniforme. Ne sont pas évalués ici : ponts, tunnels, passages à niveau,
     électrification, signalisation, génie civil. Tronçons analysés comme
     <b>4 trajets origine–destination</b> partageant par endroits la même voie
     (le total km est la somme par trajet). Document destiné à alimenter
@@ -261,9 +249,9 @@ def main():
 <title>Sections à plafond géométrique &lt; 200 km/h en S3 — TGV Canada Phase 1</title>
 <style>{css}</style></head><body>
 <h1>Sections à plafond géométrique inférieur à 200 km/h en S3</h1>
-<h1 class='sub'>Corridor VIA existant · scénario S3 (modernisation maximale :
-voie ré-inclinée + train pendulaire) · tracé inchangé ·
-vitesse géométrique et vitesse commerciale estimée</h1>
+<h1 class='sub'>Corridor VIA existant · scénario S3 (voie ré-inclinée +
+pendulaire moderne, insuffisance 270 mm) · tracé inchangé ·
+vitesse géométrique (plafond)</h1>
 {resume}
 {intro}
 <h2>Synthèse par tronçon</h2>
@@ -274,15 +262,13 @@ vitesse géométrique et vitesse commerciale estimée</h1>
 <p style='font-size:0.82em;color:#888'>Source : sections à plafond géométrique
 &lt; 200 km/h en S3, dérivées de la géométrie classée <code>segments.geojson</code>
 (<code>cible_sites_a_rectifier.csv</code>, S3). Vitesse géométrique :
-V = {COEFF_S3:.2f}·√R (CN MR 1305-0, pendulaire type LRC). Vitesse commerciale :
-facteur de transposition 0,70–0,80 (Annexe E). Détail méthodologique :
-le rapport du projet.</p>
+V = {COEFF_S3:.2f}·√R (dévers CN MR 1305-0, insuffisance 270 mm). Détail
+méthodologique : le rapport du projet.</p>
 </body></html>"""
 
     OUT.write_text(html, encoding="utf-8")
     print(f"Écrit {OUT}")
-    print(f"  {n_tot} sections · {km_tot:.1f} km · {pct_tot:.1f} % du corridor "
-          f"· facteur commercial {FACTEUR_COM}")
+    print(f"  {n_tot} sections · {km_tot:.1f} km · {pct_tot:.1f} % du corridor")
 
 
 if __name__ == "__main__":

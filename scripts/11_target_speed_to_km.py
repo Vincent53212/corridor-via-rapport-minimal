@@ -4,25 +4,19 @@
 Le livrable décisionnel : on fixe une ambition de vitesse, on sort combien de
 km de voie devraient être rectifiés (et où) pour l'atteindre, par scénario.
 
-DEUX volets, de fiabilité TRÈS différente — affichés comme tels :
+Méthode (SOLIDE) : cible de POINTE (vitesse géométrique). Pour une
+vitesse-cible V et un scénario, un segment est « à rectifier » ssi son plafond
+géométrique publié (vmax_{scénario}, déjà borné 360 et cohérent-classe) < V.
+Simple balayage de seuil sur des données déjà validées : AUCUNE hypothèse
+nouvelle. Sortie : km + sites contigus + rayon-cible.
 
-  #1 SOLIDE — cible de POINTE (vitesse géométrique).
-     Pour une vitesse-cible V et un scénario, un segment est « à rectifier »
-     ssi son plafond géométrique publié (vmax_{scénario}, déjà borné 360 et
-     cohérent-classe) < V. C'est un simple balayage de seuil sur des données
-     déjà validées : AUCUNE hypothèse nouvelle. Sortie : km + sites contigus
-     + rayon-cible (de combien la pire courbe doit s'ouvrir).
-
-  #2 INDICATIF — cible de TEMPS / vitesse MOYENNE.
-     Convertit une vitesse moyenne-cible en pointe requise via le rapport
-     moyenne/pointe **mesuré sur des HSR réels = 0,70–0,80** (Annexe E,
-     sourcé), scénario modernisé S3. Donne une ENVELOPPE [bas, haut], jamais
-     un chiffre ferme. Accél/décél/arrêts non modélisés finement → indicatif.
+NB audit 2026-08-06 : l'ancien volet « #2 INDICATIF » (conversion vitesse
+moyenne → pointe par le rapport empirique 0,70-0,80) est retiré : facteur de
+transposition interdit par le plan v3, remplacé par le moteur T_base (21).
 
 Entrée : intermediaires/segments.geojson
-Sorties : livrables/cible_km_a_rectifier.csv (#1 agrégé)
-          livrables/cible_sites_a_rectifier.csv (#1 détail par site)
-          + résumé console (#1 matrice, #2 enveloppe)
+Sorties : livrables/cible_km_a_rectifier.csv (agrégé)
+          livrables/cible_sites_a_rectifier.csv (détail par site)
 """
 from __future__ import annotations
 import csv
@@ -36,9 +30,7 @@ from scenarios import SCENARIOS, VMAX_PHYSICAL_CEILING_KMH
 from utils import (SEGMENTS_GEOJSON, DELIVERABLES, degre_courbure,
                    kmh_to_mph, km_to_mile)
 
-TARGET_PEAKS = [160, 200, 250, 300]          # #1 : vitesses de pointe cibles
-TARGET_AVGS = [150, 180, 200]                # #2 : vitesses moyennes cibles
-RATIO_BAND = (0.70, 0.80)                    # Annexe E (HSR réels sourcés)
+TARGET_PEAKS = [160, 200, 250, 300]          # vitesses de pointe cibles
 TRONCONS = ["MTL-QC", "MTL-Ott", "Ott-TO", "MTL-TO"]
 
 
@@ -141,32 +133,10 @@ def main() -> None:
           f"(attendu ≈ 187 km ; ancien S3 127/152, devenu S2 : ≈ 271 km). "
           f"{'OK ✓' if 165 <= s3_200 <= 210 else 'ÉCART À VÉRIFIER ✗'}\n")
 
-    # ---------- #2 INDICATIF : vitesse moyenne cible → enveloppe ----------
-    print("=== #2 INDICATIF — Vitesse MOYENNE cible → km à rectifier "
-          "(enveloppe, scénario modernisé S3) ===")
-    print("  Conversion moyenne→pointe via rapport HSR réel "
-          f"{RATIO_BAND[0]:.2f}–{RATIO_BAND[1]:.2f} (Annexe E, sourcé). "
-          "ENVELOPPE, pas un chiffre ferme ; accél/décél/arrêts non "
-          "modélisés finement.\n")
-    sc3 = SCENARIOS["S3"]
-    print(f"  {'v_moy':>6} {'pointe requise':>16} {'km à rectifier (S3)':>22}")
-    for Vavg in TARGET_AVGS:
-        peak_hi = Vavg / RATIO_BAND[0]      # ratio bas → pointe haute
-        peak_lo = Vavg / RATIO_BAND[1]      # ratio haut → pointe basse
-        kms = []
-        for peak in (peak_lo, peak_hi):
-            peak_c = min(peak, VMAX_PHYSICAL_CEILING_KMH)
-            km = 0.0
-            for tr in TRONCONS:
-                for p in by_tr.get(tr, []):
-                    if p["vmax_S3_kmh"] < peak_c - 1e-6:
-                        km += p["longueur_m"] / 1000.0
-            kms.append(km)
-        print(f"  {Vavg:>4}   {peak_lo:6.0f}–{peak_hi:<6.0f} km/h   "
-              f"{min(kms):6.0f} – {max(kms):<6.0f} km   "
-              f"(indicatif)")
-    print("\n  ⚠ INDICATIF : enveloppe issue d'un rapport empirique HSR, "
-          "scénario S3 ; ne remplace pas une étude de marche de train.")
+    # NB (audit 2026-08-06) : l'ancien volet « #2 INDICATIF » (vitesse moyenne
+    # cible → pointe requise via le rapport empirique 0,70-0,80) est RETIRÉ —
+    # facteur de transposition interdit par le plan v3. La question « quelle
+    # vitesse moyenne / quel temps de parcours » relève du moteur T_base (21).
 
     # ---------- écritures ----------
     a = DELIVERABLES / "cible_km_a_rectifier.csv"
@@ -181,8 +151,8 @@ def main() -> None:
         w.writeheader(); w.writerows(site_rows)
     print(f"\nÉcrit {a.name} ({len(agg_rows)} lignes) et {b.name} "
           f"({len(site_rows)} sites).")
-    print("NB : #1 ne dépend QUE de la géométrie validée ; #2 est une "
-          "enveloppe indicative (rapport Annexe E). Aucun reclassement.")
+    print("NB : ces tables ne dépendent QUE de la géométrie validée "
+          "(balayage de seuil). Aucun reclassement.")
 
 
 if __name__ == "__main__":

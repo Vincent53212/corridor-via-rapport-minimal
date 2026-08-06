@@ -140,9 +140,9 @@ MPH_PER_KMH = 0.621371          # 1 km/h = 0,621371 mph
 MM_PER_INCH = 25.4              # 1 pouce = 25,4 mm
 M_PER_MILE = 1609.344          # 1 mille = 1609,344 m
 
-# Facteur géo/commercial (vitesse commerciale ≈ plafond géométrique × ce facteur).
-# Borne médiane de la fourchette 0,70–0,80 mesurée sur HSR réels (Annexe E).
-COMMERCIAL_FACTOR = 0.75
+# NB (audit 2026-08-06) : l'ancien COMMERCIAL_FACTOR (0,75, facteur de
+# transposition géo→commercial) est RETIRÉ — interdit du plan v3. La vitesse
+# commerciale est désormais un RÉSULTAT du moteur T_base (scripts/21).
 
 
 def kmh_to_mph(v_kmh: float | None) -> float | None:
