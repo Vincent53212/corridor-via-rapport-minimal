@@ -60,6 +60,10 @@ CORRIDOR_SEGMENTS: dict[str, CorridorSegment] = {
     "MTL-Ott": CorridorSegment("MTL-Ott", "Montréal → Ottawa",  "Montréal → Ottawa",       "617-226"),
     "Ott-TO":  CorridorSegment("Ott-TO",  "Ottawa → Toronto",   "Ottawa → Toronto",        "617-119"),
     "MTL-TO":  CorridorSegment("MTL-TO",  "Montréal → Toronto", "Montréal → Toronto",      "226-119"),
+    # Extension sud-ouest (2026-08, décision Vincent : hors périmètre v3 assumé,
+    # pour muscler les cellules du 2×2 — voir sources/proprietes_voies_verification.md)
+    "TO-WDN":  CorridorSegment("TO-WDN",  "Toronto → Windsor",  "Toronto → Windsor",       "119-618"),
+    "TO-SAR":  CorridorSegment("TO-SAR",  "Toronto → Sarnia",   "Toronto → Sarnia",        "119-341"),
 }
 
 # Gares-pivot des tronçons : (stop_id origine km=0, stop_id destination km=max)
@@ -68,4 +72,6 @@ SEGMENT_ENDPOINTS: dict[str, tuple[str, str]] = {
     "MTL-Ott": ("226", "617"),
     "Ott-TO":  ("617", "119"),
     "MTL-TO":  ("226", "119"),
+    "TO-WDN":  ("119", "618"),
+    "TO-SAR":  ("119", "341"),
 }

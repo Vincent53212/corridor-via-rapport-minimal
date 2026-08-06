@@ -1,7 +1,7 @@
 ﻿troncon;km_debut;km_fin;longueur_km;longueur_unique_km;km_a_doubler;doublon_physique;ligne;gare_amont;gare_aval
-MTL-QC;56.89;262.92;206.03;206.03;183.28;non;main;Saint-Hyacinthe;Québec
-MTL-Ott;62.84;186.06;123.22;123.21;113.82;non;main;Coteau;Ottawa
-Ott-TO;1.03;110.74;109.71;109.31;103.12;non;main;Ottawa;Brockville
-MTL-TO;5.43;9.19;3.76;3.76;3.76;non;main;Montréal;Dorval
-MTL-QC;1.97;2.92;0.95;0.95;0.87;non;main;Montréal;Québec
-MTL-Ott;5.43;9.19;3.76;0.0;0.0;oui;main;Montréal;Dorval
+MTL-QC;56.89;262.92;206.03;206.03;184.31;non;main;Saint-Hyacinthe;Québec
+MTL-Ott;62.84;186.06;123.22;123.21;114.22;non;main;Coteau;Ottawa
+Ott-TO;1.03;110.74;109.71;109.31;103.49;non;main;Ottawa;Brockville
+MTL-TO;5.42;9.19;3.77;3.77;3.77;non;main;Montréal;Dorval
+MTL-QC;1.97;2.95;0.98;0.98;0.77;non;main;Montréal;Saint-Lambert
+MTL-Ott;5.42;9.19;3.77;0.0;0.0;oui;main;Montréal;Dorval

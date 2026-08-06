@@ -1,4 +1,8 @@
-﻿cellule;n;mediane;q25;q75;minimum;maximum;disp_iqr_pct_med
-double-CN;11;36.8;34.2;44.3;32.3;69.8;5.0
-simple-CN;2;65.2;63.0;67.4;60.8;69.6;21.4
-simple-VIA;5;42.0;33.2;51.4;24.0;62.5;10.0
+﻿region;cellule;n;mediane;q25;q75;minimum;maximum;disp_iqr_pct_med
+coeur;double-CN;11;36.8;34.2;44.3;32.3;69.8;5.0
+coeur;simple-CN;2;65.2;63.0;67.4;60.8;69.6;21.4
+coeur;simple-VIA;5;42.0;33.2;51.4;24.0;62.5;10.0
+sud-ouest;double-CN;6;81.0;75.2;101.8;67.4;114.1;7.1
+sud-ouest;simple-CN;3;258.6;215.3;258.8;172.0;259.0;
+sud-ouest;simple-MTX;2;124.8;104.0;145.5;83.2;166.3;
+sud-ouest;simple-VIA;1;68.8;68.8;68.8;68.8;68.8;15.7

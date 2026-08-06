@@ -1,0 +1,123 @@
+
+===== 02_build_rail_graph.py =====
+=== Étape 2 — Construction du graphe rail OSM ===
+  Lecture Québec (1151 MB) ...
+    [Québec]    174 rail ways retenus,    390 ways scannés  t=5s
+    [Québec]   3434 rail ways retenus,   9955 ways scannés  t=10s
+    [Québec]   3696 rail ways retenus,  13176 ways scannés  t=16s
+  Québec : 3938 ways rail retenus sur 13843 (0 skips), 16.2s
+  Lecture Ontario (936 MB) ...
+    [Ontario]   1461 rail ways retenus,   3976 ways scannés  t=5s
+    [Ontario]   5766 rail ways retenus,  18507 ways scannés  t=10s
+  Ontario : 8108 ways rail retenus sur 29892 (0 skips), 14.2s
+  Total ways rail : 12046 (QC: 3938, ON: 8108)
+
+Construction du graphe ...
+  Détection des junctions ...
+    12,742 junctions sur 164,836 nœuds rail uniques
+  Construction des arêtes ...
+    5000/12046 ways traités  t=0s
+    10000/12046 ways traités  t=0s
+  Arêtes construites en 0.2s
+  Graphe : 13,199 nœuds, 14,228 arêtes (0.2s)
+  Longueur totale : 17,980 km
+
+Écriture du graphe → osm_rails_graph.pkl
+  (9.1 MB)
+
+Génération de la carte de contrôle ...
+  Listage composantes connexes ...
+    126 composantes (taille top-10 : [12341, 98, 95, 70, 40, 33, 33, 28, 26, 20])
+    Composante #1 : 10583 arêtes dessinées (filtre bbox corridor)
+    Composante #2 : 0 arêtes dessinées (filtre bbox corridor)
+    Composante #3 : 94 arêtes dessinées (filtre bbox corridor)
+  Contrôle visuel : controle_02_graphe.html (8128 KB)
+
+OK — étape 2 terminée.
+===== 02_build_rail_graph.py : exit 0 en 41s =====
+
+===== 03_match_gtfs_to_osm.py =====
+=== Étape 3 — Map-matching lock-on-edge ===
+Lecture du graphe rail : osm_rails_graph.pkl
+  13,199 nœuds, 14,228 arêtes (0.1s)
+Lecture corridor GTFS : corridor_gtfs.geojson
+  6 tronçons GTFS
+
+[1/3] Construction de l'index OSM (KD-tree + edges + offsets) ...
+  180,093 pts OSM indexés sur 14,228 arêtes (0.5s)
+
+[2/3] Map-matching lock-on-edge (densify 50m) ...
+  MTL-QC: 2545 pts | locked 5330 | bootstrap 0 | forced 129 | fallback 0 | switches_jct 258 | 270.6 vs 269.8 km Δ=+0.3% ✓ (0.2s)
+  MTL-Ott: 1966 pts | locked 3647 | bootstrap 0 | forced 81 | fallback 0 | switches_jct 158 | 185.7 vs 185.5 km Δ=+0.1% ✓ (0.1s)
+  Ott-TO: 4285 pts | locked 8621 | bootstrap 1 | forced 179 | fallback 0 | switches_jct 343 | 445.2 vs 444.1 km Δ=+0.2% ✓ (0.3s)
+  MTL-TO: 5795 pts | locked 10496 | bootstrap 0 | forced 191 | fallback 0 | switches_jct 372 | 539.0 vs 538.1 km Δ=+0.2% ✓ (0.4s)
+  TO-WDN: 2319 pts | locked 6850 | bootstrap 1 | forced 149 | fallback 0 | switches_jct 303 | 359.6 vs 358.8 km Δ=+0.2% ✓ (0.2s)
+  TO-SAR: 1742 pts | locked 5510 | bootstrap 1 | forced 151 | fallback 0 | switches_jct 310 | 290.6 vs 289.5 km Δ=+0.4% ✓ (0.2s)
+
+[3/3] Écriture des sorties ...
+  Écrit corridor_matched.geojson (0.6 MB)
+  Contrôles : controle_03_snapping.html, controle_03_matched.html, controle_03_snap_confidence.html
+
+OK — étape 3 terminée.
+===== 03_match_gtfs_to_osm.py : exit 0 en 4s =====
+
+===== 04_compute_curvature.py =====
+=== Étape 4 — Calcul du rayon de courbure ===
+  6 tronçons matchés à analyser
+
+  MTL-QC: 2545 pts → UTM EPSG:32618
+    Reprojeté en 0.00s ; 2545 pts uniques
+    Ré-échantillonné à pas 10 m → 27111 pts (0.00s)
+    Courbure : R_min=292 m, médiane R=50000 m, médiane physique=3573 m, frac(droite@50km)=63.4%, 0 pts au plancher (100m) (0.64s)
+
+  MTL-Ott: 1966 pts → UTM EPSG:32618
+    Reprojeté en 0.00s ; 1966 pts uniques
+    Ré-échantillonné à pas 10 m → 18606 pts (0.00s)
+    Courbure : R_min=289 m, médiane R=50000 m, médiane physique=4410 m, frac(droite@50km)=53.0%, 0 pts au plancher (100m) (0.36s)
+
+  Ott-TO: 4285 pts → UTM EPSG:32618
+    Reprojeté en 0.00s ; 4285 pts uniques
+    Ré-échantillonné à pas 10 m → 44593 pts (0.00s)
+    Courbure : R_min=288 m, médiane R=30477 m, médiane physique=4370 m, frac(droite@50km)=45.4%, 0 pts au plancher (100m) (0.88s)
+
+  MTL-TO: 5795 pts → UTM EPSG:32618
+    Reprojeté en 0.00s ; 5795 pts uniques
+    Ré-échantillonné à pas 10 m → 54009 pts (0.00s)
+    Courbure : R_min=289 m, médiane R=42604 m, médiane physique=4592 m, frac(droite@50km)=48.5%, 0 pts au plancher (100m) (1.06s)
+
+  TO-WDN: 2319 pts → UTM EPSG:32617
+    Reprojeté en 0.00s ; 2319 pts uniques
+    Ré-échantillonné à pas 10 m → 36009 pts (0.00s)
+    Courbure : R_min=284 m, médiane R=50000 m, médiane physique=9884 m, frac(droite@50km)=64.1%, 0 pts au plancher (100m) (0.65s)
+
+  TO-SAR: 1742 pts → UTM EPSG:32617
+    Reprojeté en 0.00s ; 1742 pts uniques
+    Ré-échantillonné à pas 10 m → 29109 pts (0.00s)
+    Courbure : R_min=396 m, médiane R=50000 m, médiane physique=7046 m, frac(droite@50km)=59.9%, 0 pts au plancher (100m) (0.52s)
+
+Total : 209,437 points calculés
+Écrit courbure_points.parquet (9.9 MB)
+
+Génération de la carte de contrôle ...
+Contrôle : controle_04_courbure.html
+
+OK — étape 4 terminée.
+===== 04_compute_curvature.py : exit 0 en 7s =====
+
+===== 05_segment_and_classify.py =====
+=== Étape 5 — Segmentation et classification ===
+  209,437 points sur 6 tronçons
+
+Écrit segments.geojson (9.5 MB)
+
+Tronçon    segments
+  MTL-QC         183
+  MTL-Ott         154
+  Ott-TO         402
+  MTL-TO         483
+  TO-WDN         219
+  TO-SAR         239
+  TOTAL         1680
+===== 05_segment_and_classify.py : exit 0 en 7s =====
+
+CHAINE 02-05 TERMINEE OK

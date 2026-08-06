@@ -142,10 +142,10 @@ def load_gtfs_pair_minutes() -> tuple[dict, dict]:
 # ----------------------------------------------------------------- segments
 def load_segments() -> dict[str, list[dict]]:
     gj = json.load(open(SEGMENTS, encoding="utf-8"))
-    by_t: dict[str, list[dict]] = {t: [] for t in TRONCONS}
+    by_t: dict[str, list[dict]] = {}
     for f in gj["features"]:
         p = f["properties"]
-        by_t[p["troncon_id"]].append(p)
+        by_t.setdefault(p["troncon_id"], []).append(p)
     for t in by_t:
         by_t[t].sort(key=lambda p: p["km_debut"])
     return by_t

@@ -1,0 +1,71 @@
+
+===== 13_track_count.py =====
+Points : 209,437
+Arêtes indexées : 14,228
+   20,000/209,437  (    2s, 9,677 pts/s)
+   40,000/209,437  (    3s, 11,763 pts/s)
+   60,000/209,437  (    5s, 11,661 pts/s)
+   80,000/209,437  (    7s, 11,781 pts/s)
+  100,000/209,437  (    9s, 11,659 pts/s)
+  120,000/209,437  (   10s, 12,027 pts/s)
+  140,000/209,437  (   12s, 11,981 pts/s)
+
+Écrit voies_points.parquet (209,437 points, 14s)
+
+Paramètres : BUF=30 ALIGN=±25° SISTER=7m HEAD_WIN=±40m
+
+tronçon    n_pts  %simple  %double    %≥3 méd_écart(m)
+MTL-Ott   18,606      67%      31%     2%          4.2
+MTL-QC    27,111      76%      23%     1%          4.4
+MTL-TO    54,009       1%      92%     7%          4.2
+Ott-TO    44,593      25%      68%     7%          4.2
+TO-SAR    29,109     100%       0%     0%          nan
+TO-WDN    36,009     100%       0%     0%          nan
+
+=== Zones-témoins (BRUT) ===
+  [MTL-QC] Drummondville 100-190 (9,001 pts) : 99% simple / 1% double / 0% ≥3  → ≈ simple attendu
+  [MTL-TO] Kingston 250-330 (8,001 pts) : 0% simple / 94% double / 6% ≥3  → ≈ double attendu
+===== 13_track_count.py : exit 0 en 14s =====
+
+===== 14_synthese_voies.py =====
+Points : 209,437  | WIN=25pts CELL=20m EVIT<1.5km MIN_SEG=0.5km
+
+=== Par tronçon (lissé) ===
+tronçon     long         simple         double        multi
+MTL-QC       271     208 (  77%)      62 (  23%)     2 (   1%)
+MTL-Ott      186     127 (  68%)      57 (  31%)     2 (   1%)
+Ott-TO       446     111 (  25%)     307 (  69%)    27 (   6%)
+MTL-TO       540       5 (   1%)     505 (  94%)    30 (   6%)
+
+=== RÉSEAU UNIQUE (dédupliqué) ===
+  total           :    1685 km
+  simple          :    1078 km (  64%)
+  double          :     576 km (  34%)
+  multiple        :      31 km (   2%)
+  → à doubler (ligne principale, hors gare) : 1033–1038 km (fourchette)
+     géométrie 1038 km · réconcilié passenger_lines 1033 km
+     dont simple branch : 12 km · simple abords gare : 29 km
+  somme brute tronçons : 1443 km · voie partagée dédupliquée : -242 km
+
+=== Invariants ===
+  MTL-QC    simple+double+multi=271.1 vs long=271.1  [OK]
+  MTL-Ott   simple+double+multi=186.1 vs long=186.1  [OK]
+  Ott-TO    simple+double+multi=445.9 vs long=445.9  [OK]
+  MTL-TO    simple+double+multi=540.1 vs long=540.1  [OK]
+  unique (1685) ≤ somme tronçons (1443) : !!
+
+=== Corroboration passenger_lines (n=137,148, 65% des pts) ===
+  géométrie == passenger_lines : 91%  | géométrie ≤ passenger_lines : 99%
+
+=== Zones-témoins (lissé) ===
+  [MTL-QC] Drummondville: 100% simple / 0% double (attendu simple)
+  [MTL-TO] Kingston: 0% simple / 95% double (attendu double)
+
+Écrit :
+  voies_par_troncon.csv
+  km_a_doubler.csv  (6 sections simples à doubler)
+  segments_voies.geojson  (54 segments)
+RESULT;WIN=25;CELL=20;SUF=base;unique=1685;simple=1078;double=576;multi=31;adbl_lo=1033;adbl_hi=1038
+===== 14_synthese_voies.py : exit 0 en 3s =====
+
+CHAINE 13-14 TERMINEE OK

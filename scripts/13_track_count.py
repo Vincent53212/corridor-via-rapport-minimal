@@ -59,7 +59,12 @@ from utils import (CURVATURE_PARQUET, GRAPH_PKL, CORRIDOR_MATCHED_GEOJSON,
                    INTERMEDIATES)
 
 # --------------------------------------------------------------- paramètres
-UTM_EPSG = 32618                     # le parquet est déjà en UTM 18N
+# FIX extension SW (2026-08) : le parquet est en UTM PAR ZONE de tronçon
+# (18N pour l'est, 17N pour Toronto-Windsor/Sarnia) alors que ce script
+# projetait le graphe en 18N fixe → aucun rail trouvé hors zone 18 (d0=NaN,
+# tout « simple »). On projette désormais TOUT (points recalculés depuis
+# lat/lon, arêtes, gares) en Lambert conforme Canada (mètres, une seule zone).
+UTM_EPSG = 3978
 BUF_M = float(os.environ.get("BUF_M", 30.0))        # rayon de requête/large
 ALIGN_DEG = float(os.environ.get("ALIGN_DEG", 25.0))  # tolérance d'alignement
 SISTER_M = float(os.environ.get("SISTER_M", 7.0))   # écart max voie sœur (~4 m mesuré)
@@ -169,16 +174,17 @@ def main() -> None:
     print(f"Arêtes indexées : {len(geoms):,}")
     station_tree = load_station_tree()
 
-    # azimut par point (calcul par groupe ordonné)
+    # azimut par point (calcul par groupe ordonné) — coordonnées recalculées
+    # depuis lat/lon dans le CRS unique (voir note UTM_EPSG).
     df = df.sort_values(["alignment_id", "troncon_id", "point_idx"]).reset_index(drop=True)
+    Tp = Transformer.from_crs(4326, UTM_EPSG, always_xy=True)
+    X, Y = Tp.transform(df["lon"].values, df["lat"].values)
+    X = np.asarray(X)
+    Y = np.asarray(Y)
     th = np.empty(len(df))
     for _, idx in df.groupby(["alignment_id", "troncon_id"]).groups.items():
         idx = np.asarray(idx)
-        th[idx] = headings_for_group(df["x_utm"].values[idx],
-                                     df["y_utm"].values[idx])
-
-    X = df["x_utm"].values
-    Y = df["y_utm"].values
+        th[idx] = headings_for_group(X[idx], Y[idx])
 
     n_geom = np.ones(len(df), dtype=np.int16)
     n_wide = np.ones(len(df), dtype=np.int16)

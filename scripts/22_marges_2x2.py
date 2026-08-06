@@ -80,6 +80,19 @@ STATIONS = {
                 ("Cobourg", "178", 332.06), ("Port Hope", "9", 342.88),
                 ("Oshawa", "367", 393.31), ("Guildwood", "450", 423.93),
                 ("Toronto", "119", 444.05)],
+    # Extension sud-ouest (2026-08) : km relevés dans corridor_gtfs.geojson ;
+    # Aldershot (desservie par les trains Windsor/Niagara) projetée au tracé.
+    "TO-WDN":  [("Toronto", "119", 0.0), ("Oakville", "436", 34.06),
+                ("Aldershot", "600", None), ("Brantford", "162", 96.23),
+                ("Woodstock", "282", 138.87), ("Ingersoll", "323", 153.96),
+                ("London", "93", 184.49), ("Glencoe", "78", 233.71),
+                ("Chatham", "601", 288.16), ("Windsor", "618", 358.75)],
+    "TO-SAR":  [("Toronto", "119", 0.0), ("Malton", "34", 25.65),
+                ("Brampton", "322", 34.12), ("Georgetown", "6", 47.09),
+                ("Guelph", "70", 78.41), ("Kitchener", "114", 101.06),
+                ("Stratford", "7", 142.16), ("St. Marys", "11", 160.16),
+                ("London", "93", 194.61), ("Strathroy", "14", 225.4),
+                ("Sarnia", "341", 289.46)],
     "MTL-TO":  [("Montréal", "226", 0.0), ("Dorval", "332", 17.79),
                 ("Cornwall", "602", None),
                 ("Brockville", "35", 204.72), ("Gananoque", "200", 249.75),
@@ -100,6 +113,14 @@ OWNER = {
     "MTL-Ott": [(62.28, "CN"), (1e9, "VIA")],
     "Ott-TO":  [(110.0, "VIA"), (444.05 - MTX_FROM_TORONTO_KM, "CN"), (1e9, "MTX")],
     "MTL-TO":  [(538.06 - MTX_FROM_TORONTO_KM, "CN"), (1e9, "MTX")],
+    # Sud-ouest. TO-WDN : Oakville sub Metrolinx jusqu'au PM 32,06 (≈ km 50,1) ;
+    # CN (Dundas + Chatham-CN) ; VIA sur les 67,1 derniers km (Bloomfield→Windsor,
+    # plan triennal art. 141 : 358,75 − 67,1 ≈ 291,7). TO-SAR : Weston Metrolinx
+    # (→ Bramalea ≈ km 29), Halton CN (→ Silver/Georgetown ≈ km 46), Guelph
+    # Metrolinx (→ Kitchener ≈ km 103), puis CN (Guelph ouest + Strathroy).
+    # Bornes ≈ : voir sources/proprietes_voies_verification.md.
+    "TO-WDN":  [(50.1, "MTX"), (291.7, "CN"), (1e9, "VIA")],
+    "TO-SAR":  [(29.0, "MTX"), (46.0, "CN"), (103.0, "MTX"), (1e9, "CN")],
 }
 
 EXCLUDED_PAIRS = {
@@ -114,14 +135,36 @@ EXCLUDED_PAIRS = {
     ("MTL-TO", "Guildwood", "Toronto"): "bloc urbain",
 }
 OTTAWA_FLAG = {("MTL-Ott", "Casselman", "Ottawa")}
+# Banlieue torontoise (Metrolinx, cellule « double-passager » INDICATIVE : arrêts
+# GO denses, congestion terminale) : hors synthèse 2×2, publiée dans la table.
+for _k in [("TO-WDN", "Toronto", "Oakville"), ("TO-SAR", "Toronto", "Malton"),
+           ("TO-SAR", "Malton", "Brampton")]:
+    EXCLUDED_PAIRS[_k] = "banlieue Toronto (Metrolinx) : cellule indicative"
+
+OWNER_DOMINANCE = 0.85  # part majoritaire requise ; sinon la paire chevauche
+
+# Régions d'analyse : le CŒUR (4 tronçons du plan v3, voie de classe 4-5, où la
+# marge vs plafond géométrique mesure surtout l'exploitation) et le SUD-OUEST
+# (voie de classe inférieure, ralentissements permanents documentés BST : la
+# marge y mélange ÉTAT DE LA VOIE et régime). Les synthèses et les deux
+# lectures se font PAR RÉGION, jamais en les fusionnant.
+REGION = {"MTL-QC": "coeur", "MTL-Ott": "coeur", "Ott-TO": "coeur",
+          "MTL-TO": "coeur", "TO-WDN": "sud-ouest", "TO-SAR": "sud-ouest"}
 
 
-def pair_owner(t: str, km0: float, km1: float) -> str:
-    mid = (km0 + km1) / 2
+def pair_owner(t: str, km0: float, km1: float) -> tuple[str, float]:
+    """(propriétaire majoritaire, sa part de longueur) sur [km0, km1]."""
+    shares: dict[str, float] = {}
+    lo = 0.0
     for km_end, owner in OWNER[t]:
-        if mid < km_end:
-            return owner
-    return "?"
+        ov = max(0.0, min(km1, km_end) - max(km0, lo))
+        if ov > 0:
+            shares[owner] = shares.get(owner, 0.0) + ov
+        lo = km_end
+    if not shares or km1 <= km0:
+        return "?", 0.0
+    owner = max(shares, key=shares.get)
+    return owner, shares[owner] / (km1 - km0)
 
 
 def load_voies():
@@ -244,15 +287,13 @@ def main() -> None:
                 seen_physical[phys] = t
             t_base = tbase_pair(by_t, t, ka, kb)
             shares = track_shares(voies, t, ka, kb)
-            owner = pair_owner(t, ka, kb)
+            owner, own_share = pair_owner(t, ka, kb)
             cell = cell_of(owner, shares)
             key = (t, na, nb)
             excl = EXCLUDED_PAIRS.get(key, "")
-            if not excl:  # paire chevauchant une frontière de propriétaire : hors 2×2
-                for km_end, _ in OWNER[t][:-1]:
-                    if ka < km_end < kb:
-                        excl = "chevauche une frontière de propriétaire"
-                        break
+            if not excl and own_share < OWNER_DOMINANCE:
+                excl = (f"chevauche une frontière de propriétaire "
+                        f"({owner} {own_share:.0%})")
             marge = (100 * (t_hor - t_base) / t_base) if (t_hor and t_base > 0) else None
             m100 = (100 * (t_hor - t_base) / (kb - ka)) if (t_hor and kb > ka) else None
             if len(s) >= 4:
@@ -262,7 +303,7 @@ def main() -> None:
             else:
                 iqr = None
             rows.append({
-                "troncon": t, "de": na, "a": nb,
+                "troncon": t, "region": REGION[t], "de": na, "a": nb,
                 "km_debut": ka, "km_fin": kb, "longueur_km": round(kb - ka, 1),
                 "cellule": cell, "part_simple_pct": round(100 * shares.get("simple", 0)),
                 "part_double_plus_pct": round(100 * (shares.get("double", 0)
@@ -288,7 +329,7 @@ def main() -> None:
     kept["marge_pct"] = pd.to_numeric(kept["marge_pct"])
     kept["dispersion_iqr_pct"] = pd.to_numeric(kept["dispersion_iqr_pct"], errors="coerce")
     synth = (kept[kept.cellule != "mixte"]
-             .groupby("cellule")
+             .groupby(["region", "cellule"])
              .agg(n=("marge_pct", "count"), mediane=("marge_pct", "median"),
                   q25=("marge_pct", lambda x: x.quantile(.25)),
                   q75=("marge_pct", lambda x: x.quantile(.75)),
@@ -315,8 +356,8 @@ def main() -> None:
     # lecture régime (le double-CN a les paires les plus courtes). On teste donc
     # le classement avec une pénalité p ajoutée à T_base (p ≈ v/2·(1/a+1/d) :
     # ~1,5-2 min à 160 km/h pour a≈0,4 / d≈0,5 m/s² ; 3 min = borne haute).
-    print("\nSensibilité à la pénalité d'arrêt p (médianes de marge par cellule) :")
-    kt = kept[kept.cellule != "mixte"].copy()
+    print("\nSensibilité à la pénalité d'arrêt p (CŒUR seulement, médianes par cellule) :")
+    kt = kept[(kept.cellule != "mixte") & (kept.region == "coeur")].copy()
     kt["t_hor"] = pd.to_numeric(kt["t_horaire_med_min"])
     kt["t_base"] = pd.to_numeric(kt["t_base_S1cap160_min"])
     print(f"  {'p (min)':>8} {'double-CN':>10} {'simple-VIA':>11} {'simple-CN':>10}")
@@ -327,9 +368,14 @@ def main() -> None:
               f"{med_p.get('simple-VIA', float('nan')):>11.1f} "
               f"{med_p.get('simple-CN', float('nan')):>10.1f}")
 
-    med = {r["cellule"]: r["mediane"] for _, r in synth.iterrows()}
-    via_pure = kept[(kept.cellule == "simple-VIA") & (kept.note == "")]["marge_pct"]
-    print("\nLecture « doublement » (simple-CN vs double-CN, même propriétaire) :")
+    med = {r["cellule"]: r["mediane"] for _, r in synth.iterrows()
+           if r["region"] == "coeur"}
+    med_sw = {r["cellule"]: r["mediane"] for _, r in synth.iterrows()
+              if r["region"] == "sud-ouest"}
+    via_pure = kept[(kept.cellule == "simple-VIA") & (kept.note == "")
+                    & (kept.region == "coeur")]["marge_pct"]
+    print("\n=== LECTURES DU CŒUR (classe de voie homogène) ===")
+    print("Lecture « doublement » (simple-CN vs double-CN, même propriétaire) :")
     print(f"  médianes {med.get('simple-CN')} % vs {med.get('double-CN')} % : "
           f"le doublement achète ≈ {med.get('simple-CN', 0) - med.get('double-CN', 0):.0f} points "
           f"de marge (échantillon simple-CN MINCE, n=2 : publier en bornes)")
@@ -340,6 +386,15 @@ def main() -> None:
           f"({med.get('simple-CN', 0) - med.get('double-CN', 0):+.1f} pts, 27-33 pts). "
           f"Sous régime VIA, la voie simple coûte quelques points ; sous régime CN, "
           f"elle en coûte ~7 fois plus. C'est le régime qui fixe le prix du béton.")
+    print("\n=== SUD-OUEST (voie de classe inférieure : la marge vs plafond "
+          "géométrique y mélange ÉTAT DE LA VOIE et régime — ne JAMAIS fusionner "
+          "avec le cœur) ===")
+    print(f"  Contraste interne, à état de voie comparable : simple-VIA "
+          f"(Chatham-Windsor, 8 VIA vs 2 fret/j) {med_sw.get('simple-VIA', '—')} % "
+          f"CONTRE simple-CN (Guelph ouest, Strathroy) {med_sw.get('simple-CN', '—')} %. "
+          f"double-CN (Dundas) {med_sw.get('double-CN', '—')} % ; simple-MTX "
+          f"(Guelph, 23 GO/j) {med_sw.get('simple-MTX', '—')} % — indicatifs.")
+
     print("\nCaveat de mesure : T_horaire de paire inclut l'effet d'accélération/"
           "freinage des arrêts d'extrémité, que T_base ne modélise pas → les paires "
           "COURTES sont gonflées. Le double-CN ayant les paires les plus courtes, "

@@ -9,8 +9,19 @@ INTERMEDIATES = PROJECT_ROOT / "intermediaires"
 DELIVERABLES = PROJECT_ROOT / "livrables"
 
 GTFS_ZIP = RESOURCES / "viarail_GTFS.zip"
-PBF_QUEBEC = RESOURCES / "quebec-260510.osm.pbf"
-PBF_ONTARIO = RESOURCES / "ontario-260510.osm.pbf"
+
+# Les extraits OSM (.pbf, ~2 Go) ne sont pas versionnés dans ce dépôt : on
+# les prend dans le projet parent s'ils n'ont pas été copiés localement.
+_PARENT_RESOURCES = PROJECT_ROOT.parent.parent / "ressources"
+
+
+def _pbf(name: str) -> Path:
+    local = RESOURCES / name
+    return local if local.exists() else _PARENT_RESOURCES / name
+
+
+PBF_QUEBEC = _pbf("quebec-260510.osm.pbf")
+PBF_ONTARIO = _pbf("ontario-260510.osm.pbf")
 
 GRAPH_PKL = INTERMEDIATES / "osm_rails_graph.pkl"
 CORRIDOR_GTFS_GEOJSON = INTERMEDIATES / "corridor_gtfs.geojson"
