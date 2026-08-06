@@ -220,6 +220,8 @@ avec son motif documenté. Résultat, sur le cœur du corridor (classe de voie h
 | Voie simple, VIA | 5 | 42 % | 10 % | 12 à 14 |
 | Voie simple, CN | 2 | 65 % | 21 % | 27 |
 
+![Le 2×2 du corridor : chaque inter-gare colorée selon sa cellule voie × propriétaire, avec la marge médiane mesurée par cellule. En gris, les paires exclues de la mesure (blocs urbains, ponts, frontières de propriétaire).](livrables/figure_cellules.png)
+
 Trois lignes, trois faits :
 
 **Ce que le doublement achète, chez le CN** : environ 28 points de marge (65 contre 37),
