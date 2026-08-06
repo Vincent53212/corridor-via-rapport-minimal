@@ -1,0 +1,57 @@
+﻿troncon;de;a;cellule;region;marge_pct;exclue;n_pn;trains_jour_med;v_permise_mph_med
+MTL-QC;Montréal;Saint-Lambert;double-CN;coeur;284.1;True;0;;
+MTL-QC;Saint-Lambert;Saint-Hyacinthe;double-CN;coeur;42.7;True;67;55.0;45.0
+MTL-QC;Saint-Hyacinthe;Drummondville;simple-CN;coeur;69.6;False;62;27.0;95.0
+MTL-QC;Drummondville;Charny;simple-CN;coeur;60.8;False;180;27.0;95.0
+MTL-QC;Charny;Sainte-Foy;simple-CN;coeur;135.1;True;4;20.0;25.0
+MTL-QC;Sainte-Foy;Québec;mixte;coeur;130.1;True;12;13.0;57.5
+MTL-Ott;Montréal;Dorval;double-CN;coeur;177.0;True;3;55.0;45.0
+MTL-Ott;Dorval;Coteau;double-CN;coeur;36.8;False;29;54.0;95.0
+MTL-Ott;Coteau;Alexandria;simple-VIA;coeur;33.2;False;96;14.0;80.0
+MTL-Ott;Alexandria;Casselman;simple-VIA;coeur;24.0;False;45;14.0;80.0
+MTL-Ott;Casselman;Ottawa;simple-VIA;coeur;42.0;False;42;14.0;80.0
+Ott-TO;Ottawa;Fallowfield;simple-VIA;coeur;158.4;True;8;27.0;60.0
+Ott-TO;Fallowfield;Smiths Falls;simple-VIA;coeur;51.4;False;21;12.0;95.0
+Ott-TO;Smiths Falls;Brockville;simple-VIA;coeur;62.5;False;31;12.0;95.0
+Ott-TO;Brockville;Gananoque;double-CN;coeur;44.4;False;52;40.0;95.0
+Ott-TO;Gananoque;Kingston;double-CN;coeur;40.2;False;23;40.0;100.0
+Ott-TO;Kingston;Napanee;double-CN;coeur;44.3;False;19;40.0;100.0
+Ott-TO;Napanee;Belleville;double-CN;coeur;36.3;False;45;40.0;100.0
+Ott-TO;Belleville;Trenton Junction;double-CN;coeur;65.1;False;15;40.0;100.0
+Ott-TO;Trenton Junction;Cobourg;double-CN;coeur;33.6;False;51;40.0;100.0
+Ott-TO;Cobourg;Port Hope;double-CN;coeur;69.8;False;8;40.0;95.0
+Ott-TO;Port Hope;Oshawa;double-CN;coeur;32.8;False;31;40.0;100.0
+Ott-TO;Oshawa;Guildwood;double-CN;coeur;49.6;True;7;103.0;95.0
+Ott-TO;Guildwood;Toronto;double-MTX;coeur;123.2;True;2;103.0;95.0
+TO-WDN;Toronto;Oakville;double-MTX;sud-ouest;75.0;True;9;140.0;95.0
+TO-WDN;Oakville;Aldershot;double-MTX;sud-ouest;50.4;True;5;110.0;95.0
+TO-WDN;Aldershot;Brantford;double-CN;sud-ouest;74.8;False;7;52.0;80.0
+TO-WDN;Brantford;Woodstock;double-CN;sud-ouest;67.4;False;16;52.0;80.0
+TO-WDN;Woodstock;Ingersoll;double-CN;sud-ouest;114.1;False;7;52.0;80.0
+TO-WDN;Ingersoll;London;double-CN;sud-ouest;76.6;False;18;52.0;80.0
+TO-WDN;London;Glencoe;mixte;sud-ouest;62.9;False;52;18.0;80.0
+TO-WDN;Glencoe;Chatham;mixte;sud-ouest;59.3;False;17;18.0;80.0
+TO-WDN;Chatham;Windsor;simple-VIA;sud-ouest;68.8;False;66;10.0;100.0
+TO-SAR;Toronto;Malton;double-MTX;sud-ouest;131.6;True;7;11.0;35.0
+TO-SAR;Malton;Brampton;double-CN;sud-ouest;235.7;True;1;46.0;50.0
+TO-SAR;Brampton;Georgetown;double-CN;sud-ouest;107.2;False;8;46.0;70.0
+TO-SAR;Georgetown;Guelph;simple-MTX;sud-ouest;83.2;False;23;8.0;70.0
+TO-SAR;Guelph;Kitchener;simple-MTX;sud-ouest;166.3;False;23;8.0;30.0
+TO-SAR;Kitchener;Stratford;simple-CN;sud-ouest;172.0;False;32;8.0;70.0
+TO-SAR;Stratford;St. Marys;simple-CN;sud-ouest;259.0;False;20;8.0;42.5
+TO-SAR;St. Marys;London;simple-CN;sud-ouest;258.6;False;33;8.0;70.0
+TO-SAR;London;Strathroy;double-CN;sud-ouest;85.4;False;23;28.0;80.0
+TO-SAR;Strathroy;Sarnia;mixte;sud-ouest;83.8;False;58;28.0;80.0
+MTL-TO;Montréal;Dorval;double-CN;coeur;176.7;True;3;55.0;45.0
+MTL-TO;Dorval;Cornwall;double-CN;coeur;34.9;False;64;40.0;95.0
+MTL-TO;Cornwall;Brockville;double-CN;coeur;32.3;False;59;40.0;100.0
+MTL-TO;Brockville;Gananoque;double-CN;coeur;49.7;False;49;40.0;95.0
+MTL-TO;Gananoque;Kingston;double-CN;coeur;37.4;False;23;40.0;100.0
+MTL-TO;Kingston;Napanee;double-CN;coeur;44.7;False;19;40.0;100.0
+MTL-TO;Napanee;Belleville;double-CN;coeur;36.1;False;45;40.0;100.0
+MTL-TO;Belleville;Trenton Junction;double-CN;coeur;65.1;False;15;40.0;100.0
+MTL-TO;Trenton Junction;Cobourg;double-CN;coeur;33.5;False;51;40.0;100.0
+MTL-TO;Cobourg;Port Hope;double-CN;coeur;72.7;False;8;40.0;95.0
+MTL-TO;Port Hope;Oshawa;double-CN;coeur;32.4;False;33;40.0;100.0
+MTL-TO;Oshawa;Guildwood;double-CN;coeur;49.2;True;8;103.0;95.0
+MTL-TO;Guildwood;Toronto;double-MTX;coeur;127.6;True;1;103.0;95.0
