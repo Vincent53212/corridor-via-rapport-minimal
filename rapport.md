@@ -34,15 +34,23 @@ fourchette applique la marge, de la borne normative (9 %) à la marge actuelle 
 | Scénario × bande | Temps de base | Avec marge (fourchette) |
 |---|---|---|
 | S2, bande 200 km/h | 4 h 00 | 4 h 21 à 4 h 34 |
-| S3, bande 250 km/h | 3 h 30 | 3 h 49 à 4 h 00 |
-| S3, bande 300 km/h | 3 h 15 | 3 h 32 à 3 h 43 |
+| **S3, bande 200 km/h** | **3 h 58** | **4 h 19 à 4 h 32** |
+| S3, bande 250 km/h (référence, exige zéro passage à niveau) | 3 h 30 | 3 h 49 à 4 h 00 |
+| S3, bande 300 km/h (référence, idem + contrôle intégral) | 3 h 15 | 3 h 32 à 3 h 43 |
+
+La combinaison cohérente avec le régime réglementaire actuel est **S3 à la bande
+200 km/h** : le meilleur train sur la voie existante, sans franchir le mur des
+passages à niveau ni changer la signalisation au-delà du contrôle en cabine
+(sections 5 et 6). Les bandes 250 et 300 sont des références : elles chiffrent ce
+que l'élimination des passages et le contrôle intégral achèteraient en plus.
 
 **Temps Montréal-Québec (270 km).** Horaire actuel : 3 h 23.
 
 | Scénario × bande | Temps de base | Avec marge (fourchette) |
 |---|---|---|
 | S2, bande 200 km/h | 2 h 12 | 2 h 24 à 2 h 56 |
-| S3, bande 250 km/h | 1 h 58 | 2 h 09 à 2 h 37 |
+| **S3, bande 200 km/h** | **2 h 08** | **2 h 20 à 2 h 50** |
+| S3, bande 250 km/h (référence) | 1 h 58 | 2 h 09 à 2 h 37 |
 
 La fourchette de marge n'est pas une estimation : sa borne basse est la marge normative
 internationale (9 pour cent du temps de parcours aux vitesses de 200 km/h et plus
@@ -375,12 +383,12 @@ ne dimensionne pas.
 Table complète des temps de base par tronçon, scénario et bande (sans marge ; la marge
 s'applique par la fourchette de la synthèse). Horaire actuel en regard.
 
-| Tronçon | Horaire actuel | S1, plafond 160 | S2, 200 | S3, 250 | S3, 300 |
-|---|---|---|---|---|---|
-| Montréal-Québec (270 km) | 3 h 23 | 2 h 33 | 2 h 12 | 1 h 58 | 1 h 52 |
-| Montréal-Ottawa (185 km) | 2 h 02 | 1 h 47 | 1 h 33 | 1 h 24 | 1 h 19 |
-| Ottawa-Toronto (444 km) | 4 h 35 | 3 h 53 | 3 h 21 | 2 h 56 | 2 h 45 |
-| Montréal-Toronto (539 km) | 5 h 18 | 4 h 38 | 4 h 00 | 3 h 30 | 3 h 15 |
+| Tronçon | Horaire actuel | S1, plafond 160 | S2, 200 | S3, 200 | S3, 250 | S3, 300 |
+|---|---|---|---|---|---|---|
+| Montréal-Québec (270 km) | 3 h 23 | 2 h 33 | 2 h 12 | 2 h 08 | 1 h 58 | 1 h 52 |
+| Montréal-Ottawa (185 km) | 2 h 02 | 1 h 47 | 1 h 33 | 1 h 31 | 1 h 24 | 1 h 19 |
+| Ottawa-Toronto (444 km) | 4 h 35 | 3 h 53 | 3 h 21 | 3 h 19 | 2 h 56 | 2 h 45 |
+| Montréal-Toronto (539 km) | 5 h 18 | 4 h 38 | 4 h 00 | 3 h 58 | 3 h 30 | 3 h 15 |
 
 Sensibilités : blocs urbains ±20 pour cent (déjà dans les fourchettes) ; le bruit sur les
 rayons de courbure est absorbé par la publication en classes de vitesse plutôt qu'au
