@@ -190,8 +190,10 @@ mais elle reste à parcourir. Une position de repli à 225 mm est calculée en s
 dans les annexes. Par ailleurs, la caisse pendulaire protège le passager, pas le rail :
 les efforts en voie croissent avec la vitesse en courbe, ce qui implique un standard
 d'entretien renforcé (un point de veto potentiel du propriétaire, et un coût récurrent).
-L'histoire du LRC le rappelle : son système d'inclinaison, coûteux en entretien, a fini
-désactivé puis retiré [@wiki2025lrc]. S2 reste, pour cette raison, le scénario pivot de
+L'histoire du LRC le rappelle : son système d'inclinaison, coûteux en entretien, a été retiré lors de la remise à
+neuf de la flotte engagée à partir de 2007-2009, VIA justifiant ce retrait par la
+réduction des coûts d'entretien et un allègement de deux tonnes par voiture
+[@via2009lrc]. S2 reste, pour cette raison, le scénario pivot de
 l'argumentaire : tout y tient dans la méthode que le CN applique déjà.
 
 # Doublement des voies et régime de cohabitation
@@ -312,8 +314,10 @@ américain [@ecfr213-347], cité ici comme référence de seuils, non comme droi
 au Canada :
 
 - **jusqu'à 153 km/h** : régime actuel (le précédent domestique est le Turbo, plafonné
-  en service à 153 km/h notamment à cause de ses passages à niveau \[SOURCE tertiaire,
-  à consolider : @wiki2025turbo\]) ;
+  en service à 153 km/h notamment à cause de ses quelque 300 passages à niveau
+  [@bateman2015], alors qu'il détenait le record canadien de 140,6 mi/h, établi en
+  conditions d'essai non reproductibles et sans effet sur le temps commercial
+  [@canadianrail1976]) ;
 - **154 à 177 km/h** : corridor « scellé » : traiter ou fermer chaque passage
   (barrières quatre-quadrants, terre-pleins, détection). Le programme de référence, en
   Caroline du Nord, a été évalué par la FRA : au moins 19 vies sauvées de 1995 à 2004 et
@@ -392,10 +396,10 @@ correctement à chaque régénération.
 
 Ce que cette méthode ne voit pas, elle le déclare : elle ne simule pas la circulation
 (croisements réels, sillons de fret, robustesse d'horaire), elle ne conçoit aucun site,
-elle ne chiffre aucun coût. Ses horaires de référence datent d'une saison de restrictions
-exceptionnelles, ce qui peut gonfler les marges mesurées ; la hiérarchie entre cellules
-(voie simple CN au-dessus de tout le reste) est robuste à ce biais, les niveaux absolus
-moins.
+elle ne chiffre aucun coût. Ses horaires de référence datent d'une saison de restrictions exceptionnelles ; le
+biais a été testé en rejouant la mesure sur les horaires de janvier 2023, antérieurs à
+la crise : la hiérarchie entre cellules et les niveaux de marge y sont pratiquement
+identiques (voie simple CN à 67 pour cent dès 2023). La structure précède la crise.
 
 C'est précisément pourquoi sa conclusion opérationnelle est une commande d'étude : une
 étude de circulation, menée avec le propriétaire de la voie, qui alloue la marge entre

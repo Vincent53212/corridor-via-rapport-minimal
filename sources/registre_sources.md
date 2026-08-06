@@ -148,3 +148,11 @@ verdicts reportés ci-dessous. **Les corrections aux affirmations du plan v3 son
 
 Note d'usage : dans les brouillons, une affirmation non encore vérifiée est étiquetée
 [À VÉRIFIER : clé] dans le texte. Le rapport final ne peut contenir aucune de ces étiquettes.
+
+## Ajouts 2026-08-06 (consolidation Turbo/LRC + GTFS archivé)
+
+- `bateman2015` (VÉRIFIÉE, secondaire) : Turbo plafonné à 153 km/h à cause des ~300 passages à niveau. Le compte « 240 publics + 700 privés » ABANDONNÉ (Wikipédia seulement). Monographie de référence : Shron (2008), ISBN 978-0-9783611-0-5.
+- `canadianrail1976` (VÉRIFIÉE, primaire d'époque) : record 140,6 mi/h confirmé, ET le temps commercial s'était DÉGRADÉ de 16 min : cite le record comme seuil, jamais comme temps. Essai en conditions non reproductibles (passages gardés, aiguillages cloués : TRHA).
+- `via2009lrc` (VÉRIFIÉE, primaire) : retrait du système d'inclinaison lors de la remise à neuf engagée 2007-2009 : moins d'entretien, −2 t/voiture, sans effet vitesse. « Se bloquait incliné » : Wikipédia seulement, ne pas citer.
+- `boyd1982` (VÉRIFIÉE, primaire FRA) : essais LRC haute insuffisance (recommandé 9 po en essai) ; lien Wayback si 403.
+- GTFS archivé : `ressources/viarail_GTFS_avant2024-10.zip` = flux VIA du 19 janvier 2023 (Wayback 2023-01-20, servi en gzip). TEST DE ROBUSTESSE : hiérarchie du 2×2 IDENTIQUE sur ce flux pré-restrictions (simple-CN 66,6 / simple-VIA 48,7 / double-CN 36,3) : la structure précède la crise de 2024-2025. Sorties : marges_*_GTFS2023.csv.
