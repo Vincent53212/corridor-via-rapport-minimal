@@ -1,0 +1,269 @@
+"""Étape 22 — Le 2×2 du corridor : marges mesurées par inter-gare × cellule.
+
+Éléments 2 et 5 du plan v3, le même instrument lu deux fois :
+  - lecture « doublement »   : simple-CN vs double-CN = ce que la voie double achète,
+    mesuré ici, chez ce propriétaire (croisements éliminés, dépassements subis) ;
+  - lecture « régime »       : simple-VIA vs double-CN = si une voie de moins sous
+    le bon régime bat une voie de plus sous le mauvais, le régime pèse plus que le
+    béton.
+
+Définition de la mesure, par paire de gares adjacentes (inter-gare) :
+    marge = (T_horaire − T_base_S1) / T_base_S1
+  T_horaire = médiane GTFS (arrivée B − départ A) sur tous les sillons desservant
+              A puis B (les deux sens agrégés : même géométrie).
+  T_base_S1 = ∫ dx / min(v_geo_S1(x), 160)  sur [km_A, km_B] — le plafond
+              géométrique de la voie actuelle, borné au régime de vitesse actuel
+              du corridor (aucun scénario d'investissement : on mesure le coussin
+              d'exploitation d'aujourd'hui, à géométrie neutralisée).
+
+Cellules (étiquetage par recouvrement km avec segments_voies + propriétaire) :
+  simple-VIA : voie simple, subdivisions VIA (Alexandria, Smiths Falls) —
+               croisements planifiés VIA-VIA
+  simple-CN  : voie simple, tronçons CN (rive sud MTL-QC) — croisements subis,
+               fret prioritaire
+  double-CN  : voie double CN (Kingston) — croisements éliminés, dépassements
+               subis
+  mixte      : paires dont la voie est < 70 % d'un seul état (publiées, non
+               classées dans le 2×2)
+Propriétaire par bornes km (SOURCE : subdivisions observées dans la jointure PN,
+script 20) : MTL-Ott = CN jusqu'à Coteau (62,3 km) puis VIA ; Ott-TO = VIA
+jusqu'à Brockville (110,0 km) puis CN ; MTL-QC et MTL-TO = CN.
+
+Exclusions (nœuds contaminants, plan v3) :
+  - toute paire couverte par un bloc urbain figé (Montréal↔Saint-Lambert,
+    Montréal↔Dorval, Guildwood↔Toronto, Sainte-Foy↔Québec) ;
+  - paires adjacentes aux ponts : Saint-Lambert↔Saint-Hyacinthe (pont Victoria),
+    Charny↔Sainte-Foy (pont de Québec) ;
+  - les paires touchant Ottawa sont GARDÉES mais étiquetées (l'approche urbaine
+    ±10 km est incluse dans la paire — biais à la hausse sur la marge, dit).
+
+Caveats à publier (bornes, pas de point unique) : échantillon mince par cellule,
+densités de fret différentes entre cellules, certains sillons font des arrêts
+non listés (ex. Fallowfield) qui gonflent légèrement le T_horaire de leur paire.
+
+Entrées : GTFS, segments.geojson, segments_voies.geojson
+Sorties : livrables/marges_par_intergare.csv, livrables/marges_2x2_synthese.csv
+"""
+from __future__ import annotations
+
+import importlib
+import json
+from statistics import median
+
+import pandas as pd
+
+from utils import INTERMEDIATES, DELIVERABLES
+
+t21 = importlib.import_module("21_tbase_bande")
+
+OUT_PAIRS = DELIVERABLES / "marges_par_intergare.csv"
+OUT_SYNTH = DELIVERABLES / "marges_2x2_synthese.csv"
+
+CAP_KMH = 160.0            # régime de vitesse actuel du corridor
+DOMINANCE = 0.70           # part d'un état de voie pour classer la paire
+
+# (tronçon, [(nom, stop_id, km), ...]) — extrémités + intermédiaires, ordre km.
+# L'Aéroport (555, desserte alternative de Dorval au même km) est omis.
+STATIONS = {
+    "MTL-QC":  [("Montréal", "226", 0.0), ("Saint-Lambert", "343", 6.11),
+                ("Saint-Hyacinthe", "631", 53.24), ("Drummondville", "630", 100.01),
+                ("Charny", "492", 245.04), ("Sainte-Foy", "629", 249.98),
+                ("Québec", "628", 269.85)],
+    "MTL-Ott": [("Montréal", "226", 0.0), ("Dorval", "332", 17.79),
+                ("Coteau", "351", 62.28), ("Alexandria", "344", 99.43),
+                ("Casselman", "419", 138.78), ("Ottawa", "617", 185.42)],
+    "Ott-TO":  [("Ottawa", "617", 0.0), ("Smiths Falls", "377", 64.62),
+                ("Brockville", "35", 110.0), ("Gananoque", "200", 155.83),
+                ("Kingston", "58", 191.99), ("Napanee", "309", 227.49),
+                ("Belleville", "415", 262.44), ("Trenton Junction", "413", 281.92),
+                ("Cobourg", "178", 332.06), ("Port Hope", "9", 342.88),
+                ("Oshawa", "367", 393.31), ("Guildwood", "450", 423.93),
+                ("Toronto", "119", 444.05)],
+    "MTL-TO":  [("Montréal", "226", 0.0), ("Dorval", "332", 17.79),
+                ("Brockville", "35", 204.72), ("Gananoque", "200", 249.75),
+                ("Kingston", "58", 285.97), ("Napanee", "309", 321.47),
+                ("Belleville", "415", 356.42), ("Trenton Junction", "413", 375.9),
+                ("Cobourg", "178", 426.05), ("Port Hope", "9", 436.86),
+                ("Oshawa", "367", 487.24), ("Guildwood", "450", 517.94),
+                ("Toronto", "119", 538.06)],
+}
+
+# Propriétaire par tronçon : liste de (km_fin_exclusif, owner) ordonnée.
+OWNER = {
+    "MTL-QC":  [(1e9, "CN")],
+    "MTL-Ott": [(62.28, "CN"), (1e9, "VIA")],
+    "Ott-TO":  [(110.0, "VIA"), (1e9, "CN")],
+    "MTL-TO":  [(1e9, "CN")],
+}
+
+EXCLUDED_PAIRS = {
+    ("MTL-QC", "Montréal", "Saint-Lambert"): "bloc urbain (pont Victoria)",
+    ("MTL-QC", "Saint-Lambert", "Saint-Hyacinthe"): "adjacente au pont Victoria",
+    ("MTL-QC", "Charny", "Sainte-Foy"): "adjacente au pont de Québec",
+    ("MTL-QC", "Sainte-Foy", "Québec"): "bloc urbain (pont de Québec)",
+    ("MTL-Ott", "Montréal", "Dorval"): "bloc urbain",
+    ("MTL-TO", "Montréal", "Dorval"): "bloc urbain",
+    ("Ott-TO", "Guildwood", "Toronto"): "bloc urbain",
+    ("MTL-TO", "Guildwood", "Toronto"): "bloc urbain",
+}
+OTTAWA_FLAG = {("MTL-Ott", "Casselman", "Ottawa"), ("Ott-TO", "Ottawa", "Smiths Falls")}
+
+
+def pair_owner(t: str, km0: float, km1: float) -> str:
+    mid = (km0 + km1) / 2
+    for km_end, owner in OWNER[t]:
+        if mid < km_end:
+            return owner
+    return "?"
+
+
+def load_voies():
+    gj = json.load(open(INTERMEDIATES / "segments_voies.geojson", encoding="utf-8"))
+    rows = [f["properties"] for f in gj["features"]]
+    return rows
+
+
+def track_shares(voies, t: str, km0: float, km1: float) -> dict[str, float]:
+    tot = {"simple": 0.0, "double": 0.0, "multiple": 0.0}
+    for v in voies:
+        if v["troncon_id"] != t:
+            continue
+        ov = max(0.0, min(km1, v["km_fin"]) - max(km0, v["km_debut"]))
+        if ov > 0:
+            tot[v["etat_label"]] = tot.get(v["etat_label"], 0.0) + ov
+    length = km1 - km0
+    return {k: (val / length if length > 0 else 0.0) for k, val in tot.items()}
+
+
+def cell_of(owner: str, shares: dict[str, float]) -> str:
+    dbl = shares.get("double", 0) + shares.get("multiple", 0)
+    if shares.get("simple", 0) >= DOMINANCE:
+        return f"simple-{owner}"
+    if dbl >= DOMINANCE:
+        return f"double-{owner}"
+    return "mixte"
+
+
+def tbase_pair(by_t, t: str, km0: float, km1: float) -> float:
+    minutes = 0.0
+    for p in by_t[t]:
+        ov = max(0.0, min(km1, p["km_fin"]) - max(km0, p["km_debut"]))
+        if ov > 0:
+            v = min(p["vmax_S1_kmh"], CAP_KMH)
+            if v > 0:
+                minutes += ov / v * 60.0
+    return minutes
+
+
+def gtfs_pair_samples() -> dict[tuple[str, str], list[float]]:
+    import io
+    import zipfile
+    with zipfile.ZipFile(t21.GTFS_ZIP) as z:
+        st = pd.read_csv(io.BytesIO(z.read("stop_times.txt")),
+                         dtype={"trip_id": str, "stop_id": str})
+    st = st.sort_values(["trip_id", "stop_sequence"])
+    pairs = set()
+    for t, sts in STATIONS.items():
+        for (na, ia, ka), (nb, ib, kb) in zip(sts, sts[1:]):
+            pairs.add((ia, ib))
+    stops = {s for p in pairs for s in p}
+    samples: dict[tuple[str, str], list[float]] = {p: [] for p in pairs}
+    sub = st[st.stop_id.isin(stops)]
+    for _, g in sub.groupby("trip_id"):
+        seq = list(zip(g.stop_id, g.departure_time, g.arrival_time))
+        pos = {sid: i for i, (sid, _, _) in enumerate(seq)}
+        for (a, b) in pairs:
+            if a not in pos or b not in pos:
+                continue
+            lo, hi = (a, b) if pos[a] < pos[b] else (b, a)
+            if pos[hi] - pos[lo] != 1:
+                continue  # une autre gare du corridor s'intercale : pas la paire pure
+            dep, arr = seq[pos[lo]][1], seq[pos[hi]][2]
+            if isinstance(dep, str) and isinstance(arr, str):
+                dt = t21._hms_to_min(arr) - t21._hms_to_min(dep)
+                if 0 < dt < 24 * 60:
+                    samples[(a, b)].append(dt)
+    return samples
+
+
+def main() -> None:
+    by_t = t21.load_segments()
+    voies = load_voies()
+    samples = gtfs_pair_samples()
+
+    rows = []
+    for t, sts in STATIONS.items():
+        for (na, ia, ka), (nb, ib, kb) in zip(sts, sts[1:]):
+            s = samples.get((ia, ib), [])
+            t_hor = median(s) if s else None
+            t_base = tbase_pair(by_t, t, ka, kb)
+            shares = track_shares(voies, t, ka, kb)
+            owner = pair_owner(t, ka, kb)
+            cell = cell_of(owner, shares)
+            key = (t, na, nb)
+            excl = EXCLUDED_PAIRS.get(key, "")
+            marge = (100 * (t_hor - t_base) / t_base) if (t_hor and t_base > 0) else None
+            m100 = (100 * (t_hor - t_base) / (kb - ka)) if (t_hor and kb > ka) else None
+            rows.append({
+                "troncon": t, "de": na, "a": nb,
+                "km_debut": ka, "km_fin": kb, "longueur_km": round(kb - ka, 1),
+                "cellule": cell, "part_simple_pct": round(100 * shares.get("simple", 0)),
+                "part_double_plus_pct": round(100 * (shares.get("double", 0)
+                                                     + shares.get("multiple", 0))),
+                "t_horaire_med_min": round(t_hor, 1) if t_hor else "",
+                "n_sillons": len(s),
+                "t_base_S1cap160_min": round(t_base, 1),
+                "marge_pct": round(marge, 1) if marge is not None else "",
+                "marge_min_par_100km": round(m100, 1) if m100 is not None else "",
+                "exclue_du_2x2": excl,
+                "note": "contient l'approche d'Ottawa (±10 km urbains)"
+                        if key in OTTAWA_FLAG or (t, nb, na) in OTTAWA_FLAG else "",
+            })
+    df = pd.DataFrame(rows)
+    df.to_csv(OUT_PAIRS, sep=";", index=False, encoding="utf-8-sig")
+
+    kept = df[(df.exclue_du_2x2 == "") & (df.marge_pct != "")].copy()
+    kept["marge_pct"] = pd.to_numeric(kept["marge_pct"])
+    synth = (kept[kept.cellule != "mixte"]
+             .groupby("cellule")["marge_pct"]
+             .agg(n="count", mediane="median",
+                  q25=lambda x: x.quantile(.25), q75=lambda x: x.quantile(.75),
+                  minimum="min", maximum="max")
+             .round(1).reset_index())
+    synth.to_csv(OUT_SYNTH, sep=";", index=False, encoding="utf-8-sig")
+
+    print("=== Étape 22 — Le 2×2 : marge mesurée par inter-gare ===\n")
+    print(f"{'tronçon':<8} {'paire':<34} {'cell':<11} {'T_hor':>6} {'T_base':>6} "
+          f"{'marge %':>8}  notes")
+    for r in rows:
+        marge = r["marge_pct"] if r["marge_pct"] != "" else "  —"
+        note = r["exclue_du_2x2"] or r["note"]
+        print(f"{r['troncon']:<8} {r['de']+' → '+r['a']:<34} {r['cellule']:<11} "
+              f"{r['t_horaire_med_min']:>6} {r['t_base_S1cap160_min']:>6} {marge:>8}  {note}")
+    print("\nSynthèse par cellule (paires retenues, hors mixte) :")
+    print(synth.to_string(index=False))
+
+    med = {r["cellule"]: r["mediane"] for _, r in synth.iterrows()}
+    via_pure = kept[(kept.cellule == "simple-VIA") & (kept.note == "")]["marge_pct"]
+    print("\nLecture « doublement » (simple-CN vs double-CN, même propriétaire) :")
+    print(f"  médianes {med.get('simple-CN')} % vs {med.get('double-CN')} % : "
+          f"le doublement achète ≈ {med.get('simple-CN', 0) - med.get('double-CN', 0):.0f} points "
+          f"de marge (échantillon simple-CN MINCE, n=2 : publier en bornes)")
+    print("Lecture « régime » (simple-VIA vs double-CN) :")
+    print(f"  médiane simple-VIA {med.get('simple-VIA')} % "
+          f"(hors paires d'approche d'Ottawa : {via_pure.median():.1f} %) vs "
+          f"double-CN {med.get('double-CN')} % : une voie de moins sous régime "
+          f"VIA-VIA fait jeu égal ou mieux qu'une voie de plus sous régime CN")
+    print("\nCaveat de mesure : T_horaire de paire inclut l'effet d'accélération/"
+          "freinage des arrêts d'extrémité, que T_base ne modélise pas → les paires "
+          "COURTES sont gonflées. Le double-CN ayant les paires les plus courtes, "
+          "la lecture « doublement » est CONSERVATRICE. La marge min/100 km "
+          "(colonne dédiée) se compare aux règles publiées (SNCF 4,5 ; "
+          "Trafikverket 2-3) : l'écart mesuré ici est le coussin TOTAL "
+          "(état de voie, ralentissements, cohabitation), pas la seule marge "
+          "de régularité — décomposition : voir schittenhelm2011 au registre.")
+    print(f"\nÉcrit {OUT_PAIRS.name} ({len(rows)} paires) et {OUT_SYNTH.name}.")
+
+
+if __name__ == "__main__":
+    main()

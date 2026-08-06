@@ -1,0 +1,36 @@
+﻿troncon;de;a;km_debut;km_fin;longueur_km;cellule;part_simple_pct;part_double_plus_pct;t_horaire_med_min;n_sillons;t_base_S1cap160_min;marge_pct;marge_min_par_100km;exclue_du_2x2;note
+MTL-QC;Montréal;Saint-Lambert;0.0;6.11;6.1;double-CN;16;84;13.0;16;3.4;284.1;157.4;bloc urbain (pont Victoria);
+MTL-QC;Saint-Lambert;Saint-Hyacinthe;6.11;53.24;47.1;double-CN;0;100;26.0;14;18.2;42.7;16.5;adjacente au pont Victoria;
+MTL-QC;Saint-Hyacinthe;Drummondville;53.24;100.01;46.8;simple-CN;92;8;30.5;14;18.0;69.6;26.8;;
+MTL-QC;Drummondville;Charny;100.01;245.04;145.0;simple-CN;100;0;97.0;7;60.3;60.8;25.3;;
+MTL-QC;Charny;Sainte-Foy;245.04;249.98;4.9;simple-CN;100;0;6.0;7;2.6;135.1;69.8;adjacente au pont de Québec;
+MTL-QC;Sainte-Foy;Québec;249.98;269.85;19.9;mixte;65;35;25.0;14;10.9;130.1;71.1;bloc urbain (pont de Québec);
+MTL-Ott;Montréal;Dorval;0.0;17.79;17.8;double-CN;21;79;23.5;26;8.5;177.0;84.4;bloc urbain;
+MTL-Ott;Dorval;Coteau;17.79;62.28;44.5;double-CN;0;100;23.0;7;16.8;36.8;13.9;;
+MTL-Ott;Coteau;Alexandria;62.28;99.43;37.2;simple-VIA;98;2;21.0;7;15.8;33.2;14.1;;
+MTL-Ott;Alexandria;Casselman;99.43;138.78;39.3;simple-VIA;100;0;21.0;7;16.9;24.0;10.3;;
+MTL-Ott;Casselman;Ottawa;138.78;185.42;46.6;simple-VIA;100;0;26.0;7;18.3;42.0;16.5;;contient l'approche d'Ottawa (±10 km urbains)
+Ott-TO;Ottawa;Smiths Falls;0.0;64.62;64.6;simple-VIA;98;2;48.0;11;25.1;91.4;35.5;;contient l'approche d'Ottawa (±10 km urbains)
+Ott-TO;Smiths Falls;Brockville;64.62;110.0;45.4;simple-VIA;100;0;30.0;11;18.5;62.5;25.4;;
+Ott-TO;Brockville;Gananoque;110.0;155.83;45.8;double-CN;2;98;25.5;4;17.7;44.4;17.1;;
+Ott-TO;Gananoque;Kingston;155.83;191.99;36.2;double-CN;0;100;20.5;4;14.6;40.2;16.2;;
+Ott-TO;Kingston;Napanee;191.99;227.49;35.5;double-CN;0;100;20.0;6;13.9;44.3;17.3;;
+Ott-TO;Napanee;Belleville;227.49;262.44;34.9;double-CN;0;100;18.0;6;13.2;36.3;13.7;;
+Ott-TO;Belleville;Trenton Junction;262.44;281.92;19.5;double-CN;0;100;12.0;7;7.3;65.1;24.3;;
+Ott-TO;Trenton Junction;Cobourg;281.92;332.06;50.1;double-CN;0;100;25.0;7;18.7;33.6;12.5;;
+Ott-TO;Cobourg;Port Hope;332.06;342.88;10.8;double-CN;0;100;8.0;6;4.7;69.8;30.4;;
+Ott-TO;Port Hope;Oshawa;342.88;393.31;50.4;double-CN;0;100;26.0;5;19.6;32.8;12.7;;
+Ott-TO;Oshawa;Guildwood;393.31;423.93;30.6;double-CN;2;98;17.0;16;11.4;49.6;18.4;;
+Ott-TO;Guildwood;Toronto;423.93;444.05;20.1;double-CN;4;96;18.0;17;8.1;123.2;49.4;bloc urbain;
+MTL-TO;Montréal;Dorval;0.0;17.79;17.8;double-CN;21;79;23.5;26;8.5;176.7;84.4;bloc urbain;
+MTL-TO;Dorval;Brockville;17.79;204.72;186.9;double-CN;0;100;96.5;4;70.0;37.9;14.2;;
+MTL-TO;Brockville;Gananoque;204.72;249.75;45.0;double-CN;0;100;25.5;4;17.0;49.7;18.8;;
+MTL-TO;Gananoque;Kingston;249.75;285.97;36.2;double-CN;0;100;20.5;4;14.9;37.4;15.4;;
+MTL-TO;Kingston;Napanee;285.97;321.47;35.5;double-CN;0;100;20.0;6;13.8;44.7;17.4;;
+MTL-TO;Napanee;Belleville;321.47;356.42;34.9;double-CN;0;100;18.0;6;13.2;36.1;13.7;;
+MTL-TO;Belleville;Trenton Junction;356.42;375.9;19.5;double-CN;0;100;12.0;7;7.3;65.1;24.3;;
+MTL-TO;Trenton Junction;Cobourg;375.9;426.05;50.2;double-CN;0;100;25.0;7;18.7;33.5;12.5;;
+MTL-TO;Cobourg;Port Hope;426.05;436.86;10.8;double-CN;0;100;8.0;6;4.6;72.7;31.2;;
+MTL-TO;Port Hope;Oshawa;436.86;487.24;50.4;double-CN;0;100;26.0;5;19.6;32.4;12.6;;
+MTL-TO;Oshawa;Guildwood;487.24;517.94;30.7;double-CN;2;98;17.0;16;11.4;49.2;18.3;;
+MTL-TO;Guildwood;Toronto;517.94;538.06;20.1;double-CN;4;96;18.0;17;7.9;127.6;50.2;bloc urbain;
