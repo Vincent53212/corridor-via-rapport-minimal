@@ -1,0 +1,9 @@
+﻿troncon;bloc;km_debut;km_fin;longueur_km;minutes_gtfs_mediane;source
+MTL-QC;Montréal Central ↔ Saint-Lambert (pont Victoria);0.0;6.11;6.1;13.0;SOURCE : GTFS VIA (médiane des sillons)
+MTL-QC;Sainte-Foy ↔ Québec (pont de Québec);249.98;269.85;19.9;25.0;SOURCE : GTFS VIA (médiane des sillons)
+MTL-Ott;Montréal Central ↔ Dorval;0.0;17.79;17.8;23.5;SOURCE : GTFS VIA (médiane des sillons)
+Ott-TO;Guildwood ↔ Toronto Union;423.93;444.05;20.1;18.0;SOURCE : GTFS VIA (médiane des sillons)
+MTL-TO;Montréal Central ↔ Dorval;0.0;17.79;17.8;23.5;SOURCE : GTFS VIA (médiane des sillons)
+MTL-TO;Guildwood ↔ Toronto Union;517.94;538.06;20.1;18.0;SOURCE : GTFS VIA (médiane des sillons)
+MTL-Ott;Ottawa (approche est, fenêtre ±10 km — HYPOTHÈSE);175.42;185.42;10.0;;HYPOTHÈSE : fenêtre km, traversée au plafond S1 ∧ bande
+Ott-TO;Ottawa (approche ouest, fenêtre ±10 km — HYPOTHÈSE);0.0;10.0;10.0;;HYPOTHÈSE : fenêtre km, traversée au plafond S1 ∧ bande
