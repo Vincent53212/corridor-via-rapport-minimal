@@ -1,0 +1,90 @@
+{
+  "params": {
+    "WIN_PTS": 25,
+    "CELL_M": 20.0,
+    "EVIT_KM": 1.5,
+    "MIN_SEG_KM": 0.5
+  },
+  "reseau_unique_km": 1052.0,
+  "simple_km": 445.4,
+  "simple_pct": 42.3,
+  "double_km": 575.9,
+  "double_pct": 54.7,
+  "multiple_km": 30.8,
+  "multiple_pct": 2.9,
+  "deux_voies_plus_km": 606.7,
+  "deux_voies_plus_pct": 57.7,
+  "a_doubler_geom_km": 404.8,
+  "a_doubler_reco_km": 400.2,
+  "a_doubler_fourchette": [
+    400,
+    405
+  ],
+  "simple_branch_km": 11.7,
+  "simple_abords_gare_km": 28.8,
+  "somme_brute_troncons_km": 1443.2,
+  "voie_partagee_km": 391.2,
+  "troncons": [
+    {
+      "troncon": "MTL-QC",
+      "longueur_km": 271.1,
+      "km_simple": 207.6,
+      "km_double": 61.5,
+      "km_multiple": 2.0,
+      "pct_simple": 76.6,
+      "pct_double": 22.7,
+      "pct_multiple": 0.7,
+      "km_a_doubler_ligne_principale": 207.0,
+      "km_simple_branch": 0.0,
+      "km_simple_abords_gare": 0.6,
+      "km_evitements_inclus_double": 0.0
+    },
+    {
+      "troncon": "MTL-Ott",
+      "longueur_km": 186.1,
+      "km_simple": 127.0,
+      "km_double": 57.0,
+      "km_multiple": 2.1,
+      "pct_simple": 68.2,
+      "pct_double": 30.6,
+      "pct_multiple": 1.1,
+      "km_a_doubler_ligne_principale": 127.0,
+      "km_simple_branch": 0.0,
+      "km_simple_abords_gare": 0.0,
+      "km_evitements_inclus_double": 0.0
+    },
+    {
+      "troncon": "Ott-TO",
+      "longueur_km": 445.9,
+      "km_simple": 111.2,
+      "km_double": 307.3,
+      "km_multiple": 27.4,
+      "pct_simple": 24.9,
+      "pct_double": 68.9,
+      "pct_multiple": 6.1,
+      "km_a_doubler_ligne_principale": 109.7,
+      "km_simple_branch": 0.0,
+      "km_simple_abords_gare": 1.5,
+      "km_evitements_inclus_double": 0.0
+    },
+    {
+      "troncon": "MTL-TO",
+      "longueur_km": 540.1,
+      "km_simple": 5.3,
+      "km_double": 505.3,
+      "km_multiple": 29.5,
+      "pct_simple": 1.0,
+      "pct_double": 93.6,
+      "pct_multiple": 5.5,
+      "km_a_doubler_ligne_principale": 3.8,
+      "km_simple_branch": 0.0,
+      "km_simple_abords_gare": 1.5,
+      "km_evitements_inclus_double": 0.0
+    }
+  ],
+  "corroboration_pl": {
+    "couverture_pct": 95.0,
+    "accord_pct": 91.2,
+    "geom_le_pl_pct": 98.7
+  }
+}

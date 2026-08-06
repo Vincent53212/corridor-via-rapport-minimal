@@ -1,0 +1,20 @@
+AVERTISSEMENTS — TGV Canada Phase 1 — Analyse de courbures du corridor VIA
+=============================================================================
+
+FRANÇAIS
+--------
+
+1. Le scénario S1 est un plafond physique légal (règlement Transport Canada), PAS la vitesse réellement exploitée par VIA.
+
+2. Analyse de courbure seulement : ponts, tunnels, signalisation, électrification, état de la voie NON pris en compte. La précision visée est la classe de vitesse, pas le km/h.
+
+3. Le dévers réellement en voie n'a PAS été relevé : S1 suppose 100 mm (≈ 4 po) ; S2 et S3 sont des dévers de conception (127 mm = 5 po). v_max est un plafond géométrique au dévers normatif, pas une vitesse relevée.
+
+ENGLISH
+-------
+
+1. Scenario S1 is a legal physical ceiling (Transport Canada rules), NOT VIA's actual operating speed.
+
+2. Curvature analysis only: bridges, tunnels, signalling, electrification, track condition NOT considered. Target precision is the speed class, not exact km/h.
+
+3. Actual in-track cant was NOT surveyed: S1 assumes 100 mm (~4 in); S2 and S3 use design cant (127 mm = 5 in). v_max is a geometric ceiling at the normative cant, not a surveyed speed.

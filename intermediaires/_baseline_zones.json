@@ -1,0 +1,210 @@
+{
+  "Dorval→Kingston (réf rapide, sub Kingston)": {
+    "tronçon": "MTL-TO",
+    "type": "droite",
+    "km_min": 17.84,
+    "km_max": 285.97,
+    "n_points": 26814,
+    "km_total": 268.14,
+    "R_p10_m": 2912.0,
+    "R_median_m": 50000.0,
+    "R_median_fini_m": 5275.0,
+    "frac_au_plafond": 0.5465,
+    "frac_R_lt_100m": 0.0,
+    "attendu": "tangente rapide : ≥D(S1)≥90%, F(S1)≤1.5%, méd. R finis ≥2000",
+    "S1": {
+      "A": 201.6,
+      "B": 15.84,
+      "C": 25.58,
+      "D": 14.89,
+      "E": 9.97,
+      "F": 0.26
+    },
+    "S1_pct_geD": 96.2,
+    "S1_pct_geE": 99.9,
+    "S2": {
+      "A": 223.26,
+      "B": 20.21,
+      "C": 15.16,
+      "D": 6.18,
+      "E": 3.27,
+      "F": 0.06
+    },
+    "S2_pct_geD": 98.8,
+    "S2_pct_geE": 100.0,
+    "S3": {
+      "A": 243.06,
+      "B": 10.93,
+      "C": 10.01,
+      "D": 3.78,
+      "E": 0.36,
+      "F": 0.0
+    },
+    "S3_pct_geD": 99.9,
+    "S3_pct_geE": 100.0,
+    "check_droite": {
+      "geD_S1>=90": true,
+      "F_S1<=1.5": true,
+      "R_med_fini>=2000": true,
+      "pct_geD_S1": 96.2,
+      "pct_F_S1": 0.1
+    }
+  },
+  "Drummondville→+100km (réf rapide rive-nord)": {
+    "tronçon": "MTL-QC",
+    "type": "droite",
+    "km_min": 100.01,
+    "km_max": 200.01,
+    "n_points": 10001,
+    "km_total": 100.01,
+    "R_p10_m": 1804.0,
+    "R_median_m": 50000.0,
+    "R_median_fini_m": 2702.0,
+    "frac_au_plafond": 0.7184,
+    "frac_R_lt_100m": 0.0,
+    "attendu": "tangente rapide (sub Drummondville, VIA 160 limité signalisation)",
+    "S1": {
+      "A": 79.41,
+      "B": 2.18,
+      "C": 4.28,
+      "D": 4.57,
+      "E": 8.89,
+      "F": 0.68
+    },
+    "S1_pct_geD": 90.4,
+    "S1_pct_geE": 99.3,
+    "S2": {
+      "A": 82.38,
+      "B": 3.6,
+      "C": 4.65,
+      "D": 5.01,
+      "E": 4.37,
+      "F": 0.0
+    },
+    "S2_pct_geD": 95.6,
+    "S2_pct_geE": 100.0,
+    "S3": {
+      "A": 85.89,
+      "B": 3.52,
+      "C": 5.35,
+      "D": 4.29,
+      "E": 0.96,
+      "F": 0.0
+    },
+    "S3_pct_geD": 99.0,
+    "S3_pct_geE": 100.0,
+    "check_droite": {
+      "geD_S1>=90": true,
+      "F_S1<=1.5": true,
+      "R_med_fini>=2000": true,
+      "pct_geD_S1": 90.4,
+      "pct_F_S1": 0.7
+    }
+  },
+  "Ottawa centre→~Fallowfield (vraies courbes)": {
+    "tronçon": "Ott-TO",
+    "type": "courbe",
+    "km_min": 0.0,
+    "km_max": 15.0,
+    "n_points": 1501,
+    "km_total": 15.01,
+    "R_p10_m": 1045.0,
+    "R_median_m": 4202.0,
+    "R_median_fini_m": 2310.0,
+    "frac_au_plafond": 0.2838,
+    "frac_R_lt_100m": 0.0,
+    "attendu": "courbes réelles préservées : F+E(S1)≥8%, R_p10≤1700, R_med≤8000",
+    "S1": {
+      "A": 6.64,
+      "B": 0.81,
+      "C": 1.38,
+      "D": 2.73,
+      "E": 2.47,
+      "F": 0.98
+    },
+    "S1_pct_geD": 77.0,
+    "S1_pct_geE": 93.5,
+    "S2": {
+      "A": 7.85,
+      "B": 1.09,
+      "C": 3.03,
+      "D": 1.36,
+      "E": 1.43,
+      "F": 0.25
+    },
+    "S2_pct_geD": 88.8,
+    "S2_pct_geE": 98.3,
+    "S3": {
+      "A": 8.84,
+      "B": 2.07,
+      "C": 2.21,
+      "D": 0.82,
+      "E": 1.07,
+      "F": 0.0
+    },
+    "S3_pct_geD": 92.9,
+    "S3_pct_geE": 100.0,
+    "check_courbe": {
+      "F+E_S1>=8": true,
+      "R_p10<=1700": true,
+      "R_med<=8000": true,
+      "frac_plafond<50%": true,
+      "pct_FE_S1": 23.0
+    }
+  },
+  "Approche terminale Montréal (courbes de gare)": {
+    "tronçon": "MTL-QC",
+    "type": "courbe",
+    "km_min": 0.0,
+    "km_max": 8.0,
+    "n_points": 801,
+    "km_total": 8.01,
+    "R_p10_m": 519.0,
+    "R_median_m": 3981.0,
+    "R_median_fini_m": 3300.0,
+    "frac_au_plafond": 0.2385,
+    "frac_R_lt_100m": 0.0,
+    "attendu": "courbes terminales sévères préservées (anti-sur-correction renforcé)",
+    "S1": {
+      "A": 3.27,
+      "B": 0.55,
+      "C": 1.97,
+      "D": 0.25,
+      "E": 0.79,
+      "F": 1.18
+    },
+    "S1_pct_geD": 75.4,
+    "S1_pct_geE": 85.3,
+    "S2": {
+      "A": 4.08,
+      "B": 1.72,
+      "C": 0.27,
+      "D": 0.32,
+      "E": 1.17,
+      "F": 0.45
+    },
+    "S2_pct_geD": 79.8,
+    "S2_pct_geE": 94.4,
+    "S3": {
+      "A": 5.79,
+      "B": 0.2,
+      "C": 0.34,
+      "D": 0.37,
+      "E": 1.31,
+      "F": 0.0
+    },
+    "S3_pct_geD": 83.6,
+    "S3_pct_geE": 100.0,
+    "check_courbe": {
+      "F+E_S1>=8": true,
+      "R_p10<=1700": true,
+      "R_med<=8000": true,
+      "frac_plafond<50%": true,
+      "pct_FE_S1": 24.6
+    }
+  },
+  "_acceptation": {
+    "PASS": true,
+    "echecs": []
+  }
+}

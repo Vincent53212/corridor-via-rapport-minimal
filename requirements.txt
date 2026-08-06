@@ -1,0 +1,8 @@
+geopandas
+shapely
+pyarrow
+folium
+scipy
+pandas
+openpyxl
+simplekml

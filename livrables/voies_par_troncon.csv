@@ -1,0 +1,19 @@
+﻿troncon;longueur_km;km_simple;km_double;km_multiple;pct_simple;pct_double;pct_multiple;km_a_doubler_ligne_principale;km_simple_branch;km_simple_abords_gare;km_evitements_inclus_double
+MTL-QC;271.1;207.6;61.5;2.0;76.6;22.7;0.7;207.0;0.0;0.6;0.0
+MTL-Ott;186.1;127.0;57.0;2.1;68.2;30.6;1.1;127.0;0.0;0.0;0.0
+Ott-TO;445.9;111.2;307.3;27.4;24.9;68.9;6.1;109.7;0.0;1.5;0.0
+MTL-TO;540.1;5.3;505.3;29.5;1.0;93.6;5.5;3.8;0.0;1.5;0.0
+
+RÉSEAU UNIQUE (km physiques dédupliqués — chiffre de tête);valeur;pct
+longueur_totale_km;1052.0;
+km_simple;445.4;42.3
+km_double;575.9;54.7
+km_multiple;30.8;2.9
+km_a_doubler_ligne_principale (hors gare/branch);404.8;
+km_a_doubler_borne_basse (réconcilié passenger_lines);400.2;
+km_a_doubler_fourchette;'400-405;
+km_simple_branch;11.7;
+km_simple_abords_gare;28.8;
+
+somme_brute_troncons_km;1443.2;
+voie_partagee_dedupliquee_km;391.2;
