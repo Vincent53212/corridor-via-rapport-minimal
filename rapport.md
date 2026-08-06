@@ -38,6 +38,8 @@ fourchette applique la marge, de la borne normative (9 %) à la marge actuelle 
 | S3, bande 250 km/h (référence, exige zéro passage à niveau) | 3 h 30 | 3 h 49 à 4 h 00 |
 | S3, bande 300 km/h (référence, idem + contrôle intégral) | 3 h 15 | 3 h 32 à 3 h 43 |
 
+![Le train contre l'auto (temps auto : approximation de connaissance générale). Aujourd'hui, le train perd contre l'auto sur Montréal-Québec ; dès S2 il passe devant, et S3 à 300 la met à 20 et 34 pour cent derrière.](livrables/figure_vs_auto.png)
+
 La combinaison cohérente avec le régime réglementaire actuel est **S3 à la bande
 200 km/h** : le meilleur train sur la voie existante, sans franchir le mur des
 passages à niveau ni changer la signalisation au-delà du contrôle en cabine
