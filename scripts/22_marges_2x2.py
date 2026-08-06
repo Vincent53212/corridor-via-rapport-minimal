@@ -91,11 +91,15 @@ STATIONS = {
 }
 
 # Propriétaire par tronçon : liste de (km_fin_exclusif, owner) ordonnée.
+# SOURCES : sources/proprietes_voies_verification.md (plan triennal VIA art. 141 ;
+# BST R19H0021 ; communiqué CN-Metrolinx 2011). Metrolinx possède la Kingston de
+# Union à Pickering Jct (≈ PM 315,2, déduction) : ≈ 29,9 km avant Toronto.
+MTX_FROM_TORONTO_KM = 29.9
 OWNER = {
     "MTL-QC":  [(1e9, "CN")],
     "MTL-Ott": [(62.28, "CN"), (1e9, "VIA")],
-    "Ott-TO":  [(110.0, "VIA"), (1e9, "CN")],
-    "MTL-TO":  [(1e9, "CN")],
+    "Ott-TO":  [(110.0, "VIA"), (444.05 - MTX_FROM_TORONTO_KM, "CN"), (1e9, "MTX")],
+    "MTL-TO":  [(538.06 - MTX_FROM_TORONTO_KM, "CN"), (1e9, "MTX")],
 }
 
 EXCLUDED_PAIRS = {
@@ -244,6 +248,11 @@ def main() -> None:
             cell = cell_of(owner, shares)
             key = (t, na, nb)
             excl = EXCLUDED_PAIRS.get(key, "")
+            if not excl:  # paire chevauchant une frontière de propriétaire : hors 2×2
+                for km_end, _ in OWNER[t][:-1]:
+                    if ka < km_end < kb:
+                        excl = "chevauche une frontière de propriétaire"
+                        break
             marge = (100 * (t_hor - t_base) / t_base) if (t_hor and t_base > 0) else None
             m100 = (100 * (t_hor - t_base) / (kb - ka)) if (t_hor and kb > ka) else None
             if len(s) >= 4:
