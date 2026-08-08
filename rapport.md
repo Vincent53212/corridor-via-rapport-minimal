@@ -137,6 +137,19 @@ avec $V(x) = \min(\text{vitesse géométrique du scénario}, \text{bande})$ sur
 l'interurbain. Le symbole $\int dx/V(x)$ ne dit rien d'autre que « chaque mètre du
 tracé est parcouru à la vitesse que ce mètre permet, et on additionne ».
 
+**Hypothèse d'accélération et de freinage, déclarée.** L'intégration traite les
+changements de vitesse comme instantanés : aucun profil d'accélération ni de freinage
+n'est modélisé. Là où cette simplification joue, son traitement est le suivant. Autour
+des arrêts, les phases d'accélération et de freinage sont absorbées par la
+normalisation de cinq minutes par arrêt, et la borne mesurée du pilote de 2025 (7,5 à
+10 minutes par arrêt évité, phases comprises) est testée en sensibilité à la
+section 7. Dans les blocs urbains, les minutes figées viennent de l'horaire réel, qui
+contient déjà les accélérations terminales. Reste l'interurbain : un train réel ne
+profite pas pleinement d'un segment rapide court coincé entre deux courbes lentes,
+et sur ces transitions le temps de base est légèrement favorable au train. Ce poste
+est couvert par la fourchette de marge, et son chiffrage fin (profils de traction
+réels, freinage) relève de la simulation de circulation recommandée en conclusion.
+
 **Vitesse géométrique** : le plafond que les courbes permettent. Une courbe de rayon $R$
 (en mètres) limite la vitesse à $v = k\sqrt{R}$, où $k$ dépend du dévers (l'inclinaison
 de la voie dans la courbe) et de l'insuffisance de dévers admise (l'inclinaison
@@ -201,7 +214,9 @@ Canada [@tc2023inventairepn] ; horaires par le flux GTFS de VIA, saison 2026
 
 ## Hors périmètre, déclaré
 
-La conception par site (clothoïdes, raccordements), le cantonnement fin, la simulation de
+La conception par site (clothoïdes, raccordements), les profils d'accélération et de
+freinage (changements de vitesse traités comme instantanés, hypothèse déclarée en
+section 2.1), le cantonnement fin, la simulation de
 circulation (c'est l'étude à commander), les ponts, tunnels et l'état detaillé de la
 voie, ainsi que les zones urbaines au-delà de leurs blocs figés. Les horaires mesurés
 datent de la saison 2026, une période de restrictions exceptionnelles liées aux passages
