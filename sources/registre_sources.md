@@ -15,6 +15,16 @@ verdicts reportés ci-dessous. **Les corrections aux affirmations du plan v3 son
 
 ## VÉRIFIÉES (en main)
 
+### `nao2006wcml`
+- **APA** : National Audit Office. (2006). *The modernisation of the West Coast Main Line* (HC 22, session 2006-2007). https://www.nao.org.uk/reports/the-modernisation-of-the-west-coast-main-line/
+- **Appuie** : synthèse, précédent britannique. Confirmé sur la page NAO : coût prévu 8,6 milliards de livres (avril 2006 ; stratégie 2003 à 8,3, budgets initiaux des années 1990 autour de 2,5 = plus que triplé) ; 125 mi/h livré à partir de 2004-05 ; gains de 36 min (Londres-Manchester) et 42 min (Londres-Glasgow) ; achalandage Virgin +20 % en 2005-06.
+- **Statut** : VÉRIFIÉE (2026-08-08, page NAO consultée).
+
+### `wcml2026wiki`
+- **APA** : Wikipédia. (2026). *West Coast Main Line route modernisation*. https://en.wikipedia.org/wiki/West_Coast_Main_Line_route_modernisation
+- **Appuie** : synthèse, précédent britannique : coût final ≈ 9 milliards de livres ; achalandage ferroviaire Londres-Manchester +77 % (2009-2017) ; trafic aérien du même axe −27 %.
+- **Statut** : VÉRIFIÉE (2026-08-08, page consultée). **Source tertiaire** : remonter vers ORR/DfT avant publication finale.
+
 ### `cn2002mr1305`
 - **APA** : Canadien National. (2002, décembre). *MR 1305-0 : méthode de calcul des vitesses en courbe* [circulaire technique interne]. Compagnie des chemins de fer nationaux du Canada.
 - **Local** : `ressources/formules CN.pdf` (PDF numérisé, sans texte extractible)

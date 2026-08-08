@@ -1,8 +1,8 @@
 ---
-title: "Corridor Québec-Windsor : ce que la voie existante permet"
+title: "Corridor Québec-Toronto : ce que la voie existante permet"
 subtitle: "Temps de parcours par scénario de modernisation, et ce qui les retient : géométrie, passages à niveau, signalisation, doublement et régime de cohabitation"
-author: "Étude préparée pour François Rebello [AUTEUR À COMPLÉTER]"
-date: "Brouillon, août 2026"
+author: "Étude préparée pour Vision Transport (François Rebello) par Vincent Duguay"
+date: "Août 2026"
 lang: fr-CA
 bibliography: sources/refs.bib
 csl: sources/apa.csl
@@ -14,10 +14,12 @@ numbersections: true
 
 Cette étude répond à une question simple : combien de temps le train peut-il prendre entre
 les grandes villes du corridor, sur la voie qui existe déjà, selon ce qu'on accepte d'y
-investir? La réponse se lit dans une seule table, construite en additionnant quatre choses
-que l'on peut compter : le temps que les courbes permettent, le temps des zones urbaines
-(figé à l'horaire actuel), le temps des arrêts, et une marge d'exploitation que l'étude
-encadre entre deux bornes au lieu de la deviner.
+investir? La réponse est construite en additionnant quatre choses que l'on peut compter :
+le temps que les courbes permettent, le temps des zones urbaines (figé à l'horaire
+actuel), le temps des arrêts, et une marge d'exploitation que l'étude encadre entre deux
+bornes au lieu de la deviner. La figure ci-dessous en donne la lecture d'ensemble, contre
+le repère que tout décideur a en tête : l'auto ; la table complète des temps, par tronçon,
+scénario et bande de vitesse, est en section 7.
 
 Trois scénarios de matériel et de voie (détail en section 3) : **S1** est la voie et le
 train d'aujourd'hui ; **S2** est un train pendulaire exploité selon la méthode que le CN
@@ -25,37 +27,39 @@ applique déjà à ce type de train, avec le dévers maximal standard du CN (auc
 nécessaire) ; **S3** est un pendulaire moderne plus performant, qui sort du précédent
 nord-américain et demanderait une approbation par équipement. La « bande » est le plafond
 de vitesse qu'on s'autorise à exploiter (200 km/h exige de traiter les passages à niveau et
-la signalisation ; 250 et plus exige de les éliminer, voir sections 5 et 6).
+la signalisation ; 250 et plus exige de les éliminer, voir sections 5 et 6). Les
+vitesses de ce document sont en km/h, suivies au besoin de l'équivalent en mi/h,
+l'unité d'usage des chemins de fer nord-américains ; les bandes sont nommées par leur
+valeur ronde en km/h (200 km/h = 124 mi/h ; 250 = 155 ; 300 = 186 ; 160 = 99).
 
-**Temps Montréal-Toronto (539 km).** Horaire actuel : 5 h 18. Le « temps de base »
-est le temps calculé sans marge (courbes + zones urbaines figées + arrêts) ; la
-fourchette applique la marge, de la borne normative (9 %) à la marge actuelle du tronçon.
+![Le train contre l'auto : chaque barre est un temps avec marge, présenté en fourchette, et les pourcentages face à l'auto sont donc eux aussi des bornes. Temps auto : approximation de connaissance générale, en repère.](livrables/figure_vs_auto.png)
 
-| Scénario × bande | Temps de base | Avec marge (fourchette) |
-|---|---|---|
-| S2, bande 200 km/h | 4 h 00 | 4 h 21 à 4 h 34 |
-| **S3, bande 200 km/h** | **3 h 58** | **4 h 19 à 4 h 32** |
-| S3, bande 250 km/h (référence, exige zéro passage à niveau) | 3 h 30 | 3 h 49 à 4 h 00 |
-| S3, bande 300 km/h (référence, idem + contrôle intégral) | 3 h 15 | 3 h 32 à 3 h 43 |
+**La lecture de la figure.** Aujourd'hui, le train fait à peu près jeu égal avec l'auto
+sur Montréal-Toronto (539 km : 5 h 18 à l'horaire) et la perd nettement sur
+Montréal-Québec (270 km : 3 h 23). Chaque barre de scénario est un temps « avec marge » :
+le temps de base (courbes + zones urbaines figées + arrêts) majoré de la marge
+d'exploitation, de la borne normative (9 pour cent) à la marge actuelle du tronçon ; les
+pourcentages face à l'auto sont donc des bornes, pas des points. Dès S2 à la bande 200,
+le train bat l'auto sur Montréal-Toronto (79 à 83 pour cent de son temps) et fait au
+moins jeu égal sur Montréal-Québec (85 à 103 pour cent) ; en S3 à la bande 300, il tombe
+à 64 à 67 pour cent du temps de l'auto sur Montréal-Toronto et à 72 à 88 pour cent sur
+Montréal-Québec.
 
-![Le train contre l'auto (temps auto : approximation de connaissance générale). Aujourd'hui, le train perd contre l'auto sur Montréal-Québec ; dès S2 il passe devant, et S3 à 300 la met à 20 et 34 pour cent derrière.](livrables/figure_vs_auto.png)
-
-La combinaison cohérente avec le régime réglementaire actuel est **S3 à la bande
-200 km/h** : le meilleur train sur la voie existante, sans franchir le mur des
-passages à niveau ni changer la signalisation au-delà du contrôle en cabine
-(sections 5 et 6). Les bandes 250 et 300 sont des références : elles chiffrent ce
-que l'élimination des passages et le contrôle intégral achèteraient en plus.
-
-**Temps Montréal-Québec (270 km).** Horaire actuel : 3 h 23.
-
-| Scénario × bande | Temps de base | Avec marge (fourchette) |
-|---|---|---|
-| S2, bande 200 km/h | 2 h 12 | 2 h 24 à 2 h 56 |
-| **S3, bande 200 km/h** | **2 h 08** | **2 h 20 à 2 h 50** |
-| S3, bande 250 km/h (référence) | 1 h 58 | 2 h 09 à 2 h 37 |
+La solution première est **S2 à la bande
+200 km/h (124 mi/h)** : un train pendulaire exploité
+exactement selon la méthode que le CN applique déjà, sans dérogation, sans franchir le
+mur des passages à niveau ni changer la signalisation au-delà du contrôle en cabine
+(sections 5 et 6). Si la marge est gérée de façon excellente (la borne basse normative,
+9 pour cent), elle donne 4 h 21 sur Montréal-Toronto, soit 79 pour cent du temps de
+l'auto, et 2 h 24 sur Montréal-Québec, soit 85 pour cent. Où le résultat tombe dans la
+fourchette dépend surtout du régime de cohabitation, bien plus que du train ou de la
+voie : c'est l'objet de la section 4. S3 (le même dévers, une insuffisance portée à
+270 mm) et les bandes 250 et 300 sont des références : elles chiffrent ce que
+l'approbation d'un matériel plus performant, l'élimination des passages et le contrôle
+intégral achèteraient en plus.
 
 La fourchette de marge n'est pas une estimation : sa borne basse est la marge normative
-internationale (9 pour cent du temps de parcours aux vitesses de 200 km/h et plus
+internationale (9 pour cent du temps de parcours aux vitesses de 200 km/h (124 mi/h) et plus
 [@uic2000f451 ; @schittenhelm2011]), sa borne haute est la marge que l'horaire actuel de VIA porte
 aujourd'hui sur le tronçon concerné (mesurée dans cette étude : de 14 pour cent sur
 Montréal-Toronto à 33 pour cent sur Montréal-Québec). La distance entre les deux bornes
@@ -69,18 +73,33 @@ voies physiques, parcourues en 1 431 km de trajets) peut donner, ainsi que les c
 de chacun. Les deux exercices sont complémentaires : on ne peut comparer les options
 qu'en connaissant les deux.
 
+Le précédent qui valide l'ordre de grandeur est britannique. La West Coast Main Line
+(Londres-Manchester-Glasgow), une ligne victorienne partagée avec le fret, a été
+modernisée de 1998 à 2008 plutôt que remplacée par une ligne neuve : des trains
+pendulaires à 125 mi/h (201 km/h) sur la voie existante et une signalisation relevée,
+pour un coût d'environ 8,6 milliards de livres selon l'audit national [@nao2006wcml].
+Les gains mesurés sont de la même famille que ceux calculés ici : 36 minutes de moins
+sur Londres-Manchester (296 km) et 42 sur Londres-Glasgow (environ 645 km)
+[@nao2006wcml], contre 44 à 57 minutes calculées sur Montréal-Toronto en S2 à la
+bande 200. Le marché a suivi : sur Londres-Manchester, l'achalandage ferroviaire a crû
+de 77 pour cent entre 2009 et 2017 pendant que le trafic aérien du même axe reculait de
+27 pour cent [@wcml2026wiki]. La mise en garde symétrique vaut aussi : le budget
+britannique a plus que triplé en cours de programme, faute d'une portée verrouillée au
+départ [@nao2006wcml] ; c'est précisément le rôle de l'étude de circulation recommandée
+en conclusion.
+
 Les cinq constats principaux :
 
 1. **La géométrie n'est pas le problème principal.** Avec un pendulaire moderne (S3),
    il ne reste que 186 km (13 pour cent du réseau parcouru) dont les courbes interdisent
-   200 km/h, et plus aucun kilomètre sous 100 km/h. Même en restant dans le strict
+   200 km/h (124 mi/h), et plus aucun kilomètre sous 100 km/h (62 mi/h). Même en restant dans le strict
    précédent CN (S2), le résidu sous 200 km/h est de 267 km.
 2. **Les passages à niveau sont l'obstacle réglementaire dominant au-dessus de
    200 km/h** : en scénario S3, 754 des 924 passages du corridor se trouvent sur des segments dont la
    géométrie dépasserait ce seuil (695 en S2, 471 dès S1) ; le précédent américain y exige zéro passage
    [@ecfr213-347].
 3. **La signalisation est une ligne de devis, pas un mur** : rien à faire jusqu'à
-   160 km/h, une superposition de contrôle en cabine de 161 à 200 (précédent tarifé au
+   160 km/h (99 mi/h), une superposition de contrôle en cabine de 161 à 200 (précédent tarifé au
    Michigan [@fra2024itcs]), un système intégral au-delà (c'est le devis d'Alto).
 4. **Le régime de cohabitation pèse plus que le nombre de voies.** Mesuré sur les
    horaires de VIA à géométrie neutralisée : une voie simple coûte environ 5 points de marge
@@ -97,13 +116,26 @@ Les cinq constats principaux :
 
 ## Le modèle
 
-Le temps de parcours d'un tronçon, pour une bande de vitesse et un scénario donnés, est
-la somme de quatre termes :
+Le temps de parcours d'un tronçon se calcule comme on planifie un long trajet en auto :
+en additionnant des morceaux que l'on peut vérifier un à un. Quatre morceaux, pour une
+bande de vitesse et un scénario de matériel donnés :
+
+1. **les zones urbaines**, où l'étude ne promet aucun gain : leur temps est figé à
+   l'horaire actuel ;
+2. **l'interurbain**, calculé mètre par mètre le long du tracé : en chaque point, le
+   train roule à la plus basse de deux vitesses, celle que la courbe locale permet
+   (selon le scénario) et le plafond qu'on s'autorise (la « bande ») ; le temps du
+   tronçon est la somme de ces temps élémentaires ;
+3. **les arrêts** : cinq minutes par arrêt intermédiaire ;
+4. **la marge d'exploitation**, jamais estimée : encadrée entre deux bornes.
+
+En notation compacte :
 
 $$T = \sum \text{blocs urbains figés} + \int \frac{dx}{V(x)} + \text{arrêts} + \text{marge}$$
 
 avec $V(x) = \min(\text{vitesse géométrique du scénario}, \text{bande})$ sur
-l'interurbain.
+l'interurbain. Le symbole $\int dx/V(x)$ ne dit rien d'autre que « chaque mètre du
+tracé est parcouru à la vitesse que ce mètre permet, et on additionne ».
 
 **Vitesse géométrique** : le plafond que les courbes permettent. Une courbe de rayon $R$
 (en mètres) limite la vitesse à $v = k\sqrt{R}$, où $k$ dépend du dévers (l'inclinaison
@@ -134,17 +166,38 @@ arrêt en conditions réelles [@cbc2025pilote].
 **Marge.** Jamais estimée : encadrée entre une borne normative et une borne mesurée
 (section 4.3).
 
-## Les données
+## Les données, et comment la géométrie a été mesurée
 
-Géométrie : tracé VIA reconstruit par appariement des données d'horaires ouvertes de VIA (GTFS) sur le
-graphe ferroviaire OpenStreetMap [@viarail2026gtfs ; @osm2026geofabrik], rayon de
-courbure calculé tous les 10 mètres, validé par quatre passes de contre-vérification
-indépendantes lors des phases antérieures du projet. Nombre de voies : détection
-géométrique des voies parallèles dans OpenStreetMap, corroborée par les rapports du
-Bureau de la sécurité des transports (l'écart entre un tronçon double détecté et le même
-tronçon documenté par le BST est de 0,1 km sur 25). Passages à niveau : inventaire
-officiel ouvert de Transports Canada [@tc2023inventairepn]. Horaires : flux GTFS de VIA,
-saison 2026.
+Deux sources publiques se complètent. Les données d'horaires ouvertes de VIA (le format
+GTFS, celui qu'utilisent les applications de transport) disent quelles lignes le train
+emprunte, dans quel ordre et avec quelles gares [@viarail2026gtfs]. La carte
+collaborative OpenStreetMap dit où les rails passent physiquement, à quelques mètres
+près [@osm2026geofabrik]. L'étude recolle la première sur la seconde : le tracé
+schématique de VIA est verrouillé sur la voie réelle, et l'analyse suit cette voie comme
+un train le ferait, sans en changer sauf à un aiguillage. Ce verrouillage est ce qui
+évite les « courbes fantômes » qu'un appariement naïf fabrique en sautant entre deux
+voies parallèles.
+
+Sur le tracé ainsi reconstruit, un point tous les 10 mètres. Le rayon de courbure en
+chaque point est estimé en faisant passer au mieux un cercle à travers les quelque
+80 points d'une fenêtre glissante de 900 mètres : moyenner autant de points efface le
+bruit de la carte sans aplatir les vraies courbes. L'estimateur a été calibré sur des
+cercles synthétiques de rayon connu, puis validé sur des zones-témoins du corridor
+(vraies courbes serrées des approches d'Ottawa et de Montréal, longues lignes droites de
+la ligne de Kingston), qui doivent ressortir correctement à chaque régénération. Chaque
+courbe devient ensuite une vitesse par la formule $v = k\sqrt{R}$ de la section 3, et
+chaque segment est classé de façon volontairement conservatrice : sa vitesse est fixée
+par sa courbe la plus serrée qui se maintient sur la longueur d'un train (environ
+150 mètres), pas par une moyenne ni par un point isolé possiblement bruité. C'est la
+logique d'une vraie limite de vitesse ferroviaire. L'ensemble a été validé par quatre
+passes de contre-vérification indépendantes lors des phases antérieures du projet.
+
+Le reste des données : nombre de voies par détection géométrique des voies parallèles
+dans OpenStreetMap, corroborée par les rapports du Bureau de la sécurité des transports
+(l'écart entre un tronçon double détecté et le même tronçon documenté par le BST est de
+0,1 km sur 25) ; passages à niveau par l'inventaire officiel ouvert de Transports
+Canada [@tc2023inventairepn] ; horaires par le flux GTFS de VIA, saison 2026
+[@viarail2026gtfs].
 
 ## Hors périmètre, déclaré
 
@@ -184,12 +237,12 @@ reste sous la cible (somme des quatre trajets analysés, 1 431 km) :
 
 | Cible | S1 | S2 | S3 |
 |---|---|---|---|
-| Sous 200 km/h (rectification requise pour la grande vitesse) | 620 km | 267 km | 186 km |
-| Sous 160 km/h | 326 km | 122 km | 59 km |
-| Sous 100 km/h (sections sévères) | 41 km | 18 km | 0 km |
+| Sous 200 km/h / 124 mi/h (rectification requise pour la grande vitesse) | 620 km | 267 km | 186 km |
+| Sous 160 km/h / 99 mi/h | 326 km | 122 km | 59 km |
+| Sous 100 km/h / 62 mi/h (sections sévères) | 41 km | 18 km | 0 km |
 
 La lecture décisionnelle : la géométrie du corridor n'a pas besoin d'être reconstruite,
-elle a besoin d'un meilleur train. En S3, 87 pour cent du tracé atteint 200 km/h ou plus
+elle a besoin d'un meilleur train. En S3, 87 pour cent du tracé atteint 200 km/h (124 mi/h) ou plus
 sans toucher une seule courbe ; le résidu de 186 km est listé section par section dans
 les annexes numériques du projet, avec le rayon à ouvrir pour chaque site.
 
@@ -206,6 +259,22 @@ réduction des coûts d'entretien et un allègement de deux tonnes par voiture
 [@via2009lrc]. S2 reste, pour cette raison, le scénario pivot de
 l'argumentaire : tout y tient dans la méthode que le CN applique déjà.
 
+**Pourquoi 81 kilomètres d'écart ne font que deux à quatre minutes.** La table
+ci-dessus et celle de la section 7 semblent se contredire : S3 réduit le résidu sous
+200 km/h de 267 à 186 km, un écart de 81 km, mais il ne gagne que 2 minutes sur S2 sur
+Montréal-Toronto (4 sur Montréal-Québec). La réconciliation tient à l'endroit où ces
+kilomètres se trouvent sur l'échelle des vitesses. Les kilomètres que S3 fait passer
+au-dessus de 200 km/h sont précisément ceux où S2 permet déjà 160 à 199 km/h (99 à 124 mi/h) : des
+courbes amples, où le train ne perd presque rien. Rouler 81 km à 180 km/h (112 mi/h) plutôt qu'à
+200 coûte environ 3 minutes ; c'est tout l'écart. Le temps, lui, se perd dans les
+courbes serrées et dans les zones lentes, et là-dessus les deux scénarios font
+pratiquement le même travail, puisque tous deux sont plafonnés par la même bande de
+200 km/h sur l'essentiel du tracé. Autrement dit, à la bande 200, S3 achète des
+kilomètres conformes, pas des minutes. Sa valeur en temps n'apparaît qu'aux bandes
+supérieures, où son plafond géométrique cesse d'être bridé par la bande (6 minutes
+d'avance sur S2 à la bande 250 sur Montréal-Toronto, 10 à la bande 300) ; à la bande
+200, S2 fait déjà l'essentiel du travail.
+
 # Doublement des voies et régime de cohabitation
 
 Ces deux questions se mesurent avec le même instrument, lu dans deux directions. Le
@@ -220,17 +289,17 @@ et le prix du régime.
 
 Pour chacune des paires de gares adjacentes du corridor, la marge est l'écart entre le
 temps à l'horaire (médiane de tous les sillons, un sillon étant le créneau horaire d'un train donné) et le temps que la géométrie
-permet au régime actuel (intégration à vitesse plafonnée à 160 km/h), rapporté à ce
+permet au régime actuel (intégration à vitesse plafonnée à 160 km/h, soit 99 mi/h), rapporté à ce
 dernier. Les paires contaminées par un nœud (blocs urbains, ponts Victoria et de Québec,
 approches d'Ottawa, chevauchements de frontière de propriétaire) sont exclues, chacune
 avec son motif documenté. Résultat, sur le cœur du corridor (classe de voie homogène,
-95 à 100 mi/h, soit 153 à 161 km/h, permis sur les lignes du CN et 80 à 95 mi/h sur celles de VIA) :
+95 à 100 mi/h, soit 153 à 161 km/h, permis sur les lignes du CN et 80 à 95 mi/h, soit 129 à 153 km/h, sur celles de VIA) :
 
-| Cellule | Paires | Marge médiane | Dispersion entre sillons | Trafic (trains/jour) |
+| Cellule | Longueur mesurée | Marge médiane | Dispersion entre sillons | Trafic (trains/jour) |
 |---|---|---|---|---|
-| Voie double, CN | 11 | 37 % | 5 % | 40 |
-| Voie simple, VIA | 5 | 42 % | 10 % | 12 à 14 |
-| Voie simple, CN | 2 | 65 % | 21 % | 27 |
+| Voie double, CN | 515 km (11 paires) | 37 % | 5 % | 40 |
+| Voie simple, VIA | 218 km (5 paires) | 42 % | 10 % | 12 à 14 |
+| Voie simple, CN | 192 km (2 paires) | 65 % | 21 % | 27 |
 
 ![Le 2×2 du corridor : chaque inter-gare colorée selon sa cellule voie × propriétaire, avec la marge médiane mesurée par cellule. En gris, les paires exclues de la mesure (blocs urbains, ponts, frontières de propriétaire).](livrables/figure_cellules.png)
 
@@ -238,8 +307,8 @@ Trois lignes, trois faits :
 
 **Ce que le doublement achète, chez le CN** : environ 28 points de marge (65 contre 37),
 soit une vingtaine de minutes sur Montréal-Québec. L'échantillon de voie simple CN est
-mince (deux paires, celles du tronçon de Québec) : le chiffre se publie en fourchette,
-pas au point. Il est en revanche robuste aux deux objections classiques, et cela se
+mince (192 km, mais en deux paires seulement, celles du tronçon de Québec) : le chiffre
+se publie en fourchette, pas au point. Il est en revanche robuste aux deux objections classiques, et cela se
 vérifie dans la table : la classe de voie est la même que sur la ligne double (95 contre
 95 à 100 mi/h permis), et la ligne double porte davantage de trafic (40 trains par jour
 contre 27) tout en affichant moins de marge. Ni l'état de la voie ni le volume
@@ -263,11 +332,12 @@ jusqu'à 24 minutes selon l'heure de son départ.
 
 L'étude a étendu la mesure aux lignes Toronto-Windsor et Toronto-Sarnia. Cette région ne
 se compare pas au cœur (la voie y est de classe inférieure, avec des vitesses permises de
-42 à 70 mi/h sur les lignes simples du CN : la marge y mesure d'abord l'état de la voie),
+42 à 70 mi/h (68 à 113 km/h) sur les lignes simples du CN : la marge y mesure d'abord l'état de la voie),
 mais son contraste interne vaut la démonstration : le seul segment où le train roule à
-vitesse normale (95 km/h de moyenne, voie entretenue à 100 mi/h permis) est le segment
+vitesse normale (moyenne de 95 km/h ou 59 mi/h, sur une voie entretenue à 100 mi/h ou
+161 km/h permis) est le segment
 Chatham-Windsor, précisément celui que VIA possède. Les lignes simples voisines du CN,
-presque vides (8 trains par jour), roulent à 40-60 km/h de moyenne sur des voies
+presque vides (8 trains par jour), roulent à 40-60 km/h (25 à 37 mi/h) de moyenne sur des voies
 laissées à 42-70 mi/h. Le propriétaire qui vit du service passager entretient sa voie ;
 la conclusion du cœur se réplique dans une seconde région, par un autre mécanisme.
 
@@ -278,7 +348,7 @@ l'intervalle où elle tombe nécessairement, et pourquoi.
 
 **Borne basse, normative.** La fiche UIC 451-1 recommande, pour un train de voyageurs,
 un supplément fixe plus un pourcentage selon la vitesse : au total environ 7 pour cent du
-temps de parcours à 160 km/h et 9 pour cent à 200 [@uic2000f451 ; @schittenhelm2011].
+temps de parcours à 160 km/h (99 mi/h) et 9 pour cent à 200 (124 mi/h) [@uic2000f451 ; @schittenhelm2011].
 Les règles publiées des gestionnaires nationaux se situent au même ordre : SNCF Réseau
 impose 4,5 minutes par 100 km sur ligne classique et 5 pour cent sur ligne à grande
 vitesse [@sncf2023drr] ; le gestionnaire suédois publie même le différentiel qui nous
@@ -297,7 +367,7 @@ n'est pas une exception canadienne, c'est la condition générale du train de vo
 invité chez un propriétaire de fret.
 
 **Pièces au dossier**, sans récit d'intention : le 11 octobre 2024, le CN a imposé aux
-rames neuves de VIA un ralentissement à 72 km/h aux passages munis de prédicteurs, les circuits qui déclenchent les barrières à
+rames neuves de VIA un ralentissement à 72 km/h (45 mi/h) aux passages munis de prédicteurs, les circuits qui déclenchent les barrières à
 l'approche d'un train (304 passages visés), déclenchant des retards de 30 à 45 minutes ; VIA a demandé le
 contrôle judiciaire en Cour fédérale le 12 novembre 2024 [@via2024requete] ; l'ordre
 ministériel de décembre 2024 était une demande d'information au CN, pas un
@@ -311,7 +381,7 @@ prévu de son lancement, VIA invoquant des contraintes opérationnelles chez son
 **Sur Montréal-Toronto, déjà doublé, « doubler » n'est pas la demande pertinente.** La
 voie double élimine les croisements, pas les dépassements. L'intervention utile y est
 l'ajout de liaisons rapides entre les deux voies (un dépassement se règle à basse ou à haute vitesse selon le type d'aiguillage
-installé, ce qui change tout son coût en temps [ordres de grandeur 15 vs 45-50 mi/h,
+installé, ce qui change tout son coût en temps [ordres de grandeur 15 vs 45-50 mi/h, soit 24 vs 72-80 km/h,
 À VÉRIFIER en étude de circulation]) et les sections de
 troisième voie aux points de friction. Le dimensionnement précis relève de l'étude de
 circulation.
@@ -323,19 +393,19 @@ décroît par paliers de vitesse ; le précédent nord-américain le plus struc
 américain [@ecfr213-347], cité ici comme référence de seuils, non comme droit applicable
 au Canada :
 
-- **jusqu'à 153 km/h** : régime actuel (le précédent domestique est le Turbo, plafonné
+- **jusqu'à 153 km/h (95 mi/h)** : régime actuel (le précédent domestique est le Turbo, plafonné
   en service à 153 km/h notamment à cause de ses quelque 300 passages à niveau
-  [@bateman2015], alors qu'il détenait le record canadien de 140,6 mi/h, établi en
+  [@bateman2015], alors qu'il détenait le record canadien de 140,6 mi/h (226 km/h), établi en
   conditions d'essai non reproductibles et sans effet sur le temps commercial
   [@canadianrail1976]) ;
-- **154 à 177 km/h** : corridor « scellé » : traiter ou fermer chaque passage
+- **154 à 177 km/h (96 à 110 mi/h)** : corridor « scellé » : traiter ou fermer chaque passage
   (barrières quatre-quadrants, terre-pleins, détection). Le programme de référence, en
   Caroline du Nord, a été évalué par la FRA : au moins 19 vies sauvées de 1995 à 2004 et
   une réduction projetée d'environ 52 pour cent de la mortalité du corridor
   [@bienaime2009sealed] ;
-- **178 à 201 km/h** : système complet d'avertissement et de barrières approuvé et
+- **178 à 201 km/h (111 à 125 mi/h)** : système complet d'avertissement et de barrières approuvé et
   fonctionnel (classe 7 américaine) ;
-- **au-delà de 201 km/h : zéro passage à niveau** (classes 8 et 9 américaines).
+- **au-delà de 201 km/h (125 mi/h) : zéro passage à niveau** (classes 8 et 9 américaines).
 
 **Le compte.** L'inventaire ouvert de Transports Canada [@tc2023inventairepn], joint au
 tracé, donne 924 passages physiques sur le corridor (dédoublonnés entre trajets), dont
@@ -347,10 +417,10 @@ plus étroit (l'écart est expliqué dans les annexes numériques).
 
 | Bande du segment porteur | Passages (corridor dédoublonné) |
 |---|---|
-| ≤ 153 km/h | 20 |
-| 154-177 km/h | 13 |
-| 178-201 km/h | 137 |
-| > 201 km/h | 754 |
+| ≤ 153 km/h (95 mi/h) | 20 |
+| 154-177 km/h (96-110 mi/h) | 13 |
+| 178-201 km/h (111-125 mi/h) | 137 |
+| > 201 km/h (> 125 mi/h) | 754 |
 
 La lecture : si l'on veut exploiter la géométrie que le pendulaire libère, 754 passages
 tombent dans la bande « zéro passage » du précédent américain. C'est le vrai mur
@@ -366,13 +436,23 @@ traitement standard ; 122 passages urbains, multi-voies ou provinciaux, complex
 La signalisation se traite en un escalier de trois marches, chacune étant un compte et
 une ligne de devis, pas une carte :
 
-- **Jusqu'à 160 km/h : effet nul.** Le corridor s'exploite déjà à 160 km/h sous sa signalisation actuelle (la commande
+- **Jusqu'à 160 km/h (99 mi/h) : effet nul.** Le corridor s'exploite déjà à 160 km/h sous sa signalisation actuelle (la commande
   centralisée de la circulation, ou CTC), sans qu'aucune règle canadienne n'impose de
-  plafond du type « 79 mi/h » américain.
-- **De 161 à 200 km/h : superposition de contrôle en cabine.** Le précédent tarifé
-  existe : la ligne Amtrak du Michigan exploite 110 mi/h avec un système incrémental
-  superposé à la signalisation existante [@fra2024itcs].
-- **Au-delà de 200 km/h : contrôle intégral** de type ETCS (le standard européen de
+  plafond du type « 79 mi/h » (127 km/h) américain.
+- **De 161 à 200 km/h (100 à 124 mi/h) : superposition de contrôle en cabine.** C'est la marche du
+  scénario retenu (bande 200), elle mérite deux phrases de plus. Au-delà de 160 km/h,
+  on considère que le conducteur ne peut plus conduire aux seuls signaux plantés le
+  long de la voie : à cette vitesse, l'intervalle entre le moment où un signal devient
+  lisible et le moment où il faut avoir réagi devient trop court pour reposer sur
+  l'œil humain seul. Un système de contrôle en cabine répond en affichant l'état de la
+  voie directement devant le conducteur, en continu, et en freinant automatiquement le
+  train si la vitesse permise est dépassée. « Superposition » signifie que ce système
+  s'ajoute par-dessus la signalisation existante sans la remplacer : la voie garde ses
+  signaux, les trains de fret circulent comme avant, seuls les trains rapides
+  embarquent l'équipement. Le précédent est opérationnel et tarifé : la ligne Amtrak
+  du Michigan exploite 110 mi/h (177 km/h) avec un tel système incrémental superposé à
+  la signalisation existante [@fra2024itcs].
+- **Au-delà de 200 km/h (124 mi/h) : contrôle intégral** de type ETCS (le standard européen de
   contrôle des trains). C'est le devis d'Alto [@alto2025], et
   l'argument économique pour ne pas viser cette bande sur la voie partagée.
 
@@ -382,8 +462,11 @@ ne dimensionne pas.
 
 # Résultats intégrés
 
-Table complète des temps de base par tronçon, scénario et bande (sans marge ; la marge
-s'applique par la fourchette de la synthèse). Horaire actuel en regard.
+Deux tables. La première donne les temps de base par tronçon, scénario et bande :
+courbes, blocs urbains figés et arrêts, sans marge. La seconde applique la marge en
+fourchette : c'est elle qui se compare à l'horaire actuel.
+
+**Temps de base (sans marge).**
 
 | Tronçon | Horaire actuel | S1, plafond 160 | S2, 200 | S3, 200 | S3, 250 | S3, 300 |
 |---|---|---|---|---|---|---|
@@ -391,6 +474,21 @@ s'applique par la fourchette de la synthèse). Horaire actuel en regard.
 | Montréal-Ottawa (185 km) | 2 h 02 | 1 h 47 | 1 h 33 | 1 h 31 | 1 h 24 | 1 h 19 |
 | Ottawa-Toronto (444 km) | 4 h 35 | 3 h 53 | 3 h 21 | 3 h 19 | 2 h 56 | 2 h 45 |
 | Montréal-Toronto (539 km) | 5 h 18 | 4 h 38 | 4 h 00 | 3 h 58 | 3 h 30 | 3 h 15 |
+
+**Temps avec marge (fourchette).** Borne basse : la marge normative (7 pour cent du
+temps de base à la bande 160, 9 pour cent aux bandes 200 et plus [@uic2000f451 ;
+@schittenhelm2011]). Borne haute : la marge que l'horaire actuel du tronçon porte
+aujourd'hui, mesurée dans cette étude (14 pour cent sur Montréal-Toronto et
+Montréal-Ottawa, 18 pour cent sur Ottawa-Toronto, 33 pour cent sur Montréal-Québec).
+Par construction, la borne haute de la colonne « S1, 160 » retombe sur l'horaire
+actuel : c'est un contrôle interne de la méthode, pas une coïncidence.
+
+| Tronçon (horaire actuel) | S1, 160 | S2, 200 | S3, 200 | S3, 250 | S3, 300 |
+|---|---|---|---|---|---|
+| Montréal-Québec (3 h 23) | 2 h 43 à 3 h 23 | 2 h 24 à 2 h 56 | 2 h 20 à 2 h 50 | 2 h 09 à 2 h 37 | 2 h 03 à 2 h 29 |
+| Montréal-Ottawa (2 h 02) | 1 h 54 à 2 h 02 | 1 h 42 à 1 h 47 | 1 h 39 à 1 h 44 | 1 h 31 à 1 h 36 | 1 h 26 à 1 h 31 |
+| Ottawa-Toronto (4 h 35) | 4 h 10 à 4 h 35 | 3 h 39 à 3 h 57 | 3 h 36 à 3 h 54 | 3 h 12 à 3 h 28 | 3 h 00 à 3 h 14 |
+| Montréal-Toronto (5 h 18) | 4 h 57 à 5 h 18 | 4 h 21 à 4 h 34 | 4 h 19 à 4 h 32 | 3 h 49 à 4 h 00 | 3 h 32 à 3 h 43 |
 
 Sensibilités : blocs urbains ±20 pour cent (déjà dans les fourchettes) ; le bruit sur les
 rayons de courbure est absorbé par la publication en classes de vitesse plutôt qu'au
