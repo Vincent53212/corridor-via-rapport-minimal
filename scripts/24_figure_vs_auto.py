@@ -15,22 +15,23 @@ def pct(m, auto): return int(m / auto * 100 + 0.5)
 # Fourchette avec marge calculée comme dans le rapport : lo = T_base × 1,09
 # (borne normative 9 % aux bandes 200+), hi = T_base × (1 + marge actuelle du
 # tronçon), où marge actuelle = t_horaire / T_base(S1, 160) − 1 (tbase_par_bande.csv).
+# T_base = profil dynamique (étape 21, 2026-08-08).
 MARGE_LO = 1.09
 def four(base, m_troncon): return (base * MARGE_LO, base * m_troncon)
 
-M_QC = 202.5 / 152.5   # marge actuelle Montréal-Québec (≈ 33 %)
-M_TO = 318.0 / 277.9   # marge actuelle Montréal-Toronto (≈ 14 %)
+M_QC = 202.5 / 153.5   # marge actuelle Montréal-Québec (≈ 32 %)
+M_TO = 318.0 / 272.4   # marge actuelle Montréal-Toronto (≈ 17 %)
 
 # (corridor, auto_min, [(label, lo, hi — lo == hi pour un point)])
 DATA = [
  ("Montréal-Québec\n(auto ≈ 2 h 50, approx.)", 170, [
    ("VIA aujourd'hui", 203, 203),
-   ("S2, bande 200", *four(132.4, M_QC)),
-   ("S3, bande 300", *four(112.4, M_QC))]),
+   ("S2, bande 200", *four(133.4, M_QC)),
+   ("S3, bande 300", *four(117.4, M_QC))]),
  ("Montréal-Toronto\n(auto ≈ 5 h 30, approx.)", 330, [
    ("VIA aujourd'hui", 318, 318),
-   ("S2, bande 200", *four(239.5, M_TO)),
-   ("S3, bande 300", *four(194.5, M_TO))]),
+   ("S2, bande 200", *four(234.1, M_TO)),
+   ("S3, bande 300", *four(197.5, M_TO))]),
 ]
 COLS = {"auto": "#999999", "VIA aujourd'hui": "#9ecae1", "S2, bande 200": "#4292c6",
         "S3, bande 200": "#2171b5", "S3, bande 300": "#08519c"}

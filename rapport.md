@@ -40,9 +40,9 @@ Montréal-Québec (270 km : 3 h 23). Chaque barre de scénario est un temps «�
 le temps de base (courbes + zones urbaines figées + arrêts) majoré de la marge
 d'exploitation, de la borne normative (9 pour cent) à la marge actuelle du tronçon ; les
 pourcentages face à l'auto sont donc des bornes, pas des points. Dès S2 à la bande 200,
-le train bat l'auto sur Montréal-Toronto (79 à 83 pour cent de son temps) et fait au
-moins jeu égal sur Montréal-Québec (85 à 103 pour cent) ; en S3 à la bande 300, il tombe
-à 64 à 67 pour cent du temps de l'auto sur Montréal-Toronto et à 72 à 88 pour cent sur
+le train bat l'auto sur Montréal-Toronto (77 à 83 pour cent de son temps) et fait au
+moins jeu égal sur Montréal-Québec (86 à 104 pour cent) ; en S3 à la bande 300, il tombe
+à 65 à 70 pour cent du temps de l'auto sur Montréal-Toronto et à 75 à 91 pour cent sur
 Montréal-Québec.
 
 La solution première est **S2 à la bande
@@ -50,8 +50,8 @@ La solution première est **S2 à la bande
 exactement selon la méthode que le CN applique déjà, sans dérogation, sans franchir le
 mur des passages à niveau ni changer la signalisation au-delà du contrôle en cabine
 (sections 5 et 6). Si la marge est gérée de façon excellente (la borne basse normative,
-9 pour cent), elle donne 4 h 21 sur Montréal-Toronto, soit 79 pour cent du temps de
-l'auto, et 2 h 24 sur Montréal-Québec, soit 85 pour cent. Où le résultat tombe dans la
+9 pour cent), elle donne 4 h 15 sur Montréal-Toronto, soit 77 pour cent du temps de
+l'auto, et 2 h 25 sur Montréal-Québec, soit 86 pour cent. Où le résultat tombe dans la
 fourchette dépend surtout du régime de cohabitation, bien plus que du train ou de la
 voie : c'est l'objet de la section 4. S3 (le même dévers, une insuffisance portée à
 270 mm) et les bandes 250 et 300 sont des références : elles chiffrent ce que
@@ -61,8 +61,8 @@ intégral achèteraient en plus.
 La fourchette de marge n'est pas une estimation : sa borne basse est la marge normative
 internationale (9 pour cent du temps de parcours aux vitesses de 200 km/h (124 mi/h) et plus
 [@uic2000f451 ; @schittenhelm2011]), sa borne haute est la marge que l'horaire actuel de VIA porte
-aujourd'hui sur le tronçon concerné (mesurée dans cette étude : de 14 pour cent sur
-Montréal-Toronto à 33 pour cent sur Montréal-Québec). La distance entre les deux bornes
+aujourd'hui sur le tronçon concerné (mesurée dans cette étude : de 15 pour cent sur
+Montréal-Ottawa à 32 pour cent sur Montréal-Québec). La distance entre les deux bornes
 est le coût du régime d'exploitation actuel ; la trancher est l'objet de l'étude de
 circulation recommandée en conclusion.
 
@@ -80,7 +80,7 @@ pendulaires à 125 mi/h (201 km/h) sur la voie existante et une signalisation re
 pour un coût d'environ 8,6 milliards de livres selon l'audit national [@nao2006wcml].
 Les gains mesurés sont de la même famille que ceux calculés ici : 36 minutes de moins
 sur Londres-Manchester (296 km) et 42 sur Londres-Glasgow (environ 645 km)
-[@nao2006wcml], contre 44 à 57 minutes calculées sur Montréal-Toronto en S2 à la
+[@nao2006wcml], contre 45 à 63 minutes calculées sur Montréal-Toronto en S2 à la
 bande 200. Le marché a suivi : sur Londres-Manchester, l'achalandage ferroviaire a crû
 de 77 pour cent entre 2009 et 2017 pendant que le trafic aérien du même axe reculait de
 27 pour cent [@wcml2026wiki]. La mise en garde symétrique vaut aussi : le budget
@@ -123,32 +123,40 @@ bande de vitesse et un scénario de matériel donnés :
 1. **les zones urbaines**, où l'étude ne promet aucun gain : leur temps est figé à
    l'horaire actuel ;
 2. **l'interurbain**, calculé mètre par mètre le long du tracé : en chaque point, le
-   train roule à la plus basse de deux vitesses, celle que la courbe locale permet
-   (selon le scénario) et le plafond qu'on s'autorise (la « bande ») ; le temps du
-   tronçon est la somme de ces temps élémentaires ;
-3. **les arrêts** : cinq minutes par arrêt intermédiaire ;
+   train est borné par la plus basse de deux vitesses, celle que la courbe locale
+   permet (selon le scénario) et le plafond qu'on s'autorise (la « bande ») ; entre
+   ces bornes, son profil réel d'accélération et de freinage est simulé (voir plus
+   bas) ;
+3. **les arrêts** : deux minutes d'immobilisation par arrêt intermédiaire, les phases
+   d'accélération et de freinage étant déjà dans le profil simulé ;
 4. **la marge d'exploitation**, jamais estimée : encadrée entre deux bornes.
 
 En notation compacte :
 
 $$T = \sum \text{blocs urbains figés} + \int \frac{dx}{V(x)} + \text{arrêts} + \text{marge}$$
 
-avec $V(x) = \min(\text{vitesse géométrique du scénario}, \text{bande})$ sur
-l'interurbain. Le symbole $\int dx/V(x)$ ne dit rien d'autre que « chaque mètre du
-tracé est parcouru à la vitesse que ce mètre permet, et on additionne ».
+avec $V(x)$ le profil de vitesse simulé, borné par
+$\min(\text{vitesse géométrique du scénario}, \text{bande})$ sur l'interurbain. Le
+symbole $\int dx/V(x)$ ne dit rien d'autre que « chaque mètre du tracé est parcouru à
+la vitesse que le train y atteint réellement, et on additionne ».
 
-**Hypothèse d'accélération et de freinage, déclarée.** L'intégration traite les
-changements de vitesse comme instantanés : aucun profil d'accélération ni de freinage
-n'est modélisé. Là où cette simplification joue, son traitement est le suivant. Autour
-des arrêts, les phases d'accélération et de freinage sont absorbées par la
-normalisation de cinq minutes par arrêt, et la borne mesurée du pilote de 2025 (7,5 à
-10 minutes par arrêt évité, phases comprises) est testée en sensibilité à la
-section 7. Dans les blocs urbains, les minutes figées viennent de l'horaire réel, qui
-contient déjà les accélérations terminales. Reste l'interurbain : un train réel ne
-profite pas pleinement d'un segment rapide court coincé entre deux courbes lentes,
-et sur ces transitions le temps de base est légèrement favorable au train. Ce poste
-est couvert par la fourchette de marge, et son chiffrage fin (profils de traction
-réels, freinage) relève de la simulation de circulation recommandée en conclusion.
+**Le profil d'accélération et de freinage est simulé, à paramètres déclarés.** Le
+train de cette étude ne saute pas d'une vitesse à l'autre : sur l'interurbain, son
+profil est calculé en deux passes (accélération plafonnée par la motorisation, qui
+décroît avec la vitesse ; freinage de service constant), avec arrêt complet à chaque
+gare intermédiaire et aux frontières des blocs urbains. Les paramètres de rame sont
+des ordres de grandeur déclarés, pas des fiches constructeur : S1 reçoit une rame
+tractée comme la flotte actuelle (8 W/kg au rail, 0,5 m/s²) ; S2 et S3 reçoivent la
+même rame de référence, dimensionnée pour sa bande (12 W/kg aux bandes 160 et 200,
+type pendulaire moderne ; 18 à la bande 250 ; 22 à la bande 300, type rame à grande
+vitesse ; 0,6 m/s²). S2 et S3 partagent la même rame parce que ces scénarios se
+définissent par l'insuffisance de dévers admise, pas par la motorisation : une rame
+commune isole l'effet de la géométrie. Pentes et résistance à l'avancement ne sont
+pas modélisées. Contre-vérification : l'ancien forfait de cinq minutes par arrêt sur
+intégrale fluide retombe à une à huit minutes près sur les mêmes totaux par tronçon ;
+la borne du pilote de 2025 (7,5 à 10 minutes par arrêt évité, effets de sillon
+compris) encadre le tout par le haut, l'excédent au-delà de la dynamique pure
+relevant du régime de cohabitation, donc de la marge.
 
 **Vitesse géométrique** : le plafond que les courbes permettent. Une courbe de rayon $R$
 (en mètres) limite la vitesse à $v = k\sqrt{R}$, où $k$ dépend du dévers (l'inclinaison
@@ -171,10 +179,13 @@ actuels (données ouvertes GTFS) [@viarail2026gtfs] ; Ottawa, sans gare d'appro
 fenêtre de 10 km de part et d'autre \[HYPOTHÈSE, couverte par la sensibilité de ±20 pour
 cent sur l'ensemble des blocs urbains\].
 
-**Arrêts.** Cinq minutes par arrêt intermédiaire hors blocs urbains. C'est une
-normalisation volontairement favorable : le pilote de train sans arrêt de septembre 2025
-annonçait un gain de 30 à 40 minutes pour quatre arrêts sautés, soit 7,5 à 10 minutes par
-arrêt en conditions réelles [@cbc2025pilote].
+**Arrêts.** Deux minutes d'immobilisation par arrêt intermédiaire hors blocs
+urbains ; les phases d'accélération et de freinage sont simulées dans le profil
+(l'ensemble revient à environ quatre à cinq minutes par arrêt à la bande 200). Repère
+mesuré : le pilote de train sans arrêt de septembre 2025 annonçait un gain de 30 à
+40 minutes pour quatre arrêts sautés, soit 7,5 à 10 minutes par arrêt en conditions
+réelles de cohabitation [@cbc2025pilote] ; l'écart entre ce chiffre et la dynamique
+pure est un effet de sillon, qui vit dans la marge.
 
 **Marge.** Jamais estimée : encadrée entre une borne normative et une borne mesurée
 (section 4.3).
@@ -214,9 +225,10 @@ Canada [@tc2023inventairepn] ; horaires par le flux GTFS de VIA, saison 2026
 
 ## Hors périmètre, déclaré
 
-La conception par site (clothoïdes, raccordements), les profils d'accélération et de
-freinage (changements de vitesse traités comme instantanés, hypothèse déclarée en
-section 2.1), le cantonnement fin, la simulation de
+La conception par site (clothoïdes, raccordements), les profils de traction constructeur
+exacts, les pentes et la résistance à l'avancement (le profil d'accélération et de
+freinage est simulé avec des paramètres génériques déclarés en section 2.1), le
+cantonnement fin, la simulation de
 circulation (c'est l'étude à commander), les ponts, tunnels et l'état detaillé de la
 voie, ainsi que les zones urbaines au-delà de leurs blocs figés. Les horaires mesurés
 datent de la saison 2026, une période de restrictions exceptionnelles liées aux passages
@@ -274,10 +286,10 @@ réduction des coûts d'entretien et un allègement de deux tonnes par voiture
 [@via2009lrc]. S2 reste, pour cette raison, le scénario pivot de
 l'argumentaire : tout y tient dans la méthode que le CN applique déjà.
 
-**Pourquoi 81 kilomètres d'écart ne font que deux à quatre minutes.** La table
+**Pourquoi 81 kilomètres d'écart ne font que trois à cinq minutes.** La table
 ci-dessus et celle de la section 7 semblent se contredire : S3 réduit le résidu sous
-200 km/h de 267 à 186 km, un écart de 81 km, mais il ne gagne que 2 minutes sur S2 sur
-Montréal-Toronto (4 sur Montréal-Québec). La réconciliation tient à l'endroit où ces
+200 km/h de 267 à 186 km, un écart de 81 km, mais il ne gagne que 3 minutes sur S2 sur
+Montréal-Toronto (5 sur Montréal-Québec). La réconciliation tient à l'endroit où ces
 kilomètres se trouvent sur l'échelle des vitesses. Les kilomètres que S3 fait passer
 au-dessus de 200 km/h sont précisément ceux où S2 permet déjà 160 à 199 km/h (99 à 124 mi/h) : des
 courbes amples, où le train ne perd presque rien. Rouler 81 km à 180 km/h (112 mi/h) plutôt qu'à
@@ -286,7 +298,7 @@ courbes serrées et dans les zones lentes, et là-dessus les deux scénarios fon
 pratiquement le même travail, puisque tous deux sont plafonnés par la même bande de
 200 km/h sur l'essentiel du tracé. Autrement dit, à la bande 200, S3 achète des
 kilomètres conformes, pas des minutes. Sa valeur en temps n'apparaît qu'aux bandes
-supérieures, où son plafond géométrique cesse d'être bridé par la bande (6 minutes
+supérieures, où son plafond géométrique cesse d'être bridé par la bande (7 minutes
 d'avance sur S2 à la bande 250 sur Montréal-Toronto, 10 à la bande 300) ; à la bande
 200, S2 fait déjà l'essentiel du travail.
 
@@ -304,8 +316,9 @@ et le prix du régime.
 
 Pour chacune des paires de gares adjacentes du corridor, la marge est l'écart entre le
 temps à l'horaire (médiane de tous les sillons, un sillon étant le créneau horaire d'un train donné) et le temps que la géométrie
-permet au régime actuel (intégration à vitesse plafonnée à 160 km/h, soit 99 mi/h), rapporté à ce
-dernier. Les paires contaminées par un nœud (blocs urbains, ponts Victoria et de Québec,
+permet au régime actuel (intégration à vitesse plafonnée à 160 km/h, soit 99 mi/h, en
+profil fluide : ce choix est le même pour toutes les cellules et n'affecte pas leur
+comparaison), rapporté à ce dernier. Les paires contaminées par un nœud (blocs urbains, ponts Victoria et de Québec,
 approches d'Ottawa, chevauchements de frontière de propriétaire) sont exclues, chacune
 avec son motif documenté. Résultat, sur le cœur du corridor (classe de voie homogène,
 95 à 100 mi/h, soit 153 à 161 km/h, permis sur les lignes du CN et 80 à 95 mi/h, soit 129 à 153 km/h, sur celles de VIA) :
@@ -485,30 +498,32 @@ fourchette : c'est elle qui se compare à l'horaire actuel.
 
 | Tronçon | Horaire actuel | S1, plafond 160 | S2, 200 | S3, 200 | S3, 250 | S3, 300 |
 |---|---|---|---|---|---|---|
-| Montréal-Québec (270 km) | 3 h 23 | 2 h 33 | 2 h 12 | 2 h 08 | 1 h 58 | 1 h 52 |
-| Montréal-Ottawa (185 km) | 2 h 02 | 1 h 47 | 1 h 33 | 1 h 31 | 1 h 24 | 1 h 19 |
-| Ottawa-Toronto (444 km) | 4 h 35 | 3 h 53 | 3 h 21 | 3 h 19 | 2 h 56 | 2 h 45 |
-| Montréal-Toronto (539 km) | 5 h 18 | 4 h 38 | 4 h 00 | 3 h 58 | 3 h 30 | 3 h 15 |
+| Montréal-Québec (270 km) | 3 h 23 | 2 h 34 | 2 h 13 | 2 h 08 | 2 h 00 | 1 h 57 |
+| Montréal-Ottawa (185 km) | 2 h 02 | 1 h 46 | 1 h 33 | 1 h 30 | 1 h 25 | 1 h 22 |
+| Ottawa-Toronto (444 km) | 4 h 35 | 3 h 45 | 3 h 13 | 3 h 10 | 2 h 52 | 2 h 45 |
+| Montréal-Toronto (539 km) | 5 h 18 | 4 h 32 | 3 h 54 | 3 h 51 | 3 h 28 | 3 h 18 |
 
 **Temps avec marge (fourchette).** Borne basse : la marge normative (7 pour cent du
 temps de base à la bande 160, 9 pour cent aux bandes 200 et plus [@uic2000f451 ;
 @schittenhelm2011]). Borne haute : la marge que l'horaire actuel du tronçon porte
-aujourd'hui, mesurée dans cette étude (14 pour cent sur Montréal-Toronto et
-Montréal-Ottawa, 18 pour cent sur Ottawa-Toronto, 33 pour cent sur Montréal-Québec).
+aujourd'hui, mesurée dans cette étude (15 pour cent sur Montréal-Ottawa, 17 sur
+Montréal-Toronto, 22 sur Ottawa-Toronto, 32 sur Montréal-Québec).
 Par construction, la borne haute de la colonne « S1, 160 » retombe sur l'horaire
 actuel : c'est un contrôle interne de la méthode, pas une coïncidence.
 
 | Tronçon (horaire actuel) | S1, 160 | S2, 200 | S3, 200 | S3, 250 | S3, 300 |
 |---|---|---|---|---|---|
-| Montréal-Québec (3 h 23) | 2 h 43 à 3 h 23 | 2 h 24 à 2 h 56 | 2 h 20 à 2 h 50 | 2 h 09 à 2 h 37 | 2 h 03 à 2 h 29 |
-| Montréal-Ottawa (2 h 02) | 1 h 54 à 2 h 02 | 1 h 42 à 1 h 47 | 1 h 39 à 1 h 44 | 1 h 31 à 1 h 36 | 1 h 26 à 1 h 31 |
-| Ottawa-Toronto (4 h 35) | 4 h 10 à 4 h 35 | 3 h 39 à 3 h 57 | 3 h 36 à 3 h 54 | 3 h 12 à 3 h 28 | 3 h 00 à 3 h 14 |
-| Montréal-Toronto (5 h 18) | 4 h 57 à 5 h 18 | 4 h 21 à 4 h 34 | 4 h 19 à 4 h 32 | 3 h 49 à 4 h 00 | 3 h 32 à 3 h 43 |
+| Montréal-Québec (3 h 23) | 2 h 44 à 3 h 23 | 2 h 25 à 2 h 56 | 2 h 20 à 2 h 49 | 2 h 11 à 2 h 39 | 2 h 08 à 2 h 35 |
+| Montréal-Ottawa (2 h 02) | 1 h 54 à 2 h 02 | 1 h 41 à 1 h 47 | 1 h 39 à 1 h 44 | 1 h 32 à 1 h 38 | 1 h 30 à 1 h 35 |
+| Ottawa-Toronto (4 h 35) | 4 h 01 à 4 h 35 | 3 h 30 à 3 h 56 | 3 h 27 à 3 h 52 | 3 h 07 à 3 h 30 | 3 h 00 à 3 h 22 |
+| Montréal-Toronto (5 h 18) | 4 h 51 à 5 h 18 | 4 h 15 à 4 h 33 | 4 h 12 à 4 h 30 | 3 h 46 à 4 h 02 | 3 h 35 à 3 h 51 |
 
 Sensibilités : blocs urbains ±20 pour cent (déjà dans les fourchettes) ; le bruit sur les
 rayons de courbure est absorbé par la publication en classes de vitesse plutôt qu'au
-km/h près ; la pénalité d'arrêt (5 minutes par arrêt, borne basse volontaire) peut être
-portée à 7,5-10 minutes sans changer l'ordre des scénarios.
+km/h près ; l'immobilisation en gare (2 minutes par arrêt) peut être doublée sans changer
+l'ordre des scénarios (chaque minute ajoutée coûte de 3 à 10 minutes par tronçon selon
+son nombre d'arrêts) ; la borne du pilote de 2025 (7,5 à 10 minutes par arrêt évité)
+inclut des effets de sillon qui relèvent de la marge, pas du temps de base.
 
 Deux garde-fous internes : chaque segment publié vérifie par construction la cohérence
 entre sa classe et sa vitesse (zéro violation sur 5 040 contrôles), et les zones-témoins

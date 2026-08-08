@@ -3,9 +3,25 @@
 Le modèle du rapport minimal (plan de match v3) :
 
     T(bande, scénario) = Σ blocs urbains figés (minutes actuelles GTFS)
-                       + ∫ interurbain dx / V(x)   où V(x) = min(v_geo_scenario(x), bande)
-                       + arrêts (NORMALISATION ~5 min/arrêt interurbain)
+                       + interurbain en PROFIL DYNAMIQUE (2026-08-08) : vitesse
+                         limitée par min(v_geo_scenario(x), bande), accélération
+                         limitée par min(a0, (P/m)/v), freinage constant, arrêt
+                         complet (v=0) à chaque gare intermédiaire et aux
+                         frontières des blocs urbains
+                       + arrêts (immobilisation DWELL_MIN par arrêt interurbain ;
+                         les phases d'accélération/freinage sont dans le profil)
                        [+ marge — encadrée à l'étape 4, PAS ajoutée ici]
+
+Paramètres de rame (HYPOTHÈSES déclarées, pas des specs constructeur) :
+  S1 : rame tractée type flotte actuelle — P/m 8,0 W/kg, a0 0,5 m/s², frein 0,5.
+  S2 et S3 : MÊME rame de référence, dimensionnée pour sa bande — P/m 12 W/kg
+  (bandes 160 et 200, type pendulaire moderne), 18 (bande 250), 22 (bande 300,
+  type rame grande vitesse) ; a0 0,6, frein 0,6.
+  (S2/S3 se définissent par l'insuffisance admise, pas par la motorisation :
+  une rame commune isole la variable géométrique. Le LRC historique ~6,5 W/kg
+  ajouterait ~3-5 min par tronçon : testé au script 26, exploratoire.)
+Validation : l'ancienne intégrale fluide + 5 min/arrêt donnait des totaux à
+±1-8 min de ceux-ci (voir 26) ; le forfait de 5 min valait ≈ dwell 2 + dynamique.
 
 Décision structurante : les zones urbaines sont FIGÉES à l'horaire actuel. Aucun
 gain pendulaire/dévers n'y est compté, quel que soit le scénario ou la bande.
@@ -25,11 +41,12 @@ Délimitation des blocs urbains (à documenter au rapport) :
     au plafond S1 borné par la bande (règle « aucun gain en urbain »), pas de
     minutes GTFS isolables. Couverte par la sensibilité ±20 %.
 
-Arrêts : +5 min par arrêt intermédiaire HORS blocs urbains (normalisation ; borne
-mesurée : pilote sans-arrêt 2025 = 30-40 min pour 4 arrêts sautés, soit 7,5-10 min
-par arrêt en conditions réelles de cohabitation — le 5 min est donc une borne
-basse volontairement favorable, documentée). Les arrêts situés dans un bloc urbain
-sont déjà comptés dans les minutes GTFS figées du bloc.
+Arrêts : DWELL_MIN (2 min) d'immobilisation par arrêt intermédiaire HORS blocs
+urbains ; les phases d'accélération et de freinage sont simulées dans le profil
+dynamique (v=0 en gare). Borne mesurée de comparaison : pilote sans-arrêt 2025 =
+30-40 min pour 4 arrêts sautés, soit 7,5-10 min par arrêt en conditions réelles de
+cohabitation (immobilisation + dynamique + effets de sillon). Les arrêts situés
+dans un bloc urbain sont déjà comptés dans les minutes GTFS figées du bloc.
 
 Sensibilité : blocs urbains ±20 % (colonnes lo/hi).
 
@@ -54,9 +71,22 @@ OUT_TBASE = DELIVERABLES / "tbase_par_bande.csv"
 OUT_BLOCS = DELIVERABLES / "blocs_urbains.csv"
 
 BANDES_KMH = [160, 200, 250, 300]
-MIN_PER_STOP = 5.0            # normalisation, voir docstring
+DWELL_MIN = 2.0               # immobilisation en gare (min/arrêt) ; la dynamique
+                              # d'accélération/freinage est dans le profil simulé
 URBAN_SENS = 0.20             # sensibilité ±20 % sur les blocs urbains
 OTTAWA_WINDOW_KM = 10.0       # HYPOTHÈSE : fenêtre urbaine ±10 km autour d'Ottawa
+DX_M = 25.0                   # pas d'intégration du profil dynamique (m)
+CONTIG_TOL_KM = 0.05          # tolérance de contiguïté entre segments (50 m)
+# Paramètres de rame (HYPOTHÈSES, voir docstring). a0 = plafond d'accélération
+# (m/s²), ab = freinage service (m/s²) ; P/m (W/kg) fonction de la bande pour
+# S2/S3 : la rame de référence est dimensionnée pour sa bande (ordres de
+# grandeur : pendulaire 200-250 ≈ 12 ; matériel 250 ≈ 18 ; 300 ≈ 22 W/kg,
+# type ETR610 / Velaro / TGV). S1 = rame tractée actuelle, 8 W/kg à toute bande.
+TRAIN_A = {"S1": (0.5, 0.5), "S2": (0.6, 0.6), "S3": (0.6, 0.6)}
+def train_pm(scenario: str, bande: float) -> float:
+    if scenario == "S1":
+        return 8.0
+    return {160: 12.0, 200: 12.0, 250: 18.0, 300: 22.0}[int(bande)]
 
 # Blocs urbains ancrés sur des paires de gares GTFS : (tronçon, stop_id A, stop_id B,
 # nom, km_debut, km_fin). km relevés dans corridor_gtfs.geojson.
@@ -163,29 +193,96 @@ def in_any_block(t: str, km0: float, km1: float, blocks) -> float:
 
 
 # ----------------------------------------------------------------- moteur
-def integrate(t: str, segs: list[dict], scenario: str, bande: float) -> tuple[float, float]:
-    """(minutes interurbain, minutes fenêtres Ottawa) pour un tronçon.
+def _free_pieces(t: str, segs: list[dict], scenario: str, bande: float):
+    """[(km0, km1, vlim_kmh)] hors blocs urbains (GTFS et fenêtres km), triés."""
+    blocks = [(b[-2], b[-1]) for b in URBAN_GTFS_BLOCKS + URBAN_KM_BLOCKS if b[0] == t]
+    out = []
+    for p in segs:
+        pieces = [(p["km_debut"], p["km_fin"])]
+        for lo, hi in blocks:
+            nxt = []
+            for a, b in pieces:
+                if hi <= a or lo >= b:
+                    nxt.append((a, b))
+                else:
+                    if a < lo:
+                        nxt.append((a, lo))
+                    if hi < b:
+                        nxt.append((hi, b))
+            pieces = nxt
+        v = min(p[f"vmax_{scenario}_kmh"], bande)
+        for a, b in pieces:
+            if b - a > 1e-6:
+                out.append((a, b, v))
+    out.sort()
+    return out
 
-    Interurbain : dx / min(v_geo_scenario, bande).
-    Fenêtres km urbaines (Ottawa) : dx / min(v_geo_S1, bande) — aucun gain de scénario.
-    Les blocs urbains GTFS sont exclus (leurs minutes viennent de l'horaire).
+
+def _dynamic_minutes(t: str, pieces, pm: float, a0: float, ab: float) -> float:
+    """Profil de vitesse deux passes (accélération / freinage) sur les tronçons
+    libres contigus, avec v=0 aux gares intermédiaires et aux frontières des
+    blocs urbains. Retourne les minutes de roulement (sans immobilisation)."""
+    import math
+    stretches: list[list[tuple[float, float, float]]] = []
+    for seg in pieces:
+        if stretches and abs(seg[0] - stretches[-1][-1][1]) < CONTIG_TOL_KM:
+            stretches[-1].append(seg)
+        else:
+            stretches.append([seg])
+    stop_kms = [km for (_, km) in INTERMEDIATE_STOPS[t]]
+    total_s = 0.0
+    for stretch in stretches:
+        k0, k1 = stretch[0][0], stretch[-1][1]
+        n = max(2, int((k1 - k0) * 1000 / DX_M) + 1)
+        xs = [k0 + (k1 - k0) * i / (n - 1) for i in range(n)]
+        vlim = []
+        j = 0
+        for x in xs:
+            while j < len(stretch) - 1 and x > stretch[j][1] + 1e-9:
+                j += 1
+            vlim.append(stretch[j][2] / 3.6)
+        zero_at = {0, n - 1}
+        for skm in stop_kms:
+            if k0 - 1e-6 <= skm <= k1 + 1e-6:
+                zero_at.add(min(range(n), key=lambda i: abs(xs[i] - skm)))
+        v = vlim[:]
+        for i in zero_at:
+            v[i] = 0.0
+        dx = (k1 - k0) * 1000 / (n - 1)
+        for i in range(1, n):
+            if i in zero_at:
+                v[i] = 0.0
+                continue
+            a = min(a0, pm / max(v[i - 1], 1.0))
+            v[i] = min(vlim[i], math.sqrt(v[i - 1] ** 2 + 2 * a * dx), v[i])
+        for i in range(n - 2, -1, -1):
+            if i in zero_at:
+                continue
+            v[i] = min(v[i], math.sqrt(v[i + 1] ** 2 + 2 * ab * dx))
+        for i in range(n - 1):
+            vm = max((v[i] + v[i + 1]) / 2, 0.5)
+            total_s += dx / vm
+    return total_s / 60.0
+
+
+def integrate(t: str, segs: list[dict], scenario: str, bande: float) -> tuple[float, float]:
+    """(minutes interurbain en profil dynamique, minutes fenêtres Ottawa).
+
+    Interurbain : profil dynamique (accélération limitée par la puissance,
+    freinage constant) sur v_lim = min(v_geo_scenario, bande), arrêt complet aux
+    gares intermédiaires ; paramètres de rame par scénario (TRAIN_DYN).
+    Fenêtres km urbaines (Ottawa) : dx / min(v_geo_S1, bande), fluide — aucun
+    gain de scénario. Blocs urbains GTFS exclus (minutes à l'horaire).
     """
-    urb_gtfs = [b for b in URBAN_GTFS_BLOCKS if b[0] == t]
+    a0, ab = TRAIN_A[scenario]
+    pm = train_pm(scenario, bande)
+    inter_min = _dynamic_minutes(t, _free_pieces(t, segs, scenario, bande), pm, a0, ab)
     urb_km = [b for b in URBAN_KM_BLOCKS if b[0] == t]
-    inter_min = 0.0
     ottawa_min = 0.0
     for p in segs:
         km0, km1 = p["km_debut"], p["km_fin"]
-        length = km1 - km0
-        if length <= 0:
-            continue
-        ov_gtfs = in_any_block(t, km0, km1, urb_gtfs)
         ov_km = in_any_block(t, km0, km1, urb_km)
-        free = max(0.0, length - ov_gtfs - ov_km)
-        v_scen = min(p[f"vmax_{scenario}_kmh"], bande)
         v_s1 = min(p["vmax_S1_kmh"], bande)
-        if v_scen > 0:
-            inter_min += free / v_scen * 60.0
         if ov_km > 0 and v_s1 > 0:
             ottawa_min += ov_km / v_s1 * 60.0
     return inter_min, ottawa_min
@@ -229,7 +326,7 @@ def main() -> None:
             for bande in BANDES_KMH:
                 inter, ottawa = integrate(t, by_t[t], scen, float(bande))
                 urb = urban_fixed[t]
-                stops = stops_inter[t] * MIN_PER_STOP
+                stops = stops_inter[t] * DWELL_MIN
                 total = urb + ottawa + inter + stops
                 rows.append({
                     "troncon": t, "scenario": scen, "bande_kmh": bande,
