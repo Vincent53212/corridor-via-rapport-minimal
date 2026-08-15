@@ -78,7 +78,7 @@ pendulaires à 125 mi/h (201 km/h) sur la voie existante et une signalisation re
 pour un coût d'environ 8,6 milliards de livres selon l'audit national [@nao2006wcml].
 Les gains mesurés sont de la même famille que ceux calculés ici : 36 minutes de moins
 sur Londres-Manchester (296 km) et 42 sur Londres-Glasgow (environ 645 km)
-[@nao2006wcml], contre 45 à 63 minutes calculées sur Montréal-Toronto en S2 à la
+[@nao2006wcml], contre 45 à 66 minutes calculées sur Montréal-Toronto en S2 à la
 bande 200. Le marché a suivi : sur Londres-Manchester, l'achalandage ferroviaire a crû
 de 77 pour cent entre 2009 et 2017 pendant que le trafic aérien du même axe reculait de
 27 pour cent [@wcml2026wiki]. La mise en garde symétrique vaut aussi : le budget
