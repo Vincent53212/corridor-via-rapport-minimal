@@ -36,7 +36,7 @@ valeur ronde en km/h (200 km/h = 124 mi/h ; 250 = 155 ; 300 = 186 ; 160 = 99)
 
 **La lecture de la figure.** Aujourd'hui, le train fait à peu près jeu égal avec l'auto
 sur Montréal-Toronto (539 km : 5 h 18 à l'horaire) et la perd nettement sur
-Montréal-Québec (270 km : 3 h 23). Chaque barre de scénario est un temps « avec marge » :
+Montréal-Québec (270 km : 3 h 22). Chaque barre de scénario est un temps « avec marge » :
 le temps de base (courbes + zones urbaines figées + arrêts) majoré de la marge
 d'exploitation, de la borne normative (9 pour cent) à la marge actuelle du tronçon ; les
 pourcentages face à l'auto sont donc des bornes, pas des points. Dès S2 à la bande 200,
@@ -50,8 +50,7 @@ La solution première est **S2 à la bande
 exactement selon la méthode que le CN applique déjà, sans dérogation, sans franchir le
 mur des passages à niveau ni changer la signalisation au-delà du contrôle en cabine
 (sections 5 et 6). Si la marge est gérée de façon excellente (la borne basse normative,
-9 pour cent), elle donne 4 h 15 sur Montréal-Toronto, soit 77 pour cent du temps de
-l'auto, et 2 h 25 sur Montréal-Québec, soit 86 pour cent. Où le résultat tombe dans la
+9 pour cent), elle donne 4 h 12 sur Montréal-Toronto, soit 76 pour cent du temps de l'auto, et 2 h 25 sur Montréal-Québec, soit 85 pour cent. Où le résultat tombe dans la
 fourchette dépend surtout du régime de cohabitation, bien plus que du train ou de la
 voie : c'est l'objet de la section 4. S3 (le même dévers, une insuffisance portée à
 270 mm) et les bandes 250 et 300 sont des références : elles chiffrent ce que
@@ -61,15 +60,14 @@ intégral achèteraient en plus.
 La fourchette de marge n'est pas une estimation : sa borne basse est la marge normative
 internationale (9 pour cent du temps de parcours aux vitesses de 200 km/h (124 mi/h) et plus
 [@uic2000f451 ; @schittenhelm2011]), sa borne haute est la marge que l'horaire actuel de VIA porte
-aujourd'hui sur le tronçon concerné (mesurée dans cette étude : de 15 pour cent sur
-Montréal-Ottawa à 32 pour cent sur Montréal-Québec). La distance entre les deux bornes
+aujourd'hui sur le tronçon concerné (mesurée dans cette étude : de 11 pour cent sur Montréal-Ottawa à 32 pour cent sur Montréal-Québec). La distance entre les deux bornes
 est le coût du régime d'exploitation actuel ; la trancher est l'objet de l'étude de
 circulation recommandée en conclusion.
 
 Mise en regard : le projet Alto propose environ 1 000 km de voies neuves dédiées pour
 relier Québec à Toronto par un tracé nord à 300 km/h ou plus [@alto2025]. La présente
 étude documente ce que le réseau existant du corridor riverain (environ 1 090 km de
-voies physiques, parcourues en 1 431 km de trajets) peut donner, ainsi que les cinq obstacles qui les retiennent et le prix réglementaire
+voies physiques, parcourues en 1 433 km de trajets) peut donner, ainsi que les cinq obstacles qui les retiennent et le prix réglementaire
 de chacun. Les deux exercices sont complémentaires : on ne peut comparer les options
 qu'en connaissant les deux.
 
@@ -91,9 +89,9 @@ en conclusion.
 Les cinq constats principaux :
 
 1. **La géométrie n'est pas le problème principal.** Avec un pendulaire moderne (S3),
-   il ne reste que 186 km (13 pour cent du réseau parcouru) dont les courbes interdisent
+   il ne reste que 199 km (14 pour cent du réseau parcouru) dont les courbes interdisent
    200 km/h (124 mi/h), et plus aucun kilomètre sous 100 km/h (62 mi/h). Même en restant dans le strict
-   précédent CN (S2), le résidu sous 200 km/h est de 267 km.
+   précédent CN (S2), le résidu sous 200 km/h est de 301 km.
 2. **Les passages à niveau sont l'obstacle réglementaire dominant au-dessus de
    200 km/h** : en scénario S3, 754 des 924 passages du corridor se trouvent sur des segments dont la
    géométrie dépasserait ce seuil (695 en S2, 471 dès S1) ; le précédent américain y exige zéro passage
@@ -260,17 +258,17 @@ mixte [@cn2002mr1305] : il ne demande aucune dérogation et n'exclut pas le fre
 un dévers supposé (le réseau réel n'a pas été relevé), signalé comme tel partout.
 
 **Ce que chaque scénario achète**, en kilomètres de tracé dont le plafond géométrique
-reste sous la cible (somme des quatre trajets analysés, 1 431 km) :
+reste sous la cible (somme des quatre trajets analysés, 1 433 km) :
 
 | Cible | S1 | S2 | S3 |
 |---|---|---|---|
-| Sous 200 km/h / 124 mi/h (rectification requise pour la grande vitesse) | 620 km | 267 km | 186 km |
-| Sous 160 km/h / 99 mi/h | 326 km | 122 km | 59 km |
-| Sous 100 km/h / 62 mi/h (sections sévères) | 41 km | 18 km | 0 km |
+| Sous 200 km/h / 124 mi/h (rectification requise pour la grande vitesse) | 690 km | 301 km | 199 km |
+| Sous 160 km/h / 99 mi/h | 358 km | 94 km | 45 km |
+| Sous 100 km/h / 62 mi/h (sections sévères) | 28 km | 7 km | 0 km |
 
 La lecture décisionnelle : la géométrie du corridor n'a pas besoin d'être reconstruite,
-elle a besoin d'un meilleur train. En S3, 87 pour cent du tracé atteint 200 km/h (124 mi/h) ou plus
-sans toucher une seule courbe ; le résidu de 186 km est listé section par section dans
+elle a besoin d'un meilleur train. En S3, 86 pour cent du tracé atteint 200 km/h (124 mi/h) ou plus
+sans toucher une seule courbe ; le résidu de 199 km est listé section par section dans
 les annexes numériques du projet, avec le rayon à ouvrir pour chaque site.
 
 **Ce qu'il faut dire honnêtement de S3.** Aucun matériel n'est exploité en Amérique du
@@ -286,14 +284,11 @@ réduction des coûts d'entretien et un allègement de deux tonnes par voiture
 [@via2009lrc]. S2 reste, pour cette raison, le scénario pivot de
 l'argumentaire : tout y tient dans la méthode que le CN applique déjà.
 
-**Pourquoi 81 kilomètres d'écart ne font que trois à cinq minutes.** La table
-ci-dessus et celle de la section 7 semblent se contredire : S3 réduit le résidu sous
-200 km/h de 267 à 186 km, un écart de 81 km, mais il ne gagne que 3 minutes sur S2 sur
-Montréal-Toronto (5 sur Montréal-Québec). La réconciliation tient à l'endroit où ces
+**Pourquoi 102 kilomètres d'écart ne font que deux à cinq minutes.** La table
+ci-dessus et celle de la section 7 semblent se contredire : S3 réduit le résidu sous 200 km/h de 301 à 199 km, un écart de 102 km, mais il ne gagne que 2 minutes sur S2 sur Montréal-Toronto (5 sur Montréal-Québec). La réconciliation tient à l'endroit où ces
 kilomètres se trouvent sur l'échelle des vitesses. Les kilomètres que S3 fait passer
 au-dessus de 200 km/h sont précisément ceux où S2 permet déjà 160 à 199 km/h (99 à 124 mi/h) : des
-courbes amples, où le train ne perd presque rien. Rouler 81 km à 180 km/h (112 mi/h) plutôt qu'à
-200 coûte environ 3 minutes ; c'est tout l'écart. Le temps, lui, se perd dans les
+courbes amples, où le train ne perd presque rien. Rouler 102 km à 180 km/h (112 mi/h) plutôt qu'à 200 coûte environ 3 minutes ; c'est tout l'écart. Le temps, lui, se perd dans les
 courbes serrées et dans les zones lentes, et là-dessus les deux scénarios font
 pratiquement le même travail, puisque tous deux sont plafonnés par la même bande de
 200 km/h sur l'essentiel du tracé. Autrement dit, à la bande 200, S3 achète des
@@ -498,25 +493,24 @@ fourchette : c'est elle qui se compare à l'horaire actuel.
 
 | Tronçon | Horaire actuel | S1, plafond 160 | S2, 200 | S3, 200 | S3, 250 | S3, 300 |
 |---|---|---|---|---|---|---|
-| Montréal-Québec (270 km) | 3 h 23 | 2 h 34 | 2 h 13 | 2 h 08 | 2 h 00 | 1 h 57 |
-| Montréal-Ottawa (185 km) | 2 h 02 | 1 h 46 | 1 h 33 | 1 h 30 | 1 h 25 | 1 h 22 |
-| Ottawa-Toronto (444 km) | 4 h 35 | 3 h 45 | 3 h 13 | 3 h 10 | 2 h 52 | 2 h 45 |
-| Montréal-Toronto (539 km) | 5 h 18 | 4 h 32 | 3 h 54 | 3 h 51 | 3 h 28 | 3 h 18 |
+| Montréal-Québec (270 km) | 3 h 22 | 2 h 33 | 2 h 13 | 2 h 08 | 2 h 00 | 1 h 57 |
+| Montréal-Ottawa (185 km) | 2 h 02 | 1 h 50 | 1 h 36 | 1 h 31 | 1 h 28 | 1 h 26 |
+| Ottawa-Toronto (444 km) | 4 h 35 | 3 h 42 | 3 h 10 | 3 h 08 | 2 h 50 | 2 h 42 |
+| Montréal-Toronto (539 km) | 5 h 18 | 4 h 29 | 3 h 51 | 3 h 50 | 3 h 25 | 3 h 14 |
 
 **Temps avec marge (fourchette).** Borne basse : la marge normative (7 pour cent du
 temps de base à la bande 160, 9 pour cent aux bandes 200 et plus [@uic2000f451 ;
 @schittenhelm2011]). Borne haute : la marge que l'horaire actuel du tronçon porte
-aujourd'hui, mesurée dans cette étude (15 pour cent sur Montréal-Ottawa, 17 sur
-Montréal-Toronto, 22 sur Ottawa-Toronto, 32 sur Montréal-Québec).
+aujourd'hui, mesurée dans cette étude (11 pour cent sur Montréal-Ottawa, 18 sur Montréal-Toronto, 24 sur Ottawa-Toronto, 32 sur Montréal-Québec).
 Par construction, la borne haute de la colonne « S1, 160 » retombe sur l'horaire
 actuel : c'est un contrôle interne de la méthode, pas une coïncidence.
 
 | Tronçon (horaire actuel) | S1, 160 | S2, 200 | S3, 200 | S3, 250 | S3, 300 |
 |---|---|---|---|---|---|
-| Montréal-Québec (3 h 23) | 2 h 44 à 3 h 23 | 2 h 25 à 2 h 56 | 2 h 20 à 2 h 49 | 2 h 11 à 2 h 39 | 2 h 08 à 2 h 35 |
-| Montréal-Ottawa (2 h 02) | 1 h 54 à 2 h 02 | 1 h 41 à 1 h 47 | 1 h 39 à 1 h 44 | 1 h 32 à 1 h 38 | 1 h 30 à 1 h 35 |
-| Ottawa-Toronto (4 h 35) | 4 h 01 à 4 h 35 | 3 h 30 à 3 h 56 | 3 h 27 à 3 h 52 | 3 h 07 à 3 h 30 | 3 h 00 à 3 h 22 |
-| Montréal-Toronto (5 h 18) | 4 h 51 à 5 h 18 | 4 h 15 à 4 h 33 | 4 h 12 à 4 h 30 | 3 h 46 à 4 h 02 | 3 h 35 à 3 h 51 |
+| Montréal-Québec (3 h 22) | 2 h 44 à 3 h 22 | 2 h 25 à 2 h 56 | 2 h 20 à 2 h 50 | 2 h 11 à 2 h 39 | 2 h 08 à 2 h 35 |
+| Montréal-Ottawa (2 h 02) | 1 h 58 à 2 h 02 | 1 h 45 à 1 h 47 | 1 h 39 à 1 h 41 | 1 h 35 à 1 h 37 | 1 h 34 à 1 h 36 |
+| Ottawa-Toronto (4 h 35) | 3 h 58 à 4 h 35 | 3 h 28 à 3 h 56 | 3 h 25 à 3 h 53 | 3 h 05 à 3 h 30 | 2 h 57 à 3 h 21 |
+| Montréal-Toronto (5 h 18) | 4 h 48 à 5 h 18 | 4 h 12 à 4 h 33 | 4 h 10 à 4 h 31 | 3 h 44 à 4 h 02 | 3 h 32 à 3 h 50 |
 
 Sensibilités : blocs urbains ±20 pour cent (déjà dans les fourchettes) ; le bruit sur les
 rayons de courbure est absorbé par la publication en classes de vitesse plutôt qu'au

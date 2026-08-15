@@ -14,12 +14,17 @@ Algorithme (par tronçon) :
     2) Ré-échantillonnage uniforme de la polyligne à pas de RESAMPLE_STEP_M (10 m).
     3) Lissage léger des coordonnées par moyenne glissante (SMOOTH_WINDOW_M / step
        points) pour absorber le bruit de numérisation OSM.
-    4) Pour chaque point, ajustement par moindres carrés (cercle algébrique de
-       Kåsa, centré sur la moyenne) sur une fenêtre de FIT_WINDOW_M mètres
-       d'arc ; le rayon de ce cercle est le rayon de courbure local. Cet
-       estimateur intègre ~80 points et est donc robuste au bruit de
-       numérisation OSM (~5-10 m), contrairement au cercle circonscrit à 3
-       points qui en était dominé.
+    4) Découpage de la polyligne aux INFLEXIONS (passage d'une courbe à une
+       courbe de sens opposé), puis, pour chaque point, ajustement par
+       moindres carrés (cercle algébrique de Kåsa, centré sur la moyenne) sur
+       une fenêtre de FIT_WINDOW_M mètres d'arc, rabattue à la longueur du
+       tronçon s'il est plus court (plancher FIT_WINDOW_MIN_M). Le rayon de ce
+       cercle est le rayon de courbure local. Cet estimateur intègre ~80
+       points et est donc robuste au bruit de numérisation OSM (~5-10 m),
+       contrairement au cercle circonscrit à 3 points qui en était dominé.
+       Le découpage garantit qu'aucune fenêtre n'est ajustée à cheval sur une
+       courbe en S, cas où le nuage n'est pas circulaire et où l'ajustement
+       algébrique peut rendre un rayon arbitrairement petit.
     5) Post-filtre minimal : un seul médian glissant (5 pts) puis clip sur
        [R_MIN_PHYSICAL, 5e6].
     6) Stockage dans un parquet avec colonnes : alignment_id, troncon_id,
@@ -65,6 +70,49 @@ R_MAX_DISPLAY = 50_000    # rayon affiché max (au-delà = "ligne droite")
 R_MIN_PHYSICAL = 100.0    # rayon minimal physiquement plausible pour rail
 R_MEDIAN_WINDOW_M = 50.0  # fenêtre du médian post-filtre (→ taille en points
                           # dérivée dans postfilter_R, pas de constante morte)
+
+# --- ajustement par tronçon de sens constant (courbes contraires) ----------
+# Un cercle ajusté à cheval sur une inflexion (courbe en S) n'ajuste plus un
+# arc : le nuage de points n'est pas circulaire et l'ajustement algébrique
+# peut rendre un rayon arbitrairement petit. On découpe donc la polyligne aux
+# inflexions AVANT d'ajuster, et aucune fenêtre ne traverse un découpage.
+# La détection d'inflexion est MULTI-ÉCHELLE, et chaque échelle est
+# dimensionnée par le BRUIT, pas au jugé.
+#
+# Le bruit de position OSM (σ ≈ 5-10 m, ramené à SIGMA_POS_EFF_M par le
+# lissage 30 m) se propage en bruit de courbure comme 2σ/L² où L est la base
+# de mesure du cap. Une base donnée ne « voit » donc de façon fiable que les
+# courbes dont la courbure dépasse ce bruit d'un facteur CURV_SNR :
+#       R_max(L) = L² / (CURV_SNR · 2σ)
+# Une base COURTE ne voit que les courbes serrées, mais résout deux courbes
+# contraires rapprochées ; une base LONGUE voit les courbes amples, mais fond
+# ensemble deux courbes courtes. Aucune base unique ne convient : on prend
+# donc l'union des inflexions vues à chaque échelle, chacune n'ayant le droit
+# de se prononcer que sous SON plafond de confiance.
+SIGMA_POS_EFF_M = 4.62       # σ de position résiduel après lissage 30 m
+CURV_SNR = 4.0               # signal exigé / bruit de courbure
+CURV_SIGN_SCALES_M = (150.0, 250.0, 400.0)   # bases de mesure du cap
+FIT_WINDOW_MIN_M = 300.0     # plancher de fenêtre sur un tronçon court
+
+# Condition de VALIDITÉ du cercle ajusté : une voie qui ne tourne pas ne peut
+# pas être décrite par un cercle de rayon fini. Si le cap ne varie pas de plus
+# de DEFLECTION_MIN_DEG d'un bout à l'autre de la fenêtre, aucune courbe n'y
+# est mesurable, quel que soit le rayon que l'ajustement algébrique rend.
+# Sans ce garde-fou, un tronçon court et droit mais bruité produit un rayon
+# arbitraire (constaté : 548 m et 814 m sur des plages dont la déviation
+# réelle est de 0,0°).
+# Seuil : le bruit de cap sur une base de 150 m vaut σ·√2/150 ≈ 2,5°, et une
+# déviation est une DIFFÉRENCE de deux caps, donc ≈ 3,5° de bruit. 5° laisse
+# une marge sans effacer de courbure réelle : une courbe de R = 7 000 m, déjà
+# sans contrainte pour tous les scénarios, dévie de 7,4° sur 900 m.
+DEFLECTION_BASE_M = 150.0    # base de mesure du cap aux deux bouts de fenêtre
+DEFLECTION_MIN_DEG = 5.0     # déviation minimale pour qu'un rayon soit publié
+
+
+def curv_r_max_for_scale(scale_m: float) -> float:
+    """Rayon au-delà duquel une base de scale_m ne distingue plus la courbure
+    du bruit de numérisation (R_max = L² / (SNR · 2σ))."""
+    return scale_m ** 2 / (CURV_SNR * 2.0 * SIGMA_POS_EFF_M)
 
 
 def transformer_from_lonlat(epsg_target: int) -> Transformer:
@@ -170,6 +218,194 @@ def curvature_lsq_window(xy: np.ndarray, step_m: float,
     # Bords : valeur intérieure la plus proche.
     R[:lo] = R[lo]
     R[hi + 1:] = R[hi]
+    return R
+
+
+def signed_curvature_series(xy: np.ndarray, step_m: float,
+                            scale_m: float = 250.0) -> np.ndarray:
+    """Courbure signée (1/m) estimée à l'échelle scale_m.
+
+    Le cap θ est pris sur une base de scale_m (corde), déroulé, puis dérivé
+    sur la même base : κ = Δθ/Δs. Positif = vers la gauche.
+
+    Sert UNIQUEMENT à localiser les inflexions ; l'amplitude du rayon reste
+    donnée par l'ajustement LSQ. Une base de 150 m est assez longue pour ne
+    pas suivre le bruit de numérisation et assez courte pour placer une
+    inflexion à quelques dizaines de mètres près.
+    """
+    N = len(xy)
+    kappa = np.zeros(N, dtype=float)
+    b = max(1, int(round(scale_m / step_m / 2.0)))
+    if N < 4 * b + 1:
+        return kappa
+    # cap local sur une corde de 2b points
+    idx = np.arange(b, N - b)
+    d = xy[idx + b] - xy[idx - b]
+    theta = np.unwrap(np.arctan2(d[:, 1], d[:, 0]))
+    # dérivée du cap sur la même base
+    k_in = np.zeros(len(theta), dtype=float)
+    if len(theta) > 2 * b:
+        k_in[b:-b] = (theta[2 * b:] - theta[:-2 * b]) / (2 * b * step_m)
+        k_in[:b] = k_in[b]
+        k_in[-b:] = k_in[-b - 1]
+    kappa[idx] = k_in
+    kappa[:b] = kappa[b]
+    kappa[N - b:] = kappa[N - b - 1]
+    return kappa
+
+
+def find_inflection_splits_at_scale(kappa: np.ndarray, step_m: float,
+                                    support_m: float,
+                                    real_r_max: float) -> list[int]:
+    """Indices de découpage = inflexions entre deux courbes RÉELLES opposées.
+
+    Une « courbe réelle » est un intervalle où le signe de κ est constant et
+    où |κ| ≥ 1/real_r_max, soutenu sur au moins support_m. Deux courbes
+    réelles consécutives de sens opposé définissent une inflexion, placée au
+    minimum de |κ| entre elles (le passage par zéro).
+
+    Ne découpe donc JAMAIS dans une droite ni dans une courbe ample dont le
+    signe papillonne : il faut une vraie courbe soutenue de part et d'autre.
+    """
+    n = len(kappa)
+    if n == 0:
+        return []
+    min_pts = max(3, int(round(support_m / step_m)))
+    thr = 1.0 / real_r_max
+    sig = np.where(np.abs(kappa) >= thr, np.sign(kappa), 0.0)
+
+    # intervalles maximaux de signe constant non nul, assez longs
+    runs: list[tuple[int, int, float]] = []
+    i = 0
+    while i < n:
+        if sig[i] == 0:
+            i += 1
+            continue
+        j = i
+        while j + 1 < n and sig[j + 1] == sig[i]:
+            j += 1
+        if (j - i + 1) >= min_pts:
+            runs.append((i, j, float(sig[i])))
+        i = j + 1
+
+    splits: list[int] = []
+    for a, b in zip(runs, runs[1:]):
+        if a[2] == b[2]:
+            continue                      # même sens : pas d'inflexion
+        lo, hi = a[1], b[0]               # entre la fin de l'un et le début
+        if hi <= lo:                      # de l'autre : le passage par zéro
+            continue
+        k = lo + int(np.argmin(np.abs(kappa[lo:hi + 1])))
+        splits.append(k)
+    return splits
+
+
+def find_inflection_splits(xy: np.ndarray, step_m: float,
+                           merge_m: float = 150.0) -> list[int]:
+    """Inflexions vues à TOUTES les échelles, fusionnées.
+
+    Chaque base de CURV_SIGN_SCALES_M ne se prononce que sous son plafond de
+    confiance curv_r_max_for_scale (rapport signal/bruit), et exige un sens
+    soutenu sur sa propre longueur de base. Deux découpages distants de moins
+    de merge_m sont la même inflexion vue à deux échelles : on n'en garde
+    qu'un.
+    """
+    found: list[int] = []
+    for scale in CURV_SIGN_SCALES_M:
+        kappa = signed_curvature_series(xy, step_m, scale)
+        found += find_inflection_splits_at_scale(
+            kappa, step_m, support_m=scale,
+            real_r_max=curv_r_max_for_scale(scale))
+    if not found:
+        return []
+    found.sort()
+    merged = [found[0]]
+    for k in found[1:]:
+        if (k - merged[-1]) * step_m >= merge_m:
+            merged.append(k)
+    return merged
+
+
+# NB — deux variantes ont été essayées puis ÉCARTÉES pour reprendre la
+# mesure sur les bords de tronçon (que curvature_lsq_window recopie) :
+# une fenêtre qui rétrécit, et la même bornée aux points où une courbe
+# réelle est certifiée par le rapport signal/bruit. Les deux mesurent
+# bien le CORPS des courbes (605-651 m pour un vrai de 600) mais les
+# deux font chuter le rayon MINIMUM à 0,11-0,50 × R_vrai : le bord d'un
+# tronçon est le raccord progressif, là où la courbure varie le plus
+# vite, donc le pire endroit pour ajuster un cercle de quelque taille
+# que ce soit. La recopie est une protection, pas une approximation
+# paresseuse. La limite qui subsiste — une courbe dont le corps est plus
+# court que la fenêtre est lue plus ample qu'elle n'est — est une limite
+# de RÉSOLUTION de la source, traitée comme telle dans ADV_CASES.
+
+
+def heading_series(xy: np.ndarray, step_m: float,
+                   base_m: float = DEFLECTION_BASE_M) -> np.ndarray:
+    """Cap local (rad, déroulé), mesuré sur une corde de base_m."""
+    N = len(xy)
+    b = max(1, int(round(base_m / step_m / 2.0)))
+    if N < 2 * b + 2:
+        return np.zeros(N)
+    idx = np.arange(b, N - b)
+    d = xy[idx + b] - xy[idx - b]
+    th = np.unwrap(np.arctan2(d[:, 1], d[:, 0]))
+    out = np.empty(N, dtype=float)
+    out[b:N - b] = th
+    out[:b] = th[0]
+    out[N - b:] = th[-1]
+    return out
+
+
+def apply_deflection_gate(R: np.ndarray, xy: np.ndarray, step_m: float,
+                          fit_window_m: float) -> np.ndarray:
+    """Annule les rayons publiés là où la voie ne tourne pas.
+
+    Pour chaque point, la déviation du cap entre l'entrée et la sortie de sa
+    fenêtre d'ajustement doit dépasser DEFLECTION_MIN_DEG ; sinon le rayon
+    ajusté ne décrit rien de réel et le point est déclaré droit
+    (R_MAX_DISPLAY). Sans cette condition, un ajustement de cercle sur un
+    tronçon court, droit et bruité rend un rayon arbitrairement petit.
+    """
+    N = len(R)
+    if N < 5:
+        return R
+    theta = heading_series(xy, step_m)
+    half = max(1, int(round(fit_window_m / step_m)) // 2)
+    lo = np.clip(np.arange(N) - half, 0, N - 1)
+    hi = np.clip(np.arange(N) + half, 0, N - 1)
+    deflection = np.abs(theta[hi] - theta[lo])
+    droit = deflection < np.radians(DEFLECTION_MIN_DEG)
+    R = R.copy()
+    R[droit] = float(R_MAX_DISPLAY)
+    return R
+
+
+def curvature_lsq_segmented(xy: np.ndarray, step_m: float,
+                            fit_window_m: float) -> np.ndarray:
+    """Rayon local, ajusté PAR TRONÇON DE SENS CONSTANT.
+
+    Découpe la polyligne aux inflexions (find_inflection_splits) puis applique
+    curvature_lsq_window à chaque tronçon avec une fenêtre de
+    min(fit_window_m, longueur du tronçon), plancher FIT_WINDOW_MIN_M. Aucune
+    fenêtre ne traverse une inflexion.
+
+    Sans inflexion détectée, le résultat est IDENTIQUE à
+    curvature_lsq_window(xy, step_m, fit_window_m) : le correctif n'agit qu'au
+    voisinage des courbes contraires.
+    """
+    N = len(xy)
+    if N < 3:
+        return np.full(N, np.inf, dtype=float)
+    splits = find_inflection_splits(xy, step_m)
+    bounds = [0] + [s for s in splits if 0 < s < N - 1] + [N]
+    R = np.empty(N, dtype=float)
+    for a, b in zip(bounds, bounds[1:]):
+        seg = xy[a:b]
+        seg_len_m = (len(seg) - 1) * step_m
+        fw = min(fit_window_m, max(FIT_WINDOW_MIN_M, seg_len_m))
+        R[a:b] = apply_deflection_gate(
+            curvature_lsq_window(seg, step_m, fw), seg, step_m, fw)
     return R
 
 
@@ -306,7 +542,9 @@ def _recover_median_R(R_true: float, sigma: float, rng: np.random.Generator,
     # AMONT, étape 03 map-matching guidé GTFS — pas de post-hoc géométrie ici).
     smooth_window_pts = max(1, int(SMOOTH_WINDOW_M / RESAMPLE_STEP_M))
     xy_sm = smooth_xy(noisy, smooth_window_pts)
-    R_raw = curvature_lsq_window(xy_sm, RESAMPLE_STEP_M, fit_window_m)
+    # estimateur de PRODUCTION (découpage aux inflexions compris) : sur un arc
+    # pur il n'y a pas d'inflexion, donc ce test reste exactement celui d'avant
+    R_raw = curvature_lsq_segmented(xy_sm, RESAMPLE_STEP_M, fit_window_m)
     R_filt = postfilter_R(R_raw)
     # Médiane sur la partie intérieure (exclut les bords recopiés).
     W = max(3, int(round(fit_window_m / RESAMPLE_STEP_M)) + 1)
@@ -315,6 +553,171 @@ def _recover_median_R(R_true: float, sigma: float, rng: np.random.Generator,
     if len(interior) == 0:
         interior = R_filt
     return float(np.median(interior))
+
+
+# ---------------------------------------------------------------------------
+# Calibration adverse : géométries que l'arc pur ne teste pas
+# ---------------------------------------------------------------------------
+# Les bandes-arcs ci-dessus ne valident l'estimateur que sur un arc unique de
+# ≥ 1 000 m, régulièrement échantillonné. Trois situations réelles en sortent :
+#   (i)   la courbe en S (deux arcs contraires, tangente courte ou nulle) ;
+#   (ii)  l'arc COURT (200 à 500 m) encadré de tangentes ;
+#   (iii) la numérisation grossière (un sommet aux ~90 m, cas des lignes hors
+#         corridor) qui polygonise la courbe.
+# Le gate décisif est le HARD FAIL sur le rayon MINIMUM : un rayon rendu
+# nettement sous le vrai déclasse la section (v ∝ √R : passer de 200 à
+# 160 km/h correspond à un rapport de rayons de 0,64). On exige donc que
+# l'estimateur ne descende jamais sous 0,60 × R_vrai, nulle part.
+ADV_R_MIN_RATIO = 0.60          # plancher du rayon minimum rendu / rayon vrai
+ADV_BODY_BAND = (0.55, 2.20)    # bande du rayon médian dans le corps d'un arc
+ADV_TRIALS = 60
+ADV_LEAD_M = 400.0              # tangentes d'entrée et de sortie
+
+
+def _from_curvature_profile(kappa_per_pt: np.ndarray,
+                            step_m: float = RESAMPLE_STEP_M) -> np.ndarray:
+    """Polyligne construite en intégrant un profil de courbure imposé."""
+    theta = np.cumsum(kappa_per_pt) * step_m
+    x = np.cumsum(np.cos(theta)) * step_m
+    y = np.cumsum(np.sin(theta)) * step_m
+    return np.column_stack([x, y])
+
+
+def _pts(length_m: float, step_m: float = RESAMPLE_STEP_M) -> int:
+    return max(1, int(round(length_m / step_m)))
+
+
+def _geom_s_curve(R: float, tangent_m: float, arc_len_m: float):
+    """Courbe en S : arc +R, tangente intermédiaire, arc -R. Retourne
+    (xy, [(début, fin) du corps de chaque arc])."""
+    n_lead, n_arc, n_tan = _pts(ADV_LEAD_M), _pts(arc_len_m), int(
+        round(tangent_m / RESAMPLE_STEP_M))
+    prof = np.concatenate([
+        np.zeros(n_lead), np.full(n_arc, 1.0 / R), np.zeros(n_tan),
+        np.full(n_arc, -1.0 / R), np.zeros(n_lead)])
+    a1 = (n_lead, n_lead + n_arc)
+    a2 = (n_lead + n_arc + n_tan, n_lead + 2 * n_arc + n_tan)
+    return _from_curvature_profile(prof), [a1, a2]
+
+
+def _geom_short_arc(R: float, arc_len_m: float):
+    """Arc court encadré de deux tangentes."""
+    n_lead, n_arc = _pts(ADV_LEAD_M), _pts(arc_len_m)
+    prof = np.concatenate([
+        np.zeros(n_lead), np.full(n_arc, 1.0 / R), np.zeros(n_lead)])
+    return _from_curvature_profile(prof), [(n_lead, n_lead + n_arc)]
+
+
+def _decimate_to_spacing(xy: np.ndarray, spacing_m: float,
+                         step_m: float = RESAMPLE_STEP_M) -> np.ndarray:
+    """Polygonise : ne garde qu'un sommet tous les spacing_m, puis
+    ré-échantillonne à step_m (reproduit une numérisation grossière)."""
+    k = max(1, int(round(spacing_m / step_m)))
+    keep = list(range(0, len(xy), k))
+    if keep[-1] != len(xy) - 1:
+        keep.append(len(xy) - 1)
+    return resample_uniform(xy[keep], step_m)[0]
+
+
+# (libellé, rayon vrai, fabricant de géométrie, espacement des sommets,
+#  gate_corps) — gate_corps=False : cas CONSERVÉ AU RAPPORT mais NON bloquant
+# sur la bande du corps, parce qu'il touche une limite de résolution de la
+# donnée et non un défaut de l'estimateur. Le HARD FAIL sur le rayon minimum,
+# lui, s'applique à TOUS les cas sans exception.
+#
+# Limite de résolution : une courbe ne se distingue du bruit que si sa flèche
+# sur sa propre longueur dépasse le bruit de position. Un arc de 200 m à
+# R = 600 m a une flèche de 8,3 m, soit le niveau du bruit OSM (5-10 m) : la
+# fenêtre de 900 m le lit nécessairement plus ample qu'il n'est. C'est une
+# propriété de la SOURCE, pas de la méthode ; la direction est optimiste et
+# elle est déclarée comme telle dans le rapport.
+ADV_CASES = [
+    ("S, R=600, tangente 0 m",     600, lambda: _geom_s_curve(600, 0, 600),   None, True),
+    ("S, R=600, tangente 150 m",   600, lambda: _geom_s_curve(600, 150, 600), None, True),
+    ("S, R=600, tangente 300 m",   600, lambda: _geom_s_curve(600, 300, 600), None, True),
+    ("S, R=1500, tangente 150 m", 1500, lambda: _geom_s_curve(1500, 150, 900), None, True),
+    ("arc court 200 m, R=600",     600, lambda: _geom_short_arc(600, 200),    None, False),
+    ("arc court 350 m, R=800",     800, lambda: _geom_short_arc(800, 350),    None, True),
+    ("arc court 500 m, R=1200",   1200, lambda: _geom_short_arc(1200, 500),   None, True),
+    ("S, R=600, tang. 150 m, sommets 90 m",
+     600, lambda: _geom_s_curve(600, 150, 600), 90.0, True),
+    ("arc 500 m, R=800, sommets 90 m",
+     800, lambda: _geom_short_arc(800, 500), 90.0, True),
+]
+
+
+def _adversarial_trial(case, sigma: float, rng: np.random.Generator,
+                       estimator) -> tuple[float, list[float]]:
+    """Un essai : géométrie bruitée → estimateur → (R_min global, médianes
+    du corps de chaque arc)."""
+    _label, _r_true, make, spacing, _gate = case
+    xy, bodies = make()
+    if spacing is not None:
+        n_before = len(xy)
+        xy = _decimate_to_spacing(xy, spacing)
+        scale = len(xy) / n_before
+        bodies = [(int(a * scale), int(b * scale)) for a, b in bodies]
+    noisy = xy + rng.normal(0.0, sigma, size=xy.shape)
+    xy_sm = smooth_xy(noisy, max(1, int(SMOOTH_WINDOW_M / RESAMPLE_STEP_M)))
+    R = postfilter_R(estimator(xy_sm, RESAMPLE_STEP_M, FIT_WINDOW_M))
+    # bords recopiés exclus du minimum (ils ne portent pas d'information)
+    m = _pts(ADV_LEAD_M) // 2
+    r_min = float(np.min(R[m:len(R) - m])) if len(R) > 2 * m else float(np.min(R))
+    meds = []
+    for a, b in bodies:
+        c0 = a + int(0.2 * (b - a))
+        c1 = b - int(0.2 * (b - a))
+        if c1 > c0:
+            meds.append(float(np.median(R[c0:c1])))
+    return r_min, meds
+
+
+def run_adversarial_calibration(estimator=None, sigmas=(5, 8),
+                                seed: int = 4242, verbose: bool = True):
+    """Valide l'estimateur sur courbes en S, arcs courts et numérisation
+    grossière. Retourne (table, reasons)."""
+    if estimator is None:
+        estimator = curvature_lsq_segmented
+    rng = np.random.default_rng(seed)
+    table, reasons = [], []
+    if verbose:
+        print(f"\n  {'cas':<38} {'σ':>3} {'R_vrai':>7} {'R_min':>8} "
+              f"{'min/vrai':>9} {'corps':>8} {'ok':>4}")
+    for case in ADV_CASES:
+        label, R_true, _make, _sp, gate_body = case
+        R_true = float(R_true)
+        for sigma in sigmas:
+            mins, bodies = [], []
+            for _ in range(ADV_TRIALS):
+                rm, meds = _adversarial_trial(case, sigma, rng, estimator)
+                mins.append(rm)
+                bodies.extend(meds)
+            r_min = float(np.median(mins))
+            body = float(np.median(bodies)) if bodies else float("nan")
+            ratio = r_min / R_true if R_true else float("nan")
+            in_band = (ADV_BODY_BAND[0] * R_true <= body
+                       <= ADV_BODY_BAND[1] * R_true)
+            ok = ratio >= ADV_R_MIN_RATIO and (in_band or not gate_body)
+            table.append({"cas": label, "sigma": sigma, "R_true": R_true,
+                          "r_min": r_min, "ratio": ratio, "body": body,
+                          "gate_corps": gate_body, "ok": ok})
+            if verbose:
+                mark = "OK" if ok else "XX"
+                if not gate_body and not in_band:
+                    mark = "lim."      # limite de résolution, non bloquant
+                print(f"  {label:<38} {sigma:>3} {R_true:>7.0f} {r_min:>8.0f} "
+                      f"{ratio:>9.2f} {body:>8.0f} {mark:>5}")
+            if ratio < ADV_R_MIN_RATIO:
+                reasons.append(
+                    f"HARD: {label} σ={sigma}: R_min {r_min:.0f} = "
+                    f"{ratio:.2f}×R_vrai < {ADV_R_MIN_RATIO} "
+                    f"(rayon fantôme : déclasserait la section)")
+            elif not in_band and gate_body:
+                reasons.append(
+                    f"{label} σ={sigma}: corps {body:.0f} hors bande "
+                    f"[{ADV_BODY_BAND[0]*R_true:.0f}, "
+                    f"{ADV_BODY_BAND[1]*R_true:.0f}]")
+    return table, reasons
 
 
 def _run_calibration_for_window(fit_window_m: float, seed: int = 12345):
@@ -375,17 +778,25 @@ def _print_calibration_table(fit_window_m: float, table: list) -> None:
 
 
 def _finalize_pass(fit_window_m: float) -> bool:
-    """Gate FINAL de l'estimateur LSQ.
+    """Gate FINAL de l'estimateur.
 
-    Le rejet des excursions fermées (faux-F) est désormais traité EN AMONT
-    (étape 03, map-matching guidé GTFS) — il n'y a plus de filtre post-hoc
-    géométrie ici, donc plus de test adverse « excursion » à ce stade. Les
-    bandes-arcs synthétiques (déjà validées par l'appelant avant cet appel)
-    suffisent à valider que l'estimateur LSQ ne sur-/sous-estime pas un arc
-    de rayon connu. Conservé comme point d'extension explicite."""
-    print(f"CALIBRATION: PASS  (FIT_WINDOW_M = {fit_window_m:.0f} m ; "
-          f"bandes-arcs OK ; rejet faux-F = upstream étape 03, pas de "
-          f"post-hoc géométrie 04)")
+    Deux familles doivent passer :
+      1. les bandes-arcs (arc pur de rayon connu, déjà validées par l'appelant
+         avant cet appel) : l'estimateur ne sur- ni sous-estime pas un arc ;
+      2. la calibration ADVERSE (courbes en S, arcs courts, numérisation
+         grossière) : aucun rayon fantôme, nulle part.
+    Le rejet des excursions fermées (faux-F) reste traité EN AMONT (étape 03,
+    map-matching guidé GTFS) : pas de filtre post-hoc géométrie ici."""
+    print("\n=== Calibration adverse (S, arcs courts, sommets espacés) ===")
+    _tbl, reasons = run_adversarial_calibration()
+    if reasons:
+        print("\nCALIBRATION: FAIL (calibration adverse)")
+        for r in reasons:
+            print(f"    - {r}")
+        return False
+    print(f"\nCALIBRATION: PASS  (FIT_WINDOW_M = {fit_window_m:.0f} m ; "
+          f"bandes-arcs OK ; calibration adverse OK ; rejet faux-F = "
+          f"upstream étape 03, pas de post-hoc géométrie 04)")
     return True
 
 
@@ -481,9 +892,10 @@ def main() -> None:
         # Re-projeter en lat/lon pour le rendu
         inv = Transformer.from_crs(f"EPSG:{epsg}", "EPSG:4326", always_xy=True)
         lon_rs, lat_rs = inv.transform(xy_sm[:, 0], xy_sm[:, 1])
-        # Curvature : ajustement LSQ glissant (robuste au bruit OSM)
+        # Curvature : ajustement LSQ glissant (robuste au bruit OSM), par
+        # tronçon de sens constant (aucune fenêtre à cheval sur une inflexion)
         t0 = time.time()
-        R_raw = curvature_lsq_window(xy_sm, RESAMPLE_STEP_M, FIT_WINDOW_M)
+        R_raw = curvature_lsq_segmented(xy_sm, RESAMPLE_STEP_M, FIT_WINDOW_M)
         # UNIQUE post-filtre : médian(5) + clip physique (cf. postfilter_R)
         R_capped = postfilter_R(R_raw)
         n_floor = int(np.sum(R_capped <= R_MIN_PHYSICAL + 1e-6))

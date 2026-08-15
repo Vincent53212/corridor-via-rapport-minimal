@@ -8,7 +8,12 @@ import matplotlib; matplotlib.use("Agg")
 import matplotlib.pyplot as plt
 from utils import DELIVERABLES
 
-def hm(m): return f"{int(m//60)} h {int(round(m%60)):02d}"
+def hm(m):
+    """Minutes → « h hh mm ». Arrondir AVANT de séparer : sinon 239,98 min
+    s'affiche « 3 h 60 » au lieu de « 4 h 00 » (l'heure est tronquée sur la
+    valeur non arrondie, les minutes sont arrondies à 60)."""
+    total = int(round(m))
+    return f"{total // 60} h {total % 60:02d}"
 
 def pct(m, auto): return int(m / auto * 100 + 0.5)
 
@@ -19,19 +24,46 @@ def pct(m, auto): return int(m / auto * 100 + 0.5)
 MARGE_LO = 1.09
 def four(base, m_troncon): return (base * MARGE_LO, base * m_troncon)
 
-M_QC = 202.5 / 153.5   # marge actuelle Montréal-Québec (≈ 32 %)
-M_TO = 318.0 / 272.4   # marge actuelle Montréal-Toronto (≈ 17 %)
+# T_base, horaire actuel et marge de tronçon sont LUS dans le livrable de
+# l'étape 21 : ces valeurs étaient auparavant recopiées à la main ici, donc
+# la figure ne suivait pas un recalcul du pipeline.
+import csv as _csv
+from pathlib import Path as _Path
+
+_CSV = _Path(__file__).resolve().parent.parent / "livrables" / "tbase_par_bande.csv"
+_T = {}
+with open(_CSV, encoding="utf-8-sig", newline="") as _f:
+    for _r in _csv.DictReader(_f, delimiter=";"):
+        _T[(_r["troncon"], _r["scenario"], int(_r["bande_kmh"]))] = _r
+
+
+def _base(troncon, scenario, bande):
+    return float(_T[(troncon, scenario, bande)]["tbase_sans_marge_min"])
+
+
+def _horaire(troncon):
+    return float(_T[(troncon, "S1", 160)]["t_horaire_actuel_min"])
+
+
+def _marge(troncon):
+    """Marge actuelle du tronçon = horaire / T_base(S1, 160)."""
+    return _horaire(troncon) / _base(troncon, "S1", 160)
+
+
+# Le temps en auto reste une hypothèse externe (ordre de grandeur, annoncé
+# comme approximatif dans le titre) : il ne vient pas du pipeline.
+AUTO_QC_MIN, AUTO_TO_MIN = 170, 330
 
 # (corridor, auto_min, [(label, lo, hi — lo == hi pour un point)])
 DATA = [
- ("Montréal-Québec\n(auto ≈ 2 h 50, approx.)", 170, [
-   ("VIA aujourd'hui", 203, 203),
-   ("S2, bande 200", *four(133.4, M_QC)),
-   ("S3, bande 300", *four(117.4, M_QC))]),
- ("Montréal-Toronto\n(auto ≈ 5 h 30, approx.)", 330, [
-   ("VIA aujourd'hui", 318, 318),
-   ("S2, bande 200", *four(234.1, M_TO)),
-   ("S3, bande 300", *four(197.5, M_TO))]),
+ ("Montréal-Québec\n(auto ≈ 2 h 50, approx.)", AUTO_QC_MIN, [
+   ("VIA aujourd'hui", _horaire("MTL-QC"), _horaire("MTL-QC")),
+   ("S2, bande 200", *four(_base("MTL-QC", "S2", 200), _marge("MTL-QC"))),
+   ("S3, bande 300", *four(_base("MTL-QC", "S3", 300), _marge("MTL-QC")))]),
+ ("Montréal-Toronto\n(auto ≈ 5 h 30, approx.)", AUTO_TO_MIN, [
+   ("VIA aujourd'hui", _horaire("MTL-TO"), _horaire("MTL-TO")),
+   ("S2, bande 200", *four(_base("MTL-TO", "S2", 200), _marge("MTL-TO"))),
+   ("S3, bande 300", *four(_base("MTL-TO", "S3", 300), _marge("MTL-TO")))]),
 ]
 COLS = {"auto": "#999999", "VIA aujourd'hui": "#9ecae1", "S2, bande 200": "#4292c6",
         "S3, bande 200": "#2171b5", "S3, bande 300": "#08519c"}

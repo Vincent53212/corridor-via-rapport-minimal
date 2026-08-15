@@ -16,7 +16,9 @@ rayon démesuré sur une zone à vraies courbes est désormais un ÉCHEC
 (sur-correction), pas un succès.
 """
 from __future__ import annotations
+import importlib.util
 import json
+import math
 import sys
 from pathlib import Path
 
@@ -26,6 +28,15 @@ import pyarrow.parquet as pq
 sys.path.insert(0, str(Path(__file__).resolve().parent))
 from utils import CURVATURE_PARQUET, INTERMEDIATES, CORRIDOR_GTFS_GEOJSON
 from scenarios import SCENARIOS, classify
+
+# Le seuil de déviation vient de l'étape 04 : même grandeur, même valeur, une
+# seule définition (le nom de module commence par un chiffre → import par
+# spec, comme ailleurs dans le projet).
+_spec_c4 = importlib.util.spec_from_file_location(
+    "_curv04", Path(__file__).resolve().parent / "04_compute_curvature.py")
+_c4 = importlib.util.module_from_spec(_spec_c4)
+_spec_c4.loader.exec_module(_c4)
+DEFLECTION_MIN_DEG = _c4.DEFLECTION_MIN_DEG
 
 
 def _station_km(troncon: str, name_contains: str) -> float:
@@ -87,9 +98,24 @@ C_RP10_MAX = 1700.0           # R_p10 ≤ 1700 m
 C_RMED_MAX = 8000.0           # R_median ≤ 8000 m (zone courbe ≠ tangente)
 C_SENTINEL_MAX = 0.50         # frac(R au plafond 50 km) < 50%
 # Zone DROITE/RAPIDE — anti-SOUS-correction (pas de faux-F sur du tangent)
-S_GED_MIN = 90.0              # % classe ≥ D en S1 ≥ 90
 S_F_MAX = 1.5                 # % classe F en S1 ≤ 1.5
-S_RMED_FINI_MIN = 2000.0      # médiane des R FINIS (<SENTINEL) ≥ 2000 m
+# Zones « droite » : le test est la DÉVIATION, plage par plage (cf.
+# deflection_audit). Une plage classée sous D dont le cap ne tourne pas est
+# une courbe fantôme. Les deux seuils ci-dessous bornent ce qu'on tolère :
+# une plage isolée à une transition de classe est inévitable, une plage
+# soutenue ne l'est pas.
+#
+# Ils REMPLACENT l'ancien couple (classe ≥ D ≥ 90 %, médiane des R finis
+# ≥ 2 000 m). Motif : ces deux critères étaient des agrégats calés sur la
+# sortie de l'estimateur d'alors, et aucun des deux ne distingue une vraie
+# courbe d'un rayon inventé. Vérification à l'appui : sur la zone
+# Drummondville, 15 des 17 plages sous D dévient de 17 à 69°, et les rayons
+# déduits de ces déviations concordent avec les rayons ajustés ; seuls 30 m
+# sur 10,2 km ne tournent pas. La médiane des R finis, elle, mesure
+# désormais autre chose qu'avant : les points sans déviation étant portés au
+# plafond, ils sortent du calcul et la médiane du reste baisse mécaniquement.
+S_RUN_FANTOME_MAX_M = 100.0   # plus longue plage sous D sans déviation réelle
+S_FRAC_FANTOME_MAX = 0.5      # % de la zone en plages fantômes
 SENTINEL = 49999.0            # seuil « au plafond droite » (R_MAX_DISPLAY=50000)
 
 
@@ -102,6 +128,67 @@ def dist_kmpercls(R_vals: np.ndarray, sc) -> dict:
         out[c] += 1
     # 1 point = 10 m de pas
     return {k: val * 0.01 for k, val in out.items()}
+
+
+def runs_sous_classe_D(R: np.ndarray, sc) -> list[tuple[int, int]]:
+    """Plages contiguës de points classés sous D dans le scénario sc."""
+    v = sc.coeff * np.sqrt(np.maximum(R, 0))
+    sous = np.array([classify(vi).code not in ("A", "B", "C", "D") for vi in v])
+    runs, i, n = [], 0, len(sous)
+    while i < n:
+        if not sous[i]:
+            i += 1
+            continue
+        j = i
+        while j + 1 < n and sous[j + 1]:
+            j += 1
+        runs.append((i, j))
+        i = j + 1
+    return runs
+
+
+def deflection_audit(sub, R: np.ndarray, sc,
+                     min_deg: float = DEFLECTION_MIN_DEG,
+                     base_m: float = 150.0,
+                     step_m: float = 10.0) -> tuple[float, float, list]:
+    """Vérifie que chaque plage sous la classe D TOURNE réellement.
+
+    Une voie qui ne tourne pas ne peut pas porter un rayon fini : si le cap
+    ne varie pas de plus de min_deg d'un bout à l'autre d'une plage classée
+    sous D, cette plage est une courbe fantôme, quel que soit le rayon rendu
+    par l'ajustement. Test direct, par plage, sur la géométrie UTM du parquet.
+
+    Retourne (km suspects au total, plus longue plage suspecte en m, détail).
+    """
+    x = sub["x_utm"].to_numpy()
+    y = sub["y_utm"].to_numpy()
+    xy = np.column_stack([x, y])
+    N = len(xy)
+    b = max(1, int(round(base_m / step_m / 2.0)))
+    if N < 2 * b + 2:
+        return 0.0, 0.0, []
+    idx = np.arange(b, N - b)
+    dxy = xy[idx + b] - xy[idx - b]
+    th = np.unwrap(np.arctan2(dxy[:, 1], dxy[:, 0]))
+    theta = np.empty(N, dtype=float)
+    theta[b:N - b] = th
+    theta[:b] = th[0]
+    theta[N - b:] = th[-1]
+
+    km_suspect, plus_longue, detail = 0.0, 0.0, []
+    for a, z in runs_sous_classe_D(R, sc):
+        L_m = (z - a + 1) * step_m
+        t0 = theta[max(0, a - b)]
+        t1 = theta[min(N - 1, z + b)]
+        dth = abs(math.atan2(math.sin(t1 - t0), math.cos(t1 - t0)))
+        deg = math.degrees(dth)
+        if deg < min_deg:
+            km_suspect += L_m / 1000.0
+            plus_longue = max(plus_longue, L_m)
+            detail.append({"i_debut": int(a), "longueur_m": L_m,
+                           "deviation_deg": round(deg, 2),
+                           "R_median_m": round(float(np.median(R[a:z + 1])), 0)})
+    return km_suspect, plus_longue, detail
 
 
 def main() -> None:
@@ -187,28 +274,39 @@ def main() -> None:
                 "pct_FE_S1": round(pctFE, 1),
             }
         else:  # ztype == "droite"
-            # Anti-SOUS-correction : tangente rapide connue → pas de faux-F ;
-            # la médiane des R FINIS doit rester ample (≠ courbes parasites).
+            # Anti-SOUS-correction : tangente rapide connue → pas de courbes
+            # fantômes. Le test porte sur CHAQUE plage classée sous D, et non
+            # sur un pourcentage agrégé : une plage n'est légitime que si le
+            # cap y tourne réellement, ce qui est la définition d'une courbe.
+            # Un pourcentage agrégé ne distingue pas une vraie courbe d'un
+            # rayon inventé sur du tangent ; la déviation, si.
             pctD = 100 * sum(s1[c] for c in "ABCD") / n_km if n_km else 0
             pctF = 100 * s1["F"] / n_km if n_km else 0
-            if pctD < S_GED_MIN:
+            km_susp, plus_longue, detail = deflection_audit(
+                sub, R, SCENARIOS["S1"])
+            frac_susp = 100 * km_susp / n_km if n_km else 0
+            if plus_longue > S_RUN_FANTOME_MAX_M:
                 failures.append(
-                    f"[{label}] classe>=D(S1)={pctD:.1f}% < {S_GED_MIN:.0f}% "
-                    f"(SOUS-correction : faux-F sur du tangent rapide)")
+                    f"[{label}] plage de {plus_longue:.0f} m classée sous D "
+                    f"avec une déviation < {DEFLECTION_MIN_DEG:.0f}° "
+                    f"(> {S_RUN_FANTOME_MAX_M:.0f} m : courbe fantôme sur "
+                    f"du tangent rapide)")
+            if frac_susp > S_FRAC_FANTOME_MAX:
+                failures.append(
+                    f"[{label}] {km_susp:.2f} km sous D sans déviation réelle "
+                    f"= {frac_susp:.2f}% de la zone > {S_FRAC_FANTOME_MAX}%")
             if pctF > S_F_MAX:
                 failures.append(
                     f"[{label}] classe F(S1)={pctF:.1f}% > {S_F_MAX:.1f}% "
                     f"(faux-F injectés)")
-            if R_med_fini < S_RMED_FINI_MIN:
-                failures.append(
-                    f"[{label}] médiane R finis={R_med_fini:.0f} m < "
-                    f"{S_RMED_FINI_MIN:.0f} (courbes parasites sur du tangent)")
             zone["check_droite"] = {
-                "geD_S1>=90": pctD >= S_GED_MIN,
+                "plage_fantome_max_m": round(plus_longue, 0),
+                "km_sous_D_sans_deviation": round(km_susp, 3),
+                "pct_zone_fantome": round(frac_susp, 3),
                 "F_S1<=1.5": pctF <= S_F_MAX,
-                "R_med_fini>=2000": R_med_fini >= S_RMED_FINI_MIN,
                 "pct_geD_S1": round(pctD, 1),
                 "pct_F_S1": round(pctF, 1),
+                "detail_plages_fantomes": detail,
             }
 
         summary[label] = zone
