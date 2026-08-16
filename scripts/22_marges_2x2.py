@@ -361,12 +361,19 @@ def main() -> None:
     kt["t_hor"] = pd.to_numeric(kt["t_horaire_med_min"])
     kt["t_base"] = pd.to_numeric(kt["t_base_S1cap160_min"])
     print(f"  {'p (min)':>8} {'double-CN':>10} {'simple-VIA':>11} {'simple-CN':>10}")
+    # Les écarts par pénalité sont CONSERVÉS et non seulement affichés : les
+    # bornes citées dans le rapport (« de 3 à 7 points », « de 30 à 33 ») en
+    # sortent. Écrites en dur dans le message, elles avaient survécu au
+    # correctif de courbure du 15 août et annonçaient une plage devenue fausse.
+    ecarts_via, ecarts_cn = [], []
     for p in (0.0, 1.5, 3.0):
         m = (100 * (kt.t_hor - (kt.t_base + p)) / (kt.t_base + p))
         med_p = m.groupby(kt.cellule).median()
         print(f"  {p:>8} {med_p.get('double-CN', float('nan')):>10.1f} "
               f"{med_p.get('simple-VIA', float('nan')):>11.1f} "
               f"{med_p.get('simple-CN', float('nan')):>10.1f}")
+        ecarts_via.append(med_p.get("simple-VIA") - med_p.get("double-CN"))
+        ecarts_cn.append(med_p.get("simple-CN") - med_p.get("double-CN"))
 
     med = {r["cellule"]: r["mediane"] for _, r in synth.iterrows()
            if r["region"] == "coeur"}
@@ -380,12 +387,18 @@ def main() -> None:
           f"le doublement achète ≈ {med.get('simple-CN', 0) - med.get('double-CN', 0):.0f} points "
           f"de marge (échantillon simple-CN MINCE, n=2 : publier en bornes)")
     print("Lecture « régime » (formulation robuste au biais de dénominateur) :")
+    e_via = med.get("simple-VIA", 0) - med.get("double-CN", 0)
+    e_cn = med.get("simple-CN", 0) - med.get("double-CN", 0)
     print(f"  le coût de la voie simple = simple-VIA − double-CN "
-          f"({med.get('simple-VIA', 0) - med.get('double-CN', 0):+.1f} pts, stable 3-6 pts "
-          f"à toute pénalité d'arrêt) CONTRE simple-CN − double-CN "
-          f"({med.get('simple-CN', 0) - med.get('double-CN', 0):+.1f} pts, 27-33 pts). "
-          f"Sous régime VIA, la voie simple coûte quelques points ; sous régime CN, "
-          f"elle en coûte ~7 fois plus. C'est le régime qui fixe le prix du béton.")
+          f"({e_via:+.1f} pts, de {min(ecarts_via):+.0f} à {max(ecarts_via):+.0f} "
+          f"selon la pénalité d'arrêt) CONTRE simple-CN − double-CN "
+          f"({e_cn:+.1f} pts, de {min(ecarts_cn):+.0f} à {max(ecarts_cn):+.0f}). "
+          + ("Sous régime VIA, la voie simple ne coûte RIEN (écart négatif : elle "
+             "porte moins de marge que la voie double du CN) ; "
+             if e_via < 0 else
+             "Sous régime VIA, la voie simple coûte quelques points ; ")
+          + f"sous régime CN, elle coûte {e_cn:.0f} points. "
+          f"C'est le régime qui fixe le prix du béton.")
     print("\n=== SUD-OUEST (voie de classe inférieure : la marge vs plafond "
           "géométrique y mélange ÉTAT DE LA VOIE et régime — ne JAMAIS fusionner "
           "avec le cœur) ===")

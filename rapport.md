@@ -100,13 +100,9 @@ Les cinq constats principaux :
    160 km/h (99 mi/h), une superposition de contrôle en cabine de 161 à 200 (précédent tarifé au
    Michigan [@fra2024itcs]), un système intégral au-delà (c'est le devis d'Alto).
 4. **Le régime de cohabitation pèse plus que le nombre de voies.** Mesuré sur les
-   horaires de VIA à géométrie neutralisée : une voie simple coûte environ 5 points de marge
-   quand VIA est propriétaire, environ 28 points quand le CN l'est (stable de 3 à 6 et
-   de 27 à 33 selon la pénalité d'arrêt testée). Le même instrument
-   montre ce que le doublement achète chez le CN : environ 28 points, soit une vingtaine
-   de minutes sur Montréal-Québec.
+   horaires de VIA à géométrie neutralisée : une voie simple ne coûte rien quand VIA est propriétaire, et 31 points quand le CN l'est. Sous VIA, elle porte même 3 points de marge de moins que la voie double du CN, et l'écart reste en sa faveur, de 3 à 7 points, quelle que soit la pénalité d'arrêt testée ; sous le CN, le coût de la voie simple tient dans 30 à 33 points sur la même plage. Le même instrument montre ce que le doublement achète chez le CN : 31 points, soit environ 24 minutes sur Montréal-Québec.
 5. **La marge d'horaire est la grandeur que cette étude ne peut pas trancher.** Elle est
-   encadrée (7 à 9 pour cent en régime normatif, 37 à 65 pour cent mesurés aujourd'hui
+   encadrée (7 à 9 pour cent en régime normatif, 34 à 68 pour cent mesurés aujourd'hui
    selon la cellule) ; l'écart entre les deux est précisément ce qu'une étude de
    circulation avec le propriétaire de la voie devra allouer.
 
@@ -321,15 +317,14 @@ avec son motif documenté. Résultat, sur le cœur du corridor (classe de voie h
 | Cellule | Longueur mesurée | Marge médiane | Dispersion entre sillons | Trafic (trains/jour) |
 |---|---|---|---|---|
 | Voie double, CN | 515 km (11 paires) | 37 % | 5 % | 40 |
-| Voie simple, VIA | 218 km (5 paires) | 42 % | 10 % | 12 à 14 |
-| Voie simple, CN | 192 km (2 paires) | 65 % | 21 % | 27 |
+| Voie simple, VIA | 218 km (5 paires) | 34 % | 10 % | 12 à 14 |
+| Voie simple, CN | 192 km (2 paires) | 68 % | 21 % | 27 |
 
 ![Le 2×2 du corridor : chaque inter-gare colorée selon sa cellule voie × propriétaire, avec la marge médiane mesurée par cellule. En gris, les paires exclues de la mesure (blocs urbains, ponts, frontières de propriétaire).](livrables/figure_cellules.png)
 
 Trois lignes, trois faits :
 
-**Ce que le doublement achète, chez le CN** : environ 28 points de marge (65 contre 37),
-soit une vingtaine de minutes sur Montréal-Québec. L'échantillon de voie simple CN est
+**Ce que le doublement achète, chez le CN** : environ 31 points de marge (68 contre 37), soit environ 24 minutes sur Montréal-Québec. L'échantillon de voie simple CN est
 mince (192 km, mais en deux paires seulement, celles du tronçon de Québec) : le chiffre
 se publie en fourchette, pas au point. Il est en revanche robuste aux deux objections classiques, et cela se
 vérifie dans la table : la classe de voie est la même que sur la ligne double (95 contre
@@ -337,10 +332,7 @@ vérifie dans la table : la classe de voie est la même que sur la ligne double
 contre 27) tout en affichant moins de marge. Ni l'état de la voie ni le volume
 n'expliquent l'écart ; les croisements l'expliquent.
 
-**Ce que le régime pèse** : sous propriétaire VIA, la voie simple ne coûte qu'environ
-5 points de marge par rapport à la voie double du CN ; sous propriétaire CN, elle en
-coûte environ 28 (les fourchettes 3 à 6 et 27 à 33 couvrent les pénalités d'arrêt testées). Le rapport est d'environ sept pour un, et il résiste aux tests de
-sensibilité (pénalité d'arrêt de 0 à 3 minutes par paire). Une réserve honnête : les
+**Ce que le régime pèse** : sous propriétaire VIA, la voie simple ne coûte rien. Elle porte 3 points de marge de MOINS que la voie double du CN, et l'écart reste en sa faveur, de 3 à 7 points, sur toute la plage de pénalités d'arrêt testée (0 à 3 minutes par paire). Sous propriétaire CN, la même voie simple coûte 31 points, et de 30 à 33 sur la même plage. Le prix de la voie manquante n'est donc pas un prix de voie : il est nul chez l'un et de trente points chez l'autre. Une réserve honnête : les
 lignes de VIA portent environ deux fois moins de trains que celles du CN ; ce qu'on
 mesure est donc l'effet du régime au sens large, densité de fret comprise. C'est
 précisément ce que le doublement seul ne change pas.
@@ -378,8 +370,7 @@ vitesse [@sncf2023drr] ; le gestionnaire suédois publie même le différentiel
 intéresse : 3 minutes par 100 km en voie simple contre 2 en voie double, plus 60 secondes
 par croisement [@trafikverket2025jnb]. Aucune règle publiée ne dépasse 15 pour cent.
 
-**Borne haute, mesurée.** Le corridor porte aujourd'hui de 37 à 65 pour cent de marge
-selon la cellule (table ci-dessus). L'écart entre les deux bornes n'est pas de la
+**Borne haute, mesurée.** Le corridor porte aujourd'hui de 34 à 68 pour cent de marge selon la cellule (table ci-dessus). L'écart entre les deux bornes n'est pas de la
 prudence d'horairiste : c'est le prix, en minutes, du régime de cohabitation actuel.
 
 **Le précédent continental.** L'inspecteur général d'Amtrak a documenté le même
