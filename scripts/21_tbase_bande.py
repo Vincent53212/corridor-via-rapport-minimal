@@ -63,12 +63,24 @@ from statistics import median
 
 import pandas as pd
 
+import os
+from pathlib import Path
+
 from utils import INTERMEDIATES, DELIVERABLES, RESOURCES
 
 GTFS_ZIP = RESOURCES / "viarail_GTFS.zip"
-SEGMENTS = INTERMEDIATES / "segments.geojson"
-OUT_TBASE = DELIVERABLES / "tbase_par_bande.csv"
-OUT_BLOCS = DELIVERABLES / "blocs_urbains.csv"
+
+# Variante de segments, pour les sensibilités. Sans la variable d'environnement,
+# rien ne change : ce sont les segments publiés et les livrables habituels. Avec
+# elle (étape 31, biais de fenêtre), les sorties sont suffixées pour que la
+# variante ne puisse jamais écraser la référence.
+_OVERRIDE = os.environ.get("SEGMENTS_OVERRIDE", "")
+SEGMENTS = Path(_OVERRIDE) if _OVERRIDE else INTERMEDIATES / "segments.geojson"
+_SUF = "_" + Path(_OVERRIDE).stem.replace("segments_", "") if _OVERRIDE else ""
+OUT_TBASE = DELIVERABLES / f"tbase_par_bande{_SUF}.csv"
+OUT_BLOCS = DELIVERABLES / f"blocs_urbains{_SUF}.csv"
+if _OVERRIDE:
+    print(f"VARIANTE : segments lus dans {SEGMENTS}, sorties suffixées « {_SUF} »")
 
 BANDES_KMH = [160, 200, 250, 300]
 DWELL_MIN = 2.0               # immobilisation en gare (min/arrêt) ; la dynamique

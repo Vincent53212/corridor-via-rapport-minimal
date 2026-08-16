@@ -1472,8 +1472,9 @@ conclusion.</p>
 <ol type="1">
 <li><strong>La géométrie n’est pas le problème principal.</strong> Avec
 un pendulaire moderne (S3), il ne reste que 199 km (14 pour cent du
-réseau parcouru) dont les courbes interdisent 200 km/h (124 mi/h), et
-plus aucun kilomètre sous 100 km/h (62 mi/h). Même en restant dans le
+réseau parcouru ; de 232 à 237 km si l’on corrige le biais de mesure
+chiffré en section 7) dont les courbes interdisent 200 km/h (124 mi/h),
+et plus aucun kilomètre sous 100 km/h (62 mi/h). Même en restant dans le
 strict précédent CN (S2), le résidu sous 200 km/h est de 301 km.</li>
 <li><strong>Les passages à niveau sont l’obstacle réglementaire dominant
 au-dessus de 200 km/h</strong> : en scénario S3, 754 des 924 passages du
@@ -2261,18 +2262,137 @@ méthode, pas une coïncidence.</p>
 </tbody>
 </table>
 <p>Sensibilités : blocs urbains ±20 pour cent (déjà dans les
-fourchettes) ; le bruit sur les rayons de courbure est absorbé par la
-publication en classes de vitesse plutôt qu’au km/h près ;
-l’immobilisation en gare (2 minutes par arrêt) peut être doublée sans
-changer l’ordre des scénarios (chaque minute ajoutée coûte de 3 à 10
-minutes par tronçon selon son nombre d’arrêts) ; la borne du pilote de
-2025 (7,5 à 10 minutes par arrêt évité) inclut des effets de sillon qui
-relèvent de la marge, pas du temps de base.</p>
+fourchettes) ; le biais de la fenêtre de mesure sur les segments courts
+est mesuré et chiffré ci-dessous ; l’immobilisation en gare (2 minutes
+par arrêt) peut être doublée sans changer l’ordre des scénarios (chaque
+minute ajoutée coûte de 3 à 10 minutes par tronçon selon son nombre
+d’arrêts) ; la borne du pilote de 2025 (7,5 à 10 minutes par arrêt
+évité) inclut des effets de sillon qui relèvent de la marge, pas du
+temps de base.</p>
+<section id="le-biais-de-la-fenêtre-de-mesure-et-ce-quil-coûte"
+class="level2">
+<h2>Le biais de la fenêtre de mesure, et ce qu’il coûte</h2>
+<p>L’estimateur ajuste un cercle sur une fenêtre glissante de 900 m. Sur
+une courbe plus courte que cette fenêtre, il mélange la courbe et ses
+tangentes d’approche et rend un rayon plus ample : il annonce une voie
+plus droite qu’elle n’est. Le biais est à sens unique, il ne se compense
+donc pas en agrégeant.</p>
+<p>Son ampleur a été mesurée sur le corridor, segment par segment : le
+corps de chaque courbe est localisé avec un estimateur fin de 300 m, un
+cercle unique y est ajusté, et ce rayon est comparé à celui que le
+rapport publie. Cet estimateur fin n’est pas publiable en soi, la flèche
+d’une courbe ample n’y dépassant pas le bruit de la source ; il sert de
+référence locale sur les courbes serrées, où il est légitime.</p>
+<table>
+<colgroup>
+<col style="width: 15%" />
+<col style="width: 21%" />
+<col style="width: 21%" />
+<col style="width: 21%" />
+<col style="width: 21%" />
+</colgroup>
+<thead>
+<tr>
+<th>Longueur du segment</th>
+<th class="num" style="text-align: right;">Segments</th>
+<th class="num" style="text-align: right;">Kilomètres</th>
+<th style="text-align: right;">Facteur médian</th>
+<th style="text-align: right;">9e décile</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Moins de 300 m</td>
+<td class="num" style="text-align: right;">155</td>
+<td class="num" style="text-align: right;">31 km</td>
+<td style="text-align: right;">1,09</td>
+<td style="text-align: right;">1,79</td>
+</tr>
+<tr>
+<td>300 à 450 m</td>
+<td class="num" style="text-align: right;">151</td>
+<td class="num" style="text-align: right;">56 km</td>
+<td style="text-align: right;">1,12</td>
+<td style="text-align: right;">2,19</td>
+</tr>
+<tr>
+<td>450 à 600 m</td>
+<td class="num" style="text-align: right;">160</td>
+<td class="num" style="text-align: right;">82 km</td>
+<td style="text-align: right;">1,13</td>
+<td style="text-align: right;">1,84</td>
+</tr>
+<tr>
+<td>600 à 900 m</td>
+<td class="num" style="text-align: right;">158</td>
+<td class="num" style="text-align: right;">114 km</td>
+<td style="text-align: right;">1,05</td>
+<td style="text-align: right;">1,89</td>
+</tr>
+<tr>
+<td>900 m et plus</td>
+<td class="num" style="text-align: right;">253</td>
+<td class="num" style="text-align: right;">932 km</td>
+<td style="text-align: right;">référence</td>
+<td style="text-align: right;">référence</td>
+</tr>
+</tbody>
+</table>
+<p>Sept cent dix des 1 014 segments du cœur sont plus courts que la
+fenêtre, soit 305 km sur 1 433. La médiane du facteur y reste proche de
+1, mais le neuvième décile atteint 1,8 à 2,2 : le biais épargne la
+plupart des segments courts et en frappe une minorité fortement. Ce sont
+ces derniers qui déplacent les totaux.</p>
+<table>
+<thead>
+<tr>
+<th class="num">Résidu sous 200 km/h, cœur</th>
+<th class="num" style="text-align: right;">Publié</th>
+<th class="num" style="text-align: right;">Corrigé</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="num">S1</td>
+<td class="num" style="text-align: right;">690 km</td>
+<td class="num" style="text-align: right;">711 à 715 km</td>
+</tr>
+<tr>
+<td class="num">S2</td>
+<td class="num" style="text-align: right;">301 km</td>
+<td class="num" style="text-align: right;">364 à 368 km</td>
+</tr>
+<tr>
+<td class="num">S3</td>
+<td class="num" style="text-align: right;">199 km</td>
+<td class="num" style="text-align: right;">232 à 237 km</td>
+</tr>
+</tbody>
+</table>
+<p>L’effet sur les temps est d’un tout autre ordre : de 0,4 à 7,8
+minutes selon le tronçon et la bande, avec une médiane de 2,8. Sur
+Montréal-Toronto en S2 à la bande 200, le temps de base passe de 3 h 51
+à 3 h 53 ; sur Montréal-Québec, de 2 h 13 à 2 h 17.</p>
+<p><strong>La lecture est donc dissymétrique, et c’est le point à
+retenir.</strong> Ce que cette étude annonce comme atteignable le reste
+: les temps de parcours bougent de deux à quatre minutes, à l’intérieur
+des fourchettes déjà publiées. Ce qu’elle annonce comme travaux à faire
+est en revanche sous-estimé d’environ un cinquième, de 17 pour cent en
+S3 à 22 en S2. Un budget de rectification bâti sur les kilomètres de ce
+rapport doit porter cette réserve.</p>
+<p>Les chiffres publiés restent ceux de la chaîne sans correction, pour
+une raison de méthode : corriger une partie seulement des segments avec
+une référence qui n’est pas valable partout produirait une table mêlant
+deux mesures. La correction est donnée en fourchette, son détail segment
+par segment est joint (<code>biais_segments_courts.csv</code>), et sa
+levée relève de l’étude à commander, avec une source de géométrie plus
+fine que l’inventaire ouvert.</p>
 <p>Deux garde-fous internes : chaque segment publié vérifie par
 construction la cohérence entre sa classe et sa vitesse (zéro violation
 sur 5 040 contrôles), et les zones-témoins (courbes réelles d’Ottawa et
 de Montréal, vitesse de la ligne Kingston) ressortent correctement à
 chaque régénération.</p>
+</section>
 </section>
 <section id="limites-et-létude-quil-faut-commander" class="level1">
 <div class="sec"><span class="k">08 · Ce qui reste à faire</span><h1>Limites, et l’étude qu’il faut commander</h1></div>

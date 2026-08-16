@@ -89,7 +89,7 @@ en conclusion.
 Les cinq constats principaux :
 
 1. **La géométrie n'est pas le problème principal.** Avec un pendulaire moderne (S3),
-   il ne reste que 199 km (14 pour cent du réseau parcouru) dont les courbes interdisent
+   il ne reste que 199 km (14 pour cent du réseau parcouru ; de 232 à 237 km si l'on corrige le biais de mesure chiffré en section 7) dont les courbes interdisent
    200 km/h (124 mi/h), et plus aucun kilomètre sous 100 km/h (62 mi/h). Même en restant dans le strict
    précédent CN (S2), le résidu sous 200 km/h est de 301 km.
 2. **Les passages à niveau sont l'obstacle réglementaire dominant au-dessus de
@@ -502,12 +502,60 @@ actuel : c'est un contrôle interne de la méthode, pas une coïncidence.
 | Ottawa-Toronto (4 h 35) | 3 h 58 à 4 h 35 | 3 h 28 à 3 h 56 | 3 h 25 à 3 h 53 | 3 h 05 à 3 h 30 | 2 h 57 à 3 h 21 |
 | Montréal-Toronto (5 h 18) | 4 h 48 à 5 h 18 | 4 h 12 à 4 h 33 | 4 h 10 à 4 h 31 | 3 h 44 à 4 h 02 | 3 h 32 à 3 h 50 |
 
-Sensibilités : blocs urbains ±20 pour cent (déjà dans les fourchettes) ; le bruit sur les
-rayons de courbure est absorbé par la publication en classes de vitesse plutôt qu'au
-km/h près ; l'immobilisation en gare (2 minutes par arrêt) peut être doublée sans changer
+Sensibilités : blocs urbains ±20 pour cent (déjà dans les fourchettes) ; le biais de la fenêtre de mesure sur les segments courts est mesuré et chiffré ci-dessous ; l'immobilisation en gare (2 minutes par arrêt) peut être doublée sans changer
 l'ordre des scénarios (chaque minute ajoutée coûte de 3 à 10 minutes par tronçon selon
 son nombre d'arrêts) ; la borne du pilote de 2025 (7,5 à 10 minutes par arrêt évité)
 inclut des effets de sillon qui relèvent de la marge, pas du temps de base.
+
+## Le biais de la fenêtre de mesure, et ce qu'il coûte
+
+L'estimateur ajuste un cercle sur une fenêtre glissante de 900 m. Sur une courbe plus
+courte que cette fenêtre, il mélange la courbe et ses tangentes d'approche et rend un
+rayon plus ample : il annonce une voie plus droite qu'elle n'est. Le biais est à sens
+unique, il ne se compense donc pas en agrégeant.
+
+Son ampleur a été mesurée sur le corridor, segment par segment : le corps de chaque
+courbe est localisé avec un estimateur fin de 300 m, un cercle unique y est ajusté, et
+ce rayon est comparé à celui que le rapport publie. Cet estimateur fin n'est pas
+publiable en soi, la flèche d'une courbe ample n'y dépassant pas le bruit de la source ;
+il sert de référence locale sur les courbes serrées, où il est légitime.
+
+| Longueur du segment | Segments | Kilomètres | Facteur médian | 9e décile |
+|---|---:|---:|---:|---:|
+| Moins de 300 m | 155 | 31 km | 1,09 | 1,79 |
+| 300 à 450 m | 151 | 56 km | 1,12 | 2,19 |
+| 450 à 600 m | 160 | 82 km | 1,13 | 1,84 |
+| 600 à 900 m | 158 | 114 km | 1,05 | 1,89 |
+| 900 m et plus | 253 | 932 km | référence | référence |
+
+Sept cent dix des 1 014 segments du cœur sont plus courts que la fenêtre, soit 305 km
+sur 1 433. La médiane du facteur y reste proche de 1, mais le neuvième décile atteint
+1,8 à 2,2 : le biais épargne la plupart des segments courts et en frappe une minorité
+fortement. Ce sont ces derniers qui déplacent les totaux.
+
+| Résidu sous 200 km/h, cœur | Publié | Corrigé |
+|---|---:|---:|
+| S1 | 690 km | 711 à 715 km |
+| S2 | 301 km | 364 à 368 km |
+| S3 | 199 km | 232 à 237 km |
+
+L'effet sur les temps est d'un tout autre ordre : de 0,4 à 7,8 minutes selon le tronçon
+et la bande, avec une médiane de 2,8. Sur Montréal-Toronto en S2 à la bande 200, le temps
+de base passe de 3 h 51 à 3 h 53 ; sur Montréal-Québec, de 2 h 13 à 2 h 17.
+
+**La lecture est donc dissymétrique, et c'est le point à retenir.** Ce que cette étude
+annonce comme atteignable le reste : les temps de parcours bougent de deux à quatre
+minutes, à l'intérieur des fourchettes déjà publiées. Ce qu'elle annonce comme travaux à
+faire est en revanche sous-estimé d'environ un cinquième, de 17 pour cent en S3 à 22 en
+S2. Un budget de rectification bâti sur les kilomètres de ce rapport doit porter cette
+réserve.
+
+Les chiffres publiés restent ceux de la chaîne sans correction, pour une raison de
+méthode : corriger une partie seulement des segments avec une référence qui n'est pas
+valable partout produirait une table mêlant deux mesures. La correction est donnée en
+fourchette, son détail segment par segment est joint (`biais_segments_courts.csv`), et
+sa levée relève de l'étude à commander, avec une source de géométrie plus fine que
+l'inventaire ouvert.
 
 Deux garde-fous internes : chaque segment publié vérifie par construction la cohérence
 entre sa classe et sa vitesse (zéro violation sur 5 040 contrôles), et les zones-témoins

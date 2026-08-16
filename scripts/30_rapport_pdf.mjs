@@ -32,7 +32,10 @@ import { createRequire } from "node:module";
 const require = createRequire(import.meta.url);
 const RACINE = join(dirname(fileURLToPath(import.meta.url)), "..");
 const SRC = join(RACINE, "livrables", "rapport_corridor.html");
-const CIBLE = join(RACINE, "livrables", "rapport_corridor.pdf");
+// Sortie normalement fixe. `RAPPORT_PDF_OUT` permet d'écrire ailleurs quand la
+// cible est tenue ouverte par un lecteur PDF, plutôt que de perdre la composition.
+const CIBLE = process.env.RAPPORT_PDF_OUT
+  || join(RACINE, "livrables", "rapport_corridor.pdf");
 
 const TRAVAIL = join(tmpdir(), "tgv_rapport");
 const tHtml = join(TRAVAIL, "rapport.html");
@@ -201,13 +204,20 @@ try {
         console.warn(`  AVERTISSEMENT : « ${c} » annoncé p.${n}, introuvable sur cette page`);
   }
 
-  // OneDrive verrouille la cible si un lecteur PDF l'a ouverte.
+  // La cible est verrouillée tant qu'un lecteur PDF la tient ouverte (EBUSY),
+  // et OneDrive peut la retenir un instant de plus après une synchronisation.
+  // On patiente, puis on le dit clairement plutôt que de jeter une trace Node.
   for (let essai = 0; ; essai++) {
     try { copyFileSync(tFinal, CIBLE); break; }
     catch (e) {
-      if (essai >= 2) throw e;
-      console.log("  fichier verrouillé (OneDrive ou lecteur PDF ouvert), nouvel essai…");
-      await new Promise((r) => setTimeout(r, 1500));
+      if (essai >= 5) {
+        console.error(`\nÉCHEC : impossible d'écrire ${CIBLE}`);
+        console.error("Le fichier est ouvert dans un lecteur PDF. Fermez-le et relancez ;");
+        console.error(`le rapport composé est prêt ici : ${tFinal}`);
+        process.exit(1);
+      }
+      console.log("  cible verrouillée (lecteur PDF ouvert), nouvel essai…");
+      await new Promise((r) => setTimeout(r, 2500));
     }
   }
   const nPages = (pages2 || []).filter((p) => p.trim()).length;

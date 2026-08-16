@@ -74,6 +74,9 @@ LABELS = {
     "passages_niveau_tri.csv": "Passages à niveau, un par un",
     "marges_2x2_synthese_GTFS2023.csv": "Marges 2×2, contrôle GTFS 2023",
     "marges_par_intergare_GTFS2023.csv": "Marges par inter-gare, contrôle GTFS 2023",
+    "biais_segments_courts.csv": "Biais de la fenêtre de mesure",
+    "tbase_par_bande_corriges.csv": "Temps de base, biais corrigé",
+    "blocs_urbains_corriges.csv": "Blocs urbains, variante corrigée",
 }
 
 QUOI = {
@@ -105,6 +108,15 @@ QUOI = {
     "blocs_urbains.csv":
         "Les traversées urbaines, dont le temps est figé à l'horaire actuel plutôt que "
         "calculé : l'étude n'y promet aucun gain.",
+    "biais_segments_courts.csv":
+        "Pour chaque segment publié, le rayon que la fenêtre de 900 m annonce et celui "
+        "que le corps de la courbe mesure. Leur rapport est le facteur de biais : il "
+        "vaut 1 quand le segment est plus long que la fenêtre, et il monte quand la "
+        "courbe est plus courte qu'elle.",
+    "tbase_par_bande_corriges.csv":
+        "La même intégration que les temps de base, mais sur les segments dont le rayon "
+        "a été corrigé du biais de fenêtre. À comparer ligne à ligne avec la table de "
+        "référence : l'écart est de 0,4 à 7,8 minutes.",
 }
 
 # Ordre d'apparition dans le menu déroulant : les tables du fil d'abord.
