@@ -40,11 +40,17 @@ from utils import DELIVERABLES, INTERMEDIATES
 
 SORTIE = IDENTITE_DIR / "couverture.svg"
 
-# Le scénario dont la couverture montre le résultat. S3 est le plus ambitieux :
-# ce qui reste chaud sur la couverture est donc ce qu'AUCUN matériel ne rattrape,
-# et c'est le chiffre de tête du rapport (199 km sous 200 km/h).
-SCENARIO = "S3"
+# Le scénario dont la couverture montre le résultat : S2, celui que le rapport
+# met en tête. C'est le pendulaire exploité selon la méthode que le CN applique
+# déjà, sans dérogation à demander, donc le seul dont la couverture puisse
+# montrer l'image sans promettre une approbation.
+SCENARIO = "S2"
 COL_VMAX = f"vmax_{SCENARIO}_kmh_plafond_courbure"
+
+# La couverture ne le NOMME pas. « S2 » ne veut rien dire pour qui n'a pas encore
+# ouvert le rapport : la nomenclature des scénarios est posée en section 3. La
+# réglette dit donc la fonction du scénario, et la section 3 dira son nom.
+SCENARIO_LIBELLE = "scénario recommandé"
 
 # Les trois tronçons qui composent le corridor sans se recouvrir.
 TRONCONS = ["MTL-QC", "MTL-Ott", "Ott-TO"]
@@ -232,7 +238,7 @@ def main() -> None:
     reglette.append(
         f'<text x="{rx}" y="{ry - 8:.1f}" font-family="PlexMono, monospace" '
         f'font-size="8.5" letter-spacing="1.6" fill="{ACCENT["primaire_clair"]}">'
-        f'VITESSE QUE LA COURBURE AUTORISE, SCÉNARIO {SCENARIO} (km/h)</text>')
+        f'VITESSE QUE LA COURBURE AUTORISE, {SCENARIO_LIBELLE.upper()} (km/h)</text>')
     reglette.append(
         f'<text x="{rx + rw + 14:.1f}" y="{ry + rh + 1:.1f}" '
         f'font-family="PlexMono, monospace" font-size="8.5" fill="#8D8677">'
