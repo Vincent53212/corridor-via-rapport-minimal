@@ -3,10 +3,18 @@ Temps auto = approximation de connaissance générale (étiquetée) ; train = T_
 + marge (borne 9 % à marge actuelle du tronçon), milieu de fourchette en barre,
 fourchette en moustache. Les pourcentages face à l'auto sont publiés en bornes
 (borne basse et borne haute de la fourchette), jamais en point.
-Sortie : livrables/figure_vs_auto.png."""
+Sortie : livrables/figure_vs_auto.png.
+
+Mise en forme : identite/identite.json (voir scripts/identite.py). Les couleurs
+des barres sont celles des scénarios, une seule teinte à trois valeurs, pour que
+l'ordre S1 < S2 < S3 se lise aussi en noir et blanc."""
 import matplotlib; matplotlib.use("Agg")
 import matplotlib.pyplot as plt
 from utils import DELIVERABLES
+import identite
+from identite import PAPIER, SCENARIOS, appliquer_rcparams, police_mono, police_titre
+
+appliquer_rcparams(matplotlib)
 
 def hm(m):
     """Minutes → « h hh mm ». Arrondir AVANT de séparer : sinon 239,98 min
@@ -56,28 +64,34 @@ AUTO_QC_MIN, AUTO_TO_MIN = 170, 330
 
 # (corridor, auto_min, [(label, lo, hi — lo == hi pour un point)])
 DATA = [
- ("Montréal-Québec\n(auto ≈ 2 h 50, approx.)", AUTO_QC_MIN, [
+ ("Montréal-Québec", "auto ≈ 2 h 50, approx.", AUTO_QC_MIN, [
    ("VIA aujourd'hui", _horaire("MTL-QC"), _horaire("MTL-QC")),
    ("S2, bande 200", *four(_base("MTL-QC", "S2", 200), _marge("MTL-QC"))),
    ("S3, bande 300", *four(_base("MTL-QC", "S3", 300), _marge("MTL-QC")))]),
- ("Montréal-Toronto\n(auto ≈ 5 h 30, approx.)", AUTO_TO_MIN, [
+ ("Montréal-Toronto", "auto ≈ 5 h 30, approx.", AUTO_TO_MIN, [
    ("VIA aujourd'hui", _horaire("MTL-TO"), _horaire("MTL-TO")),
    ("S2, bande 200", *four(_base("MTL-TO", "S2", 200), _marge("MTL-TO"))),
    ("S3, bande 300", *four(_base("MTL-TO", "S3", 300), _marge("MTL-TO")))]),
 ]
-COLS = {"auto": "#999999", "VIA aujourd'hui": "#9ecae1", "S2, bande 200": "#4292c6",
-        "S3, bande 200": "#2171b5", "S3, bande 300": "#08519c"}
+COLS = {"auto": SCENARIOS["auto"], "VIA aujourd'hui": SCENARIOS["actuel"],
+        "S2, bande 200": SCENARIOS["S2"], "S3, bande 200": SCENARIOS["S2"],
+        "S3, bande 300": SCENARIOS["S3"]}
 
-fig, axes = plt.subplots(1, 2, figsize=(10, 3.7), dpi=300)
-for ax, (title, auto, rows) in zip(axes, DATA):
+fig, axes = plt.subplots(1, 2, figsize=(10, 3.1), dpi=300)
+for ax, (title, repere, auto, rows) in zip(axes, DATA):
     labels = ["Auto"] + [r[0] for r in rows]
     mids = [auto] + [(lo+hi)/2 for _, lo, hi in rows]
     cols = [COLS["auto"]] + [COLS[r[0]] for r in rows]
     y = range(len(labels))[::-1]
-    ax.barh(list(y), mids, color=cols, height=0.62)
+    # L'auto est un REPÈRE, pas une mesure de l'étude : sa barre est évidée. Deux
+    # aplats grèges voisins (auto et horaire actuel) se lisaient comme deux
+    # scénarios de même famille, ce que l'un des deux n'est pas.
+    ax.barh(list(y)[:1], mids[:1], height=0.58, facecolor="none",
+            edgecolor=COLS["auto"], linewidth=1.3, hatch=None)
+    ax.barh(list(y)[1:], mids[1:], color=cols[1:], height=0.58)
     for yi, (lab, mid) in zip(y, zip(labels, mids)):
         if lab == "Auto":
-            txt = hm(mid) + " (repère)"
+            txt = hm(mid) + "  (repère)"
         else:
             lo, hi = next((l, h) for n, l, h in rows if n == lab)
             if lo == hi:
@@ -85,15 +99,35 @@ for ax, (title, auto, rows) in zip(axes, DATA):
             else:
                 txt = (f"{hm(lo)} à {hm(hi)}"
                        f"  ({pct(lo, auto)} à {pct(hi, auto)} % de l'auto)")
-                ax.plot([lo, hi], [yi, yi], color="#333333", lw=1.2, zorder=4)
-        xtxt = mid + 6 if lab == 'Auto' else max(h for n, l, h in rows if n == lab) + 8
-        ax.text(xtxt, yi, txt, va="center", fontsize=8, color="#222222")
-    ax.set_yticks(list(y)); ax.set_yticklabels(labels, fontsize=8)
-    ax.set_xlim(0, max(mids)*1.95); ax.set_xticks([])
-    ax.set_title(title, fontsize=9, loc="left")
+                # La moustache déborde la barre : elle porte l'incertitude, elle
+                # doit donc se voir par-dessus l'aplat, pas se confondre avec lui.
+                ax.plot([lo, hi], [yi, yi], color=PAPIER["encre"], lw=1.1, zorder=4)
+                for b in (lo, hi):
+                    ax.plot([b, b], [yi - 0.17, yi + 0.17],
+                            color=PAPIER["encre"], lw=1.1, zorder=4)
+        xtxt = mid + 6 if lab == 'Auto' else max(h for n, l, h in rows if n == lab) + 9
+        ax.text(xtxt, yi, txt, va="center", fontsize=7.6,
+                color=PAPIER["encre_douce"], **police_mono())
+    ax.set_yticks(list(y))
+    ax.set_yticklabels(labels, fontsize=7.8, color=PAPIER["encre_douce"],
+                       **police_mono())
+    ax.tick_params(axis="y", length=0, pad=6)
+    ax.set_xlim(0, max(mids)*1.98); ax.set_xticks([])
+    ax.set_title(title, fontsize=11, loc="left", color=PAPIER["encre"],
+                 pad=15, **police_titre(600))
+    ax.text(0, 1.015, repere, transform=ax.transAxes, fontsize=7.2,
+            color=PAPIER["encre_pale"], **police_mono())
     for s in ax.spines.values(): s.set_visible(False)
-fig.suptitle("Le train contre l'auto : temps de parcours avec marge (fourchette en trait, pourcentages en bornes)",
-             fontsize=11, x=0.01, ha="left")
-fig.tight_layout(rect=(0, 0, 1, 0.93))
-fig.savefig(DELIVERABLES / "figure_vs_auto.png", bbox_inches="tight")
+# Titre et sous-titre posés APRÈS tight_layout, en coordonnées de figure : placés
+# avant, suptitle et fig.text se recouvraient parce que tight_layout ne tient pas
+# compte des textes libres pour calculer le rectangle du tracé.
+fig.tight_layout(rect=(0, 0, 1, 0.845))
+fig.text(0.008, 0.975, "Le train contre l'auto : temps de parcours avec marge",
+         fontsize=12.5, ha="left", va="top", color=PAPIER["encre"],
+         **police_titre(600))
+fig.text(0.008, 0.895, "Fourchette en trait, pourcentages en bornes",
+         fontsize=7.6, ha="left", va="top", color=PAPIER["encre_pale"],
+         **police_mono())
+fig.savefig(DELIVERABLES / "figure_vs_auto.png", bbox_inches="tight",
+            facecolor=PAPIER["fond"])
 print("Écrit figure_vs_auto.png")

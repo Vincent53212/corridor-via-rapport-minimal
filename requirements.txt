@@ -6,3 +6,6 @@ scipy
 pandas
 openpyxl
 simplekml
+python-docx
+matplotlib
+fonttools

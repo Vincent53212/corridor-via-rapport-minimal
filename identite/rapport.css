@@ -1,0 +1,252 @@
+/* Feuille de style du rapport de corridor.
+ *
+ * Elle ne contient AUCUNE couleur littérale : tout passe par les variables
+ * injectées depuis identite/identite.json (voir identite.py -> variables_css).
+ * Changer la charte, c'est éditer le JSON, relancer le contrôle, reconstruire.
+ *
+ * Le document est imprimé par Chrome via puppeteer, avec preferCSSPageSize :
+ * les règles @page ci-dessous font foi, y compris la couverture à fond perdu.
+ * Le pied de page, lui, n'est PAS dans le flux : il est posé par puppeteer
+ * (footerTemplate), seule voie pour un folio réel. La marge basse de @page doit
+ * donc lui laisser sa place, sans quoi il chevauche la dernière ligne.
+ */
+
+/*__FONTS__*/
+
+:root{
+/*__VARS__*/
+}
+
+*{ box-sizing:border-box; margin:0; }
+
+/* MARGES LATÉRALES NULLES, ET C'EST VOULU.
+ *
+ * Le crème doit couvrir la FEUILLE, marges comprises, faute de quoi chaque page
+ * sort en rectangle crème cerné de blanc. Or le fond du document ne s'étend
+ * jamais au-delà de la boîte @page. Six montages ont été essayés et rendus :
+ * fond sur `html` avec marges @page, fond sur `body` seul, calque
+ * `position:fixed` débordant (Chrome le rogne à la zone de contenu), marges
+ * puppeteer par-dessus des marges @page (ignorées), marges @page nulles avec
+ * padding de section (le retrait vertical disparaît sur les pages de suite).
+ *
+ * Seul celui-ci tient : marges LATÉRALES nulles, donc le crème touche les bords
+ * gauche et droit, et le retrait horizontal du texte vient du padding de `body`,
+ * qui lui s'applique à toutes les pages. Restaient deux bandes blanches en haut
+ * et en bas : elles sont peintes en crème par le gabarit de pied de l'étape 30,
+ * dont les éléments `position:fixed` se positionnent sur la PAGE ENTIÈRE et non
+ * sur la seule boîte du pied. */
+@page{ size:letter; margin:var(--marge-haut) 0 var(--marge-bas); }
+/* Page nommée : la couverture est à fond perdu sur ses quatre bords. */
+@page couverture{ size:letter; margin:0; }
+
+html{
+  -webkit-print-color-adjust:exact; print-color-adjust:exact;
+  background:var(--papier);
+}
+body{
+  background:var(--papier); color:var(--encre);
+  /* Le retrait latéral du texte vient d'ici et non de @page : un padding de
+     `body` s'applique sur TOUTES les pages, un padding vertical seulement sur
+     la première et la dernière. D'où le partage : horizontal ici, vertical en
+     marges @page. */
+  padding:0 var(--marge-cote);
+  font:400 var(--corps)/var(--interligne) var(--font-titre);
+  text-rendering:optimizeLegibility;
+  font-variant-numeric:oldstyle-nums proportional-nums;
+}
+
+/* ============================================================ couverture */
+/* `100vh` et non `11in` : en impression, 1 vh vaut 1 % de la ZONE DE PAGE, donc
+   la couverture occupe exactement une page quelles que soient les marges du
+   tirage. C'est ce qui permet à l'étape 30 d'imprimer la couverture à fond perdu
+   (marges nulles) et le corps avec ses marges, sans que la pagination bouge
+   entre les deux passes. */
+.couverture{
+  page:couverture; break-after:page;
+  /* `margin` négatif : la couverture doit ressortir du padding latéral de body
+     pour toucher les bords gauche et droit. */
+  position:relative; margin:0 calc(-1 * var(--marge-cote));
+  height:100vh; overflow:hidden;
+  background:var(--encre); color:var(--papier);
+}
+.couverture svg{ position:absolute; inset:0; width:100%; height:100%; }
+/* Le bloc de titre occupe le vide que laisse la colonne du tracé, à gauche.
+   `max-width` le tient à l'écart du tracé, qui descend jusqu'à x = 476 px sur
+   une page de 816 : au-delà, le titre passerait derrière la ligne d'Ottawa. */
+.couverture .titre{
+  position:absolute; left:0.85in; right:3.55in; bottom:0.95in;
+  display:flex; flex-direction:column;
+}
+.couverture .sur{
+  font:500 8.5pt var(--font-courant); letter-spacing:0.26em;
+  text-transform:uppercase; color:var(--accent-clair); margin-bottom:16px;
+}
+/* Deux étages de titre plutôt qu'un seul sur deux lignes : le nom du corridor
+   est un objet, la promesse de l'étude en est une autre. Les composer à la même
+   graisse les ferait lire comme une seule phrase trop longue. */
+.couverture h1{
+  font:700 33pt/1.04 var(--font-titre); letter-spacing:-0.014em;
+  font-variant-numeric:lining-nums; margin-bottom:4px;
+}
+.couverture .titre2{
+  font:400 21pt/1.15 var(--font-titre); color:#E4DFD2; margin-bottom:16px;
+}
+.couverture .sous{
+  font:400 10.5pt/1.55 var(--font-titre); font-style:italic; color:#B8B2A4;
+}
+.couverture .bas{
+  margin-top:38px; padding-top:14px;
+  border-top:1px solid rgba(245,241,232,.28);
+  display:flex; justify-content:space-between; align-items:flex-end; gap:18px;
+}
+.couverture .edition{ font:600 9.5pt var(--font-courant); letter-spacing:0.16em; }
+.couverture .signature{
+  font:400 8pt/1.6 var(--font-courant); color:#B8B2A4; text-align:right;
+}
+
+/* ================================================================ sommaire */
+.sommaire{ break-after:page; }
+.sommaire h2{
+  font:600 19pt var(--font-titre); letter-spacing:-0.01em; margin-bottom:4px;
+}
+.sommaire .filet{ width:26mm; height:2px; background:var(--accent); margin:6px 0 18px; }
+.toc-l{
+  display:flex; align-items:baseline; gap:10px;
+  padding:8px 0; border-bottom:1px solid var(--filet);
+}
+.toc-k{
+  font:600 7pt var(--font-courant); letter-spacing:0.13em; text-transform:uppercase;
+  color:var(--accent); width:2.25in; flex:none; white-space:nowrap;
+}
+.toc-t{ font:600 11pt var(--font-titre); }
+.toc-pts{ flex:1; border-bottom:1px dotted var(--encre-pale); margin:0 4px 3px; opacity:.55; }
+.toc-folio{
+  font:500 9pt var(--font-courant); font-variant-numeric:lining-nums;
+  min-width:0.32in; text-align:right;
+}
+.sommaire .avis{
+  margin-top:22px; padding:12px 16px;
+  background:var(--sable); border-left:4px solid var(--accent);
+  font:400 8.4pt/1.6 var(--font-courant); color:var(--encre-douce);
+}
+
+/* ================================================================ sections */
+/* Chaque section de premier niveau ouvre une page. La première ne le fait pas :
+   elle suit le sommaire, qui a déjà provoqué la coupure. */
+section.level1{ break-before:page; }
+.sec{
+  display:flex; align-items:baseline; gap:14px;
+  border-bottom:2px solid var(--encre); padding-bottom:8px; margin:0 0 18px;
+}
+/* Le surtitre ne se plie jamais : replié sur deux lignes il déséquilibre l'oeil
+   de titre, et il perd sa fonction de repère latéral. */
+.sec .k{
+  font:600 8.5pt var(--font-courant); letter-spacing:0.2em; text-transform:uppercase;
+  color:var(--accent); flex:none; white-space:nowrap;
+}
+.sec h1{ font:600 19pt/1.15 var(--font-titre); letter-spacing:-0.012em; }
+
+h2{
+  font:600 12.5pt var(--font-titre); margin:20px 0 8px;
+  break-after:avoid;
+}
+h3{
+  font:600 8pt var(--font-courant); letter-spacing:0.14em; text-transform:uppercase;
+  color:var(--encre-douce); margin:16px 0 6px; break-after:avoid;
+}
+
+/* ==================================================================== corps */
+p{ margin:0 0 10px; text-align:justify; hyphens:auto; -webkit-hyphens:auto; }
+p strong{ font-weight:600; }
+/* Attaque en gras : le rapport ouvre beaucoup de paragraphes par « **Titre.** ».
+   On en fait un vrai titre courant, dans l'accent, sans toucher au markdown. */
+p > strong:first-child{ color:var(--accent); }
+em{ font-style:italic; }
+a{ color:var(--accent); text-decoration:none; border-bottom:0.5px solid var(--filet-fort); }
+
+ul, ol{ margin:0 0 11px; padding-left:1.05em; }
+li{ margin-bottom:5px; text-align:justify; hyphens:auto; }
+li::marker{ color:var(--accent); }
+
+blockquote{
+  margin:12px 0; padding:11px 16px;
+  background:var(--bloc); border:1px solid var(--filet);
+  border-left:4px solid var(--accent);
+}
+blockquote p{ margin:0; font-size:9.4pt; }
+
+code, .math{ font-family:var(--font-courant); font-size:0.92em; }
+.math.display{
+  display:block; margin:12px 0; text-align:center;
+  font-size:10pt; color:var(--encre-douce);
+}
+
+/* ================================================================ tableaux */
+/* Modèle « ledger » : aucun filet vertical, un seul filet fort sous l'en-tête,
+   des filets clairs entre les lignes. Les colonnes de mesure passent en chasse
+   fixe et à droite ; les colonnes de libellé restent en serif, à gauche. C'est
+   la même convention que le corps du texte, appliquée au tableau. */
+table{
+  width:100%; border-collapse:collapse; margin:10px 0 6px;
+  font-size:8.9pt; break-inside:avoid;
+}
+caption{
+  caption-side:top; text-align:left;
+  font:400 7.6pt/1.5 var(--font-courant); color:var(--encre-pale);
+  padding-bottom:6px;
+}
+thead th{
+  font:500 7.4pt/1.35 var(--font-courant); letter-spacing:0.09em;
+  text-transform:uppercase; color:var(--encre-pale);
+  text-align:left; vertical-align:bottom;
+  padding:6px 9px 6px 0; border-bottom:1.5px solid var(--encre);
+}
+tbody td{
+  padding:6.5px 9px 6.5px 0; border-bottom:1px solid var(--filet);
+  vertical-align:top;
+}
+th:last-child, td:last-child{ padding-right:0; }
+th.num, td.num{
+  text-align:right; font-family:var(--font-courant);
+  font-variant-numeric:lining-nums tabular-nums; white-space:nowrap;
+}
+tbody tr:last-child td{ border-bottom:1.5px solid var(--encre); }
+/* Ligne de total : le rapport n'en a pas de balisée, la règle est en réserve
+   pour le jour où une table en portera une. */
+tbody tr.total td{ font-weight:600; background:var(--sable); }
+colgroup{ display:none; }
+/* Les largeurs en pourcentage de pandoc sont dérivées de la largeur du texte
+   markdown, pas du contenu rendu : elles écrasent la première colonne des tables
+   de temps. On les neutralise et on laisse le moteur mesurer. */
+table col{ width:auto !important; }
+
+/* ================================================================= figures */
+figure{
+  margin:14px 0 12px; break-inside:avoid;
+  border:1px solid var(--filet-fort); background:var(--bloc);
+  padding:11px 13px 9px;
+}
+figure img{ width:100%; height:auto; display:block; }
+figcaption{
+  font:400 7.6pt/1.55 var(--font-courant); color:var(--encre-pale);
+  margin-top:8px; padding-top:7px; border-top:1px solid var(--filet);
+  text-align:left; hyphens:none;
+}
+
+/* ============================================================== références */
+#refs{ font-size:8.2pt; line-height:1.5; }
+.csl-entry{
+  padding-left:1.05em; text-indent:-1.05em;
+  margin-bottom:6px; text-align:justify; hyphens:auto; break-inside:avoid;
+}
+.csl-entry a{ border-bottom:none; word-break:break-all; }
+/* Un renvoi de citation n'est PAS insécable. Rendu tel quel, « (Federal Railroad
+   Administration, 2024) » fait 42 signes qu'aucune coupure ne casse : la ligne
+   précédente s'étirait alors sur toute la justification, avec des blancs de la
+   largeur d'un mot. On le laisse se plier, l'oeil reconstitue la parenthèse. */
+.citation{ hyphens:none; }
+
+/* ========================================================= coupures propres */
+figure, blockquote, table{ break-inside:avoid; }
+h1, h2, h3{ break-after:avoid; }
+p{ orphans:2; widows:2; }

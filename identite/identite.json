@@ -1,0 +1,85 @@
+{
+  "_note": "Source unique de l'identité graphique du rapport de corridor. Lue par le gabarit HTML (identite.py -> css_variables), par les figures matplotlib (identite.py -> appliquer_rcparams) et par la couverture. Une couleur ne se change QU'ICI. Le contrôle 27_verif_identite.py mesure les écarts annoncés dans les _note : le modifier sans relancer le contrôle, c'est publier une palette dont les promesses ne tiennent plus.",
+
+  "_parente": "Même maison que « La densification autour du PSE » (papier crème, encre nuit, Fraunces en titrage, IBM Plex Mono en technique, tableaux sans filets verticaux) : les deux documents sont du même auteur pour le même client et doivent se reconnaître sur une table. Mais les FAMILLES D'ACCENT diffèrent, et c'est voulu. Le PSE est un document de sol : terre chaude, terracotta (teinte 42°), ocre (79°), olive (128°). Celui-ci est un document de vitesse : acier froid, du grenat au bleu profond. Posés côte à côte, ils se lisent comme deux volumes d'une même collection, pas comme deux tirages du même gabarit.",
+
+  "papier": {
+    "fond": "#F5F1E8",
+    "fond_bloc": "#FBF9F4",
+    "sable": "#EDE7D8",
+    "encre": "#1A1F2E",
+    "encre_douce": "#3A4152",
+    "encre_pale": "#646B79",
+    "filet": "#E2DCCC",
+    "filet_fort": "#D2CAB6",
+    "_note": "Repris du PSE sans retouche. `fond_bloc` est le crème d'un demi-ton plus clair des encadrés : il détache un bloc du papier sans avoir à le border deux fois."
+  },
+
+  "typo": {
+    "titre": "'Fraunces', Georgia, serif",
+    "courant": "'PlexMono', 'IBM Plex Mono', ui-monospace, monospace",
+    "titre_mpl": {"400": "Fraunces 400", "600": "Fraunces 600", "700": "Fraunces 700"},
+    "courant_mpl": "IBM Plex Mono",
+    "_note": "Deux familles, deux rôles, jamais échangés. Fraunces (serif à contraste marqué) porte le DISCOURS : titres, corps, valeurs saillantes. IBM Plex Mono porte la MESURE : surtitres, étiquettes, unités, chiffres de tableau, folios. Le lecteur apprend en une page que ce qui est en chasse fixe est un relevé, et ce qui est en serif est un propos. Les figures suivent la même règle, d'où les deux entrées `_mpl` : matplotlib ne lit pas les woff2 du gabarit et adresse les .ttf par leur nom de famille (voir identite/fonts/_installer_polices.py)."
+  },
+
+  "accent": {
+    "primaire": "#1F5C7A",
+    "primaire_clair": "#6FA8C4",
+    "signal": "#B5462B",
+    "_note": "Le document n'a que DEUX familles chromatiques, et c'est sa règle de lecture : l'acier dit le réseau et ce qui roule, le chaud dit ce qui contraint. `primaire` (bleu acier) remplace le terracotta du PSE partout où celui-ci portait l'identité : surtitres de section, filet de titre, clés de sommaire, folio. `primaire_clair` est sa version pour fond d'encre (couverture, bandeaux) : sur #1A1F2E il donne 6,3:1 de contraste, là où le primaire seul tombe à 2,1:1 et deviendrait illisible. `signal` (brique) ne sert QU'À marquer le seuil de 200 km/h et ce qui reste en dessous. Lui donner un second emploi décoratif ruinerait le seul code de couleur que le lecteur doit retenir. Aucun vert : voir la note des cellules, c'est une contrainte mesurée et non un goût."
+  },
+
+  "vitesse": {
+    "_libelle": "Rampe divergente des bandes de vitesse, articulée sur 200 km/h",
+    "_note": "Ce n'est pas un dégradé décoratif mais l'argument du rapport mis en couleur. 200 km/h est le seuil qui sépare ce qui roule de ce qui doit être rectifié : la rampe est donc DIVERGENTE et s'articule là, chaud en dessous, froid au-dessus. Le lecteur qui ne lit que les figures voit d'un coup d'oeil combien de corridor est du mauvais côté. Choix chaud/froid et non rouge/vert : c'est le seul couple qu'un daltonien deutéranope ou protanope distingue de façon sûre, et le contrôle le mesure.",
+    "paliers": [
+      {"cle": "sous_100",  "libelle": "sous 100 km/h",  "color": "#6E1B2A"},
+      {"cle": "100_160",   "libelle": "100 à 160 km/h", "color": "#A8452C"},
+      {"cle": "160_200",   "libelle": "160 à 200 km/h", "color": "#D19A45"},
+      {"cle": "200_250",   "libelle": "200 à 250 km/h", "color": "#7FA8B8"},
+      {"cle": "250_300",   "libelle": "250 à 300 km/h", "color": "#3E7796"},
+      {"cle": "300_plus",  "libelle": "300 km/h et plus", "color": "#1F4B6B"}
+    ]
+  },
+
+  "scenarios": {
+    "_libelle": "S1, S2, S3 : trois degrés d'ambition, donc une rampe et non trois couleurs",
+    "_note": "Les trois scénarios sont ORDONNÉS (voie actuelle, pendulaire au précédent CN, pendulaire hors précédent). Une palette catégorielle les présenterait comme trois options équivalentes, ce qu'ils ne sont pas. Une seule teinte, trois valeurs : la lecture de l'ordre est immédiate, et elle survit à une impression en niveaux de gris. `actuel` (grège) sort de la famille parce que l'horaire d'aujourd'hui n'est pas un scénario : c'est le point de départ.",
+    "S1": "#8FA8B8",
+    "S2": "#3E7796",
+    "S3": "#1F4B6B",
+    "actuel": "#9A9384",
+    "auto": "#B0A897"
+  },
+
+  "cellules": {
+    "_libelle": "2x2 voie x propriétaire (figure des marges)",
+    "_note": "Les cellules ne sont pas trois catégories arbitraires : elles croisent DEUX variables, et le codage le dit. La TEINTE porte le propriétaire (acier pour le CN, brique pour VIA), la VALEUR porte le nombre de voies (foncé pour la voie double, clair pour la voie simple). Un lecteur retient deux règles au lieu de trois couleurs, et il peut nommer la quatrième cellule absente du corridor.",
+    "_note_vert": "MESURE, pas goût. La version précédente suivait Okabe-Ito et donnait un vert bleuté à `simple-VIA`. Le contrôle l'a refusée : sous protanopie ce vert tombait à 12,0 de dE2000 du vermillon, et surtout à 7,1 du grège des paires exclues. C'est une propriété du problème et non de la teinte choisie : un vert perd sa chroma pour un protanope ou un deutéranope et rejoint la famille des gris, si bien qu'aucun vert ne peut cohabiter avec un neutre de valeur voisine. Deux issues existaient, décaler le vert vers le jaune (mais l'ocre porte déjà la bande 160-200 km/h) ou renoncer au vert. La seconde a été retenue parce qu'elle a rendu le codage plus lisible qu'il ne l'était : les six paires passent maintenant les trois simulations avec 17,0 de marge minimale, contre un plancher de 15.",
+    "double-CN": "#1F5C7A",
+    "simple-CN": "#7FA8B8",
+    "simple-VIA": "#B5462B",
+    "hors": "#A9A294"
+  },
+
+  "seuils_controle": {
+    "_note": "Planchers du contrôle 27_verif_identite.py. Les valeurs sont celles de la pratique cartographique retenue au PSE : 15 de dE2000 pour deux figurés qui doivent se distinguer, et le même plancher sous simulation de daltonisme (deutéranopie, protanopie, tritanopie). Le contraste de texte suit WCAG AA.",
+    "dE_categoriel_min": 15.0,
+    "dE_categoriel_cvd_min": 15.0,
+    "dE_rampe_voisins_min": 8.0,
+    "contraste_texte_min": 4.5
+  },
+
+  "page": {
+    "format": "letter",
+    "marge_haut": "0.78in",
+    "marge_bas": "0.85in",
+    "marge_cote": "0.85in",
+    "corps_pt": 10.3,
+    "interligne": 1.56,
+    "_note": "Justification de 6,8 in sur letter : à 10,3 pt en Fraunces cela donne 78 à 86 signes par ligne, la fourchette de confort pour un texte suivi. Le pied de page est posé par puppeteer (footerTemplate) et non par le flux : `marge_bas` doit donc lui laisser sa place."
+  },
+
+  "pied": "Corridor Québec-Toronto · Ce que la voie existante permet · Vincent Duguay / Vision Transport"
+}

@@ -47,12 +47,37 @@ python scripts/15_carte_voies.py
 python scripts/18_export_xlsx.py
 python scripts/19_build_viewer.py           # visualiseur autonome
 python scripts/_baseline_zones.py           # garde-fou : doit afficher BASELINE: PASS
+
+# --- identité graphique et rendu du rapport ---
+python identite/fonts/_installer_polices.py # une fois : .ttf des figures
+python scripts/27_verif_identite.py         # garde-fou : doit afficher PASS
+python scripts/22_marges_2x2.py             # médianes du 2×2 (lues par la figure 23)
+python scripts/23_figure_cellules.py        # figure : le 2×2 du corridor
+python scripts/24_figure_vs_auto.py         # figure : le train contre l'auto
+python scripts/28_couverture.py             # couverture : le tracé coloré par la vitesse
+python scripts/29_rapport_html.py           # rapport.md → HTML à l'identité
+node   scripts/30_rapport_pdf.mjs           # HTML → PDF paginé (sommaire à folios réels)
+python scripts/25_build_rapport.py          # version Word, pour annotation client
 ```
 
 Sous Windows, préfixer `PYTHONUTF8=1` (sorties console UTF-8).
+
+## Identité graphique
+
+`identite/identite.json` est la source unique : palette, typographie, réglages de
+page. Le gabarit HTML, les figures matplotlib et la couverture la lisent toutes
+par `scripts/identite.py` ; aucune couleur n'est écrite ailleurs. `rapport.md`
+reste du markdown ordinaire, relu et versionné comme tel : la mise en page est
+entièrement appliquée après pandoc.
+
+Deux règles de lecture que le document tient partout : Fraunces porte le propos,
+IBM Plex Mono porte la mesure ; l'acier dit le réseau, le chaud dit la
+contrainte. La rampe des bandes de vitesse est divergente et s'articule sur
+200 km/h, le seuil de l'étude.
 
 ## Garde-fous
 
 - Invariant par construction : `classify(vmax) == classe` et vmax ≤ 360 km/h sur chaque segment × scénario (vérifié : 0/3666).
 - `_baseline_zones.py` : les zones de référence (Ottawa, Montréal, Kingston) gardent leurs vraies courbes.
+- `27_verif_identite.py` : la palette tient ses promesses. Distinction dE2000 des figurés en vision normale ET sous protanopie, deutéranopie et tritanopie ; clarté monotone des rampes ordonnées, pour qu'elles survivent au noir et blanc ; contraste WCAG AA des couples texte/fond employés.
 - Les vitesses publiées sont des plafonds géométriques, pas des promesses d'horaire.
