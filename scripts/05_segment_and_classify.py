@@ -89,6 +89,99 @@ def absorb_short_segments(
     return starts[:-1]
 
 
+def classer_points(df: pd.DataFrame) -> pd.DataFrame:
+    """Classe et vitesse de CHAQUE point, dans les trois scénarios.
+
+    Extrait de `main()` pour être appelable de l'extérieur : l'audit de méthode
+    (secteur La Tuque) doit exercer le détecteur du rapport, pas une copie. Au
+    niveau du point seul R_m existe, il sert donc à la fois de R_p10 et de R_min
+    au garde-fou de cohérence classe/vitesse. Ne sert qu'à la segmentation."""
+    for sid, sc in SCENARIOS.items():
+        cv = [published_vmax_class(sc, float(r), float(r)) for r in df["R_m"].to_numpy()]
+        df[f"class_{sid}"] = [c for c, _ in cv]
+        df[f"vmax_{sid}_kmh"] = [v for _, v in cv]
+    return df
+
+
+def segmenter_troncon(sub: pd.DataFrame, tronc_id: str, stations: list[dict],
+                      min_len_pts: int) -> list[dict]:
+    """Segments homogènes d'un tronçon, tels que le rapport les publie.
+
+    Même extraction : c'est LE détecteur. Un segment naît d'un changement du
+    triplet de classes, les segments courts sont absorbés sauf s'ils sont de
+    vrais goulots, et le rayon classant est le robust-min du segment."""
+    keys = list(zip(sub["class_S1"], sub["class_S2"], sub["class_S3"]))
+    seg_starts = [0]
+    for i in range(1, len(keys)):
+        if keys[i] != keys[i - 1]:
+            seg_starts.append(i)
+    seg_starts = absorb_short_segments(seg_starts, keys, len(sub), min_len_pts)
+
+    features = []
+    for k, start in enumerate(seg_starts):
+        end = seg_starts[k + 1] if k + 1 < len(seg_starts) else len(sub)
+        seg = sub.iloc[start:end]
+        if len(seg) < 2:
+            continue
+        longueur_m = (float(seg["km_along_segment"].iloc[-1])
+                      - float(seg["km_along_segment"].iloc[0])) * 1000
+        R_min = float(seg["R_m"].min())
+        R_vals = seg["R_m"].to_numpy()
+        # R_moy harmonique (plus représentatif pour la vitesse moyenne accessible)
+        R_moy = float(len(R_vals) / np.sum(1.0 / np.maximum(R_vals, 1e-6)))
+        # Vmax opérationnelle du segment = vitesse correspondant au R-percentile-10
+        # (robuste aux artefacts numériques d'aiguillages : 1-2 points à R=100m
+        # ne disent pas la classe d'un segment de 800m). Si une vraie courbe
+        # contraignante existe, elle s'étend sur ≥10% des points du segment
+        # (= ≥30m d'arc au pas 10m → critère "sustained curve").
+        R_p10 = float(np.percentile(R_vals, 10)) if len(R_vals) >= 10 else R_min
+        # R_p50 (médiane) : sert (a) au diagnostic d'hétérogénéité du
+        # segment via l'écart R_p50−R_p10 et (b) au calcul de la FOURCHETTE
+        # du chiffre-titre (incertitude transparente, idée Vincent / fix M2).
+        R_p50 = float(np.percentile(R_vals, 50)) if len(R_vals) >= 2 else R_min
+        # Base de classement = ROBUST-MIN : rayon le plus serré *soutenu*
+        # (min d'une médiane glissante ~150 m). R_min seul était gouverné
+        # par le PIRE artefact ponctuel de l'estimateur → faux-F vérifié
+        # (red team : voie droite étiquetée F). R_p10 était l'inverse,
+        # trop optimiste. Le robust-min = pire VRAIE courbe soutenue
+        # (= règle physique d'une limite de vitesse) ET immunisé contre un
+        # point parasite isolé. vmax borné dans la bande → classify==classe.
+        R_classif = robust_min_radius(R_vals)
+        classe_S1, vmax_S1 = published_vmax_class(SCENARIOS["S1"], R_classif, R_classif)
+        classe_S2, vmax_S2 = published_vmax_class(SCENARIOS["S2"], R_classif, R_classif)
+        classe_S3, vmax_S3 = published_vmax_class(SCENARIOS["S3"], R_classif, R_classif)
+        km_mid = float(seg["km_along_segment"].mean())
+        gare_amont, gare_aval = find_nearest_stations(stations, km_mid)
+        coords = [[float(lon), float(lat)] for lat, lon in zip(seg["lat"], seg["lon"])]
+        features.append({
+            "type": "Feature",
+            "geometry": {"type": "LineString", "coordinates": coords},
+            "properties": {
+                "kind": "homog_segment",
+                "alignment_id": "via_existing",
+                "troncon_id": tronc_id,
+                "seg_idx": k,
+                "km_debut": float(seg["km_along_segment"].iloc[0]),
+                "km_fin": float(seg["km_along_segment"].iloc[-1]),
+                "longueur_m": round(longueur_m, 1),
+                "R_min_m": round(R_min, 0) if np.isfinite(R_min) else None,
+                "R_moy_m": round(R_moy, 0) if np.isfinite(R_moy) else None,
+                "R_p10_m": round(R_p10, 0) if np.isfinite(R_p10) else None,
+                "R_p50_m": round(R_p50, 0) if np.isfinite(R_p50) else None,
+                "R_classif_m": round(R_classif, 0) if np.isfinite(R_classif) else None,
+                "vmax_S1_kmh": round(vmax_S1, 1),
+                "vmax_S2_kmh": round(vmax_S2, 1),
+                "vmax_S3_kmh": round(vmax_S3, 1),
+                "classe_S1": classe_S1,
+                "classe_S2": classe_S2,
+                "classe_S3": classe_S3,
+                "gare_amont": gare_amont,
+                "gare_aval": gare_aval,
+            },
+        })
+    return features
+
+
 def find_nearest_stations(stations_along: list[dict], km: float) -> tuple[str, str]:
     """Retourne (gare_amont_name, gare_aval_name) pour un km donné."""
     if not stations_along:
@@ -110,15 +203,7 @@ def main() -> None:
     df = pq.read_table(CURVATURE_PARQUET).to_pandas()
     print(f"  {len(df):,} points sur {df['troncon_id'].nunique()} tronçons")
 
-    # Calcul des classes par scénario (cohérence vmax↔classe garantie ; au
-    # niveau du point seul R_m existe → sert de R_p10 ET R_min pour le garde-fou.
-    # Ne sert qu'à la segmentation interne, pas exporté tel quel.)
-    for sid, sc in SCENARIOS.items():
-        Rs = df["R_m"].to_numpy()
-        cv = [published_vmax_class(sc, float(r), float(r)) for r in Rs]
-        df[f"class_{sid}"] = [c for c, _ in cv]
-        df[f"vmax_{sid}_kmh"] = [v for _, v in cv]
-
+    df = classer_points(df)
     min_len_pts = max(2, int(MIN_SEGMENT_LEN_M / 10.0))  # pas = 10 m
 
     # Charger les gares snappées par tronçon depuis corridor_matched.geojson
@@ -153,76 +238,9 @@ def main() -> None:
                 })
         stations.sort(key=lambda s: s["km"])
 
-        # Segmentation par changement de tuple de classes
-        keys = list(zip(sub["class_S1"], sub["class_S2"], sub["class_S3"]))
-        seg_starts = [0]
-        for i in range(1, len(keys)):
-            if keys[i] != keys[i - 1]:
-                seg_starts.append(i)
-        seg_starts = absorb_short_segments(seg_starts, keys, len(sub), min_len_pts)
-
-        for k, start in enumerate(seg_starts):
-            end = seg_starts[k + 1] if k + 1 < len(seg_starts) else len(sub)
-            seg = sub.iloc[start:end]
-            if len(seg) < 2:
-                continue
-            longueur_m = (float(seg["km_along_segment"].iloc[-1]) - float(seg["km_along_segment"].iloc[0])) * 1000
-            R_min = float(seg["R_m"].min())
-            R_vals = seg["R_m"].to_numpy()
-            # R_moy harmonique (plus représentatif pour la vitesse moyenne accessible)
-            R_moy = float(len(R_vals) / np.sum(1.0 / np.maximum(R_vals, 1e-6)))
-            # Vmax opérationnelle du segment = vitesse correspondant au R-percentile-10
-            # (robuste aux artefacts numériques d'aiguillages : 1-2 points à R=100m
-            # ne disent pas la classe d'un segment de 800m). Si une vraie courbe
-            # contraignante existe, elle s'étend sur ≥10% des points du segment
-            # (= ≥30m d'arc au pas 10m → critère "sustained curve").
-            R_p10 = float(np.percentile(R_vals, 10)) if len(R_vals) >= 10 else R_min
-            # R_p50 (médiane) : sert (a) au diagnostic d'hétérogénéité du
-            # segment via l'écart R_p50−R_p10 et (b) au calcul de la FOURCHETTE
-            # du chiffre-titre (incertitude transparente, idée Vincent / fix M2).
-            R_p50 = float(np.percentile(R_vals, 50)) if len(R_vals) >= 2 else R_min
-            # Base de classement = ROBUST-MIN : rayon le plus serré *soutenu*
-            # (min d'une médiane glissante ~150 m). R_min seul était gouverné
-            # par le PIRE artefact ponctuel de l'estimateur → faux-F vérifié
-            # (red team : voie droite étiquetée F). R_p10 était l'inverse,
-            # trop optimiste. Le robust-min = pire VRAIE courbe soutenue
-            # (= règle physique d'une limite de vitesse) ET immunisé contre un
-            # point parasite isolé. vmax borné dans la bande → classify==classe.
-            R_classif = robust_min_radius(R_vals)
-            classe_S1, vmax_S1 = published_vmax_class(SCENARIOS["S1"], R_classif, R_classif)
-            classe_S2, vmax_S2 = published_vmax_class(SCENARIOS["S2"], R_classif, R_classif)
-            classe_S3, vmax_S3 = published_vmax_class(SCENARIOS["S3"], R_classif, R_classif)
-            km_mid = float(seg["km_along_segment"].mean())
-            gare_amont, gare_aval = find_nearest_stations(stations, km_mid)
-            # Géométrie : polyligne du segment
-            coords = [[float(lon), float(lat)] for lat, lon in zip(seg["lat"], seg["lon"])]
-            seg_features.append({
-                "type": "Feature",
-                "geometry": {"type": "LineString", "coordinates": coords},
-                "properties": {
-                    "kind": "homog_segment",
-                    "alignment_id": "via_existing",
-                    "troncon_id": tronc_id,
-                    "seg_idx": k,
-                    "km_debut": float(seg["km_along_segment"].iloc[0]),
-                    "km_fin": float(seg["km_along_segment"].iloc[-1]),
-                    "longueur_m": round(longueur_m, 1),
-                    "R_min_m": round(R_min, 0) if np.isfinite(R_min) else None,
-                    "R_moy_m": round(R_moy, 0) if np.isfinite(R_moy) else None,
-                    "R_p10_m": round(R_p10, 0) if np.isfinite(R_p10) else None,
-                    "R_p50_m": round(R_p50, 0) if np.isfinite(R_p50) else None,
-                    "R_classif_m": round(R_classif, 0) if np.isfinite(R_classif) else None,
-                    "vmax_S1_kmh": round(vmax_S1, 1),
-                    "vmax_S2_kmh": round(vmax_S2, 1),
-                    "vmax_S3_kmh": round(vmax_S3, 1),
-                    "classe_S1": classe_S1,
-                    "classe_S2": classe_S2,
-                    "classe_S3": classe_S3,
-                    "gare_amont": gare_amont,
-                    "gare_aval": gare_aval,
-                },
-            })
-        summary.append((tronc_id, len(seg_starts), sum(1 for f in seg_features if f["properties"]["troncon_id"] == tronc_id)))
+        seg_features_tronc = segmenter_troncon(sub, tronc_id, stations, min_len_pts)
+        seg_features.extend(seg_features_tronc)
+        summary.append((tronc_id, len(seg_features_tronc), len(seg_features_tronc)))
 
     out_geojson = {
         "type": "FeatureCollection",
