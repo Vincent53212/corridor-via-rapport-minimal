@@ -20,10 +20,17 @@ Trois décisions de dessin, et leurs raisons :
     illisible, et la couverture n'est pas une carte : l'échelle n'y est pas
     annoncée, aucune mesure ne s'y prend.
 
-  - DÉDOUBLEMENT. On ne dessine que MTL-QC, MTL-Ott et Ott-TO. Le tronçon MTL-TO
-    du jeu de données emprunte les deux derniers : le tracer aussi repasserait
-    deux fois sur les mêmes rails, et l'empilement des traits semi-couvrants
-    changerait les couleurs.
+  - LES QUATRE TRONÇONS, ET LE TRIANGLE. Montréal-Toronto emprunte les mêmes
+    rails que la branche par Ottawa sur 392 de ses 539 km, mais il lui reste
+    140 km propres, d'un seul tenant : du km 63 au km 203 depuis Montréal, le
+    long du fleuve entre Rivière-Beaudette et Brockville, là où l'autre remonte
+    vers Ottawa et redescend. Mesure faite au plus proche voisin, et stable de
+    150 à 500 m de seuil, ce qui écarte l'artefact d'appariement. Ne dessiner
+    que MTL-QC, MTL-Ott et Ott-TO effaçait donc la liaison directe, qui est le
+    trajet de tête du rapport. Les quatre sont tracés, MTL-TO en dernier pour
+    que les rails communs portent les valeurs du trajet principal. Le triangle
+    est le même que celui de la figure du 2×2, et c'est voulu : les deux images
+    doivent se reconnaître.
 
     python scripts/28_couverture.py
 """
@@ -52,8 +59,7 @@ COL_VMAX = f"vmax_{SCENARIO}_kmh_plafond_courbure"
 # réglette dit donc la fonction du scénario, et la section 3 dira son nom.
 SCENARIO_LIBELLE = "scénario recommandé"
 
-# Les trois tronçons qui composent le corridor sans se recouvrir.
-TRONCONS = ["MTL-QC", "MTL-Ott", "Ott-TO"]
+TRONCONS = ["MTL-QC", "MTL-Ott", "Ott-TO", "MTL-TO"]
 
 VILLES = {"Québec": (-71.22, 46.81), "Montréal": (-73.567, 45.50),
           "Ottawa": (-75.65, 45.42), "Toronto": (-79.38, 43.65),
@@ -101,20 +107,22 @@ def projeter(lon, lat, lat0):
     return lon * math.cos(math.radians(lat0)), lat
 
 
-def cadre(toutes_coords):
+def cadre(axe, toutes_coords):
     """Angle de redressement et transformation vers la boîte de la page.
 
+    `axe` donne l'inclinaison, `toutes_coords` donne l'étendue à faire tenir.
     L'angle n'est pas choisi : c'est celui de la droite qui joint les deux
-    extrémités du corridor, ramené à la verticale."""
+    extrémités de l'axe, ramené à la verticale."""
     lat0 = sum(y for _, y in toutes_coords) / len(toutes_coords)
-    pts = [projeter(x, y, lat0) for x, y in toutes_coords]
+    pts = [projeter(x, y, lat0) for x, y in axe]
     (xa, ya), (xb, yb) = pts[0], pts[-1]
     # `+ pi/2` et non `- pi/2` : les deux redressent l'axe, mais celui-ci met le
     # PREMIER point du chaînage en haut de page. Le chaînage part de Québec, et
     # la couverture doit se lire dans l'ordre du titre, Québec puis Toronto.
     theta = math.atan2(yb - ya, xb - xa) + math.pi / 2
     c, s = math.cos(-theta), math.sin(-theta)
-    tourne = [(px * c - py * s, px * s + py * c) for px, py in pts]
+    tourne = [(px * c - py * s, px * s + py * c)
+              for px, py in (projeter(x, y, lat0) for x, y in toutes_coords)]
     xs, ys = [p[0] for p in tourne], [p[1] for p in tourne]
     x0, y0, x1, y1 = BOITE
     k = min((x1 - x0) / (max(xs) - min(xs)), (y1 - y0) / (max(ys) - min(ys)))
@@ -173,15 +181,21 @@ def chemin(pts, vers_page) -> str:
 
 def main() -> None:
     seg, lignes = charger()
-    ordre = [("MTL-QC", True), ("MTL-Ott", False), ("Ott-TO", False)]
-    # Enchaînement Québec -> Montréal -> Ottawa -> Toronto : MTL-QC est stocké
+    # Ordre de TRACÉ : la branche par Ottawa d'abord, la liaison directe ensuite,
+    # pour que les rails communs aux deux portent les valeurs du trajet de tête.
+    ordre = [("MTL-QC", True), ("MTL-Ott", False), ("Ott-TO", False),
+             ("MTL-TO", False)]
+    # L'angle de redressement, lui, se calcule sur le seul enchaînement
+    # Québec -> Montréal -> Toronto en direct : c'est l'axe du corridor. Le
+    # calculer sur les quatre tronçons ferait dépendre l'inclinaison de la page
+    # du détour par Ottawa, qui est une branche et non l'axe. MTL-QC est stocké
     # de Montréal vers Québec, on le retourne pour que le corridor se lise d'un
-    # bout à l'autre (l'ordre décide de l'angle de redressement).
-    enchaine = []
-    for t, inverse in ordre:
-        c = lignes[t]
-        enchaine += list(reversed(c)) if inverse else c
-    vers_page = cadre(enchaine)
+    # bout à l'autre.
+    axe = list(reversed(lignes["MTL-QC"])) + lignes["MTL-TO"]
+    # Le cadrage, lui, doit voir TOUS les points, branche comprise, sans quoi
+    # la boucle d'Ottawa sortirait de la boîte.
+    tous = axe + lignes["MTL-Ott"] + lignes["Ott-TO"]
+    vers_page = cadre(axe, tous)
 
     corps, halos = [], []
     for t, inverse in ordre:
