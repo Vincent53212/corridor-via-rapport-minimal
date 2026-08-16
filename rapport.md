@@ -431,13 +431,12 @@ plus étroit (l'écart est expliqué dans les annexes numériques).
 
 | Bande du segment porteur | Passages (corridor dédoublonné) |
 |---|---|
-| ≤ 153 km/h (95 mi/h) | 20 |
+| ≤ 153 km/h (95 mi/h) | 23 |
 | 154-177 km/h (96-110 mi/h) | 13 |
-| 178-201 km/h (111-125 mi/h) | 137 |
-| > 201 km/h (> 125 mi/h) | 754 |
+| 178-201 km/h (111-125 mi/h) | 135 |
+| > 201 km/h (> 125 mi/h) | 753 |
 
-La lecture : si l'on veut exploiter la géométrie que le pendulaire libère, 754 passages
-tombent dans la bande « zéro passage » du précédent américain. C'est le vrai mur
+La lecture : si l'on veut exploiter la géométrie que le pendulaire libère, 753 passages tombent dans la bande « zéro passage » du précédent américain. C'est le vrai mur
 au-dessus de 200 km/h, très loin devant la signalisation.
 
 **Le tri**, sur données ouvertes (le lecteur applique ses coûts unitaires) : 569 passages

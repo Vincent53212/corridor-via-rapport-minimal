@@ -1,0 +1,551 @@
+<!DOCTYPE html>
+<html lang="fr-CA">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Le fil du rapport — Corridor Québec-Toronto</title>
+<!--
+  Gabarit du visualiseur. Assemblé par scripts/19_build_viewer.py, qui remplace
+  __PAYLOAD__ (les tables du pipeline en JSON), __NAV__ (la vignette du corridor
+  en SVG) et les deux blocs d'identité.
+
+  Trois contraintes de fond, héritées et maintenues :
+   - UN SEUL FICHIER, ouvrable par double-clic, sans serveur ni CDN. Les données,
+     les polices et la carte sont incorporées.
+   - ÉTAGE DE PIPELINE : relancer l'étape 19 ré-incorpore les données courantes.
+     Rien n'est saisi à la main ici, pas même les chiffres des vérifications :
+     ils sont lus dans rapport.md par le script de construction.
+   - Les 3 800 lignes restent en JSON et sont rendues par le navigateur à la
+     demande. Les pré-rendre en HTML ferait un fichier de plusieurs mégaoctets
+     que le navigateur peine à ouvrir.
+-->
+<style>
+/*__FONTS__*/
+</style>
+<style>
+:root{
+/*__VARS__*/
+  --ombre:0 1px 3px rgba(26,31,46,.07);
+}
+*{ box-sizing:border-box; margin:0; }
+html{ background:var(--papier); }
+body{
+  background:var(--papier); color:var(--encre);
+  font:400 15px/1.6 var(--font-titre);
+  -webkit-font-smoothing:antialiased;
+}
+.page{ max-width:1180px; margin:0 auto; padding:0 26px 60px; }
+
+/* ------------------------------------------------------------ en-tête */
+.bandeau{ background:var(--encre); color:var(--papier); padding:26px 0 22px; margin-bottom:26px; }
+.bandeau .page{ padding-bottom:0; }
+.bandeau .sur{
+  font:500 10px var(--font-courant); letter-spacing:0.26em; text-transform:uppercase;
+  color:var(--accent-clair); margin-bottom:10px;
+}
+.bandeau h1{ font:700 30px/1.1 var(--font-titre); letter-spacing:-0.012em; }
+.bandeau .sous{
+  font:400 14.5px/1.55 var(--font-titre); font-style:italic;
+  color:#CFC8B8; max-width:46em; margin-top:9px;
+}
+.bandeau .quand{ font:400 10.5px var(--font-courant); color:#8D8677; margin-top:14px; }
+
+/* ------------------------------------------------------------ modes */
+.modes{ display:flex; gap:8px; margin:0 0 22px; flex-wrap:wrap; }
+.modes button{
+  font:600 11px var(--font-courant); letter-spacing:0.1em; text-transform:uppercase;
+  padding:8px 15px; border:1px solid var(--filet-fort); background:var(--bloc);
+  color:var(--encre-douce); cursor:pointer;
+}
+.modes button.on{ background:var(--accent); border-color:var(--accent); color:var(--papier); }
+
+/* ------------------------------------------------------------ carte */
+.carte{
+  background:var(--bloc); border:1px solid var(--filet-fort);
+  padding:14px 16px 10px; margin-bottom:24px;
+}
+.carte svg{ display:block; width:100%; height:auto; }
+.carte .prise{ cursor:pointer; }
+.carte .prise:hover{ stroke:rgba(31,92,122,.16); }
+.carte .titre{
+  font:600 10px var(--font-courant); letter-spacing:0.16em; text-transform:uppercase;
+  color:var(--accent); margin-bottom:2px;
+}
+.carte .aide{ font:400 11px var(--font-courant); color:var(--encre-pale); margin-bottom:8px; }
+.reglette{ display:flex; align-items:center; gap:0; margin-top:4px; }
+.reglette i{ height:7px; flex:1; display:block; }
+/* Les repères marquent les JOINTS entre bandes, pas les bandes : « 200 » doit
+   tomber là où l'ocre cède à l'acier, sinon la réglette ment sur son seuil. */
+.reglette-l{ position:relative; height:15px; margin-top:3px; }
+.reglette-l span{
+  position:absolute; transform:translateX(-50%); font:400 9.5px var(--font-courant);
+  color:var(--encre-pale);
+}
+.reglette-l span.seuil{ color:var(--signal); font-weight:500; }
+
+/* ------------------------------------------------------------ sections */
+.sec{
+  border:1px solid var(--filet-fort); background:var(--bloc);
+  border-left:4px solid var(--accent); padding:17px 20px 15px; margin-bottom:14px;
+}
+.sec .k{
+  font:600 10px var(--font-courant); letter-spacing:0.17em; text-transform:uppercase;
+  color:var(--accent);
+}
+.sec h2{ font:600 19px/1.2 var(--font-titre); margin:3px 0 8px; }
+.sec .dit{ font-size:14.5px; max-width:56em; }
+.sec .dit b{ font-weight:600; }
+
+.chiffres{ display:flex; flex-wrap:wrap; gap:26px; margin:14px 0 4px; }
+.chiffre .v{ font:700 25px/1 var(--font-titre); font-variant-numeric:lining-nums; }
+.chiffre .l{
+  font:400 10px/1.4 var(--font-courant); letter-spacing:0.06em; text-transform:uppercase;
+  color:var(--encre-pale); margin-top:5px; max-width:15em;
+}
+
+/* --------------------------------------------------- vérification */
+.verif{ border-top:1px solid var(--filet); margin-top:14px; padding-top:12px; }
+.verif .q{ font:400 13.5px/1.55 var(--font-titre); margin-bottom:9px; }
+.verif .q b{ font-weight:600; }
+.verif button{
+  font:600 10.5px var(--font-courant); letter-spacing:0.09em; text-transform:uppercase;
+  padding:7px 13px; border:1px solid var(--accent); background:transparent;
+  color:var(--accent); cursor:pointer;
+}
+.verif button:hover{ background:var(--accent); color:var(--papier); }
+.verif .res{ margin-top:11px; display:none; }
+.verif .res.on{ display:block; }
+table.res-t{ border-collapse:collapse; font-size:12.5px; }
+table.res-t th{
+  font:500 9.5px var(--font-courant); letter-spacing:0.09em; text-transform:uppercase;
+  color:var(--encre-pale); text-align:right; padding:4px 14px 4px 0;
+  border-bottom:1px solid var(--encre);
+}
+table.res-t th:first-child{ text-align:left; }
+table.res-t td{
+  padding:5px 14px 5px 0; border-bottom:1px solid var(--filet);
+  font-family:var(--font-courant); font-variant-numeric:lining-nums tabular-nums;
+  text-align:right; white-space:nowrap;
+}
+table.res-t td:first-child{ text-align:left; font-family:var(--font-titre); }
+.ok{ color:var(--accent); font-weight:600; }
+.ko{ color:var(--signal); font-weight:600; }
+.verif .note{ font:400 10.5px/1.5 var(--font-courant); color:var(--encre-pale); margin-top:8px; }
+
+/* ------------------------------------------------------------ pièces */
+.pieces{ margin-top:13px; display:flex; flex-wrap:wrap; gap:7px; align-items:baseline; }
+.pieces .et{
+  font:600 9.5px var(--font-courant); letter-spacing:0.14em; text-transform:uppercase;
+  color:var(--encre-pale); margin-right:4px;
+}
+.pieces a{
+  font:400 11.5px var(--font-courant); color:var(--accent); cursor:pointer;
+  border-bottom:1px solid var(--filet-fort); text-decoration:none; padding-bottom:1px;
+}
+.pieces a:hover{ border-bottom-color:var(--accent); }
+.pieces a .n{ color:var(--encre-pale); }
+
+/* ------------------------------------------------------------ tables */
+.tbar{ display:flex; flex-wrap:wrap; gap:7px; align-items:center; margin-bottom:12px; }
+.tbar select, .tbar button{
+  font:400 12px var(--font-courant); padding:6px 10px;
+  border:1px solid var(--filet-fort); background:var(--bloc); color:var(--encre);
+}
+.tbar button{ cursor:pointer; }
+.tbar button.on{ background:var(--accent); border-color:var(--accent); color:var(--papier); }
+.tbar .compte{ margin-left:auto; font:400 11.5px var(--font-courant); color:var(--encre-pale); }
+.retour{
+  font:600 10.5px var(--font-courant); letter-spacing:0.1em; text-transform:uppercase;
+  color:var(--accent); cursor:pointer; border:0; background:none; padding:0 0 12px;
+}
+.tsub{ font:400 12.5px/1.55 var(--font-courant); color:var(--encre-douce);
+  margin:-4px 0 12px; max-width:60em; }
+.tw{ overflow:auto; max-height:70vh; border:1px solid var(--filet-fort); background:var(--bloc); }
+table.d{ border-collapse:separate; border-spacing:0; width:100%; font-size:12px; }
+table.d th, table.d td{
+  padding:5px 10px; border-bottom:1px solid var(--filet); white-space:nowrap;
+  text-align:right; font-family:var(--font-courant);
+  font-variant-numeric:lining-nums tabular-nums;
+}
+table.d th.txt, table.d td.txt{ text-align:left; font-family:var(--font-titre); font-size:12.5px; }
+table.d thead th{
+  position:sticky; top:0; z-index:2; cursor:pointer; background:var(--sable);
+  font:500 9.5px/1.3 var(--font-courant); letter-spacing:0.07em; text-transform:uppercase;
+  color:var(--encre-douce); border-bottom:1.5px solid var(--encre); vertical-align:bottom;
+  white-space:normal; min-width:72px; max-width:180px;
+}
+table.d thead th .u{ display:block; color:var(--encre-pale); font-size:9px; letter-spacing:0.04em; }
+table.d thead tr.f th{ top:44px; z-index:1; background:var(--papier); padding:3px 5px; }
+table.d thead tr.f input{
+  width:100%; min-width:56px; font:400 11px var(--font-courant);
+  border:1px solid var(--filet-fort); background:var(--bloc); padding:3px 5px; color:var(--encre);
+}
+table.d tbody tr:hover{ background:var(--sable); }
+.puce{
+  display:inline-block; padding:1px 7px 2px; border-radius:9px; color:var(--papier);
+  font-size:11px; font-weight:500; min-width:44px; text-align:center;
+}
+footer{ font:400 11px/1.7 var(--font-courant); color:var(--encre-pale);
+  border-top:1px solid var(--filet); margin-top:34px; padding-top:14px; }
+footer b{ color:var(--encre-douce); font-weight:500; }
+</style>
+</head>
+<body>
+<div class="bandeau"><div class="page">
+  <div class="sur">Vision Transport &nbsp;·&nbsp; Étude de corridor</div>
+  <h1>Le fil du rapport</h1>
+  <div class="sous">Chaque chiffre publié est ici avec la table qui le produit.
+    Les vérifications le recalculent sous vos yeux, à partir des mêmes données que
+    le rapport, pour que rien n'ait à être cru sur parole.</div>
+  <div class="quand" id="quand"></div>
+</div></div>
+
+<div class="page">
+  <div class="modes">
+    <button data-mode="fil" class="on">Le fil du rapport</button>
+    <button data-mode="tables">Toutes les tables</button>
+  </div>
+  <div id="vue-fil">
+    <div class="carte">
+      <div class="titre">Le corridor, coloré par la vitesse que la courbure autorise</div>
+      <div class="aide">Scénario recommandé. Cliquez un tronçon pour ouvrir ses segments.</div>
+      __NAV__
+      <div class="reglette" id="reglette"></div>
+      <div class="reglette-l" id="reglette-l"></div>
+    </div>
+    <div id="sections"></div>
+  </div>
+  <div id="vue-tables" hidden>
+    <button class="retour" id="retour">← Revenir au fil</button>
+    <div class="tbar">
+      <select id="choix"></select>
+      <span id="presets"></span>
+      <button id="cols">Toutes les colonnes</button>
+      <button id="raz">Effacer les filtres</button>
+      <span class="compte" id="compte"></span>
+    </div>
+    <div class="tsub" id="tsub"></div>
+    <div class="tw"><table class="d"><thead id="th"></thead><tbody id="tb"></tbody></table></div>
+  </div>
+  <footer id="pied"></footer>
+</div>
+
+<script id="donnees" type="application/json">__PAYLOAD__</script>
+<script>
+const D = JSON.parse(document.getElementById("donnees").textContent);
+const $ = (s) => document.querySelector(s);
+const el = (t, c, x) => { const e = document.createElement(t);
+  if (c) e.className = c; if (x !== undefined) e.textContent = x; return e; };
+const nb = (v, d = 0) => v == null || v === "" ? "" :
+  Number(v).toLocaleString("fr-CA", {minimumFractionDigits: d, maximumFractionDigits: d});
+
+/* --------------------------------------------------------------- réglette */
+(function reglette(){
+  const r = $("#reglette"), l = $("#reglette-l");
+  D.vitesse.forEach((p) => {
+    const i = el("i"); i.style.background = p.color; i.title = p.libelle; r.appendChild(i);
+  });
+  const n = D.vitesse.length;
+  ["100", "160", "200 km/h", "250", "300"].forEach((t, k) => {
+    // « 200 » porte le seuil de l'étude : il est marqué, et c'est le seul.
+    const s = el("span", k === 2 ? "seuil" : null, t);
+    s.style.left = ((k + 1) / n * 100) + "%";
+    l.appendChild(s);
+  });
+})();
+
+/* Couleur de la rampe pour une vitesse en km/h. Les bornes sont celles des
+   cibles publiées ; elles arrivent avec la palette, elles ne sont pas écrites ici. */
+function couleurVitesse(v){
+  const b = [100, 160, 200, 250, 300];
+  for (let i = 0; i < b.length; i++) if (v < b[i]) return D.vitesse[i].color;
+  return D.vitesse[5].color;
+}
+
+/* ------------------------------------------------------------- le fil */
+function rendreFil(){
+  const hote = $("#sections");
+  for (const s of D.sections){
+    const box = el("div", "sec");
+    box.appendChild(el("div", "k", s.cle));
+    box.appendChild(el("h2", null, s.titre));
+    const dit = el("div", "dit"); dit.innerHTML = s.dit; box.appendChild(dit);
+
+    if (s.chiffres && s.chiffres.length){
+      const c = el("div", "chiffres");
+      for (const ch of s.chiffres){
+        const d = el("div", "chiffre");
+        const v = el("div", "v", ch.v);
+        if (ch.couleur) v.style.color = ch.couleur;
+        d.appendChild(v); d.appendChild(el("div", "l", ch.l)); c.appendChild(d);
+      }
+      box.appendChild(c);
+    }
+
+    for (const v of (s.verifications || [])) box.appendChild(bloquerVerif(v));
+
+    if (s.pieces && s.pieces.length){
+      const p = el("div", "pieces");
+      p.appendChild(el("span", "et", "Les pièces"));
+      for (const f of s.pieces){
+        const ds = D.datasets.find((d) => d.file === f);
+        if (!ds) continue;
+        const a = el("a"); a.textContent = ds.label + " ";
+        a.appendChild(el("span", "n", "(" + nb(ds.rows.length) + ")"));
+        a.onclick = () => ouvrirTable(f);
+        p.appendChild(a);
+      }
+      box.appendChild(p);
+    }
+    hote.appendChild(box);
+  }
+}
+
+/* ------------------------------------------------- vérification exécutable */
+function bloquerVerif(v){
+  const box = el("div", "verif");
+  const q = el("div", "q"); q.innerHTML = v.enonce; box.appendChild(q);
+  const b = el("button", null, "Recalculer depuis les données");
+  const res = el("div", "res");
+  b.onclick = () => { if (!res.dataset.fait){ remplirVerif(res, v); res.dataset.fait = 1; }
+                      res.classList.toggle("on"); };
+  box.appendChild(b); box.appendChild(res);
+  return box;
+}
+
+/** Applique le filtre d'une vérification à sa table et agrège. Tout est déclaré
+ *  en données (table, colonnes, opérateurs) : aucun chiffre n'est écrit ici. */
+function calculer(v){
+  const ds = D.datasets.find((d) => d.file === v.table);
+  const ic = (n) => ds.columns.findIndex((c) => c.cle === n);
+  const lignes = ds.rows.filter((r) => v.filtre.every((f) => {
+    const x = r[ic(f.col)];
+    if (f.op === "==") return String(x) === String(f.val);
+    if (f.op === "dans") return f.val.map(String).includes(String(x));
+    if (f.op === "<") return Number(x) < f.val;
+    if (f.op === ">=") return Number(x) >= f.val;
+    return false;
+  }));
+  const gi = ic(v.grouper), si = ic(v.agreger);
+  const acc = new Map();
+  for (const r of lignes){
+    const g = String(r[gi]);
+    if (!acc.has(g)) acc.set(g, []);
+    acc.get(g).push(Number(r[si]));
+  }
+  const out = new Map();
+  for (const [g, xs] of acc){
+    if (v.mode === "somme") out.set(g, xs.reduce((a, b) => a + b, 0));
+    else if (v.mode === "compte") out.set(g, xs.length);
+    else { const t = xs.slice().sort((a, b) => a - b), m = t.length >> 1;
+           out.set(g, t.length % 2 ? t[m] : (t[m - 1] + t[m]) / 2); }
+  }
+  return {out, n: lignes.length};
+}
+
+function remplirVerif(hote, v){
+  const {out, n} = calculer(v);
+  const t = el("table", "res-t");
+  const tr = el("tr");
+  ["", "Publié", "Recalculé", ""].forEach((h) => tr.appendChild(el("th", null, h)));
+  t.appendChild(el("thead")).appendChild(tr);
+  const tb = el("tbody");
+  let tousOk = true;
+  for (const [cle, publie] of Object.entries(v.publie)){
+    const calc = out.get(cle);
+    const arrondi = calc == null ? null : Math.round(calc / (v.arrondi || 1)) * (v.arrondi || 1);
+    const ok = arrondi != null && Math.abs(arrondi - publie) <= (v.tolerance || 0);
+    tousOk = tousOk && ok;
+    const l = el("tr");
+    l.appendChild(el("td", null, v.libelles && v.libelles[cle] || cle));
+    l.appendChild(el("td", null, nb(publie, v.decimales || 0) + " " + v.unite));
+    l.appendChild(el("td", null, calc == null ? "—" : nb(calc, v.decimales || 0) + " " + v.unite));
+    l.appendChild(el("td", ok ? "ok" : "ko", ok ? "concorde" : "écart"));
+    tb.appendChild(l);
+  }
+  t.appendChild(tb);
+  hote.innerHTML = "";
+  hote.appendChild(t);
+  const note = el("div", "note");
+  note.textContent = `Calculé sur ${nb(n)} ligne(s) de « ${D.datasets.find((d) => d.file === v.table).label } ». `
+    + (tousOk ? "Le rapport et les données disent la même chose."
+              : "Écart : le rapport et les données ont divergé, il faut regarder.");
+  hote.appendChild(note);
+  const p = el("div", "pieces");
+  const a = el("a", null, "Ouvrir la table avec ce filtre");
+  a.onclick = () => ouvrirTable(v.table, v.filtre);
+  p.appendChild(a); hote.appendChild(p);
+}
+
+/* ------------------------------------------------------------- tables */
+let courant = null, tri = {c: -1, sens: 1}, filtres = [], tout = false;
+
+/** Indices des colonnes affichées : la vue restreinte par défaut, toutes sur
+ *  demande. Les FILTRES et le TRI portent sur les indices d'origine, jamais sur
+ *  la position à l'écran : basculer la vue ne doit rien perdre. */
+const vues = () => tout ? courant.columns.map((_, i) => i) : courant.essentiel;
+
+function ouvrirTable(file, filtre){
+  mode("tables");
+  $("#choix").value = file;
+  chargerTable(file);
+  if (filtre){
+    const ds = D.datasets.find((d) => d.file === file);
+    for (const f of filtre){
+      const i = ds.columns.findIndex((c) => c.cle === f.col);
+      if (i < 0) continue;
+      filtres[i] = f.op === "dans" ? "" : String(f.val);
+      const inp = document.querySelector(`#th input[data-i="${i}"]`);
+      if (inp) inp.value = filtres[i];
+    }
+    peindre();
+  }
+  window.scrollTo(0, 0);
+}
+
+function entetes(){
+  const th = $("#th"); th.innerHTML = "";
+  const tr = el("tr"), trf = el("tr", "f");
+  for (const i of vues()){
+    const c = courant.columns[i];
+    const h = el("th", c.num ? "" : "txt");
+    h.appendChild(document.createTextNode(c.nom));
+    if (c.unite) h.appendChild(el("span", "u", c.unite));
+    h.title = c.cle;   // le nom de colonne du pipeline reste accessible
+    h.onclick = () => { tri = {c: i, sens: tri.c === i ? -tri.sens : 1}; peindre(); };
+    tr.appendChild(h);
+    const hf = el("th", c.num ? "" : "txt");
+    const inp = el("input"); inp.placeholder = c.num ? "≥ min" : "contient";
+    inp.dataset.i = i; inp.value = filtres[i] || "";
+    inp.oninput = () => { filtres[i] = inp.value; peindre(); };
+    hf.appendChild(inp); trf.appendChild(hf);
+  }
+  th.appendChild(tr); th.appendChild(trf);
+}
+
+function chargerTable(file){
+  courant = D.datasets.find((d) => d.file === file);
+  tri = {c: -1, sens: 1};
+  tout = false;
+  $("#cols").classList.remove("on");
+  $("#cols").hidden = courant.essentiel.length === courant.columns.length;
+  filtres = courant.columns.map(() => "");
+  $("#tsub").textContent = courant.quoi || "";
+  entetes();
+
+  const ps = $("#presets"); ps.innerHTML = "";
+  (courant.presets || []).forEach((p) => {
+    const b = el("button", null, p.label);
+    b.onclick = () => {
+      const on = b.classList.toggle("on");
+      for (const c of p.conds){
+        const i = courant.columns.findIndex((x) => x.cle === c.col);
+        if (i < 0) continue;
+        filtres[i] = on ? String(c.val) : "";
+        const inp = document.querySelector(`#th input[data-i="${i}"]`);
+        if (inp) inp.value = filtres[i];
+      }
+      peindre();
+    };
+    ps.appendChild(b);
+  });
+  peindre();
+}
+
+function peindre(){
+  let rows = courant.rows;
+  courant.columns.forEach((c, i) => {
+    const f = (filtres[i] || "").trim();
+    if (!f) return;
+    if (c.num && !isNaN(parseFloat(f)))
+      rows = rows.filter((r) => r[i] != null && Number(r[i]) >= parseFloat(f));
+    else
+      rows = rows.filter((r) => String(r[i] ?? "").toLowerCase().includes(f.toLowerCase()));
+  });
+  if (tri.c >= 0){
+    const i = tri.c, n = courant.columns[i].num;
+    rows = rows.slice().sort((a, b) => {
+      const x = a[i], y = b[i];
+      if (x == null) return 1; if (y == null) return -1;
+      return (n ? x - y : String(x).localeCompare(String(y), "fr")) * tri.sens;
+    });
+  }
+  $("#compte").textContent = nb(rows.length) + " lignes sur " + nb(courant.rows.length);
+  const tb = $("#tb"); tb.innerHTML = "";
+  // Plafond de rendu : au-delà, le navigateur rame pour rien. Le compte au-dessus
+  // reste celui du filtre complet, donc le lecteur sait qu'il ne voit pas tout.
+  const MAX = 600;
+  const cols = vues();
+  for (const r of rows.slice(0, MAX)){
+    const tr = el("tr");
+    cols.forEach((i) => {
+      const c = courant.columns[i];
+      const td = el("td", c.num ? "" : "txt");
+      const v = r[i];
+      if (v != null && c.rampe === "vitesse"){
+        const p = el("span", "puce", nb(v));
+        p.style.background = couleurVitesse(Number(v));
+        td.appendChild(p);
+      } else if (v != null && c.rampe === "classe"){
+        const p = el("span", "puce", String(v));
+        p.style.background = D.classes[String(v)] || "var(--encre-pale)";
+        td.appendChild(p);
+      } else {
+        td.textContent = c.num && typeof v === "number" ? nb(v, c.decimales || 0) : (v ?? "");
+      }
+      tr.appendChild(td);
+    });
+    tb.appendChild(tr);
+  }
+  if (rows.length > MAX){
+    const tr = el("tr");
+    const td = el("td", "txt", `… ${nb(rows.length - MAX)} lignes de plus. Filtrez pour les voir.`);
+    td.colSpan = cols.length; td.style.color = "var(--encre-pale)";
+    tr.appendChild(td); tb.appendChild(tr);
+  }
+}
+
+/* --------------------------------------------------------------- modes */
+function mode(m){
+  document.querySelectorAll(".modes button").forEach((b) =>
+    b.classList.toggle("on", b.dataset.mode === m));
+  $("#vue-fil").hidden = m !== "fil";
+  $("#vue-tables").hidden = m !== "tables";
+}
+document.querySelectorAll(".modes button").forEach((b) =>
+  b.onclick = () => { mode(b.dataset.mode); if (b.dataset.mode === "tables" && !courant)
+                        chargerTable($("#choix").value); });
+$("#retour").onclick = () => mode("fil");
+$("#raz").onclick = () => {
+  filtres = courant.columns.map(() => "");
+  document.querySelectorAll("#th input").forEach((i) => i.value = "");
+  document.querySelectorAll("#presets button").forEach((b) => b.classList.remove("on"));
+  peindre();
+};
+$("#cols").onclick = () => {
+  tout = !tout;
+  $("#cols").classList.toggle("on", tout);
+  $("#cols").textContent = tout ? "L'essentiel" : "Toutes les colonnes";
+  entetes(); peindre();
+};
+
+/* --------------------------------------------------- amorçage */
+(function amorcer(){
+  const sel = $("#choix");
+  for (const d of D.datasets){
+    const o = el("option", null, `${d.label} (${nb(d.rows.length)})`);
+    o.value = d.file; sel.appendChild(o);
+  }
+  sel.onchange = () => chargerTable(sel.value);
+  $("#quand").textContent = "Données du pipeline, régénérées le " + D.meta.generated;
+  $("#pied").innerHTML = D.meta.pied;
+  rendreFil();
+  // La vignette du corridor pilote les tables : un tronçon cliqué ouvre ses segments.
+  document.querySelectorAll(".carte .prise").forEach((p) => {
+    p.onclick = () => ouvrirTable("segments_courbature.csv",
+      [{col: "tronçon", op: "==", val: p.dataset.troncon}]);
+  });
+})();
+</script>
+</body>
+</html>

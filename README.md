@@ -45,20 +45,25 @@ python scripts/12b_sections_vcom160_S3.py
 python scripts/14_synthese_voies.py         # doublement (voies simples/doubles)
 python scripts/15_carte_voies.py
 python scripts/18_export_xlsx.py
-python scripts/19_build_viewer.py           # visualiseur autonome
 python scripts/_baseline_zones.py           # garde-fou : doit afficher BASELINE: PASS
 
-# --- identité graphique et rendu du rapport ---
+# --- identité graphique, rapport et visualiseur ---
 python identite/fonts/_installer_polices.py # une fois : .ttf des figures
 python scripts/27_verif_identite.py         # garde-fou : doit afficher PASS
 python scripts/22_marges_2x2.py             # médianes du 2×2 (lues par la figure 23)
 python scripts/23_figure_cellules.py        # figure : le 2×2 du corridor
 python scripts/24_figure_vs_auto.py         # figure : le train contre l'auto
-python scripts/28_couverture.py             # couverture : le tracé coloré par la vitesse
+python scripts/28_couverture.py             # couverture + vignette du visualiseur
 python scripts/29_rapport_html.py           # rapport.md → HTML à l'identité
 node   scripts/30_rapport_pdf.mjs           # HTML → PDF paginé (sommaire à folios réels)
 python scripts/25_build_rapport.py          # version Word, pour annotation client
+python scripts/19_build_viewer.py           # visualiseur autonome (APRÈS 28 et le rapport)
 ```
+
+L'ordre des trois dernières lignes compte : l'étape 19 incorpore la vignette
+produite par 28, et elle RELÈVE dans `rapport.md` les chiffres que ses
+vérifications comparent. Lancée avant une correction du rapport, elle publierait
+la comparaison d'hier.
 
 Sous Windows, préfixer `PYTHONUTF8=1` (sorties console UTF-8).
 

@@ -179,6 +179,90 @@ def chemin(pts, vers_page) -> str:
     return " ".join(d)
 
 
+def decimer(pts, pas_km=0.25):
+    """Allège une polyligne en gardant un point tous les `pas_km`.
+
+    La couverture s'imprime à 300 ppp et mérite ses 5 800 points par tronçon ;
+    le visualiseur est une vignette de navigation de 1 000 px de large, où un
+    point tous les 250 m est déjà sous le pixel. Sans cet allègement le SVG de
+    navigation pèserait 500 Ko dans un fichier qui doit rester ouvrable par
+    double-clic."""
+    if len(pts) < 3:
+        return pts
+    garde, ref = [pts[0]], pts[0]
+    for p in pts[1:-1]:
+        dx = (p[0] - ref[0]) * 111.32 * math.cos(math.radians(p[1]))
+        dy = (p[1] - ref[1]) * 110.57
+        if math.hypot(dx, dy) >= pas_km:
+            garde.append(p)
+            ref = p
+    garde.append(pts[-1])
+    return garde
+
+
+def carte_navigation(seg, lignes, ordre) -> None:
+    """Vignette du corridor pour le visualiseur : même géométrie et mêmes
+    couleurs que la couverture, mais en orientation géographique naturelle et
+    sur fond de papier. Chaque tronçon porte en plus un tracé de PRÉHENSION
+    transparent et large, que le visualiseur rend cliquable ; c'est ce qui
+    permet de filtrer les tables en désignant un morceau de corridor plutôt
+    qu'en cherchant son nom dans une liste."""
+    # La hauteur se DÉDUIT de l'emprise plutôt que d'être fixée : le corridor est
+    # une diagonale, et une boîte au mauvais rapport lui laisse une bande vide
+    # sur toute une largeur. Marge droite plus généreuse : les noms de ville se
+    # posent à droite de leur pastille et « Montréal » déborderait.
+    L2 = 1000.0
+    marge, marge_d = 40.0, 130.0
+    toutes = [p for t, _ in ordre for p in lignes[t]]
+    lat0 = sum(y for _, y in toutes) / len(toutes)
+    xs = [x * math.cos(math.radians(lat0)) for x, _ in toutes]
+    ys = [y for _, y in toutes]
+    k = (L2 - marge - marge_d) / (max(xs) - min(xs))
+    H2 = (max(ys) - min(ys)) * k + 2 * marge
+
+    def vers(lon, lat):
+        return (marge + (lon * math.cos(math.radians(lat0)) - min(xs)) * k,
+                H2 - marge - (lat - min(ys)) * k)
+
+    corps, prises = [], []
+    for t, inverse in ordre:
+        coords = list(reversed(lignes[t])) if inverse else lignes[t]
+        s_km = abscisse_km(coords)
+        st = seg[seg["tronçon"] == t]
+        if inverse:
+            km_max = st["km_fin"].max()
+            st = st.assign(**{"km_début": km_max - st["km_fin"],
+                              "km_fin": km_max - st["km_début"]})
+        prises.append(
+            f'<path class="prise" data-troncon="{t}" '
+            f'd="{chemin(decimer(coords, 1.0), vers)}" fill="none" '
+            f'stroke="transparent" stroke-width="15"/>')
+        for pts, coul in sous_traits(coords, s_km, st):
+            corps.append(f'<path d="{chemin(decimer(pts), vers)}" fill="none" '
+                         f'stroke="{coul}" stroke-width="3.4" '
+                         f'stroke-linecap="round" stroke-linejoin="round"/>')
+
+    villes = []
+    for nom, (lon, lat) in VILLES.items():
+        x, y = vers(lon, lat)
+        pole = nom != "Kingston"
+        villes.append(
+            f'<circle cx="{x:.1f}" cy="{y:.1f}" r="{4.6 if pole else 3.0}" '
+            f'fill="{PAPIER["encre"]}" stroke="{PAPIER["fond"]}" stroke-width="1.6"/>')
+        villes.append(
+            f'<text x="{x + 9:.1f}" y="{y + 3.6:.1f}" font-size="{11 if pole else 9.5}" '
+            f'font-weight="{600 if pole else 400}" letter-spacing="0.5" '
+            f'fill="{PAPIER["encre"] if pole else PAPIER["encre_pale"]}">{nom}</text>')
+
+    svg = (f'<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 {L2:.0f} {H2:.0f}" '
+           f'class="carte-nav" font-family="PlexMono, monospace">\n'
+           + "\n".join(corps) + "\n" + "\n".join(villes) + "\n"
+           + "\n".join(prises) + "\n</svg>\n")
+    (IDENTITE_DIR / "corridor_nav.svg").write_text(svg, encoding="utf-8")
+    print(f"Écrit corridor_nav.svg ({len(corps)} sous-traits, "
+          f"{len(svg) / 1024:.0f} Ko)")
+
+
 def main() -> None:
     seg, lignes = charger()
     # Ordre de TRACÉ : la branche par Ottawa d'abord, la liaison directe ensuite,
@@ -266,6 +350,8 @@ def main() -> None:
     SORTIE.write_text(svg, encoding="utf-8")
     print(f"Écrit {SORTIE.name} ({len(corps)} sous-traits colorés, "
           f"{len(svg) / 1024:.0f} Ko)")
+
+    carte_navigation(seg, lignes, ordre)
 
 
 if __name__ == "__main__":
