@@ -11,15 +11,18 @@ ses livrables restent l'archive ; tout ce qui vit ici utilise la nomenclature ci
 
 ## Nomenclature des scénarios (2026-08)
 
-| ID | Description | Dévers | Insuffisance | k (v=k·√R) |
+| ID interne | Nom publié | Dévers | Insuffisance | k (v=k·√R) |
 |----|-------------|--------|--------------|------------|
-| S1 | Voie actuelle (VIA / Transports Canada) | 100 mm (supposé) | 76 mm | 3,83 |
-| S2 | Pendulaire LRC, dévers max standard CN (5 po) | 127 mm | 152 mm | 4,82 |
-| S3 | Pendulaire moderne (insuffisance 270 mm) | 127 mm | 270 mm | 5,75 |
+| S1 | Scénario de base (voie et train actuels) | 100 mm (supposé) | 76 mm | 3,83 |
+| S2 | Scénario recommandé (pendulaire LRC, plafond 177 km/h) | 127 mm | 152 mm | 4,82 |
+| S3 | (interne seulement, retiré du rapport 2026-08-17) | 127 mm | 270 mm | 5,75 |
 
-S1 et S2 sont 100 % précédent CN (MR 1305-0). S3 sort du précédent nord-américain
-(référence de conception EN 13803, approbation par équipement requise, RRTS Subpart C 4.3) ;
-une sensibilité Ed=225 mm est disponible comme position de repli.
+Le RAPPORT ne publie que deux scénarios, nommés par leur fonction : « scénario de
+base » (l'horaire d'aujourd'hui ; le moteur S1 plafonné à 160 sert de contrôle
+interne) et « scénario recommandé » (pendulaire LRC, 100 % précédent CN MR 1305-0,
+plafonné à 177 km/h = 110 mi/h, la limite du contrôle en cabine incrémental type
+ITCS). S3 (270 mm, hors précédent NA) reste calculé dans le pipeline et les annexes
+numériques, mais n'apparaît plus dans le rapport ni ses figures.
 
 ⚠ L'ancien pipeline numérotait autrement (son S2 = LRC sur dévers actuel 100 mm, abandonné ;
 son S3 = le S2 d'ici). Ne jamais mélanger les deux nomenclatures.
@@ -39,9 +42,8 @@ son S3 = le S2 d'ici). Ne jamais mélanger les deux nomenclatures.
 python scripts/05_segment_and_classify.py   # segmentation + classes par scénario
 python scripts/06_synthese_troncon.py       # synthèse par tronçon
 python scripts/07_render_outputs.py         # carte, KMZ, CSV
-python scripts/11_target_speed_to_km.py     # vitesse cible → km à rectifier
-python scripts/12_sections_a_rectifier_pdf.py
-python scripts/12b_sections_vcom160_S3.py
+python scripts/11_target_speed_to_km.py     # vitesse cible → km restants sous grande vitesse
+python scripts/12_sections_a_rectifier_pdf.py  # sections restantes < 177, scénario recommandé
 python scripts/14_synthese_voies.py         # doublement (voies simples/doubles)
 python scripts/15_carte_voies.py
 python scripts/18_export_xlsx.py
@@ -50,9 +52,15 @@ python scripts/_baseline_zones.py           # garde-fou : doit afficher BASELINE
 # --- identité graphique, rapport et visualiseur ---
 python identite/fonts/_installer_polices.py # une fois : .ttf des figures
 python scripts/27_verif_identite.py         # garde-fou : doit afficher PASS
+python scripts/20_passages_niveau.py        # passages à niveau (bandes d'exploitation)
+python scripts/21_tbase_bande.py            # moteur T_base (bandes 160/177/200/250/300)
+python scripts/33_courbes_doublees.py       # sensibilité : courbes des sections à doubler
+SEGMENTS_OVERRIDE=intermediaires/segments_rectifies.geojson python scripts/21_tbase_bande.py
+BLOCS_URBAINS=libres python scripts/21_tbase_bande.py   # sensibilité : blocs réintégrés
 python scripts/22_marges_2x2.py             # médianes du 2×2 (lues par la figure 23)
 python scripts/23_figure_cellules.py        # figure : le 2×2 du corridor
-python scripts/24_figure_vs_auto.py         # figure : le train contre l'auto
+python scripts/24_figure_vs_auto.py         # figure : le train contre l'auto (4 trajets)
+python scripts/32_figure_gains.py           # figure : d'où viennent les minutes
 python scripts/28_couverture.py             # couverture + vignette du visualiseur
 python scripts/29_rapport_html.py           # rapport.md → HTML à l'identité
 node   scripts/30_rapport_pdf.mjs           # HTML → PDF paginé (sommaire à folios réels)
@@ -78,7 +86,8 @@ entièrement appliquée après pandoc.
 Deux règles de lecture que le document tient partout : Fraunces porte le propos,
 IBM Plex Mono porte la mesure ; l'acier dit le réseau, le chaud dit la
 contrainte. La rampe des bandes de vitesse est divergente et s'articule sur
-200 km/h, le seuil de l'étude.
+200 km/h (la grille physique des classes A-F) ; le plafond d'exploitation retenu
+par l'étude est 177 km/h (limite ITCS), marqué d'un repère sur la couverture.
 
 ## Garde-fous
 

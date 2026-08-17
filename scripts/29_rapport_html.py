@@ -31,7 +31,7 @@ SORTIE = DELIVERABLES / "rapport_corridor.html"
 # script s'arrête plutôt que de publier une page dépareillée.
 SURTITRES = {
     "Synthèse": "Ce qu'il faut retenir",
-    "Méthode et périmètre": "Comment c'est mesuré",
+    "Méthode et périmètre": "Comment nous mesurons",
     "Le train pendulaire et le dévers": "Matériel et voie",
     "Doublement des voies et régime de cohabitation": "Capacité",
     "Passages à niveau": "Obstacles au sol",
@@ -52,10 +52,9 @@ UNITES = {"km", "m", "mm", "mi", "h", "min", "s", "po", "pi", "kmh", "mph",
 AVIS_SOMMAIRE = (
     "Les vitesses sont en km/h, suivies au besoin de l'équivalent en mi/h. "
     "Les temps de parcours sont donnés en fourchette, bornes comprises : "
-    "la borne basse applique la marge normative de 9 pour cent, la borne haute "
-    "reconduit la marge mesurée aujourd'hui sur le tronçon. Aucun chiffre de ce "
-    "rapport n'est saisi à la main : tous sortent du pipeline de mesure décrit "
-    "en section 2."
+    "la borne basse applique la marge normative de 8 pour cent au plafond "
+    "retenu, la borne haute reconduit la marge mesurée aujourd'hui sur le "
+    "tronçon."
 )
 
 

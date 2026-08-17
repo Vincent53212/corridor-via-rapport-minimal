@@ -1040,5 +1040,7 @@
 <text x="260.7" y="125.0" text-anchor="middle" font-family="PlexMono, monospace" font-size="8.5" fill="#8D8677">250</text>
 <text x="305.3" y="125.0" text-anchor="middle" font-family="PlexMono, monospace" font-size="8.5" fill="#8D8677">300</text>
 <text x="82.0" y="96.0" font-family="PlexMono, monospace" font-size="8.5" letter-spacing="1.6" fill="#6FA8C4">VITESSE QUE LA COURBURE AUTORISE, SCÉNARIO RECOMMANDÉ (km/h)</text>
+<line x1="190.3" y1="100.5" x2="190.3" y2="114.5" stroke="#F5F1E8" stroke-width="1.4"/>
+<text x="190.3" y="135.0" text-anchor="middle" font-family="PlexMono, monospace" font-size="8.5" fill="#6FA8C4">177 · plafond retenu</text>
 <text x="364.0" y="112.0" font-family="PlexMono, monospace" font-size="8.5" fill="#8D8677">et plus</text>
 </svg>
