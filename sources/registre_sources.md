@@ -189,3 +189,22 @@ Note d'usage : dans les brouillons, une affirmation non encore vérifiée est é
 - À TROUVER (facultatif) : décision ORR mars 2024 approuvant Grand Union Trains
   (Euston-Stirling) = l'arbitre qui ACCORDE ; Network Rail « WCML South Congested
   Infrastructure Report » (nov. 2020).
+
+## Ajouts 2026-08-17 (capacité de la superposition + doublement par évitements)
+
+- `dick2019blocs` (VÉRIFIÉE, revue à comité) : TRR 2673(5) : PTC en superposition (« safety
+  overlay ») distingué du PTC avancé ; capacité simulée 45/50/52 trains-jour (3 aspects /
+  4 aspects / blocs mobiles), l'essentiel du gain vient des cantons plus courts ; au bloc
+  mobile, 13 % de deuxième voie évitée à 48 trains-jour.
+- `fra2004ptc` (VÉRIFIÉE, rapport au Congrès) : la FRA juge non démontrés les gains de
+  capacité du PTC en superposition ; « a railroad could increase capacity substantially by
+  installing a series of long sidings, at cost much less than that of double tracking ».
+- `sogin2013doublement` (VÉRIFIÉE, IAROR 2013, RailTEC/UIUC) : doublement progressif simulé
+  en RELIANT des paires d'évitements existants ; retard décroissant linéairement à chaque
+  tronçon ajouté (8-64 trains/j) ; la base à voie unique était déjà « doublée » à 19 % par
+  ses évitements.
+- `mdot2014tier1` (VÉRIFIÉE, EIS fédérale) : corridor Chicago-Detroit, segment
+  Porter-Kalamazoo à 110 mi/h : « Connecting the passing sidings would essentially
+  double-track the railroad in this 16-mile section », méthode retenue.
+- `fra2024itcs` (déjà au registre) : enrichie : ITCS = « a vital overlay to an existing CTC
+  system », paliers 79 (2000) → 90 (2002) → 95 (2005) → 110 mi/h (février 2012).
