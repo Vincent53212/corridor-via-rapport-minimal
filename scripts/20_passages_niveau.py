@@ -5,7 +5,8 @@
 Escalier réglementaire (bandes de vitesse GÉOMÉTRIQUE du segment porteur) :
   ≤153 km/h   : régime actuel (précédent domestique : plafond du Turbo — seuil,
                 jamais un temps de parcours)
-  154-177     : corridor scellé (traiter ou fermer chaque passage)
+  154-177     : corridor scellé (traiter chaque passage : barrières
+                quatre-quadrants, terre-pleins, détection)
   178-201     : classe 7 FRA — système barrière/avertissement complet approuvé
                 et fonctionnel (49 CFR 213.347(b), SOURCE ecfr213-347)
   >201        : zéro passage à niveau (49 CFR 213.347(a), classes 8-9)
@@ -14,13 +15,20 @@ Compte : N passages par bande × scénario × tronçon, plus un total corridor
 DÉDOUBLONNÉ (un même passage physique — même TC Number — rattaché à deux
 trajets, p.ex. le tronc commun Montréal↔Dorval de MTL-Ott et MTL-TO, ne compte
 qu'une fois ; il est classé selon le trajet le plus rapide qui l'emprunte).
+RÈGLE UNIQUE de dédoublonnage : la vmax MAXIMALE des trajets qui empruntent le
+passage, appliquée aux DEUX sorties (par_bande et tri) — un assert le garantit.
 
-Tri en trois classes d'intervention (règles sur données ouvertes, documentées) :
-  fermeture      : Access = Private (HYPOTHÈSE : l'alternative routière < 2 km
-                   n'est pas vérifiée ici — réseau routier hors périmètre)
-  standard       : Public, autorité routière municipale, ≤ 2 voies, non urbain
-  complexe       : Public urbain (IsUrban=Y) OU ≥ 3 voies OU autorité
+Bandes d'EXPLOITATION du rapport (en plus des bandes géométriques) :
+  bande_base        : min(vmax_S1, 160) — le régime d'aujourd'hui
+  bande_recommandee : min(vmax_S2, 177) — le scénario recommandé, plafonné à
+                      la limite du contrôle en cabine incrémental (ITCS, 110 mi/h)
+
+Tri en DEUX classes d'intervention (règles sur données ouvertes, documentées) :
+  standard       : municipal ou privé, ≤ 2 voies, non urbain
+  complexe       : urbain (IsUrban=Y) OU ≥ 3 voies OU autorité
                    provinciale/fédérale (MTQ, MTO, etc.)
+La colonne `acces` (Public/Private) reste publiée : le lecteur peut refaire son
+propre tri. Aucune fermeture n'est proposée par l'étude.
 
 Ancrage opposable : 304 passages à prédicteurs (requête VIA, Cour fédérale,
 12 nov. 2024, SOURCE via2024requete). L'inventaire TC ne code pas « prédicteur » :
@@ -116,14 +124,12 @@ def join(gdf: gpd.GeoDataFrame, segs: gpd.GeoDataFrame, buffer_m: float) -> pd.D
 
 
 def classify_intervention(r: pd.Series) -> str:
-    if str(r["Access"]).strip().lower() == "private":
-        return "fermeture (HYPOTHÈSE : alternative routière non vérifiée)"
     ra = str(r["Road Authority"])
     lanes = pd.to_numeric(r.get("Lanes"), errors="coerce")
     urban = str(r.get("IsUrban", "")).strip().upper() == "Y"
     if urban or (pd.notna(lanes) and lanes >= 3) or any(h in ra for h in PROVINCIAL_HINTS):
         return "complexe (urbain / multi-voies / autorité provinciale)"
-    return "standard (municipal, ≤2 voies, non urbain)"
+    return "standard (municipal ou privé, ≤2 voies, non urbain)"
 
 
 def main() -> None:
@@ -149,29 +155,54 @@ def main() -> None:
     for s, n in subdivs.items():
         print(f"   {s:<28} {n}")
 
-    # bandes par scénario
+    # RÈGLE UNIQUE de dédoublonnage : chaque TC Number est classé selon la vmax
+    # MAXIMALE des trajets qui l'empruntent (la bande la plus exigeante qu'il
+    # devra suivre). Cette vmax corridor est reportée sur TOUTES les sorties.
     for sid in ("S1", "S2", "S3"):
+        vmax_corridor = matched.groupby("TC Number")[f"vmax_{sid}_kmh"].transform("max")
+        matched[f"vmax_{sid}_kmh"] = vmax_corridor
         matched[f"bande_{sid}"] = matched[f"vmax_{sid}_kmh"].map(bande_of)
+    # Bandes d'EXPLOITATION du rapport : base = aujourd'hui (S1 capé 160) ;
+    # recommandé = pendulaire LRC plafonné 177 (limite ITCS).
+    matched["vmax_base_kmh"] = matched["vmax_S1_kmh"].clip(upper=160.0)
+    matched["bande_base"] = matched["vmax_base_kmh"].map(bande_of)
+    matched["vmax_recommande_kmh"] = matched["vmax_S2_kmh"].clip(upper=177.0)
+    matched["bande_recommandee"] = matched["vmax_recommande_kmh"].map(bande_of)
+    matched["flbg_present"] = matched["Protection"].str.contains("FLBG", na=False)
     matched["intervention"] = matched.apply(classify_intervention, axis=1)
 
     # ---- comptes par bande × scénario × tronçon + total corridor dédoublonné
     rows = []
-    for sid in ("S1", "S2", "S3"):
+    scen_cols = [("S1", "bande_S1"), ("S2", "bande_S2"), ("S3", "bande_S3"),
+                 ("base_cap160", "bande_base"), ("recommande_cap177", "bande_recommandee")]
+    dedup_first = matched.sort_values("dist_m").drop_duplicates(subset=["TC Number"])
+    for sid, col in scen_cols:
         for t in TRONCONS:
             sub = matched[matched.troncon == t]
             for name, *_ in BANDES:
                 rows.append({"scenario": sid, "troncon": t, "bande_kmh": name,
-                             "n_passages": int((sub[f"bande_{sid}"] == name).sum())})
-        # corridor dédoublonné : classer chaque TC Number selon la vmax MAX des
-        # trajets qui l'empruntent (bande la plus exigeante qu'il devra suivre)
-        dedup = (matched.groupby("TC Number")[f"vmax_{sid}_kmh"].max().map(bande_of))
+                             "n_passages": int((sub[col] == name).sum())})
         for name, *_ in BANDES:
             rows.append({"scenario": sid, "troncon": "CORRIDOR (dédoublonné)",
-                         "bande_kmh": name, "n_passages": int((dedup == name).sum())})
+                         "bande_kmh": name,
+                         "n_passages": int((dedup_first[col] == name).sum())})
     pd.DataFrame(rows).to_csv(OUT_BANDE, sep=";", index=False, encoding="utf-8-sig")
 
     # ---- tri par passage (dédoublonné, une ligne par passage physique)
     first = matched.sort_values("dist_m").drop_duplicates(subset=["TC Number"]).copy()
+
+    # Garde-fou : les deux sorties partagent le même dédoublonnage par
+    # construction (vmax corridor reportée avant tout drop_duplicates) — on le
+    # vérifie quand même, pour que l'écart 753/754 ne puisse jamais renaître.
+    bande_df = pd.DataFrame(rows)
+    for sid, col in scen_cols:
+        pub = bande_df[(bande_df.scenario == sid)
+                       & (bande_df.troncon == "CORRIDOR (dédoublonné)")]
+        for _, r in pub.iterrows():
+            n_tri = int((first[col] == r["bande_kmh"]).sum())
+            assert n_tri == r["n_passages"], (
+                f"Incohérence tri/par_bande : {sid} {r['bande_kmh']} "
+                f"{n_tri} vs {r['n_passages']}")
     tri_cols = {
         "TC Number": "tc_number", "troncon": "troncon_principal",
         "km_debut": "km_segment", "Subdivision": "subdivision", "Mile": "mille",
@@ -181,7 +212,11 @@ def main() -> None:
         "Lanes": "voies_route", "IsUrban": "urbain",
         "vmax_S1_kmh": "vmax_S1_kmh", "vmax_S2_kmh": "vmax_S2_kmh",
         "vmax_S3_kmh": "vmax_S3_kmh", "bande_S1": "bande_S1", "bande_S2": "bande_S2",
-        "bande_S3": "bande_S3", "intervention": "intervention", "dist_m": "dist_trace_m",
+        "bande_S3": "bande_S3",
+        "vmax_base_kmh": "vmax_base_kmh", "bande_base": "bande_base",
+        "vmax_recommande_kmh": "vmax_recommande_kmh",
+        "bande_recommandee": "bande_recommandee", "flbg_present": "flbg_present",
+        "intervention": "intervention", "dist_m": "dist_trace_m",
     }
     tri = first[list(tri_cols)].rename(columns=tri_cols)
     tri["dist_trace_m"] = tri["dist_trace_m"].round(1)
@@ -202,6 +237,21 @@ def main() -> None:
     for k, v in tri_counts.items():
         print(f"   {k:<55} {v}")
 
+    # ---- exploitation : le compte du scénario recommandé (plafond 177)
+    reco = first[first["bande_recommandee"] == "154-177"]
+    n_reco = len(reco)
+    n_flbg = int(reco["flbg_present"].sum())
+    n_a_equiper = n_reco - n_flbg
+    n_reco_complexe = int(reco["intervention"].str.startswith("complexe").sum())
+    expl = (
+        f"scénario recommandé (plafond 177 km/h) : {n_reco} passages en bande "
+        f"154-177, dont {n_flbg} déjà équipés d'un système complet "
+        f"feux-cloches-barrières (FLBG) et {n_a_equiper} à équiper ; "
+        f"{n_reco_complexe} en contexte complexe ; "
+        f"{int((first['bande_recommandee'] == '≤153').sum())} restent ≤153"
+    )
+    print(f"\n{expl}")
+
     OUT_LISEZMOI.write_text(f"""PASSAGES À NIVEAU — MÉTHODE ET AVERTISSEMENTS (2026-08)
 
 Source : Inventaire des passages à niveau, Transports Canada, mise à jour 2023
@@ -217,20 +267,27 @@ l'écart provient de voies parallèles proches et de la précision des coordonn�
 Chaque passage hérite de la vitesse géométrique (plafond, PAS une vitesse
 d'exploitation) du segment porteur, par scénario. Bandes de l'escalier
 réglementaire : ≤153 (régime actuel, précédent Turbo cité comme seuil) ;
-154-177 (corridor scellé : traiter ou fermer) ; 178-201 (49 CFR 213.347(b),
-classe 7 : système approuvé FRA fonctionnel) ; >201 (213.347(a) : zéro passage).
+154-177 (corridor scellé : traiter chaque passage — barrières quatre-quadrants,
+terre-pleins, détection) ; 178-201 (49 CFR 213.347(b), classe 7 : système
+approuvé FRA fonctionnel) ; >201 (213.347(a) : zéro passage).
 Le 49 CFR est cité comme PRÉCÉDENT réglementaire nord-américain ; il ne
 s'applique pas de plein droit au Canada.
 
+Bandes d'EXPLOITATION (colonnes bande_base / bande_recommandee) : la base est
+le régime d'aujourd'hui (S1 plafonné à 160 km/h) ; le scénario recommandé est
+le pendulaire plafonné à 177 km/h (110 mi/h), limite du contrôle en cabine
+incrémental type ITCS. {expl}.
+
 Total corridor DÉDOUBLONNÉ : un même passage physique (TC Number) emprunté par
 deux trajets ne compte qu'une fois, classé à la vmax maximale des trajets.
+Cette règle unique s'applique aux deux fichiers (par_bande et tri) ; un assert
+du script garantit que leurs comptes corridor sont identiques.
 
 Tri d'intervention (règles sur données ouvertes) :
-  fermeture  = accès privé (HYPOTHÈSE : l'existence d'une alternative < 2 km
-               n'est pas vérifiée — réseau routier hors périmètre)
-  standard   = public, municipal, ≤2 voies, hors zone urbaine
-  complexe   = public urbain, ou ≥3 voies, ou autorité provinciale
-Le lecteur applique ses propres coûts unitaires à ces trois classes.
+  standard   = municipal ou privé, ≤2 voies, hors zone urbaine
+  complexe   = urbain, ou ≥3 voies, ou autorité provinciale
+La colonne `acces` (Public/Private) reste publiée ; aucune fermeture n'est
+proposée par l'étude. Le lecteur applique ses propres coûts unitaires.
 
 Ancrage opposable : {resume}.
 L'écart avec 304 s'explique par le périmètre : le chiffre de la requête VIA vise

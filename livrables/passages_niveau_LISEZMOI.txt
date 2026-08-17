@@ -13,20 +13,27 @@ Alexandria - VIA, Belleville, Bridge, Brockville - VIA, Drummondville, Kingston 
 Chaque passage hérite de la vitesse géométrique (plafond, PAS une vitesse
 d'exploitation) du segment porteur, par scénario. Bandes de l'escalier
 réglementaire : ≤153 (régime actuel, précédent Turbo cité comme seuil) ;
-154-177 (corridor scellé : traiter ou fermer) ; 178-201 (49 CFR 213.347(b),
-classe 7 : système approuvé FRA fonctionnel) ; >201 (213.347(a) : zéro passage).
+154-177 (corridor scellé : traiter chaque passage — barrières quatre-quadrants,
+terre-pleins, détection) ; 178-201 (49 CFR 213.347(b), classe 7 : système
+approuvé FRA fonctionnel) ; >201 (213.347(a) : zéro passage).
 Le 49 CFR est cité comme PRÉCÉDENT réglementaire nord-américain ; il ne
 s'applique pas de plein droit au Canada.
 
+Bandes d'EXPLOITATION (colonnes bande_base / bande_recommandee) : la base est
+le régime d'aujourd'hui (S1 plafonné à 160 km/h) ; le scénario recommandé est
+le pendulaire plafonné à 177 km/h (110 mi/h), limite du contrôle en cabine
+incrémental type ITCS. scénario recommandé (plafond 177 km/h) : 891 passages en bande 154-177, dont 328 déjà équipés d'un système complet feux-cloches-barrières (FLBG) et 563 à équiper ; 109 en contexte complexe ; 33 restent ≤153.
+
 Total corridor DÉDOUBLONNÉ : un même passage physique (TC Number) emprunté par
 deux trajets ne compte qu'une fois, classé à la vmax maximale des trajets.
+Cette règle unique s'applique aux deux fichiers (par_bande et tri) ; un assert
+du script garantit que leurs comptes corridor sont identiques.
 
 Tri d'intervention (règles sur données ouvertes) :
-  fermeture  = accès privé (HYPOTHÈSE : l'existence d'une alternative < 2 km
-               n'est pas vérifiée — réseau routier hors périmètre)
-  standard   = public, municipal, ≤2 voies, hors zone urbaine
-  complexe   = public urbain, ou ≥3 voies, ou autorité provinciale
-Le lecteur applique ses propres coûts unitaires à ces trois classes.
+  standard   = municipal ou privé, ≤2 voies, hors zone urbaine
+  complexe   = urbain, ou ≥3 voies, ou autorité provinciale
+La colonne `acces` (Public/Private) reste publiée ; aucune fermeture n'est
+proposée par l'étude. Le lecteur applique ses propres coûts unitaires.
 
 Ancrage opposable : corridor dédoublonné : 924 passages physiques ; publics à protection active : 352 (ancrage VIA nov. 2024 : 304 à prédicteurs).
 L'écart avec 304 s'explique par le périmètre : le chiffre de la requête VIA vise
