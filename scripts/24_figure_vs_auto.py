@@ -46,6 +46,16 @@ with open(_CSV, encoding="utf-8-sig", newline="") as _f:
     for _r in _csv.DictReader(_f, delimiter=";"):
         _T[(_r["troncon"], _r["scenario"], int(_r["bande_kmh"]))] = _r
 
+# Scénario plafond : la variante combinée (blocs urbains réintégrés + courbes
+# des sections à doubler rectifiées), calculée par le moteur 21 avec
+# SEGMENTS_OVERRIDE=segments_rectifies.geojson et BLOCS_URBAINS=libres.
+_CSV_PLAFOND = (_Path(__file__).resolve().parent.parent / "livrables"
+                / "tbase_par_bande_rectifies_blocs_libres.csv")
+_TP = {}
+with open(_CSV_PLAFOND, encoding="utf-8-sig", newline="") as _f:
+    for _r in _csv.DictReader(_f, delimiter=";"):
+        _TP[(_r["troncon"], _r["scenario"], int(_r["bande_kmh"]))] = _r
+
 
 def _base(troncon, scenario, bande):
     return float(_T[(troncon, scenario, bande)]["tbase_sans_marge_min"])
@@ -65,11 +75,16 @@ def _marge(troncon):
 # Vérifiés sur cartographie routière grand public (2026-08-17).
 AUTO_MIN = {"MTL-QC": 170, "MTL-TO": 330, "MTL-Ott": 140, "Ott-TO": 260}
 RECO = "Scénario recommandé"
+PLAFOND = "Scénario plafond*"
+
+def _base_plafond(troncon):
+    return float(_TP[(troncon, "S2", 177)]["tbase_sans_marge_min"])
 
 def panel(troncon, titre, repere):
     return (titre, repere, AUTO_MIN[troncon], [
         ("VIA aujourd'hui", _horaire(troncon), _horaire(troncon)),
-        (RECO, *four(_base(troncon, "S2", 177), _marge(troncon)))])
+        (RECO, *four(_base(troncon, "S2", 177), _marge(troncon))),
+        (PLAFOND, *four(_base_plafond(troncon), _marge(troncon)))])
 
 # (corridor, auto_min, [(label, lo, hi — lo == hi pour un point)])
 DATA = [
@@ -79,9 +94,9 @@ DATA = [
  panel("Ott-TO",  "Ottawa-Toronto",   "auto ≈ 4 h 20, approx."),
 ]
 COLS = {"auto": SCENARIOS["auto"], "VIA aujourd'hui": SCENARIOS["actuel"],
-        RECO: SCENARIOS["S2"]}
+        RECO: SCENARIOS["S2"], PLAFOND: SCENARIOS["S3"]}
 
-fig, axes = plt.subplots(2, 2, figsize=(11, 5.6), dpi=300)
+fig, axes = plt.subplots(2, 2, figsize=(11, 6.9), dpi=300)
 for ax, (title, repere, auto, rows) in zip(axes.flat, DATA):
     labels = ["Auto"] + [r[0] for r in rows]
     mids = [auto] + [(lo+hi)/2 for _, lo, hi in rows]
@@ -125,12 +140,18 @@ for ax, (title, repere, auto, rows) in zip(axes.flat, DATA):
 # Titre et sous-titre posés APRÈS tight_layout, en coordonnées de figure : placés
 # avant, suptitle et fig.text se recouvraient parce que tight_layout ne tient pas
 # compte des textes libres pour calculer le rectangle du tracé.
-fig.tight_layout(rect=(0, 0, 1, 0.845))
+fig.tight_layout(rect=(0, 0.055, 1, 0.875))
 fig.text(0.008, 0.975, "Le train contre l'auto : temps de parcours avec marge",
          fontsize=12.5, ha="left", va="top", color=PAPIER["encre"],
          **police_titre(600))
-fig.text(0.008, 0.895, "Fourchette en trait, pourcentages en bornes",
+fig.text(0.008, 0.915, "Fourchette en trait, pourcentages en bornes",
          fontsize=7.6, ha="left", va="top", color=PAPIER["encre_pale"],
+         **police_mono())
+fig.text(0.008, 0.012,
+         "* Scénario plafond : le recommandé, plus les approches urbaines roulant ce "
+         "que leur géométrie permet et les courbes des sections à doubler rectifiées. "
+         "Une borne, pas une promesse.",
+         fontsize=7.0, ha="left", va="bottom", color=PAPIER["encre_pale"],
          **police_mono())
 fig.savefig(DELIVERABLES / "figure_vs_auto.png", bbox_inches="tight",
             facecolor=PAPIER["fond"])

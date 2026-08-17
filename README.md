@@ -57,6 +57,8 @@ python scripts/21_tbase_bande.py            # moteur T_base (bandes 160/177/200/
 python scripts/33_courbes_doublees.py       # sensibilité : courbes des sections à doubler
 SEGMENTS_OVERRIDE=intermediaires/segments_rectifies.geojson python scripts/21_tbase_bande.py
 BLOCS_URBAINS=libres python scripts/21_tbase_bande.py   # sensibilité : blocs réintégrés
+SEGMENTS_OVERRIDE=intermediaires/segments_rectifies.geojson BLOCS_URBAINS=libres \
+  python scripts/21_tbase_bande.py                  # scénario plafond (les deux ensemble)
 python scripts/22_marges_2x2.py             # médianes du 2×2 (lues par la figure 23)
 python scripts/23_figure_cellules.py        # figure : le 2×2 du corridor
 python scripts/24_figure_vs_auto.py         # figure : le train contre l'auto (4 trajets)

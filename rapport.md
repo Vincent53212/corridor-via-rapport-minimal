@@ -33,7 +33,7 @@ Les vitesses de ce document sont en km/h, suivies au besoin de l'équivalent en 
 l'unité d'usage des chemins de fer nord-américains (177 km/h = 110 mi/h ;
 160 = 99 ; 200 = 124).
 
-![Le train contre l'auto : chaque barre du scénario recommandé est un temps avec marge, présenté en fourchette, et les pourcentages face à l'auto sont donc eux aussi des bornes. Temps auto : approximation de connaissance générale, en repère.](livrables/figure_vs_auto.png)
+![Le train contre l'auto : chaque barre de scénario est un temps avec marge, présenté en fourchette, et les pourcentages face à l'auto sont donc eux aussi des bornes. Le scénario plafond est le recommandé poussé à sa borne (note de la synthèse). Temps auto : approximation de connaissance générale, en repère.](livrables/figure_vs_auto.png)
 
 **La lecture de la figure.** Aujourd'hui, le train fait à peu près jeu égal avec l'auto
 sur Montréal-Toronto (536 km : 5 h 18 à l'horaire) et la perd nettement sur
@@ -46,7 +46,18 @@ points. Le scénario recommandé bat l'auto sur Montréal-Toronto (4 h 27 à 4 h
 78 pour cent) et sur Ottawa-Toronto (3 h 39 à 4 h 11, soit 84 à 96 pour cent), et fait
 au moins jeu égal sur Montréal-Québec (2 h 30 à 3 h 03, soit 88 à 108 pour cent). Bout
 en bout, Québec-Toronto par Montréal passe de 8 h 50 à l'horaire actuel à 7 h 07, arrêt
-à Montréal compris, si la marge est tenue à la borne normative (figure suivante).
+à Montréal compris, si la marge est tenue à la borne normative (figure suivante). La
+troisième barre de chaque panneau est le **scénario plafond**[^plafond] : le recommandé,
+poussé à sa borne. Il descend à 4 h 03 à 4 h 26 sur Montréal-Toronto (74 à 81 pour cent
+de l'auto), 2 h 02 à 2 h 29 sur Montréal-Québec (72 à 88 pour cent), 1 h 26 à 1 h 28
+sur Montréal-Ottawa et 3 h 28 à 3 h 58 sur Ottawa-Toronto.
+
+[^plafond]: Le scénario plafond est le scénario recommandé auquel s'ajoutent les deux
+sensibilités favorables de la section 7, calculées ensemble par le moteur : les
+approches urbaines roulent ce que leur géométrie permet au lieu d'être figées à
+l'horaire actuel, et les courbes des sections à doubler sont rectifiées au moment du
+doublement. C'est une borne de ce que le corridor peut donner, pas une promesse : les
+approches urbaines ont leurs propres contraintes, hors du périmètre de cette étude.
 
 ![D'où viennent les minutes : chaque barre est l'horaire actuel du trajet ; le segment évidé est le temps du scénario recommandé avec sa marge normative, et les tranches attribuent le gain à ses trois leviers. Les parts sont des attributions qui somment exactement au gain (méthode en section 7), pas des mesures indépendantes.](livrables/figure_gains.png)
 
@@ -115,7 +126,7 @@ Les cinq constats principaux :
 3. **La signalisation est une ligne de devis, pas un mur** : rien à faire jusqu'à
    160 km/h (99 mi/h), une superposition de contrôle en cabine de 161 à 177, dont le
    précédent américain est tarifé et opère exactement au plafond retenu
-   [@fra2024itcs] ; le contrôle intégral n'est requis qu'au-delà de 200 (c'est le devis
+   [@fra2024itcs] ; le contrôle intégral n'est requis qu'au-delà de 177 (c'est le devis
    d'Alto, hors du scénario recommandé).
 4. **Le régime de cohabitation pèse plus que le nombre de voies.** Mesuré sur les
    horaires de VIA à géométrie neutralisée : une voie simple ne coûte rien quand VIA est propriétaire, et 31 points quand le CN l'est. Sous VIA, elle porte même 3 points de marge de moins que la voie double du CN, et l'écart reste en sa faveur, de 3 à 7 points (3 à 6 minutes sur Montréal-Ottawa et Ottawa-Toronto), quelle que soit la pénalité d'arrêt testée ; sous le CN, le coût de la voie simple tient dans 30 à 33 points sur la même plage, soit de 23 à 26 minutes. Le même instrument montre ce que le doublement procure chez le CN : 31 points, soit 24 minutes sur Montréal-Québec et rien sur Montréal-Toronto, déjà doublé.
@@ -545,10 +556,11 @@ une ligne de devis, pas une carte :
   du Michigan exploite 110 mi/h (177 km/h) avec un tel système incrémental superposé à
   la signalisation existante [@fra2024itcs]. Cette limite de 110 mi/h est celle du
   système lui-même : c'est elle qui fixe le plafond du scénario recommandé.
-- **Au-delà de 200 km/h (124 mi/h) : contrôle intégral** de type ETCS (le standard européen de
-  contrôle des trains). C'est le devis d'Alto [@alto2025], et
-  l'argument économique pour ne pas viser cette bande sur la voie partagée : elle est
-  hors du scénario recommandé.
+- **Au-delà de 177 km/h (110 mi/h) : contrôle intégral** de type ETCS (le standard européen de
+  contrôle des trains) : le système incrémental s'arrête là, et tout ce qui dépasse
+  demande de remplacer la signalisation plutôt que de s'y superposer. C'est le devis
+  d'Alto [@alto2025], et l'argument économique pour ne pas viser ces vitesses sur la
+  voie partagée : elles sont hors du scénario recommandé.
 
 **Ce que la superposition fait à la capacité : rien en moins, et un levier en plus.** La
 superposition retenue ne modifie pas le cantonnement existant : sur la ligne du Michigan,
@@ -634,7 +646,11 @@ par un recouvrement d'au moins 70 pour cent avec la voie simple hors gares) éta
 retenu, le temps de base gagnerait encore 4 minutes sur Montréal-Québec et 3 sur
 Montréal-Ottawa (moins d'une minute ailleurs) : un gain modeste en minutes, mais
 gratuit au moment du chantier, et qui réduit d'autant les kilomètres restants sous
-grande vitesse.
+grande vitesse. La combinaison des deux, calculée ensemble par le moteur, est le
+**scénario plafond** de la figure de la synthèse : un temps de base de 4 h 03 à 4 h 26
+sur Montréal-Toronto, 2 h 02 à 2 h 29 sur Montréal-Québec, 1 h 26 à 1 h 28 sur
+Montréal-Ottawa et 3 h 28 à 3 h 58 sur Ottawa-Toronto, marge comprise
+(`tbase_par_bande_rectifies_blocs_libres.csv`).
 
 ## Le biais de la fenêtre de mesure, et ce qu'il coûte
 

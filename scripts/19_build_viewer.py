@@ -373,7 +373,7 @@ def sections(pub: dict) -> list[dict]:
             "cle": "06 · Commande des trains", "titre": "Signalisation",
             "dit": "Un escalier de trois marches : rien à faire jusqu'à 160 km/h, une "
                    "superposition de contrôle en cabine de 161 à 177, un système intégral "
-                   "au-delà de 200. <b>La marche du scénario recommandé est la "
+                   "au-delà de 177 (le système incrémental s'arrête là). <b>La marche du scénario recommandé est la "
                    "deuxième</b> : son précédent américain est tarifé et opère exactement "
                    "au plafond retenu, 110 mi/h au Michigan.",
             "pieces": ["segments_courbature.csv"],
