@@ -79,9 +79,17 @@ GTFS_ZIP = RESOURCES / "viarail_GTFS.zip"
 _OVERRIDE = os.environ.get("SEGMENTS_OVERRIDE", "")
 SEGMENTS = Path(_OVERRIDE) if _OVERRIDE else INTERMEDIATES / "segments.geojson"
 _SUF = "_" + Path(_OVERRIDE).stem.replace("segments_", "") if _OVERRIDE else ""
+# Sensibilité « blocs urbains réintégrés » (2026-08-17) : avec BLOCS_URBAINS=libres,
+# les blocs urbains ne sont plus figés à l'horaire GTFS — ils entrent dans le
+# profil dynamique comme le reste du tracé (leurs gares deviennent des arrêts
+# interurbains à DWELL_MIN). Sorties suffixées : jamais d'écrasement de la
+# référence. Le chiffre principal du rapport reste : blocs FIGÉS.
+_BLOCS_LIBRES = os.environ.get("BLOCS_URBAINS", "") == "libres"
+if _BLOCS_LIBRES:
+    _SUF += "_blocs_libres"
 OUT_TBASE = DELIVERABLES / f"tbase_par_bande{_SUF}.csv"
 OUT_BLOCS = DELIVERABLES / f"blocs_urbains{_SUF}.csv"
-if _OVERRIDE:
+if _OVERRIDE or _BLOCS_LIBRES:
     print(f"VARIANTE : segments lus dans {SEGMENTS}, sorties suffixées « {_SUF} »")
 
 BANDES_KMH = [160, 177, 200, 250, 300]
@@ -117,6 +125,9 @@ URBAN_KM_BLOCKS = [
     ("MTL-Ott", "Ottawa (approche est, fenêtre ±10 km — HYPOTHÈSE)", 175.42, 185.42),
     ("Ott-TO",  "Ottawa (approche ouest, fenêtre ±10 km — HYPOTHÈSE)", 0.0, 10.0),
 ]
+if _BLOCS_LIBRES:               # sensibilité : plus aucun bloc figé
+    URBAN_GTFS_BLOCKS = []
+    URBAN_KM_BLOCKS = []
 
 # Gares intermédiaires par tronçon (hors extrémités), avec leur km — pour compter
 # les arrêts interurbains (hors blocs urbains). Relevé de corridor_gtfs.geojson ;
