@@ -1,0 +1,25 @@
+﻿trajet;poste;minutes;part_pct_du_gain;source
+Québec-Toronto (via Montréal);temps_recommande_avec_marge;426.7;;tbase_par_bande.csv
+Québec-Toronto (via Montréal);gain_releve_plafond;20.1;19.4;tbase_par_bande.csv
+Québec-Toronto (via Montréal);gain_pendulaire;19.4;18.7;tbase_par_bande.csv
+Québec-Toronto (via Montréal);gain_doublement;24.1;23.3;marges_2x2_synthese.csv + marges_par_intergare.csv
+Québec-Toronto (via Montréal);gain_cohabitation;40.2;38.7;résidu (G − autres parts)
+Québec-Toronto (via Montréal);controle_horaire_actuel_H;530.5;;tbase_par_bande.csv (médiane GTFS)
+Québec-Toronto (via Montréal);controle_gain_total_G;103.8;;"H − C ; somme des quatre parts = G par construction"
+Québec-Toronto (via Montréal);controle_ecart_ordres_shapley;5.7;;écart |plafond d'abord − pendulaire d'abord|
+Québec-Montréal;temps_recommande_avec_marge;149.6;;tbase_par_bande.csv
+Québec-Montréal;gain_releve_plafond;5.1;9.7;tbase_par_bande.csv
+Québec-Montréal;gain_pendulaire;10.7;20.3;tbase_par_bande.csv
+Québec-Montréal;gain_doublement;24.1;45.6;marges_2x2_synthese.csv + marges_par_intergare.csv
+Québec-Montréal;gain_cohabitation;12.9;24.4;résidu (G − autres parts)
+Québec-Montréal;controle_horaire_actuel_H;202.5;;tbase_par_bande.csv (médiane GTFS)
+Québec-Montréal;controle_gain_total_G;52.9;;"H − C ; somme des quatre parts = G par construction"
+Québec-Montréal;controle_ecart_ordres_shapley;2.1;;écart |plafond d'abord − pendulaire d'abord|
+Montréal-Ottawa;temps_recommande_avec_marge;105.8;;tbase_par_bande.csv
+Montréal-Ottawa;gain_releve_plafond;2.0;12.4;tbase_par_bande.csv
+Montréal-Ottawa;gain_pendulaire;10.9;67.2;tbase_par_bande.csv
+Montréal-Ottawa;gain_doublement;0.0;0.0;marges_2x2_synthese.csv + marges_par_intergare.csv
+Montréal-Ottawa;gain_cohabitation;3.3;20.5;résidu (G − autres parts)
+Montréal-Ottawa;controle_horaire_actuel_H;122.0;;tbase_par_bande.csv (médiane GTFS)
+Montréal-Ottawa;controle_gain_total_G;16.2;;"H − C ; somme des quatre parts = G par construction"
+Montréal-Ottawa;controle_ecart_ordres_shapley;0.7;;écart |plafond d'abord − pendulaire d'abord|
