@@ -30,7 +30,7 @@ from scenarios import SCENARIOS, VMAX_PHYSICAL_CEILING_KMH
 from utils import (SEGMENTS_GEOJSON, DELIVERABLES, degre_courbure,
                    kmh_to_mph, km_to_mile)
 
-TARGET_PEAKS = [160, 200, 250, 300]          # vitesses de pointe cibles
+TARGET_PEAKS = [160, 177, 200, 250, 300]     # vitesses de pointe cibles (177 = plafond ITCS du scénario recommandé)
 TRONCONS = ["MTL-QC", "MTL-Ott", "Ott-TO", "MTL-TO"]
 
 

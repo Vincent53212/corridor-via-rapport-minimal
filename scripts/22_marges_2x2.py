@@ -59,7 +59,11 @@ t21 = importlib.import_module("21_tbase_bande")
 OUT_PAIRS = DELIVERABLES / "marges_par_intergare.csv"
 OUT_SYNTH = DELIVERABLES / "marges_2x2_synthese.csv"
 
-CAP_KMH = 160.0            # régime de vitesse actuel du corridor
+CAP_KMH = 160.0            # régime de vitesse actuel du corridor. NE PAS relever
+                           # à 177 : la marge mesurée compare l'horaire d'AUJOURD'HUI
+                           # à la base fluide d'aujourd'hui ; changer le cap casserait
+                           # la comparabilité du 2×2 (et l'invariant borne haute
+                           # S1-160 = horaire actuel).
 DOMINANCE = 0.70           # part d'un état de voie pour classer la paire
 
 # (tronçon, [(nom, stop_id, km), ...]) — extrémités + intermédiaires, ordre km.

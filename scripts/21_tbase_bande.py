@@ -15,8 +15,10 @@ Le modèle du rapport minimal (plan de match v3) :
 Paramètres de rame (HYPOTHÈSES déclarées, pas des specs constructeur) :
   S1 : rame tractée type flotte actuelle — P/m 8,0 W/kg, a0 0,5 m/s², frein 0,5.
   S2 et S3 : MÊME rame de référence, dimensionnée pour sa bande — P/m 12 W/kg
-  (bandes 160 et 200, type pendulaire moderne), 18 (bande 250), 22 (bande 300,
-  type rame grande vitesse) ; a0 0,6, frein 0,6.
+  (bandes 160, 177 et 200, type pendulaire moderne), 18 (bande 250), 22 (bande
+  300, type rame grande vitesse) ; a0 0,6, frein 0,6.
+  La bande 177 (110 mi/h) est le plafond du scénario recommandé : limite du
+  système de contrôle en cabine incrémental type ITCS (précédent Michigan).
   (S2/S3 se définissent par l'insuffisance admise, pas par la motorisation :
   une rame commune isole la variable géométrique. Le LRC historique ~6,5 W/kg
   ajouterait ~3-5 min par tronçon : testé au script 26, exploratoire.)
@@ -82,7 +84,7 @@ OUT_BLOCS = DELIVERABLES / f"blocs_urbains{_SUF}.csv"
 if _OVERRIDE:
     print(f"VARIANTE : segments lus dans {SEGMENTS}, sorties suffixées « {_SUF} »")
 
-BANDES_KMH = [160, 200, 250, 300]
+BANDES_KMH = [160, 177, 200, 250, 300]
 DWELL_MIN = 2.0               # immobilisation en gare (min/arrêt) ; la dynamique
                               # d'accélération/freinage est dans le profil simulé
 URBAN_SENS = 0.20             # sensibilité ±20 % sur les blocs urbains
@@ -98,7 +100,7 @@ TRAIN_A = {"S1": (0.5, 0.5), "S2": (0.6, 0.6), "S3": (0.6, 0.6)}
 def train_pm(scenario: str, bande: float) -> float:
     if scenario == "S1":
         return 8.0
-    return {160: 12.0, 200: 12.0, 250: 18.0, 300: 22.0}[int(bande)]
+    return {160: 12.0, 177: 12.0, 200: 12.0, 250: 18.0, 300: 22.0}[int(bande)]
 
 # Blocs urbains ancrés sur des paires de gares GTFS : (tronçon, stop_id A, stop_id B,
 # nom, km_debut, km_fin). km relevés dans corridor_gtfs.geojson.
