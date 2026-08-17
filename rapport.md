@@ -65,7 +65,7 @@ de la section 4.
 
 La fourchette de marge n'est pas une estimation : sa borne basse est la marge normative
 internationale, interpolée à 8 pour cent du temps de parcours au plafond retenu
-(7 pour cent à 160 km/h, 9 pour cent à 200 [@uic2000f451 ; @schittenhelm2011]), sa
+(7 pour cent à 160 km/h, 9 pour cent à 200 [@uic2000f451; @schittenhelm2011]), sa
 borne haute est la marge que l'horaire actuel de VIA porte aujourd'hui sur le tronçon
 concerné (mesurée dans cette étude : de 11 pour cent sur Montréal-Ottawa à 32 pour cent
 sur Montréal-Québec). La distance entre les deux bornes est le coût du régime
@@ -253,7 +253,7 @@ compte.
 Un train pendulaire incline sa caisse dans les courbes, ce qui permet de les franchir
 plus vite sans inconfort pour les passagers. Le Canada en a déjà exploité un : le LRC,
 auquel la méthode du CN accorde une insuffisance de dévers de 6 pouces (152 mm), contre
-3 pouces pour un train ordinaire [@cn2002mr1305 ; @fra-lrc-152]. C'est un précédent
+3 pouces pour un train ordinaire [@cn2002mr1305; @fra-lrc-152]. C'est un précédent
 domestique, pas une hypothèse.
 
 Les deux scénarios :
@@ -383,7 +383,7 @@ l'intervalle où elle tombe nécessairement, et pourquoi.
 
 **Borne basse, normative.** La fiche UIC 451-1 recommande, pour un train de voyageurs,
 un supplément fixe plus un pourcentage selon la vitesse : au total environ 7 pour cent du
-temps de parcours à 160 km/h (99 mi/h) et 9 pour cent à 200 (124 mi/h) [@uic2000f451 ; @schittenhelm2011] ;
+temps de parcours à 160 km/h (99 mi/h) et 9 pour cent à 200 (124 mi/h) [@uic2000f451; @schittenhelm2011] ;
 au plafond retenu de 177 km/h, l'étude interpole à 8 pour cent.
 Les règles publiées des gestionnaires nationaux se situent au même ordre : SNCF Réseau
 impose 4,5 minutes par 100 km sur ligne classique et 5 pour cent sur ligne à grande
@@ -411,7 +411,7 @@ rétablissement des vitesses, et l'allègement négocié n'est entré en vigueur
 prévu de son lancement, VIA invoquant des contraintes opérationnelles chez son hôte
 [@cbc2025pilote]. La ponctualité du réseau est passée de 71-72 pour cent (2020-2021) à
 57-59 (2022-2023), 51 (2024) puis 30 pour cent au premier trimestre 2025
-[@via2025rapportannuel ; @via2025t1].
+[@via2025rapportannuel; @via2025t1].
 
 **Le précédent du régime d'accès, et la leçon de la WCML.** Le précédent de la West
 Coast Main Line ne porte pas seulement sur les travaux : il porte tout autant sur le
@@ -420,7 +420,7 @@ gestionnaire unique et neutre, Network Rail, distinct des exploitants voyageurs 
 qui y font circuler leurs trains sous contrats d'accès réglementés [@orr2021cadre], et
 aucun de ces contrats n'existe sans l'approbation ou l'injonction d'un régulateur
 indépendant, l'Office of Rail and Road, faute de quoi il est juridiquement nul
-[@orr2021cadre ; @railwaysact1993]. La portée réelle de ce pouvoir se mesure sur la
+[@orr2021cadre; @railwaysact1993]. La portée réelle de ce pouvoir se mesure sur la
 WCML même : en juillet 2025, l'ORR a rejeté trois demandes de sillons au motif que le
 tronçon sud, déclaré infrastructure congestionnée, ne pouvait plus les absorber sans
 dégrader la performance des circulations voyageurs et fret existantes, tout en
@@ -432,7 +432,7 @@ indépendant, et non par le propriétaire de l'une des deux circulations en pré
 Canada dispose déjà de l'institution et du pouvoir correspondants : l'Office des
 transports du Canada peut accorder des droits de circulation sur le réseau d'une autre
 compagnie, en fixer les conditions dans l'intérêt public et en déterminer l'indemnité
-[@ltc1996art138 ; @otc2016circulation].
+[@ltc1996art138; @otc2016circulation].
 
 **Par où doubler : relier les évitements d'abord.** Un corridor à voie unique équipé
 d'évitements est déjà partiellement doublé, et la simulation montre que le retard décroît
@@ -570,7 +570,7 @@ qui se compare à l'horaire actuel.
 | Montréal-Toronto (539 km) | 5 h 18 | 4 h 07 |
 
 **Temps avec marge (fourchette).** Borne basse : la marge normative au plafond retenu
-(8 pour cent du temps de base [@uic2000f451 ; @schittenhelm2011]). Borne haute : la
+(8 pour cent du temps de base [@uic2000f451; @schittenhelm2011]). Borne haute : la
 marge que l'horaire actuel du tronçon porte aujourd'hui, mesurée dans cette étude
 (11 pour cent sur Montréal-Ottawa, 18 sur Montréal-Toronto, 24 sur Ottawa-Toronto,
 32 sur Montréal-Québec). Contrôle interne de la méthode : nourrie du train, du plafond
