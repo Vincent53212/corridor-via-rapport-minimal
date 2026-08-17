@@ -1,18 +1,19 @@
 #!/usr/bin/env python3
-"""Sous-livrable — « Sections à plafond géométrique < 200 km/h en S3 ».
+"""Sous-livrable — « Sections restantes sous 177 km/h, scénario recommandé ».
 
-Reframe (2026-06-15) : ce n'est PLUS un document « km à rectifier ». Le tracé
-est CONSERVÉ tel quel ; on documente, pour chaque section qui reste sous
-200 km/h en S3, sa vitesse géométrique (plafond imposé par la courbe). But :
+Reframe (2026-06-15, recalé 2026-08-17 sur le plafond 177) : ce n'est PAS un
+document « km à rectifier ». Le tracé est CONSERVÉ tel quel ; on documente,
+pour chaque section qui reste sous 177 km/h dans le scénario recommandé
+(pendulaire LRC, interne S2), sa vitesse géométrique (plafond de la courbe). But :
 alimenter le moteur T_base (script 21) sans modification du tracé.
 NB audit 2026-08-06 : la colonne « vitesse commerciale estimée » (facteur de
 transposition 0,75) est RETIRÉE — interdit du plan v3, remplacée par T_base.
 
-Lit le CSV DÉJÀ VALIDÉ `livrables/cible_sites_a_rectifier.csv` (étape 11), filtré
-scénario S3 × seuil 200 km/h (= sections dont le plafond géométrique S3 < 200).
+Lit le CSV DÉJÀ VALIDÉ `livrables/sites_restants_sous_grande_vitesse.csv`
+(étape 11), filtré scénario recommandé (interne S2) × seuil 177 km/h.
 AUCUN recalcul de géométrie ; vitesses dérivées par la formule documentée.
 
-Sortie : livrables/sections_a_rectifier_200kmh_S3.html (+ PDF via Chrome headless).
+Sortie : livrables/sections_restantes_177kmh_recommande.html (+ PDF via Chrome headless).
 """
 from __future__ import annotations
 import csv
@@ -22,20 +23,20 @@ from collections import defaultdict
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parent.parent
-SRC = ROOT / "livrables" / "cible_sites_a_rectifier.csv"
-OUT = ROOT / "livrables" / "liste_résumé_cutoff_200kmhGEO_S3.html"
+SRC = ROOT / "livrables" / "sites_restants_sous_grande_vitesse.csv"
+OUT = ROOT / "livrables" / "sections_restantes_177kmh_recommande.html"
 
 sys.path.insert(0, str(Path(__file__).resolve().parent))
 from utils import degre_courbure, kmh_to_mph
 from scenarios import SCENARIOS
 
-SCENARIO = "S3"
-SEUIL = "200"
-DATE = "2026-07"
+SCENARIO = "S2"        # interne ; publié comme « scénario recommandé »
+SEUIL = "177"
+DATE = "2026-08"
 
-# Coefficient S3 — source unique scenarios.py (nomenclature 2026-08 : h=127, CD=270)
-COEFF_S3 = SCENARIOS["S3"].coeff
-R_SEVERE = (100 / COEFF_S3) ** 2              # sous ce rayon, < 100 km/h en S3
+# Coefficient du recommandé — source unique scenarios.py (h=127, CD=152)
+COEFF = SCENARIOS[SCENARIO].coeff
+R_SEVERE = (100 / COEFF) ** 2                 # sous ce rayon, < 100 km/h
 
 TRONCONS = [
     ("MTL-QC", "Montréal → Québec", 269.42),
@@ -51,7 +52,7 @@ def fr(x, dec=0):
 
 
 def vgeo(R):
-    return COEFF_S3 * math.sqrt(R)
+    return COEFF * math.sqrt(R)
 
 
 def load():
@@ -111,7 +112,7 @@ def table_for(tr_id, by):
         f"<section class='troncon'>"
         f"<h3>{tr_id} <span style='color:#888;font-weight:normal'>· {nom}</span></h3>"
         f"<p class='soustitre'>{len(rows)} sections · <b>{fr(tot_km,1)} km</b> · "
-        f"{fr(pct,1)} % du tronçon · plafond géométrique &lt; 200 km/h en S3</p>"
+        f"{fr(pct,1)} % du tronçon · plafond géométrique &lt; 177 km/h, scénario recommandé</p>"
         f"<table>{head}<tbody>{''.join(body)}</tbody></table>"
         f"</section>"
     ), len(rows), tot_km
@@ -140,7 +141,7 @@ def main():
         "<table class='recap'><thead><tr style='background:#003366;color:#fff'>"
         "<th style='text-align:left'>Tronçon</th><th style='text-align:left'></th>"
         "<th style='text-align:right'>Sections</th>"
-        "<th style='text-align:right'>km &lt; 200 km/h</th>"
+        "<th style='text-align:right'>km &lt; 177 km/h</th>"
         "<th style='text-align:right'>% du tronçon</th></tr></thead><tbody>"
         f"{recap_rows}"
         f"<tr style='font-weight:bold;border-top:2px solid #003366'>"
@@ -191,7 +192,7 @@ def main():
     resume = f"""
     <div class='resume'><b class='big'>{n_tot} sections · {fr(km_tot,0)} km ·
     {fr(pct_tot,1)} % du corridor</b> ont un <b>plafond géométrique inférieur à
-    200 km/h</b> dans le scénario S3 (modernisation maximale). Ces sections
+    177 km/h</b> dans le scénario recommandé (pendulaire, voie ré-inclinée). Ces sections
     <b>conservent le tracé existant</b> ; le tableau donne, pour chacune, sa
     <b>vitesse géométrique</b> (plafond imposé par la courbe). Les temps de
     parcours sont calculés par le moteur d'intégration du projet
@@ -200,13 +201,13 @@ def main():
 
     intro = f"""
     <div class='intro'>
-      <p><b>Scénario S3.</b> Le plus permissif de l'étude : dévers au maximum
-      standard CN (5 po = 127 mm, MR 1305-0) + matériel <b>pendulaire moderne</b>
-      (insuffisance de dévers 270 mm, hors précédent nord-américain, voie
-      d'approbation par équipement RRTS Subpart C 4.3), <b>sans refaire le
-      tracé</b>. Les sections ci-dessous restent sous 200 km/h <b>même en S3</b> :
-      c'est la <b>géométrie du tracé</b> (le rayon de courbure) qui fixe leur
-      plafond.</p>
+      <p><b>Scénario recommandé.</b> Dévers au maximum standard CN (5 po =
+      127 mm, MR 1305-0) + matériel <b>pendulaire type LRC</b> (insuffisance de
+      dévers 6 po = 152 mm, 100 % précédent canadien), <b>sans refaire le
+      tracé</b>, exploitation plafonnée à <b>177 km/h (110 mi/h)</b>, la limite
+      du contrôle en cabine incrémental (type ITCS). Les sections ci-dessous
+      restent sous 177 km/h <b>même dans ce scénario</b> : c'est la
+      <b>géométrie du tracé</b> (le rayon de courbure) qui fixe leur plafond.</p>
 
       <p><b>Vitesse géométrique vs vitesse commerciale.</b> La <b>vitesse
       géométrique</b> est le plafond physique d'une courbe (équilibre dévers /
@@ -217,7 +218,8 @@ def main():
       jamais par un facteur uniforme.</p>
 
       <p><b>Lecture.</b> Chaque ligne est une <b>section continue</b> dont le
-      plafond géométrique reste &lt; 200 km/h en S3, tracé inchangé.
+      plafond géométrique reste &lt; 177 km/h dans le scénario recommandé,
+      tracé inchangé.
       Total : <b>{fr(km_tot,0)} km ({fr(pct_tot,1)} % du corridor)</b>. Les
       sections en <b>rouge</b> sont les plus contraintes (vitesse géométrique
       &lt; 100 km/h).</p>
@@ -230,8 +232,8 @@ def main():
     plus le degré est élevé, plus la courbe est serrée. Le <b>rayon (m)</b>
     correspondant (mesuré de façon robuste, minimum d'une médiane glissante
     ~150 m) est donné en regard ; il fixe la vitesse géométrique
-    (V<sub>géo</sub> = {COEFF_S3:.2f} × √R, scénario S3). <i>Autres mesures de
-    rayon disponibles sur demande.</i></p>
+    (V<sub>géo</sub> = {COEFF:.2f} × √R, scénario recommandé). <i>Autres mesures
+    de rayon disponibles sur demande.</i></p>
 
     <div class='avert'><b>Périmètre.</b> Étude de <b>courbure uniquement</b>
     (Phase 1), préliminaire / stratégique. La <b>vitesse géométrique</b> est un
@@ -241,17 +243,17 @@ def main():
     électrification, signalisation, génie civil. Tronçons analysés comme
     <b>4 trajets origine–destination</b> partageant par endroits la même voie
     (le total km est la somme par trajet). Document destiné à alimenter
-    l'estimation ultérieure des <b>temps de parcours en S3</b> (tracé inchangé).</div>
+    l'estimation des <b>temps de parcours du scénario recommandé</b> (tracé inchangé).</div>
     """
 
     html = f"""<!DOCTYPE html>
 <html lang='fr'><head><meta charset='utf-8'>
-<title>Sections à plafond géométrique &lt; 200 km/h en S3 — TGV Canada Phase 1</title>
+<title>Sections restantes sous 177 km/h, scénario recommandé — Corridor Québec-Toronto</title>
 <style>{css}</style></head><body>
-<h1>Sections à plafond géométrique inférieur à 200 km/h en S3</h1>
-<h1 class='sub'>Corridor VIA existant · scénario S3 (voie ré-inclinée +
-pendulaire moderne, insuffisance 270 mm) · tracé inchangé ·
-vitesse géométrique (plafond)</h1>
+<h1>Sections à plafond géométrique inférieur à 177 km/h</h1>
+<h1 class='sub'>Corridor VIA existant · scénario recommandé (voie ré-inclinée +
+pendulaire type LRC, insuffisance 6 po) · exploitation plafonnée à 177 km/h ·
+tracé inchangé · vitesse géométrique (plafond)</h1>
 {resume}
 {intro}
 <h2>Synthèse par tronçon</h2>
@@ -260,10 +262,10 @@ vitesse géométrique (plafond)</h1>
 {''.join(tables)}
 <hr style='margin-top:18px;border:none;border-top:1px solid #ddd'>
 <p style='font-size:0.82em;color:#888'>Source : sections à plafond géométrique
-&lt; 200 km/h en S3, dérivées de la géométrie classée <code>segments.geojson</code>
-(<code>cible_sites_a_rectifier.csv</code>, S3). Vitesse géométrique :
-V = {COEFF_S3:.2f}·√R (dévers CN MR 1305-0, insuffisance 270 mm). Détail
-méthodologique : le rapport du projet.</p>
+&lt; 177 km/h dans le scénario recommandé, dérivées de la géométrie classée
+<code>segments.geojson</code> (<code>sites_restants_sous_grande_vitesse.csv</code>).
+Vitesse géométrique : V = {COEFF:.2f}·√R (dévers CN MR 1305-0, insuffisance
+6 po = 152 mm). Détail méthodologique : le rapport du projet.</p>
 </body></html>"""
 
     OUT.write_text(html, encoding="utf-8")

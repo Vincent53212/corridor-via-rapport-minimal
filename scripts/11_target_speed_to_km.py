@@ -1,11 +1,11 @@
 #!/usr/bin/env python3
-"""Étape 11 — « Vitesse cible → km de tracé à rectifier ».
+"""Étape 11 — « Vitesse cible → km restants sous grande vitesse ».
 
 Le livrable décisionnel : on fixe une ambition de vitesse, on sort combien de
 km de voie devraient être rectifiés (et où) pour l'atteindre, par scénario.
 
 Méthode (SOLIDE) : cible de POINTE (vitesse géométrique). Pour une
-vitesse-cible V et un scénario, un segment est « à rectifier » ssi son plafond
+vitesse-cible V et un scénario, un segment est « restant sous la cible » ssi son plafond
 géométrique publié (vmax_{scénario}, déjà borné 360 et cohérent-classe) < V.
 Simple balayage de seuil sur des données déjà validées : AUCUNE hypothèse
 nouvelle. Sortie : km + sites contigus + rayon-cible.
@@ -15,8 +15,8 @@ moyenne → pointe par le rapport empirique 0,70-0,80) est retiré : facteur de
 transposition interdit par le plan v3, remplacé par le moteur T_base (21).
 
 Entrée : intermediaires/segments.geojson
-Sorties : livrables/cible_km_a_rectifier.csv (agrégé)
-          livrables/cible_sites_a_rectifier.csv (détail par site)
+Sorties : livrables/km_restants_sous_grande_vitesse.csv (agrégé)
+          livrables/sites_restants_sous_grande_vitesse.csv (détail par site)
 """
 from __future__ import annotations
 import csv
@@ -45,7 +45,7 @@ def load_segments():
 
 
 def contiguous_sites(segs: list[dict]) -> list[list[dict]]:
-    """Runs maximaux de segments consécutifs marqués 'à rectifier'."""
+    """Runs maximaux de segments consécutifs restants sous la cible."""
     sites, cur = [], []
     for p in segs:
         if p.get("_rect"):
@@ -60,9 +60,9 @@ def contiguous_sites(segs: list[dict]) -> list[list[dict]]:
 def main() -> None:
     by_tr = load_segments()
 
-    # ---------- #1 SOLIDE : cible de pointe → km à rectifier ----------
+    # ---------- #1 SOLIDE : cible de pointe → km restants sous la cible ----------
     agg_rows, site_rows = [], []
-    print("=== #1 SOLIDE — Vitesse de POINTE cible → km à rectifier "
+    print("=== #1 SOLIDE — Vitesse de POINTE cible → km restants sous la cible "
           "(par scénario) ===")
     print("  (un segment compte si son plafond géométrique publié < cible ;"
           " données déjà validées, aucune hypothèse nouvelle)\n")
@@ -89,8 +89,8 @@ def main() -> None:
                     "scenario": sid, "vitesse_cible_kmh": V,
                     "vitesse_cible_mph": round(kmh_to_mph(V), 1),
                     "troncon": tr,
-                    "km_a_rectifier": round(km_r, 1),
-                    "mille_a_rectifier": round(km_to_mile(km_r), 1),
+                    "km_restants": round(km_r, 1),
+                    "mille_restants": round(km_to_mile(km_r), 1),
                     "pct_troncon": round(100 * km_r / len_tr, 1) if len_tr else 0,
                     "n_sites": len(sites),
                     "degre_courbure_cible_max_deg": round(dc_cible, 2) if dc_cible is not None else "",
@@ -127,7 +127,7 @@ def main() -> None:
     # garde-fou de cohérence avec le récit. NB (2026-08-06, nomenclature rapport
     # minimal) : S3 = pendulaire 127/270 (k=5,75). Attendu ≈ 187 km (estimation du
     # plan de match v3 ; l'ancien S3 127/152, devenu S2, donnait ≈ 271 km / 18,9 %).
-    s3_200 = sum(r["km_a_rectifier"] for r in agg_rows
+    s3_200 = sum(r["km_restants"] for r in agg_rows
                  if r["scenario"] == "S3" and r["vitesse_cible_kmh"] == 200)
     print(f"  Contrôle cohérence : S3 (127/270) cible 200 km/h → {s3_200:.0f} km "
           f"(attendu ≈ 187 km ; ancien S3 127/152, devenu S2 : ≈ 271 km). "
@@ -139,12 +139,12 @@ def main() -> None:
     # vitesse moyenne / quel temps de parcours » relève du moteur T_base (21).
 
     # ---------- écritures ----------
-    a = DELIVERABLES / "cible_km_a_rectifier.csv"
+    a = DELIVERABLES / "km_restants_sous_grande_vitesse.csv"
     with open(a, "w", encoding="utf-8-sig", newline="") as f:
         w = csv.DictWriter(f, fieldnames=list(agg_rows[0].keys()),
                            delimiter=";")
         w.writeheader(); w.writerows(agg_rows)
-    b = DELIVERABLES / "cible_sites_a_rectifier.csv"
+    b = DELIVERABLES / "sites_restants_sous_grande_vitesse.csv"
     with open(b, "w", encoding="utf-8-sig", newline="") as f:
         w = csv.DictWriter(f, fieldnames=list(site_rows[0].keys()),
                            delimiter=";")

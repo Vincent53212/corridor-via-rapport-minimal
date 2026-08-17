@@ -113,7 +113,7 @@ def detect_bottlenecks(segments: list[dict], scenario: str = "S3") -> list[dict]
     descend ≥2 classes sous son voisinage ET est **soutenue ≥ 150 m**.
 
     Définition resserrée (correctif RT-4) : seul **F-en-S3** compte comme
-    « goulot à rectifier en tracé », car c'est la seule classe qu'AUCUN
+    « goulot restant sous grande vitesse en tracé », car c'est la seule classe qu'AUCUN
     scénario (même pendulaire) ne sauve. Les classes D (160–199) et E
     (100–159) en S3 sont une **dégradation relative**, pas un goulot
     greenfield : à 160–199 km/h on est très au-dessus de la pratique VIA
@@ -147,7 +147,7 @@ def detect_bottlenecks(segments: list[dict], scenario: str = "S3") -> list[dict]
             this_rank = CLASS_RANK[classe]
             drop = this_rank - dominant_rank
             if (drop >= BOTTLENECK_DROP and longueur_km <= 5.0
-                    and classe == "F"               # RT-4 : seul F-en-S3 = à rectifier
+                    and classe == "F"               # RT-4 : seul F-en-S3 = goulot structurel
                     and p["longueur_m"] >= 150.0):   # RT-4 : soutenu, pas un pic
                 dominant_classe = SPEED_CLASSES[dominant_rank].code
                 _dc_g = degre_courbure(p["R_min_m"])
