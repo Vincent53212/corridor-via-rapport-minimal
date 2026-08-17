@@ -166,3 +166,26 @@ Note d'usage : dans les brouillons, une affirmation non encore vérifiée est é
 - `via2009lrc` (VÉRIFIÉE, primaire) : retrait du système d'inclinaison lors de la remise à neuf engagée 2007-2009 : moins d'entretien, −2 t/voiture, sans effet vitesse. « Se bloquait incliné » : Wikipédia seulement, ne pas citer.
 - `boyd1982` (VÉRIFIÉE, primaire FRA) : essais LRC haute insuffisance (recommandé 9 po en essai) ; lien Wayback si 403.
 - GTFS archivé : `ressources/viarail_GTFS_avant2024-10.zip` = flux VIA du 19 janvier 2023 (Wayback 2023-01-20, servi en gzip). TEST DE ROBUSTESSE : hiérarchie du 2×2 IDENTIQUE sur ce flux pré-restrictions (simple-CN 66,6 / simple-VIA 48,7 / double-CN 36,3) : la structure précède la crise de 2024-2025. Sorties : marges_*_GTFS2023.csv.
+
+## Ajouts 2026-08-17 (régime d'accès WCML et transposition canadienne)
+
+- `orr2025wcml` (VÉRIFIÉE, primaire) : lettre de décision ORR du 3 juillet 2025 rejetant trois
+  demandes d'accès à la WCML (East Coast Trains/Lumo NW, Virgin, WSMR) faute de capacité :
+  WCML South déclarée « Congested Infrastructure » (6 mai 2020) ; §9 : aucun contrat d'accès
+  sans approbation (art. 18) ou injonction (art. 17) de l'ORR ; §32 : neuf sillons « firebreak »
+  restants par sens ; §47 : impact sur voyageurs ET clients du fret ; §48 : traitement équitable
+  et non discriminatoire de Network Rail vérifié. PDF récupéré par curl (403 à WebFetch).
+- `orr2021cadre` (VÉRIFIÉE, primaire) : module d'orientation ORR (28 juillet 2021) : §2 Network
+  Rail = gestionnaire unique, exploitants voyageurs et fret « beneficiaries » sous contrats
+  réglementés ; §5 : contrat sans approbation ORR « legally void » ; §6-7 : art. 17/18/22/22A.
+- `railwaysact1993` (VÉRIFIÉE, loi) : art. 17 : pouvoir d'ORDONNER la conclusion d'un contrat
+  d'accès : l'ORR est un arbitre, pas un simple homologateur.
+- `ltc1996art138` (VÉRIFIÉE, loi) : art. 138 LTC : l'Office des transports du Canada peut
+  accorder à une compagnie des droits de circulation sur les voies d'une autre, aux conditions
+  qu'il juge justes (intérêt public), et fixer l'indemnité (138(3)). L'institution canadienne
+  équivalente EXISTE déjà.
+- `otc2016circulation` (VÉRIFIÉE, officielle) : page OTC sur les différends de droits de
+  circulation et d'usage commun des voies : facilitation, médiation, arbitrage, décision.
+- À TROUVER (facultatif) : décision ORR mars 2024 approuvant Grand Union Trains
+  (Euston-Stirling) = l'arbitre qui ACCORDE ; Network Rail « WCML South Congested
+  Infrastructure Report » (nov. 2020).
