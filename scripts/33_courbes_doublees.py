@@ -27,6 +27,10 @@ from utils import INTERMEDIATES
 
 RECOUVREMENT_MIN = 0.70
 PLAFOND = 177.0
+# Périmètre du rapport : les quatre trajets du cœur. Le sud-ouest ontarien a
+# aussi de la voie simple, mais il est hors des tables publiées ; l'inclure
+# gonflerait le kilométrage annoncé de la sensibilité (audit 2026-08-17).
+TRONCONS_COEUR = {"MTL-QC", "MTL-Ott", "Ott-TO", "MTL-TO"}
 
 SEGMENTS = INTERMEDIATES / "segments.geojson"
 VOIES = INTERMEDIATES / "segments_voies.geojson"
@@ -41,7 +45,8 @@ def main() -> None:
     simple: dict[str, list[tuple[float, float]]] = {}
     for f in voies["features"]:
         p = f["properties"]
-        if (p["etat"] == 1 and p["usage"] == "main"
+        if (p["troncon_id"] in TRONCONS_COEUR
+                and p["etat"] == 1 and p["usage"] == "main"
                 and not p["pres_gare"] and not p["evitement"]):
             simple.setdefault(p["troncon_id"], []).append(
                 (p["km_debut"], p["km_fin"]))

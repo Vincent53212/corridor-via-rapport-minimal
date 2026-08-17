@@ -36,7 +36,7 @@ l'unité d'usage des chemins de fer nord-américains (177 km/h = 110 mi/h ;
 ![Le train contre l'auto : chaque barre du scénario recommandé est un temps avec marge, présenté en fourchette, et les pourcentages face à l'auto sont donc eux aussi des bornes. Temps auto : approximation de connaissance générale, en repère.](livrables/figure_vs_auto.png)
 
 **La lecture de la figure.** Aujourd'hui, le train fait à peu près jeu égal avec l'auto
-sur Montréal-Toronto (539 km : 5 h 18 à l'horaire) et la perd nettement sur
+sur Montréal-Toronto (536 km : 5 h 18 à l'horaire) et la perd nettement sur
 Montréal-Québec (270 km : 3 h 22). Chaque barre du scénario recommandé est un temps
 « avec marge » : le temps de base (courbes + zones urbaines figées + arrêts) majoré de
 la marge d'exploitation, de la borne normative (8 pour cent au plafond retenu) à la
@@ -44,7 +44,9 @@ marge actuelle du tronçon ; les pourcentages face à l'auto sont donc des born
 points. Le scénario recommandé bat l'auto sur Montréal-Toronto (4 h 27 à 4 h 52, soit
 81 à 89 pour cent de son temps), sur Montréal-Ottawa (1 h 46 à 1 h 49, soit 76 à
 78 pour cent) et sur Ottawa-Toronto (3 h 39 à 4 h 11, soit 84 à 96 pour cent), et fait
-au moins jeu égal sur Montréal-Québec (2 h 30 à 3 h 03, soit 88 à 108 pour cent).
+au moins jeu égal sur Montréal-Québec (2 h 30 à 3 h 03, soit 88 à 108 pour cent). Bout
+en bout, Québec-Toronto par Montréal passe de 8 h 50 à l'horaire actuel à 7 h 07, arrêt
+à Montréal compris, si la marge est tenue à la borne normative (figure suivante).
 
 ![D'où viennent les minutes : chaque barre est l'horaire actuel du trajet ; le segment évidé est le temps du scénario recommandé avec sa marge normative, et les tranches attribuent le gain à ses trois leviers. Les parts sont des attributions qui somment exactement au gain (méthode en section 7), pas des mesures indépendantes.](livrables/figure_gains.png)
 
@@ -75,7 +77,8 @@ en conclusion.
 Mise en regard : le projet Alto propose environ 1 000 km de voies neuves dédiées pour
 relier Québec à Toronto par un tracé nord à 300 km/h ou plus [@alto2025]. La présente
 étude documente ce que le réseau existant du corridor riverain (environ 1 090 km de
-voies physiques, parcourues en 1 433 km de trajets) peut donner, ainsi que les cinq
+voies physiques, les troncs communs à deux trajets comptés une fois, parcourus en
+1 433 km de trajets) peut donner, ainsi que les cinq
 obstacles qui les retiennent et le prix réglementaire de chacun. Les deux exercices
 sont complémentaires : on ne peut comparer les options qu'en connaissant les deux.
 
@@ -213,7 +216,7 @@ voies parallèles.
 
 Sur le tracé ainsi reconstruit, un point tous les 10 mètres. Le rayon de courbure en
 chaque point est estimé en faisant passer au mieux un cercle à travers les quelque
-80 points d'une fenêtre glissante de 900 mètres : moyenner autant de points efface le
+90 points d'une fenêtre glissante de 900 mètres : moyenner autant de points efface le
 bruit de la carte sans aplatir les vraies courbes. L'estimateur a été calibré sur des
 cercles synthétiques de rayon connu, puis validé sur des zones-témoins du corridor
 (vraies courbes serrées des approches d'Ottawa et de Montréal, longues lignes droites de
@@ -226,9 +229,10 @@ logique d'une vraie limite de vitesse ferroviaire. L'ensemble a été validé pa
 passes de contre-vérification indépendantes lors des phases antérieures du projet.
 
 Le reste des données : nombre de voies par détection géométrique des voies parallèles
-dans OpenStreetMap, corroborée par les rapports du Bureau de la sécurité des transports
-(l'écart entre un tronçon double détecté et le même tronçon documenté par le BST est de
-0,1 km sur 25) ; passages à niveau par l'inventaire officiel ouvert de Transports
+dans OpenStreetMap, corroborée par recoupement systématique
+(91 pour cent d'accord sur la partie couverte par les documents d'exploitation publics)
+et par un contrôle ponctuel contre un rapport du Bureau de la sécurité des transports
+(0,1 km d'écart sur un tronçon double de 25 km) ; passages à niveau par l'inventaire officiel ouvert de Transports
 Canada [@tc2023inventairepn] ; horaires par le flux GTFS de VIA, saison 2026
 [@viarail2026gtfs].
 
@@ -241,7 +245,7 @@ cantonnement fin, la simulation de
 circulation (c'est l'étude à commander), les ponts, tunnels et l'état détaillé de la
 voie, ainsi que les zones urbaines au-delà de leurs blocs figés. Les horaires mesurés
 datent de la saison 2026, une période de restrictions exceptionnelles liées aux passages
-à niveau (section 6) : les marges mesurées sont donc possiblement gonflées, ce qui est
+à niveau (section 5) : les marges mesurées sont donc possiblement gonflées, ce qui est
 signalé partout où cela joue.
 
 Règle d'écriture du document : des comptes et des seuils (« ce qui devrait être vrai »),
@@ -274,7 +278,7 @@ géométrique reste sous la cible (somme des quatre trajets analysés, 1 433 km)
 | Cible | Scénario de base | Scénario recommandé |
 |---|---|---|
 | Sous 177 km/h / 110 mi/h (restants sous le plafond retenu) | 494 km | 234 km |
-| Sous 160 km/h / 99 mi/h | 358 km | 94 km |
+| Sous 160 km/h / 99 mi/h | 358 km | 95 km |
 | Sous 100 km/h / 62 mi/h (sections sévères) | 28 km | 7 km |
 
 La lecture décisionnelle : la géométrie du corridor n'a pas besoin d'être reconstruite,
@@ -355,7 +359,11 @@ figure des gains de la synthèse.
 **Ce que le régime pèse** : sous propriétaire VIA, la voie simple ne coûte rien. Elle porte 3 points de marge de MOINS que la voie double du CN, et l'écart reste en sa faveur, de 3 à 7 points (soit de 3 à 6 minutes sur Montréal-Ottawa et Ottawa-Toronto réunis), sur toute la plage de pénalités d'arrêt testée (0 à 3 minutes par paire). Sous propriétaire CN, la même voie simple coûte 31 points, et de 30 à 33 sur la même plage, soit de 23 à 26 minutes sur Montréal-Québec. Le prix de la voie manquante n'est donc pas un prix de voie : il est nul chez l'un et de trente points chez l'autre. Une réserve honnête : les
 lignes de VIA portent environ deux fois moins de trains que celles du CN ; ce qu'on
 mesure est donc l'effet du régime au sens large, densité de fret comprise. C'est
-précisément ce que le doublement seul ne change pas.
+précisément ce que le doublement seul ne change pas. Seconde réserve : cette lecture est
+celle des horaires courants ; sur les horaires de janvier 2023, les mêmes paires VIA
+portaient davantage de marge (49 pour cent), sans jamais approcher la voie simple du CN.
+Le contraste entre propriétaires est robuste d'une saison à l'autre ; la gratuité exacte
+de la voie simple chez VIA ne l'est pas (section 8).
 
 **La dispersion raconte la même histoire.** Sur voie double, tous les trains d'une même
 paire font le même temps (écart interquartile de 5 pour cent). Sur la voie simple du CN,
@@ -391,7 +399,11 @@ vitesse [@sncf2023drr] ; le gestionnaire suédois publie même le différentiel
 intéresse : 3 minutes par 100 km en voie simple contre 2 en voie double, plus 60 secondes
 par croisement [@trafikverket2025jnb]. Aucune règle publiée ne dépasse 15 pour cent.
 
-**Borne haute, mesurée.** Le corridor porte aujourd'hui de 34 à 68 pour cent de marge selon la cellule (table ci-dessus). L'écart entre les deux bornes n'est pas de la
+**Borne haute, mesurée.** Le corridor porte aujourd'hui de 34 à 68 pour cent de marge selon la cellule (table ci-dessus). Ces marges par cellule ne sont pas les marges par
+tronçon de la section 7 (11 à 32 pour cent) : ici la référence est le temps que la
+géométrie permet en profil fluide, paires contaminées exclues ; là, le temps de base
+inclut les blocs urbains figés à l'horaire, qui portent déjà leur propre marge. Le même
+mot mesure deux références, et chacune sert son usage. L'écart entre les deux bornes n'est pas de la
 prudence d'horairiste : c'est le prix, en minutes, du régime de cohabitation actuel.
 
 **Le précédent continental.** L'inspecteur général d'Amtrak a documenté le même
@@ -453,8 +465,8 @@ cette étude, calée sur une fenêtre plus large qu'eux, ne les résout pas un �
 **Sur Montréal-Toronto, déjà doublé, « doubler » n'est pas la demande pertinente.** La
 voie double élimine les croisements, pas les dépassements. L'intervention utile y est
 l'ajout de liaisons rapides entre les deux voies (un dépassement se règle à basse ou à haute vitesse selon le type d'aiguillage
-installé, ce qui change tout son coût en temps [ordres de grandeur 15 vs 45-50 mi/h, soit 24 vs 72-80 km/h,
-À VÉRIFIER en étude de circulation]) et les sections de
+installé, ce qui change tout son coût en temps : ordres de grandeur 15 contre
+45-50 mi/h, soit 24 contre 72-80 km/h, à vérifier en étude de circulation) et les sections de
 troisième voie aux points de friction. Le dimensionnement précis relève de l'étude de
 circulation.
 
@@ -500,7 +512,11 @@ plus étroit (l'écart est expliqué dans les annexes numériques).
 
 La lecture : le corridor scellé est la condition principale du scénario recommandé, et
 elle se compte. Sur les 891 passages de la zone rapide, 328 portent déjà un système
-complet de feux, cloches et barrières ; **563 restent à équiper**. Le tri
+complet de feux, cloches et barrières ; **563 restent à équiper**. Les 328 équipés ne
+sont pas finis pour autant : leurs barrières sont à deux quadrants (elles ne ferment que
+les voies d'entrée), et le corridor scellé leur ajoute les bras de sortie, les
+terre-pleins et la détection ; les 563 autres partent de plus loin (475 passages
+passifs, 60 avec feux et cloches sans barrières). Le tri
 d'intervention, sur données ouvertes (le lecteur applique ses coûts unitaires) : 782
 passages standards (municipaux ou privés, deux voies routières ou moins, hors zone
 urbaine) et 109 complexes (urbains, multi-voies ou provinciaux). La colonne d'accès
@@ -566,8 +582,8 @@ qui se compare à l'horaire actuel.
 |---|---|---|
 | Montréal-Québec (270 km) | 3 h 22 | 2 h 18 |
 | Montréal-Ottawa (185 km) | 2 h 02 | 1 h 38 |
-| Ottawa-Toronto (444 km) | 4 h 35 | 3 h 22 |
-| Montréal-Toronto (539 km) | 5 h 18 | 4 h 07 |
+| Ottawa-Toronto (442 km) | 4 h 35 | 3 h 22 |
+| Montréal-Toronto (536 km) | 5 h 18 | 4 h 07 |
 
 **Temps avec marge (fourchette).** Borne basse : la marge normative au plafond retenu
 (8 pour cent du temps de base [@uic2000f451; @schittenhelm2011]). Borne haute : la
@@ -585,7 +601,11 @@ et de la marge d'aujourd'hui, elle retombe sur l'horaire actuel, par constructio
 
 C'est de ces fourchettes que la figure des gains de la synthèse tire sa décomposition :
 le gain de chaque trajet (l'écart entre l'horaire actuel et la borne basse de la
-fourchette) est attribué à ses trois leviers. Les parts « relèvement du plafond » et
+fourchette) est attribué à ses leviers : quatre parts dans la table jointe, que la
+figure regroupe en trois tranches (le relèvement du plafond et le train pendulaire y
+sont fusionnés). Le trajet Québec-Toronto de la figure est composé de Québec-Montréal
+et de Montréal-Toronto, plus dix minutes d'arrêt à Montréal \[HYPOTHÈSE déclarée dans
+la table\]. Les parts « relèvement du plafond » et
 « train pendulaire » sont l'écart de temps de base recalculé en appliquant chaque
 levier séparément, dans les deux ordres possibles, puis en moyennant (l'écart entre
 les deux ordres, publié dans `decomposition_gains.csv`, ne dépasse pas 6 minutes) ; la
@@ -594,7 +614,8 @@ du CN (section 4) aux seuls kilomètres de voie simple CN du trajet ; la part
 « cohabitation » est le résidu, borné à zéro, et c'est une définition honnête : ce que
 l'étude ne peut pas allouer autrement, précisément l'objet de l'étude de circulation.
 
-Sensibilités : blocs urbains ±20 pour cent (déjà dans les fourchettes) ; le biais de la fenêtre de mesure sur les segments courts est mesuré et chiffré ci-dessous ; l'immobilisation en gare (2 minutes par arrêt) peut être doublée sans changer
+Sensibilités : blocs urbains ±20 pour cent, soit de ±4 à ±8 minutes de temps de base
+selon le tronçon ; le biais de la fenêtre de mesure sur les segments courts est mesuré et chiffré ci-dessous ; l'immobilisation en gare (2 minutes par arrêt) peut être doublée sans changer
 la conclusion (chaque minute ajoutée coûte de 3 à 10 minutes par tronçon selon
 son nombre d'arrêts) ; la borne du pilote de 2025 (7,5 à 10 minutes par arrêt évité)
 inclut des effets de sillon qui relèvent de la marge, pas du temps de base.
@@ -608,8 +629,8 @@ rien de tel (les approches urbaines ont leurs propres contraintes, hors périmè
 mais le chiffre borne ce que le statu quo urbain coûte. **Courbes rectifiées avec le
 doublement** : reconstruire une plateforme pour y poser une seconde voie est le seul
 moment où rouvrir un rayon ne coûte presque rien de plus. Si les courbes situées sur
-les sections à doubler (184 km de segments concernés, définis par un recouvrement d'au
-moins 70 pour cent avec la voie simple hors gares) étaient rectifiées au plafond
+les sections à doubler (162 km de segments concernés sur les quatre trajets, définis
+par un recouvrement d'au moins 70 pour cent avec la voie simple hors gares) étaient rectifiées au plafond
 retenu, le temps de base gagnerait encore 4 minutes sur Montréal-Québec et 3 sur
 Montréal-Ottawa (moins d'une minute ailleurs) : un gain modeste en minutes, mais
 gratuit au moment du chantier, et qui réduit d'autant les kilomètres restants sous
@@ -636,7 +657,9 @@ il sert de référence locale sur les courbes serrées, où il est légitime.
 | 600 à 900 m | 158 | 114 km | 1,05 | 1,89 |
 | 900 m et plus | 253 | 932 km | référence | référence |
 
-Sept cent dix des 1 014 segments du cœur sont plus courts que la fenêtre, soit 305 km
+La table ne compte que les segments où la référence fine est mesurable (877 des 1 014 ;
+les autres, trop amples pour que la flèche de la courbe dépasse le bruit de la source,
+n'ont pas de facteur). Sept cent dix des 1 014 segments du cœur sont plus courts que la fenêtre, soit 305 km
 sur 1 433. La médiane du facteur y reste proche de 1, mais le neuvième décile atteint
 1,8 à 2,2 : le biais épargne la plupart des segments courts et en frappe une minorité
 fortement. Ce sont ces derniers qui déplacent les totaux.
@@ -666,7 +689,7 @@ sa levée relève de l'étude à commander, avec une source de géométrie plus 
 l'inventaire ouvert.
 
 Deux garde-fous internes : chaque segment publié vérifie par construction la cohérence
-entre sa classe et sa vitesse (zéro violation sur 5 040 contrôles), et les zones-témoins
+entre sa classe et sa vitesse (zéro violation sur 3 804 contrôles), et les zones-témoins
 (courbes réelles d'Ottawa et de Montréal, vitesse de la ligne Kingston) ressortent
 correctement à chaque régénération.
 
@@ -679,8 +702,12 @@ du contrôle en cabine incrémental disponible), pas une limite de la voie : ce
 plafonds supérieurs donneraient reste calculé dans les annexes numériques du projet.
 Ses horaires de référence datent d'une saison de restrictions exceptionnelles ; le
 biais a été testé en rejouant la mesure sur les horaires de janvier 2023, antérieurs à
-la crise : la hiérarchie entre cellules et les niveaux de marge y sont pratiquement
-identiques (voie simple CN à 67 pour cent dès 2023). La structure précède la crise.
+la crise. Le résultat central y tient : la voie simple du CN portait déjà 67 pour cent
+de marge en 2023, contre 36 pour la voie double ; le coût du régime chez le propriétaire
+de fret précède la crise. La lecture fine de la voie simple de VIA, elle, dépend de la
+saison (49 pour cent de marge en 2023, 34 en 2026) : l'écart entre propriétaires reste
+béant dans les deux saisons, mais la valeur « la voie simple ne coûte rien chez VIA »
+est celle des horaires courants, et se lit comme telle.
 
 C'est précisément pourquoi sa conclusion opérationnelle est une commande d'étude : une
 étude de circulation, menée avec le propriétaire de la voie, qui alloue la marge entre

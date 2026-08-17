@@ -297,7 +297,7 @@ def sections(pub: dict) -> list[dict]:
                    "et la marge d'exploitation est encadrée entre deux bornes plutôt que "
                    "devinée.",
             "chiffres": [
-                {"v": "1 268", "l": "segments de courbure homogène"},
+                {"v": "1 014", "l": "segments de courbure homogène sur le cœur (1 268 avec le sud-ouest)"},
                 {"v": "900 m", "l": "fenêtre d'ajustement, imposée par le bruit de la source"},
             ],
             "pieces": ["segments_courbature.csv", "blocs_urbains.csv"],
@@ -390,8 +390,8 @@ def sections(pub: dict) -> list[dict]:
                 {"v": "2 h 30", "l": "Montréal-Québec, scénario recommandé, borne basse"},
             ],
             "verifications": [{
-                "enonce": "La figure des gains promet que ses quatre parts somment "
-                          "exactement au gain de chaque trajet. <b>Refaisons la somme</b>.",
+                "enonce": "La figure des gains promet que les parts de sa décomposition "
+                          "somment exactement au gain de chaque trajet. <b>Refaisons la somme</b>.",
                 "table": "decomposition_gains.csv",
                 "filtre": [{"col": "poste", "op": "dans", "val": GAIN_POSTES}],
                 "grouper": "trajet", "agreger": "minutes", "mode": "somme",
