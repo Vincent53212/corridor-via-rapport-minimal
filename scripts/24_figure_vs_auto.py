@@ -1,13 +1,13 @@
-"""Étape 24 — Figure : le train contre l'auto, par scénario (fourchettes avec marge).
+"""Étape 24 — Figure : le train contre l'auto, quatre trajets (fourchettes avec marge).
 Temps auto = approximation de connaissance générale (étiquetée) ; train = T_base
-+ marge (borne 9 % à marge actuelle du tronçon), milieu de fourchette en barre,
++ marge (borne 8 % à marge actuelle du tronçon), milieu de fourchette en barre,
 fourchette en moustache. Les pourcentages face à l'auto sont publiés en bornes
 (borne basse et borne haute de la fourchette), jamais en point.
+Deux barres par trajet : l'horaire d'aujourd'hui (scénario de base) et le
+scénario recommandé (pendulaire, plafond d'exploitation 177 km/h — interne S2).
 Sortie : livrables/figure_vs_auto.png.
 
-Mise en forme : identite/identite.json (voir scripts/identite.py). Les couleurs
-des barres sont celles des scénarios, une seule teinte à trois valeurs, pour que
-l'ordre S1 < S2 < S3 se lise aussi en noir et blanc."""
+Mise en forme : identite/identite.json (voir scripts/identite.py)."""
 import matplotlib; matplotlib.use("Agg")
 import matplotlib.pyplot as plt
 from utils import DELIVERABLES
@@ -25,11 +25,13 @@ def hm(m):
 
 def pct(m, auto): return int(m / auto * 100 + 0.5)
 
-# Fourchette avec marge calculée comme dans le rapport : lo = T_base × 1,09
-# (borne normative 9 % aux bandes 200+), hi = T_base × (1 + marge actuelle du
-# tronçon), où marge actuelle = t_horaire / T_base(S1, 160) − 1 (tbase_par_bande.csv).
+# Fourchette avec marge calculée comme dans le rapport : lo = T_base × 1,08
+# (borne normative à 177 km/h : interpolation UIC entre 7 % à 160 et 9 % à 200,
+# soit 1 + 0,07 + (177−160)/(200−160) × 0,02 ≈ 1,078, arrondi 1,08),
+# hi = T_base × (1 + marge actuelle du tronçon), où marge actuelle =
+# t_horaire / T_base(S1, 160) − 1 (tbase_par_bande.csv).
 # T_base = profil dynamique (étape 21, 2026-08-08).
-MARGE_LO = 1.09
+MARGE_LO = 1.08
 def four(base, m_troncon): return (base * MARGE_LO, base * m_troncon)
 
 # T_base, horaire actuel et marge de tronçon sont LUS dans le livrable de
@@ -60,25 +62,27 @@ def _marge(troncon):
 
 # Le temps en auto reste une hypothèse externe (ordre de grandeur, annoncé
 # comme approximatif dans le titre) : il ne vient pas du pipeline.
-AUTO_QC_MIN, AUTO_TO_MIN = 170, 330
+# Vérifiés sur cartographie routière grand public (2026-08-17).
+AUTO_MIN = {"MTL-QC": 170, "MTL-TO": 330, "MTL-Ott": 140, "Ott-TO": 260}
+RECO = "Scénario recommandé"
+
+def panel(troncon, titre, repere):
+    return (titre, repere, AUTO_MIN[troncon], [
+        ("VIA aujourd'hui", _horaire(troncon), _horaire(troncon)),
+        (RECO, *four(_base(troncon, "S2", 177), _marge(troncon)))])
 
 # (corridor, auto_min, [(label, lo, hi — lo == hi pour un point)])
 DATA = [
- ("Montréal-Québec", "auto ≈ 2 h 50, approx.", AUTO_QC_MIN, [
-   ("VIA aujourd'hui", _horaire("MTL-QC"), _horaire("MTL-QC")),
-   ("S2, bande 200", *four(_base("MTL-QC", "S2", 200), _marge("MTL-QC"))),
-   ("S3, bande 300", *four(_base("MTL-QC", "S3", 300), _marge("MTL-QC")))]),
- ("Montréal-Toronto", "auto ≈ 5 h 30, approx.", AUTO_TO_MIN, [
-   ("VIA aujourd'hui", _horaire("MTL-TO"), _horaire("MTL-TO")),
-   ("S2, bande 200", *four(_base("MTL-TO", "S2", 200), _marge("MTL-TO"))),
-   ("S3, bande 300", *four(_base("MTL-TO", "S3", 300), _marge("MTL-TO")))]),
+ panel("MTL-QC",  "Montréal-Québec",  "auto ≈ 2 h 50, approx."),
+ panel("MTL-TO",  "Montréal-Toronto", "auto ≈ 5 h 30, approx."),
+ panel("MTL-Ott", "Montréal-Ottawa",  "auto ≈ 2 h 20, approx."),
+ panel("Ott-TO",  "Ottawa-Toronto",   "auto ≈ 4 h 20, approx."),
 ]
 COLS = {"auto": SCENARIOS["auto"], "VIA aujourd'hui": SCENARIOS["actuel"],
-        "S2, bande 200": SCENARIOS["S2"], "S3, bande 200": SCENARIOS["S2"],
-        "S3, bande 300": SCENARIOS["S3"]}
+        RECO: SCENARIOS["S2"]}
 
-fig, axes = plt.subplots(1, 2, figsize=(10, 3.1), dpi=300)
-for ax, (title, repere, auto, rows) in zip(axes, DATA):
+fig, axes = plt.subplots(2, 2, figsize=(11, 5.6), dpi=300)
+for ax, (title, repere, auto, rows) in zip(axes.flat, DATA):
     labels = ["Auto"] + [r[0] for r in rows]
     mids = [auto] + [(lo+hi)/2 for _, lo, hi in rows]
     cols = [COLS["auto"]] + [COLS[r[0]] for r in rows]
@@ -112,7 +116,7 @@ for ax, (title, repere, auto, rows) in zip(axes, DATA):
     ax.set_yticklabels(labels, fontsize=7.8, color=PAPIER["encre_douce"],
                        **police_mono())
     ax.tick_params(axis="y", length=0, pad=6)
-    ax.set_xlim(0, max(mids)*1.98); ax.set_xticks([])
+    ax.set_xlim(0, max(mids)*2.45); ax.set_xticks([])
     ax.set_title(title, fontsize=11, loc="left", color=PAPIER["encre"],
                  pad=15, **police_titre(600))
     ax.text(0, 1.015, repere, transform=ax.transAxes, fontsize=7.2,
