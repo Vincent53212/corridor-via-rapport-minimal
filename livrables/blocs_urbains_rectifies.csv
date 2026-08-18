@@ -5,5 +5,5 @@ MTL-Ott;Montréal Central ↔ Dorval;0.0;17.79;17.8;23.5;SOURCE : GTFS VIA (méd
 Ott-TO;Guildwood ↔ Toronto Union;423.93;444.05;20.1;18.0;SOURCE : GTFS VIA (médiane des sillons)
 MTL-TO;Montréal Central ↔ Dorval;0.0;17.79;17.8;23.5;SOURCE : GTFS VIA (médiane des sillons)
 MTL-TO;Guildwood ↔ Toronto Union;517.94;538.06;20.1;18.0;SOURCE : GTFS VIA (médiane des sillons)
-MTL-Ott;Ottawa (approche est, fenêtre ±10 km — HYPOTHÈSE);175.42;185.42;10.0;;HYPOTHÈSE : fenêtre km, traversée au plafond S1 ∧ bande
-Ott-TO;Ottawa (approche ouest, fenêtre ±10 km — HYPOTHÈSE);0.0;10.0;10.0;;HYPOTHÈSE : fenêtre km, traversée au plafond S1 ∧ bande
+MTL-Ott;Ottawa (approche est, fenêtre ±10 km — HYPOTHÈSE);175.42;185.42;10.0;;HYPOTHÈSE : fenêtre km, traversée au plafond du scénario de base ∧ bande
+Ott-TO;Ottawa (approche ouest, fenêtre ±10 km — HYPOTHÈSE);0.0;10.0;10.0;;HYPOTHÈSE : fenêtre km, traversée au plafond du scénario de base ∧ bande

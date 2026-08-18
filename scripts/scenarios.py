@@ -124,8 +124,8 @@ SCENARIOS: dict[str, Scenario] = {
         cant_def_mm=270,
         source="Dévers : CN MR 1305-0 (5 po) ; insuffisance 270 mm HORS précédent NA (réf. conception EN 13803, matériel pendulaire) — approbation par équipement, RRTS Subpart C 4.3",
         color="#2ca02c",  # vert
-        fret_fr="Dévers identique à S2 (norme CN trafic mixte) ; l'insuffisance 270 mm est propre au matériel pendulaire, sans effet sur le fret",
-        fret_en="Same cant as S2 (CN mixed-traffic standard); the 270 mm deficiency is specific to tilting equipment, no freight impact",
+        fret_fr="Dévers identique au scénario recommandé (norme CN trafic mixte) ; l'insuffisance 270 mm est propre au matériel pendulaire, sans effet sur le fret",
+        fret_en="Same cant as the recommended scenario (CN mixed-traffic standard); the 270 mm deficiency is specific to tilting equipment, no freight impact",
         cant_assumed=False,  # 127 mm = dévers de conception (intervention), pas une hypothèse
     ),
 }
@@ -172,6 +172,32 @@ def classify(vmax_kmh: float) -> SpeedClass:
         if sc.vmin_kmh <= vmax_kmh < sc.vmax_kmh:
             return sc
     return SPEED_CLASSES[-1]  # défaut F
+
+
+# --- Nomenclature PUBLIQUE des livrables (2026-08-18) -----------------------
+# Les identifiants S1/S2/S3 restent la vérité INTERNE du pipeline (scripts,
+# intermédiaires). Tout fichier écrit dans livrables/ traduit à l'écriture :
+# le lecteur d'un CSV livré ne doit jamais rencontrer un sigle que le rapport
+# n'utilise plus. Un seul endroit pour la traduction : ici.
+PUBLIC_IDS = {"S1": "base", "S2": "recommande", "S3": "reference-interne"}
+PUBLIC_LABELS = {"base": "Scénario de base (voie et train actuels)",
+                 "recommande": "Scénario recommandé (pendulaire, plafond 177)",
+                 "reference-interne": "Référence interne (pendulaire 270 mm, hors rapport)"}
+
+
+def public_id(sid: str) -> str:
+    """Identifiant publié pour un id interne (S1→base, S2→recommande…)."""
+    return PUBLIC_IDS.get(sid, sid)
+
+
+def public_col(name: str) -> str:
+    """Nom de colonne publié : vmax_S1_kmh → vmax_base_kmh, classe_S2 →
+    classe_recommande, etc. Les colonnes sans sigle passent inchangées."""
+    for sid, pub in PUBLIC_IDS.items():
+        name = name.replace(f"_{sid}_", f"_{pub}_")
+        if name.endswith(f"_{sid}"):
+            name = name[: -len(sid)] + pub
+    return name
 
 
 # --- Garde-fous physiques (remédiation : cohérence rayon publié ↔ classe) ---

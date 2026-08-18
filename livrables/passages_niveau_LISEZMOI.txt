@@ -20,7 +20,7 @@ Le 49 CFR est cité comme PRÉCÉDENT réglementaire nord-américain ; il ne
 s'applique pas de plein droit au Canada.
 
 Bandes d'EXPLOITATION (colonnes bande_base / bande_recommandee) : la base est
-le régime d'aujourd'hui (S1 plafonné à 160 km/h) ; le scénario recommandé est
+le régime d'aujourd'hui (la voie actuelle, plafonnée à 160 km/h) ; le scénario recommandé est
 le pendulaire plafonné à 177 km/h (110 mi/h), limite du contrôle en cabine
 incrémental type ITCS. scénario recommandé (plafond 177 km/h) : 891 passages en bande 154-177, dont 328 déjà équipés d'un système complet feux-cloches-barrières (FLBG) et 563 à équiper ; 109 en contexte complexe ; 33 restent ≤153.
 

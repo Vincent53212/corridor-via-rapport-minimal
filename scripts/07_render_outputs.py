@@ -44,14 +44,21 @@ from alignments import ALIGNMENTS, CORRIDOR_SEGMENTS
 
 CLASS_COLOR = {sc.code: sc.color for sc in SPEED_CLASSES}
 
+# Libellés PUBLICS des scénarios pour tout ce qui s'affiche (cartes, KMZ,
+# légendes) : les ids S1/S2/S3 restent internes au pipeline.
+AFFICHE = {"S1": "Scénario de base", "S2": "Scénario recommandé",
+           "S3": "Référence interne"}
+AFFICHE_EN = {"S1": "Base scenario", "S2": "Recommended scenario",
+              "S3": "Internal reference"}
+
 # ----------------------------------------------------------------- Caveats
 # Textes VERBATIM — ne pas modifier sans mettre à jour inject_synthese_into_methodo.py
 CAVEAT_FR1 = (
-    "Le scénario S1 est un plafond physique légal (règlement Transport Canada), "
+    "Le plafond du scénario de base est un plafond physique légal (règlement Transport Canada), "
     "PAS la vitesse réellement exploitée par VIA."
 )
 CAVEAT_EN1 = (
-    "Scenario S1 is a legal physical ceiling (Transport Canada rules), "
+    "The base scenario ceiling is a legal physical ceiling (Transport Canada rules), "
     "NOT VIA's actual operating speed."
 )
 CAVEAT_FR2 = (
@@ -63,11 +70,11 @@ CAVEAT_EN2 = (
     "track condition NOT considered. Target precision is the speed class, not exact km/h."
 )
 CAVEAT_FR3 = (
-    "Le dévers réellement en voie n'a PAS été relevé : S1 suppose 100 mm (≈ 4 po) ; S2 et S3 sont des dévers de conception (127 mm = 5 po). "
+    "Le dévers réellement en voie n'a PAS été relevé : le scénario de base suppose 100 mm (≈ 4 po) ; le recommandé et la référence interne sont des dévers de conception (127 mm = 5 po). "
     "v_max est un plafond géométrique au dévers normatif, pas une vitesse relevée."
 )
 CAVEAT_EN3 = (
-    "Actual in-track cant was NOT surveyed: S1 assumes 100 mm (~4 in); S2 and S3 use design cant (127 mm = 5 in). "
+    "Actual in-track cant was NOT surveyed: the base scenario assumes 100 mm (~4 in); the recommended and internal-reference scenarios use design cant (127 mm = 5 in). "
     "v_max is a geometric ceiling at the normative cant, not a surveyed speed."
 )
 
@@ -130,7 +137,7 @@ def build_main_html(seg_features: list[dict], stations: list[dict], out_html: Pa
     for sid in ("S1", "S2", "S3"):
         sc_obj = SCENARIOS[sid]
         layer = folium.FeatureGroup(
-            name=f"{sid} · {sc_obj.name_fr} / {sc_obj.name_en}",
+            name=f"{AFFICHE[sid]} · {sc_obj.name_fr} / {sc_obj.name_en}",
             overlay=False,
             show=(sid == "S2"),  # S2 sélectionné par défaut
         )
@@ -148,11 +155,11 @@ def build_main_html(seg_features: list[dict], stations: list[dict], out_html: Pa
                 f" &nbsp;<small>(rayon {p['R_classif_m']} m · R_p50 "
                 f"{p['R_p50_m']} m · R_moy {p['R_moy_m']} m)</small><br>"
                 f"<hr style='margin:4px 0'>"
-                f"<b>{sid} — {sc_obj.name_fr}</b><br>"
+                f"<b>{AFFICHE[sid]} — {sc_obj.name_fr}</b><br>"
                 f"Plafond de courbure / curvature ceiling &asymp; "
                 f"<b>{vmax:.0f} km/h / {kmh_to_mph(vmax):.0f} mph</b> &nbsp;(classe {classe})<br>"
-                f"<small>S1: {p['vmax_S1_kmh']:.0f} km/h ({kmh_to_mph(p['vmax_S1_kmh']):.0f} mph, {p['classe_S1']}) | "
-                f"S3: {p['vmax_S3_kmh']:.0f} km/h ({kmh_to_mph(p['vmax_S3_kmh']):.0f} mph, {p['classe_S3']})</small><br>"
+                f"<small>Base: {p['vmax_S1_kmh']:.0f} km/h ({kmh_to_mph(p['vmax_S1_kmh']):.0f} mph, {p['classe_S1']}) | "
+                f"Réf. interne: {p['vmax_S3_kmh']:.0f} km/h ({kmh_to_mph(p['vmax_S3_kmh']):.0f} mph, {p['classe_S3']})</small><br>"
                 f"<small style='color:#a00'>Plafond géométrique — PAS la vitesse "
                 f"opérationnelle / Geometric ceiling — NOT operating speed</small><br>"
                 f"<small>Entre / Between: {p['gare_amont']} → {p['gare_aval']}</small>"
@@ -191,7 +198,7 @@ def build_main_html(seg_features: list[dict], stations: list[dict], out_html: Pa
     classes_table += "</table>"
 
     scenario_rows = "".join(
-        f"<div style='margin-top:4px'><b>{sid}</b> {SCENARIOS[sid].name_fr}<br>"
+        f"<div style='margin-top:4px'><b>{AFFICHE[sid]}</b> · {SCENARIOS[sid].name_fr}<br>"
         f"<small style='color:#444'>dévers {SCENARIOS[sid].cant_mm} mm "
         f"({SCENARIOS[sid].cant_in:.1f}&Prime;) · insuff. {SCENARIOS[sid].cant_def_mm} mm "
         f"({SCENARIOS[sid].cant_def_in:.1f}&Prime;) · v&asymp;{SCENARIOS[sid].coeff:.2f}&middot;&radic;R</small><br>"
@@ -257,7 +264,7 @@ def build_kmz(seg_features: list[dict], stations: list[dict], out_kmz: Path) -> 
     kml = simplekml.Kml(name="TGV Canada — Courbatures du corridor VIA")
     kml.document.description = (
         "Phase 1 — analyse stratégique. Alignement VIA existant, 3 scénarios "
-        "(S1 voie actuelle, S2 pendulaire LRC + dévers max standard CN 5 po, S3 pendulaire moderne insuffisance 270 mm). "
+        "(base : voie actuelle ; recommandé : pendulaire LRC + dévers max standard CN 5 po ; référence interne : pendulaire insuffisance 270 mm). "
         "Sources : viarail GTFS + OSM PBF QC+ON. Géométries simplifiées (Douglas-Peucker, "
         "tol ~7m) pour rester sous la limite de 5 MB de Google My Maps.\n\n"
         "AVERTISSEMENTS / WARNINGS\n"
@@ -273,7 +280,7 @@ def build_kmz(seg_features: list[dict], stations: list[dict], out_kmz: Path) -> 
     for sid in ("S1", "S2", "S3"):
         sc_obj = SCENARIOS[sid]
         folder = kml.newfolder(
-            name=f"{sid} — {sc_obj.name_fr} / {sc_obj.name_en}",
+            name=f"{AFFICHE[sid]} — {sc_obj.name_fr} / {sc_obj.name_en}",
             description=sc_obj.source,
         )
         folder.visibility = 1 if sid == "S2" else 0
@@ -299,12 +306,12 @@ def build_kmz(seg_features: list[dict], stations: list[dict], out_kmz: Path) -> 
                 f"(rayon {p['R_classif_m']} m | R_p50 {p['R_p50_m']} m "
                 f"| R_moy {p['R_moy_m']} m)\n"
                 f"Longueur: {p['longueur_m']:.0f} m\n"
-                f"Plafond de courbure {sid} ≈ {p[f'vmax_{sid}_kmh']:.0f} km/h "
+                f"Plafond de courbure ({AFFICHE[sid]}) ≈ {p[f'vmax_{sid}_kmh']:.0f} km/h "
                 f"({kmh_to_mph(p[f'vmax_{sid}_kmh']):.0f} mph) "
                 f"(classe {classe}) — GÉOMÉTRIQUE, PAS opérationnel\n"
-                f"Autres scénarios: S1 {p['vmax_S1_kmh']:.0f} km/h / "
+                f"Autres scénarios: base {p['vmax_S1_kmh']:.0f} km/h / "
                 f"{kmh_to_mph(p['vmax_S1_kmh']):.0f} mph ({p['classe_S1']}), "
-                f"S3 {p['vmax_S3_kmh']:.0f} km/h / "
+                f"réf. interne {p['vmax_S3_kmh']:.0f} km/h / "
                 f"{kmh_to_mph(p['vmax_S3_kmh']):.0f} mph ({p['classe_S3']})\n"
                 f"Entre {p['gare_amont']} et {p['gare_aval']}"
             )
@@ -330,10 +337,10 @@ def build_segments_csv(seg_features: list[dict], out_csv: Path) -> None:
         "longueur_m", "longueur_mille",
         "degré_courbure_gouvernant_deg",
         "R_min_m", "R_classant_min_m", "R_p10_m", "R_p50_m", "R_moy_m",
-        "vmax_S1_kmh_plafond_courbure", "vmax_S1_mph_plafond_courbure",
-        "vmax_S2_kmh_plafond_courbure", "vmax_S2_mph_plafond_courbure",
-        "vmax_S3_kmh_plafond_courbure", "vmax_S3_mph_plafond_courbure",
-        "classe_S1", "classe_S2", "classe_S3",
+        "vmax_base_kmh_plafond_courbure", "vmax_base_mph_plafond_courbure",
+        "vmax_recommande_kmh_plafond_courbure", "vmax_recommande_mph_plafond_courbure",
+        "vmax_reference_kmh_plafond_courbure", "vmax_reference_mph_plafond_courbure",
+        "classe_base", "classe_recommande", "classe_reference",
         "gare_amont", "gare_aval",
     ]
     headers_en = [
@@ -342,9 +349,9 @@ def build_segments_csv(seg_features: list[dict], out_csv: Path) -> None:
         "length_m", "length_mile",
         "degree_of_curve_governing_deg",
         "R_min_m", "R_governing_min_m", "R_p10_m", "R_p50_m", "R_mean_m",
-        "vmax_S1_kmh_curv_ceiling", "vmax_S1_mph_curv_ceiling",
-        "vmax_S2_kmh_curv_ceiling", "vmax_S2_mph_curv_ceiling",
-        "vmax_S3_kmh_curv_ceiling", "vmax_S3_mph_curv_ceiling",
+        "vmax_base_kmh_curv_ceiling", "vmax_base_mph_curv_ceiling",
+        "vmax_recommande_kmh_curv_ceiling", "vmax_recommande_mph_curv_ceiling",
+        "vmax_reference_kmh_curv_ceiling", "vmax_reference_mph_curv_ceiling",
         "class_S1", "class_S2", "class_S3",
         "station_upstream", "station_downstream",
     ]

@@ -26,7 +26,7 @@ from collections import defaultdict
 from pathlib import Path
 
 sys.path.insert(0, str(Path(__file__).resolve().parent))
-from scenarios import SCENARIOS, VMAX_PHYSICAL_CEILING_KMH
+from scenarios import SCENARIOS, VMAX_PHYSICAL_CEILING_KMH, public_id
 from utils import (SEGMENTS_GEOJSON, DELIVERABLES, degre_courbure,
                    kmh_to_mph, km_to_mile)
 
@@ -86,7 +86,7 @@ def main() -> None:
                 sites = contiguous_sites(segs)
                 dc_cible = degre_courbure(R_target)
                 agg_rows.append({
-                    "scenario": sid, "vitesse_cible_kmh": V,
+                    "scenario": public_id(sid), "vitesse_cible_kmh": V,
                     "vitesse_cible_mph": round(kmh_to_mph(V), 1),
                     "troncon": tr,
                     "km_restants": round(km_r, 1),
@@ -102,7 +102,7 @@ def main() -> None:
                     r_act = min(rmins) if rmins else None
                     dc_act = degre_courbure(r_act) if r_act is not None else None
                     site_rows.append({
-                        "scenario": sid, "vitesse_cible_kmh": V,
+                        "scenario": public_id(sid), "vitesse_cible_kmh": V,
                         "vitesse_cible_mph": round(kmh_to_mph(V), 1),
                         "troncon": tr,
                         "km_debut": round(s[0]["km_debut"], 2),
@@ -128,7 +128,7 @@ def main() -> None:
     # minimal) : S3 = pendulaire 127/270 (k=5,75). Attendu ≈ 187 km (estimation du
     # plan de match v3 ; l'ancien S3 127/152, devenu S2, donnait ≈ 271 km / 18,9 %).
     s3_200 = sum(r["km_restants"] for r in agg_rows
-                 if r["scenario"] == "S3" and r["vitesse_cible_kmh"] == 200)
+                 if r["scenario"] == "reference-interne" and r["vitesse_cible_kmh"] == 200)
     print(f"  Contrôle cohérence : S3 (127/270) cible 200 km/h → {s3_200:.0f} km "
           f"(attendu ≈ 187 km ; ancien S3 127/152, devenu S2 : ≈ 271 km). "
           f"{'OK ✓' if 165 <= s3_200 <= 210 else 'ÉCART À VÉRIFIER ✗'}\n")

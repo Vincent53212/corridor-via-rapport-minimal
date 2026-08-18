@@ -120,7 +120,7 @@ URBAN_GTFS_BLOCKS = [
     ("MTL-TO",  "226", "332", "Montréal Central ↔ Dorval",                        0.0, 17.79),
     ("MTL-TO",  "450", "119", "Guildwood ↔ Toronto Union",                        517.94, 538.06),
 ]
-# Blocs urbains sans ancre GTFS : fenêtre km, traversée au plafond S1 ∧ bande.
+# Blocs urbains sans ancre GTFS : fenêtre km, traversée au plafond du scénario de base ∧ bande.
 URBAN_KM_BLOCKS = [
     ("MTL-Ott", "Ottawa (approche est, fenêtre ±10 km — HYPOTHÈSE)", 175.42, 185.42),
     ("Ott-TO",  "Ottawa (approche ouest, fenêtre ±10 km — HYPOTHÈSE)", 0.0, 10.0),
@@ -331,7 +331,7 @@ def main() -> None:
         bloc_rows.append({"troncon": t, "bloc": name, "km_debut": km0, "km_fin": km1,
                           "longueur_km": round(km1 - km0, 1),
                           "minutes_gtfs_mediane": "",
-                          "source": "HYPOTHÈSE : fenêtre km, traversée au plafond S1 ∧ bande"})
+                          "source": "HYPOTHÈSE : fenêtre km, traversée au plafond du scénario de base ∧ bande"})
 
     # --- arrêts interurbains (hors blocs urbains)
     stops_inter: dict[str, int] = {}
@@ -366,8 +366,11 @@ def main() -> None:
                     "t_horaire_actuel_min": round(endpoint_minutes[t], 1),
                 })
 
+    from scenarios import public_id
+    df = pd.DataFrame(rows)
+    df["scenario"] = df["scenario"].map(public_id)   # livrable = nomenclature publique
     pd.DataFrame(bloc_rows).to_csv(OUT_BLOCS, sep=";", index=False, encoding="utf-8-sig")
-    pd.DataFrame(rows).to_csv(OUT_TBASE, sep=";", index=False, encoding="utf-8-sig")
+    df.to_csv(OUT_TBASE, sep=";", index=False, encoding="utf-8-sig")
 
     print("=== Étape 21 — T_base par bande × scénario (SANS marge) ===\n")
     print(f"{'tronçon':<8} {'scén':<4} {'bande':>5}  {'urbain':>6} {'fenêtre':>7} "

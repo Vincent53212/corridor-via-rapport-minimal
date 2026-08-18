@@ -1,101 +1,101 @@
 ﻿scenario;troncon;bande_kmh;n_passages
-S1;MTL-QC;≤153;77
-S1;MTL-QC;154-177;40
-S1;MTL-QC;178-201;61
-S1;MTL-QC;>201;144
-S1;MTL-Ott;≤153;107
-S1;MTL-Ott;154-177;13
-S1;MTL-Ott;178-201;36
-S1;MTL-Ott;>201;52
-S1;Ott-TO;≤153;10
-S1;Ott-TO;154-177;70
-S1;Ott-TO;178-201;67
-S1;Ott-TO;>201;154
-S1;MTL-TO;≤153;4
-S1;MTL-TO;154-177;63
-S1;MTL-TO;178-201;73
-S1;MTL-TO;>201;225
-S1;CORRIDOR (dédoublonné);≤153;195
-S1;CORRIDOR (dédoublonné);154-177;127
-S1;CORRIDOR (dédoublonné);178-201;176
-S1;CORRIDOR (dédoublonné);>201;426
-S2;MTL-QC;≤153;13
-S2;MTL-QC;154-177;60
-S2;MTL-QC;178-201;21
-S2;MTL-QC;>201;228
-S2;MTL-Ott;≤153;14
-S2;MTL-Ott;154-177;93
-S2;MTL-Ott;178-201;1
-S2;MTL-Ott;>201;100
-S2;Ott-TO;≤153;6
-S2;Ott-TO;154-177;4
-S2;Ott-TO;178-201;37
-S2;Ott-TO;>201;254
-S2;MTL-TO;≤153;1
-S2;MTL-TO;154-177;3
-S2;MTL-TO;178-201;31
-S2;MTL-TO;>201;330
-S2;CORRIDOR (dédoublonné);≤153;33
-S2;CORRIDOR (dédoublonné);154-177;158
-S2;CORRIDOR (dédoublonné);178-201;61
-S2;CORRIDOR (dédoublonné);>201;672
-S3;MTL-QC;≤153;7
-S3;MTL-QC;154-177;2
-S3;MTL-QC;178-201;64
-S3;MTL-QC;>201;249
-S3;MTL-Ott;≤153;3
-S3;MTL-Ott;154-177;9
-S3;MTL-Ott;178-201;90
-S3;MTL-Ott;>201;106
-S3;Ott-TO;≤153;6
-S3;Ott-TO;154-177;0
-S3;Ott-TO;178-201;2
-S3;Ott-TO;>201;293
-S3;MTL-TO;≤153;1
-S3;MTL-TO;154-177;0
-S3;MTL-TO;178-201;3
-S3;MTL-TO;>201;361
-S3;CORRIDOR (dédoublonné);≤153;16
-S3;CORRIDOR (dédoublonné);154-177;11
-S3;CORRIDOR (dédoublonné);178-201;157
-S3;CORRIDOR (dédoublonné);>201;740
-base_cap160;MTL-QC;≤153;77
-base_cap160;MTL-QC;154-177;245
-base_cap160;MTL-QC;178-201;0
-base_cap160;MTL-QC;>201;0
-base_cap160;MTL-Ott;≤153;107
-base_cap160;MTL-Ott;154-177;101
-base_cap160;MTL-Ott;178-201;0
-base_cap160;MTL-Ott;>201;0
-base_cap160;Ott-TO;≤153;10
-base_cap160;Ott-TO;154-177;291
-base_cap160;Ott-TO;178-201;0
-base_cap160;Ott-TO;>201;0
-base_cap160;MTL-TO;≤153;4
-base_cap160;MTL-TO;154-177;361
-base_cap160;MTL-TO;178-201;0
-base_cap160;MTL-TO;>201;0
-base_cap160;CORRIDOR (dédoublonné);≤153;195
-base_cap160;CORRIDOR (dédoublonné);154-177;729
-base_cap160;CORRIDOR (dédoublonné);178-201;0
-base_cap160;CORRIDOR (dédoublonné);>201;0
-recommande_cap177;MTL-QC;≤153;13
-recommande_cap177;MTL-QC;154-177;309
-recommande_cap177;MTL-QC;178-201;0
-recommande_cap177;MTL-QC;>201;0
-recommande_cap177;MTL-Ott;≤153;14
-recommande_cap177;MTL-Ott;154-177;194
-recommande_cap177;MTL-Ott;178-201;0
-recommande_cap177;MTL-Ott;>201;0
-recommande_cap177;Ott-TO;≤153;6
-recommande_cap177;Ott-TO;154-177;295
-recommande_cap177;Ott-TO;178-201;0
-recommande_cap177;Ott-TO;>201;0
-recommande_cap177;MTL-TO;≤153;1
-recommande_cap177;MTL-TO;154-177;364
-recommande_cap177;MTL-TO;178-201;0
-recommande_cap177;MTL-TO;>201;0
-recommande_cap177;CORRIDOR (dédoublonné);≤153;33
-recommande_cap177;CORRIDOR (dédoublonné);154-177;891
-recommande_cap177;CORRIDOR (dédoublonné);178-201;0
-recommande_cap177;CORRIDOR (dédoublonné);>201;0
+geometrie-base;MTL-QC;≤153;77
+geometrie-base;MTL-QC;154-177;40
+geometrie-base;MTL-QC;178-201;61
+geometrie-base;MTL-QC;>201;144
+geometrie-base;MTL-Ott;≤153;107
+geometrie-base;MTL-Ott;154-177;13
+geometrie-base;MTL-Ott;178-201;36
+geometrie-base;MTL-Ott;>201;52
+geometrie-base;Ott-TO;≤153;10
+geometrie-base;Ott-TO;154-177;70
+geometrie-base;Ott-TO;178-201;67
+geometrie-base;Ott-TO;>201;154
+geometrie-base;MTL-TO;≤153;4
+geometrie-base;MTL-TO;154-177;63
+geometrie-base;MTL-TO;178-201;73
+geometrie-base;MTL-TO;>201;225
+geometrie-base;CORRIDOR (dédoublonné);≤153;195
+geometrie-base;CORRIDOR (dédoublonné);154-177;127
+geometrie-base;CORRIDOR (dédoublonné);178-201;176
+geometrie-base;CORRIDOR (dédoublonné);>201;426
+geometrie-recommande;MTL-QC;≤153;13
+geometrie-recommande;MTL-QC;154-177;60
+geometrie-recommande;MTL-QC;178-201;21
+geometrie-recommande;MTL-QC;>201;228
+geometrie-recommande;MTL-Ott;≤153;14
+geometrie-recommande;MTL-Ott;154-177;93
+geometrie-recommande;MTL-Ott;178-201;1
+geometrie-recommande;MTL-Ott;>201;100
+geometrie-recommande;Ott-TO;≤153;6
+geometrie-recommande;Ott-TO;154-177;4
+geometrie-recommande;Ott-TO;178-201;37
+geometrie-recommande;Ott-TO;>201;254
+geometrie-recommande;MTL-TO;≤153;1
+geometrie-recommande;MTL-TO;154-177;3
+geometrie-recommande;MTL-TO;178-201;31
+geometrie-recommande;MTL-TO;>201;330
+geometrie-recommande;CORRIDOR (dédoublonné);≤153;33
+geometrie-recommande;CORRIDOR (dédoublonné);154-177;158
+geometrie-recommande;CORRIDOR (dédoublonné);178-201;61
+geometrie-recommande;CORRIDOR (dédoublonné);>201;672
+geometrie-reference-interne;MTL-QC;≤153;7
+geometrie-reference-interne;MTL-QC;154-177;2
+geometrie-reference-interne;MTL-QC;178-201;64
+geometrie-reference-interne;MTL-QC;>201;249
+geometrie-reference-interne;MTL-Ott;≤153;3
+geometrie-reference-interne;MTL-Ott;154-177;9
+geometrie-reference-interne;MTL-Ott;178-201;90
+geometrie-reference-interne;MTL-Ott;>201;106
+geometrie-reference-interne;Ott-TO;≤153;6
+geometrie-reference-interne;Ott-TO;154-177;0
+geometrie-reference-interne;Ott-TO;178-201;2
+geometrie-reference-interne;Ott-TO;>201;293
+geometrie-reference-interne;MTL-TO;≤153;1
+geometrie-reference-interne;MTL-TO;154-177;0
+geometrie-reference-interne;MTL-TO;178-201;3
+geometrie-reference-interne;MTL-TO;>201;361
+geometrie-reference-interne;CORRIDOR (dédoublonné);≤153;16
+geometrie-reference-interne;CORRIDOR (dédoublonné);154-177;11
+geometrie-reference-interne;CORRIDOR (dédoublonné);178-201;157
+geometrie-reference-interne;CORRIDOR (dédoublonné);>201;740
+exploitation-base (cap 160);MTL-QC;≤153;77
+exploitation-base (cap 160);MTL-QC;154-177;245
+exploitation-base (cap 160);MTL-QC;178-201;0
+exploitation-base (cap 160);MTL-QC;>201;0
+exploitation-base (cap 160);MTL-Ott;≤153;107
+exploitation-base (cap 160);MTL-Ott;154-177;101
+exploitation-base (cap 160);MTL-Ott;178-201;0
+exploitation-base (cap 160);MTL-Ott;>201;0
+exploitation-base (cap 160);Ott-TO;≤153;10
+exploitation-base (cap 160);Ott-TO;154-177;291
+exploitation-base (cap 160);Ott-TO;178-201;0
+exploitation-base (cap 160);Ott-TO;>201;0
+exploitation-base (cap 160);MTL-TO;≤153;4
+exploitation-base (cap 160);MTL-TO;154-177;361
+exploitation-base (cap 160);MTL-TO;178-201;0
+exploitation-base (cap 160);MTL-TO;>201;0
+exploitation-base (cap 160);CORRIDOR (dédoublonné);≤153;195
+exploitation-base (cap 160);CORRIDOR (dédoublonné);154-177;729
+exploitation-base (cap 160);CORRIDOR (dédoublonné);178-201;0
+exploitation-base (cap 160);CORRIDOR (dédoublonné);>201;0
+exploitation-recommande (cap 177);MTL-QC;≤153;13
+exploitation-recommande (cap 177);MTL-QC;154-177;309
+exploitation-recommande (cap 177);MTL-QC;178-201;0
+exploitation-recommande (cap 177);MTL-QC;>201;0
+exploitation-recommande (cap 177);MTL-Ott;≤153;14
+exploitation-recommande (cap 177);MTL-Ott;154-177;194
+exploitation-recommande (cap 177);MTL-Ott;178-201;0
+exploitation-recommande (cap 177);MTL-Ott;>201;0
+exploitation-recommande (cap 177);Ott-TO;≤153;6
+exploitation-recommande (cap 177);Ott-TO;154-177;295
+exploitation-recommande (cap 177);Ott-TO;178-201;0
+exploitation-recommande (cap 177);Ott-TO;>201;0
+exploitation-recommande (cap 177);MTL-TO;≤153;1
+exploitation-recommande (cap 177);MTL-TO;154-177;364
+exploitation-recommande (cap 177);MTL-TO;178-201;0
+exploitation-recommande (cap 177);MTL-TO;>201;0
+exploitation-recommande (cap 177);CORRIDOR (dédoublonné);≤153;33
+exploitation-recommande (cap 177);CORRIDOR (dédoublonné);154-177;891
+exploitation-recommande (cap 177);CORRIDOR (dédoublonné);178-201;0
+exploitation-recommande (cap 177);CORRIDOR (dédoublonné);>201;0

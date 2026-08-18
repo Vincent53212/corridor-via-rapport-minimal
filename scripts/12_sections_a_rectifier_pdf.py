@@ -30,12 +30,13 @@ sys.path.insert(0, str(Path(__file__).resolve().parent))
 from utils import degre_courbure, kmh_to_mph
 from scenarios import SCENARIOS
 
-SCENARIO = "S2"        # interne ; publié comme « scénario recommandé »
+SCENARIO = "recommande"   # valeur publiée dans les CSV livrés
+SCENARIO_INTERNE = "S2"   # id interne du même scénario (source unique scenarios.py)
 SEUIL = "177"
 DATE = "2026-08"
 
 # Coefficient du recommandé — source unique scenarios.py (h=127, CD=152)
-COEFF = SCENARIOS[SCENARIO].coeff
+COEFF = SCENARIOS[SCENARIO_INTERNE].coeff
 R_SEVERE = (100 / COEFF) ** 2                 # sous ce rayon, < 100 km/h
 
 TRONCONS = [

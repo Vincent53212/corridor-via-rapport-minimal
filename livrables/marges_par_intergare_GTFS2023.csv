@@ -1,4 +1,4 @@
-﻿troncon;region;de;a;km_debut;km_fin;longueur_km;cellule;part_simple_pct;part_double_plus_pct;t_horaire_med_min;n_sillons;t_base_S1cap160_min;marge_pct;marge_min_par_100km;dispersion_iqr_min;dispersion_iqr_pct;doublon_physique_de;exclue_du_2x2;note
+﻿troncon;region;de;a;km_debut;km_fin;longueur_km;cellule;part_simple_pct;part_double_plus_pct;t_horaire_med_min;n_sillons;t_base_cap160_min;marge_pct;marge_min_par_100km;dispersion_iqr_min;dispersion_iqr_pct;doublon_physique_de;exclue_du_2x2;note
 MTL-QC;coeur;Montréal;Saint-Lambert;0.0;6.11;6.1;double-CN;16;84;11.0;17;3.4;225.0;124.6;10.0;90.9;;bloc urbain (pont Victoria);
 MTL-QC;coeur;Saint-Lambert;Saint-Hyacinthe;6.11;53.24;47.1;double-CN;0;100;26.0;13;18.2;42.7;16.5;1.0;3.8;;adjacente au pont Victoria;
 MTL-QC;coeur;Saint-Hyacinthe;Drummondville;53.24;100.01;46.8;simple-CN;92;8;31.0;13;18.0;72.4;27.8;9.0;29.0;;;

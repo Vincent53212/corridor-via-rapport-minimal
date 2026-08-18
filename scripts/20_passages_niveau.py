@@ -47,6 +47,10 @@ import geopandas as gpd
 import pandas as pd
 
 from utils import INTERMEDIATES, DELIVERABLES, RESOURCES, kmh_to_mph
+import sys as _sys
+from pathlib import Path as _Path
+_sys.path.insert(0, str(_Path(__file__).resolve().parent))
+from scenarios import public_id
 
 INV = RESOURCES / "en-grade-crossing-inventory-2023-update.csv"
 SEGMENTS = INTERMEDIATES / "segments.geojson"
@@ -173,8 +177,13 @@ def main() -> None:
 
     # ---- comptes par bande × scénario × tronçon + total corridor dédoublonné
     rows = []
-    scen_cols = [("S1", "bande_S1"), ("S2", "bande_S2"), ("S3", "bande_S3"),
-                 ("base_cap160", "bande_base"), ("recommande_cap177", "bande_recommandee")]
+    # nomenclature publique : la géométrie de chaque scénario est étiquetée
+    # geometrie-…, l'exploitation (plafonnée) exploitation-…
+    scen_cols = [("geometrie-base", "bande_S1"),
+                 ("geometrie-recommande", "bande_S2"),
+                 ("geometrie-reference-interne", "bande_S3"),
+                 ("exploitation-base (cap 160)", "bande_base"),
+                 ("exploitation-recommande (cap 177)", "bande_recommandee")]
     dedup_first = matched.sort_values("dist_m").drop_duplicates(subset=["TC Number"])
     for sid, col in scen_cols:
         for t in TRONCONS:
@@ -210,9 +219,11 @@ def main() -> None:
         "Road Authority": "autorite_routiere", "Protection": "protection",
         "Trains Daily": "trains_jour", "Vehicles Daily": "vehicules_jour",
         "Lanes": "voies_route", "IsUrban": "urbain",
-        "vmax_S1_kmh": "vmax_S1_kmh", "vmax_S2_kmh": "vmax_S2_kmh",
-        "vmax_S3_kmh": "vmax_S3_kmh", "bande_S1": "bande_S1", "bande_S2": "bande_S2",
-        "bande_S3": "bande_S3",
+        "vmax_S1_kmh": "vmax_geometrie_base_kmh",
+        "vmax_S2_kmh": "vmax_geometrie_recommande_kmh",
+        "vmax_S3_kmh": "vmax_geometrie_reference_kmh",
+        "bande_S1": "bande_geometrie_base", "bande_S2": "bande_geometrie_recommande",
+        "bande_S3": "bande_geometrie_reference",
         "vmax_base_kmh": "vmax_base_kmh", "bande_base": "bande_base",
         "vmax_recommande_kmh": "vmax_recommande_kmh",
         "bande_recommandee": "bande_recommandee", "flbg_present": "flbg_present",
@@ -274,7 +285,7 @@ Le 49 CFR est cité comme PRÉCÉDENT réglementaire nord-américain ; il ne
 s'applique pas de plein droit au Canada.
 
 Bandes d'EXPLOITATION (colonnes bande_base / bande_recommandee) : la base est
-le régime d'aujourd'hui (S1 plafonné à 160 km/h) ; le scénario recommandé est
+le régime d'aujourd'hui (la voie actuelle, plafonnée à 160 km/h) ; le scénario recommandé est
 le pendulaire plafonné à 177 km/h (110 mi/h), limite du contrôle en cabine
 incrémental type ITCS. {expl}.
 

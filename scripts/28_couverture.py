@@ -51,7 +51,7 @@ SORTIE = IDENTITE_DIR / "couverture.svg"
 # met en tête. C'est le pendulaire exploité selon la méthode que le CN applique
 # déjà, sans dérogation à demander, donc le seul dont la couverture puisse
 # montrer l'image sans promettre une approbation.
-SCENARIO = "S2"
+SCENARIO = "recommande"
 COL_VMAX = f"vmax_{SCENARIO}_kmh_plafond_courbure"
 
 # La couverture ne le NOMME pas. « S2 » ne veut rien dire pour qui n'a pas encore

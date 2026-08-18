@@ -152,12 +152,19 @@ NOMS = {
     "vmax_recommande_kmh": "Plafond recommandé", "bande_recommandee": "Bande recommandée",
     "vmax_base_kmh": "Plafond de base", "bande_base": "Bande de base",
     "flbg_present": "FLBG présent", "trajet": "Trajet", "poste": "Poste",
+    "vmax_geometrie_base_kmh": "Plafond géométrique, base",
+    "vmax_geometrie_recommande_kmh": "Plafond géométrique, recommandé",
+    "vmax_geometrie_reference_kmh": "Plafond géométrique, réf. interne",
+    "bande_geometrie_base": "Bande géométrique, base",
+    "bande_geometrie_recommande": "Bande géométrique, recommandé",
+    "bande_geometrie_reference": "Bande géométrique, réf. interne",
+    "scenario_label": "Scénario (libellé)",
     "minutes": "Minutes", "part_pct_du_gain": "Part du gain",
     "n_sites": "Sites", "pct_troncon": "Part du tronçon",
     "rayon_cible_m": "Rayon visé", "degre_courbure_cible_max_deg": "Degré visé",
     "km_debut": "km début", "km_fin": "km fin", "km_début": "km début",
     "longueur_km": "Longueur", "marge_pct": "Marge",
-    "t_horaire_med_min": "Horaire actuel", "t_base_S1cap160_min": "Temps géométrique",
+    "t_horaire_med_min": "Horaire actuel", "t_base_cap160_min": "Temps géométrique",
     "dispersion_iqr_pct": "Dispersion", "n_sillons": "Sillons",
     "exclue_du_2x2": "Exclue du 2×2", "n_passages": "Passages",
     "mediane": "Médiane", "tbase_sans_marge_min": "Temps de base",
@@ -175,10 +182,13 @@ def joli(cle: str) -> tuple[str, str, str]:
     """(nom lisible, unité, rampe) pour une colonne. La rampe dit à l'affichage
     de peindre la valeur : « vitesse » pour un km/h, « classe » pour un A..F."""
     brut = cle.split(" / ")[0].strip()
+    # « m_s2 » est l'unité m/s², pas le scénario S2 : cas spécial avant tout.
+    if brut == "accel_laterale_m_s2":
+        return "Accél. latérale", "m/s²", ""
     rampe = ""
     if re.search(r"vmax.*kmh|vitesse.*kmh", brut, re.I):
         rampe = "vitesse"
-    elif re.fullmatch(r"classe_S[123]", brut, re.I):
+    elif re.fullmatch(r"classe_(S[123]|base|recommande|reference)", brut, re.I):
         rampe = "classe"
 
     if brut in NOMS:
@@ -196,7 +206,7 @@ def joli(cle: str) -> tuple[str, str, str]:
             break
     # Les scénarios restent en majuscules, le reste passe en minuscules.
     # Sigles gardés en capitales, quelle que soit leur casse dans le pipeline.
-    SIGLES = r"S[123]|CN|VIA|GTFS|IQR|MTX|TC|OSM"
+    SIGLES = r"CN|VIA|GTFS|IQR|MTX|TC|OSM|FLBG"
     mots = [j.upper() if re.fullmatch(SIGLES, j, re.I) else j.lower() for j in jetons]
     nom = " ".join(mots).replace("vmax", "plafond").replace("plafond courbure", "")
     nom = re.sub(r"\s+", " ", nom).strip()
@@ -235,8 +245,8 @@ def lire_publies() -> dict[str, dict[str, float]]:
     j, = ligne(r"\|" + esp + r"154-177 km/h \(96-110 mi/h\)[^|]*\|" + esp + r"(\d+)", 1)
     k, = ligne(r"\|" + esp + r"≤" + esp + r"153 km/h \(95 mi/h\)[^|]*\|" + esp + r"(\d+)", 1)
     return {
-        "residu177": {"S1": a, "S2": b},
-        "residu160": {"S1": c, "S2": d},
+        "residu177": {"base": a, "recommande": b},
+        "residu160": {"base": c, "recommande": d},
         "marges": {"double-CN": g, "simple-VIA": h, "simple-CN": i},
         "pn": {"154-177": j, "≤153": k},
     }
@@ -269,9 +279,9 @@ def sections(pub: dict) -> list[dict]:
                    "<b>4 h 27 à 4 h 52</b> entre Montréal et Toronto, contre 5 h 18 "
                    "aujourd'hui. Et ce qui reste sous grande vitesse se compte : c'est peu.",
             "chiffres": [
-                {"v": f"{pub['residu177']['S2']:.0f} km", "l": "restants sous 177 km/h, scénario recommandé",
+                {"v": f"{pub['residu177']['recommande']:.0f} km", "l": "restants sous 177 km/h, scénario recommandé",
                  "couleur": VITESSE_COULEURS["160_200"]},
-                {"v": f"{pub['residu177']['S1']:.0f} km", "l": "restants sous 177 km/h, voie et train actuels"},
+                {"v": f"{pub['residu177']['base']:.0f} km", "l": "restants sous 177 km/h, voie et train actuels"},
                 {"v": "1 433 km", "l": "de corridor mesuré, quatre trajets"},
             ],
             "verifications": [{
@@ -280,12 +290,12 @@ def sections(pub: dict) -> list[dict]:
                           "sites mesurés.",
                 "table": "km_restants_sous_grande_vitesse.csv",
                 "filtre": [{"col": "vitesse_cible_kmh", "op": "==", "val": 177},
-                           {"col": "scenario", "op": "dans", "val": ["S1", "S2"]},
+                           {"col": "scenario", "op": "dans", "val": ["base", "recommande"]},
                            {"col": "troncon", "op": "dans", "val": COEUR}],
                 "grouper": "scenario", "agreger": "km_restants", "mode": "somme",
                 "publie": pub["residu177"], "unite": "km", "arrondi": 1, "tolerance": 1,
-                "libelles": {"S1": "Scénario de base (voie et train actuels)",
-                             "S2": "Scénario recommandé (pendulaire, plafond 177)"},
+                "libelles": {"base": "Scénario de base (voie et train actuels)",
+                             "recommande": "Scénario recommandé (pendulaire, plafond 177)"},
             }],
             "pieces": ["km_restants_sous_grande_vitesse.csv", "tbase_par_bande.csv",
                        "decomposition_gains.csv"],
@@ -481,19 +491,19 @@ ESSENTIEL = {
     "segments_courbature.csv": [
         "tronçon", "km_début", "km_fin", "longueur_m",
         "degré_courbure_gouvernant_deg", "R_classant_min_m",
-        "vmax_S2_kmh_plafond_courbure", "classe_S2",
-        "vmax_S3_kmh_plafond_courbure", "classe_S3", "gare_amont", "gare_aval"],
+        "vmax_recommande_kmh_plafond_courbure", "classe_recommande",
+        "gare_amont", "gare_aval"],
     "passages_niveau_tri.csv": [
         "tc_number", "troncon_principal", "subdivision", "mille", "localisation",
         "acces", "protection", "flbg_present", "trains_jour", "vehicules_jour",
         "vmax_recommande_kmh", "bande_recommandee", "intervention"],
     "marges_par_intergare.csv": [
         "troncon", "region", "de", "a", "longueur_km", "cellule",
-        "t_horaire_med_min", "t_base_S1cap160_min", "marge_pct",
+        "t_horaire_med_min", "t_base_cap160_min", "marge_pct",
         "dispersion_iqr_pct", "exclue_du_2x2"],
     "marges_par_intergare_GTFS2023.csv": [
         "troncon", "region", "de", "a", "longueur_km", "cellule",
-        "t_horaire_med_min", "t_base_S1cap160_min", "marge_pct",
+        "t_horaire_med_min", "t_base_cap160_min", "marge_pct",
         "dispersion_iqr_pct", "exclue_du_2x2"],
     "sites_restants_sous_grande_vitesse.csv": None,   # renseignée à la lecture si besoin
 }
@@ -503,12 +513,12 @@ ESSENTIEL = {
 # lecture par défaut.
 PRESETS = {
     "segments_courbature.csv": [
-        {"label": "Sous 177 km/h, scénario recommandé", "conds": [{"col": "vmax_S2_kmh_plafond_courbure", "op": "<", "val": 177}]},
-        {"label": "Sous 160 km/h, scénario recommandé", "conds": [{"col": "vmax_S2_kmh_plafond_courbure", "op": "<", "val": 160}]},
+        {"label": "Sous 177 km/h, scénario recommandé", "conds": [{"col": "vmax_recommande_kmh_plafond_courbure", "op": "<", "val": 177}]},
+        {"label": "Sous 160 km/h, scénario recommandé", "conds": [{"col": "vmax_recommande_kmh_plafond_courbure", "op": "<", "val": 160}]},
     ],
     "km_restants_sous_grande_vitesse.csv": [
         {"label": "Cible 177 km/h", "conds": [{"col": "vitesse_cible_kmh", "op": "==", "val": 177}]},
-        {"label": "Scénario recommandé", "conds": [{"col": "scenario", "op": "==", "val": "S2"}]},
+        {"label": "Scénario recommandé", "conds": [{"col": "scenario", "op": "==", "val": "recommande"}]},
     ],
     "passages_niveau_tri.csv": [
         {"label": "À équiper (sans feux-cloches-barrières)", "conds": [{"col": "flbg_present", "op": "==", "val": "False"}]},

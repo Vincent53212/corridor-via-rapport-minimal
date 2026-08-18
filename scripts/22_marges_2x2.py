@@ -314,7 +314,7 @@ def main() -> None:
                                                      + shares.get("multiple", 0))),
                 "t_horaire_med_min": round(t_hor, 1) if t_hor else "",
                 "n_sillons": len(s),
-                "t_base_S1cap160_min": round(t_base, 1),
+                "t_base_cap160_min": round(t_base, 1),
                 "marge_pct": round(marge, 1) if marge is not None else "",
                 "marge_min_par_100km": round(m100, 1) if m100 is not None else "",
                 "dispersion_iqr_min": round(iqr, 1) if iqr is not None else "",
@@ -349,7 +349,7 @@ def main() -> None:
         marge = r["marge_pct"] if r["marge_pct"] != "" else "  —"
         note = r["exclue_du_2x2"] or r["note"]
         print(f"{r['troncon']:<8} {r['de']+' → '+r['a']:<34} {r['cellule']:<11} "
-              f"{r['t_horaire_med_min']:>6} {r['t_base_S1cap160_min']:>6} {marge:>8}  {note}")
+              f"{r['t_horaire_med_min']:>6} {r['t_base_cap160_min']:>6} {marge:>8}  {note}")
     print("\nSynthèse par cellule (paires retenues, hors mixte) :")
     print(synth.to_string(index=False))
 
@@ -363,7 +363,7 @@ def main() -> None:
     print("\nSensibilité à la pénalité d'arrêt p (CŒUR seulement, médianes par cellule) :")
     kt = kept[(kept.cellule != "mixte") & (kept.region == "coeur")].copy()
     kt["t_hor"] = pd.to_numeric(kt["t_horaire_med_min"])
-    kt["t_base"] = pd.to_numeric(kt["t_base_S1cap160_min"])
+    kt["t_base"] = pd.to_numeric(kt["t_base_cap160_min"])
     print(f"  {'p (min)':>8} {'double-CN':>10} {'simple-VIA':>11} {'simple-CN':>10}")
     # Les écarts par pénalité sont CONSERVÉS et non seulement affichés : les
     # bornes citées dans le rapport (« de 3 à 7 points », « de 30 à 33 ») en

@@ -129,7 +129,9 @@ def main() -> None:
             print(f"  {n}/{len(feats)}…", flush=True)
 
     b = pd.DataFrame(lignes)
-    b.to_csv(SORTIE_CSV, sep=";", index=False, encoding="utf-8-sig")
+    from scenarios import public_col
+    b_pub = b.rename(columns={c: public_col(c) for c in b.columns})
+    b_pub.to_csv(SORTIE_CSV, sep=";", index=False, encoding="utf-8-sig")
 
     # --- distribution du facteur par longueur de segment ------------------
     print("\n=== FACTEUR DE BIAIS (rayon publié / rayon du corps) ===")

@@ -62,7 +62,7 @@ def tbase(tr, sc, bande):
 
 
 def horaire(tr):
-    return float(_T[(tr, "S1", 160)]["t_horaire_actuel_min"])
+    return float(_T[(tr, "base", 160)]["t_horaire_actuel_min"])
 
 
 # ---- médianes du 2×2 (cœur) et km simple-CN par trajet
@@ -72,23 +72,23 @@ with open(DELIVERABLES / "marges_2x2_synthese.csv", encoding="utf-8-sig", newlin
         if r["region"] == "coeur":
             med[r["cellule"]] = float(r["mediane"])
 
-tb_simple_cn = {}          # Σ t_base_S1cap160 des paires simple-CN, par tronçon
+tb_simple_cn = {}          # Σ t_base_cap160 des paires simple-CN, par tronçon
 with open(DELIVERABLES / "marges_par_intergare.csv", encoding="utf-8-sig", newline="") as f:
     for r in csv.DictReader(f, delimiter=";"):
         if (r["region"] == "coeur" and r["cellule"] == "simple-CN"
                 and not r["exclue_du_2x2"].strip()
                 and not r["doublon_physique_de"].strip()):
             tb_simple_cn[r["troncon"]] = (tb_simple_cn.get(r["troncon"], 0.0)
-                                          + float(r["t_base_S1cap160_min"]))
+                                          + float(r["t_base_cap160_min"]))
 
 
 def decompose(troncons, label):
     """Décompose le gain d'un trajet (somme de tronçons du pipeline)."""
     H = sum(horaire(t) for t in troncons)
-    B1_160 = sum(tbase(t, "S1", 160) for t in troncons)
-    B1_177 = sum(tbase(t, "S1", BANDE) for t in troncons)
-    B2_160 = sum(tbase(t, "S2", 160) for t in troncons)
-    B2_177 = sum(tbase(t, "S2", BANDE) for t in troncons)
+    B1_160 = sum(tbase(t, "base", 160) for t in troncons)
+    B1_177 = sum(tbase(t, "base", BANDE) for t in troncons)
+    B2_160 = sum(tbase(t, "recommande", 160) for t in troncons)
+    B2_177 = sum(tbase(t, "recommande", BANDE) for t in troncons)
     C = B2_177 * MARGE_NORMATIVE
     if len(troncons) > 1:                       # trajet composé : arrêt déclaré
         H += ARRET_MTL_MIN

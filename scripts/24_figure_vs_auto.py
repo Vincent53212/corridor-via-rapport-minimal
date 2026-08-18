@@ -62,12 +62,12 @@ def _base(troncon, scenario, bande):
 
 
 def _horaire(troncon):
-    return float(_T[(troncon, "S1", 160)]["t_horaire_actuel_min"])
+    return float(_T[(troncon, "base", 160)]["t_horaire_actuel_min"])
 
 
 def _marge(troncon):
     """Marge actuelle du tronçon = horaire / T_base(S1, 160)."""
-    return _horaire(troncon) / _base(troncon, "S1", 160)
+    return _horaire(troncon) / _base(troncon, "base", 160)
 
 
 # Le temps en auto reste une hypothèse externe (ordre de grandeur, annoncé
@@ -78,12 +78,12 @@ RECO = "Scénario recommandé"
 PLAFOND = "Scénario plafond*"
 
 def _base_plafond(troncon):
-    return float(_TP[(troncon, "S2", 177)]["tbase_sans_marge_min"])
+    return float(_TP[(troncon, "recommande", 177)]["tbase_sans_marge_min"])
 
 def panel(troncon, titre, repere):
     return (titre, repere, AUTO_MIN[troncon], [
         ("VIA aujourd'hui", _horaire(troncon), _horaire(troncon)),
-        (RECO, *four(_base(troncon, "S2", 177), _marge(troncon))),
+        (RECO, *four(_base(troncon, "recommande", 177), _marge(troncon))),
         (PLAFOND, *four(_base_plafond(troncon), _marge(troncon)))])
 
 # (corridor, auto_min, [(label, lo, hi — lo == hi pour un point)])

@@ -22,7 +22,7 @@ from utils import (
     fmt_dc,
     kmh_to_mph,
 )
-from scenarios import SCENARIOS, SPEED_CLASSES, published_vmax_class
+from scenarios import public_id, SCENARIOS, SPEED_CLASSES, published_vmax_class
 from alignments import CORRIDOR_SEGMENTS
 
 
@@ -159,7 +159,7 @@ def detect_bottlenecks(segments: list[dict], scenario: str = "S3") -> list[dict]
                     "longueur_m": p["longueur_m"],
                     "degre_courbure_max_deg": round(_dc_g, 2) if _dc_g is not None else None,
                     "R_min_m": p["R_min_m"],
-                    "vmax_S3_kmh": p[f"vmax_{scenario}_kmh"],
+                    "vmax_reference_kmh": p[f"vmax_{scenario}_kmh"],
                     "classe_S3": classe,
                     "classe_dominante_voisinage": dominant_classe,
                     "drop_classes": drop,
@@ -180,7 +180,7 @@ def write_synthese_csv(dist: dict, dist_p50: dict, segcount: dict,
             sc_obj = SCENARIOS[sid]
             row = {
                 "troncon_id / section_id": troncon,
-                "scenario": sid,
+                "scenario": public_id(sid),
                 "scenario_label": sc_obj.name_fr + " | " + sc_obj.name_en,
                 "devers_mm": sc_obj.cant_mm,
                 "devers_pouces": round(sc_obj.cant_in, 2),
@@ -244,7 +244,7 @@ def write_scenarios_params_csv(out_path: Path) -> None:
     for sid in ("S1", "S2", "S3"):
         s = SCENARIOS[sid]
         rows.append({
-            "scenario": sid,
+            "scenario": public_id(sid),
             "libelle_fr": s.name_fr,
             "libelle_en": s.name_en,
             "devers_mm": s.cant_mm,
