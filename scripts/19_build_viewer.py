@@ -382,7 +382,7 @@ def sections(pub: dict) -> list[dict]:
             "cle": "07 · Les temps de parcours", "titre": "Résultats intégrés",
             "dit": "Le temps de base, sans marge, sort de l'intégration. Le temps publié "
                    "y ajoute une marge <b>en fourchette</b> : la borne basse applique la "
-                   "règle normative (8 pour cent au plafond retenu), la borne haute "
+                   "règle normative (8 % au plafond retenu), la borne haute "
                    "reconduit la marge que le tronçon porte aujourd'hui. La figure des "
                    "gains attribue l'écart avec l'horaire actuel à ses trois leviers.",
             "chiffres": [

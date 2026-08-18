@@ -23,3 +23,4 @@ Montréal-Ottawa;gain_cohabitation;3.3;20.5;résidu (G − autres parts)
 Montréal-Ottawa;controle_horaire_actuel_H;122.0;;tbase_par_bande.csv (médiane GTFS)
 Montréal-Ottawa;controle_gain_total_G;16.2;;"H − C ; somme des quatre parts = G par construction"
 Montréal-Ottawa;controle_ecart_ordres_shapley;0.7;;écart |plafond d'abord − pendulaire d'abord|
+Montréal-Ottawa;info_doublement_fourchette;3.3;;part doublement/cohabitation indiscernable : 0 sur les horaires courants, jusqu'à ~12 points de marge sur GTFS 2023 (simple-VIA 48,7 vs double-CN 36,3), bornée par la marge actuelle du tronçon

@@ -38,6 +38,7 @@ SURTITRES = {
     "Signalisation": "Commande des trains",
     "Résultats intégrés": "Les temps de parcours",
     "Limites, et l'étude qu'il faut commander": "Ce qui reste à faire",
+    "Note de l'auteur": "La méthode de travail",
     "Références": "Sources",
 }
 
@@ -52,7 +53,7 @@ UNITES = {"km", "m", "mm", "mi", "h", "min", "s", "po", "pi", "kmh", "mph",
 AVIS_SOMMAIRE = (
     "Les vitesses sont en km/h, suivies au besoin de l'équivalent en mi/h. "
     "Les temps de parcours sont donnés en fourchette, bornes comprises : "
-    "la borne basse applique la marge normative de 8 pour cent au plafond "
+    "la borne basse applique la marge normative de 8 % au plafond "
     "retenu, la borne haute reconduit la marge mesurée aujourd'hui sur le "
     "tronçon."
 )

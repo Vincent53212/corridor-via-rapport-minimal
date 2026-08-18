@@ -109,9 +109,16 @@ def decompose(troncons, label):
     doublement = min(ratio * sum(tb_simple_cn.get(t, 0.0) for t in troncons),
                      max(marge_part, 0.0))
     cohab = max(marge_part - doublement, 0.0)
+    # Sur un trajet SANS voie simple du CN, la part « doublement » vaut zéro sur
+    # les horaires courants, mais la mesure inter-saisons (GTFS 2023 : la voie
+    # simple de VIA y portait ~12 points de plus que la double du CN) empêche de
+    # l'affirmer : le résidu y est affiché comme INDISCERNABLE entre doublement
+    # et cohabitation, borné par la marge que l'horaire actuel porte réellement.
+    indiscernable = (doublement < 0.5 and cohab >= 0.5)
     return {"trajet": label, "H": H, "C": C, "G": G, "plafond": plafond,
             "pendulaire": pend, "doublement": doublement,
-            "cohabitation": cohab, "ecart_ordres_min": ecart_ordres}
+            "cohabitation": cohab, "ecart_ordres_min": ecart_ordres,
+            "indiscernable": indiscernable}
 
 
 TRAJETS = [
@@ -143,6 +150,13 @@ with open(DELIVERABLES / "decomposition_gains.csv", "w",
         w.writerow([r["trajet"], "controle_ecart_ordres_shapley",
                     round(r["ecart_ordres_min"], 1), "",
                     "écart |plafond d'abord − pendulaire d'abord|"])
+        if r["indiscernable"]:
+            w.writerow([r["trajet"], "info_doublement_fourchette",
+                        round(r["cohabitation"], 1), "",
+                        "part doublement/cohabitation indiscernable : 0 sur les "
+                        "horaires courants, jusqu'à ~12 points de marge sur GTFS "
+                        "2023 (simple-VIA 48,7 vs double-CN 36,3), bornée par la "
+                        "marge actuelle du tronçon"])
 
 # ---- figure
 COL_PEND = SCENARIOS["S2"]          # le matériel : la teinte du recommandé
@@ -166,20 +180,28 @@ for yi, r in enumerate(reversed(rows)):
     ax.text(r["C"] / 2, y, hm(r["C"]), ha="center", va="center",
             fontsize=8.2, color=PAPIER["encre"], **police_mono())
     x += r["C"]
-    tranches = [(r["plafond"] + r["pendulaire"], COL_PEND, "pendulaire"),
-                (r["doublement"], COL_DOUBLE, "doublement"),
-                (r["cohabitation"], COL_COHAB, "cohabitation")]
+    if r["indiscernable"]:
+        tranches = [(r["plafond"] + r["pendulaire"], COL_PEND, "pendulaire", False),
+                    (r["cohabitation"], COL_COHAB, "doublement ou cohabitation", True)]
+    else:
+        tranches = [(r["plafond"] + r["pendulaire"], COL_PEND, "pendulaire", False),
+                    (r["doublement"], COL_DOUBLE, "doublement", False),
+                    (r["cohabitation"], COL_COHAB, "cohabitation", False)]
     x_gains = x
-    for val, col, nom in tranches:
+    for val, col, nom, hach in tranches:
         if val < 0.5:
             continue
-        ax.barh(y, val, left=x, height=0.52, color=col)
+        if hach:
+            ax.barh(y, val, left=x, height=0.52, facecolor=col,
+                    edgecolor=COL_DOUBLE, hatch="///", linewidth=0.8)
+        else:
+            ax.barh(y, val, left=x, height=0.52, color=col)
         x += val
     ax.text(x + 4, y, f"aujourd'hui {hm(r['H'])}", va="center",
             fontsize=7.6, color=PAPIER["encre_pale"], **police_mono())
     # le détail des tranches, sous la barre (les tranches sont trop étroites
     # pour loger leur étiquette dedans)
-    detail = "   ".join(f"{nom} −{val:.0f} min" for val, _c, nom in tranches
+    detail = "   ".join(f"{nom} −{val:.0f} min" for val, _c, nom, _h in tranches
                         if val >= 0.5)
     ax.text(x_gains, y - 0.46, detail, ha="left", va="top",
             fontsize=6.9, color=PAPIER["encre_pale"], **police_mono())
@@ -200,12 +222,15 @@ handles = [plt.Rectangle((0, 0), 1, 1, facecolor="none",
                          edgecolor=PAPIER["encre_douce"], linewidth=1.2),
            plt.Rectangle((0, 0), 1, 1, color=COL_PEND),
            plt.Rectangle((0, 0), 1, 1, color=COL_DOUBLE),
-           plt.Rectangle((0, 0), 1, 1, color=COL_COHAB)]
+           plt.Rectangle((0, 0), 1, 1, color=COL_COHAB),
+           plt.Rectangle((0, 0), 1, 1, facecolor=COL_COHAB,
+                         edgecolor=COL_DOUBLE, hatch="///", linewidth=0.8)]
 leg = ax.legend(handles,
                 ["Scénario recommandé, marge normative incluse",
                  "Train pendulaire, plafond 177 km/h",
                  "Doublement des voies",
-                 "Cohabitation (résidu : objet de l'étude de circulation)"],
+                 "Cohabitation (résidu : objet de l'étude de circulation)",
+                 "Doublement ou cohabitation, indiscernables (voie simple de VIA)"],
                 loc="lower right", bbox_to_anchor=(1.0, 0.98), ncol=2,
                 frameon=False, fontsize=7.4,
                 prop={"family": "IBM Plex Mono", "size": 7.4})
