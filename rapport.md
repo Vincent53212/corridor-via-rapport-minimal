@@ -157,7 +157,7 @@ Un passage à niveau est un croisement rail-route à niveau. Sa tolérance régl
 - **178 à 201 km/h (111 à 125 mi/h)** : système complet d’avertissement et de barrières approuvé et fonctionnel (classe 7 américaine) ;
 - **au-delà de 201 km/h (125 mi/h) : zéro passage à niveau** (classes 8 et 9 américaines).
 
-Le scénario recommandé s’arrête volontairement à 177 km/h : les deux dernières marches de cet escalier décrivent un autre niveau d’ambition infrastructurelle (et financière).
+Le scénario recommandé s’arrête volontairement à 177 km/h, et ce ne sont pas les passages qui l’exigent : la marche suivante (jusqu’à 201 km/h, la classe 7 américaine) demande essentiellement le même traitement que le corridor scellé proposé ici, avec une approbation formelle de la FRA en plus. C’est la signalisation qui limite le scénario plausible à 177 km/h (voir section 6).
 
 **Le compte.** L’inventaire ouvert de Transports Canada [@tc2023inventairepn], joint au tracé, donne 924 passages physiques sur le corridor (dédoublonnés entre trajets, chacun classé à la vitesse maximale des trajets qui l’empruntent), dont 352 passages publics à protection active. Ce nombre est du même ordre de grandeur que les 304 passages à prédicteurs du dossier judiciaire de VIA [@via2024requete], qui couvre un périmètre plus étroit que cette étude.
 
