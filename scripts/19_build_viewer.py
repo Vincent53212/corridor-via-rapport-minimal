@@ -262,11 +262,12 @@ def sections(pub: dict) -> list[dict]:
     return [
         {
             "cle": "01 · Ce qu'il faut retenir", "titre": "Synthèse",
-            "dit": "Sur la voie qui existe déjà, un train pendulaire exploité selon la "
-                   "méthode que le CN applique <b>déjà</b>, plafonné à 177 km/h "
-                   "(110 mi/h, la limite du contrôle en cabine incrémental), met "
+            "dit": "Cette étude chiffre un contrefactuel au projet Alto : que donnerait "
+                   "la voie existante, modernisée au mieux? La manchette : <b>le train "
+                   "pendulaire et la modernisation proposée changent la donne</b>. "
+                   "Plafonné à 177 km/h (110 mi/h), le scénario recommandé met "
                    "<b>4 h 27 à 4 h 52</b> entre Montréal et Toronto, contre 5 h 18 "
-                   "aujourd'hui. Ce qui reste sous grande vitesse se compte, et c'est peu.",
+                   "aujourd'hui. Et ce qui reste sous grande vitesse se compte : c'est peu.",
             "chiffres": [
                 {"v": f"{pub['residu177']['S2']:.0f} km", "l": "restants sous 177 km/h, scénario recommandé",
                  "couleur": VITESSE_COULEURS["160_200"]},
@@ -292,10 +293,10 @@ def sections(pub: dict) -> list[dict]:
         {
             "cle": "02 · Comment nous mesurons", "titre": "Méthode et périmètre",
             "dit": "La géométrie vient d'OpenStreetMap, appariée aux horaires de VIA. Le "
-                   "temps de parcours est une intégration le long du tracé, pas une "
-                   "moyenne : les traversées urbaines restent figées à l'horaire actuel, "
-                   "et la marge d'exploitation est encadrée entre deux bornes plutôt que "
-                   "devinée.",
+                   "temps de parcours s'additionne mètre par mètre le long du tracé. Les "
+                   "traversées urbaines restent figées à l'horaire actuel, et la marge "
+                   "d'exploitation est encadrée entre une borne normative et la marge "
+                   "mesurée aujourd'hui.",
             "chiffres": [
                 {"v": "1 014", "l": "segments de courbure homogène sur le cœur (1 268 avec le sud-ouest)"},
                 {"v": "900 m", "l": "fenêtre d'ajustement, imposée par le bruit de la source"},
@@ -304,12 +305,12 @@ def sections(pub: dict) -> list[dict]:
         },
         {
             "cle": "03 · Matériel et voie", "titre": "Le train pendulaire et le dévers",
-            "dit": "Deux scénarios, et seulement deux. Le <b>scénario de base</b> est la "
-                   "voie et le train d'aujourd'hui. Le <b>scénario recommandé</b> est un "
-                   "pendulaire type LRC exploité au dévers maximal standard du CN, sans "
-                   "dérogation, plafonné à 177 km/h : la borne haute de ce que les "
-                   "améliorations réalisables permettent d'exploiter, entièrement dans "
-                   "le précédent canadien.",
+            "dit": "Deux scénarios sont comparés. Le <b>scénario de base</b> : la voie et "
+                   "le train d'aujourd'hui. Le <b>scénario recommandé</b> : un pendulaire "
+                   "type LRC, exploité au dévers maximal standard du CN, plafonné à "
+                   "177 km/h. Pourquoi pas un pendulaire européen plus poussé? Parce que "
+                   "le LRC suffit : au-dessus de 177, c'est le système de contrôle qui "
+                   "bloque, pas le train.",
             "chiffres": [
                 {"v": "4,82", "l": "coefficient k du recommandé (v = k·√R)"},
                 {"v": "110 mi/h", "l": "le plafond retenu (177 km/h), fixé par le système de contrôle"},
@@ -320,9 +321,10 @@ def sections(pub: dict) -> list[dict]:
             "cle": "04 · Capacité", "titre": "Doublement des voies et régime de cohabitation",
             "dit": "Le corridor offre une expérience naturelle : des voies simples chez "
                    "VIA, des voies simples chez le CN, des voies doubles chez le CN. En "
-                   "comparant la marge d'horaire des trois familles, on lit séparément le "
-                   "prix de la voie manquante et celui du régime. <b>Le régime pèse plus "
-                   "que le nombre de voies.</b>",
+                   "comparant leurs marges d'horaire, on sépare le prix de la voie "
+                   "manquante et celui du régime de cohabitation. <b>Le régime pèse plus "
+                   "que le nombre de voies</b>, et le précédent britannique montre "
+                   "comment un arbitre indépendant referme cet écart.",
             "chiffres": [
                 {"v": f"{pub['marges']['simple-CN']:.0f} %", "l": "marge médiane, voie simple du CN",
                  "couleur": VITESSE_COULEURS["sous_100"]},
@@ -346,11 +348,10 @@ def sections(pub: dict) -> list[dict]:
         },
         {
             "cle": "05 · Obstacles au sol", "titre": "Passages à niveau",
-            "dit": "Au plafond retenu, la zone rapide couvre presque tout le corridor : "
-                   "le régime du corridor scellé (traiter chaque passage : barrières "
-                   "quatre-quadrants, terre-pleins, détection) est <b>la condition "
-                   "principale du scénario recommandé</b>, et elle se compte. L'étude ne "
-                   "propose la fermeture d'aucun passage.",
+            "dit": "Première des deux conditions du scénario recommandé : le corridor "
+                   "scellé. Traiter chaque passage de la zone rapide (barrières "
+                   "quatre-quadrants, terre-pleins, détection). <b>Ça se compte</b>, et "
+                   "c'est compté ici, passage par passage.",
             "chiffres": [
                 {"v": f"{pub['pn']['154-177']:.0f}", "l": "passages dans la zone rapide (154-177 km/h)",
                  "couleur": VITESSE_COULEURS["160_200"]},
@@ -371,20 +372,20 @@ def sections(pub: dict) -> list[dict]:
         },
         {
             "cle": "06 · Commande des trains", "titre": "Signalisation",
-            "dit": "Un escalier de trois marches : rien à faire jusqu'à 160 km/h, une "
-                   "superposition de contrôle en cabine de 161 à 177, un système intégral "
-                   "au-delà de 177 (le système incrémental s'arrête là). <b>La marche du scénario recommandé est la "
-                   "deuxième</b> : son précédent américain est tarifé et opère exactement "
-                   "au plafond retenu, 110 mi/h au Michigan.",
+            "dit": "Seconde condition : la signalisation. Rien à faire jusqu'à "
+                   "160 km/h. De 161 à 177, une superposition de contrôle en cabine, "
+                   "comme la ligne du Michigan qui roule exactement à 110 mi/h. Au-delà "
+                   "de 177, il faudrait tout remplacer : c'est le devis d'Alto, hors du "
+                   "scénario recommandé.",
             "pieces": ["segments_courbature.csv"],
         },
         {
             "cle": "07 · Les temps de parcours", "titre": "Résultats intégrés",
-            "dit": "Le temps de base, sans marge, sort de l'intégration. Le temps publié "
-                   "y ajoute une marge <b>en fourchette</b> : la borne basse applique la "
-                   "règle normative (8 % au plafond retenu), la borne haute "
-                   "reconduit la marge que le tronçon porte aujourd'hui. La figure des "
-                   "gains attribue l'écart avec l'horaire actuel à ses trois leviers.",
+            "dit": "Le temps publié est une <b>fourchette</b> : le temps de base plus une "
+                   "marge, de la borne normative (8 %) à la marge que le tronçon porte "
+                   "aujourd'hui. La figure des gains attribue l'écart avec l'horaire "
+                   "actuel à ses leviers, et le <b>scénario plafond</b> pousse le "
+                   "recommandé à sa borne.",
             "chiffres": [
                 {"v": "4 h 27", "l": "Montréal-Toronto, scénario recommandé, borne basse"},
                 {"v": "2 h 30", "l": "Montréal-Québec, scénario recommandé, borne basse"},
@@ -404,9 +405,10 @@ def sections(pub: dict) -> list[dict]:
         },
         {
             "cle": "08 · Ce qui reste à faire", "titre": "Limites, et l'étude qu'il faut commander",
-            "dit": "Cette étude compte, elle ne dimensionne pas. Le cantonnement fin, la "
-                   "simulation de circulation et la conception par site relèvent d'une "
-                   "étude de circulation menée avec le propriétaire de la voie.",
+            "dit": "Ce que cette étude laisse ouvert, une étude complète devra le "
+                   "trancher : simulation de circulation, conception par site, coûts. "
+                   "Menée avec le propriétaire de la voie, elle établira la feuille de "
+                   "route concrète de l'alternative à Alto.",
             "pieces": ["goulots_detranglement.csv", "sites_restants_sous_grande_vitesse.csv"],
         },
         {
