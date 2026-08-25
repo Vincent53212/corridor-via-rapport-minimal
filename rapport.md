@@ -208,6 +208,25 @@ Le trajet Québec-Toronto des figures additionne Québec-Montréal et Montréal-
 
 **Sensibilités.** La délimitation des zones urbaines varie de ±20 % : effet de ±4 à ±8 minutes sur les temps de base. Les paramètres de rame sont des ordres de grandeur déclarés, pas des fiches constructeur ; un train moins puissant que l’hypothèse ajouterait 3 à 5 minutes par tronçon. Le détail est dans les annexes numériques.
 
+# Et si on enlevait tous les passages à niveau?
+
+Le plafond de 201 km/h (125 mi/h) tient à une seule chose : les passages à niveau. Supposons qu’on les enlève tous. Les 924 croisements du corridor sont dénivelés ou fermés, sans exception. Le mur tombe. Le train peut alors monter à la marche de signalisation suivante, déjà prouvée en Amérique du Nord : 241 km/h (150 mi/h), la vitesse du corridor du Nord-Est d’Amtrak [@fra2010ptc; @fra2000acela]. Combien de temps ce chantier achète-t-il?
+
+Voici la réponse, sur le scénario 3 (marge de 10 % incluse) :
+
+  | Trajet | Scénario 3 (plafond 201 km/h) | Zéro passage à niveau (plafond 241 km/h) | Gain |
+|---|---|---|---|
+| Montréal-Québec | 1 h 56 | 1 h 52 | 4 min |
+| Montréal-Ottawa | 1 h 23 | 1 h 21 | 2 min |
+| Ottawa-Toronto | 3 h 29 | 3 h 21 | 8 min |
+| Montréal-Toronto | 4 h 04 | 3 h 52 | 12 min |
+
+Sur le scénario 1, les gains sont du même ordre : de 1 à 12 minutes selon le trajet. De bout en bout, Québec-Toronto gagnerait 16 minutes.
+
+**Pourquoi si peu?** Parce qu’au-dessus de 201 km/h, ce ne sont plus les passages qui retiennent le train : ce sont les courbes. Le tracé n’offre qu’un nombre limité de sections assez droites pour porter 241 km/h, et le train n’y reste jamais longtemps. Le mur des passages à niveau et le mur de la géométrie sont presque au même endroit.
+
+**La lecture d’investissement est donc simple.** Comme levier de temps, déniveler les 924 passages ne se justifie pas : des centaines d’ouvrages pour gagner 2 à 12 minutes, là où le corridor scellé (le traitement des passages en place) fait partie du scénario de base et coûte une fraction de ce prix. Les dénivellations gardent leurs autres mérites, la sécurité d’abord, et quelques-unes se justifieront site par site. Mais quiconque veut des minutes au-delà du scénario 3 doit toucher au tracé lui-même, et c’est un autre projet : celui d’ALTO. Cette page borne l’écart entre les deux mondes.
+
 # Limites, et l’étude qu’il faut commander
 
 Cette étude ne simule pas la circulation réelle (croisements, sillons de fret, robustesse d’horaire). Elle ne conçoit aucun site et ne chiffre aucun coût. Le plafond de 201 km/h (125 mi/h) est un choix de système, pas une limite physique : c’est le sommet de la marche du contrôle de train certifié, et le seuil au-delà duquel le précédent américain interdit tout passage à niveau ; viser plus haut serait changer de projet. Les horaires de référence datent d’une saison de restrictions exceptionnelles ; la mesure a été rejouée sur les horaires de janvier 2023, antérieurs à la crise, et le résultat central tient : la voie simple du CN portait déjà bien plus de marge que sa voie double. La lecture fine de la voie simple de VIA, elle, varie selon la saison : le constat « la voie simple de VIA porte moins de marge que la voie double du CN » vaut pour les horaires courants, pas pour toutes les saisons.

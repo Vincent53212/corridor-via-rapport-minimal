@@ -35,6 +35,7 @@ SURTITRES = {
     "Ce que les scénarios demandent": "Les conditions",
     "Doubler la voie, et vivre ensemble sur le rail": "Capacité",
     "Comment nous avons mesuré": "La mesure",
+    "Et si on enlevait tous les passages à niveau?": "La contre-hypothèse",
     "Limites, et l'étude qu'il faut commander": "Ce qui reste à faire",
     "Résultats détaillés": "Les temps de parcours",
     "Note de l'auteur": "La méthode de travail",

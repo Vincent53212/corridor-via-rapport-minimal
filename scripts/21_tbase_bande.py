@@ -102,7 +102,10 @@ OUT_BLOCS = DELIVERABLES / f"blocs_urbains{_SUF}.csv"
 if _OVERRIDE or _BLOCS_LIBRES:
     print(f"VARIANTE : segments lus dans {SEGMENTS}, sortie {OUT_TBASE.name}")
 
-BANDES_KMH = [160, 177, 201, 250, 300]
+BANDES_KMH = [160, 177, 201, 241, 250, 300]
+# 241 (150 mi/h) = sensibilité « zéro passage à niveau » : plafond prouvé du
+# NEC d'Amtrak (ACSES + cab signals, fra2010ptc) une fois le mur des passages
+# levé. Même rame pendulaire de référence (12 W/kg) : lecture conservatrice.
 DWELL_MIN = 2.0               # immobilisation en gare (min/arrêt) ; la dynamique
                               # d'accélération/freinage est dans le profil simulé
 URBAN_SENS = 0.20             # sensibilité ±20 % sur les blocs urbains
@@ -118,7 +121,8 @@ TRAIN_A = {"S1": (0.5, 0.5), "S2": (0.6, 0.6), "S3": (0.6, 0.6)}
 def train_pm(scenario: str, bande: float) -> float:
     if scenario == "S1":
         return 8.0
-    return {160: 12.0, 177: 12.0, 201: 12.0, 250: 18.0, 300: 22.0}[int(bande)]
+    return {160: 12.0, 177: 12.0, 201: 12.0, 241: 12.0, 250: 18.0,
+            300: 22.0}[int(bande)]
 
 # Blocs urbains ancrés sur des paires de gares GTFS : (tronçon, stop_id A, stop_id B,
 # nom, km_debut, km_fin). km relevés dans corridor_gtfs.geojson.
