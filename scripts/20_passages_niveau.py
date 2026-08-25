@@ -20,11 +20,11 @@ passage, appliquée aux DEUX sorties (par_bande et tri) — un assert le garanti
 
 Bandes d'EXPLOITATION du rapport (en plus des bandes géométriques) :
   bande_base       : min(vmax_S1, 160) — le régime d'aujourd'hui
-  bande_pendulaire : min(vmax_S2, 177) — le train pendulaire (moteur commun des
-                     scénarios 1 à 3), plafonné à la limite du contrôle en
-                     cabine incrémental (ITCS, 110 mi/h). Les comptes de
-                     passages sont IDENTIQUES pour les trois scénarios publiés
-                     (même plafond 177).
+  bande_pendulaire : min(vmax_S2, 201) — le train pendulaire (moteur commun des
+                     scénarios 1 à 3), plafonné à 201 km/h (125 mi/h) : sommet
+                     de la marche du PTC certifié et seuil passages à niveau.
+                     Les comptes de passages sont IDENTIQUES pour les trois
+                     scénarios publiés (même plafond 201).
 
 Tri en DEUX classes d'intervention (règles sur données ouvertes, documentées) :
   standard       : municipal ou privé, ≤ 2 voies, non urbain
@@ -172,10 +172,11 @@ def main() -> None:
         matched[f"vmax_{sid}_kmh"] = vmax_corridor
         matched[f"bande_{sid}"] = matched[f"vmax_{sid}_kmh"].map(bande_of)
     # Bandes d'EXPLOITATION du rapport : base = aujourd'hui (S1 capé 160) ;
-    # pendulaire = LRC plafonné 177 (limite ITCS), commun aux scénarios 1 à 3.
+    # pendulaire = LRC plafonné 201 (125 mi/h, sommet de la marche du PTC
+    # certifié et seuil passages à niveau), commun aux scénarios 1 à 3.
     matched["vmax_base_kmh"] = matched["vmax_S1_kmh"].clip(upper=160.0)
     matched["bande_base"] = matched["vmax_base_kmh"].map(bande_of)
-    matched["vmax_pendulaire_kmh"] = matched["vmax_S2_kmh"].clip(upper=177.0)
+    matched["vmax_pendulaire_kmh"] = matched["vmax_S2_kmh"].clip(upper=201.0)
     matched["bande_pendulaire"] = matched["vmax_pendulaire_kmh"].map(bande_of)
     matched["flbg_present"] = matched["Protection"].str.contains("FLBG", na=False)
     matched["intervention"] = matched.apply(classify_intervention, axis=1)
@@ -253,18 +254,20 @@ def main() -> None:
     for k, v in tri_counts.items():
         print(f"   {k:<55} {v}")
 
-    # ---- exploitation : le compte au plafond pendulaire 177 (scénarios 1 à 3)
-    reco = first[first["bande_pendulaire"] == "154-177"]
-    n_reco = len(reco)
-    n_flbg = int(reco["flbg_present"].sum())
-    n_a_equiper = n_reco - n_flbg
-    n_reco_complexe = int(reco["intervention"].str.startswith("complexe").sum())
+    # ---- exploitation : le compte au plafond pendulaire 201 (scénarios 1 à 3)
+    scelle = first[first["bande_pendulaire"].isin(["154-177", "178-201"])]
+    n_scelle = len(scelle)
+    n_haut = int((first["bande_pendulaire"] == "178-201").sum())
+    n_flbg = int(scelle["flbg_present"].sum())
+    n_a_equiper = n_scelle - n_flbg
+    n_complexe = int(scelle["intervention"].str.startswith("complexe").sum())
     expl = (
-        f"train pendulaire, plafond 177 km/h (identique pour les scénarios 1 à "
-        f"3) : {n_reco} passages en bande "
-        f"154-177, dont {n_flbg} déjà équipés d'un système complet "
-        f"feux-cloches-barrières (FLBG) et {n_a_equiper} à équiper ; "
-        f"{n_reco_complexe} en contexte complexe ; "
+        f"train pendulaire, plafond 201 km/h / 125 mi/h (identique pour les "
+        f"scénarios 1 à 3) : {n_scelle} passages en zone 154-201 à sceller, "
+        f"dont {n_haut} en bande 178-201 (approbation fédérale du dispositif "
+        f"en plus, précédent 49 CFR 213.347(b)) ; {n_flbg} déjà équipés d'un "
+        f"système complet feux-cloches-barrières (FLBG) et {n_a_equiper} à "
+        f"équiper ; {n_complexe} en contexte complexe ; "
         f"{int((first['bande_pendulaire'] == '≤153').sum())} restent ≤153"
     )
     print(f"\n{expl}")
@@ -292,9 +295,11 @@ s'applique pas de plein droit au Canada.
 
 Bandes d'EXPLOITATION (colonnes bande_base / bande_pendulaire) : la base est
 le régime d'aujourd'hui (la voie actuelle, plafonnée à 160 km/h) ; le train
-pendulaire des scénarios 1 à 3 est plafonné à 177 km/h (110 mi/h), limite du
-contrôle en cabine incrémental type ITCS. Les comptes sont identiques pour les
-trois scénarios publiés (même plafond). {expl}.
+pendulaire des scénarios 1 à 3 est plafonné à 201 km/h (125 mi/h), sommet de
+la marche du PTC certifié (précédents Brightline et Northeast Corridor) et
+seuil au-delà duquel le précédent américain interdit tout passage à niveau.
+Les comptes sont identiques pour les trois scénarios publiés (même plafond).
+{expl}.
 
 Total corridor DÉDOUBLONNÉ : un même passage physique (TC Number) emprunté par
 deux trajets ne compte qu'une fois, classé à la vmax maximale des trajets.

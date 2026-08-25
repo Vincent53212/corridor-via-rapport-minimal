@@ -337,17 +337,18 @@ def main() -> None:
         f'<text x="{rx}" y="{ry - 8:.1f}" font-family="PlexMono, monospace" '
         f'font-size="8.5" letter-spacing="1.6" fill="{ACCENT["primaire_clair"]}">'
         f'VITESSE QUE LA COURBURE AUTORISE, {SCENARIO_LIBELLE.upper()} (km/h)</text>')
-    # Le plafond d'exploitation retenu (177 = limite ITCS) : un repère sur la
+    # Le plafond d'exploitation retenu (201 = marche du PTC certifié et seuil
+    # passages à niveau) : un repère sur la
     # rampe, pour que la carte (plafonds géométriques, y compris au-delà) ne se
     # lise pas comme une promesse d'exploitation.
-    x177 = rx + (2 + (177 - 160) / 40) * rw / n
+    x201 = rx + (2 + (201 - 160) / 40) * rw / n
     reglette.append(
-        f'<line x1="{x177:.1f}" y1="{ry - 3.5:.1f}" x2="{x177:.1f}" '
+        f'<line x1="{x201:.1f}" y1="{ry - 3.5:.1f}" x2="{x201:.1f}" '
         f'y2="{ry + rh + 3.5:.1f}" stroke="{PAPIER["fond"]}" stroke-width="1.4"/>')
     reglette.append(
-        f'<text x="{x177:.1f}" y="{ry + rh + 24:.1f}" text-anchor="middle" '
+        f'<text x="{x201:.1f}" y="{ry + rh + 24:.1f}" text-anchor="middle" '
         f'font-family="PlexMono, monospace" font-size="8.5" '
-        f'fill="{ACCENT["primaire_clair"]}">177 · plafond retenu</text>')
+        f'fill="{ACCENT["primaire_clair"]}">201 · plafond retenu</text>')
     reglette.append(
         f'<text x="{rx + rw + 14:.1f}" y="{ry + rh + 1:.1f}" '
         f'font-family="PlexMono, monospace" font-size="8.5" fill="#8D8677">'

@@ -80,22 +80,22 @@ exploitation-base (cap 160);CORRIDOR (dédoublonné);154-177;672
 exploitation-base (cap 160);CORRIDOR (dédoublonné);178-201;0
 exploitation-base (cap 160);CORRIDOR (dédoublonné);>201;0
 exploitation-pendulaire (cap 177);MTL-QC;≤153;33
-exploitation-pendulaire (cap 177);MTL-QC;154-177;289
-exploitation-pendulaire (cap 177);MTL-QC;178-201;0
+exploitation-pendulaire (cap 177);MTL-QC;154-177;59
+exploitation-pendulaire (cap 177);MTL-QC;178-201;230
 exploitation-pendulaire (cap 177);MTL-QC;>201;0
 exploitation-pendulaire (cap 177);MTL-Ott;≤153;28
-exploitation-pendulaire (cap 177);MTL-Ott;154-177;180
-exploitation-pendulaire (cap 177);MTL-Ott;178-201;0
+exploitation-pendulaire (cap 177);MTL-Ott;154-177;92
+exploitation-pendulaire (cap 177);MTL-Ott;178-201;88
 exploitation-pendulaire (cap 177);MTL-Ott;>201;0
 exploitation-pendulaire (cap 177);Ott-TO;≤153;25
-exploitation-pendulaire (cap 177);Ott-TO;154-177;276
-exploitation-pendulaire (cap 177);Ott-TO;178-201;0
+exploitation-pendulaire (cap 177);Ott-TO;154-177;10
+exploitation-pendulaire (cap 177);Ott-TO;178-201;266
 exploitation-pendulaire (cap 177);Ott-TO;>201;0
 exploitation-pendulaire (cap 177);MTL-TO;≤153;25
-exploitation-pendulaire (cap 177);MTL-TO;154-177;340
-exploitation-pendulaire (cap 177);MTL-TO;178-201;0
+exploitation-pendulaire (cap 177);MTL-TO;154-177;11
+exploitation-pendulaire (cap 177);MTL-TO;178-201;329
 exploitation-pendulaire (cap 177);MTL-TO;>201;0
 exploitation-pendulaire (cap 177);CORRIDOR (dédoublonné);≤153;91
-exploitation-pendulaire (cap 177);CORRIDOR (dédoublonné);154-177;833
-exploitation-pendulaire (cap 177);CORRIDOR (dédoublonné);178-201;0
+exploitation-pendulaire (cap 177);CORRIDOR (dédoublonné);154-177;161
+exploitation-pendulaire (cap 177);CORRIDOR (dédoublonné);178-201;672
 exploitation-pendulaire (cap 177);CORRIDOR (dédoublonné);>201;0

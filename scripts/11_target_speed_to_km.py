@@ -31,7 +31,7 @@ from scenarios import SCENARIOS, VMAX_PHYSICAL_CEILING_KMH, public_id
 from utils import (SEGMENTS_PUBLIES_GEOJSON as SEGMENTS_GEOJSON, DELIVERABLES,
                    degre_courbure, kmh_to_mph, km_to_mile)
 
-TARGET_PEAKS = [160, 177, 200, 250, 300]     # vitesses de pointe cibles (177 = plafond ITCS du scénario recommandé)
+TARGET_PEAKS = [160, 177, 201, 250, 300]     # vitesses de pointe cibles (201 = plafond des scénarios publiés ; 177 = référence ITCS)
 TRONCONS = ["MTL-QC", "MTL-Ott", "Ott-TO", "MTL-TO"]
 
 
@@ -126,15 +126,16 @@ def main() -> None:
                   f"  Dc≤{degre_courbure(R_target):.2f}° (R≥{R_target:,.0f}m)")
         print()
     # garde-fou de cohérence avec le récit. Recalé 2026-08-24 : la correction
-    # des courbes courtes (étape 34, F_R = 0,5 sous 900 m) relève le résidu.
-    # S3 = pendulaire 127/270 (k=5,75), cible 200 → mesuré 337 km sur les
-    # segments PUBLIÉS (l'attendu pré-correction du plan v3 était ≈ 187 km).
-    s3_200 = sum(r["km_restants"] for r in agg_rows
-                 if r["scenario"] == "reference-interne" and r["vitesse_cible_kmh"] == 200)
-    print(f"  Contrôle cohérence : S3 (127/270) cible 200 km/h → {s3_200:.0f} km "
-          f"(attendu ≈ 337 km sur segments publiés, correction courbes courtes "
-          f"incluse ; pré-correction ≈ 187 km). "
-          f"{'OK ✓' if 300 <= s3_200 <= 375 else 'ÉCART À VÉRIFIER ✗'}\n")
+    # des courbes courtes (étape 34, F_R = 0,5 sous 900 m) relève le résidu,
+    # et le plafond publié est passé à 201 (cible 200 retirée des TARGET_PEAKS).
+    # S3 = pendulaire 127/270 (k=5,75), cible 201 → ≈ 340 km sur les segments
+    # PUBLIÉS (l'attendu pré-correction du plan v3, cible 200, était ≈ 187 km).
+    s3_201 = sum(r["km_restants"] for r in agg_rows
+                 if r["scenario"] == "reference-interne" and r["vitesse_cible_kmh"] == 201)
+    print(f"  Contrôle cohérence : S3 (127/270) cible 201 km/h → {s3_201:.0f} km "
+          f"(attendu ≈ 340 km sur segments publiés, correction courbes courtes "
+          f"incluse). "
+          f"{'OK ✓' if 300 <= s3_201 <= 380 else 'ÉCART À VÉRIFIER ✗'}\n")
 
     # NB (audit 2026-08-06) : l'ancien volet « #2 INDICATIF » (vitesse moyenne
     # cible → pointe requise via le rapport empirique 0,70-0,80) est RETIRÉ —

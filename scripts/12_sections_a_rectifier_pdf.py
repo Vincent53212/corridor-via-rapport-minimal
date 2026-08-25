@@ -1,20 +1,20 @@
 #!/usr/bin/env python3
-"""Sous-livrable — « Sections restantes sous 177 km/h, train pendulaire ».
+"""Sous-livrable — « Sections restantes sous 201 km/h, train pendulaire ».
 
-Reframe (2026-06-15, recalé 2026-08-24 sur l'échelle des scénarios 1-2-3) : ce
-n'est PAS un document « km à rectifier ». Le tracé est CONSERVÉ tel quel ; on
-documente, pour chaque section qui reste sous 177 km/h au plafond géométrique
-pendulaire (moteur des scénarios 1 à 3, interne S2), sa vitesse géométrique
-(plafond de la courbe). But :
+Reframe (2026-06-15, recalé 2026-08-24 sur l'échelle des scénarios 1-2-3,
+plafond 201) : ce n'est PAS un document « km à rectifier ». Le tracé est
+CONSERVÉ tel quel ; on documente, pour chaque section qui reste sous 201 km/h
+(125 mi/h) au plafond géométrique pendulaire (moteur des scénarios 1 à 3,
+interne S2), sa vitesse géométrique (plafond de la courbe). But :
 alimenter le moteur T_base (script 21) sans modification du tracé.
 NB audit 2026-08-06 : la colonne « vitesse commerciale estimée » (facteur de
 transposition 0,75) est RETIRÉE — interdit du plan v3, remplacée par T_base.
 
 Lit le CSV DÉJÀ VALIDÉ `livrables/sites_restants_sous_grande_vitesse.csv`
-(étape 11), filtré plafond pendulaire (interne S2) × seuil 177 km/h.
+(étape 11), filtré plafond pendulaire (interne S2) × seuil 201 km/h.
 AUCUN recalcul de géométrie ; vitesses dérivées par la formule documentée.
 
-Sortie : livrables/sections_restantes_177kmh_pendulaire.html (+ PDF via Chrome headless).
+Sortie : livrables/sections_restantes_201kmh_pendulaire.html (+ PDF via Chrome headless).
 """
 from __future__ import annotations
 import csv
@@ -25,7 +25,7 @@ from pathlib import Path
 
 ROOT = Path(__file__).resolve().parent.parent
 SRC = ROOT / "livrables" / "sites_restants_sous_grande_vitesse.csv"
-OUT = ROOT / "livrables" / "sections_restantes_177kmh_pendulaire.html"
+OUT = ROOT / "livrables" / "sections_restantes_201kmh_pendulaire.html"
 
 sys.path.insert(0, str(Path(__file__).resolve().parent))
 from utils import degre_courbure, kmh_to_mph
@@ -33,7 +33,7 @@ from scenarios import SCENARIOS
 
 SCENARIO = "pendulaire"   # valeur publiée dans les CSV livrés
 SCENARIO_INTERNE = "S2"   # id interne du même moteur (source unique scenarios.py)
-SEUIL = "177"
+SEUIL = "201"
 DATE = "2026-08"
 
 # Coefficient du moteur pendulaire — source unique scenarios.py (h=127, CD=152)
@@ -114,7 +114,7 @@ def table_for(tr_id, by):
         f"<section class='troncon'>"
         f"<h3>{tr_id} <span style='color:#888;font-weight:normal'>· {nom}</span></h3>"
         f"<p class='soustitre'>{len(rows)} sections · <b>{fr(tot_km,1)} km</b> · "
-        f"{fr(pct,1)} % du tronçon · plafond géométrique &lt; 177 km/h, train pendulaire</p>"
+        f"{fr(pct,1)} % du tronçon · plafond géométrique &lt; 201 km/h, train pendulaire</p>"
         f"<table>{head}<tbody>{''.join(body)}</tbody></table>"
         f"</section>"
     ), len(rows), tot_km
@@ -143,7 +143,7 @@ def main():
         "<table class='recap'><thead><tr style='background:#003366;color:#fff'>"
         "<th style='text-align:left'>Tronçon</th><th style='text-align:left'></th>"
         "<th style='text-align:right'>Sections</th>"
-        "<th style='text-align:right'>km &lt; 177 km/h</th>"
+        "<th style='text-align:right'>km &lt; 201 km/h</th>"
         "<th style='text-align:right'>% du tronçon</th></tr></thead><tbody>"
         f"{recap_rows}"
         f"<tr style='font-weight:bold;border-top:2px solid #003366'>"
@@ -194,7 +194,7 @@ def main():
     resume = f"""
     <div class='resume'><b class='big'>{n_tot} sections · {fr(km_tot,0)} km ·
     {fr(pct_tot,1)} % du corridor</b> ont un <b>plafond géométrique inférieur à
-    177 km/h</b> avec le train pendulaire (moteur commun des scénarios 1 à 3,
+    201 km/h</b> avec le train pendulaire (moteur commun des scénarios 1 à 3,
     voie ré-inclinée). Ces sections
     <b>conservent le tracé existant</b> ; le tableau donne, pour chacune, sa
     <b>vitesse géométrique</b> (plafond imposé par la courbe). Les temps de
@@ -208,8 +208,7 @@ def main():
       maximum standard CN (5 po = 127 mm, MR 1305-0) + matériel <b>pendulaire
       type LRC</b> (insuffisance de dévers 6 po = 152 mm, 100 % précédent
       canadien), <b>sans refaire le tracé</b>, exploitation plafonnée à
-      <b>177 km/h (110 mi/h)</b>, la limite du contrôle en cabine incrémental
-      (type ITCS). Les sections ci-dessous restent sous 177 km/h <b>même avec
+      <b>201 km/h (125 mi/h)</b>, le sommet de la marche du PTC certifié et le seuil des passages à niveau. Les sections ci-dessous restent sous 201 km/h <b>même avec
       ce train</b> : c'est la <b>géométrie du tracé</b> (le rayon de courbure)
       qui fixe leur plafond. Les chiffres incluent la <b>correction empirique
       des courbes courtes</b> (rayon divisé par deux sous 900 m, calée sur un
@@ -224,7 +223,7 @@ def main():
       jamais par un facteur uniforme.</p>
 
       <p><b>Lecture.</b> Chaque ligne est une <b>section continue</b> dont le
-      plafond géométrique reste &lt; 177 km/h avec le train pendulaire,
+      plafond géométrique reste &lt; 201 km/h avec le train pendulaire,
       tracé inchangé.
       Total : <b>{fr(km_tot,0)} km ({fr(pct_tot,1)} % du corridor)</b>. Les
       sections en <b>rouge</b> sont les plus contraintes (vitesse géométrique
@@ -254,11 +253,11 @@ def main():
 
     html = f"""<!DOCTYPE html>
 <html lang='fr'><head><meta charset='utf-8'>
-<title>Sections restantes sous 177 km/h, train pendulaire — Corridor Québec-Toronto</title>
+<title>Sections restantes sous 201 km/h, train pendulaire — Corridor Québec-Toronto</title>
 <style>{css}</style></head><body>
-<h1>Sections à plafond géométrique inférieur à 177 km/h</h1>
+<h1>Sections à plafond géométrique inférieur à 201 km/h</h1>
 <h1 class='sub'>Corridor VIA existant · train pendulaire (voie ré-inclinée +
-pendulaire type LRC, insuffisance 6 po) · exploitation plafonnée à 177 km/h ·
+pendulaire type LRC, insuffisance 6 po) · exploitation plafonnée à 201 km/h ·
 tracé inchangé · vitesse géométrique (plafond)</h1>
 {resume}
 {intro}
@@ -268,7 +267,7 @@ tracé inchangé · vitesse géométrique (plafond)</h1>
 {''.join(tables)}
 <hr style='margin-top:18px;border:none;border-top:1px solid #ddd'>
 <p style='font-size:0.82em;color:#888'>Source : sections à plafond géométrique
-&lt; 177 km/h avec le train pendulaire, dérivées de la géométrie classée et
+&lt; 201 km/h avec le train pendulaire, dérivées de la géométrie classée et
 corrigée <code>segments_publies.geojson</code>
 (<code>sites_restants_sous_grande_vitesse.csv</code>).
 Vitesse géométrique : V = {COEFF:.2f}·√R (dévers CN MR 1305-0, insuffisance

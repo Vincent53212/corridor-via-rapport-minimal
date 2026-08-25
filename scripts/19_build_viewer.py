@@ -356,23 +356,25 @@ def lire_publies() -> dict[str, dict[str, float]]:
                 for i in range(n)]
 
     a, b = ligne(
-        r"Sous 177" + esp + r"km/h[^|]*\|" + esp + r"(\d[\d\s ]*?)" + esp
+        r"Sous 201[^|]*\|" + esp + r"(\d[\d\s ]*?)" + esp
         + r"km" + esp + r"\|" + esp + r"(\d[\d\s ]*?)" + esp + r"km", 2)
     c, d = ligne(
-        r"Sous 160" + esp + r"km/h[^|]*\|" + esp + r"(\d[\d\s ]*?)" + esp
+        r"Sous 160[^|]*\|" + esp + r"(\d[\d\s ]*?)" + esp
         + r"km" + esp + r"\|" + esp + r"(\d[\d\s ]*?)" + esp + r"km", 2)
     g, = ligne(r"Voie double, CN \|[^|]*\|" + esp + r"(\d+)" + esp + r"%", 1)
     h, = ligne(r"Voie simple, VIA \|[^|]*\|" + esp + r"(\d+)" + esp + r"%", 1)
     i, = ligne(r"Voie simple, CN \|[^|]*\|" + esp + r"(\d+)" + esp + r"%", 1)
     j, = ligne(r"\|" + esp + r"154-177" + esp + r"km/h \(96-110" + esp
                + r"mi/h\)[^|]*\|" + esp + r"(\d+)", 1)
+    j2, = ligne(r"\|" + esp + r"178-201" + esp + r"km/h \(111-125" + esp
+                + r"mi/h\)[^|]*\|" + esp + r"(\d+)", 1)
     k, = ligne(r"\|" + esp + r"≤" + esp + r"153" + esp + r"km/h \(95" + esp
                + r"mi/h\)[^|]*\|" + esp + r"(\d+)", 1)
     return {
-        "residu177": {"base": a, "pendulaire": b},
+        "residu201": {"base": a, "pendulaire": b},
         "residu160": {"base": c, "pendulaire": d},
         "marges": {"double-CN": g, "simple-VIA": h, "simple-CN": i},
-        "pn": {"154-177": j, "≤153": k},
+        "pn": {"154-177": j, "178-201": j2, "≤153": k},
     }
 
 
@@ -404,30 +406,30 @@ def sections(pub: dict) -> list[dict]:
                    "<b>4 h 40</b> entre Montréal et Toronto, contre 5 h 18 "
                    "aujourd'hui. Le <b>scénario 3</b> descend à 4 h 17.",
             "chiffres": [
-                {"v": f"{pub['residu177']['pendulaire']:.0f} km", "l": "restants sous 177 km/h avec le train pendulaire",
+                {"v": f"{pub['residu201']['pendulaire']:.0f} km", "l": "restants sous 201 km/h avec le train pendulaire",
                  "couleur": VITESSE_COULEURS["160_200"]},
-                {"v": f"{pub['residu177']['base']:.0f} km", "l": "restants sous 177 km/h, voie et train actuels"},
+                {"v": f"{pub['residu201']['base']:.0f} km", "l": "restants sous 201 km/h, voie et train actuels"},
                 {"v": "1 433 km", "l": "de corridor mesuré, quatre trajets"},
             ],
             "verifications": [{
                 "enonce": "Le rapport publie les kilomètres restants sous le plafond "
-                          "retenu de 177 km/h. <b>Refaisons la somme</b> à partir des "
+                          "retenu de 201 km/h. <b>Refaisons la somme</b> à partir des "
                           "sites mesurés.",
                 "table": "km_restants_sous_grande_vitesse.csv",
-                "filtre": [{"col": "vitesse_cible_kmh", "op": "==", "val": 177},
+                "filtre": [{"col": "vitesse_cible_kmh", "op": "==", "val": 201},
                            {"col": "scenario", "op": "dans", "val": ["base", "pendulaire"]},
                            {"col": "troncon", "op": "dans", "val": COEUR}],
                 "grouper": "scenario", "agreger": "km_restants", "mode": "somme",
-                "publie": pub["residu177"], "unite": "km", "arrondi": 1, "tolerance": 1,
+                "publie": pub["residu201"], "unite": "km", "arrondi": 1, "tolerance": 1,
                 "libelles": {"base": "Scénario de base (voie et train actuels)",
-                             "pendulaire": "Train pendulaire (scénarios 1 à 3, plafond 177)"},
+                             "pendulaire": "Train pendulaire (scénarios 1 à 3, plafond 201)"},
             }],
             "pieces": ["km_restants_sous_grande_vitesse.csv", "temps_scenario_1.csv",
                        "decomposition_gains.csv"],
         },
         {
             "cle": "02 · Trois scénarios", "titre": "Trois scénarios, un seul train",
-            "dit": "Le même train pendulaire, le même plafond de 177 km/h, et trois "
+            "dit": "Le même train pendulaire, le même plafond de 201 km/h (125 mi/h), et trois "
                    "périmètres de travaux. <b>Scénario 1</b> : le train, la "
                    "signalisation, les passages à niveau, le dévers. <b>Scénario 2</b> : "
                    "plus les zones urbaines modernisées. <b>Scénario 3</b> : plus les "
@@ -435,8 +437,8 @@ def sections(pub: dict) -> list[dict]:
                    "se construit de toute façon.",
             "chiffres": [
                 {"v": "4,82", "l": "coefficient k du pendulaire (v = k·√R)"},
-                {"v": "110 mi/h", "l": "le plafond retenu (177 km/h), fixé par le système de contrôle"},
-                {"v": "188 km", "l": "de segments dont les courbes sont corrigées au scénario 3"},
+                {"v": "125 mi/h", "l": "le plafond retenu (201 km/h) : marche du contrôle certifié, seuil des passages à niveau"},
+                {"v": "213 km", "l": "de segments dont les courbes sont corrigées au scénario 3"},
             ],
             "pieces": ["scenarios_parametres.csv", "temps_scenario_1.csv",
                        "temps_scenario_2.csv", "temps_scenario_3.csv"],
@@ -446,23 +448,24 @@ def sections(pub: dict) -> list[dict]:
             "dit": "Deux conditions. Les <b>passages à niveau</b> : sceller chaque "
                    "passage de la partie interurbaine rapide (barrières complètes, "
                    "terre-pleins, détection). La <b>signalisation</b> : un contrôle en "
-                   "cabine superposé, prouvé à 177 km/h au Michigan depuis 2012, "
-                   "pendant qu'Amtrak et Brightline prouvent que la marche d'après "
-                   "(201 km/h et plus) existe aussi en Amérique du Nord.",
+                   "cabine certifié, prouvé à 201 km/h chez Brightline et au-delà chez "
+                   "Amtrak ; la variante ITCS du Michigan (177 km/h) offre une "
+                   "étape de phasage.",
             "chiffres": [
-                {"v": f"{pub['pn']['154-177']:.0f}", "l": "passages à sceller (154-177 km/h)",
+                {"v": f"{pub['pn']['154-177'] + pub['pn']['178-201']:.0f}", "l": "passages à sceller (zone 154-201 km/h)",
                  "couleur": VITESSE_COULEURS["160_200"]},
                 {"v": "533", "l": "restent à équiper de feux, cloches et barrières"},
                 {"v": "924", "l": "passages sur le corridor, dédoublonnés"},
             ],
             "verifications": [{
                 "enonce": "<b>Comptons les passages</b> par bande d'exploitation au "
-                          "plafond pendulaire (177 km/h, commun aux trois scénarios).",
+                          "plafond pendulaire (201 km/h, commun aux trois scénarios).",
                 "table": "passages_niveau_tri.csv",
                 "filtre": [], "grouper": "bande_pendulaire", "agreger": "tc_number",
                 "mode": "compte", "publie": pub["pn"], "unite": "passages",
                 "arrondi": 1, "tolerance": 0,
                 "libelles": {"154-177": "À sceller (154-177 km/h)",
+                             "178-201": "À sceller, dispositif approuvé (178-201 km/h)",
                              "≤153": "Régime actuel (≤ 153 km/h)"},
             }],
             "pieces": ["passages_niveau_tri.csv", "passages_niveau_par_bande.csv"],
@@ -520,9 +523,9 @@ def sections(pub: dict) -> list[dict]:
                    "leviers : le train, les zones urbaines, les courbes, les voies, le "
                    "régime.",
             "chiffres": [
-                {"v": "4 h 40", "l": "Montréal-Toronto, scénario 1"},
-                {"v": "4 h 17", "l": "Montréal-Toronto, scénarios 2 et 3"},
-                {"v": "2 h 06", "l": "Montréal-Québec, scénario 3"},
+                {"v": "4 h 27", "l": "Montréal-Toronto, scénario 1"},
+                {"v": "4 h 04", "l": "Montréal-Toronto, scénarios 2 et 3"},
+                {"v": "1 h 56", "l": "Montréal-Québec, scénario 3"},
             ],
             "verifications": [{
                 "enonce": "La figure des gains promet que les parts de sa décomposition "
@@ -638,11 +641,11 @@ ESSENTIEL = {
 # lecture par défaut.
 PRESETS = {
     "segments_courbature.csv": [
-        {"label": "Sous 177 km/h, train pendulaire", "conds": [{"col": "vmax_pendulaire_kmh_plafond_courbure", "op": "<", "val": 177}]},
+        {"label": "Sous 201 km/h, train pendulaire", "conds": [{"col": "vmax_pendulaire_kmh_plafond_courbure", "op": "<", "val": 201}]},
         {"label": "Sous 160 km/h, train pendulaire", "conds": [{"col": "vmax_pendulaire_kmh_plafond_courbure", "op": "<", "val": 160}]},
     ],
     "km_restants_sous_grande_vitesse.csv": [
-        {"label": "Cible 177 km/h", "conds": [{"col": "vitesse_cible_kmh", "op": "==", "val": 177}]},
+        {"label": "Cible 201 km/h", "conds": [{"col": "vitesse_cible_kmh", "op": "==", "val": 201}]},
         {"label": "Train pendulaire (scénarios 1 à 3)", "conds": [{"col": "scenario", "op": "==", "val": "pendulaire"}]},
     ],
     "passages_niveau_tri.csv": [

@@ -49,7 +49,7 @@ appliquer_rcparams(matplotlib)
 
 MARGE = 1.10                    # point unique (décision 2026-08-24)
 ARRET_MTL_MIN = 10.0            # HYPOTHÈSE : arrêt à Montréal du trajet composé
-BANDE = 177
+BANDE = 201                     # plafond des scénarios publiés (125 mi/h)
 
 
 def _lire(nom):
@@ -269,7 +269,7 @@ leg = ax.legend(handles,
                 ["Scénario 3, marge de 10 % incluse",
                  "Courbes corrigées au doublement (scénario 3)",
                  "Zones urbaines modernisées (scénario 2)",
-                 "Train pendulaire, plafond 177 km/h (scénario 1)",
+                 "Train pendulaire, plafond 201 km/h (scénario 1)",
                  "Doublement des voies",
                  "Cohabitation (résidu : objet de l'étude de circulation)",
                  "Doublement ou cohabitation, indiscernables"],

@@ -202,7 +202,7 @@ FENETRE_BIAIS_M = 900.0         # longueur de la fenêtre d'ajustement (04)
 # sigle interne dans un livrable.
 PUBLIC_IDS = {"S1": "base", "S2": "pendulaire", "S3": "reference-interne"}
 PUBLIC_LABELS = {"base": "Scénario de base (voie et train actuels)",
-                 "pendulaire": "Plafond géométrique pendulaire (moteur des scénarios 1 à 3, plafond 177)",
+                 "pendulaire": "Plafond géométrique pendulaire (moteur des scénarios 1 à 3, plafond 201)",
                  "reference-interne": "Référence interne (pendulaire 270 mm, hors rapport)"}
 
 # Paliers d'aménagement PUBLIÉS (l'échelle du rapport, remodelage du 24 août).

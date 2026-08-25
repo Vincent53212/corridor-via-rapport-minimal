@@ -21,9 +21,11 @@ s'applique pas de plein droit au Canada.
 
 Bandes d'EXPLOITATION (colonnes bande_base / bande_pendulaire) : la base est
 le régime d'aujourd'hui (la voie actuelle, plafonnée à 160 km/h) ; le train
-pendulaire des scénarios 1 à 3 est plafonné à 177 km/h (110 mi/h), limite du
-contrôle en cabine incrémental type ITCS. Les comptes sont identiques pour les
-trois scénarios publiés (même plafond). train pendulaire, plafond 177 km/h (identique pour les scénarios 1 à 3) : 833 passages en bande 154-177, dont 300 déjà équipés d'un système complet feux-cloches-barrières (FLBG) et 533 à équiper ; 93 en contexte complexe ; 91 restent ≤153.
+pendulaire des scénarios 1 à 3 est plafonné à 201 km/h (125 mi/h), sommet de
+la marche du PTC certifié (précédents Brightline et Northeast Corridor) et
+seuil au-delà duquel le précédent américain interdit tout passage à niveau.
+Les comptes sont identiques pour les trois scénarios publiés (même plafond).
+train pendulaire, plafond 201 km/h / 125 mi/h (identique pour les scénarios 1 à 3) : 833 passages en zone 154-201 à sceller, dont 672 en bande 178-201 (approbation fédérale du dispositif en plus, précédent 49 CFR 213.347(b)) ; 300 déjà équipés d'un système complet feux-cloches-barrières (FLBG) et 533 à équiper ; 93 en contexte complexe ; 91 restent ≤153.
 
 Total corridor DÉDOUBLONNÉ : un même passage physique (TC Number) emprunté par
 deux trajets ne compte qu'une fois, classé à la vmax maximale des trajets.

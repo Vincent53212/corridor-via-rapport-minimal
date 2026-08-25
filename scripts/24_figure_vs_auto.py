@@ -2,16 +2,16 @@
 
 Cinq barres par trajet : l'auto (repère évidé), l'horaire VIA d'aujourd'hui,
 puis les trois scénarios publiés (échelle du rapport, moteur pendulaire interne
-S2 plafonné 177) :
+S2 plafonné 201 km/h / 125 mi/h — remodelage 2026-08-24) :
   scénario 1 = temps_scenario_1.csv (blocs urbains figés)
   scénario 2 = temps_scenario_2.csv (zones urbaines modernisées)
   scénario 3 = temps_scenario_3.csv (+ courbes corrigées au doublement)
 
 Temps publiés EN POINT : T_base × 1,10 (décision 2026-08-24 : marge unique de
-10 %, légèrement plus conservatrice que la médiane des règles publiées — 8 %,
-UIC 451-1 interpolée à 177 — et alignée sur la majoration de 10 % du référent
-britannique, rfli2026tpr). Plus de fourchette : la marge MESURÉE du corridor
-(34-68 %) reste un diagnostic de cohabitation, ailleurs dans le rapport.
+10 %, légèrement plus conservatrice que la médiane des règles publiées et
+alignée sur la majoration de 10 % du référent britannique, rfli2026tpr ; l'UIC
+donne d'ailleurs 9 % à 200 km/h). Plus de fourchette : la marge MESURÉE du
+corridor reste un diagnostic de cohabitation, ailleurs dans le rapport.
 
 Repère ALTO : trait vertical pointillé au temps annoncé (altotrain2026faq ;
 Montréal-Toronto 3 h confirmé par le premier ministre, pmcanada2025alto).
@@ -53,8 +53,8 @@ _T2 = _lire("temps_scenario_2.csv")
 _T3 = _lire("temps_scenario_3.csv")
 
 def _pt(table, troncon):
-    """Temps publié (point) : T_base(pendulaire, 177) × marge."""
-    return float(table[(troncon, "pendulaire", 177)]["tbase_sans_marge_min"]) * MARGE
+    """Temps publié (point) : T_base(pendulaire, 201) × marge."""
+    return float(table[(troncon, "pendulaire", 201)]["tbase_sans_marge_min"]) * MARGE
 
 def _horaire(troncon):
     return float(_T1[(troncon, "base", 160)]["t_horaire_actuel_min"])
