@@ -257,3 +257,36 @@ justifié comme légèrement plus conservateur que la médiane des règles publi
 451-1 interpolée à 177 km/h) et aligné sur la majoration de 10 % du référent britannique
 (`rfli2026tpr`). La fourchette de marge disparaît des temps publiés ; la marge MESURÉE du
 corridor (34-68 %) reste un diagnostic de cohabitation.
+
+---
+
+## Ajouts du 2026-08-25 (bis) : puissance/masse des rames (W/kg)
+
+Dossier complet (tableau, calculs reproductibles, passages exacts) :
+`sources/recherche_poids_rames_2026-08-25.md`. 18 clés dans `refs.bib`.
+
+**VÉRIFIÉES (primaires)** : `siemens2024chargerwsdot` (SC-44 : 4 400 hp, HEP 600 kW,
+121,1 t), `siemens2016velarod` (8 000 kW), `db2019ice3407`/`db2019ice3403`/`db2019icet411`
+(masses officielles DB 492/410/368 t), `viarail2024corridor` (4 200 hp, rame 1+5),
+`hitachi2026etr1000` (9 800 kW, 500 t) + corroboration `fsitaliane2026frecciarossa1000`.
+
+**SECONDAIRES, étiquetées comme telles** : `wikipedia2026charger` (masse SCV-42 120 t,
+corroborée à 1 % par la fiche SC-44), `wikipedia2026venture` (50,8 t/voiture, AUCUNE
+source primaire), `wikipedia2026lrc` + `trains2021lrc` (LRC : 2 700 hp traction avec HEP,
+3 700 brut), `wikipedia2026class390` (5 160 kW/466 t, convention de masse non précisée),
+`austriaforum2026icet` (4 000 kW), `wikipedia2026newpendolino` (387/421 t : seule source
+donnant vide ET charge), `wikipedia2026tgvduplex`, `cptdb2026viasiemens` (rames 3-7 voitures).
+
+**Verdicts sur les hypothèses du modèle (aucune valeur changée)** :
+- 12 W/kg pendulaire : SOUTENUE (ICE T 10,9 ; Class 390 WCML 11,1 ; ETR 610 13,1).
+- 8 W/kg rame actuelle : SOUTENUE sous la convention « puissance nominale / masse à
+  vide » (calcul : 8,4). Libellé requalifié dans le rapport ; au rail ce serait ~6
+  (sensibilité 3-5 min/tronçon déjà publiée).
+- 18/22 W/kg (bandes 250/300, non publiées) : relibellées « rame de conception
+  300 km/h » (fourchette observée 16,3-23,2).
+
+**DETTES** : communiqué `alstom2005pendolino` en HTTP 403 (5 500 kW confirmé par
+recoupement seulement : à ouvrir manuellement avant citation isolée) ; masse des voitures
+Venture sans source primaire (à demander à VIA/OTC) ; rendement à la jante du Charger
+(0,90) = hypothèse ; convention de masse du Class 390 non tranchée (si 466 t = en charge,
+le W/kg à vide monte vers 12, ce qui renforce encore l'hypothèse).

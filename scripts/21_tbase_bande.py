@@ -12,11 +12,18 @@ Le modèle du rapport minimal (plan de match v3) :
                          les phases d'accélération/freinage sont dans le profil)
                        [+ marge — encadrée à l'étape 4, PAS ajoutée ici]
 
-Paramètres de rame (HYPOTHÈSES déclarées, pas des specs constructeur) :
-  S1 : rame tractée type flotte actuelle — P/m 8,0 W/kg, a0 0,5 m/s², frein 0,5.
+Paramètres de rame (HYPOTHÈSES déclarées, ADOSSÉES aux fiches réelles depuis le
+2026-08-25 — dossier : sources/recherche_poids_rames_2026-08-25.md) :
+  CONVENTION : puissance NOMINALE par tonne À VIDE (pas « au rail » : au rail,
+  la rame actuelle tomberait vers 6 W/kg une fois HEP et pertes retirés ; le
+  LRC sous cette même convention nominale/vide donne ~7,8, pas 6,5).
+  S1 : rame tractée type flotte actuelle (Charger + 5 Venture : 8,4 calculé,
+  viarail2024corridor + siemens2024chargerwsdot) — P/m 8,0 W/kg, a0 0,5, frein 0,5.
   S2 et S3 : MÊME rame de référence, dimensionnée pour sa bande — P/m 12 W/kg
-  (bandes 160, 177 et 201, type pendulaire moderne), 18 (bande 250), 22 (bande
-  300, type rame grande vitesse) ; a0 0,6, frein 0,6.
+  (bandes 160 à 241 : pendulaire moderne, encadré par ICE T 10,9 / Class 390
+  WCML 11,1 / ETR 610 13,1), 18 et 22 (bandes 250 et 300 : rame de CONCEPTION
+  300 km/h, fourchette observée 16,3-23,2, ICE 3 19,5 / TGV Duplex à vide
+  23,2 ; bandes non publiées au rapport) ; a0 0,6, frein 0,6.
   La bande 201 (125 mi/h) est le plafond des scénarios publiés (remodelage
   2026-08-24) : sommet de la marche du PTC certifié (précédents Brightline,
   NEC) et seuil au-delà duquel la règle américaine interdit tout passage à
