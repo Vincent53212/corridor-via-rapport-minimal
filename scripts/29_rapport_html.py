@@ -31,7 +31,7 @@ SORTIE = DELIVERABLES / "rapport_corridor.html"
 # script s'arrête plutôt que de publier une page dépareillée.
 SURTITRES = {
     "L'essentiel": "Ce qu'il faut retenir",
-    "Trois scénarios, un seul train": "Les scénarios",
+    "Les trois scénarios analysés": "Les scénarios",
     "Ce que les scénarios demandent": "Les conditions",
     "Doubler la voie, et vivre ensemble sur le rail": "Capacité",
     "Comment nous avons mesuré": "La mesure",
