@@ -18,7 +18,7 @@ Le projet ALTO propose de construire environ 1 000 km de voies neuves pour rel
 - **Scénario 2 : pendulaire et zones urbaines modernisées.** Le scénario 1, plus des travaux dans les approches des gares de Montréal, Québec, Ottawa et Toronto, pour que le train n’y traîne plus.
 - **Scénario 3 : pendulaire, zones urbaines et courbes corrigées au doublement.** Le scénario 2, plus une chose : quand on ajoute une deuxième voie sur les sections qui n’en ont qu’une, on en profite pour adoucir les courbes qui s’y trouvent. C’est le seul moment où le faire coûte peu.
 
-Voici les temps de parcours, marge d’exploitation de 10 % incluse, et la vitesse moyenne qui en résulte :
+Les temps de parcours, marge d’exploitation de 10 % incluse, et la vitesse moyenne qui en résulte :
 
   | Trajet | Aujourd’hui | Scénario 1 | Scénario 2 | Scénario 3 | ALTO annoncé |
 |---|---|---|---|---|---|
@@ -43,15 +43,15 @@ Entre parenthèses : la vitesse commerciale moyenne, c’est-à-dire la distance
 4. **La voie double vaut d’abord pour la fiabilité.** Sur la voie double, tous les trains d’un même trajet font à peu près le même temps. Sur la voie simple du CN, l’horaire du même trajet varie de 8 à 16 minutes selon le départ. Et le doublement est la condition d’une cohabitation où le passager et le fret gagnent tous les deux, au lieu de se voler des minutes.
 5. **La marge d’exploitation retenue est de 10 %.** C’est un peu plus prudent que la moyenne des règles publiées par les gestionnaires de réseau européens, et c’est la valeur du référent britannique. Le corridor porte aujourd’hui de 29 à 60 % de marge selon le tronçon : cet écart est le prix du régime de cohabitation actuel, pas une fatalité technique.
 
-**Le précédent qui valide l’ordre de grandeur** vient du Royaume-Uni. La West Coast Main Line relie Londres à Manchester et Glasgow. C’est une ligne ancienne, partagée avec le fret. Plutôt que de la remplacer, le Royaume-Uni l’a modernisée de 1998 à 2008 : trains pendulaires à 201 km/h sur la voie existante, signalisation relevée [@nao2006wcml]. Les gains sont de la même famille que les nôtres : 36 minutes sur Londres-Manchester, 42 sur Londres-Glasgow [@nao2006wcml], contre 51 à 74 minutes calculées ici sur Montréal-Toronto. Le parallèle est d’autant plus direct que la WCML roule exactement au plafond retenu ici : 201 km/h (125 mi/h), en pendulaire. Le marché a suivi : sur Londres-Manchester, l’achalandage du train a crû de 77 % pendant que l’avion reculait de 27 % [@wcml2026wiki]. La mise en garde vaut aussi : le budget britannique a plus que triplé en cours de route, faute d’une portée verrouillée au départ [@nao2006wcml]. C’est précisément le rôle de l’étude recommandée en conclusion.
+**Le précédent qui valide l’ordre de grandeur** vient du Royaume-Uni. La West Coast Main Line relie Londres à Manchester et Glasgow. C’est une ligne ancienne, partagée avec le fret. Plutôt que de la remplacer, le Royaume-Uni l’a modernisée de 1998 à 2008 : trains pendulaires à 201 km/h sur la voie existante, signalisation relevée [@nao2006wcml]. Les gains sont de la même famille que les nôtres : 36 minutes sur Londres-Manchester, 42 sur Londres-Glasgow [@nao2006wcml], contre 51 à 74 minutes calculées ici sur Montréal-Toronto. Le marché a suivi : sur Londres-Manchester, l’achalandage du train a crû de 77 % pendant que l’avion reculait de 27 % [@wcml2026wiki]. La mise en garde vaut aussi : le budget britannique a plus que triplé en cours de route, faute d’une portée verrouillée au départ [@nao2006wcml]. C’est précisément le rôle de l’étude recommandée en conclusion.
 
 # Trois scénarios, un seul train
 
 Les trois scénarios utilisent le même train et le même plafond de vitesse. Ce qui change, c’est ce qu’on accepte de toucher autour du train.
 
-**Le train : un pendulaire, comme le Canada en a déjà eu.** Un train pendulaire incline sa caisse dans les courbes. Les passagers ne sentent pas la courbe, alors le train peut la franchir plus vite. Le Canada a déjà exploité un tel train : le LRC. La méthode du CN lui accorde encore aujourd’hui une tolérance en courbe double de celle d’un train ordinaire [@cn2002mr1305; @fra-lrc-152]. Les trois scénarios reposent sur ce précédent canadien, pas sur une technologie à importer et à faire approuver.
+**Le train : un pendulaire, comme le Canada en a déjà eu.** Un train pendulaire incline sa caisse dans les courbes. Les passagers ne sentent pas la courbe, alors le train peut la franchir plus vite. Le Canada a déjà exploité un tel train : le LRC. La méthode du CN lui accorde encore aujourd’hui une tolérance en courbe double de celle d’un train ordinaire [@cn2002mr1305; @fra-lrc-152]. Les trois scénarios reposent sur ce précédent canadien.
 
-**Le plafond : 201 km/h (125 mi/h), et ce n’est pas un choix arbitraire.** C’est le sommet de la marche du contrôle de train certifié, prouvée en service commercial chez Brightline en Floride [@brightline2023] et dépassée par Amtrak sur le corridor du Nord-Est [@fra2010ptc]. C’est aussi la vitesse de la West Coast Main Line britannique, notre précédent central, en pendulaire [@hoc2010wcml]. Et c’est le seuil au-delà duquel le précédent américain interdit tout passage à niveau [@ecfr213-347] : viser plus haut, c’est changer de projet. La section sur la signalisation détaille l’escalier complet, y compris la marche intermédiaire à 177 km/h (110 mi/h) qui peut servir d’étape de phasage.
+**Le plafond : 201 km/h (125 mi/h), et ce n’est pas un choix arbitraire.** C’est le sommet de la marche du contrôle de train certifié, prouvée en service commercial chez Brightline en Floride [@brightline2023] et dépassée par Amtrak sur le corridor du Nord-Est [@fra2010ptc]. C’est aussi la vitesse de la West Coast Main Line britannique, notre précédent central, en pendulaire [@hoc2010wcml]. Et c’est le seuil au-delà duquel le précédent américain interdit tout passage à niveau [@ecfr213-347] : viser plus haut, c’est changer de projet. La section sur la signalisation détaille l’escalier complet, y compris le palier de 177 km/h (110 mi/h), dont le prix ne tient pas à la signalisation mais aux passages à niveau.
 
 **Scénario 1 : le train pendulaire.** On change le train, la signalisation, les passages à niveau, et on incline la voie au maximum standard du CN dans les courbes. On ne touche à rien d’autre. Les approches urbaines gardent leur temps actuel. Résultat : le train bat déjà l’auto partout.
 
@@ -59,7 +59,7 @@ Les trois scénarios utilisent le même train et le même plafond de vitesse. Ce
 
 **Scénario 3 : les courbes corrigées au moment du doublement.** Une grande partie du corridor n’a qu’une voie. Le programme de doublement (section suivante) reconstruit une plateforme pour y poser la deuxième voie. À ce moment-là, et à ce moment-là seulement, adoucir une courbe coûte peu : la machinerie est sur place et l’emprise est ouverte. Le scénario 3 corrige donc les courbes situées sur les 213 km de segments qui recoupent les sections à doubler. Sur Montréal-Toronto, déjà doublé, ce scénario n’ajoute rien : ses temps sont ceux du scénario 2.
 
-**Pourquoi pas un pendulaire européen plus agressif?** Parce que le LRC suffit. Au-dessus de 201 km/h (125 mi/h), ce n’est plus le train qui bloque, c’est le mur des passages à niveau. Un matériel plus incliné libérerait surtout des courbes où le LRC permet déjà la haute vitesse. Il sortirait du précédent nord-américain et ouvrirait un front d’approbation nouveau, pour un gain mince. Une réserve honnête : VIA a retiré le mécanisme d’inclinaison du LRC lors de sa remise à neuf, pour économiser l’entretien [@via2009lrc]. Un pendulaire use davantage le rail en courbe. Le scénario suppose donc un entretien à la hauteur, ce qui est un coût récurrent et un point de discussion avec le propriétaire de la voie. Les paramètres exacts des scénarios (dévers, tolérances, coefficients) sont donnés dans la section sur les conditions.
+**Pourquoi pas un pendulaire européen plus agressif?** Parce que le LRC suffit. Au-dessus de 201 km/h (125 mi/h), ce n’est plus le train qui bloque, c’est le mur des passages à niveau. Un matériel plus incliné sortirait du précédent nord-américain et ouvrirait un front d’approbation nouveau, pour un gain mince. Réserve : VIA a retiré le mécanisme d’inclinaison du LRC lors de sa remise à neuf, pour économiser l’entretien [@via2009lrc]. Un pendulaire use davantage le rail en courbe : le scénario suppose un entretien à la hauteur, à discuter avec le propriétaire de la voie.
 
 # Ce que les scénarios demandent
 
@@ -70,7 +70,7 @@ Un passage à niveau est un croisement entre le rail et une route. Plus le train
 - **jusqu’à 153 km/h (95 mi/h)** : le régime actuel suffit ;
 - **154 à 177 km/h (96 à 110 mi/h)** : « corridor scellé ». Chaque passage est traité : barrières qui ferment les deux sens de la route, terre-pleins pour empêcher le contournement, détection d’obstacle. Le programme de référence, en Caroline du Nord, a sauvé au moins 19 vies de 1995 à 2004 selon l’évaluation fédérale [@bienaime2009sealed] ;
 - **178 à 201 km/h (111 à 125 mi/h)** : même famille de traitement, plus une approbation formelle du régulateur américain ;
-- **au-delà de 201 km/h : zéro passage à niveau.** C’est le mur qui impose à un TGV comme ALTO une voie neuve et clôturée.
+- **au-delà de 201 km/h : zéro passage à niveau,** public ou privé, sans exception [@ecfr213-347]. C’est le mur qui impose à un TGV comme ALTO une voie neuve et clôturée.
 
 Le compte, sur l’inventaire ouvert de Transports Canada [@tc2023inventairepn] : 924 passages physiques sur le corridor. Au plafond de 201 km/h (125 mi/h) :
 
@@ -90,9 +90,9 @@ La signalisation ferroviaire n’est pas un continuum. C’est un escalier à tr
 
 **Marche 1 : les signaux au sol.** Le mécanicien lit des signaux plantés le long de la voie et obéit lui-même. Rien à bord ne freine le train à sa place. C’est le régime actuel du corridor (la commande centralisée de la circulation, ou CTC [@cror2025]). Aux États-Unis, ce régime plafonne à 127 km/h : au-delà, la règle exige un équipement à bord [@cfr236-0]. Au Canada, la contrainte publiée est ailleurs : les classes de voie s’arrêtent à 153 km/h pour les voyageurs (161 km/h pour les trains LRC), et rouler plus vite exige un dossier approuvé par le ministre [@tc2022rrts].
 
-**Marche 2 : le contrôle en cabine, et c’est la marche des trois scénarios.** Un calculateur à bord connaît la limite à respecter et freine le train si le mécanicien ne le fait pas. Les signaux au sol restent en place : le fret circule comme avant, seuls les trains rapides embarquent l’équipement. Cette marche est prouvée en Amérique du Nord jusqu’au plafond retenu, et au-delà. Le régulateur américain l’a écrit lui-même : Amtrak exploite en sécurité entre 90 et 150 mi/h (jusqu’à 241 km/h) sur le Northeast Corridor, avec la signalisation de cabine et le système ACSES [@fra2010ptc; @fra2000acela]. En Floride, Brightline roule à 201 km/h (125 mi/h) en service commercial sous un contrôle de train certifié ordinaire [@brightline2023; @fra2023brightlineptc]. Et la West Coast Main Line britannique roule à 201 km/h avec des trains pendulaires et des signaux au sol, complétés d’une protection ponctuelle [@hoc2010wcml; @orr2024tps]. Le plafond des scénarios n’est pas un chiffre choisi : 201 km/h est le sommet de cette marche, avant le dossier réglementaire renforcé exigé au-delà [@cfr236-1007] et surtout avant le mur des passages à niveau.
+**Marche 2 : le contrôle en cabine, et c’est la marche des trois scénarios.** Un calculateur à bord connaît la limite à respecter et freine le train si le mécanicien ne le fait pas. Les signaux au sol restent en place : le fret circule comme avant, seuls les trains rapides embarquent l’équipement. Cette marche est prouvée en Amérique du Nord jusqu’au plafond retenu, et au-delà. Le régulateur américain l’a écrit lui-même : Amtrak exploite en sécurité entre 90 et 150 mi/h (jusqu’à 241 km/h) sur le Northeast Corridor, avec la signalisation de cabine et le système ACSES, un complément qui lit dans des balises posées entre les rails la limite de vitesse de chaque section et la fait respecter à bord [@fra2010ptc; @fra2000acela]. En Floride, Brightline roule à 201 km/h (125 mi/h) en service commercial sous un contrôle de train certifié ordinaire [@brightline2023; @fra2023brightlineptc]. Et la West Coast Main Line britannique roule à 201 km/h avec des trains pendulaires et des signaux au sol, complétés d’une protection ponctuelle [@hoc2010wcml; @orr2024tps]. Le plafond des scénarios n’est pas un chiffre choisi : 201 km/h est le sommet de cette marche, avant le dossier réglementaire renforcé exigé au-delà [@cfr236-1007] et surtout avant le mur des passages à niveau.
 
-**Une étape de phasage existe à 177 km/h (110 mi/h).** La variante la plus légère de cette marche est l’ITCS de la ligne Amtrak du Michigan : posée par-dessus la signalisation existante, elle a porté la vitesse de 79 mi/h en 2000 à 110 mi/h (177 km/h) en 2012, sur une ligne partagée avec le fret [@fra2024itcs]. Un programme peut donc commencer là, puis monter à 201 : la géométrie, le train et les passages traités servent aux deux paliers.
+**Entre 177 et 201 km/h (110 et 125 mi/h), le prix n’est pas la signalisation : ce sont les passages à niveau.** Le contrôle en cabine est le même aux deux vitesses. L’ITCS de la ligne Amtrak du Michigan, posé par-dessus la signalisation existante, a porté cette ligne partagée avec le fret de 79 mi/h en 2000 à 110 mi/h en 2012 [@fra2024itcs] ; l’I-ETMS de Brightline est certifié à 125 [@fra2023brightlineptc] ; et le dossier renforcé du régulateur ne commence qu’au-delà de 125 [@cfr236-1007]. Ce qui change, c’est le régime des passages. Jusqu’à 110 mi/h, le corridor scellé suffit. De 111 à 125 mi/h, chaque segment qui garde des passages doit recevoir un dispositif de barrières décrit et approuvé par le régulateur fédéral, et le train n’y roule pas si un seul élément est en panne [@ecfr213-347]. Dans ce corridor, 672 passages se trouvent là où le pendulaire roulerait entre 178 et 201 km/h, contre 161 dans la bande scellée. Brightline a tranché exactement ce dilemme : 125 mi/h sur son seul tronçon sans passages, 110 partout ailleurs [@brightline2023]. S’ajoute une classe de voie plus exigeante (classe 7 au lieu de 6 : tolérances et inspections plus serrées, un coût récurrent) [@ecfr213-347]. Ce que les 201 achètent, à géométrie égale : de 2 à 13 minutes par tronçon selon le scénario (13 sur Montréal-Toronto au scénario 3, 6 sur Montréal-Ottawa). L’arbitrage est donc simple à poser : le programme de barrières approuvées sur 672 passages, contre ces minutes. Le train, la géométrie et le corridor scellé servent aux deux paliers ; un programme peut s’arrêter à 177 ou y commencer, puis monter.
 
 **Marche 3 : le contrôle intégral.** Le train reçoit sa permission de rouler par radio, en continu. Les signaux au sol deviennent inutiles [@ec2026etcs; @eu2023ccstsi]. C’est le standard des lignes à grande vitesse neuves, et le devis d’ALTO. Sur une voie partagée avec le fret, ce serait remplacer toute la signalisation et rééquiper tous les trains : l’argument économique joue contre.
 
@@ -100,12 +100,12 @@ La signalisation ferroviaire n’est pas un continuum. C’est un escalier à tr
 
 ## L’inclinaison de la voie
 
-Dans une courbe, la voie est inclinée vers l’intérieur : c’est le dévers. Les scénarios relèvent le dévers au maximum standard du CN pour trafic mixte (127 mm, soit 5 pouces) [@cn2002mr1305]. Aucune dérogation, aucun conflit avec le fret. Voici les paramètres, pour référence :
+Dans une courbe, la voie est inclinée vers l’intérieur : c’est le dévers. Les scénarios relèvent le dévers au maximum standard du CN pour trafic mixte (127 mm, soit 5 pouces) [@cn2002mr1305]. Aucune dérogation, aucun conflit avec le fret. Les paramètres, en millimètres et en pouces, l’unité de l’industrie :
 
   | | Dévers | Tolérance du train (insuffisance) | Coefficient k (v = k·√R) |
 |---|---|---|---|
-| Aujourd’hui : voie et train actuels | 100 mm (supposé) | 76 mm | 3,83 |
-| Scénarios 1 à 3 : pendulaire type LRC | 127 mm | 152 mm | 4,82 |
+| Aujourd’hui : voie et train actuels | 100 mm, 4 po (supposé) | 76 mm (3 po) | 3,83 |
+| Scénarios 1 à 3 : pendulaire type LRC | 127 mm (5 po) | 152 mm (6 po) | 4,82 |
 
 Le dévers actuel est une hypothèse, car il n’existe pas de relevé public. Si le dévers réel est plus bas, le train d’aujourd’hui est encore plus lent que calculé, et le gain des scénarios encore plus grand : l’hypothèse joue contre nous, pas pour nous.
 
@@ -114,7 +114,7 @@ Le dévers actuel est une hypothèse, car il n’existe pas de relevé public. S
   | Cible | Voie et train actuels | Train pendulaire |
 |---|---|---|
 | Sous 201 km/h, 125 mi/h (le plafond retenu) | 771 km | 449 km |
-| Sous 177 km/h, 110 mi/h (l’étape de phasage) | 511 km | 364 km |
+| Sous 177 km/h (110 mi/h) | 511 km | 364 km |
 | Sous 160 km/h (99 mi/h) | 451 km | 236 km |
 | Sous 100 km/h, 62 mi/h (sections sévères) | 75 km | 22 km |
 
@@ -138,11 +138,11 @@ La voie double achète deux choses, et la première n’est pas la vitesse.
 
 ![Le corridor, inter-gare par inter-gare, coloré selon sa famille voie et propriétaire. En gris, les inter-gares exclus de la mesure (zones urbaines, ponts, frontières de propriétaire).](livrables/figure_cellules.png)
 
-Regardez la dernière colonne. Sur la voie double, tous les trains d’un même trajet font à peu près le même temps. Sur la voie simple du CN, l’horaire du même trajet varie de 8 à 16 minutes selon le départ : les attentes de croisement sont écrites dans la grille horaire elle-même. Le passager de Montréal-Québec paie jusqu’à 24 minutes de plus selon l’heure de son billet. La voie double, c’est d’abord un train qui arrive à l’heure, à la même heure, tous les jours.
+La dernière colonne est la plus parlante. Sur la voie double, tous les trains d’un même trajet font à peu près le même temps. Sur la voie simple du CN, l’horaire du même trajet varie de 8 à 16 minutes selon le départ : les attentes de croisement sont écrites dans la grille horaire elle-même. Le passager de Montréal-Québec paie jusqu’à 24 minutes de plus selon l’heure de son billet. La voie double, c’est d’abord un train qui arrive à l’heure, à la même heure, tous les jours. Une précision de lecture : les pourcentages de cette table comparent les familles de voie entre elles, sur un temps de base fluide, sans arrêts ni approches urbaines. Ils ne sont pas la marge réelle d’un trajet, qui est donnée dans les résultats détaillés.
 
 **Ensuite, la marge.** Chez le CN, passer de la voie simple à la voie double fait tomber la marge de 60 à 33 % : environ 27 points, soit une vingtaine de minutes sur Montréal-Québec. Mais le chiffre le plus instructif de la table est ailleurs : la voie simple de VIA porte MOINS de marge que la voie double du CN. Le prix de la voie manquante n’est donc pas d’abord un prix de béton. C’est un prix de régime : qui possède la voie, et qui passe en premier.
 
-**Ce qui veut dire : le doublement seul ne suffit pas.** Montréal-Toronto est déjà doublé, et sa voie double porte encore 33 % de marge, contre une norme de 10 %. Comme le doublement existant ne suffit pas à ramener la marge aux meilleures pratiques, trois compléments sont nécessaires pour combler l’écart : des liaisons rapides entre les deux voies pour dépasser sans ralentir, des sections de troisième voie aux points de friction, et surtout un régime de cohabitation arbitré [@sogin2013doublement; @dick2019blocs; @orr2025wcml]. Le dimensionnement précis relève de l’étude complète.
+**Ce qui veut dire : le doublement seul ne suffit pas.** Montréal-Toronto est déjà doublé. Son horaire porte pourtant encore 12 % de marge au-dessus du temps de base du train actuel, contre la norme de 10 % retenue pour les scénarios ; Montréal-Québec, sur voie simple, en porte 24 %. Le doublement existant rapproche donc de la norme sans l’atteindre, et il ne règle pas seul la régularité. Trois compléments restent nécessaires : des liaisons rapides entre les deux voies pour dépasser sans ralentir, des sections de troisième voie aux points de friction, et surtout un régime de cohabitation arbitré [@sogin2013doublement; @dick2019blocs; @orr2025wcml]. Le dimensionnement précis relève de l’étude complète.
 
 **En bref : la voie double est plus performante d’abord sur la fiabilité, et elle est la condition d’une meilleure cohabitation.** Aujourd’hui, chaque minute gagnée par le passager sur une voie simple est une minute prise au fret, et inversement : un jeu à somme nulle. Avec la deuxième voie, les deux circulations cessent de se disputer le même créneau. Le fret garde sa fluidité, le passager gagne sa régularité. C’est le seul investissement du dossier qui fait gagner les deux joueurs à la fois.
 
@@ -195,31 +195,33 @@ La conception par site, les fiches de traction des constructeurs, les pentes, la
 
 **Temps de base (sans marge) et temps publiés (avec marge de 10 %),** par tronçon :
 
-  | Tronçon | Horaire actuel | Scénario 1 (base) | Scénario 1 (publié) | Scénario 2 (publié) | Scénario 3 (publié) |
-|---|---|---|---|---|---|
-| Montréal-Québec | 3 h 22 | 2 h 21 | 2 h 35 | 2 h 16 | 1 h 56 |
-| Montréal-Ottawa | 2 h 02 | 1 h 40 | 1 h 50 | 1 h 34 | 1 h 23 |
-| Ottawa-Toronto | 4 h 35 | 3 h 23 | 3 h 43 | 3 h 34 | 3 h 29 |
-| Montréal-Toronto | 5 h 18 | 4 h 03 | 4 h 27 | 4 h 04 | 4 h 04 |
+  | Tronçon | Horaire actuel | Scénario 1 (base) | Scénario 1 (publié) | Scénario 2 (publié) | Scénario 3 (publié) | ALTO annoncé |
+|---|---|---|---|---|---|---|
+| Montréal-Québec | 3 h 22 | 2 h 21 | 2 h 35 | 2 h 16 | 1 h 56 | ~1 h 30 |
+| Montréal-Ottawa | 2 h 02 | 1 h 40 | 1 h 50 | 1 h 34 | 1 h 23 | ~1 h |
+| Ottawa-Toronto | 4 h 35 | 3 h 23 | 3 h 43 | 3 h 34 | 3 h 29 | ~2 h |
+| Montréal-Toronto | 5 h 18 | 4 h 03 | 4 h 27 | 4 h 04 | 4 h 04 | 3 h |
 
-Le trajet Québec-Toronto des figures additionne Québec-Montréal et Montréal-Toronto, plus dix minutes d’arrêt à Montréal (hypothèse déclarée). La méthode d’attribution des tranches de la figure des gains, et ses contrôles, sont dans l’annexe numérique (`decomposition_gains.csv`).
+Le trajet Québec-Toronto des figures additionne Québec-Montréal et Montréal-Toronto, plus dix minutes d’arrêt à Montréal (hypothèse déclarée). La méthode d’attribution des tranches de la figure des gains est dans l’annexe numérique (`decomposition_gains.csv`).
 
-**Les kilomètres restants sous le plafond** sont détaillés section par section dans le sous-livrable joint (`sections_restantes_201kmh_pendulaire.pdf`) : 449 km en 169 sections, chacune avec sa vitesse géométrique. Onze sites courts (6,7 km au total) restent sous 100 km/h (62 mi/h) même avec le pendulaire : ce sont les seuls candidats à une rectification de tracé, et la plupart sont des courbes d’approche de gare.
+**La marge réelle de l’horaire actuel** est l’écart entre l’horaire et le temps de base du train d’aujourd’hui (`temps_scenario_1.csv`). Elle vaut 24 % sur Montréal-Québec, 16 % sur Ottawa-Toronto, 12 % sur Montréal-Toronto et 7 % sur Montréal-Ottawa. D’où une particularité de la figure des gains : Montréal-Ottawa n’a aucune tranche « doublement ». Ce tronçon roule sur la voie de VIA à partir de Coteau, sans fret prioritaire, et son horaire est déjà sous la norme de 10 %. Il n’y a aucun coussin à récupérer ; la norme absorbe même 3,6 minutes du gain pendulaire. Tout son gain vient de la géométrie.
 
-**Sensibilités.** La délimitation des zones urbaines varie de ±20 % : effet de ±4 à ±8 minutes sur les temps de base. Les paramètres de rame du modèle sont adossés aux fiches des trains réels. La rame actuelle de VIA (une locomotive Charger et cinq voitures Venture) porte 8,4 W de puissance nominale par kilogramme de rame à vide ; le modèle retient 8 [@viarail2024corridor; @siemens2024chargerwsdot; @wikipedia2026charger; @wikipedia2026venture]. Le train pendulaire de référence retient 12 W/kg, une valeur encadrée par les pendulaires en service : 10,9 pour l’ICE T allemand [@db2019icet411; @austriaforum2026icet], 11,1 pour le Pendolino de la West Coast Main Line, l’analogue le plus proche de notre cas [@wikipedia2026class390], et 13,1 pour l’ETR 610 [@alstom2005pendolino; @wikipedia2026newpendolino]. Deux réserves déclarées : la masse des voitures Venture n’est publiée par aucun constructeur (la valeur vient d’une source secondaire, corroborée à 1 % près par la fiche officielle de la locomotive), et la puissance nominale n’est pas la puissance disponible au rail. La sensibilité correspondante est chiffrée : un train moins puissant que l’hypothèse ajouterait 3 à 5 minutes par tronçon. Le détail, y compris les conventions de calcul, est dans le registre des sources et les annexes numériques.
+**Les kilomètres restants sous le plafond** sont détaillés dans le sous-livrable joint (`sections_restantes_201kmh_pendulaire.pdf`) : 449 km en 169 sections. Onze sites courts (6,7 km au total) restent sous 100 km/h (62 mi/h) même avec le pendulaire : ce sont les seuls candidats à une rectification de tracé, et la plupart sont des courbes d’approche de gare.
+
+**Sensibilités.** La délimitation des zones urbaines varie de ±20 % : effet de ±4 à ±8 minutes sur les temps de base. La rame actuelle de VIA (une locomotive Charger et cinq voitures Venture) porte 8,4 W de puissance nominale par kilogramme de rame à vide ; le modèle retient 8 [@viarail2024corridor; @siemens2024chargerwsdot; @wikipedia2026charger; @wikipedia2026venture]. Le train pendulaire de référence retient 12 W/kg, une valeur encadrée par les pendulaires en service : 10,9 pour l’ICE T allemand [@db2019icet411; @austriaforum2026icet], 11,1 pour le Pendolino de la West Coast Main Line, notre analogue le plus proche [@wikipedia2026class390], et 13,1 pour l’ETR 610 [@alstom2005pendolino; @wikipedia2026newpendolino]. Deux réserves : la masse des voitures Venture vient d’une source secondaire (corroborée à 1 % près par la fiche officielle de la locomotive), et la puissance nominale n’est pas celle disponible au rail : un train moins puissant ajouterait 3 à 5 minutes par tronçon. Les conventions de calcul sont au registre des sources.
 
 # Et si on enlevait tous les passages à niveau?
 
 Le plafond de 201 km/h (125 mi/h) tient à une seule chose : les passages à niveau. Supposons qu’on les enlève tous. Les 924 croisements du corridor sont dénivelés ou fermés, sans exception. Le mur tombe. Le train peut alors monter à la marche de signalisation suivante, déjà prouvée en Amérique du Nord : 241 km/h (150 mi/h), la vitesse du corridor du Nord-Est d’Amtrak [@fra2010ptc; @fra2000acela]. Combien de temps ce chantier achète-t-il?
 
-Voici la réponse, sur le scénario 3 (marge de 10 % incluse) :
+La réponse, sur le scénario 3 (marge de 10 % incluse) :
 
-  | Trajet | Scénario 3 (plafond 201 km/h) | Zéro passage à niveau (plafond 241 km/h) | Gain |
-|---|---|---|---|
-| Montréal-Québec | 1 h 56 | 1 h 52 | 4 min |
-| Montréal-Ottawa | 1 h 23 | 1 h 21 | 2 min |
-| Ottawa-Toronto | 3 h 29 | 3 h 21 | 8 min |
-| Montréal-Toronto | 4 h 04 | 3 h 52 | 12 min |
+  | Trajet | Scénario 3 (plafond 201 km/h) | Zéro passage à niveau (plafond 241 km/h) | Gain | ALTO annoncé |
+|---|---|---|---|---|
+| Montréal-Québec | 1 h 56 | 1 h 52 | 4 min | ~1 h 30 |
+| Montréal-Ottawa | 1 h 23 | 1 h 21 | 2 min | ~1 h |
+| Ottawa-Toronto | 3 h 29 | 3 h 21 | 8 min | ~2 h |
+| Montréal-Toronto | 4 h 04 | 3 h 52 | 12 min | 3 h |
 
 Sur le scénario 1, les gains sont du même ordre : de 1 à 12 minutes selon le trajet. De bout en bout, Québec-Toronto gagnerait 16 minutes.
 
