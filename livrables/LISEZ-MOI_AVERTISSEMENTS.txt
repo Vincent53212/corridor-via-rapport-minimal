@@ -8,7 +8,7 @@ FRANÇAIS
 
 2. Analyse de courbure seulement : ponts, tunnels, signalisation, électrification, état de la voie NON pris en compte. La précision visée est la classe de vitesse, pas le km/h.
 
-3. Le dévers réellement en voie n'a PAS été relevé : le scénario de base suppose 100 mm (≈ 4 po) ; le recommandé et la référence interne sont des dévers de conception (127 mm = 5 po). v_max est un plafond géométrique au dévers normatif, pas une vitesse relevée.
+3. Le dévers réellement en voie n'a PAS été relevé : le scénario de base suppose 100 mm (≈ 4 po) ; le pendulaire et la référence interne sont des dévers de conception (127 mm = 5 po). v_max est un plafond géométrique au dévers normatif, pas une vitesse relevée.
 
 ENGLISH
 -------

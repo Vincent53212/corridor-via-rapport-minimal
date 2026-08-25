@@ -208,3 +208,52 @@ Note d'usage : dans les brouillons, une affirmation non encore vérifiée est é
   double-track the railroad in this 16-mile section », méthode retenue.
 - `fra2024itcs` (déjà au registre) : enrichie : ITCS = « a vital overlay to an existing CTC
   system », paliers 79 (2000) → 90 (2002) → 95 (2005) → 110 mi/h (février 2012).
+
+---
+
+## Ajouts du 2026-08-25 (remodelage du 24 août : signalisation, précédent 201 km/h, marges, ALTO)
+
+Dossiers complets (passages exacts, URL, réserves) : `sources/recherche_signalisation_2026-08-25.md`
+et `sources/recherche_marges_alto_2026-08-25.md`. Toutes les clés ci-dessous sont dans `refs.bib`.
+
+**VÉRIFIÉES (2026-08-25, sources primaires consultées, passage exact au dossier)** :
+- Signalisation, escalier américain : `cfr236-0` (80 mi/h = seuil du contrôle embarqué),
+  `cfr213-307` (classe 7 = 125 mi/h), `cfr236-1007` (marches 90 et 125 mi/h, dossier HSR-125).
+- Régime canadien : `cror2025` (CTC du REF) ; `tc2022rrts` déjà au registre (classes s'arrêtant
+  à la classe 5 : 95 mi/h voyageurs, 100 mi/h LRC, dépassement sur approbation ministérielle).
+- ITCS : `fra2024itcs` (revalidée : 110 mi/h depuis février 2012, page à jour du 2024-06-26),
+  `fra2002itcswaiver` (essais 110 mi/h dès 2002).
+- Précédent nord-américain > 201 km/h : `fra2010ptc` (75 FR 2636 : exploitation sûre 90-150 mi/h
+  sous ACSES + cab signals), `fra2000acela` (150 mi/h approuvé en 2000 ; 135 mi/h NY-Washington),
+  `amtrak2025acela` (160 mi/h NextGen, citation mot à mot à revérifier avant usage),
+  `brightline2023` + `fra2023brightlineptc` (125 mi/h commercial sous I-ETMS certifié).
+- Contre-point britannique : `hoc2010wcml` (moving block abandonné 1999, TPWS sur 900 signaux,
+  pendulaire 125 mi/h dès 2004), `orr2024tps` (TPWS = protection intermittente), `uk1999rsr`.
+- ETCS : `ec2026etcs`, `eu2023ccstsi` (annexe non ouverte : citer le règlement comme référence
+  normative, la page de la Commission pour la formulation).
+- Marges : `rfli2026tpr` (10 % d'engineering allowance, §5.4.1 et §7.4.8 — réseau à arrêts
+  rapprochés, borne haute), `bundestag2021regelzuschlag` + `dbnetz2020fahrzeitberechnung`
+  (mécanisme allemand confirmé, valeurs non publiées), `dbinfrago2026ril402` +
+  `networkrail2026operationalrules` (fouilles infructueuses documentées), `sbb2026fahrplan2027`
+  (constat qualitatif suisse : 4-9 min ajoutées aux liaisons principales).
+- ALTO : `altotrain2026faq` (~2 h Ott-TO, ~3 h Mtl-TO, ~1 h Mtl-Ott, ~1 h 30 Qc-Mtl),
+  `pmcanada2025alto` (3 h Mtl-TO, engagement du premier ministre),
+  `transportscanada2025montrealottawa` (segment Mtl-Ott ~200 km, aucun temps annoncé).
+
+**INTROUVABLES / NON CONFIRMÉES — ne pas publier comme sourcées** :
+- Le « plafond réglementaire britannique de 125 mi/h en signalisation latérale » : aucune source
+  primaire (ni RSR 1999, ni ORR 2024, ni catalogue RSSB GKRT0075). Dire que la WCML ROULE à
+  125 mi/h en signalisation latérale (fait sourcé), pas que c'est un plafond de droit.
+- La valeur chiffrée du Regelzuschlag allemand (3-7 % = Wikipédia seulement).
+- Les marges intercité de Network Rail (WCML/ECML) : TPR nationales non diffusées librement.
+- Le « 7 % suisse » : référentiel CFF inaccessible (HTTP 451 depuis le Canada).
+- Brightline « 110 mi/h aux passages à niveau » : déduction du `ecfr213-347`, pas un fait
+  documenté par la FRA au sujet de Brightline.
+- Les temps « 1 h 29 Mtl-Québec » et « 54 min Mtl-Trois-Rivières » : estimations médiatiques,
+  absentes d'altotrain.ca.
+
+**Décision de marge (Vincent, 2026-08-24)** : point unique de **10 %** sur les temps publiés,
+justifié comme légèrement plus conservateur que la médiane des règles publiées (≈ 8 %, UIC
+451-1 interpolée à 177 km/h) et aligné sur la majoration de 10 % du référent britannique
+(`rfli2026tpr`). La fourchette de marge disparaît des temps publiés ; la marge MESURÉE du
+corridor (34-68 %) reste un diagnostic de cohabitation.

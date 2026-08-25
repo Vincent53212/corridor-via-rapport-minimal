@@ -47,17 +47,17 @@ from utils import DELIVERABLES, INTERMEDIATES
 
 SORTIE = IDENTITE_DIR / "couverture.svg"
 
-# Le scénario dont la couverture montre le résultat : S2, celui que le rapport
-# met en tête. C'est le pendulaire exploité selon la méthode que le CN applique
-# déjà, sans dérogation à demander, donc le seul dont la couverture puisse
-# montrer l'image sans promettre une approbation.
-SCENARIO = "recommande"
+# Le scénario dont la couverture montre le résultat : le plafond géométrique
+# pendulaire (moteur interne S2), commun aux trois scénarios publiés. C'est le
+# pendulaire exploité selon la méthode que le CN applique déjà, sans dérogation
+# à demander, donc le seul dont la couverture puisse montrer l'image sans
+# promettre une approbation.
+SCENARIO = "pendulaire"
 COL_VMAX = f"vmax_{SCENARIO}_kmh_plafond_courbure"
 
-# La couverture ne le NOMME pas. « S2 » ne veut rien dire pour qui n'a pas encore
-# ouvert le rapport : la nomenclature des scénarios est posée en section 3. La
-# réglette dit donc la fonction du scénario, et la section 3 dira son nom.
-SCENARIO_LIBELLE = "scénario recommandé"
+# La couverture ne le NOMME pas : la nomenclature des scénarios est posée dans
+# le rapport. La réglette dit donc la fonction du scénario, pas son numéro.
+SCENARIO_LIBELLE = "train pendulaire"
 
 TRONCONS = ["MTL-QC", "MTL-Ott", "Ott-TO", "MTL-TO"]
 

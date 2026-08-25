@@ -62,7 +62,7 @@ LABELS = {
     "decomposition_gains.csv": "D'où viennent les minutes",
     "synthese_troncon.csv": "Synthèse par tronçon",
     "scenarios_parametres.csv": "Paramètres des scénarios",
-    "tbase_par_bande.csv": "Temps de base par bande",
+    "temps_scenario_1.csv": "Temps, scénario 1 (le train pendulaire)",
     "marges_2x2_synthese.csv": "Marges : le 2×2",
     "marges_par_intergare.csv": "Marges par inter-gare",
     "covariables_paires.csv": "Covariables des paires",
@@ -75,11 +75,137 @@ LABELS = {
     "marges_2x2_synthese_GTFS2023.csv": "Marges 2×2, contrôle GTFS 2023",
     "marges_par_intergare_GTFS2023.csv": "Marges par inter-gare, contrôle GTFS 2023",
     "biais_segments_courts.csv": "Biais de la fenêtre de mesure",
-    "tbase_par_bande_corriges.csv": "Temps de base, biais corrigé",
-    "blocs_urbains_corriges.csv": "Blocs urbains, variante corrigée",
-    "tbase_par_bande_rectifies.csv": "Temps de base, courbes doublées rectifiées",
-    "blocs_urbains_rectifies.csv": "Blocs urbains, variante rectifiée",
-    "tbase_par_bande_blocs_libres.csv": "Temps de base, blocs urbains réintégrés",
+    "temps_scenario_2.csv": "Temps, scénario 2 (zones urbaines modernisées)",
+    "temps_scenario_3.csv": "Temps, scénario 3 (courbes corrigées au doublement)",
+    "blocs_urbains_blocs_libres.csv": "Blocs urbains, scénarios 2 et 3",
+    "blocs_urbains_rectifies_blocs_libres.csv": "Blocs urbains, scénario 3",
+}
+
+QUOI = {
+    "segments_courbature.csv":
+        "Le corridor découpé en segments de courbure homogène. Pour chacun, le rayon "
+        "gouvernant, le degré de courbure et la vitesse que cette géométrie autorise "
+        "dans chaque scénario. C'est la table de base : toutes les autres en dérivent.",
+    "km_restants_sous_grande_vitesse.csv":
+        "Combien de kilomètres restent sous une vitesse cible, par scénario et par "
+        "tronçon. La table qui produit les chiffres de tête du rapport (cible 177).",
+    "sites_restants_sous_grande_vitesse.csv":
+        "Les mêmes kilomètres, site par site, avec le rayon actuel et le rayon visé.",
+    "decomposition_gains.csv":
+        "La décomposition de la figure des gains : pour chaque trajet, le gain total "
+        "et ses quatre parts (relèvement du plafond, pendulaire, doublement, "
+        "cohabitation), avec les lignes de contrôle. Les parts somment au gain par "
+        "construction, et la vérification de la section 7 le refait devant vous.",
+    "temps_scenario_1.csv":
+        "Le temps de parcours calculé par intégration, sans marge, pour chaque tronçon "
+        "et plafond de vitesse. La ligne pendulaire × 177 est le scénario 1 ; la "
+        "colonne « horaire actuel » est le temps de VIA. Les temps publiés du rapport "
+        "sont ces temps de base multipliés par 1,10 (la marge).",
+    "temps_scenario_2.csv":
+        "Même moteur, zones urbaines modernisées : les approches roulent ce que "
+        "leur géométrie permet. Scénario 2.",
+    "temps_scenario_3.csv":
+        "Même moteur, zones urbaines modernisées ET courbes corrigées sur les "
+        "sections à doubler. Scénario 3.",
+    "marges_2x2_synthese.csv": "Marges : le 2×2",
+    "marges_par_intergare.csv": "Marges par inter-gare",
+    "covariables_paires.csv": "Covariables des paires",
+    "voies_par_troncon.csv": "Voies par tronçon",
+    "km_a_doubler.csv": "Kilomètres à doubler",
+    "goulots_detranglement.csv": "Goulots structurels",
+    "blocs_urbains.csv": "Blocs urbains figés",
+    "passages_niveau_par_bande.csv": "Passages à niveau par bande",
+    "passages_niveau_tri.csv": "Passages à niveau, un par un",
+    "marges_2x2_synthese_GTFS2023.csv": "Marges 2×2, contrôle GTFS 2023",
+    "marges_par_intergare_GTFS2023.csv": "Marges par inter-gare, contrôle GTFS 2023",
+    "biais_segments_courts.csv": "Biais de la fenêtre de mesure",
+    "temps_scenario_2.csv": "Temps, scénario 2 (zones urbaines modernisées)",
+    "temps_scenario_3.csv": "Temps, scénario 3 (courbes corrigées au doublement)",
+    "blocs_urbains_blocs_libres.csv": "Blocs urbains, scénarios 2 et 3",
+    "blocs_urbains_rectifies_blocs_libres.csv": "Blocs urbains, scénario 3",
+}
+
+QUOI = {
+    "segments_courbature.csv":
+        "Le corridor découpé en segments de courbure homogène. Pour chacun, le rayon "
+        "gouvernant, le degré de courbure et la vitesse que cette géométrie autorise "
+        "dans chaque scénario. C'est la table de base : toutes les autres en dérivent.",
+    "km_restants_sous_grande_vitesse.csv":
+        "Combien de kilomètres restent sous une vitesse cible, par scénario et par "
+        "tronçon. La table qui produit les chiffres de tête du rapport (cible 177).",
+    "sites_restants_sous_grande_vitesse.csv":
+        "Les mêmes kilomètres, site par site, avec le rayon actuel et le rayon visé.",
+    "decomposition_gains.csv":
+        "La décomposition de la figure des gains : pour chaque trajet, le gain total "
+        "et ses quatre parts (relèvement du plafond, pendulaire, doublement, "
+        "cohabitation), avec les lignes de contrôle. Les parts somment au gain par "
+        "construction, et la vérification de la section 7 le refait devant vous.",
+    "tbase_par_bande_rectifies.csv":
+        "Sensibilité : les courbes des sections à doubler sont rectifiées au plafond "
+        "retenu. À comparer ligne à ligne avec la table de référence.",
+    "tbase_par_bande_blocs_libres.csv":
+        "Sensibilité : les blocs urbains cessent d'être figés à l'horaire et roulent ce "
+        "que leur géométrie permet. Une borne, pas une promesse.",
+    "marges_2x2_synthese.csv": "Marges : le 2×2",
+    "marges_par_intergare.csv": "Marges par inter-gare",
+    "covariables_paires.csv": "Covariables des paires",
+    "voies_par_troncon.csv": "Voies par tronçon",
+    "km_a_doubler.csv": "Kilomètres à doubler",
+    "goulots_detranglement.csv": "Goulots structurels",
+    "blocs_urbains.csv": "Blocs urbains figés",
+    "passages_niveau_par_bande.csv": "Passages à niveau par bande",
+    "passages_niveau_tri.csv": "Passages à niveau, un par un",
+    "marges_2x2_synthese_GTFS2023.csv": "Marges 2×2, contrôle GTFS 2023",
+    "marges_par_intergare_GTFS2023.csv": "Marges par inter-gare, contrôle GTFS 2023",
+    "biais_segments_courts.csv": "Biais de la fenêtre de mesure",
+    "temps_scenario_2.csv": "Temps, scénario 2 (zones urbaines modernisées)",
+    "temps_scenario_3.csv": "Temps, scénario 3 (courbes corrigées au doublement)",
+    "blocs_urbains_blocs_libres.csv": "Blocs urbains, scénarios 2 et 3",
+    "blocs_urbains_rectifies_blocs_libres.csv": "Blocs urbains, scénario 3",
+}
+
+QUOI = {
+    "segments_courbature.csv":
+        "Le corridor découpé en segments de courbure homogène. Pour chacun, le rayon "
+        "gouvernant, le degré de courbure et la vitesse que cette géométrie autorise "
+        "dans chaque scénario. C'est la table de base : toutes les autres en dérivent.",
+    "km_restants_sous_grande_vitesse.csv":
+        "Combien de kilomètres restent sous une vitesse cible, par scénario et par "
+        "tronçon. La table qui produit les chiffres de tête du rapport (cible 177).",
+    "sites_restants_sous_grande_vitesse.csv":
+        "Les mêmes kilomètres, site par site, avec le rayon actuel et le rayon visé.",
+    "decomposition_gains.csv":
+        "La décomposition de la figure des gains : pour chaque trajet, le gain total "
+        "et ses quatre parts (relèvement du plafond, pendulaire, doublement, "
+        "cohabitation), avec les lignes de contrôle. Les parts somment au gain par "
+        "construction, et la vérification de la section 7 le refait devant vous.",
+    "temps_scenario_1.csv":
+        "Le temps de parcours calculé par intégration, sans marge, pour chaque tronçon "
+        "et plafond de vitesse. La ligne pendulaire × 177 est le scénario 1 ; la "
+        "colonne « horaire actuel » est le temps de VIA. Les temps publiés du rapport "
+        "sont ces temps de base multipliés par 1,10 (la marge).",
+    "temps_scenario_2.csv":
+        "Même moteur, zones urbaines modernisées : les approches roulent ce que "
+        "leur géométrie permet. Scénario 2.",
+    "temps_scenario_3.csv":
+        "Même moteur, zones urbaines modernisées ET courbes corrigées sur les "
+        "sections à doubler. Scénario 3.",
+    "marges_2x2_synthese.csv": "Marges : le 2×2",
+    "marges_par_intergare.csv": "Marges par inter-gare",
+    "covariables_paires.csv": "Covariables des paires",
+    "voies_par_troncon.csv": "Voies par tronçon",
+    "km_a_doubler.csv": "Kilomètres à doubler",
+    "goulots_detranglement.csv": "Goulots structurels",
+    "blocs_urbains.csv": "Blocs urbains figés",
+    "passages_niveau_par_bande.csv": "Passages à niveau par bande",
+    "passages_niveau_tri.csv": "Passages à niveau, un par un",
+    "marges_2x2_synthese_GTFS2023.csv": "Marges 2×2, contrôle GTFS 2023",
+    "marges_par_intergare_GTFS2023.csv": "Marges par inter-gare, contrôle GTFS 2023",
+    "biais_segments_courts.csv": "Biais de la fenêtre de mesure",
+    "temps_scenario_2.csv": "Temps, scénario 2 (zones urbaines modernisées)",
+    "temps_scenario_3.csv": "Temps, scénario 3 (courbes corrigées au doublement)",
+    "blocs_urbains_blocs_libres.csv": "Blocs urbains, scénarios 2 et 3",
+    "blocs_urbains_rectifies_blocs_libres.csv": "Blocs urbains, scénario 3",
 }
 
 QUOI = {
@@ -127,10 +253,6 @@ QUOI = {
         "que le corps de la courbe mesure. Leur rapport est le facteur de biais : il "
         "vaut 1 quand le segment est plus long que la fenêtre, et il monte quand la "
         "courbe est plus courte qu'elle.",
-    "tbase_par_bande_corriges.csv":
-        "La même intégration que les temps de base, mais sur les segments dont le rayon "
-        "a été corrigé du biais de fenêtre. À comparer ligne à ligne avec la table de "
-        "référence : l'écart est de 0,4 à 7,8 minutes.",
 }
 
 # Ordre d'apparition dans le menu déroulant : les tables du fil d'abord.
@@ -149,14 +271,14 @@ NOMS = {
     "cellule": "Cellule", "region": "Région", "bande_kmh": "Bande",
     "vitesse_cible_kmh": "Vitesse visée", "km_restants": "Restants",
     "mille_restants": "Restants (mi)",
-    "vmax_recommande_kmh": "Plafond recommandé", "bande_recommandee": "Bande recommandée",
+    "vmax_pendulaire_kmh": "Plafond pendulaire", "bande_pendulaire": "Bande pendulaire",
     "vmax_base_kmh": "Plafond de base", "bande_base": "Bande de base",
     "flbg_present": "FLBG présent", "trajet": "Trajet", "poste": "Poste",
     "vmax_geometrie_base_kmh": "Plafond géométrique, base",
-    "vmax_geometrie_recommande_kmh": "Plafond géométrique, recommandé",
+    "vmax_geometrie_pendulaire_kmh": "Plafond géométrique, pendulaire",
     "vmax_geometrie_reference_kmh": "Plafond géométrique, réf. interne",
     "bande_geometrie_base": "Bande géométrique, base",
-    "bande_geometrie_recommande": "Bande géométrique, recommandé",
+    "bande_geometrie_pendulaire": "Bande géométrique, pendulaire",
     "bande_geometrie_reference": "Bande géométrique, réf. interne",
     "scenario_label": "Scénario (libellé)",
     "minutes": "Minutes", "part_pct_du_gain": "Part du gain",
@@ -188,7 +310,7 @@ def joli(cle: str) -> tuple[str, str, str]:
     rampe = ""
     if re.search(r"vmax.*kmh|vitesse.*kmh", brut, re.I):
         rampe = "vitesse"
-    elif re.fullmatch(r"classe_(S[123]|base|recommande|reference)", brut, re.I):
+    elif re.fullmatch(r"classe_(S[123]|base|pendulaire|reference)", brut, re.I):
         rampe = "classe"
 
     if brut in NOMS:
@@ -224,29 +346,31 @@ def lire_publies() -> dict[str, dict[str, float]]:
     le rapport bougerait, le visualiseur confirmerait l'ancienne valeur, et les
     deux se tromperaient de concert."""
     txt = RAPPORT.read_text(encoding="utf-8")
-    esp = r"[\s ]*"
+    esp = r"[\s ]*"          # espaces, insécables comprises (rapport.md en porte)
 
     def ligne(motif: str, n: int) -> list[float]:
         m = re.search(motif, txt)
         if not m:
             sys.exit(f"chiffre publié introuvable dans rapport.md : {motif[:60]}")
-        return [float(m.group(i + 1).replace(" ", "").replace(" ", ""))
+        return [float(m.group(i + 1).replace(" ", "").replace(" ", ""))
                 for i in range(n)]
 
     a, b = ligne(
-        r"Sous 177 km/h[^|]*\|" + esp + r"(\d[\d\s ]*) km" + esp + r"\|"
-        + esp + r"(\d[\d\s ]*) km", 2)
+        r"Sous 177" + esp + r"km/h[^|]*\|" + esp + r"(\d[\d\s ]*?)" + esp
+        + r"km" + esp + r"\|" + esp + r"(\d[\d\s ]*?)" + esp + r"km", 2)
     c, d = ligne(
-        r"Sous 160 km/h[^|]*\|" + esp + r"(\d[\d\s ]*) km" + esp + r"\|"
-        + esp + r"(\d[\d\s ]*) km", 2)
-    g, = ligne(r"Voie double, CN \| [^|]*\|" + esp + r"(\d+)" + esp + r"%", 1)
-    h, = ligne(r"Voie simple, VIA \| [^|]*\|" + esp + r"(\d+)" + esp + r"%", 1)
-    i, = ligne(r"Voie simple, CN \| [^|]*\|" + esp + r"(\d+)" + esp + r"%", 1)
-    j, = ligne(r"\|" + esp + r"154-177 km/h \(96-110 mi/h\)[^|]*\|" + esp + r"(\d+)", 1)
-    k, = ligne(r"\|" + esp + r"≤" + esp + r"153 km/h \(95 mi/h\)[^|]*\|" + esp + r"(\d+)", 1)
+        r"Sous 160" + esp + r"km/h[^|]*\|" + esp + r"(\d[\d\s ]*?)" + esp
+        + r"km" + esp + r"\|" + esp + r"(\d[\d\s ]*?)" + esp + r"km", 2)
+    g, = ligne(r"Voie double, CN \|[^|]*\|" + esp + r"(\d+)" + esp + r"%", 1)
+    h, = ligne(r"Voie simple, VIA \|[^|]*\|" + esp + r"(\d+)" + esp + r"%", 1)
+    i, = ligne(r"Voie simple, CN \|[^|]*\|" + esp + r"(\d+)" + esp + r"%", 1)
+    j, = ligne(r"\|" + esp + r"154-177" + esp + r"km/h \(96-110" + esp
+               + r"mi/h\)[^|]*\|" + esp + r"(\d+)", 1)
+    k, = ligne(r"\|" + esp + r"≤" + esp + r"153" + esp + r"km/h \(95" + esp
+               + r"mi/h\)[^|]*\|" + esp + r"(\d+)", 1)
     return {
-        "residu177": {"base": a, "recommande": b},
-        "residu160": {"base": c, "recommande": d},
+        "residu177": {"base": a, "pendulaire": b},
+        "residu160": {"base": c, "pendulaire": d},
         "marges": {"double-CN": g, "simple-VIA": h, "simple-CN": i},
         "pn": {"154-177": j, "≤153": k},
     }
@@ -268,83 +392,99 @@ def sections(pub: dict) -> list[dict]:
     """Le fil : une entrée par section du rapport, dans le même ordre et avec
     les mêmes clés, pour que le lecteur passe de l'un à l'autre sans se perdre."""
     GAIN_POSTES = ["gain_releve_plafond", "gain_pendulaire",
+                   "gain_zones_urbaines", "gain_courbes_au_doublement",
                    "gain_doublement", "gain_cohabitation"]
     return [
         {
-            "cle": "01 · Ce qu'il faut retenir", "titre": "Synthèse",
+            "cle": "01 · L'essentiel", "titre": "L'essentiel",
             "dit": "Cette étude chiffre un contrefactuel au projet Alto : que donnerait "
-                   "la voie existante, modernisée au mieux? La manchette : <b>le train "
-                   "pendulaire et la modernisation proposée changent la donne</b>. "
-                   "Plafonné à 177 km/h (110 mi/h), le scénario recommandé met "
-                   "<b>4 h 27 à 4 h 52</b> entre Montréal et Toronto, contre 5 h 18 "
-                   "aujourd'hui. Et ce qui reste sous grande vitesse se compte : c'est peu.",
+                   "la voie existante, modernisée au mieux? Trois scénarios, du plus "
+                   "simple au plus complet. Dès le <b>scénario 1</b> (le train "
+                   "pendulaire), le train bat l'auto sur les quatre trajets : "
+                   "<b>4 h 40</b> entre Montréal et Toronto, contre 5 h 18 "
+                   "aujourd'hui. Le <b>scénario 3</b> descend à 4 h 17.",
             "chiffres": [
-                {"v": f"{pub['residu177']['recommande']:.0f} km", "l": "restants sous 177 km/h, scénario recommandé",
+                {"v": f"{pub['residu177']['pendulaire']:.0f} km", "l": "restants sous 177 km/h avec le train pendulaire",
                  "couleur": VITESSE_COULEURS["160_200"]},
-                {"v": f"{pub['residu177']['base']:.0f} km", "l": "restants sous 177 km/h, voie et train actuels"},
-                {"v": "1 433 km", "l": "de corridor mesuré, quatre trajets"},
+                {"v": f"{pub['residu177']['base']:.0f} km", "l": "restants sous 177 km/h, voie et train actuels"},
+                {"v": "1 433 km", "l": "de corridor mesuré, quatre trajets"},
             ],
             "verifications": [{
                 "enonce": "Le rapport publie les kilomètres restants sous le plafond "
-                          "retenu de 177 km/h. <b>Refaisons la somme</b> à partir des "
+                          "retenu de 177 km/h. <b>Refaisons la somme</b> à partir des "
                           "sites mesurés.",
                 "table": "km_restants_sous_grande_vitesse.csv",
                 "filtre": [{"col": "vitesse_cible_kmh", "op": "==", "val": 177},
-                           {"col": "scenario", "op": "dans", "val": ["base", "recommande"]},
+                           {"col": "scenario", "op": "dans", "val": ["base", "pendulaire"]},
                            {"col": "troncon", "op": "dans", "val": COEUR}],
                 "grouper": "scenario", "agreger": "km_restants", "mode": "somme",
                 "publie": pub["residu177"], "unite": "km", "arrondi": 1, "tolerance": 1,
                 "libelles": {"base": "Scénario de base (voie et train actuels)",
-                             "recommande": "Scénario recommandé (pendulaire, plafond 177)"},
+                             "pendulaire": "Train pendulaire (scénarios 1 à 3, plafond 177)"},
             }],
-            "pieces": ["km_restants_sous_grande_vitesse.csv", "tbase_par_bande.csv",
+            "pieces": ["km_restants_sous_grande_vitesse.csv", "temps_scenario_1.csv",
                        "decomposition_gains.csv"],
         },
         {
-            "cle": "02 · Comment nous mesurons", "titre": "Méthode et périmètre",
-            "dit": "La géométrie vient d'OpenStreetMap, appariée aux horaires de VIA. Le "
-                   "temps de parcours s'additionne mètre par mètre le long du tracé. Les "
-                   "traversées urbaines restent figées à l'horaire actuel, et la marge "
-                   "d'exploitation est encadrée entre une borne normative et la marge "
-                   "mesurée aujourd'hui.",
+            "cle": "02 · Trois scénarios", "titre": "Trois scénarios, un seul train",
+            "dit": "Le même train pendulaire, le même plafond de 177 km/h, et trois "
+                   "périmètres de travaux. <b>Scénario 1</b> : le train, la "
+                   "signalisation, les passages à niveau, le dévers. <b>Scénario 2</b> : "
+                   "plus les zones urbaines modernisées. <b>Scénario 3</b> : plus les "
+                   "courbes corrigées au moment du doublement, là où la deuxième voie "
+                   "se construit de toute façon.",
             "chiffres": [
-                {"v": "1 014", "l": "segments de courbure homogène sur le cœur (1 268 avec le sud-ouest)"},
-                {"v": "900 m", "l": "fenêtre d'ajustement, imposée par le bruit de la source"},
+                {"v": "4,82", "l": "coefficient k du pendulaire (v = k·√R)"},
+                {"v": "110 mi/h", "l": "le plafond retenu (177 km/h), fixé par le système de contrôle"},
+                {"v": "188 km", "l": "de segments dont les courbes sont corrigées au scénario 3"},
             ],
-            "pieces": ["segments_courbature.csv", "blocs_urbains.csv"],
+            "pieces": ["scenarios_parametres.csv", "temps_scenario_1.csv",
+                       "temps_scenario_2.csv", "temps_scenario_3.csv"],
         },
         {
-            "cle": "03 · Matériel et voie", "titre": "Le train pendulaire et le dévers",
-            "dit": "Deux scénarios sont comparés. Le <b>scénario de base</b> : la voie et "
-                   "le train d'aujourd'hui. Le <b>scénario recommandé</b> : un pendulaire "
-                   "type LRC, exploité au dévers maximal standard du CN, plafonné à "
-                   "177 km/h. Pourquoi pas un pendulaire européen plus poussé? Parce que "
-                   "le LRC suffit : au-dessus de 177, c'est le système de contrôle qui "
-                   "bloque, pas le train.",
+            "cle": "03 · Les conditions", "titre": "Ce que les scénarios demandent",
+            "dit": "Deux conditions. Les <b>passages à niveau</b> : sceller chaque "
+                   "passage de la partie interurbaine rapide (barrières complètes, "
+                   "terre-pleins, détection). La <b>signalisation</b> : un contrôle en "
+                   "cabine superposé, prouvé à 177 km/h au Michigan depuis 2012, "
+                   "pendant qu'Amtrak et Brightline prouvent que la marche d'après "
+                   "(201 km/h et plus) existe aussi en Amérique du Nord.",
             "chiffres": [
-                {"v": "4,82", "l": "coefficient k du recommandé (v = k·√R)"},
-                {"v": "110 mi/h", "l": "le plafond retenu (177 km/h), fixé par le système de contrôle"},
-            ],
-            "pieces": ["scenarios_parametres.csv", "segments_courbature.csv"],
-        },
-        {
-            "cle": "04 · Capacité", "titre": "Doublement des voies et régime de cohabitation",
-            "dit": "Le corridor offre une expérience naturelle : des voies simples chez "
-                   "VIA, des voies simples chez le CN, des voies doubles chez le CN. En "
-                   "comparant leurs marges d'horaire, on sépare le prix de la voie "
-                   "manquante et celui du régime de cohabitation. <b>Le régime pèse plus "
-                   "que le nombre de voies</b>, et le précédent britannique montre "
-                   "comment un arbitre indépendant referme cet écart.",
-            "chiffres": [
-                {"v": f"{pub['marges']['simple-CN']:.0f} %", "l": "marge médiane, voie simple du CN",
-                 "couleur": VITESSE_COULEURS["sous_100"]},
-                {"v": f"{pub['marges']['double-CN']:.0f} %", "l": "marge médiane, voie double du CN"},
-                {"v": f"{pub['marges']['simple-VIA']:.0f} %", "l": "marge médiane, voie simple de VIA"},
+                {"v": f"{pub['pn']['154-177']:.0f}", "l": "passages à sceller (154-177 km/h)",
+                 "couleur": VITESSE_COULEURS["160_200"]},
+                {"v": "533", "l": "restent à équiper de feux, cloches et barrières"},
+                {"v": "924", "l": "passages sur le corridor, dédoublonnés"},
             ],
             "verifications": [{
-                "enonce": "Sous propriétaire VIA, la voie simple ne coûte rien ; sous le "
-                          "CN, elle coûte trente points. <b>Reprenons les médianes</b> "
-                          "sur le cœur du corridor.",
+                "enonce": "<b>Comptons les passages</b> par bande d'exploitation au "
+                          "plafond pendulaire (177 km/h, commun aux trois scénarios).",
+                "table": "passages_niveau_tri.csv",
+                "filtre": [], "grouper": "bande_pendulaire", "agreger": "tc_number",
+                "mode": "compte", "publie": pub["pn"], "unite": "passages",
+                "arrondi": 1, "tolerance": 0,
+                "libelles": {"154-177": "À sceller (154-177 km/h)",
+                             "≤153": "Régime actuel (≤ 153 km/h)"},
+            }],
+            "pieces": ["passages_niveau_tri.csv", "passages_niveau_par_bande.csv"],
+        },
+        {
+            "cle": "04 · Capacité", "titre": "Doubler la voie, et vivre ensemble sur le rail",
+            "dit": "Le corridor offre une expérience naturelle : des voies simples chez "
+                   "VIA, des voies simples chez le CN, des voies doubles chez le CN. La "
+                   "voie double achète d'abord la <b>fiabilité</b> (tous les départs "
+                   "font le même temps), et elle est la condition d'une cohabitation où "
+                   "passager et fret gagnent tous les deux. Le régime pèse plus que le "
+                   "béton : la voie simple de VIA porte moins de marge que la voie "
+                   "double du CN.",
+            "chiffres": [
+                {"v": f"{pub['marges']['simple-CN']:.0f} %", "l": "marge médiane, voie simple du CN",
+                 "couleur": VITESSE_COULEURS["sous_100"]},
+                {"v": f"{pub['marges']['double-CN']:.0f} %", "l": "marge médiane, voie double du CN"},
+                {"v": f"{pub['marges']['simple-VIA']:.0f} %", "l": "marge médiane, voie simple de VIA"},
+            ],
+            "verifications": [{
+                "enonce": "La voie simple coûte cher chez le CN et rien chez VIA. "
+                          "<b>Reprenons les médianes</b> sur le cœur du corridor.",
                 "table": "marges_2x2_synthese.csv",
                 "filtre": [{"col": "region", "op": "==", "val": "coeur"}],
                 "grouper": "cellule", "agreger": "mediane", "mode": "mediane",
@@ -357,48 +497,32 @@ def sections(pub: dict) -> list[dict]:
                        "km_a_doubler.csv", "covariables_paires.csv"],
         },
         {
-            "cle": "05 · Obstacles au sol", "titre": "Passages à niveau",
-            "dit": "Première des deux conditions du scénario recommandé : le corridor "
-                   "scellé. Traiter chaque passage de la zone rapide (barrières "
-                   "quatre-quadrants, terre-pleins, détection). <b>Ça se compte</b>, et "
-                   "c'est compté ici, passage par passage.",
+            "cle": "05 · La mesure", "titre": "Comment nous avons mesuré",
+            "dit": "Comme VIA Rail ne fournit pas une géométrie suffisamment détaillée "
+                   "de sa voie, la géométrie du tracé vient des données ouvertes "
+                   "OpenStreetMap, appariées aux horaires de VIA. Les chiffres publiés "
+                   "incluent une <b>correction prudente des courbes courtes</b> : sur "
+                   "tout segment courbe de moins de 900 m, le rayon est divisé par "
+                   "deux, une règle calée sur un audit de terrain.",
             "chiffres": [
-                {"v": f"{pub['pn']['154-177']:.0f}", "l": "passages dans la zone rapide (154-177 km/h)",
-                 "couleur": VITESSE_COULEURS["160_200"]},
-                {"v": "563", "l": "restent à équiper de feux, cloches et barrières"},
-                {"v": "924", "l": "passages sur le corridor, dédoublonnés"},
+                {"v": "900 m", "l": "fenêtre d'ajustement, imposée par le bruit de la source"},
+                {"v": "414", "l": "segments corrigés (187 km) sur le cœur du corridor"},
             ],
-            "verifications": [{
-                "enonce": "<b>Comptons les passages</b> par bande d'exploitation du "
-                          "scénario recommandé (géométrie du pendulaire, plafond 177).",
-                "table": "passages_niveau_tri.csv",
-                "filtre": [], "grouper": "bande_recommandee", "agreger": "tc_number",
-                "mode": "compte", "publie": pub["pn"], "unite": "passages",
-                "arrondi": 1, "tolerance": 0,
-                "libelles": {"154-177": "Zone rapide (154-177 km/h)",
-                             "≤153": "Régime actuel (≤ 153 km/h)"},
-            }],
-            "pieces": ["passages_niveau_tri.csv", "passages_niveau_par_bande.csv"],
+            "pieces": ["segments_courbature.csv", "biais_segments_courts.csv",
+                       "blocs_urbains.csv"],
         },
         {
-            "cle": "06 · Commande des trains", "titre": "Signalisation",
-            "dit": "Seconde condition : la signalisation. Rien à faire jusqu'à "
-                   "160 km/h. De 161 à 177, une superposition de contrôle en cabine, "
-                   "comme la ligne du Michigan qui roule exactement à 110 mi/h. Au-delà "
-                   "de 177, il faudrait tout remplacer : c'est le devis d'Alto, hors du "
-                   "scénario recommandé.",
-            "pieces": ["segments_courbature.csv"],
-        },
-        {
-            "cle": "07 · Les temps de parcours", "titre": "Résultats intégrés",
-            "dit": "Le temps publié est une <b>fourchette</b> : le temps de base plus une "
-                   "marge, de la borne normative (8 %) à la marge que le tronçon porte "
-                   "aujourd'hui. La figure des gains attribue l'écart avec l'horaire "
-                   "actuel à ses leviers, et le <b>scénario plafond</b> pousse le "
-                   "recommandé à sa borne.",
+            "cle": "06 · Les temps", "titre": "Résultats détaillés",
+            "dit": "Le temps publié est un <b>point</b> : le temps de base plus une "
+                   "marge de 10 %, légèrement plus prudente que la médiane des "
+                   "règles internationales et alignée sur le référent britannique. La "
+                   "figure des gains attribue l'écart avec l'horaire actuel à ses "
+                   "leviers : le train, les zones urbaines, les courbes, les voies, le "
+                   "régime.",
             "chiffres": [
-                {"v": "4 h 27", "l": "Montréal-Toronto, scénario recommandé, borne basse"},
-                {"v": "2 h 30", "l": "Montréal-Québec, scénario recommandé, borne basse"},
+                {"v": "4 h 40", "l": "Montréal-Toronto, scénario 1"},
+                {"v": "4 h 17", "l": "Montréal-Toronto, scénarios 2 et 3"},
+                {"v": "2 h 06", "l": "Montréal-Québec, scénario 3"},
             ],
             "verifications": [{
                 "enonce": "La figure des gains promet que les parts de sa décomposition "
@@ -409,20 +533,21 @@ def sections(pub: dict) -> list[dict]:
                 "publie": pub["gains"], "unite": "min", "arrondi": 1, "tolerance": 0.5,
                 "libelles": {k: k for k in pub["gains"]},
             }],
-            "pieces": ["tbase_par_bande.csv", "decomposition_gains.csv",
-                       "tbase_par_bande_corriges.csv", "tbase_par_bande_rectifies.csv",
-                       "tbase_par_bande_blocs_libres.csv", "synthese_troncon.csv"],
+            "pieces": ["temps_scenario_1.csv", "temps_scenario_2.csv",
+                       "temps_scenario_3.csv", "decomposition_gains.csv",
+                       "synthese_troncon.csv"],
         },
         {
-            "cle": "08 · Ce qui reste à faire", "titre": "Limites, et l'étude qu'il faut commander",
+            "cle": "07 · Ce qui reste à faire", "titre": "Limites, et l'étude qu'il faut commander",
             "dit": "Ce que cette étude laisse ouvert, une étude complète devra le "
-                   "trancher : simulation de circulation, conception par site, coûts. "
-                   "Menée avec le propriétaire de la voie, elle établira la feuille de "
-                   "route concrète de l'alternative à Alto.",
+                   "trancher : simulation de circulation, conception par site, coûts, "
+                   "et la levée de la correction des courbes courtes avec une géométrie "
+                   "fine. Menée avec le propriétaire de la voie, elle établira la "
+                   "feuille de route concrète de l'alternative à Alto.",
             "pieces": ["goulots_detranglement.csv", "sites_restants_sous_grande_vitesse.csv"],
         },
         {
-            "cle": "09 · Contrôles", "titre": "Les contre-épreuves",
+            "cle": "08 · Contrôles", "titre": "Les contre-épreuves",
             "dit": "Les marges ont été refaites sur une seconde saison d'horaires (GTFS "
                    "2023) pour vérifier qu'elles ne tiennent pas à une année "
                    "particulière. Ces tables sont ici, à part, pour qui veut les "
@@ -491,12 +616,12 @@ ESSENTIEL = {
     "segments_courbature.csv": [
         "tronçon", "km_début", "km_fin", "longueur_m",
         "degré_courbure_gouvernant_deg", "R_classant_min_m",
-        "vmax_recommande_kmh_plafond_courbure", "classe_recommande",
+        "vmax_pendulaire_kmh_plafond_courbure", "classe_pendulaire",
         "gare_amont", "gare_aval"],
     "passages_niveau_tri.csv": [
         "tc_number", "troncon_principal", "subdivision", "mille", "localisation",
         "acces", "protection", "flbg_present", "trains_jour", "vehicules_jour",
-        "vmax_recommande_kmh", "bande_recommandee", "intervention"],
+        "vmax_pendulaire_kmh", "bande_pendulaire", "intervention"],
     "marges_par_intergare.csv": [
         "troncon", "region", "de", "a", "longueur_km", "cellule",
         "t_horaire_med_min", "t_base_cap160_min", "marge_pct",
@@ -508,17 +633,17 @@ ESSENTIEL = {
     "sites_restants_sous_grande_vitesse.csv": None,   # renseignée à la lecture si besoin
 }
 
-# Les préréglages sont des QUESTIONS, et le scénario recommandé passe en premier :
+# Les préréglages sont des QUESTIONS, et le train pendulaire passe en premier :
 # la version précédente n'offrait que S3, le plus ambitieux, comme si c'était la
 # lecture par défaut.
 PRESETS = {
     "segments_courbature.csv": [
-        {"label": "Sous 177 km/h, scénario recommandé", "conds": [{"col": "vmax_recommande_kmh_plafond_courbure", "op": "<", "val": 177}]},
-        {"label": "Sous 160 km/h, scénario recommandé", "conds": [{"col": "vmax_recommande_kmh_plafond_courbure", "op": "<", "val": 160}]},
+        {"label": "Sous 177 km/h, train pendulaire", "conds": [{"col": "vmax_pendulaire_kmh_plafond_courbure", "op": "<", "val": 177}]},
+        {"label": "Sous 160 km/h, train pendulaire", "conds": [{"col": "vmax_pendulaire_kmh_plafond_courbure", "op": "<", "val": 160}]},
     ],
     "km_restants_sous_grande_vitesse.csv": [
         {"label": "Cible 177 km/h", "conds": [{"col": "vitesse_cible_kmh", "op": "==", "val": 177}]},
-        {"label": "Scénario recommandé", "conds": [{"col": "scenario", "op": "==", "val": "recommande"}]},
+        {"label": "Train pendulaire (scénarios 1 à 3)", "conds": [{"col": "scenario", "op": "==", "val": "pendulaire"}]},
     ],
     "passages_niveau_tri.csv": [
         {"label": "À équiper (sans feux-cloches-barrières)", "conds": [{"col": "flbg_present", "op": "==", "val": "False"}]},

@@ -30,14 +30,13 @@ SORTIE = DELIVERABLES / "rapport_corridor.html"
 # le sujet. Une section absente de cette table n'aurait pas de surtitre : le
 # script s'arrête plutôt que de publier une page dépareillée.
 SURTITRES = {
-    "Synthèse": "Ce qu'il faut retenir",
-    "Méthode et périmètre": "Comment nous mesurons",
-    "Le train pendulaire et le dévers": "Matériel et voie",
-    "Doublement des voies et régime de cohabitation": "Capacité",
-    "Passages à niveau": "Obstacles au sol",
-    "Signalisation": "Commande des trains",
-    "Résultats intégrés": "Les temps de parcours",
+    "L'essentiel": "Ce qu'il faut retenir",
+    "Trois scénarios, un seul train": "Les scénarios",
+    "Ce que les scénarios demandent": "Les conditions",
+    "Doubler la voie, et vivre ensemble sur le rail": "Capacité",
+    "Comment nous avons mesuré": "La mesure",
     "Limites, et l'étude qu'il faut commander": "Ce qui reste à faire",
+    "Résultats détaillés": "Les temps de parcours",
     "Note de l'auteur": "La méthode de travail",
     "Références": "Sources",
 }
@@ -52,10 +51,9 @@ UNITES = {"km", "m", "mm", "mi", "h", "min", "s", "po", "pi", "kmh", "mph",
 
 AVIS_SOMMAIRE = (
     "Les vitesses sont en km/h, suivies au besoin de l'équivalent en mi/h. "
-    "Les temps de parcours sont donnés en fourchette, bornes comprises : "
-    "la borne basse applique la marge normative de 8 % au plafond "
-    "retenu, la borne haute reconduit la marge mesurée aujourd'hui sur le "
-    "tronçon."
+    "Les temps de parcours publiés incluent une marge d'exploitation de 10 %, "
+    "légèrement plus prudente que la médiane des règles publiées par les "
+    "gestionnaires de réseau et alignée sur le référent britannique."
 )
 
 

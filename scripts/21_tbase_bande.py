@@ -68,16 +68,16 @@ import pandas as pd
 import os
 from pathlib import Path
 
-from utils import INTERMEDIATES, DELIVERABLES, RESOURCES
+from utils import INTERMEDIATES, DELIVERABLES, RESOURCES, SEGMENTS_PUBLIES_GEOJSON
 
 GTFS_ZIP = RESOURCES / "viarail_GTFS.zip"
 
 # Variante de segments, pour les sensibilités. Sans la variable d'environnement,
-# rien ne change : ce sont les segments publiés et les livrables habituels. Avec
-# elle (étape 31, biais de fenêtre), les sorties sont suffixées pour que la
-# variante ne puisse jamais écraser la référence.
+# rien ne change : ce sont les segments PUBLIÉS (correction des courbes courtes
+# de l'étape 34 incluse) et les livrables habituels. Avec elle, les sorties sont
+# suffixées pour que la variante ne puisse jamais écraser la référence.
 _OVERRIDE = os.environ.get("SEGMENTS_OVERRIDE", "")
-SEGMENTS = Path(_OVERRIDE) if _OVERRIDE else INTERMEDIATES / "segments.geojson"
+SEGMENTS = Path(_OVERRIDE) if _OVERRIDE else SEGMENTS_PUBLIES_GEOJSON
 _SUF = "_" + Path(_OVERRIDE).stem.replace("segments_", "") if _OVERRIDE else ""
 # Sensibilité « blocs urbains réintégrés » (2026-08-17) : avec BLOCS_URBAINS=libres,
 # les blocs urbains ne sont plus figés à l'horaire GTFS — ils entrent dans le
@@ -87,10 +87,18 @@ _SUF = "_" + Path(_OVERRIDE).stem.replace("segments_", "") if _OVERRIDE else ""
 _BLOCS_LIBRES = os.environ.get("BLOCS_URBAINS", "") == "libres"
 if _BLOCS_LIBRES:
     _SUF += "_blocs_libres"
-OUT_TBASE = DELIVERABLES / f"tbase_par_bande{_SUF}.csv"
+# Nommage PUBLIC (remodelage du 24 août) : les trois runs qui portent l'échelle
+# publiée « scénario 1 / 2 / 3 » écrivent les CSV de PALIERS (scenarios.py) ;
+# toute autre combinaison garde le schéma suffixé des sensibilités.
+_PALIER_CSV = {
+    ("", False): "temps_scenario_1.csv",
+    ("", True): "temps_scenario_2.csv",
+    ("segments_rectifies.geojson", True): "temps_scenario_3.csv",
+}.get((Path(_OVERRIDE).name if _OVERRIDE else "", _BLOCS_LIBRES))
+OUT_TBASE = DELIVERABLES / (_PALIER_CSV or f"tbase_par_bande{_SUF}.csv")
 OUT_BLOCS = DELIVERABLES / f"blocs_urbains{_SUF}.csv"
 if _OVERRIDE or _BLOCS_LIBRES:
-    print(f"VARIANTE : segments lus dans {SEGMENTS}, sorties suffixées « {_SUF} »")
+    print(f"VARIANTE : segments lus dans {SEGMENTS}, sortie {OUT_TBASE.name}")
 
 BANDES_KMH = [160, 177, 200, 250, 300]
 DWELL_MIN = 2.0               # immobilisation en gare (min/arrêt) ; la dynamique

@@ -23,7 +23,8 @@ import simplekml
 
 sys.path.insert(0, str(Path(__file__).resolve().parent))
 from utils import (
-    SEGMENTS_GEOJSON,
+    # Livrable → segments PUBLIÉS (correction des courbes courtes, étape 34)
+    SEGMENTS_PUBLIES_GEOJSON as SEGMENTS_GEOJSON,
     CORRIDOR_MATCHED_GEOJSON,
     DELIVERABLES,
     ensure_dirs,
@@ -46,7 +47,7 @@ CLASS_COLOR = {sc.code: sc.color for sc in SPEED_CLASSES}
 
 # Libellés PUBLICS des scénarios pour tout ce qui s'affiche (cartes, KMZ,
 # légendes) : les ids S1/S2/S3 restent internes au pipeline.
-AFFICHE = {"S1": "Scénario de base", "S2": "Scénario recommandé",
+AFFICHE = {"S1": "Scénario de base", "S2": "Train pendulaire (scénarios 1 à 3)",
            "S3": "Référence interne"}
 AFFICHE_EN = {"S1": "Base scenario", "S2": "Recommended scenario",
               "S3": "Internal reference"}
@@ -70,7 +71,7 @@ CAVEAT_EN2 = (
     "track condition NOT considered. Target precision is the speed class, not exact km/h."
 )
 CAVEAT_FR3 = (
-    "Le dévers réellement en voie n'a PAS été relevé : le scénario de base suppose 100 mm (≈ 4 po) ; le recommandé et la référence interne sont des dévers de conception (127 mm = 5 po). "
+    "Le dévers réellement en voie n'a PAS été relevé : le scénario de base suppose 100 mm (≈ 4 po) ; le pendulaire et la référence interne sont des dévers de conception (127 mm = 5 po). "
     "v_max est un plafond géométrique au dévers normatif, pas une vitesse relevée."
 )
 CAVEAT_EN3 = (
@@ -264,7 +265,7 @@ def build_kmz(seg_features: list[dict], stations: list[dict], out_kmz: Path) -> 
     kml = simplekml.Kml(name="TGV Canada — Courbatures du corridor VIA")
     kml.document.description = (
         "Phase 1 — analyse stratégique. Alignement VIA existant, 3 scénarios "
-        "(base : voie actuelle ; recommandé : pendulaire LRC + dévers max standard CN 5 po ; référence interne : pendulaire insuffisance 270 mm). "
+        "(base : voie actuelle ; pendulaire : LRC + dévers max standard CN 5 po, moteur des scénarios 1 à 3 ; référence interne : pendulaire insuffisance 270 mm). "
         "Sources : viarail GTFS + OSM PBF QC+ON. Géométries simplifiées (Douglas-Peucker, "
         "tol ~7m) pour rester sous la limite de 5 MB de Google My Maps.\n\n"
         "AVERTISSEMENTS / WARNINGS\n"
@@ -338,9 +339,9 @@ def build_segments_csv(seg_features: list[dict], out_csv: Path) -> None:
         "degré_courbure_gouvernant_deg",
         "R_min_m", "R_classant_min_m", "R_p10_m", "R_p50_m", "R_moy_m",
         "vmax_base_kmh_plafond_courbure", "vmax_base_mph_plafond_courbure",
-        "vmax_recommande_kmh_plafond_courbure", "vmax_recommande_mph_plafond_courbure",
+        "vmax_pendulaire_kmh_plafond_courbure", "vmax_pendulaire_mph_plafond_courbure",
         "vmax_reference_kmh_plafond_courbure", "vmax_reference_mph_plafond_courbure",
-        "classe_base", "classe_recommande", "classe_reference",
+        "classe_base", "classe_pendulaire", "classe_reference",
         "gare_amont", "gare_aval",
     ]
     headers_en = [
@@ -350,7 +351,7 @@ def build_segments_csv(seg_features: list[dict], out_csv: Path) -> None:
         "degree_of_curve_governing_deg",
         "R_min_m", "R_governing_min_m", "R_p10_m", "R_p50_m", "R_mean_m",
         "vmax_base_kmh_curv_ceiling", "vmax_base_mph_curv_ceiling",
-        "vmax_recommande_kmh_curv_ceiling", "vmax_recommande_mph_curv_ceiling",
+        "vmax_pendulaire_kmh_curv_ceiling", "vmax_pendulaire_mph_curv_ceiling",
         "vmax_reference_kmh_curv_ceiling", "vmax_reference_mph_curv_ceiling",
         "class_S1", "class_S2", "class_S3",
         "station_upstream", "station_downstream",

@@ -9,23 +9,37 @@ Ce projet est un fork autonome du pipeline « TGV Canada, courbatures et doublem
 voies » (phases 1-2, mai-juillet 2026, validé par 4 passes red team). L'ancien projet et
 ses livrables restent l'archive ; tout ce qui vit ici utilise la nomenclature ci-dessous.
 
-## Nomenclature des scénarios (2026-08)
+## Nomenclature des scénarios (2026-08-24, remodelage)
 
-| ID interne | Nom publié | Dévers | Insuffisance | k (v=k·√R) |
+DEUX familles de noms coexistent, et elles ne parlent pas de la même chose.
+
+**Les ids INTERNES du pipeline** (`scripts/scenarios.py`, jeux de dévers/insuffisance) :
+
+| ID interne | Public (colonnes des CSV) | Dévers | Insuffisance | k (v=k·√R) |
 |----|-------------|--------|--------------|------------|
-| S1 | Scénario de base (voie et train actuels) | 100 mm (supposé) | 76 mm | 3,83 |
-| S2 | Scénario recommandé (pendulaire LRC, plafond 177 km/h) | 127 mm | 152 mm | 4,82 |
-| S3 | (interne seulement, retiré du rapport 2026-08-17) | 127 mm | 270 mm | 5,75 |
+| S1 | `base` (voie et train actuels) | 100 mm (supposé) | 76 mm | 3,83 |
+| S2 | `pendulaire` (moteur des scénarios publiés 1 à 3) | 127 mm | 152 mm | 4,82 |
+| S3 | `reference-interne` (hors rapport) | 127 mm | 270 mm | 5,75 |
 
-Le RAPPORT ne publie que deux scénarios, nommés par leur fonction : « scénario de
-base » (l'horaire d'aujourd'hui ; le moteur S1 plafonné à 160 sert de contrôle
-interne) et « scénario recommandé » (pendulaire LRC, 100 % précédent CN MR 1305-0,
-plafonné à 177 km/h = 110 mi/h, la limite du contrôle en cabine incrémental type
-ITCS). S3 (270 mm, hors précédent NA) reste calculé dans le pipeline et les annexes
-numériques, mais n'apparaît plus dans le rapport ni ses figures.
+**L'échelle PUBLIÉE du rapport** (paliers d'aménagement, `PALIERS` de scenarios.py) :
+les trois scénarios roulent tous sur le moteur interne S2 plafonné à 177 km/h ; ce
+qui change est le périmètre de travaux.
 
-⚠ L'ancien pipeline numérotait autrement (son S2 = LRC sur dévers actuel 100 mm, abandonné ;
-son S3 = le S2 d'ici). Ne jamais mélanger les deux nomenclatures.
+| Public | Contenu | Run du 21 | CSV livré |
+|---|---|---|---|
+| Scénario 1 : le train pendulaire | pendulaire + PN + signalisation + dévers | défaut | `temps_scenario_1.csv` |
+| Scénario 2 : + zones urbaines modernisées | scénario 1 + blocs urbains débloqués | `BLOCS_URBAINS=libres` | `temps_scenario_2.csv` |
+| Scénario 3 : + courbes corrigées au doublement | scénario 2 + rectification aux sections doublées | libres + `SEGMENTS_OVERRIDE=segments_rectifies.geojson` | `temps_scenario_3.csv` |
+
+⚠ Le « S1/S2/S3 » du rapport publié désigne les PALIERS, jamais les ids internes.
+Ne JAMAIS renommer les ids internes ni écrire un sigle interne dans un livrable.
+Les chiffres publiés incluent la correction empirique des courbes courtes
+(étape 34 : R divisé par 2 sur les segments courbes < 900 m, audit La Tuque) ;
+`segments.geojson` reste le brut du 05, `segments_publies.geojson` est la
+géométrie publiée. La marge publiée est un POINT de 10 % (plus de fourchette).
+
+⚠ L'ancien pipeline parent numérotait encore autrement (son S2 = LRC sur dévers
+actuel 100 mm, abandonné ; son S3 = le S2 d'ici). Ne jamais mélanger.
 
 ## Structure
 
@@ -39,11 +53,12 @@ son S3 = le S2 d'ici). Ne jamais mélanger les deux nomenclatures.
 
 ```bash
 # venv Python 3.12 avec : geopandas shapely pyarrow folium scipy pandas openpyxl simplekml
-python scripts/05_segment_and_classify.py   # segmentation + classes par scénario
+python scripts/05_segment_and_classify.py   # segmentation + classes par scénario (brut)
+python scripts/34_correction_courtes.py     # correction courbes courtes → segments_publies.geojson
 python scripts/06_synthese_troncon.py       # synthèse par tronçon
 python scripts/07_render_outputs.py         # carte, KMZ, CSV
 python scripts/11_target_speed_to_km.py     # vitesse cible → km restants sous grande vitesse
-python scripts/12_sections_a_rectifier_pdf.py  # sections restantes < 177, scénario recommandé
+python scripts/12_sections_a_rectifier_pdf.py  # sections restantes < 177, train pendulaire
 python scripts/14_synthese_voies.py         # doublement (voies simples/doubles)
 python scripts/15_carte_voies.py
 python scripts/18_export_xlsx.py
@@ -53,12 +68,11 @@ python scripts/_baseline_zones.py           # garde-fou : doit afficher BASELINE
 python identite/fonts/_installer_polices.py # une fois : .ttf des figures
 python scripts/27_verif_identite.py         # garde-fou : doit afficher PASS
 python scripts/20_passages_niveau.py        # passages à niveau (bandes d'exploitation)
-python scripts/21_tbase_bande.py            # moteur T_base (bandes 160/177/200/250/300)
-python scripts/33_courbes_doublees.py       # sensibilité : courbes des sections à doubler
-SEGMENTS_OVERRIDE=intermediaires/segments_rectifies.geojson python scripts/21_tbase_bande.py
-BLOCS_URBAINS=libres python scripts/21_tbase_bande.py   # sensibilité : blocs réintégrés
+python scripts/33_courbes_doublees.py       # segments rectifiés au doublement (APRÈS le 34)
+python scripts/21_tbase_bande.py            # scénario 1 → temps_scenario_1.csv
+BLOCS_URBAINS=libres python scripts/21_tbase_bande.py   # scénario 2 → temps_scenario_2.csv
 SEGMENTS_OVERRIDE=intermediaires/segments_rectifies.geojson BLOCS_URBAINS=libres \
-  python scripts/21_tbase_bande.py                  # scénario plafond (les deux ensemble)
+  python scripts/21_tbase_bande.py                  # scénario 3 → temps_scenario_3.csv
 python scripts/22_marges_2x2.py             # médianes du 2×2 (lues par la figure 23)
 python scripts/23_figure_cellules.py        # figure : le 2×2 du corridor
 python scripts/24_figure_vs_auto.py         # figure : le train contre l'auto (4 trajets)

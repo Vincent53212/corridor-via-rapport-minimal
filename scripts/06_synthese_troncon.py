@@ -15,7 +15,8 @@ from pathlib import Path
 
 sys.path.insert(0, str(Path(__file__).resolve().parent))
 from utils import (
-    SEGMENTS_GEOJSON,
+    # Livrable → segments PUBLIÉS (correction des courbes courtes, étape 34)
+    SEGMENTS_PUBLIES_GEOJSON as SEGMENTS_GEOJSON,
     DELIVERABLES,
     ensure_dirs,
     degre_courbure,
@@ -374,7 +375,7 @@ def write_synthese_html(dist: dict, dist_p50: dict, segcount: dict,
                 f"<td>{g['longueur_m']:.0f}</td>"
                 f"<td style='text-align:right'>{fmt_dc(g['R_min_m'])}</td>"
                 f"<td style='text-align:right'>{g['R_min_m']}</td>"
-                f"<td>{g['vmax_S3_kmh']:.0f}</td><td>{g['classe_S3']}</td>"
+                f"<td>{g['vmax_reference_kmh']:.0f}</td><td>{g['classe_S3']}</td>"
                 f"<td>{g['classe_dominante_voisinage']}</td>"
                 f"<td>{g['gare_amont']} → {g['gare_aval']}</td></tr>"
             )

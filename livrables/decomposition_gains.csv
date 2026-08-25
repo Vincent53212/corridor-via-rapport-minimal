@@ -1,26 +1,32 @@
 ﻿trajet;poste;minutes;part_pct_du_gain;source
-Québec-Toronto (via Montréal);temps_recommande_avec_marge;426.7;;tbase_par_bande.csv
-Québec-Toronto (via Montréal);gain_releve_plafond;20.1;19.4;tbase_par_bande.csv
-Québec-Toronto (via Montréal);gain_pendulaire;19.4;18.7;tbase_par_bande.csv
-Québec-Toronto (via Montréal);gain_doublement;24.1;23.3;marges_2x2_synthese.csv + marges_par_intergare.csv
-Québec-Toronto (via Montréal);gain_cohabitation;40.2;38.7;résidu (G − autres parts)
-Québec-Toronto (via Montréal);controle_horaire_actuel_H;530.5;;tbase_par_bande.csv (médiane GTFS)
-Québec-Toronto (via Montréal);controle_gain_total_G;103.8;;"H − C ; somme des quatre parts = G par construction"
-Québec-Toronto (via Montréal);controle_ecart_ordres_shapley;5.7;;écart |plafond d'abord − pendulaire d'abord|
-Québec-Montréal;temps_recommande_avec_marge;149.6;;tbase_par_bande.csv
-Québec-Montréal;gain_releve_plafond;5.1;9.7;tbase_par_bande.csv
-Québec-Montréal;gain_pendulaire;10.7;20.3;tbase_par_bande.csv
-Québec-Montréal;gain_doublement;24.1;45.6;marges_2x2_synthese.csv + marges_par_intergare.csv
-Québec-Montréal;gain_cohabitation;12.9;24.4;résidu (G − autres parts)
-Québec-Montréal;controle_horaire_actuel_H;202.5;;tbase_par_bande.csv (médiane GTFS)
-Québec-Montréal;controle_gain_total_G;52.9;;"H − C ; somme des quatre parts = G par construction"
-Québec-Montréal;controle_ecart_ordres_shapley;2.1;;écart |plafond d'abord − pendulaire d'abord|
-Montréal-Ottawa;temps_recommande_avec_marge;105.8;;tbase_par_bande.csv
-Montréal-Ottawa;gain_releve_plafond;2.0;12.4;tbase_par_bande.csv
-Montréal-Ottawa;gain_pendulaire;10.9;67.2;tbase_par_bande.csv
+Québec-Toronto (via Montréal);temps_scenario_3_avec_marge;392.8;;temps_scenario_3.csv
+Québec-Toronto (via Montréal);gain_releve_plafond;15.7;11.4;temps_scenario_1.csv
+Québec-Toronto (via Montréal);gain_pendulaire;35.4;25.7;temps_scenario_1.csv
+Québec-Toronto (via Montréal);gain_zones_urbaines;42.4;30.8;temps_scenario_2.csv (C1 − C2)
+Québec-Toronto (via Montréal);gain_courbes_au_doublement;14.2;10.3;temps_scenario_3.csv (C2 − C3)
+Québec-Toronto (via Montréal);gain_doublement;22.1;16.1;marges_2x2_synthese.csv + marges_par_intergare.csv
+Québec-Toronto (via Montréal);gain_cohabitation;7.9;5.7;résidu (H − C1 − autres parts)
+Québec-Toronto (via Montréal);controle_horaire_actuel_H;530.5;;temps_scenario_1.csv (médiane GTFS)
+Québec-Toronto (via Montréal);controle_gain_total_G;137.7;;"H − C3 ; somme des parts = G par construction"
+Québec-Toronto (via Montréal);controle_ecart_ordres_shapley;4.8;;écart |plafond d'abord − pendulaire d'abord|
+Québec-Montréal;temps_scenario_3_avec_marge;125.7;;temps_scenario_3.csv
+Québec-Montréal;gain_releve_plafond;3.9;5.0;temps_scenario_1.csv
+Québec-Montréal;gain_pendulaire;15.5;20.2;temps_scenario_1.csv
+Québec-Montréal;gain_zones_urbaines;19.6;25.5;temps_scenario_2.csv (C1 − C2)
+Québec-Montréal;gain_courbes_au_doublement;14.2;18.5;temps_scenario_3.csv (C2 − C3)
+Québec-Montréal;gain_doublement;22.1;28.8;marges_2x2_synthese.csv + marges_par_intergare.csv
+Québec-Montréal;gain_cohabitation;1.5;2.0;résidu (H − C1 − autres parts)
+Québec-Montréal;controle_horaire_actuel_H;202.5;;temps_scenario_1.csv (médiane GTFS)
+Québec-Montréal;controle_gain_total_G;76.8;;"H − C3 ; somme des parts = G par construction"
+Québec-Montréal;controle_ecart_ordres_shapley;1.6;;écart |plafond d'abord − pendulaire d'abord|
+Montréal-Ottawa;temps_scenario_3_avec_marge;88.6;;temps_scenario_3.csv
+Montréal-Ottawa;gain_releve_plafond;1.2;3.7;temps_scenario_1.csv
+Montréal-Ottawa;gain_pendulaire;9.4;28.2;temps_scenario_1.csv
+Montréal-Ottawa;gain_zones_urbaines;15.6;46.7;temps_scenario_2.csv (C1 − C2)
+Montréal-Ottawa;gain_courbes_au_doublement;7.1;21.4;temps_scenario_3.csv (C2 − C3)
 Montréal-Ottawa;gain_doublement;0.0;0.0;marges_2x2_synthese.csv + marges_par_intergare.csv
-Montréal-Ottawa;gain_cohabitation;3.3;20.5;résidu (G − autres parts)
-Montréal-Ottawa;controle_horaire_actuel_H;122.0;;tbase_par_bande.csv (médiane GTFS)
-Montréal-Ottawa;controle_gain_total_G;16.2;;"H − C ; somme des quatre parts = G par construction"
-Montréal-Ottawa;controle_ecart_ordres_shapley;0.7;;écart |plafond d'abord − pendulaire d'abord|
-Montréal-Ottawa;info_doublement_fourchette;3.3;;part doublement/cohabitation indiscernable : 0 sur les horaires courants, jusqu'à ~12 points de marge sur GTFS 2023 (simple-VIA 48,7 vs double-CN 36,3), bornée par la marge actuelle du tronçon
+Montréal-Ottawa;gain_cohabitation;0.0;0.0;résidu (H − C1 − autres parts)
+Montréal-Ottawa;controle_horaire_actuel_H;122.0;;temps_scenario_1.csv (médiane GTFS)
+Montréal-Ottawa;controle_gain_total_G;33.4;;"H − C3 ; somme des parts = G par construction"
+Montréal-Ottawa;controle_ecart_ordres_shapley;0.6;;écart |plafond d'abord − pendulaire d'abord|
+Montréal-Ottawa;info_marge_normative_excedentaire;3.6;;l'horaire actuel porte moins de 10 % de marge : la marge normative absorbe cette part du gain pendulaire (attribution plafond+pendulaire réduite d'autant)

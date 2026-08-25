@@ -19,9 +19,12 @@ RÈGLE UNIQUE de dédoublonnage : la vmax MAXIMALE des trajets qui empruntent le
 passage, appliquée aux DEUX sorties (par_bande et tri) — un assert le garantit.
 
 Bandes d'EXPLOITATION du rapport (en plus des bandes géométriques) :
-  bande_base        : min(vmax_S1, 160) — le régime d'aujourd'hui
-  bande_recommandee : min(vmax_S2, 177) — le scénario recommandé, plafonné à
-                      la limite du contrôle en cabine incrémental (ITCS, 110 mi/h)
+  bande_base       : min(vmax_S1, 160) — le régime d'aujourd'hui
+  bande_pendulaire : min(vmax_S2, 177) — le train pendulaire (moteur commun des
+                     scénarios 1 à 3), plafonné à la limite du contrôle en
+                     cabine incrémental (ITCS, 110 mi/h). Les comptes de
+                     passages sont IDENTIQUES pour les trois scénarios publiés
+                     (même plafond 177).
 
 Tri en DEUX classes d'intervention (règles sur données ouvertes, documentées) :
   standard       : municipal ou privé, ≤ 2 voies, non urbain
@@ -46,14 +49,16 @@ from __future__ import annotations
 import geopandas as gpd
 import pandas as pd
 
-from utils import INTERMEDIATES, DELIVERABLES, RESOURCES, kmh_to_mph
+from utils import (INTERMEDIATES, DELIVERABLES, RESOURCES, kmh_to_mph,
+                   SEGMENTS_PUBLIES_GEOJSON)
 import sys as _sys
 from pathlib import Path as _Path
 _sys.path.insert(0, str(_Path(__file__).resolve().parent))
 from scenarios import public_id
 
 INV = RESOURCES / "en-grade-crossing-inventory-2023-update.csv"
-SEGMENTS = INTERMEDIATES / "segments.geojson"
+# Livrable → segments PUBLIÉS (correction des courbes courtes, étape 34)
+SEGMENTS = SEGMENTS_PUBLIES_GEOJSON
 OUT_BANDE = DELIVERABLES / "passages_niveau_par_bande.csv"
 OUT_TRI = DELIVERABLES / "passages_niveau_tri.csv"
 OUT_LISEZMOI = DELIVERABLES / "passages_niveau_LISEZMOI.txt"
@@ -167,11 +172,11 @@ def main() -> None:
         matched[f"vmax_{sid}_kmh"] = vmax_corridor
         matched[f"bande_{sid}"] = matched[f"vmax_{sid}_kmh"].map(bande_of)
     # Bandes d'EXPLOITATION du rapport : base = aujourd'hui (S1 capé 160) ;
-    # recommandé = pendulaire LRC plafonné 177 (limite ITCS).
+    # pendulaire = LRC plafonné 177 (limite ITCS), commun aux scénarios 1 à 3.
     matched["vmax_base_kmh"] = matched["vmax_S1_kmh"].clip(upper=160.0)
     matched["bande_base"] = matched["vmax_base_kmh"].map(bande_of)
-    matched["vmax_recommande_kmh"] = matched["vmax_S2_kmh"].clip(upper=177.0)
-    matched["bande_recommandee"] = matched["vmax_recommande_kmh"].map(bande_of)
+    matched["vmax_pendulaire_kmh"] = matched["vmax_S2_kmh"].clip(upper=177.0)
+    matched["bande_pendulaire"] = matched["vmax_pendulaire_kmh"].map(bande_of)
     matched["flbg_present"] = matched["Protection"].str.contains("FLBG", na=False)
     matched["intervention"] = matched.apply(classify_intervention, axis=1)
 
@@ -180,10 +185,10 @@ def main() -> None:
     # nomenclature publique : la géométrie de chaque scénario est étiquetée
     # geometrie-…, l'exploitation (plafonnée) exploitation-…
     scen_cols = [("geometrie-base", "bande_S1"),
-                 ("geometrie-recommande", "bande_S2"),
+                 ("geometrie-pendulaire", "bande_S2"),
                  ("geometrie-reference-interne", "bande_S3"),
                  ("exploitation-base (cap 160)", "bande_base"),
-                 ("exploitation-recommande (cap 177)", "bande_recommandee")]
+                 ("exploitation-pendulaire (cap 177)", "bande_pendulaire")]
     dedup_first = matched.sort_values("dist_m").drop_duplicates(subset=["TC Number"])
     for sid, col in scen_cols:
         for t in TRONCONS:
@@ -220,13 +225,13 @@ def main() -> None:
         "Trains Daily": "trains_jour", "Vehicles Daily": "vehicules_jour",
         "Lanes": "voies_route", "IsUrban": "urbain",
         "vmax_S1_kmh": "vmax_geometrie_base_kmh",
-        "vmax_S2_kmh": "vmax_geometrie_recommande_kmh",
+        "vmax_S2_kmh": "vmax_geometrie_pendulaire_kmh",
         "vmax_S3_kmh": "vmax_geometrie_reference_kmh",
-        "bande_S1": "bande_geometrie_base", "bande_S2": "bande_geometrie_recommande",
+        "bande_S1": "bande_geometrie_base", "bande_S2": "bande_geometrie_pendulaire",
         "bande_S3": "bande_geometrie_reference",
         "vmax_base_kmh": "vmax_base_kmh", "bande_base": "bande_base",
-        "vmax_recommande_kmh": "vmax_recommande_kmh",
-        "bande_recommandee": "bande_recommandee", "flbg_present": "flbg_present",
+        "vmax_pendulaire_kmh": "vmax_pendulaire_kmh",
+        "bande_pendulaire": "bande_pendulaire", "flbg_present": "flbg_present",
         "intervention": "intervention", "dist_m": "dist_trace_m",
     }
     tri = first[list(tri_cols)].rename(columns=tri_cols)
@@ -248,18 +253,19 @@ def main() -> None:
     for k, v in tri_counts.items():
         print(f"   {k:<55} {v}")
 
-    # ---- exploitation : le compte du scénario recommandé (plafond 177)
-    reco = first[first["bande_recommandee"] == "154-177"]
+    # ---- exploitation : le compte au plafond pendulaire 177 (scénarios 1 à 3)
+    reco = first[first["bande_pendulaire"] == "154-177"]
     n_reco = len(reco)
     n_flbg = int(reco["flbg_present"].sum())
     n_a_equiper = n_reco - n_flbg
     n_reco_complexe = int(reco["intervention"].str.startswith("complexe").sum())
     expl = (
-        f"scénario recommandé (plafond 177 km/h) : {n_reco} passages en bande "
+        f"train pendulaire, plafond 177 km/h (identique pour les scénarios 1 à "
+        f"3) : {n_reco} passages en bande "
         f"154-177, dont {n_flbg} déjà équipés d'un système complet "
         f"feux-cloches-barrières (FLBG) et {n_a_equiper} à équiper ; "
         f"{n_reco_complexe} en contexte complexe ; "
-        f"{int((first['bande_recommandee'] == '≤153').sum())} restent ≤153"
+        f"{int((first['bande_pendulaire'] == '≤153').sum())} restent ≤153"
     )
     print(f"\n{expl}")
 
@@ -284,10 +290,11 @@ approuvé FRA fonctionnel) ; >201 (213.347(a) : zéro passage).
 Le 49 CFR est cité comme PRÉCÉDENT réglementaire nord-américain ; il ne
 s'applique pas de plein droit au Canada.
 
-Bandes d'EXPLOITATION (colonnes bande_base / bande_recommandee) : la base est
-le régime d'aujourd'hui (la voie actuelle, plafonnée à 160 km/h) ; le scénario recommandé est
-le pendulaire plafonné à 177 km/h (110 mi/h), limite du contrôle en cabine
-incrémental type ITCS. {expl}.
+Bandes d'EXPLOITATION (colonnes bande_base / bande_pendulaire) : la base est
+le régime d'aujourd'hui (la voie actuelle, plafonnée à 160 km/h) ; le train
+pendulaire des scénarios 1 à 3 est plafonné à 177 km/h (110 mi/h), limite du
+contrôle en cabine incrémental type ITCS. Les comptes sont identiques pour les
+trois scénarios publiés (même plafond). {expl}.
 
 Total corridor DÉDOUBLONNÉ : un même passage physique (TC Number) emprunté par
 deux trajets ne compte qu'une fois, classé à la vmax maximale des trajets.

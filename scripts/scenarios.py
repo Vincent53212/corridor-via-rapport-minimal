@@ -124,8 +124,8 @@ SCENARIOS: dict[str, Scenario] = {
         cant_def_mm=270,
         source="Dévers : CN MR 1305-0 (5 po) ; insuffisance 270 mm HORS précédent NA (réf. conception EN 13803, matériel pendulaire) — approbation par équipement, RRTS Subpart C 4.3",
         color="#2ca02c",  # vert
-        fret_fr="Dévers identique au scénario recommandé (norme CN trafic mixte) ; l'insuffisance 270 mm est propre au matériel pendulaire, sans effet sur le fret",
-        fret_en="Same cant as the recommended scenario (CN mixed-traffic standard); the 270 mm deficiency is specific to tilting equipment, no freight impact",
+        fret_fr="Dévers identique au pendulaire des scénarios publiés (norme CN trafic mixte) ; l'insuffisance 270 mm est propre au matériel pendulaire, sans effet sur le fret",
+        fret_en="Same cant as the published tilting scenarios (CN mixed-traffic standard); the 270 mm deficiency is specific to tilting equipment, no freight impact",
         cant_assumed=False,  # 127 mm = dévers de conception (intervention), pas une hypothèse
     ),
 }
@@ -174,15 +174,57 @@ def classify(vmax_kmh: float) -> SpeedClass:
     return SPEED_CLASSES[-1]  # défaut F
 
 
-# --- Nomenclature PUBLIQUE des livrables (2026-08-18) -----------------------
-# Les identifiants S1/S2/S3 restent la vérité INTERNE du pipeline (scripts,
-# intermédiaires). Tout fichier écrit dans livrables/ traduit à l'écriture :
-# le lecteur d'un CSV livré ne doit jamais rencontrer un sigle que le rapport
-# n'utilise plus. Un seul endroit pour la traduction : ici.
-PUBLIC_IDS = {"S1": "base", "S2": "recommande", "S3": "reference-interne"}
+# --- Correction empirique des courbes courtes (2026-08-24) ------------------
+# L'estimateur ajuste un cercle sur une fenêtre de 900 m : une courbe dont le
+# corps est plus court que la fenêtre est lue plus AMPLE qu'elle n'est (audit de
+# terrain de La Tuque, 2026-08-15 : rayons publiés ~2× le rayon du corps sur des
+# courbes de 310-370 m ; en vitesse, v = k·√R → −30 %). Décision client
+# (remodelage du 24 août) : les chiffres PUBLIÉS incluent une correction
+# forfaitaire, volontairement conservatrice, appliquée en aval du pipeline par
+# l'étape 34 : R' = FACTEUR_CORRECTION_R × R_classif sur tout segment de moins
+# de FENETRE_BIAIS_M limité par une courbe. segments.geojson reste le brut.
+FACTEUR_CORRECTION_R = 0.5      # sur le rayon ; √0,5 ≈ 0,71 sur la vitesse
+FENETRE_BIAIS_M = 900.0         # longueur de la fenêtre d'ajustement (04)
+
+
+# --- Nomenclature PUBLIQUE des livrables (2026-08-24) -----------------------
+# Les identifiants S1/S2/S3 de SCENARIOS restent la vérité INTERNE du pipeline
+# (scripts, intermédiaires). Tout fichier écrit dans livrables/ traduit à
+# l'écriture : le lecteur d'un CSV livré ne doit jamais rencontrer un sigle que
+# le rapport n'utilise plus. Un seul endroit pour la traduction : ici.
+#
+# ⚠⚠ COLLISION DE SIGLES — LIRE AVANT DE TOUCHER. Depuis le remodelage du
+# 24 août, le RAPPORT publie une échelle « scénario 1 / 2 / 3 » (paliers
+# d'AMÉNAGEMENT, voir PALIERS ci-dessous) qui n'a RIEN à voir avec les ids
+# internes S1/S2/S3 de SCENARIOS (jeux de dévers/insuffisance). Les trois
+# scénarios publiés roulent tous sur le MÊME moteur géométrique interne "S2"
+# (pendulaire LRC). Ne JAMAIS renommer les ids internes, ne JAMAIS écrire un
+# sigle interne dans un livrable.
+PUBLIC_IDS = {"S1": "base", "S2": "pendulaire", "S3": "reference-interne"}
 PUBLIC_LABELS = {"base": "Scénario de base (voie et train actuels)",
-                 "recommande": "Scénario recommandé (pendulaire, plafond 177)",
+                 "pendulaire": "Plafond géométrique pendulaire (moteur des scénarios 1 à 3, plafond 177)",
                  "reference-interne": "Référence interne (pendulaire 270 mm, hors rapport)"}
+
+# Paliers d'aménagement PUBLIÉS (l'échelle du rapport, remodelage du 24 août).
+# Chaque palier = un run de l'étape 21 sur le moteur interne "S2", bande 177 :
+#   run : env BLOCS_URBAINS et fichier de segments lus par 21 (SEGMENTS_OVERRIDE)
+PALIERS = {
+    1: {"nom": "Scénario 1 : le train pendulaire",
+        "contenu": "pendulaire + passages à niveau + signalisation + dévers",
+        "moteur": "S2", "blocs_urbains": "figes",
+        "segments": "segments_publies.geojson",
+        "csv": "temps_scenario_1.csv"},
+    2: {"nom": "Scénario 2 : pendulaire + zones urbaines modernisées",
+        "contenu": "scénario 1 + zones urbaines débloquées",
+        "moteur": "S2", "blocs_urbains": "libres",
+        "segments": "segments_publies.geojson",
+        "csv": "temps_scenario_2.csv"},
+    3: {"nom": "Scénario 3 : pendulaire + zones urbaines + courbes corrigées au doublement",
+        "contenu": "scénario 2 + courbes rectifiées aux sections doublées",
+        "moteur": "S2", "blocs_urbains": "libres",
+        "segments": "segments_rectifies.geojson",
+        "csv": "temps_scenario_3.csv"},
+}
 
 
 def public_id(sid: str) -> str:

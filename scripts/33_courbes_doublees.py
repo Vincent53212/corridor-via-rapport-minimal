@@ -23,7 +23,7 @@ Sortie : intermediaires/segments_rectifies.geojson, puis relancer :
 from __future__ import annotations
 import json
 
-from utils import INTERMEDIATES
+from utils import INTERMEDIATES, SEGMENTS_PUBLIES_GEOJSON
 
 RECOUVREMENT_MIN = 0.70
 PLAFOND = 177.0
@@ -32,7 +32,10 @@ PLAFOND = 177.0
 # gonflerait le kilométrage annoncé de la sensibilité (audit 2026-08-17).
 TRONCONS_COEUR = {"MTL-QC", "MTL-Ott", "Ott-TO", "MTL-TO"}
 
-SEGMENTS = INTERMEDIATES / "segments.geojson"
+# Entrée = segments PUBLIÉS (correction des courbes courtes de l'étape 34
+# incluse) : la rectification au doublement part de la géométrie publiée.
+# ORDRE : 34 avant 33.
+SEGMENTS = SEGMENTS_PUBLIES_GEOJSON
 VOIES = INTERMEDIATES / "segments_voies.geojson"
 OUT = INTERMEDIATES / "segments_rectifies.geojson"
 

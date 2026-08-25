@@ -28,6 +28,11 @@ CORRIDOR_GTFS_GEOJSON = INTERMEDIATES / "corridor_gtfs.geojson"
 CORRIDOR_MATCHED_GEOJSON = INTERMEDIATES / "corridor_matched.geojson"
 CURVATURE_PARQUET = INTERMEDIATES / "courbure_points.parquet"
 SEGMENTS_GEOJSON = INTERMEDIATES / "segments.geojson"
+# Segments PUBLIÉS = segments.geojson + correction empirique des courbes courtes
+# (étape 34, facteur calé sur l'audit de terrain de La Tuque). Les scripts qui
+# PUBLIENT (06, 07, 11, 20, 21, 33…) lisent ce fichier ; segments.geojson reste
+# la sortie brute du 05 (le 31 mesure le biais dessus, ne pas le rebrancher).
+SEGMENTS_PUBLIES_GEOJSON = INTERMEDIATES / "segments_publies.geojson"
 
 EARTH_RADIUS_M = 6_371_000.0
 G_ACCEL = 9.81           # m/s²
