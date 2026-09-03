@@ -1,4 +1,8 @@
-"""Étape 24 — Figure : le train contre l'auto, quatre trajets (remodelage 24 août).
+"""Étape 24 — Figures : le train contre l'auto, UNE IMAGE PAR TRAJET (JPEG).
+
+Remodelage du 3 septembre (décision Vincent) : la planche 2×2 était illisible
+une fois réduite à la largeur de la page ; chaque trajet a maintenant sa figure
+pleine largeur, en JPEG : livrables/figure_vs_auto_<trajet>.jpg.
 
 Cinq barres par trajet : l'auto (repère évidé), l'horaire VIA d'aujourd'hui,
 puis les trois scénarios publiés (échelle du rapport, moteur pendulaire interne
@@ -16,12 +20,15 @@ corridor reste un diagnostic de cohabitation, ailleurs dans le rapport.
 Repère ALTO : trait vertical pointillé au temps annoncé (altotrain2026faq ;
 Montréal-Toronto 3 h confirmé par le premier ministre, pmcanada2025alto).
 
-Sortie : livrables/figure_vs_auto.png.
+Sorties : livrables/figure_vs_auto_{montreal_quebec,montreal_toronto,
+          montreal_ottawa,ottawa_toronto}.jpg
 Mise en forme : identite/identite.json (voir scripts/identite.py)."""
+import csv as _csv
+from pathlib import Path as _Path
+
 import matplotlib; matplotlib.use("Agg")
 import matplotlib.pyplot as plt
 from utils import DELIVERABLES
-import identite
 from identite import PAPIER, SCENARIOS, appliquer_rcparams, police_mono, police_titre
 
 appliquer_rcparams(matplotlib)
@@ -35,9 +42,6 @@ def hm(m):
 def pct(m, auto): return int(m / auto * 100 + 0.5)
 
 MARGE = 1.10   # point unique (décision 2026-08-24), voir docstring
-
-import csv as _csv
-from pathlib import Path as _Path
 
 _LIV = _Path(__file__).resolve().parent.parent / "livrables"
 
@@ -68,78 +72,75 @@ ALTO_MIN = {"MTL-QC": 90, "MTL-TO": 180, "MTL-Ott": 60, "Ott-TO": 120}
 
 S1_LBL, S2_LBL, S3_LBL = "Scénario 1", "Scénario 2", "Scénario 3"
 
-def panel(troncon, titre, repere):
-    return (troncon, titre, repere, AUTO_MIN[troncon], [
+def panel(troncon, cle, titre, repere):
+    return (troncon, cle, titre, repere, AUTO_MIN[troncon], [
         ("VIA aujourd'hui", _horaire(troncon)),
         (S1_LBL, _pt(_T1, troncon)),
         (S2_LBL, _pt(_T2, troncon)),
         (S3_LBL, _pt(_T3, troncon))])
 
 DATA = [
- panel("MTL-QC",  "Montréal-Québec",  "auto ≈ 2 h 50, approx."),
- panel("MTL-TO",  "Montréal-Toronto", "auto ≈ 5 h 30, approx."),
- panel("MTL-Ott", "Montréal-Ottawa",  "auto ≈ 2 h 20, approx."),
- panel("Ott-TO",  "Ottawa-Toronto",   "auto ≈ 4 h 20, approx."),
+ panel("MTL-QC",  "montreal_quebec",  "Montréal-Québec",  "auto ≈ 2 h 50, approx."),
+ panel("MTL-TO",  "montreal_toronto", "Montréal-Toronto", "auto ≈ 5 h 30, approx."),
+ panel("MTL-Ott", "montreal_ottawa",  "Montréal-Ottawa",  "auto ≈ 2 h 20, approx."),
+ panel("Ott-TO",  "ottawa_toronto",   "Ottawa-Toronto",   "auto ≈ 4 h 20, approx."),
 ]
 COLS = {"auto": SCENARIOS["auto"], "VIA aujourd'hui": SCENARIOS["actuel"],
         S1_LBL: SCENARIOS["S1"], S2_LBL: SCENARIOS["S2"], S3_LBL: SCENARIOS["S3"]}
 
-fig, axes = plt.subplots(2, 2, figsize=(11, 7.6), dpi=300)
-for ax, (troncon, title, repere, auto, rows) in zip(axes.flat, DATA):
+# Une figure par trajet : 7,4 po de large (la justification de la page est
+# 6,8 po), 250 dpi, JPEG. Les corps de texte sont dimensionnés pour cette
+# largeur d'impression, pas pour une planche réduite.
+for troncon, cle, title, repere, auto, rows in DATA:
+    fig, ax = plt.subplots(figsize=(7.4, 3.55), dpi=250)
     labels = ["Auto"] + [r[0] for r in rows]
     vals = [auto] + [v for _, v in rows]
     cols = [COLS["auto"]] + [COLS[r[0]] for r in rows]
-    y = range(len(labels))[::-1]
+    y = list(range(len(labels)))[::-1]
     # L'auto est un REPÈRE, pas une mesure de l'étude : sa barre est évidée.
-    ax.barh(list(y)[:1], vals[:1], height=0.58, facecolor="none",
-            edgecolor=COLS["auto"], linewidth=1.3)
-    ax.barh(list(y)[1:], vals[1:], color=cols[1:], height=0.58)
-    for yi, (lab, v) in zip(y, zip(labels, vals)):
-        if lab == "Auto":
-            txt = hm(v) + "  (repère)"
-        else:
-            txt = hm(v) + f"  ({pct(v, auto)} % de l'auto)"
-        ax.text(v + 7, yi, txt, va="center", fontsize=7.6,
+    ax.barh(y[:1], vals[:1], height=0.62, facecolor="none",
+            edgecolor=COLS["auto"], linewidth=1.5)
+    ax.barh(y[1:], vals[1:], color=cols[1:], height=0.62)
+    for yi, lab, v in zip(y, labels, vals):
+        txt = hm(v) + ("  (repère)" if lab == "Auto" else f"  ({pct(v, auto)} % de l'auto)")
+        ax.text(v + max(vals) * 0.012, yi, txt, va="center", fontsize=9.4,
                 color=PAPIER["encre_douce"], **police_mono())
     # Repère ALTO : trait pointillé vertical au temps annoncé par le promoteur.
     alto = ALTO_MIN[troncon]
-    ax.axvline(alto, color=PAPIER["encre_pale"], lw=1.0, ls=(0, (4, 3)),
-               zorder=1)
-    ax.text(alto, max(y) + 0.78, f"ALTO annoncé ~{hm(alto)}", ha="center",
-            fontsize=6.8, color=PAPIER["encre_pale"], zorder=3,
-            bbox=dict(facecolor=PAPIER["fond"], edgecolor="none", pad=1.2),
+    ax.axvline(alto, color=PAPIER["encre_pale"], lw=1.1, ls=(0, (4, 3)), zorder=1)
+    ax.text(alto, max(y) + 0.82, f"ALTO annoncé ~{hm(alto)}", ha="center",
+            fontsize=8.4, color=PAPIER["encre_pale"], zorder=3,
+            bbox=dict(facecolor=PAPIER["fond"], edgecolor="none", pad=1.4),
             **police_mono())
-    ax.set_yticks(list(y))
-    ax.set_yticklabels(labels, fontsize=7.8, color=PAPIER["encre_douce"],
+    ax.set_yticks(y)
+    ax.set_yticklabels(labels, fontsize=9.6, color=PAPIER["encre_douce"],
                        **police_mono())
-    ax.tick_params(axis="y", length=0, pad=6)
-    ax.set_xlim(0, max(vals) * 2.05)
-    ax.set_ylim(-0.6, max(y) + 1.25)
+    ax.tick_params(axis="y", length=0, pad=7)
+    ax.set_xlim(0, max(vals) * 1.62)
+    ax.set_ylim(-0.6, max(y) + 1.3)
     ax.set_xticks([])
-    ax.set_title(title, fontsize=11, loc="left", color=PAPIER["encre"],
-                 pad=15, **police_titre(600))
-    ax.text(0, 1.015, repere, transform=ax.transAxes, fontsize=7.2,
-            color=PAPIER["encre_pale"], **police_mono())
     for s in ax.spines.values(): s.set_visible(False)
-fig.tight_layout(rect=(0, 0.065, 1, 0.885))
-fig.text(0.008, 0.978, "Le train contre l'auto : temps de parcours, marge de 10 % incluse",
-         fontsize=12.5, ha="left", va="top", color=PAPIER["encre"],
-         **police_titre(600))
-fig.text(0.008, 0.922,
-         "Scénario 1 : train pendulaire · 2 : + zones urbaines modernisées · "
-         "3 : + courbes corrigées au doublement",
-         fontsize=7.6, ha="left", va="top", color=PAPIER["encre_pale"],
-         **police_mono())
-fig.text(0.008, 0.012,
-         "Marge de 10 % sur le temps de base : légèrement au-dessus de la médiane des "
-         "règles publiées (8 %) et alignée sur le référent britannique. Repère ALTO : "
-         "temps annoncés par le promoteur (le 3 h Montréal-Toronto est un engagement "
-         "gouvernemental).",
-         fontsize=7.0, ha="left", va="bottom", color=PAPIER["encre_pale"],
-         **police_mono())
-fig.savefig(DELIVERABLES / "figure_vs_auto.png", bbox_inches="tight",
-            facecolor=PAPIER["fond"])
-print("Écrit figure_vs_auto.png")
-for troncon, title, _, auto, rows in DATA:
+
+    fig.tight_layout(rect=(0, 0.075, 1, 0.845))
+    fig.text(0.008, 0.985, f"{title} : le train contre l'auto, marge de 10 % incluse",
+             fontsize=13.5, ha="left", va="top", color=PAPIER["encre"],
+             **police_titre(600))
+    fig.text(0.008, 0.905,
+             f"{repere}  ·  Scénario 1 : train pendulaire · 2 : + zones urbaines "
+             "modernisées · 3 : + courbes corrigées au doublement",
+             fontsize=8.0, ha="left", va="top", color=PAPIER["encre_pale"],
+             **police_mono())
+    fig.text(0.008, 0.012,
+             "Marge de 10 % sur le temps de base (médiane des règles publiées : 8 % ; "
+             "référent britannique : 10 %). Repère ALTO : temps annoncé par le promoteur.",
+             fontsize=7.6, ha="left", va="bottom", color=PAPIER["encre_pale"],
+             **police_mono())
+    out = DELIVERABLES / f"figure_vs_auto_{cle}.jpg"
+    fig.savefig(out, bbox_inches="tight", facecolor=PAPIER["fond"],
+                format="jpg", pil_kwargs={"quality": 92})
+    plt.close(fig)
+    print(f"Écrit {out.name}")
+
+for troncon, _cle, title, _, auto, rows in DATA:
     ligne = " · ".join(f"{lab} {hm(v)} ({pct(v, auto)} %)" for lab, v in rows)
     print(f"  {title:<18} auto {hm(auto)} · {ligne} · ALTO {hm(ALTO_MIN[troncon])}")

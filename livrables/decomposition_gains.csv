@@ -1,32 +1,26 @@
 ﻿trajet;poste;minutes;part_pct_du_gain;source
-Québec-Toronto (via Montréal);temps_scenario_3_avec_marge;370.0;;temps_scenario_3.csv
-Québec-Toronto (via Montréal);gain_releve_plafond;30.0;18.7;temps_scenario_1.csv
-Québec-Toronto (via Montréal);gain_pendulaire;38.2;23.8;temps_scenario_1.csv
-Québec-Toronto (via Montréal);gain_zones_urbaines;42.6;26.5;temps_scenario_2.csv (C1 − C2)
-Québec-Toronto (via Montréal);gain_courbes_au_doublement;19.7;12.3;temps_scenario_3.csv (C2 − C3)
-Québec-Toronto (via Montréal);gain_doublement;22.1;13.8;marges_2x2_synthese.csv + marges_par_intergare.csv
-Québec-Toronto (via Montréal);gain_cohabitation;7.9;4.9;résidu (H − C1 − autres parts)
+Québec-Toronto (via Montréal);temps_scenario_2_avec_marge;389.7;;temps_scenario_2.csv (pendulaire, 201) × 1,10
+Québec-Toronto (via Montréal);gain_cohabitation;21.1;15.0;"H − temps_scenario_1.csv (base, 153) × 1,10 ; doublement et régime réunis"
+Québec-Toronto (via Montréal);gain_pendulaire;29.2;20.7;temps_scenario_1.csv (base − pendulaire, 153) × 1,10
+Québec-Toronto (via Montréal);gain_zones_urbaines;43.9;31.2;temps_scenario_1.csv − temps_scenario_2.csv (pendulaire, 153) × 1,10
+Québec-Toronto (via Montréal);gain_changement_classe;46.6;33.1;temps_scenario_2.csv (pendulaire, 153 − 201) × 1,10 : passages à niveau et signalisation
+Québec-Toronto (via Montréal);info_cohabitation_dont_doublement;21.1;;"part de la cohabitation que le doublement rachète : (médiane simple-CN − médiane double-CN) × Σ T_base des paires simple-CN (marges_2x2_synthese.csv, marges_par_intergare.csv) ; le reste est l'objet de l'étude de circulation"
 Québec-Toronto (via Montréal);controle_horaire_actuel_H;530.5;;temps_scenario_1.csv (médiane GTFS)
-Québec-Toronto (via Montréal);controle_gain_total_G;160.5;;"H − C3 ; somme des parts = G par construction"
-Québec-Toronto (via Montréal);controle_ecart_ordres_shapley;9.8;;écart |plafond d'abord − pendulaire d'abord|
-Québec-Montréal;temps_scenario_3_avec_marge;116.1;;temps_scenario_3.csv
-Québec-Montréal;gain_releve_plafond;7.0;8.1;temps_scenario_1.csv
-Québec-Montréal;gain_pendulaire;16.5;19.1;temps_scenario_1.csv
-Québec-Montréal;gain_zones_urbaines;19.6;22.6;temps_scenario_2.csv (C1 − C2)
-Québec-Montréal;gain_courbes_au_doublement;19.7;22.8;temps_scenario_3.csv (C2 − C3)
-Québec-Montréal;gain_doublement;22.1;25.6;marges_2x2_synthese.csv + marges_par_intergare.csv
-Québec-Montréal;gain_cohabitation;1.5;1.8;résidu (H − C1 − autres parts)
+Québec-Toronto (via Montréal);controle_gain_total_G;140.8;;"H − C ; somme des quatre parts = G par construction"
+Québec-Montréal;temps_scenario_2_avec_marge;135.7;;temps_scenario_2.csv (pendulaire, 201) × 1,10
+Québec-Montréal;gain_cohabitation;20.3;30.5;"H − temps_scenario_1.csv (base, 153) × 1,10 ; doublement et régime réunis"
+Québec-Montréal;gain_pendulaire;12.7;18.9;temps_scenario_1.csv (base − pendulaire, 153) × 1,10
+Québec-Montréal;gain_zones_urbaines;21.9;32.8;temps_scenario_1.csv − temps_scenario_2.csv (pendulaire, 153) × 1,10
+Québec-Montréal;gain_changement_classe;11.9;17.8;temps_scenario_2.csv (pendulaire, 153 − 201) × 1,10 : passages à niveau et signalisation
+Québec-Montréal;info_cohabitation_dont_doublement;20.3;;"part de la cohabitation que le doublement rachète : (médiane simple-CN − médiane double-CN) × Σ T_base des paires simple-CN (marges_2x2_synthese.csv, marges_par_intergare.csv) ; le reste est l'objet de l'étude de circulation"
 Québec-Montréal;controle_horaire_actuel_H;202.5;;temps_scenario_1.csv (médiane GTFS)
-Québec-Montréal;controle_gain_total_G;86.4;;"H − C3 ; somme des parts = G par construction"
-Québec-Montréal;controle_ecart_ordres_shapley;3.4;;écart |plafond d'abord − pendulaire d'abord|
-Montréal-Ottawa;temps_scenario_3_avec_marge;82.6;;temps_scenario_3.csv
-Montréal-Ottawa;gain_releve_plafond;2.4;6.0;temps_scenario_1.csv
-Montréal-Ottawa;gain_pendulaire;9.9;25.3;temps_scenario_1.csv
-Montréal-Ottawa;gain_zones_urbaines;15.7;39.9;temps_scenario_2.csv (C1 − C2)
-Montréal-Ottawa;gain_courbes_au_doublement;11.3;28.8;temps_scenario_3.csv (C2 − C3)
-Montréal-Ottawa;gain_doublement;0.0;0.0;marges_2x2_synthese.csv + marges_par_intergare.csv
-Montréal-Ottawa;gain_cohabitation;0.0;0.0;résidu (H − C1 − autres parts)
+Québec-Montréal;controle_gain_total_G;66.8;;"H − C ; somme des quatre parts = G par construction"
+Montréal-Ottawa;temps_scenario_2_avec_marge;93.9;;temps_scenario_2.csv (pendulaire, 201) × 1,10
+Montréal-Ottawa;gain_cohabitation;0.0;0.0;"H − temps_scenario_1.csv (base, 153) × 1,10 ; doublement et régime réunis"
+Montréal-Ottawa;gain_pendulaire;9.5;33.9;temps_scenario_1.csv (base − pendulaire, 153) × 1,10
+Montréal-Ottawa;gain_zones_urbaines;13.2;47.1;temps_scenario_1.csv − temps_scenario_2.csv (pendulaire, 153) × 1,10
+Montréal-Ottawa;gain_changement_classe;5.3;19.0;temps_scenario_2.csv (pendulaire, 153 − 201) × 1,10 : passages à niveau et signalisation
+Montréal-Ottawa;info_cohabitation_dont_doublement;0.0;;"part de la cohabitation que le doublement rachète : (médiane simple-CN − médiane double-CN) × Σ T_base des paires simple-CN (marges_2x2_synthese.csv, marges_par_intergare.csv) ; le reste est l'objet de l'étude de circulation"
 Montréal-Ottawa;controle_horaire_actuel_H;122.0;;temps_scenario_1.csv (médiane GTFS)
-Montréal-Ottawa;controle_gain_total_G;39.4;;"H − C3 ; somme des parts = G par construction"
-Montréal-Ottawa;controle_ecart_ordres_shapley;1.0;;écart |plafond d'abord − pendulaire d'abord|
-Montréal-Ottawa;info_marge_normative_excedentaire;3.6;;l'horaire actuel porte moins de 10 % de marge : la marge normative absorbe cette part du gain pendulaire (attribution plafond+pendulaire réduite d'autant)
+Montréal-Ottawa;controle_gain_total_G;28.1;;"H − C ; somme des quatre parts = G par construction"
+Montréal-Ottawa;info_marge_normative_excedentaire;4.4;;l'horaire actuel porte moins de 10 % de marge : la cohabitation est nulle et les trois autres parts sont réduites au prorata d'autant

@@ -31,9 +31,8 @@ jusqu'à Brockville (110,0 km) puis CN ; MTL-QC et MTL-TO = CN.
 
 Exclusions (nœuds contaminants, plan v3) :
   - toute paire couverte par un bloc urbain figé (Montréal↔Saint-Lambert,
-    Montréal↔Dorval, Guildwood↔Toronto, Sainte-Foy↔Québec) ;
-  - paires adjacentes aux ponts : Saint-Lambert↔Saint-Hyacinthe (pont Victoria),
-    Charny↔Sainte-Foy (pont de Québec) ;
+    Montréal↔Dorval, Guildwood↔Toronto, Charny↔Sainte-Foy↔Québec) ;
+  - paire adjacente au pont Victoria : Saint-Lambert↔Saint-Hyacinthe ;
   - les paires touchant Ottawa sont GARDÉES mais étiquetées (l'approche urbaine
     ±10 km est incluse dans la paire — biais à la hausse sur la marge, dit).
 
@@ -131,8 +130,8 @@ EXCLUDED_PAIRS = {
     ("Ott-TO", "Ottawa", "Fallowfield"): "bloc urbain (approche d'Ottawa)",
     ("MTL-QC", "Montréal", "Saint-Lambert"): "bloc urbain (pont Victoria)",
     ("MTL-QC", "Saint-Lambert", "Saint-Hyacinthe"): "adjacente au pont Victoria",
-    ("MTL-QC", "Charny", "Sainte-Foy"): "adjacente au pont de Québec",
-    ("MTL-QC", "Sainte-Foy", "Québec"): "bloc urbain (pont de Québec)",
+    ("MTL-QC", "Charny", "Sainte-Foy"): "bloc urbain (pont de Québec)",
+    ("MTL-QC", "Sainte-Foy", "Québec"): "bloc urbain (gare du Palais)",
     ("MTL-Ott", "Montréal", "Dorval"): "bloc urbain",
     ("MTL-TO", "Montréal", "Dorval"): "bloc urbain",
     ("Ott-TO", "Guildwood", "Toronto"): "bloc urbain",

@@ -59,7 +59,7 @@ LABELS = {
     "segments_courbature.csv": "Segments de courbure",
     "km_restants_sous_grande_vitesse.csv": "Kilomètres restants sous grande vitesse",
     "sites_restants_sous_grande_vitesse.csv": "Sites restants, un par un",
-    "decomposition_gains.csv": "D'où viennent les minutes",
+    "decomposition_gains.csv": "Facteurs de réduction des temps de parcours",
     "synthese_troncon.csv": "Synthèse par tronçon",
     "scenarios_parametres.csv": "Paramètres des scénarios",
     "temps_scenario_1.csv": "Temps, scénario 1 (le train pendulaire)",
@@ -393,9 +393,8 @@ def lire_gains() -> dict[str, float]:
 def sections(pub: dict) -> list[dict]:
     """Le fil : une entrée par section du rapport, dans le même ordre et avec
     les mêmes clés, pour que le lecteur passe de l'un à l'autre sans se perdre."""
-    GAIN_POSTES = ["gain_releve_plafond", "gain_pendulaire",
-                   "gain_zones_urbaines", "gain_courbes_au_doublement",
-                   "gain_doublement", "gain_cohabitation"]
+    GAIN_POSTES = ["gain_cohabitation", "gain_pendulaire",
+                   "gain_zones_urbaines", "gain_changement_classe"]
     return [
         {
             "cle": "01 · L'essentiel", "titre": "L'essentiel",
@@ -520,8 +519,8 @@ def sections(pub: dict) -> list[dict]:
                    "marge de 10 %, légèrement plus prudente que la médiane des "
                    "règles internationales et alignée sur le référent britannique. La "
                    "figure des gains attribue l'écart avec l'horaire actuel à ses "
-                   "leviers : le train, les zones urbaines, les courbes, les voies, le "
-                   "régime.",
+                   "quatre facteurs : la cohabitation (régime et doublement), le train "
+                   "pendulaire, les zones urbaines, le changement de classe.",
             "chiffres": [
                 {"v": "4 h 27", "l": "Montréal-Toronto, scénario 1"},
                 {"v": "4 h 04", "l": "Montréal-Toronto, scénarios 2 et 3"},

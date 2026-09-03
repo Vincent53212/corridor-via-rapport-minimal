@@ -46,7 +46,10 @@ Délimitation des blocs urbains (à documenter au rapport) :
   - Toronto : Union ↔ Guildwood (20,2 km), minutes = médiane GTFS. (Le plan v3
     évoquait « Guildwood/Oshawa » ; Guildwood retenu = borne courte, l'inclusion
     jusqu'à Oshawa est couverte par la sensibilité ±20 %.)
-  - Québec : Sainte-Foy ↔ Québec (19,9 km, inclut le pont de Québec), médiane GTFS.
+  - Québec : Charny ↔ Québec, gare du Palais (24,8 km, inclut le pont de Québec et
+    l'arrêt de Sainte-Foy), médiane GTFS. Borne Charny retenue le 2026-09-03 (décision
+    Vincent) par symétrie avec Montréal : les deux grands ponts sont dans les blocs
+    urbains, figés à l'horaire, jamais roulés à la vitesse de leur courbure.
   - Ottawa : PAS de gare d'approche proche (Casselman à 47 km, Smiths Falls à
     65 km) → fenêtre kilométrique HYPOTHÈSE de ±10 km autour de la gare, traversée
     au plafond S1 borné par la bande (règle « aucun gain en urbain »), pas de
@@ -109,7 +112,7 @@ OUT_BLOCS = DELIVERABLES / f"blocs_urbains{_SUF}.csv"
 if _OVERRIDE or _BLOCS_LIBRES:
     print(f"VARIANTE : segments lus dans {SEGMENTS}, sortie {OUT_TBASE.name}")
 
-BANDES_KMH = [160, 177, 201, 241, 250, 300]
+BANDES_KMH = [153, 160, 177, 201, 241, 250, 300]   # 153 = classe actuelle (95 mi/h), lue par le 32
 # 241 (150 mi/h) = sensibilité « zéro passage à niveau » : plafond prouvé du
 # NEC d'Amtrak (ACSES + cab signals, fra2010ptc) une fois le mur des passages
 # levé. Même rame pendulaire de référence (12 W/kg) : lecture conservatrice.
@@ -128,14 +131,14 @@ TRAIN_A = {"S1": (0.5, 0.5), "S2": (0.6, 0.6), "S3": (0.6, 0.6)}
 def train_pm(scenario: str, bande: float) -> float:
     if scenario == "S1":
         return 8.0
-    return {160: 12.0, 177: 12.0, 201: 12.0, 241: 12.0, 250: 18.0,
+    return {153: 12.0, 160: 12.0, 177: 12.0, 201: 12.0, 241: 12.0, 250: 18.0,
             300: 22.0}[int(bande)]
 
 # Blocs urbains ancrés sur des paires de gares GTFS : (tronçon, stop_id A, stop_id B,
 # nom, km_debut, km_fin). km relevés dans corridor_gtfs.geojson.
 URBAN_GTFS_BLOCKS = [
     ("MTL-QC",  "226", "343", "Montréal Central ↔ Saint-Lambert (pont Victoria)", 0.0, 6.11),
-    ("MTL-QC",  "629", "628", "Sainte-Foy ↔ Québec (pont de Québec)",             249.98, 269.85),
+    ("MTL-QC",  "492", "628", "Charny ↔ Québec (pont de Québec, gare du Palais)",  245.04, 269.85),
     ("MTL-Ott", "226", "332", "Montréal Central ↔ Dorval",                        0.0, 17.79),
     ("Ott-TO",  "450", "119", "Guildwood ↔ Toronto Union",                        423.93, 444.05),
     ("MTL-TO",  "226", "332", "Montréal Central ↔ Dorval",                        0.0, 17.79),

@@ -77,6 +77,7 @@ python scripts/22_marges_2x2.py             # médianes du 2×2 (lues par la fig
 python scripts/23_figure_cellules.py        # figure : le 2×2 du corridor
 python scripts/24_figure_vs_auto.py         # figure : le train contre l'auto (4 trajets)
 python scripts/32_figure_gains.py           # figure : d'où viennent les minutes
+python scripts/35_figure_zoom_urbain.py     # figures : gros plans des blocs urbains Montréal / Québec
 python scripts/28_couverture.py             # couverture + vignette du visualiseur
 python scripts/29_rapport_html.py           # rapport.md → HTML à l'identité
 node   scripts/30_rapport_pdf.mjs           # HTML → PDF paginé (sommaire à folios réels)

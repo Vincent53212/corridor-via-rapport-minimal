@@ -219,7 +219,8 @@ def images_en_ligne(html: str) -> str:
         if not chemin.exists():
             sys.exit(f"image introuvable : {src}")
         b64 = base64.b64encode(chemin.read_bytes()).decode("ascii")
-        return m.group(0).replace(src, f"data:image/png;base64,{b64}")
+        mime = "image/jpeg" if chemin.suffix.lower() in (".jpg", ".jpeg") else "image/png"
+        return m.group(0).replace(src, f"data:{mime};base64,{b64}")
     return re.sub(r'<img src="([^"]+)"', repl, html)
 
 

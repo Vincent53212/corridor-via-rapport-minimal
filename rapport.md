@@ -1,7 +1,7 @@
 ---
 title: "Corridor Québec-Toronto : ce que la voie existante permet"
 subtitle: "Trois scénarios de modernisation sur la voie actuelle : temps de parcours, conditions, et mise en regard avec le projet ALTO"
-author: "Étude préparée pour Vision Transport (François Rebello) par Vincent Duguay"
+author: "Étude préparée pour Vision Transport par Vincent Duguay"
 date: "Août 2026"
 lang: fr-CA
 bibliography: sources/refs.bib
@@ -22,20 +22,26 @@ Les temps de parcours et la vitesse moyenne qui en résulte :
 
   | Trajet | Aujourd’hui | Scénario 1 | Scénario 2 | Scénario 3 | ALTO annoncé |
 |---|---|---|---|---|---|
-| Montréal-Québec (270 km) | 3 h 22 (80 km/h) | 2 h 35 (104 km/h) | 2 h 16 (119 km/h) | 1 h 56 (140 km/h) | ~1 h 30 |
+| Montréal-Québec (270 km) | 3 h 22 (80 km/h) | 2 h 38 (103 km/h) | 2 h 16 (119 km/h) | 1 h 56 (140 km/h) | ~1 h 30 |
 | Montréal-Ottawa (185 km) | 2 h 02 (91 km/h) | 1 h 50 (101 km/h) | 1 h 34 (118 km/h) | 1 h 23 (134 km/h) | ~1 h |
 | Ottawa-Toronto (442 km) | 4 h 35 (96 km/h) | 3 h 43 (119 km/h) | 3 h 34 (124 km/h) | 3 h 29 (127 km/h) | ~2 h |
 | Montréal-Toronto (536 km) | 5 h 18 (101 km/h) | 4 h 27 (120 km/h) | 4 h 04 (132 km/h) | 4 h 04 (132 km/h) | 3 h |
 
 Entre parenthèses : la vitesse commerciale moyenne, c’est-à-dire la distance divisée par le temps de parcours complet, arrêts et marge (voir section 4) compris. Les temps du projet ALTO viennent du promoteur [@altotrain2026faq] ; le 3 h Montréal-Toronto est d’ailleurs un engagement du gouvernement [@pmcanada2025alto].
 
-De bout en bout, Québec-Toronto via Montréal passerait de 8 h 50 aujourd’hui (106 % du temps auto) à 7 h 12 au scénario 1 (86 % du temps auto) et 6 h 10 au scénario 3 (74 % du temps auto), contre environ 4 h 30 pour le projet ALTO (54 % du temps auto).
+De bout en bout, Québec-Toronto via Montréal passerait de 8 h 50 aujourd’hui (106 % du temps auto) à 7 h 15 au scénario 1 (87 % du temps auto) et 6 h 10 au scénario 3 (74 % du temps auto), contre environ 4 h 30 pour le projet ALTO (54 % du temps auto).
 
-![Le train contre l’auto, pour les quatre trajets. Chaque barre de scénario est un temps calculé selon la méthode de la section 5. Le trait pointillé est le temps annoncé par ALTO. Temps auto : estimation à partir de la cartographie routière grand public (Google Maps), approximative.](livrables/figure_vs_auto.png)
+![Montréal-Québec : le train contre l’auto. Chaque barre de scénario est un temps calculé selon la méthode de la section 5. Le trait pointillé est le temps annoncé par ALTO. Temps auto : estimation à partir de la cartographie routière grand public (Google Maps), approximative.](livrables/figure_vs_auto_montreal_quebec.jpg)
+
+![Montréal-Toronto : le train contre l’auto. Mêmes conventions.](livrables/figure_vs_auto_montreal_toronto.jpg)
+
+![Montréal-Ottawa : le train contre l’auto. Mêmes conventions.](livrables/figure_vs_auto_montreal_ottawa.jpg)
+
+![Ottawa-Toronto : le train contre l’auto. Mêmes conventions.](livrables/figure_vs_auto_ottawa_toronto.jpg)
 
 **Ce que la table dit.** Aujourd’hui, le train fait à peu près jeu égal avec l’auto sur Montréal-Toronto et la perd nettement sur Montréal-Québec. Dès le scénario 1 (train pendulaire et dévers de 5 po dans les courbes), le train bat l’auto sur les quatre trajets. Au scénario 3, il la bat de 20 à 41 %, selon le segment. La modernisation n’égale pas ALTO, et ce n’est pas son rôle : la voie existante offre un train compétitif avec la route, pour une fraction de l’effort, du temps et du coût, sans pour autant atteindre des temps de trajet de niveau TGV.
 
-![D’où viennent les minutes gagnées, trajet par trajet. La barre pleine, incluant les parties colorées, est l’horaire actuel. Le segment sans couleur est le temps du scénario 3 (train pendulaire, dévers de 5 po, signalisation et passages modernisés, rectification des courbes doublées, gains urbains inclus). Chaque tranche attribue une part du gain de temps à un levier.](livrables/figure_gains.png)
+![Facteurs de réduction des temps de parcours, trajet par trajet. La barre pleine, incluant les parties colorées, est l’horaire actuel. Le segment sans couleur est le temps du scénario 2 (train pendulaire, dévers de 5 po, zones urbaines modernisées, sans correction de courbes). Quatre facteurs se partagent le gain : la cohabitation, qui réunit le régime de circulation avec le fret et le doublement des voies ; le train pendulaire et les zones urbaines, comptés sous la classe de voie actuelle (153 km/h, 95 mi/h) ; et le changement de classe, soit ce que ces facteurs rapportent en plus une fois le plafond porté à 201 km/h grâce aux passages à niveau sécurisés et à la signalisation.](livrables/figure_gains.png)
 
 **Cinq constats.**
 
@@ -144,7 +150,7 @@ La marge réelle de chaque trajet, elle, se lit directement : c’est l’écart
 
   | Trajet | Horaire actuel | Temps de base, train actuel | Marge réelle |
 |---|---|---|---|
-| Montréal-Québec | 3 h 22 | 2 h 43 | 24 % (40 min) |
+| Montréal-Québec | 3 h 22 | 2 h 44 | 24 % (39 min) |
 | Montréal-Ottawa | 2 h 02 | 1 h 54 | 7 % (8 min) |
 | Ottawa-Toronto | 4 h 35 | 3 h 57 | 16 % (38 min) |
 | Montréal-Toronto | 5 h 18 | 4 h 43 | 12 % (35 min) |
@@ -204,15 +210,15 @@ La conception par site, les fiches de traction des constructeurs, les pentes, la
 
   | Tronçon | Horaire actuel | Scénario 1 | Scénario 2 | Scénario 3 | ALTO annoncé |
 |---|---|---|---|---|---|
-| Montréal-Québec | 3 h 22 | 2 h 35 | 2 h 16 | 1 h 56 | ~1 h 30 |
+| Montréal-Québec | 3 h 22 | 2 h 38 | 2 h 16 | 1 h 56 | ~1 h 30 |
 | Montréal-Ottawa | 2 h 02 | 1 h 50 | 1 h 34 | 1 h 23 | ~1 h |
 | Ottawa-Toronto | 4 h 35 | 3 h 43 | 3 h 34 | 3 h 29 | ~2 h |
 | Montréal-Toronto | 5 h 18 | 4 h 27 | 4 h 04 | 4 h 04 | 3 h |
-| Québec-Toronto via Montréal (arrêt de 10 min) | 8 h 50 | 7 h 12 | 6 h 30 | 6 h 10 | ~4 h 30 |
+| Québec-Toronto via Montréal (arrêt de 10 min) | 8 h 50 | 7 h 15 | 6 h 30 | 6 h 10 | ~4 h 30 |
 
 Le trajet Québec-Toronto additionne Québec-Montréal et Montréal-Toronto, plus dix minutes d’arrêt à Montréal (hypothèse déclarée). Les temps de base sans marge et la méthode d’attribution des tranches de la figure des gains sont dans l’annexe numérique (`temps_scenario_1.csv`, `decomposition_gains.csv`).
 
-**Sensibilités.** La délimitation des zones urbaines varie de ±20 % : effet de ±4 à ±8 minutes sur les temps avant marge du scénario 1. La rame actuelle de VIA (une locomotive Charger et cinq voitures Venture) porte 8,4 W de puissance nominale par kilogramme de rame à vide ; le modèle arrondit à 8 [@viarail2024corridor; @siemens2024chargerwsdot; @wikipedia2026charger; @wikipedia2026venture]. Le train pendulaire de référence retient 12 W/kg, une valeur encadrée par les pendulaires en service : 10,9 pour l’ICE T allemand [@db2019icet411; @austriaforum2026icet], 11,1 pour le Pendolino de la West Coast Main Line, notre analogue le plus proche [@wikipedia2026class390], et 13,1 pour l’ETR 610 [@alstom2005pendolino; @wikipedia2026newpendolino]. Deux réserves : la masse des voitures Venture vient d’une source secondaire (corroborée à 1 % près par la fiche officielle de la locomotive), et la puissance nominale n’est pas celle disponible au rail : un train moins puissant ajouterait 3 à 5 minutes par tronçon. Les conventions de calcul sont au registre des sources.
+**Sensibilités.** La délimitation des zones urbaines varie de ±20 % : effet de ±5 à ±9 minutes sur les temps avant marge du scénario 1. La rame actuelle de VIA (une locomotive Charger et cinq voitures Venture) porte 8,4 W de puissance nominale par kilogramme de rame à vide ; le modèle arrondit à 8 [@viarail2024corridor; @siemens2024chargerwsdot; @wikipedia2026charger; @wikipedia2026venture]. Le train pendulaire de référence retient 12 W/kg, une valeur encadrée par les pendulaires en service : 10,9 pour l’ICE T allemand [@db2019icet411; @austriaforum2026icet], 11,1 pour le Pendolino de la West Coast Main Line, notre analogue le plus proche [@wikipedia2026class390], et 13,1 pour l’ETR 610 [@alstom2005pendolino; @wikipedia2026newpendolino]. Deux réserves : la masse des voitures Venture vient d’une source secondaire (corroborée à 1 % près par la fiche officielle de la locomotive), et la puissance nominale n’est pas celle disponible au rail : un train moins puissant ajouterait 3 à 5 minutes par tronçon. Les conventions de calcul sont au registre des sources.
 
 # Et si on enlevait tous les passages à niveau?
 

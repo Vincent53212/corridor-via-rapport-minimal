@@ -3,8 +3,8 @@ MTL-QC;coeur;Montréal;Saint-Lambert;0.0;6.11;6.1;double-CN;16;84;13.0;16;3.8;24
 MTL-QC;coeur;Saint-Lambert;Saint-Hyacinthe;6.11;53.24;47.1;double-CN;0;100;26.0;14;19.1;36.1;14.6;1.0;3.8;;adjacente au pont Victoria;
 MTL-QC;coeur;Saint-Hyacinthe;Drummondville;53.24;100.01;46.8;simple-CN;92;8;30.5;14;18.4;65.4;25.8;8.0;26.2;;;
 MTL-QC;coeur;Drummondville;Charny;100.01;245.04;145.0;simple-CN;100;0;97.0;7;62.9;54.2;23.5;16.0;16.5;;;
-MTL-QC;coeur;Charny;Sainte-Foy;245.04;249.98;4.9;simple-CN;100;0;6.0;7;3.6;65.1;47.9;0.0;0.0;;adjacente au pont de Québec;
-MTL-QC;coeur;Sainte-Foy;Québec;249.98;269.85;19.9;mixte;65;35;25.0;14;12.2;105.7;64.7;0.0;0.0;;bloc urbain (pont de Québec);
+MTL-QC;coeur;Charny;Sainte-Foy;245.04;249.98;4.9;simple-CN;100;0;6.0;7;3.6;65.1;47.9;0.0;0.0;;bloc urbain (pont de Québec);
+MTL-QC;coeur;Sainte-Foy;Québec;249.98;269.85;19.9;mixte;65;35;25.0;14;12.2;105.7;64.7;0.0;0.0;;bloc urbain (gare du Palais);
 MTL-Ott;coeur;Montréal;Dorval;0.0;17.79;17.8;double-CN;21;79;23.5;26;8.3;181.4;85.2;2.0;8.5;;bloc urbain;
 MTL-Ott;coeur;Dorval;Coteau;17.79;62.28;44.5;double-CN;0;100;23.0;7;17.8;29.3;11.7;2.0;8.7;;;
 MTL-Ott;coeur;Coteau;Alexandria;62.28;99.43;37.2;simple-VIA;98;2;21.0;7;16.3;28.6;12.6;0.0;0.0;;;
