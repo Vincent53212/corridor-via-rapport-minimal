@@ -1,0 +1,7 @@
+﻿troncon;bloc;km_debut;km_fin;longueur_km;n_arrets_internes;minutes_gtfs;profil_actuel_153_min;profil_pendulaire_153_min;profil_pendulaire_201_min;gain_total_min;gain_cohabitation_min;gain_courbes_min;gain_signalisation_pn_min;info_marge_normative_excedentaire_min
+MTL-QC;Montréal Central ↔ pont Victoria (culée sud);0.0;5.5;5.5;0;11.8;4.9;4.2;4.2;7.2;6.4;0.8;0.0;0.0
+MTL-QC;Charny ↔ Québec (pont de Québec, gare du Palais);245.04;269.85;24.8;1;33.0;21.9;18.6;18.5;12.6;8.9;3.6;0.1;0.0
+MTL-Ott;Montréal Central ↔ Dorval;0.0;17.79;17.8;0;23.5;10.2;8.9;8.5;14.2;12.3;1.4;0.5;0.0
+Ott-TO;Guildwood ↔ Toronto Union;423.93;444.05;20.1;0;18.0;11.1;9.7;9.3;7.8;5.8;1.6;0.5;0.0
+MTL-TO;Montréal Central ↔ Dorval;0.0;17.79;17.8;0;23.5;10.2;8.9;8.5;14.2;12.3;1.4;0.5;0.0
+MTL-TO;Guildwood ↔ Toronto Union;517.94;538.06;20.1;0;18.0;11.1;9.6;9.2;7.9;5.8;1.6;0.5;0.0

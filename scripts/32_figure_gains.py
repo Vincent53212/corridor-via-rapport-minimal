@@ -15,23 +15,27 @@ exactement au gain, pas des mesures indépendantes) :
     C      = U2(201) × 1,10  = temps publié du scénario 2
     G      = H − C, décomposé en :
 
-    1) cohabitation      = H − B1(153) × 1,10            (borné à ≥ 0)
-       Ce que l'horaire d'aujourd'hui porte au-delà d'une marge de 10 %, avec le
-       train actuel sous sa classe actuelle (153 km/h, 95 mi/h). Regroupe le
-       DOUBLEMENT et le RÉGIME de cohabitation : la part que le doublement
-       rachète est estimée à part (2×2, ligne info du CSV), le reste est l'objet
-       de l'étude de circulation.
+    1) cohabitation : voir après 4) (c'est le reste).
     2) train pendulaire  = [B1(153) − B2(153)] × 1,10     (sous la classe actuelle)
-    3) zones urbaines    = [B2(153) − U2(153)] × 1,10     (sous la classe actuelle)
-    4) changement de classe (passages à niveau et signalisation)
-                         = [U2(153) − U2(201)] × 1,10
-       = ce que les trois facteurs précédents rapportent EN PLUS une fois le
-       plafond porté de 153 à 201 km/h (les mêmes trois facteurs recalculés à 201).
+    3) zones urbaines    = Σ blocs (courbes + signalisation), gains_urbains.csv
+       (étape 36 : profil roulé À L'INTÉRIEUR de chaque bloc urbain ;
+       courbes = train pendulaire sous 153, signalisation = 153 → 201).
+       Décision Vincent 2026-09-06 : le mou de cohabitation que porte l'horaire
+       urbain (l'essentiel de l'écart horaire ↔ géométrie en ville) N'EST PAS un
+       gain « zones urbaines » : il retourne à la cohabitation.
+    4) changement de classe (passages à niveau et signalisation, interurbain)
+                         = [U2(153) − U2(201)] × 1,10 − Σ blocs signalisation
+       = ce que les facteurs précédents rapportent EN PLUS une fois le
+       plafond porté de 153 à 201 km/h, hors la part urbaine déjà comptée en 3).
+    1) cohabitation      = G − 2) − 3) − 4)   (borné à ≥ 0)
+       = H − B1(153) × 1,10 en interurbain, plus le mou urbain ; réunit le
+       DOUBLEMENT et le RÉGIME de cohabitation (part rachetée par le doublement
+       estimée à part : 2×2, ligne info du CSV).
 
-    Somme 1)+2)+3)+4) = H − U2(201) × 1,10 = G par construction (télescopage).
-    Si l'horaire actuel porte MOINS de 10 % de marge (Montréal-Ottawa), 1) est
-    nul et 2)-4) sont réduits au prorata pour que la somme reste G (écrasement
-    tracé au CSV).
+    Somme 1)+2)+3)+4) = H − U2(201) × 1,10 = G par construction.
+    Si 1) sort négatif (l'horaire porte MOINS de 10 % de marge), 1) est nul et
+    2)-4) sont réduits au prorata pour que la somme reste G (écrasement tracé
+    au CSV).
 
 Plafond 153 km/h = 95 mi/h, la limite au-delà de laquelle le corridor scellé et
 le contrôle en cabine deviennent obligatoires (bandes des passages à niveau du
@@ -40,8 +44,8 @@ rapport : ≤ 153 / 154-177 / 178-201). BANDES_KMH du 21 doit contenir 153.
 Trajet Québec-Toronto : composé de Québec-Montréal + Montréal-Toronto plus un
 arrêt à Montréal (HYPOTHÈSE : 10 min, déclarée ; il s'annule dans le gain).
 
-Entrées : livrables/temps_scenario_{1,2}.csv, marges_2x2_synthese.csv,
-          marges_par_intergare.csv
+Entrées : livrables/temps_scenario_{1,2}.csv, gains_urbains.csv (36),
+          marges_2x2_synthese.csv, marges_par_intergare.csv
 Sorties : livrables/figure_gains.png, livrables/decomposition_gains.csv
 """
 import csv
@@ -98,6 +102,15 @@ with open(DELIVERABLES / "marges_par_intergare.csv", encoding="utf-8-sig", newli
                                           + float(r["t_base_cap160_min"]))
 
 
+urb_courbes, urb_sign, urb_cohab = {}, {}, {}
+with open(DELIVERABLES / "gains_urbains.csv", encoding="utf-8-sig", newline="") as f:
+    for r in csv.DictReader(f, delimiter=";"):
+        t = r["troncon"]
+        urb_courbes[t] = urb_courbes.get(t, 0.0) + float(r["gain_courbes_min"])
+        urb_sign[t] = urb_sign.get(t, 0.0) + float(r["gain_signalisation_pn_min"])
+        urb_cohab[t] = urb_cohab.get(t, 0.0) + float(r["gain_cohabitation_min"])
+
+
 def decompose(troncons, label):
     """Décompose le gain d'un trajet (somme de tronçons du pipeline)."""
     S = lambda table, sc, p: sum(tbase(table, t, sc, p) for t in troncons)
@@ -110,10 +123,11 @@ def decompose(troncons, label):
     C = U2p * MARGE + arret
     G = H - C
 
-    cohab_brut = H - (B1c * MARGE + arret)
     pend = (B1c - B2c) * MARGE
-    urbain = (B2c - U2c) * MARGE
-    classe = (U2c - U2p) * MARGE
+    urbain = sum(urb_courbes[t] + urb_sign[t] for t in troncons)
+    classe = (U2c - U2p) * MARGE - sum(urb_sign[t] for t in troncons)
+    cohab_brut = G - pend - urbain - classe
+    cohab_urbain = sum(urb_cohab[t] for t in troncons)
     ecrasement = 0.0
     if cohab_brut < 0:          # l'horaire porte moins de 10 % : la marge
         ecrasement = -cohab_brut    # normative mange une part des gains
@@ -127,12 +141,14 @@ def decompose(troncons, label):
     return {"trajet": label, "H": H, "C": C, "G": G,
             "cohabitation": cohab, "pendulaire": pend, "zones_urbaines": urbain,
             "classe": classe, "doublement_inclus": doublement,
+            "cohab_urbain": min(cohab_urbain, cohab),
             "ecrasement_min": ecrasement}
 
 
 TRAJETS = [
     (["MTL-QC", "MTL-TO"], "Québec-Toronto (via Montréal)"),
     (["MTL-QC"], "Québec-Montréal"),
+    (["MTL-TO"], "Montréal-Toronto"),
     (["MTL-Ott"], "Montréal-Ottawa"),
 ]
 rows = [decompose(tr, lab) for tr, lab in TRAJETS]
@@ -140,12 +156,15 @@ rows = [decompose(tr, lab) for tr, lab in TRAJETS]
 # ---- CSV (une ligne par trajet × poste + contrôles)
 POSTES = [("temps_scenario_2_avec_marge", "C", "temps_scenario_2.csv (pendulaire, 201) × 1,10"),
           ("gain_cohabitation", "cohabitation",
-           "H − temps_scenario_1.csv (base, 153) × 1,10 ; doublement et régime réunis"),
+           "G − les trois autres postes : mou de l'horaire au-delà de 10 %, interurbain "
+           "et zones urbaines ; doublement et régime réunis"),
           ("gain_pendulaire", "pendulaire", "temps_scenario_1.csv (base − pendulaire, 153) × 1,10"),
           ("gain_zones_urbaines", "zones_urbaines",
-           "temps_scenario_1.csv − temps_scenario_2.csv (pendulaire, 153) × 1,10"),
+           "gains_urbains.csv : courbes (pendulaire) + signalisation des blocs urbains, "
+           "sans le mou de cohabitation"),
           ("gain_changement_classe", "classe",
-           "temps_scenario_2.csv (pendulaire, 153 − 201) × 1,10 : passages à niveau et signalisation")]
+           "temps_scenario_2.csv (pendulaire, 153 − 201) × 1,10 − signalisation urbaine : "
+           "passages à niveau et signalisation, interurbain")]
 with open(DELIVERABLES / "decomposition_gains.csv", "w",
           encoding="utf-8-sig", newline="") as f:
     w = csv.writer(f, delimiter=";")
@@ -159,6 +178,10 @@ with open(DELIVERABLES / "decomposition_gains.csv", "w",
                     "part de la cohabitation que le doublement rachète : (médiane simple-CN − "
                     "médiane double-CN) × Σ T_base des paires simple-CN (marges_2x2_synthese.csv, "
                     "marges_par_intergare.csv) ; le reste est l'objet de l'étude de circulation"])
+        w.writerow([r["trajet"], "info_cohabitation_dont_zones_urbaines",
+                    round(r["cohab_urbain"], 1), "",
+                    "mou de l'horaire actuel dans les blocs urbains (gains_urbains.csv), "
+                    "compté dans la cohabitation et non dans les zones urbaines"])
         w.writerow([r["trajet"], "controle_horaire_actuel_H", round(r["H"], 1),
                     "", "temps_scenario_1.csv (médiane GTFS)"])
         w.writerow([r["trajet"], "controle_gain_total_G", round(r["G"], 1),
@@ -187,7 +210,7 @@ import textwrap
 # Format pleine largeur de page (7,4 po), polices dimensionnées pour cette
 # largeur : barres espacées, facteurs sur deux lignes sous chaque barre,
 # légende en colonne, note repliée (remodelage du 3 septembre).
-fig, ax = plt.subplots(figsize=(7.4, 6.3), dpi=250)
+fig, ax = plt.subplots(figsize=(7.4, 7.4), dpi=250)
 ylabels = []
 for yi, r in enumerate(reversed(rows)):
     y = yi
@@ -235,36 +258,41 @@ handles = [plt.Rectangle((0, 0), 1, 1, facecolor="none",
            plt.Rectangle((0, 0), 1, 1, color=COL_CLASSE)]
 leg = fig.legend(handles,
                  ["Scénario 2, marge de 10 % incluse (sans correction de courbes)",
-                  "Cohabitation : régime et doublement des voies (voir la note)",
+                  "Cohabitation : régime et doublement des voies, zones" + chr(10) +
+                  "urbaines comprises (voir la note)",
                   "Train pendulaire, sous la classe actuelle (153 km/h, 95 mi/h)",
-                  "Zones urbaines modernisées, sous la classe actuelle",
+                  "Zones urbaines modernisées : courbes et signalisation" + chr(10) +
+                  "seulement, sans le mou de cohabitation",
                   "Changement de classe : passages à niveau et signalisation," + chr(10) +
                   "de 153 à 201 km/h (125 mi/h)"],
-                 loc="upper left", bbox_to_anchor=(0.004, 0.875), ncol=1,
+                 loc="upper left", bbox_to_anchor=(0.004, 0.895), ncol=1,
                  frameon=False, handlelength=1.6, labelspacing=0.55,
                  prop={"family": "IBM Plex Mono", "size": 8.8})
 for txt in leg.get_texts():
     txt.set_color(PAPIER["encre_douce"])
 
-fig.tight_layout(rect=(0, 0.225, 1, 0.66))
+fig.tight_layout(rect=(0, 0.19, 1, 0.68))
 fig.text(0.008, 0.985, "Facteurs de réduction des temps de parcours",
          fontsize=15, ha="left", va="top", color=PAPIER["encre"],
          **police_titre(600))
-fig.text(0.008, 0.935,
+fig.text(0.008, 0.945,
          "Barre pleine = horaire actuel ; les tranches sont des attributions" + chr(10) +
          "qui somment au gain, pas des mesures indépendantes",
          fontsize=8.8, ha="left", va="top", color=PAPIER["encre_pale"],
          linespacing=1.3, **police_mono())
 _d = {r["trajet"]: r for r in rows}
 note = ("Note. Cohabitation = ce que l'horaire d'aujourd'hui porte au-delà d'une marge de "
-        "10 %, train et voie actuels. Elle réunit le régime de circulation avec le fret et "
-        "le doublement des voies : d'après le 2×2 (section 4), le doublement peut en racheter "
-        f"l'essentiel (environ {_d['Québec-Montréal']['doublement_inclus']:.0f} min sur "
-        "Québec-Montréal) ; ce qui resterait relève de l'étude de circulation. Les trois "
-        "autres facteurs sont comptés sous la classe actuelle (153 km/h) ; « changement de "
-        "classe » est ce qu'ils rapportent en plus une fois le plafond porté à 201 km/h, ce "
-        "qui exige le corridor scellé et le contrôle en cabine.")
-fig.text(0.008, 0.19, chr(10).join(textwrap.wrap(note, 96)),
+        "10 %, train et voie actuels, en interurbain comme dans les zones urbaines (où c'est "
+        f"la plus grande part de l'écart : {_d['Québec-Montréal']['cohab_urbain']:.0f} min sur "
+        "Québec-Montréal). Elle réunit le régime de circulation avec le fret et le doublement "
+        "des voies : d'après le 2×2 (section 4), le doublement peut en racheter une bonne part "
+        f"(environ {_d['Québec-Montréal']['doublement_inclus']:.0f} min sur Québec-Montréal) ; "
+        "le reste relève de l'étude de circulation. Zones urbaines = courbes prises par le "
+        "pendulaire et signalisation dans les approches de Montréal, Québec et Toronto. "
+        "Pendulaire et zones urbaines sont comptés sous la classe actuelle (153 km/h) ; "
+        "« changement de classe » est ce que l'interurbain rapporte en plus une fois le "
+        "plafond porté à 201 km/h, ce qui exige le corridor scellé et le contrôle en cabine.")
+fig.text(0.008, 0.165, chr(10).join(textwrap.wrap(note, 94)),
          fontsize=8.4, ha="left", va="top", color=PAPIER["encre_douce"],
          linespacing=1.45, **police_mono())
 fig.savefig(DELIVERABLES / "figure_gains.png", bbox_inches="tight",
@@ -274,6 +302,6 @@ for r in rows:
     print(f"{r['trajet']:<32} H {r['H']:6.1f}  C2 {r['C']:6.1f}  G {r['G']:5.1f} = "
           f"cohab {r['cohabitation']:5.1f} (dont doubl {r['doublement_inclus']:4.1f}) + "
           f"pend {r['pendulaire']:5.1f} + urbain {r['zones_urbaines']:5.1f} + "
-          f"classe {r['classe']:5.1f}"
+          f"classe {r['classe']:5.1f}  [cohab urbain {r['cohab_urbain']:4.1f}]"
           + (f"  [écrasement {r['ecrasement_min']:.1f}]" if r['ecrasement_min'] > 0.05 else ""))
 print("Écrit figure_gains.png et decomposition_gains.csv")

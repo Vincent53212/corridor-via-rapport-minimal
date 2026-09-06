@@ -40,9 +40,15 @@ gain pendulaire/dévers n'y est compté, quel que soit le scénario ou la bande.
 Délimitation des blocs urbains (à documenter au rapport) :
   - Montréal (ouest, tronçons MTL-Ott / MTL-TO) : Central ↔ Dorval (17,8 km),
     minutes = médiane GTFS de la paire.
-  - Montréal (est, tronçon MTL-QC via pont Victoria) : Central ↔ Saint-Lambert
-    (6,1 km), minutes = médiane GTFS. NB : le plan v3 nommait « Central↔Dorval » ;
-    MTL-QC sort par la rive sud, le bloc pertinent est Saint-Lambert.
+  - Montréal (est, tronçon MTL-QC via pont Victoria) : Central ↔ culée sud du
+    pont Victoria (km 5,50, écluse de Saint-Lambert ; 5,5 km). Décision Vincent
+    2026-09-06 : le bloc s'arrête au pied du pont, la gare de Saint-Lambert
+    (km 6,11) est HORS bloc et redevient un arrêt interurbain (DWELL_MIN, v=0).
+    Minutes figées = médiane GTFS de la paire Central ↔ Saint-Lambert, MOINS le
+    profil dynamique du train actuel sur le dernier 0,6 km d'arrivée en gare
+    (URBAN_BLOCK_TRIM ; c'est exactement ce que le profil interurbain recompte
+    ensuite, la somme est donc neutre hors l'immobilisation à Saint-Lambert).
+    NB : le plan v3 nommait « Central↔Dorval » ; MTL-QC sort par la rive sud.
   - Toronto : Union ↔ Guildwood (20,2 km), minutes = médiane GTFS. (Le plan v3
     évoquait « Guildwood/Oshawa » ; Guildwood retenu = borne courte, l'inclusion
     jusqu'à Oshawa est couverte par la sensibilité ±20 %.)
@@ -137,13 +143,20 @@ def train_pm(scenario: str, bande: float) -> float:
 # Blocs urbains ancrés sur des paires de gares GTFS : (tronçon, stop_id A, stop_id B,
 # nom, km_debut, km_fin). km relevés dans corridor_gtfs.geojson.
 URBAN_GTFS_BLOCKS = [
-    ("MTL-QC",  "226", "343", "Montréal Central ↔ Saint-Lambert (pont Victoria)", 0.0, 6.11),
+    ("MTL-QC",  "226", "343", "Montréal Central ↔ pont Victoria (culée sud)",     0.0, 5.50),
     ("MTL-QC",  "492", "628", "Charny ↔ Québec (pont de Québec, gare du Palais)",  245.04, 269.85),
     ("MTL-Ott", "226", "332", "Montréal Central ↔ Dorval",                        0.0, 17.79),
     ("Ott-TO",  "450", "119", "Guildwood ↔ Toronto Union",                        423.93, 444.05),
     ("MTL-TO",  "226", "332", "Montréal Central ↔ Dorval",                        0.0, 17.79),
     ("MTL-TO",  "450", "119", "Guildwood ↔ Toronto Union",                        517.94, 538.06),
 ]
+# Blocs dont l'emprise est plus courte que la paire GTFS qui donne leurs minutes :
+# (tronçon, stop A, stop B) → (km_bloc_fin, km_gare_B). Les minutes figées sont
+# la médiane GTFS moins le profil dynamique S1 (plafond 153) sur [km_bloc_fin,
+# km_gare_B], v=0 aux deux bouts (fin de bloc, arrivée en gare).
+URBAN_BLOCK_TRIM = {
+    ("MTL-QC", "226", "343"): (5.50, 6.11),   # culée sud du pont Victoria → gare de Saint-Lambert
+}
 # Blocs urbains sans ancre GTFS : fenêtre km, traversée au plafond du scénario de base ∧ bande.
 URBAN_KM_BLOCKS = [
     ("MTL-Ott", "Ottawa (approche est, fenêtre ±10 km — HYPOTHÈSE)", 175.42, 185.42),
@@ -337,6 +350,30 @@ def integrate(t: str, segs: list[dict], scenario: str, bande: float) -> tuple[fl
     return inter_min, ottawa_min
 
 
+def bloc_minutes_figees(pair_minutes, by_t, block) -> float:
+    """Minutes figées d'un bloc GTFS : médiane de la paire, moins l'approche de
+    gare hors bloc (URBAN_BLOCK_TRIM), roulée au profil du train actuel."""
+    t, a, b, _name, _km0, _km1 = block
+    m = pair_minutes[(a, b)]
+    trim = URBAN_BLOCK_TRIM.get((t, a, b))
+    if trim:
+        k0, k1 = trim
+        pieces = []
+        for p in by_t[t]:
+            lo, hi = max(p["km_debut"], k0), min(p["km_fin"], k1)
+            if hi - lo > 1e-6:
+                pieces.append((lo, hi, min(p["vmax_S1_kmh"], 153.0)))
+        pieces.sort()
+        a0, ab = TRAIN_A["S1"]
+        saved = INTERMEDIATE_STOPS[t]
+        INTERMEDIATE_STOPS[t] = []           # v=0 aux bouts du morceau suffit
+        try:
+            m -= _dynamic_minutes(t, pieces, train_pm("S1", 153.0), a0, ab)
+        finally:
+            INTERMEDIATE_STOPS[t] = saved
+    return m
+
+
 def main() -> None:
     pair_minutes, endpoint_minutes = load_gtfs_pair_minutes()
     by_t = load_segments()
@@ -344,13 +381,16 @@ def main() -> None:
     # --- blocs urbains : minutes GTFS figées
     bloc_rows = []
     urban_fixed: dict[str, float] = {t: 0.0 for t in TRONCONS}
-    for (t, a, b, name, km0, km1) in URBAN_GTFS_BLOCKS:
-        m = pair_minutes[(a, b)]
+    for blk in URBAN_GTFS_BLOCKS:
+        (t, a, b, name, km0, km1) = blk
+        m = bloc_minutes_figees(pair_minutes, by_t, blk)
         urban_fixed[t] += m
         bloc_rows.append({"troncon": t, "bloc": name, "km_debut": km0, "km_fin": km1,
                           "longueur_km": round(km1 - km0, 1),
                           "minutes_gtfs_mediane": round(m, 1),
-                          "source": "SOURCE : GTFS VIA (médiane des sillons)"})
+                          "source": "SOURCE : GTFS VIA (médiane des sillons)"
+                          + (" moins l'approche de gare hors bloc au profil du train actuel"
+                             if (t, a, b) in URBAN_BLOCK_TRIM else "")})
     for (t, name, km0, km1) in URBAN_KM_BLOCKS:
         bloc_rows.append({"troncon": t, "bloc": name, "km_debut": km0, "km_fin": km1,
                           "longueur_km": round(km1 - km0, 1),

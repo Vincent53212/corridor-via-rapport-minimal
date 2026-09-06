@@ -42,7 +42,7 @@ CARTES = [
         emprise=(-73.80, -73.44, 45.40, 45.57),
         troncons=["MTL-Ott", "MTL-QC"],
         blocs=[("MTL-Ott", 0.0, 17.79, "Central ↔ Dorval", 23.5),
-               ("MTL-QC", 0.0, 6.11, "Central ↔ Saint-Lambert (pont Victoria)", 13.0)],
+               ("MTL-QC", 0.0, 5.50, "Central ↔ pont Victoria (culée sud)", 11.8)],
         gares={"Montréal": (6, 7), "Dorval": (-4, -12), "Saint-Lambert": (6, -11),
                "Aéroport Montréal Pierre-Elliott Trudeau": (-4, 8)},
         repere=[("pont Victoria", -73.528, 45.478)],
