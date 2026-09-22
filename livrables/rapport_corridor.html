@@ -247,8 +247,14 @@ tbody td{
 th:last-child, td:last-child{ padding-right:0; }
 th.num, td.num{
   text-align:right; font-family:var(--font-courant);
-  font-variant-numeric:lining-nums tabular-nums; white-space:nowrap;
+  font-variant-numeric:lining-nums tabular-nums;
 }
+/* Les valeurs restent sur une ligne ; les EN-TÊTES, eux, doivent pouvoir se
+   plier. Un en-tête insécable de 40 signes en capitales (« Emprise optimisée
+   (plafond 201 km/h) ») poussait la table hors de la marge droite. */
+td.num{ white-space:nowrap; }
+thead th{ white-space:normal; hyphens:none; }
+table{ table-layout:auto; max-width:100%; }
 tbody tr:last-child td{ border-bottom:1.5px solid var(--encre); }
 /* Ligne de total : le rapport n'en a pas de balisée, la règle est en réserve
    pour le jour où une table en portera une. */
@@ -287,6 +293,9 @@ figcaption{
 
 /* ========================================================= coupures propres */
 figure, blockquote, table{ break-inside:avoid; }
+/* Le paragraphe qui introduit un tableau (« Le tableau qui suit… ») reste
+   avec lui : sans cela, la phrase d'amorce finissait seule en bas de page. */
+p:has(+ table){ break-after:avoid; }
 h1, h2, h3{ break-after:avoid; }
 p{ orphans:2; widows:2; }
 
@@ -2260,8 +2269,8 @@ achète-t-il?</p>
 <thead>
 <tr>
 <th>Trajet</th>
-<th class="num">Emprise optimisée (plafond 201 km/h)</th>
-<th class="num">Zéro passage à niveau (plafond 241 km/h)</th>
+<th class="num">Emprise optimisée (201 km/h)</th>
+<th class="num">Sans passage à niveau (241 km/h)</th>
 <th class="num">Gain</th>
 <th class="num">ALTO annoncé</th>
 </tr>
@@ -2667,6 +2676,73 @@ fois le plafond porté à 201 km/h. Les temps de base sans marge et la
 méthode d’attribution sont dans l’annexe numérique
 (<code>temps_scenario_2.csv</code>,
 <code>decomposition_gains.csv</code>).</p>
+<p><strong>Montréal-Québec, sous-section par sous-section.</strong> Le
+trajet Montréal-Québec est celui où le gain est le plus grand. Le
+tableau qui suit le découpe aux gares de Saint-Hilaire, de
+Saint-Hyacinthe et de Drummondville. Chaque ligne va du départ d’une
+gare à l’arrivée à la suivante ; le total ajoute les deux minutes
+d’arrêt à Saint-Hyacinthe et à Drummondville.</p>
+<table>
+<colgroup>
+<col style="width: 25%" />
+<col style="width: 25%" />
+<col style="width: 25%" />
+<col style="width: 25%" />
+</colgroup>
+<thead>
+<tr>
+<th>Sous-section</th>
+<th class="num">Distance</th>
+<th>Aujourd’hui</th>
+<th class="num">Emprise optimisée</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Montréal à Saint-Hilaire</td>
+<td class="num">35 km</td>
+<td>51 min (train de banlieue)</td>
+<td class="num">19 min</td>
+</tr>
+<tr>
+<td>Saint-Hilaire à Saint-Hyacinthe</td>
+<td class="num">19 km</td>
+<td>aucun train direct</td>
+<td class="num">10 min</td>
+</tr>
+<tr>
+<td>Saint-Hyacinthe à Drummondville</td>
+<td class="num">47 km</td>
+<td>30 min</td>
+<td class="num">20 min</td>
+</tr>
+<tr>
+<td>Drummondville à Québec</td>
+<td class="num">170 km</td>
+<td>2 h 08</td>
+<td class="num">1 h 23</td>
+</tr>
+<tr>
+<td>Montréal à Québec, arrêts compris</td>
+<td class="num">270 km</td>
+<td>3 h 22</td>
+<td class="num">2 h 16</td>
+</tr>
+</tbody>
+</table>
+<p>VIA ne s’arrête pas à Saint-Hilaire. Le temps d’aujourd’hui sur cette
+ligne est celui du train de banlieue exo, qui roule sur la même voie du
+CN jusqu’à son terminus de Mont-Saint-Hilaire avec cinq arrêts
+intermédiaires <span class="citation" data-cites="exo2026gtfs">(<a
+href="#ref-exo2026gtfs" role="doc-biblioref"><span
+class="nocase">exo</span>, 2026</a>)</span> ; le temps de l’emprise
+optimisée est un temps de passage, sans arrêt à Saint-Hilaire, qui
+comprend l’arrêt à Saint-Lambert. Pour le voyageur de VIA,
+Montréal-Saint-Hyacinthe passerait de 40 à 29 minutes. Le gros du gain
+se trouve entre Drummondville et Québec, sur la subdivision
+Drummondville, là où la voie est simple et la marge de l’horaire la plus
+forte. Le détail est dans l’annexe numérique
+(<code>sous_sections_montreal_quebec.csv</code>).</p>
 <p><strong>Sensibilités.</strong> La délimitation des zones urbaines
 varie de ±20 % : effet de ±5 à ±9 minutes sur les temps avant marge. Un
 train moins puissant que l’hypothèse de 12 W/kg ajouterait 3 à 5 minutes
@@ -3101,6 +3177,12 @@ href="https://doi.org/10.1177/0361198119841852">https://doi.org/10.1177/03611981
 DuSablon, P. (2026). <em>Étude sur l’augmentation des vitesses et le
 doublement des voies entre Québec-Montréal et Montréal-Toronto</em>
 [Manuscript].
+</div>
+<div id="ref-exo2026gtfs" class="csl-entry" role="listitem">
+<span class="nocase">exo</span>. (2026). <em>Données <span>GTFS</span>
+des trains de banlieue, ligne <span>Mont-Saint-Hilaire</span></em>. Jeu
+de données, version du 10 septembre 2026. <a
+href="https://exo.quebec/xdata/trains/google_transit.zip">https://exo.quebec/xdata/trains/google_transit.zip</a>
 </div>
 <div id="ref-ecfr213-347" class="csl-entry" role="listitem">
 Federal Railroad Administration. (s. d.-a). <em>Automotive or railroad

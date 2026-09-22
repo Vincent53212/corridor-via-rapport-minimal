@@ -79,6 +79,7 @@ LABELS = {
     "temps_scenario_3.csv": "Temps, scénario 3 (courbes corrigées au doublement)",
     "blocs_urbains_blocs_libres.csv": "Blocs urbains, scénarios 2 et 3",
     "blocs_urbains_rectifies_blocs_libres.csv": "Blocs urbains, scénario 3",
+    "sous_sections_montreal_quebec.csv": "Montréal-Québec par sous-section",
 }
 
 QUOI = {
@@ -253,6 +254,10 @@ QUOI = {
         "que le corps de la courbe mesure. Leur rapport est le facteur de biais : il "
         "vaut 1 quand le segment est plus long que la fenêtre, et il monte quand la "
         "courbe est plus courte qu'elle.",
+    "sous_sections_montreal_quebec.csv":
+        "Le trajet Montréal-Québec découpé à Saint-Hilaire, Saint-Hyacinthe et "
+        "Drummondville : l'horaire d'aujourd'hui (VIA ; exo pour Saint-Hilaire, où VIA "
+        "ne s'arrête pas) et le temps de passage sur l'emprise optimisée, marge comprise.",
 }
 
 # Ordre d'apparition dans le menu déroulant : les tables du fil d'abord.

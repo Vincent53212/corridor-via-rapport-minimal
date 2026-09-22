@@ -191,7 +191,7 @@ Même si nous proposons de nous en tenir à une vitesse maximale d'exploitation 
 
 Le plafond de 201 km/h (125 mi/h) n'est requis que pour une raison : les passages à niveau. Supposons donc qu'on les enlève partout où ils bloquent, pour tester si le choix de vitesse plafond limite indûment la performance. La règle n'interdit les passages que sur les segments roulés à plus de 201 km/h : 627 des 924 passages du corridor se trouvent là où le tracé le permet [@ecfr213-347]. Ces 627 passages seraient dénivelés ou fermés, soit deux fois plus que ce que nous proposons ; les 297 autres garderaient des barrières, puisque le train ne peut pas dépasser 201 km/h dans ces sections à cause de la géométrie de la voie. Le mur tombe et le train peut alors monter à la marche de vitesse suivante, déjà prouvée en Amérique du Nord : 241 km/h (150 mi/h), la vitesse maximale du corridor du Nord-Est d'Amtrak [@fra2010ptc; @fra2000acela]. Combien de temps ce chantier achète-t-il?
 
-  | Trajet | Emprise optimisée (plafond 201 km/h) | Zéro passage à niveau (plafond 241 km/h) | Gain | ALTO annoncé |
+  | Trajet | Emprise optimisée (201 km/h) | Sans passage à niveau (241 km/h) | Gain | ALTO annoncé |
 |---|---|---|---|---|
 | Montréal-Québec | 2 h 16 | 2 h 13 | 3 min | ~1 h 30 |
 | Montréal-Ottawa | 1 h 34 | 1 h 33 | 1 min | ~1 h |
@@ -277,6 +277,18 @@ En appliquant la méthode de la section 2, nous obtenons les réductions de temp
 | Temps sur l'emprise optimisée | 2 h 16 | 1 h 34 | 4 h 04 | 6 h 30 | |
 
 Les tranches sont des attributions qui somment au gain, pas des mesures indépendantes. La signalisation apparaît dans deux postes : comme condition du changement de classe, où son effet sur la vitesse est mesuré, et comme levier de capacité dans la cohabitation, où son effet n'est pas isolé de celui du doublement et de l'arbitrage. Le pendulaire et les zones urbaines sont comptés sous la classe actuelle (153 km/h) ; le changement de classe est ce que l'interurbain rapporte en plus une fois le plafond porté à 201 km/h. Les temps de base sans marge et la méthode d'attribution sont dans l'annexe numérique (`temps_scenario_2.csv`, `decomposition_gains.csv`).
+
+**Montréal-Québec, sous-section par sous-section.** Le trajet Montréal-Québec est celui où le gain est le plus grand. Le tableau qui suit le découpe aux gares de Saint-Hilaire, de Saint-Hyacinthe et de Drummondville. Chaque ligne va du départ d'une gare à l'arrivée à la suivante ; le total ajoute les deux minutes d'arrêt à Saint-Hyacinthe et à Drummondville.
+
+  | Sous-section | Distance | Aujourd'hui | Emprise optimisée |
+|---|---|---|---|
+| Montréal à Saint-Hilaire | 35 km | 51 min (train de banlieue) | 19 min |
+| Saint-Hilaire à Saint-Hyacinthe | 19 km | aucun train direct | 10 min |
+| Saint-Hyacinthe à Drummondville | 47 km | 30 min | 20 min |
+| Drummondville à Québec | 170 km | 2 h 08 | 1 h 23 |
+| Montréal à Québec, arrêts compris | 270 km | 3 h 22 | 2 h 16 |
+
+VIA ne s'arrête pas à Saint-Hilaire. Le temps d'aujourd'hui sur cette ligne est celui du train de banlieue exo, qui roule sur la même voie du CN jusqu'à son terminus de Mont-Saint-Hilaire avec cinq arrêts intermédiaires [@exo2026gtfs] ; le temps de l'emprise optimisée est un temps de passage, sans arrêt à Saint-Hilaire, qui comprend l'arrêt à Saint-Lambert. Pour le voyageur de VIA, Montréal-Saint-Hyacinthe passerait de 40 à 29 minutes. Le gros du gain se trouve entre Drummondville et Québec, sur la subdivision Drummondville, là où la voie est simple et la marge de l'horaire la plus forte. Le détail est dans l'annexe numérique (`sous_sections_montreal_quebec.csv`).
 
 **Sensibilités.** La délimitation des zones urbaines varie de ±20 % : effet de ±5 à ±9 minutes sur les temps avant marge. Un train moins puissant que l'hypothèse de 12 W/kg ajouterait 3 à 5 minutes par tronçon. Une géométrie fine, qui lèverait la correction des courbes courtes, rendrait de 4 à 13 minutes par tronçon.
 

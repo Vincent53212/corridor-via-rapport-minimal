@@ -208,8 +208,14 @@ tbody td{
 th:last-child, td:last-child{ padding-right:0; }
 th.num, td.num{
   text-align:right; font-family:var(--font-courant);
-  font-variant-numeric:lining-nums tabular-nums; white-space:nowrap;
+  font-variant-numeric:lining-nums tabular-nums;
 }
+/* Les valeurs restent sur une ligne ; les EN-TÊTES, eux, doivent pouvoir se
+   plier. Un en-tête insécable de 40 signes en capitales (« Emprise optimisée
+   (plafond 201 km/h) ») poussait la table hors de la marge droite. */
+td.num{ white-space:nowrap; }
+thead th{ white-space:normal; hyphens:none; }
+table{ table-layout:auto; max-width:100%; }
 tbody tr:last-child td{ border-bottom:1.5px solid var(--encre); }
 /* Ligne de total : le rapport n'en a pas de balisée, la règle est en réserve
    pour le jour où une table en portera une. */
@@ -248,5 +254,8 @@ figcaption{
 
 /* ========================================================= coupures propres */
 figure, blockquote, table{ break-inside:avoid; }
+/* Le paragraphe qui introduit un tableau (« Le tableau qui suit… ») reste
+   avec lui : sans cela, la phrase d'amorce finissait seule en bas de page. */
+p:has(+ table){ break-after:avoid; }
 h1, h2, h3{ break-after:avoid; }
 p{ orphans:2; widows:2; }
