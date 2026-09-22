@@ -257,7 +257,7 @@ handles = [plt.Rectangle((0, 0), 1, 1, facecolor="none",
            plt.Rectangle((0, 0), 1, 1, color=COL_URBAIN),
            plt.Rectangle((0, 0), 1, 1, color=COL_CLASSE)]
 leg = fig.legend(handles,
-                 ["Scénario 2, marge de 10 % incluse (sans correction de courbes)",
+                 ["Emprise optimisée, marge de 10 % incluse (sans correction de courbes)",
                   "Cohabitation : régime et doublement des voies, zones" + chr(10) +
                   "urbaines comprises (voir la note)",
                   "Train pendulaire, sous la classe actuelle (153 km/h, 95 mi/h)",
@@ -285,7 +285,7 @@ note = ("Note. Cohabitation = ce que l'horaire d'aujourd'hui porte au-delà d'un
         "10 %, train et voie actuels, en interurbain comme dans les zones urbaines (où c'est "
         f"la plus grande part de l'écart : {_d['Québec-Montréal']['cohab_urbain']:.0f} min sur "
         "Québec-Montréal). Elle réunit le régime de circulation avec le fret et le doublement "
-        "des voies : d'après le 2×2 (section 4), le doublement peut en racheter une bonne part "
+        "des voies : d'après le 2×2 (section 3), le doublement peut en racheter une bonne part "
         f"(environ {_d['Québec-Montréal']['doublement_inclus']:.0f} min sur Québec-Montréal) ; "
         "le reste relève de l'étude de circulation. Zones urbaines = courbes prises par le "
         "pendulaire et signalisation dans les approches de Montréal, Québec et Toronto. "

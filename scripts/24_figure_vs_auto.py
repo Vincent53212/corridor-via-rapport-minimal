@@ -70,14 +70,15 @@ AUTO_MIN = {"MTL-QC": 170, "MTL-TO": 330, "MTL-Ott": 140, "Ott-TO": 260}
 # Qc-Mtl ~1 h 30 ; Mtl-TO ~3 h ; Mtl-Ott ~1 h ; Ott-TO ~2 h.
 ALTO_MIN = {"MTL-QC": 90, "MTL-TO": 180, "MTL-Ott": 60, "Ott-TO": 120}
 
-S1_LBL, S2_LBL, S3_LBL = "Scénario 1", "Scénario 2", "Scénario 3"
+# Un seul scénario publié depuis la réécriture du 14 sept. 2026 : l'emprise
+# optimisée (moteur interne S2 : pendulaire, dévers, PN, signalisation, zones
+# urbaines modernisées). Les temps des scénarios 1 et 3 restent dans les CSV.
+OPT_LBL = "Emprise optimisée"
 
 def panel(troncon, cle, titre, repere):
     return (troncon, cle, titre, repere, AUTO_MIN[troncon], [
         ("VIA aujourd'hui", _horaire(troncon)),
-        (S1_LBL, _pt(_T1, troncon)),
-        (S2_LBL, _pt(_T2, troncon)),
-        (S3_LBL, _pt(_T3, troncon))])
+        (OPT_LBL, _pt(_T2, troncon))])
 
 DATA = [
  panel("MTL-QC",  "montreal_quebec",  "Montréal-Québec",  "auto ≈ 2 h 50, approx."),
@@ -86,13 +87,13 @@ DATA = [
  panel("Ott-TO",  "ottawa_toronto",   "Ottawa-Toronto",   "auto ≈ 4 h 20, approx."),
 ]
 COLS = {"auto": SCENARIOS["auto"], "VIA aujourd'hui": SCENARIOS["actuel"],
-        S1_LBL: SCENARIOS["S1"], S2_LBL: SCENARIOS["S2"], S3_LBL: SCENARIOS["S3"]}
+        OPT_LBL: SCENARIOS["S2"]}
 
 # Une figure par trajet : 7,4 po de large (la justification de la page est
 # 6,8 po), 250 dpi, JPEG. Les corps de texte sont dimensionnés pour cette
 # largeur d'impression, pas pour une planche réduite.
 for troncon, cle, title, repere, auto, rows in DATA:
-    fig, ax = plt.subplots(figsize=(7.4, 3.55), dpi=250)
+    fig, ax = plt.subplots(figsize=(7.4, 2.9), dpi=250)
     labels = ["Auto"] + [r[0] for r in rows]
     vals = [auto] + [v for _, v in rows]
     cols = [COLS["auto"]] + [COLS[r[0]] for r in rows]
@@ -126,8 +127,8 @@ for troncon, cle, title, repere, auto, rows in DATA:
              fontsize=13.5, ha="left", va="top", color=PAPIER["encre"],
              **police_titre(600))
     fig.text(0.008, 0.905,
-             f"{repere}  ·  Scénario 1 : train pendulaire · 2 : + zones urbaines "
-             "modernisées · 3 : + courbes corrigées au doublement",
+             f"{repere}  ·  Emprise optimisée : train pendulaire, dévers de 5 po, "
+             "passages sécurisés, contrôle en cabine, voie doublée, zones urbaines modernisées",
              fontsize=8.0, ha="left", va="top", color=PAPIER["encre_pale"],
              **police_mono())
     fig.text(0.008, 0.012,

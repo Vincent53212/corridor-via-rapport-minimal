@@ -290,3 +290,18 @@ recoupement seulement : à ouvrir manuellement avant citation isolée) ; masse d
 Venture sans source primaire (à demander à VIA/OTC) ; rendement à la jante du Charger
 (0,90) = hypothèse ; convention de masse du Class 390 non tranchée (si 466 t = en charge,
 le W/kg à vide monte vers 12, ce qui renforce encore l'hypothèse).
+
+
+## Ajouts du 2026-09-21 (réécriture du 14 sept. : coûts, achalandage, annexe de l'expert)
+
+**VÉRIFIÉES (2026-09-21, sources primaires ouvertes ; PDF EcoTrain au scratchpad de session)** :
+
+- `dusablon2026` : avis d'expert de Pierre DuSablon (4 sept. 2026), reçu par François Rebello, reproduit en annexe. Communication personnelle pour l'audit des courbes courtes (La Tuque, août 2026).
+- `ecotrain2011` : rapport final EcoTrain (14 févr. 2011), tableau 5-7 p. 54 imprimée (p. 102 du PDF) : F200+ 10 227 000 / E300+ 11 130 000 voyageurs en 2031 = 91,9 %. Recettes (tableau 5-8) : 89 %. Le rapport ne calcule pas le ratio lui-même.
+- `schreiber2024downeaster` + `amtrak2024ptc` : 51 M$ US, >100 milles Brunswick–Haverhill, PTC + renouvellement complet de la signalisation → ~0,32 M$ US/km ≈ 0,45 M$ CA/km. Le « 1,1 M$/km (Mass Transit Mag, 2006) » du brouillon de François est INFIRMÉ (2,5× trop haut) et l'article de 2006 est INTROUVABLE : retiré.
+- `levy2016amtrak` + `amtrak2016alstom` : 28 rames Avelia Liberty, 2 G$ US rames seules (2,45 G$ US avec ateliers et voie).
+- `canada2021passagesniveau` : REIR DORS/2021-233 : système d'avertissement complet 300 000 à 600 000 $ « ou plus ». Le « 500 k$ max, gouvernement du Québec » du brouillon est NUANCÉ (source fédérale, pas un maximum).
+- `constas2022etagement` (7,1 M$, réfection) et `lorry2018sthyacinthe` (61,5 → 100 M$, dénivellation neuve autoroute 20) : encadrent le pont d'étagement ; « 50 M$ maximum » INFIRMÉ comme plafond, gardé comme moyenne de planification.
+- `mtmd2026gaspesie` (433 k$/km, voie courante) et `mtmd2026quebeccentral` (6,85 M$/km avec 17 ponts) : le 500 000 $/km tient HORS ouvrages d'art seulement.
+
+**NON SOURCÉ (hypothèse de travail déclarée au rapport)** : passage dénivelé privé ou agricole à 12 M$ (aucun précédent public ; incohérent avec 7 M$ pour une réfection de pont routier ; coquille possible pour 1,2 M$, à confirmer avec François).

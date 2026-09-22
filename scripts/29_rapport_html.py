@@ -31,14 +31,18 @@ SORTIE = DELIVERABLES / "rapport_corridor.html"
 # script s'arrête plutôt que de publier une page dépareillée.
 SURTITRES = {
     "L'essentiel": "Ce qu'il faut retenir",
-    "Les trois scénarios analysés": "Les scénarios",
-    "Ce que les scénarios demandent": "Les conditions",
-    "Doubler la voie, et vivre ensemble sur le rail": "Capacité",
     "Comment nous avons mesuré": "La mesure",
+    "Doubler la voie": "Action 1",
+    "La signalisation": "Action 2",
+    "L'arbitrage de l'Office des transports du Canada": "Action 3",
+    "Les passages à niveau": "Action 4",
     "Et si on enlevait tous les passages à niveau?": "La contre-hypothèse",
+    "Le train pendulaire et le dévers": "Action 5",
+    "Estimation des coûts": "Les coûts",
+    "Impacts des actions sur les temps de parcours": "Les gains",
     "Limites, et l'étude qu'il faut commander": "Ce qui reste à faire",
-    "Résultats détaillés": "Les temps de parcours",
-    "Note de l'auteur": "La méthode de travail",
+    "Annexe : avis de l'expert ferroviaire": "Annexe",
+    "Crédits": "Crédits",
     "Références": "Sources",
 }
 
