@@ -46,10 +46,10 @@ Aujourd'hui, le train fait à peu près jeu égal avec l'auto sur Montréal-Toro
 1. **Doublement des voies.** La voie est simple sur 31 % du trajet. Un doublement permettrait une cohabitation où le passager et le fret gagnent tous les deux, au lieu de se voler des minutes.
 2. **Une signalisation modernisée.** Grâce à l'installation d'un système de contrôle de train en cabine comme celui déjà utilisé aux États-Unis, la distance nécessaire entre les trains sera de beaucoup réduite, ce qui favorisera la cohabitation. Ce système autorise une vitesse maximale de 201 km/h (125 mi/h) quand la voie le permet.
 3. **Arbitrage de l'Office des transports du Canada.** Nous proposons de donner une orientation claire en faveur du service aux passagers, par règlement ou par projet de loi, dans le but de permettre à l'Office des transports du Canada d'exercer ses pouvoirs d'accorder à une compagnie le droit de rouler sur les rails d'une autre, d'en fixer les conditions et d'en fixer le prix [@otc2016circulation; @ltc1996art138], même lorsqu'ils s'appliquent aux contrats de cohabitation existants.
-4. **Passages à niveau éliminés ou sécurisés.** Le corridor en compte 924. Il faudra en sécuriser 533 qui n'ont pas de barrières complètes. Nous prévoyons aussi bâtir des ponts d'étagement afin d'éliminer le tiers des croisements, en priorité parmi les 102 situés en zone urbaine.
+4. **Passages à niveau éliminés ou sécurisés.** Le corridor en compte 924. Il faudra en sécuriser 533 qui n'ont pas de barrières complètes. Un programme distinct de ponts d'étagement, présenté à part, éliminerait le tiers des croisements, en priorité parmi les 102 situés en zone urbaine.
 5. **Train pendulaire et voies plus inclinées dans les courbes.** Un train pendulaire incline sa caisse dans les courbes. De plus, on incline la voie au maximum standard du CN (dévers de 127 mm, soit 5 po) dans les courbes. Cela permet de faire en sorte que les passagers ne sentent pas la courbe et donc, que le train puisse la franchir plus vite.
 
-Les actions 1 à 3 réduisent la marge d'exploitation, soit l'écart entre le temps de parcours réel et la possibilité théorique fondée sur la géométrie de la voie. Les actions 4 et 5 accroissent cette possibilité théorique : le train pendulaire prend les courbes plus vite, et les passages sécurisés, avec le contrôle en cabine, autorisent 201 km/h. L'analyse des données et les conseils de notre expert ferroviaire [@dusablon2026] nous permettent de retenir une marge d'exploitation de 10 %, alignée sur la West Coast Main Line britannique, qui relie Londres à Manchester et Glasgow avec des trains pendulaires à 201 km/h sur des voies partagées avec les trains de marchandises. Nous estimons l'ordre de grandeur du coût de ces cinq actions à environ 13 G$ CA (section 9), dont près des deux tiers pour des ponts d'étagement qui ne sont pas nécessaires aux temps calculés ici.
+Les actions 1 à 3 réduisent la marge d'exploitation, soit l'écart entre le temps de parcours réel et la possibilité théorique fondée sur la géométrie de la voie. Les actions 4 et 5 accroissent cette possibilité théorique : le train pendulaire prend les courbes plus vite, et les passages sécurisés, avec le contrôle en cabine, autorisent 201 km/h. L'analyse des données et les conseils de notre expert ferroviaire [@dusablon2026] nous permettent de retenir une marge d'exploitation de 10 %, alignée sur la West Coast Main Line britannique, qui relie Londres à Manchester et Glasgow avec des trains pendulaires à 201 km/h sur des voies partagées avec les trains de marchandises. Nous estimons l'ordre de grandeur du coût de ces cinq actions à environ 4,5 G$ CA (section 9). Un programme distinct d'élimination du tiers des croisements par des ponts d'étagement, qui n'est pas nécessaire aux temps calculés ici, s'y ajouterait pour environ 8 G$ CA.
 
 Comme le montre la table qui suit, les actions proposées auront un impact significatif. Les postes se lisent sur le trajet complet Québec-Toronto ; la section 10 donne le détail en minutes, trajet par trajet.
 
@@ -238,7 +238,11 @@ Nous estimons ici l'ordre de grandeur du coût des actions proposées, sur les 9
 
 **Trains.** Nous estimons le coût d'une flotte neuve à partir de la commande d'Amtrak de 28 rames pendulaires Avelia Liberty pour le corridor Boston-New York-Washington : 2 G$ US pour les rames seules, soit environ 2,7 G$ CA [@levy2016amtrak; @amtrak2016alstom]. L'investissement annoncé de 2,45 G$ US comprenait aussi des ateliers et des travaux de voie.
 
-**Passages à niveau.** Tel qu'indiqué à la section 6, nous proposons d'installer des barrières aux 533 croisements des sections rapides qui n'en sont pas équipés. Transports Canada rapporte un coût de 300 000 $ à 600 000 $, voire davantage, pour un système complet de feux, cloches et barrières [@canada2021passagesniveau] ; à 600 000 $ l'unité, nous obtenons un budget de 0,3 G$ CA. De plus, nous proposons de construire 118 ponts d'étagement pour éliminer le tiers des croisements routiers publics. Le coût d'un tel ouvrage varie beaucoup : environ 7 M$ pour la réfection d'un pont existant à Trois-Rivières [@constas2022etagement], mais de 60 à 100 M$ pour éliminer le passage à niveau du CN sur l'autoroute 20 à Saint-Hyacinthe, selon les estimations successives du ministère [@lorry2018sthyacinthe]. Nous retenons 50 M$ comme valeur moyenne de planification, soit 5,9 G$ CA. Nous proposons également 190 passages dénivelés pour remplacer le tiers des 569 traverses privées et de ferme, à 12 M$ chacun, soit 2,3 G$ CA ; aucun précédent public ne chiffre ce type d'ouvrage, et ce coût unitaire est une hypothèse de travail. À noter que ces deux postes, qui représentent près des deux tiers du total, ne sont pas nécessaires aux temps de parcours présentés ici. Ils s'inscrivent plutôt dans une volonté de sécurité et de meilleure cohabitation avec les riverains de la ligne.
+**Passages à niveau.** Tel qu'indiqué à la section 6, nous proposons d'installer des barrières aux 533 croisements des sections rapides qui n'en sont pas équipés. Transports Canada rapporte un coût de 300 000 $ à 600 000 $, voire davantage, pour un système complet de feux, cloches et barrières [@canada2021passagesniveau] ; à 600 000 $ l'unité, nous obtenons un budget de 0,3 G$ CA. De plus, nous proposons de construire 118 ponts d'étagement pour éliminer le tiers des croisements routiers publics. Le coût d'un tel ouvrage varie beaucoup : environ 7 M$ pour la réfection d'un pont existant à Trois-Rivières [@constas2022etagement], mais de 60 à 100 M$ pour éliminer le passage à niveau du CN sur l'autoroute 20 à Saint-Hyacinthe, selon les estimations successives du ministère [@lorry2018sthyacinthe]. Nous retenons 50 M$ comme valeur moyenne de planification, soit 5,9 G$ CA. Nous proposons également 190 passages dénivelés pour remplacer le tiers des 569 traverses privées et de ferme, à 12 M$ chacun, soit 2,3 G$ CA ; aucun précédent public ne chiffre ce type d'ouvrage, et ce coût unitaire est une hypothèse de travail.
+
+Ces ouvrages forment un programme à part. Ils ne sont pas nécessaires aux temps de parcours présentés ici : les barrières complètes suffisent au plafond de 201 km/h. Ils s'inscrivent plutôt dans une volonté de sécurité et de meilleure cohabitation avec les riverains de la ligne, et ils peuvent se décider site par site, au rythme des budgets. Les deux tableaux qui suivent les présentent donc séparément.
+
+**Les cinq actions nécessaires aux temps de parcours calculés :**
 
   | Composante du projet (991 km de voies) | Coût estimé (G$ CA) |
 |---|---|
@@ -246,9 +250,17 @@ Nous estimons ici l'ordre de grandeur du coût des actions proposées, sur les 9
 | Système de contrôle en cabine et signalisation | 0,5 |
 | Trains pendulaires | 2,7 |
 | Sécurisation de 533 croisements routiers | 0,3 |
+| Total des cinq actions | 4,5 |
+
+**Le programme d'élimination des croisements, en plus :**
+
+  | Programme de ponts d'étagement | Coût estimé (G$ CA) |
+|---|---|
 | 118 ponts d'étagement, le tiers des croisements publics | 5,9 |
 | 190 passages dénivelés, le tiers des croisements privés et de ferme | 2,3 |
-| Total | 12,7 |
+| Total du programme | 8,2 |
+
+Les deux ensemble représentent environ 12,7 G$ CA.
 
 # Impacts des actions sur les temps de parcours
 
