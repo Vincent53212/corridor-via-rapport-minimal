@@ -1,4 +1,4 @@
-"""Étape 37 — Montréal-Québec par sous-section (demande de François Rebello, sept. 2026).
+"""Étape 37 — Montréal-Québec par sous-section (demande de Vision Transport, sept. 2026).
 
 Découpe le trajet Montréal-Québec aux gares de Saint-Hilaire (km 34,6 : gare
 exo de Mont-Saint-Hilaire, projetée sur le tracé ; VIA n'y arrête pas),
@@ -137,7 +137,8 @@ def main() -> None:
 
     via = gtfs_medians(RESOURCES / "viarail_GTFS.zip",
                        [("Montréal", "Saint-Hyacinthe"), ("Saint-Hyacinthe", "Drummondville"),
-                        ("Drummondville", "Québec"), ("Montréal", "Québec")],
+                        ("Drummondville", "Québec"), ("Montréal", "Québec"),
+                        ("Montréal", "Drummondville")],
                        {k: {v} for k, v in VIA_IDS.items()})
     exo = gtfs_medians(RESOURCES / "exo_trains_GTFS.zip", [("Gare Centrale", "Mont-Saint-Hilaire")])
     exo_min, exo_n = exo[("Gare Centrale", "Mont-Saint-Hilaire")]
@@ -168,6 +169,18 @@ def main() -> None:
                               if name == "Saint-Hilaire" else "")})
         prev_name, prev_km = name, km
         prev_dep = arr + (m21.DWELL_MIN if is_stop else 0.0)
+    # --- lignes cumulées depuis Montréal (table publiée : « gare par gare »)
+    for name, km, _ in GARES:
+        arr = t_at(km) if name != "Québec" else total_base
+        if ("Montréal", name) in via:
+            auj, n = via[("Montréal", name)]
+            src = f"VIA, médiane de {n} sillons GTFS"
+        else:
+            auj, src = exo_min, f"exo ligne Mont-Saint-Hilaire, médiane de {exo_n} trains ; VIA passe sans arrêt"
+        rows.append({"sous_section": f"Montréal à {name} (cumulé)", "km_debut": 0.0, "km_fin": km,
+                     "longueur_km": round(km, 1), "aujourd_hui_min": auj, "source_aujourd_hui": src,
+                     "optimise_base_min": round(arr, 1), "optimise_avec_marge_min": round(arr * MARGE, 1),
+                     "note": "temps à l'arrivée, arrêts intermédiaires compris"})
     tot_auj, tot_n = via[("Montréal", "Québec")]
     rows.append({"sous_section": "Montréal à Québec, arrêts compris", "km_debut": 0.0, "km_fin": 269.85,
                  "longueur_km": 269.9, "aujourd_hui_min": tot_auj,

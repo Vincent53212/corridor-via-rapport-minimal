@@ -3,4 +3,8 @@ Montréal à Saint-Hilaire;0.0;34.59;34.6;51.0;"exo ligne Mont-Saint-Hilaire, m�
 Saint-Hilaire à Saint-Hyacinthe;34.59;53.24;18.6;;aucun train direct aujourd'hui;8.7;9.6;
 Saint-Hyacinthe à Drummondville;53.24;100.01;46.8;30.5;VIA, médiane de 14 sillons GTFS;17.7;19.5;
 Drummondville à Québec;100.01;269.85;169.8;128.0;VIA, médiane de 14 sillons GTFS;75.3;82.9;
+Montréal à Saint-Hilaire (cumulé);0.0;34.59;34.6;51.0;"exo ligne Mont-Saint-Hilaire, médiane de 28 trains ; VIA passe sans arrêt";17.7;19.4;temps à l'arrivée, arrêts intermédiaires compris
+Montréal à Saint-Hyacinthe (cumulé);0.0;53.24;53.2;40.0;VIA, médiane de 14 sillons GTFS;26.4;29.0;temps à l'arrivée, arrêts intermédiaires compris
+Montréal à Drummondville (cumulé);0.0;100.01;100.0;77.0;VIA, médiane de 16 sillons GTFS;46.1;50.7;temps à l'arrivée, arrêts intermédiaires compris
+Montréal à Québec (cumulé);0.0;269.85;269.9;202.5;VIA, médiane de 14 sillons GTFS;123.4;135.7;temps à l'arrivée, arrêts intermédiaires compris
 Montréal à Québec, arrêts compris;0.0;269.85;269.9;202.5;VIA, médiane de 14 sillons GTFS;123.4;135.7;les sous-sections + 2 × 2 min d'immobilisation (Saint-Hyacinthe, Drummondville) = ce total

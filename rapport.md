@@ -44,7 +44,7 @@ Aujourd'hui, le train fait à peu près jeu égal avec l'auto sur Montréal-Toro
 **Les actions pour réduire le temps de trajet.** La réduction du temps de parcours est réalisable grâce aux cinq actions suivantes.
 
 1. **Doublement des voies.** La voie est simple sur 31 % du trajet. Un doublement permettrait une cohabitation où le passager et le fret gagnent tous les deux, au lieu de se voler des minutes.
-2. **Une signalisation modernisée.** Grâce à l'installation d'un système de contrôle de train en cabine comme celui déjà utilisé aux États-Unis, la distance nécessaire entre les trains sera de beaucoup réduite, ce qui favorisera la cohabitation. Ce système autorise une vitesse maximale de 201 km/h (125 mi/h) quand la voie le permet.
+2. **Une signalisation modernisée.** Grâce à l'installation d'un système de contrôle de train en cabine comme celui déjà utilisé aux États-Unis, la distance nécessaire entre les trains sera de beaucoup réduite, ce qui favorisera la cohabitation et permettra de donner la priorité aux trains de passagers, dont dépend leur ponctualité. Ce système autorise une vitesse maximale de 201 km/h (125 mi/h) quand la voie le permet.
 3. **Arbitrage de l'Office des transports du Canada.** Nous proposons de donner une orientation claire en faveur du service aux passagers, par règlement ou par projet de loi, dans le but de permettre à l'Office des transports du Canada d'exercer ses pouvoirs d'accorder à une compagnie le droit de rouler sur les rails d'une autre, d'en fixer les conditions et d'en fixer le prix [@otc2016circulation; @ltc1996art138], même lorsqu'ils s'appliquent aux contrats de cohabitation existants.
 4. **Passages à niveau éliminés ou sécurisés.** Le corridor en compte 924. Il faudra en sécuriser 533 qui n'ont pas de barrières complètes. Un programme distinct de ponts d'étagement, présenté à part, éliminerait le tiers des croisements, en priorité parmi les 102 situés en zone urbaine.
 5. **Train pendulaire et voies plus inclinées dans les courbes.** Un train pendulaire incline sa caisse dans les courbes. De plus, on incline la voie au maximum standard du CN (dévers de 127 mm, soit 5 po) dans les courbes. Cela permet de faire en sorte que les passagers ne sentent pas la courbe et donc, que le train puisse la franchir plus vite.
@@ -144,7 +144,7 @@ La signalisation permet de réduire l'espace-temps entre deux trains. La signali
 
 **Marche 3 : le contrôle intégral.** Le train reçoit sa permission de rouler par radio, en continu. Les signaux au sol deviennent inutiles [@ec2026etcs; @eu2023ccstsi]. C'est le standard des lignes à grande vitesse neuves, et ce que prévoit un projet comme ALTO. Sur une voie partagée, cela demanderait de remplacer toute la signalisation et de rééquiper tous les trains, passagers et fret.
 
-**Deux rôles, deux postes.** La signalisation joue dans deux des facteurs de gain de ce rapport, et il faut les distinguer pour ne rien compter deux fois. Le premier rôle est la vitesse : le contrôle en cabine est la condition, avec les passages à niveau sécurisés, du passage de la classe actuelle (153 km/h) à 201 km/h. C'est ce que le rapport mesure sous « changement de classe ». Le deuxième rôle est la capacité : le contrôle en cabine, installé avec des cantons plus courts (les tronçons qu'un seul train peut occuper), rapproche les trains et libère de la place pour la cohabitation avec le fret. La simulation d'un corridor nord-américain partagé montre que ce levier ajoute plusieurs trains par jour [@dick2019blocs]. Cet effet n'est pas mesuré à part : il fait partie de ce que le poste « cohabitation » peut rendre, avec le doublement et l'arbitrage.
+**Deux rôles, deux postes.** La signalisation joue dans deux des facteurs de gain de ce rapport, et il faut les distinguer pour ne rien compter deux fois. Le premier rôle est la vitesse : le contrôle en cabine est la condition, avec les passages à niveau sécurisés, du passage de la classe actuelle (153 km/h) à 201 km/h. C'est ce que le rapport mesure sous « changement de classe ». Le deuxième rôle est la capacité : le contrôle en cabine, installé avec des cantons plus courts (les tronçons qu'un seul train peut occuper), rapproche les trains et libère de la place pour la cohabitation avec le fret ; c'est cette place qui permet de donner la priorité aux trains de passagers, donc de tenir l'horaire. La simulation d'un corridor nord-américain partagé montre que ce levier ajoute plusieurs trains par jour [@dick2019blocs]. Cet effet n'est pas mesuré à part : il fait partie de ce que le poste « cohabitation » peut rendre, avec le doublement et l'arbitrage.
 
 # L'arbitrage de l'Office des transports du Canada
 
@@ -278,17 +278,16 @@ En appliquant la méthode de la section 2, nous obtenons les réductions de temp
 
 Les tranches sont des attributions qui somment au gain, pas des mesures indépendantes. La signalisation apparaît dans deux postes : comme condition du changement de classe, où son effet sur la vitesse est mesuré, et comme levier de capacité dans la cohabitation, où son effet n'est pas isolé de celui du doublement et de l'arbitrage. Le pendulaire et les zones urbaines sont comptés sous la classe actuelle (153 km/h) ; le changement de classe est ce que l'interurbain rapporte en plus une fois le plafond porté à 201 km/h. Les temps de base sans marge et la méthode d'attribution sont dans l'annexe numérique (`temps_scenario_2.csv`, `decomposition_gains.csv`).
 
-**Montréal-Québec, sous-section par sous-section.** Le trajet Montréal-Québec est celui où le gain est le plus grand. Le tableau qui suit le découpe aux gares de Saint-Hilaire, de Saint-Hyacinthe et de Drummondville. Chaque ligne va du départ d'une gare à l'arrivée à la suivante ; le total ajoute les deux minutes d'arrêt à Saint-Hyacinthe et à Drummondville.
+**Montréal-Québec, gare par gare.** Le trajet Montréal-Québec est celui où le gain est le plus grand. Le tableau qui suit donne le temps depuis Montréal jusqu'aux gares de Saint-Hilaire, de Saint-Hyacinthe et de Drummondville, puis jusqu'à Québec, arrêts intermédiaires compris.
 
-  | Sous-section | Distance | Aujourd'hui | Emprise optimisée |
+  | Depuis Montréal jusqu'à | Distance | Aujourd'hui | Emprise optimisée |
 |---|---|---|---|
-| Montréal à Saint-Hilaire | 35 km | 51 min (train de banlieue) | 19 min |
-| Saint-Hilaire à Saint-Hyacinthe | 19 km | aucun train direct | 10 min |
-| Saint-Hyacinthe à Drummondville | 47 km | 30 min | 20 min |
-| Drummondville à Québec | 170 km | 2 h 08 | 1 h 23 |
-| Montréal à Québec, arrêts compris | 270 km | 3 h 22 | 2 h 16 |
+| Saint-Hilaire | 35 km | 51 min (train de banlieue) | 19 min |
+| Saint-Hyacinthe | 53 km | 40 min | 29 min |
+| Drummondville | 100 km | 1 h 17 | 51 min |
+| Québec | 270 km | 3 h 22 | 2 h 16 |
 
-VIA ne s'arrête pas à Saint-Hilaire. Le temps d'aujourd'hui sur cette ligne est celui du train de banlieue exo, qui roule sur la même voie du CN jusqu'à son terminus de Mont-Saint-Hilaire avec cinq arrêts intermédiaires [@exo2026gtfs] ; le temps de l'emprise optimisée est un temps de passage, sans arrêt à Saint-Hilaire, qui comprend l'arrêt à Saint-Lambert. Pour le voyageur de VIA, Montréal-Saint-Hyacinthe passerait de 40 à 29 minutes. Le gros du gain se trouve entre Drummondville et Québec, sur la subdivision Drummondville, là où la voie est simple et la marge de l'horaire la plus forte. Le détail est dans l'annexe numérique (`sous_sections_montreal_quebec.csv`).
+VIA ne s'arrête pas à Saint-Hilaire. Le temps d'aujourd'hui sur cette ligne est celui du train de banlieue exo, qui roule sur la même voie du CN jusqu'à son terminus de Mont-Saint-Hilaire avec cinq arrêts intermédiaires [@exo2026gtfs] ; le temps de l'emprise optimisée est un temps de passage, sans arrêt à Saint-Hilaire, qui comprend l'arrêt à Saint-Lambert. Le gros du gain se trouve entre Drummondville et Québec, sur la subdivision Drummondville, là où la voie est simple et la marge de l'horaire la plus forte : ce segment passerait de 2 h 08 à 1 h 23. Le détail est dans l'annexe numérique (`sous_sections_montreal_quebec.csv`).
 
 **Sensibilités.** La délimitation des zones urbaines varie de ±20 % : effet de ±5 à ±9 minutes sur les temps avant marge. Un train moins puissant que l'hypothèse de 12 W/kg ajouterait 3 à 5 minutes par tronçon. Une géométrie fine, qui lèverait la correction des courbes courtes, rendrait de 4 à 13 minutes par tronçon.
 
@@ -416,7 +415,7 @@ Bien que je ne possède pas les diagrammes des voies sur les trajets de Montréa
 
 # Crédits {-}
 
-**Direction du mandat.** François Rebello, pour Vision Transport.
+**Direction du mandat.** Vision Transport.
 
 **Analyse, modélisation et rédaction.** Vincent Duguay, candidat à la maîtrise recherche à l'École nationale d'administration publique (ENAP).
 
