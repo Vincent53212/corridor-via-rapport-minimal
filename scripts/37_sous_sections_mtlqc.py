@@ -181,6 +181,22 @@ def main() -> None:
                      "longueur_km": round(km, 1), "aujourd_hui_min": auj, "source_aujourd_hui": src,
                      "optimise_base_min": round(arr, 1), "optimise_avec_marge_min": round(arr * MARGE, 1),
                      "note": "temps à l'arrivée, arrêts intermédiaires compris"})
+    # --- variante publiée pour Saint-Hilaire : le service de banlieue (5 arrêts exo)
+    #     rejoué sur l'emprise optimisée, même rame pendulaire.
+    EXO_STOPS_KM = [6.22, 11.98, 16.66, 22.23, 28.69]   # Saint-Lambert, Longueuil-Saint-Hubert,
+    # Saint-Bruno, Saint-Basile-le-Grand, McMasterville (gares exo projetées sur le tracé)
+    saved = m21.INTERMEDIATE_STOPS[T]
+    m21.INTERMEDIATE_STOPS[T] = [(f"exo{i}", k) for i, k in enumerate(EXO_STOPS_KM)]
+    try:
+        xs2, tc2 = cumulative_profile()
+    finally:
+        m21.INTERMEDIATE_STOPS[T] = saved
+    t_exo = tc2[min(range(len(xs2)), key=lambda i: abs(xs2[i] - 34.59))]
+    rows.append({"sous_section": "Montréal à Saint-Hilaire (service de banlieue, 5 arrêts)", "km_debut": 0.0,
+                 "km_fin": 34.59, "longueur_km": 34.6, "aujourd_hui_min": exo_min,
+                 "source_aujourd_hui": f"exo ligne Mont-Saint-Hilaire, médiane de {exo_n} trains",
+                 "optimise_base_min": round(t_exo, 1), "optimise_avec_marge_min": round(t_exo * MARGE, 1),
+                 "note": "mêmes 5 arrêts intermédiaires, emprise optimisée, rame pendulaire : ligne publiée au rapport"})
     tot_auj, tot_n = via[("Montréal", "Québec")]
     rows.append({"sous_section": "Montréal à Québec, arrêts compris", "km_debut": 0.0, "km_fin": 269.85,
                  "longueur_km": 269.9, "aujourd_hui_min": tot_auj,

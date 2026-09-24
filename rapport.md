@@ -282,12 +282,12 @@ Les tranches sont des attributions qui somment au gain, pas des mesures indépen
 
   | Depuis Montréal jusqu'à | Distance | Aujourd'hui | Emprise optimisée |
 |---|---|---|---|
-| Saint-Hilaire | 35 km | 51 min (train de banlieue) | 19 min |
+| Saint-Hilaire | 35 km | 51 min (train de banlieue, 5 arrêts) | 35 min (mêmes arrêts) |
 | Saint-Hyacinthe | 53 km | 40 min | 29 min |
 | Drummondville | 100 km | 1 h 17 | 51 min |
 | Québec | 270 km | 3 h 22 | 2 h 16 |
 
-VIA ne s'arrête pas à Saint-Hilaire. Le temps d'aujourd'hui sur cette ligne est celui du train de banlieue exo, qui roule sur la même voie du CN jusqu'à son terminus de Mont-Saint-Hilaire avec cinq arrêts intermédiaires [@exo2026gtfs] ; le temps de l'emprise optimisée est un temps de passage, sans arrêt à Saint-Hilaire, qui comprend l'arrêt à Saint-Lambert. Le gros du gain se trouve entre Drummondville et Québec, sur la subdivision Drummondville, là où la voie est simple et la marge de l'horaire la plus forte : ce segment passerait de 2 h 08 à 1 h 23. Le détail est dans l'annexe numérique (`sous_sections_montreal_quebec.csv`).
+VIA ne s'arrête pas à Saint-Hilaire. La ligne compare donc le train de banlieue exo, qui roule sur la même voie du CN jusqu'à son terminus de Mont-Saint-Hilaire avec cinq arrêts intermédiaires [@exo2026gtfs], au même service avec les mêmes arrêts sur l'emprise optimisée, avec une rame pendulaire. Un train de VIA qui passerait sans s'arrêter y serait en 19 minutes. Le gros du gain se trouve entre Drummondville et Québec, sur la subdivision Drummondville, là où la voie est simple et la marge de l'horaire la plus forte : ce segment passerait de 2 h 08 à 1 h 23. Le détail est dans l'annexe numérique (`sous_sections_montreal_quebec.csv`).
 
 **Sensibilités.** La délimitation des zones urbaines varie de ±20 % : effet de ±5 à ±9 minutes sur les temps avant marge. Un train moins puissant que l'hypothèse de 12 W/kg ajouterait 3 à 5 minutes par tronçon. Une géométrie fine, qui lèverait la correction des courbes courtes, rendrait de 4 à 13 minutes par tronçon.
 
