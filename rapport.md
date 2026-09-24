@@ -164,7 +164,7 @@ Un passage à niveau est un croisement entre le rail et une route. Plus le train
 | 154-177 km/h (96-110 mi/h) : corridor scellé | 161 |
 | 178-201 km/h (111-125 mi/h) : corridor scellé, dispositif approuvé | 672 |
 
-Les 833 passages des deux dernières lignes se trouvent là où le train peut physiquement dépasser 153 km/h : ce sont eux qu'il faut sceller. Parmi eux, 300 ont déjà un système complet de feux, cloches et barrières ; il faudra y ajouter les bras de sortie, les terre-pleins et la détection d'obstacle. Les 533 autres partent de plus loin : 475 n'ont aucune protection automatique, et 58 ont des feux et des cloches sans barrières. Enfin, 77 des 833 sont en zone urbaine et coûteront plus cher que les autres. Les 91 passages de la première ligne sont dans des sections où les courbes plafonnent de toute façon le train sous 153 km/h ; le régime actuel y suffit. L'inventaire complet, passage par passage, est dans l'annexe numérique.
+Les 833 passages des deux dernières lignes se trouvent là où le train peut physiquement dépasser 153 km/h : ce sont eux qu'il faut sceller. Parmi eux, 300 ont déjà un système complet de feux, cloches et barrières ; il faudra y ajouter les bras de sortie, les terre-pleins et la détection d'obstacle. Les 533 autres partent de plus loin : 475 n'ont aucune protection automatique, et 58 ont des feux et des cloches sans barrières. Enfin, 77 des 833 sont en zone urbaine et coûteront plus cher que les autres. Les 91 passages de la première ligne sont dans des sections où les courbes plafonnent de toute façon le train sous 153 km/h ; le régime actuel y suffit. L'inventaire complet, passage par passage, est dans le visualiseur de données joint.
 
 Par type d'accès, le corridor compte 355 passages publics et 569 passages privés ou de ferme :
 
@@ -276,7 +276,7 @@ En appliquant la méthode de la section 2, nous obtenons les réductions de temp
 | Temps du trajet actuel | 3 h 22 | 2 h 02 | 5 h 18 | 8 h 50 | |
 | Temps sur l'emprise optimisée | 2 h 16 | 1 h 34 | 4 h 04 | 6 h 30 | |
 
-Les tranches sont des attributions qui somment au gain, pas des mesures indépendantes. La signalisation apparaît dans deux postes : comme condition du changement de classe, où son effet sur la vitesse est mesuré, et comme levier de capacité dans la cohabitation, où son effet n'est pas isolé de celui du doublement et de l'arbitrage. Le pendulaire et les zones urbaines sont comptés sous la classe actuelle (153 km/h) ; le changement de classe est ce que l'interurbain rapporte en plus une fois le plafond porté à 201 km/h. Les temps de base sans marge et la méthode d'attribution sont dans l'annexe numérique (`temps_scenario_2.csv`, `decomposition_gains.csv`).
+Les tranches sont des attributions qui somment au gain, pas des mesures indépendantes. La signalisation apparaît dans deux postes : comme condition du changement de classe, où son effet sur la vitesse est mesuré, et comme levier de capacité dans la cohabitation, où son effet n'est pas isolé de celui du doublement et de l'arbitrage. Le pendulaire et les zones urbaines sont comptés sous la classe actuelle (153 km/h) ; le changement de classe est ce que l'interurbain rapporte en plus une fois le plafond porté à 201 km/h. Les temps de base sans marge et la méthode d'attribution sont dans le visualiseur de données joint.
 
 **Montréal-Québec, gare par gare.** Le trajet Montréal-Québec est celui où le gain est le plus grand. Le tableau qui suit donne le temps depuis Montréal jusqu'aux gares de Saint-Hilaire, de Saint-Hyacinthe et de Drummondville, puis jusqu'à Québec, arrêts intermédiaires compris.
 
@@ -287,7 +287,7 @@ Les tranches sont des attributions qui somment au gain, pas des mesures indépen
 | Drummondville | 100 km | 1 h 17 | 51 min |
 | Québec | 270 km | 3 h 22 | 2 h 16 |
 
-VIA ne s'arrête pas à Saint-Hilaire. La ligne compare donc le train de banlieue exo, qui roule sur la même voie du CN jusqu'à son terminus de Mont-Saint-Hilaire avec cinq arrêts intermédiaires [@exo2026gtfs], au même service avec les mêmes arrêts sur l'emprise optimisée, avec une rame pendulaire. Un train de VIA qui passerait sans s'arrêter y serait en 19 minutes. Le gros du gain se trouve entre Drummondville et Québec, sur la subdivision Drummondville, là où la voie est simple et la marge de l'horaire la plus forte : ce segment passerait de 2 h 08 à 1 h 23. Le détail est dans l'annexe numérique (`sous_sections_montreal_quebec.csv`).
+VIA ne s'arrête pas à Saint-Hilaire. La ligne compare donc le train de banlieue exo, qui roule sur la même voie du CN jusqu'à son terminus de Mont-Saint-Hilaire avec cinq arrêts intermédiaires [@exo2026gtfs], au même service avec les mêmes arrêts sur l'emprise optimisée, avec une rame pendulaire. Un train de VIA qui passerait sans s'arrêter y serait en 19 minutes. Le gros du gain se trouve entre Drummondville et Québec, sur la subdivision Drummondville, là où la voie est simple et la marge de l'horaire la plus forte : ce segment passerait de 2 h 08 à 1 h 23.
 
 **Sensibilités.** La délimitation des zones urbaines varie de ±20 % : effet de ±5 à ±9 minutes sur les temps avant marge. Un train moins puissant que l'hypothèse de 12 W/kg ajouterait 3 à 5 minutes par tronçon. Une géométrie fine, qui lèverait la correction des courbes courtes, rendrait de 4 à 13 minutes par tronçon.
 
