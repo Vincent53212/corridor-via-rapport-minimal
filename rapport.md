@@ -405,7 +405,7 @@ Le doublement de la voie entre Québec et St-Hyacinthe apparaît nécessairement
 
 Une étude technique détaillée devrait être réalisée pour chaque courbe afin de comparer précisément le degré de courbure, l'élévation disponible, le matériel roulant et la vitesse maximale admissible.
 
-Il faut également souligner qu'au Canada, le réseau ferroviaire est encore loin d'exploiter tout le potentiel associé à une infrastructure répondant aux exigences d'une voie de classe 6 ou 7, car seule la classe 5 est permise au Canada, permettant notamment des vitesses pouvant atteindre environ 100 mi/h pour les trains de voyageurs, selon les conditions et normes applicables. Pour les trains de marchandises, les vitesses demeurent nécessairement plus faibles.
+Il faut également souligner qu'au Canada, le réseau ferroviaire est encore loin d'exploiter tout le potentiel associé à une infrastructure répondant aux exigences d'une voie de classe 6 ou 7, car seule la classe 5\* est permise au Canada, permettant notamment des vitesses pouvant atteindre environ 100 mi/h pour les trains de voyageurs, selon les conditions et normes applicables. Pour les trains de marchandises, les vitesses demeurent nécessairement plus faibles.
 
 En résumé, l'amélioration du corridor Québec-Montréal devrait privilégier une combinaison de travaux ciblés sur la voie, dont le doublement systématique de l'ensemble du parcours, l'élimination des principaux obstacles, l'amélioration des courbes et l'augmentation stratégique de la capacité.
 
