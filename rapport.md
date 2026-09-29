@@ -407,6 +407,8 @@ Une étude technique détaillée devrait être réalisée pour chaque courbe afi
 
 Il faut également souligner qu'au Canada, le réseau ferroviaire est encore loin d'exploiter tout le potentiel associé à une infrastructure répondant aux exigences d'une voie de classe 6 ou 7, car seule la classe 5\* est permise au Canada, permettant notamment des vitesses pouvant atteindre environ 100 mi/h pour les trains de voyageurs, selon les conditions et normes applicables. Pour les trains de marchandises, les vitesses demeurent nécessairement plus faibles.
 
+\* La classe 5 permet 90 mi/h aux trains de voyageurs. La classe 5\* porte cette limite à 100 mi/h pour les trains de type LRC.
+
 En résumé, l'amélioration du corridor Québec-Montréal devrait privilégier une combinaison de travaux ciblés sur la voie, dont le doublement systématique de l'ensemble du parcours, l'élimination des principaux obstacles, l'amélioration des courbes et l'augmentation stratégique de la capacité.
 
 Bien que je ne possède pas les diagrammes des voies sur les trajets de Montréal-Toronto et de Montréal-Ottawa, je déduis de mon analyse détaillée de la section Montréal-Québec qu'il est raisonnable d'affirmer que les mêmes stratégies utilisées entre Québec et Montréal peuvent y être mises en œuvre. Il faut toutefois noter qu'à l'exception de la section Westmount-gare Centrale, le reste des zones urbaines de ces deux corridors est plus rectiligne que dans les zones urbaines de la section Montréal-Québec. Cette réalité va permettre d'améliorer la vitesse dans ces zones urbaines par l'élimination de passages à niveau.
