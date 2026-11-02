@@ -167,19 +167,23 @@ if _BLOCS_LIBRES:               # sensibilité : plus aucun bloc figé
     URBAN_KM_BLOCKS = []
 
 # Gares intermédiaires par tronçon (hors extrémités), avec leur km — pour compter
-# les arrêts interurbains (hors blocs urbains). Relevé de corridor_gtfs.geojson ;
-# l'Aéroport (555) est une desserte alternative de Dorval, non comptée en plus.
+# les arrêts interurbains (hors blocs urbains). Règle (ronde UPA, 2026-11-02, décision
+# Vincent) : toutes les gares où s'arrête aujourd'hui au moins un train VIA de CE
+# trajet (GTFS), pas plus. Montréal-Toronto : + Cornwall (desservie par 12 trains sur
+# 12), − Gananoque, Napanee, Trenton Junction et Port Hope (desservies par les trains
+# d'Ottawa, aucun Montréal-Toronto) ; Ottawa-Toronto : + Fallowfield (21 sur 21).
+# km projetés sur le tracé (segments_publies). L'Aéroport (555) est une desserte
+# alternative de Dorval, non comptée en plus.
 INTERMEDIATE_STOPS = {
     "MTL-QC":  [("Saint-Lambert", 6.11), ("Saint-Hyacinthe", 53.24), ("Drummondville", 100.01),
                 ("Charny", 245.04), ("Sainte-Foy", 249.98)],
     "MTL-Ott": [("Dorval", 17.79), ("Coteau", 62.28), ("Alexandria", 99.43), ("Casselman", 138.78)],
-    "Ott-TO":  [("Smiths Falls", 64.62), ("Brockville", 110.0), ("Gananoque", 155.83),
+    "Ott-TO":  [("Fallowfield", 15.13), ("Smiths Falls", 64.62), ("Brockville", 110.0), ("Gananoque", 155.83),
                 ("Kingston", 191.99), ("Napanee", 227.49), ("Belleville", 262.44),
                 ("Trenton Junction", 281.92), ("Cobourg", 332.06), ("Port Hope", 342.88),
                 ("Oshawa", 393.31), ("Guildwood", 423.93)],
-    "MTL-TO":  [("Dorval", 17.79), ("Brockville", 204.72), ("Gananoque", 249.75),
-                ("Kingston", 285.97), ("Napanee", 321.47), ("Belleville", 356.42),
-                ("Trenton Junction", 375.9), ("Cobourg", 426.05), ("Port Hope", 436.86),
+    "MTL-TO":  [("Dorval", 17.79), ("Cornwall", 110.95), ("Brockville", 204.72),
+                ("Kingston", 285.97), ("Belleville", 356.42), ("Cobourg", 426.05),
                 ("Oshawa", 487.24), ("Guildwood", 517.94)],
 }
 

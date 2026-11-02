@@ -1,0 +1,5 @@
+﻿trajet;n_arrets_omnibus;gares_omnibus;omnibus_base_min;omnibus_avec_marge_min;express_base_min;express_avec_marge_min;gain_min;source
+Montréal-Québec;5;Saint-Lambert, Saint-Hyacinthe, Drummondville, Charny, Sainte-Foy;123.4;135.7;107.1;117.8;17.9;"moteur de l'étape 21, S2 pendulaire, 201 km/h, blocs urbains libres, aucun arrêt intermédiaire ; × 1,10"
+Montréal-Ottawa;4;Dorval, Coteau, Alexandria, Casselman;85.4;93.9;72.3;79.6;14.4;"moteur de l'étape 21, S2 pendulaire, 201 km/h, blocs urbains libres, aucun arrêt intermédiaire ; × 1,10"
+Ottawa-Toronto;12;Fallowfield, Smiths Falls, Brockville, Gananoque, Kingston, Napanee, Belleville, Trenton Junction, Cobourg, Port Hope, Oshawa, Guildwood;197.8;217.6;157.9;173.7;43.9;"moteur de l'étape 21, S2 pendulaire, 201 km/h, blocs urbains libres, aucun arrêt intermédiaire ; × 1,10"
+Montréal-Toronto;8;Dorval, Cornwall, Brockville, Kingston, Belleville, Cobourg, Oshawa, Guildwood;212.3;233.5;184.1;202.5;31.0;"moteur de l'étape 21, S2 pendulaire, 201 km/h, blocs urbains libres, aucun arrêt intermédiaire ; × 1,10"

@@ -2,7 +2,7 @@
 title: "Corridor Québec-Toronto : ce que la voie existante permet"
 subtitle: "Cinq actions sur l'emprise actuelle : temps de parcours, conditions, coûts, et mise en regard avec le projet ALTO"
 author: "Étude préparée pour Vision Transport par Vincent Duguay"
-date: "Septembre 2026"
+date: "Novembre 2026"
 lang: fr-CA
 bibliography: sources/refs.bib
 csl: sources/apa.csl
@@ -14,9 +14,9 @@ numbersections: true
 
 Le projet ALTO propose de construire environ 1 000 km de voies neuves pour relier Québec à Toronto à 300 km/h [@alto2025]. Cette étude répond à une question complémentaire : combien de temps le train prendrait-il sur l'emprise qui existe déjà, si on la modernisait?
 
-Une fois l'emprise optimisée, le train Montréal-Toronto via Kingston passerait de 5 h 18 aujourd'hui à 4 h 04, soit 1 h 14 de moins. Plus d'une heure serait aussi retirée du trajet Montréal-Québec, qui passerait de 3 h 22 à 2 h 16. Le temps de parcours Montréal-Ottawa, lui, serait réduit de 28 minutes.
+Une fois l'emprise optimisée, le train Montréal-Toronto via Kingston passerait de 5 h 18 aujourd'hui à 3 h 54, soit 1 h 24 de moins. Plus d'une heure serait aussi retirée du trajet Montréal-Québec, qui passerait de 3 h 22 à 2 h 16. Le temps de parcours Montréal-Ottawa, lui, serait réduit de 28 minutes.
 
-Sans offrir une vitesse équivalente à la prévision d'ALTO, l'amélioration de l'emprise existante offre un train compétitif, pour une fraction de l'effort, du temps et du coût. Cet investissement aurait aussi l'avantage d'améliorer la sécurité des opérations des trains de marchandises et de réduire les nuisances pour les populations avoisinantes du chemin de fer, notamment par la sécurisation ou l'élimination des croisements routiers.
+Sans offrir une vitesse équivalente à la prévision d'ALTO, l'amélioration de l'emprise existante offre un train compétitif, pour une fraction de l'effort, du temps et du coût. Cet investissement aurait aussi l'avantage d'améliorer la sécurité des opérations des trains de marchandises et de réduire les nuisances pour les populations avoisinantes du chemin de fer, notamment par la sécurisation des croisements routiers.
 
 **Temps de parcours et vitesse moyenne commerciale.**
 
@@ -24,12 +24,14 @@ Sans offrir une vitesse équivalente à la prévision d'ALTO, l'amélioration de
 |---|---|---|---|---|
 | Montréal-Québec (270 km) | ~2 h 50 | 3 h 22 (80 km/h) | 2 h 16 (119 km/h) | ~1 h 30 |
 | Montréal-Ottawa (185 km) | ~2 h 20 | 2 h 02 (91 km/h) | 1 h 34 (118 km/h) | ~1 h |
-| Ottawa-Toronto (442 km) | ~4 h 20 | 4 h 35 (96 km/h) | 3 h 34 (124 km/h) | ~2 h |
-| Montréal-Toronto (536 km) | ~5 h 30 | 5 h 18 (101 km/h) | 4 h 04 (132 km/h) | 3 h |
+| Ottawa-Toronto (442 km) | ~4 h 20 | 4 h 35 (96 km/h) | 3 h 38 (122 km/h) | ~2 h |
+| Montréal-Toronto (536 km) | ~5 h 30 | 5 h 18 (101 km/h) | 3 h 54 (137 km/h) | 3 h |
 
-Entre parenthèses : la vitesse commerciale moyenne, c'est-à-dire la distance divisée par le temps de parcours complet, arrêts et marge compris. Le temps en auto est une estimation à partir de la cartographie routière grand public, approximative. Les temps du projet ALTO viennent du promoteur [@altotrain2026faq] ; le 3 h Montréal-Toronto est d'ailleurs un engagement du gouvernement [@pmcanada2025alto]. De bout en bout, Québec-Toronto via Montréal passerait de 8 h 50 aujourd'hui à 6 h 30, avec dix minutes d'arrêt à Montréal, contre environ 4 h 30 pour le projet ALTO.
+Entre parenthèses : la vitesse commerciale moyenne, c'est-à-dire la distance divisée par le temps de parcours complet, arrêts et marge compris. Le temps en auto est une estimation à partir de la cartographie routière grand public, approximative. Les temps du projet ALTO viennent du promoteur [@altotrain2026faq] ; le 3 h Montréal-Toronto est d'ailleurs un engagement du gouvernement [@pmcanada2025alto]. De bout en bout, Québec-Toronto via Montréal passerait de 8 h 50 aujourd'hui à 6 h 19, avec dix minutes d'arrêt à Montréal, contre environ 4 h 30 pour le projet ALTO.
 
-Aujourd'hui, le train fait à peu près jeu égal avec l'auto sur Montréal-Toronto et la perd nettement sur Montréal-Québec. Sur l'emprise optimisée, le train prend de 67 à 82 % du temps de l'auto selon le trajet : il devient très compétitif.
+Aujourd'hui, le train fait à peu près jeu égal avec l'auto sur Montréal-Toronto et la perd nettement sur Montréal-Québec. Sur l'emprise optimisée, le train prend de 67 à 84 % du temps de l'auto selon le trajet : il devient très compétitif.
+
+**Les villes intermédiaires.** Ces temps comprennent un arrêt à chacune des 22 gares intermédiaires où s'arrêtent aujourd'hui les trains de VIA, de Saint-Hyacinthe et Drummondville à Cornwall et Kingston (la liste complète est à la section 2). L'emprise optimisée améliore donc aussi le service ferroviaire des régions desservies par ces gares, alors que le projet ALTO prévoit sept gares sur l'ensemble de son réseau [@altotrain2026faq]. Un train express qui ne s'arrêterait qu'aux grandes villes gagnerait encore de 14 à 44 minutes selon le trajet (section 8).
 
 ![Montréal-Québec : le train contre l'auto. La barre de l'emprise optimisée est un temps calculé selon la méthode de la section 2. Le trait pointillé est le temps annoncé par ALTO. Temps auto : estimation à partir de la cartographie routière grand public (Google Maps), approximative.](livrables/figure_vs_auto_montreal_quebec.jpg)
 
@@ -46,18 +48,18 @@ Aujourd'hui, le train fait à peu près jeu égal avec l'auto sur Montréal-Toro
 1. **Doublement des voies.** La voie est simple sur 31 % du trajet. Un doublement permettrait une cohabitation où le passager et le fret gagnent tous les deux, au lieu de se voler des minutes.
 2. **Une signalisation modernisée.** Grâce à l'installation d'un système de contrôle de train en cabine comme celui déjà utilisé aux États-Unis, la distance nécessaire entre les trains sera de beaucoup réduite, ce qui favorisera la cohabitation et permettra de donner la priorité aux trains de passagers, dont dépend leur ponctualité. Ce système autorise une vitesse maximale de 201 km/h (125 mi/h) quand la voie le permet.
 3. **Arbitrage de l'Office des transports du Canada.** Nous proposons de donner une orientation claire en faveur du service aux passagers, par règlement ou par projet de loi, dans le but de permettre à l'Office des transports du Canada d'exercer ses pouvoirs d'accorder à une compagnie le droit de rouler sur les rails d'une autre, d'en fixer les conditions et d'en fixer le prix [@otc2016circulation; @ltc1996art138], même lorsqu'ils s'appliquent aux contrats de cohabitation existants.
-4. **Passages à niveau éliminés ou sécurisés.** Le corridor en compte 924. Il faudra en sécuriser 533 qui n'ont pas de barrières complètes. Un programme distinct de ponts d'étagement, présenté à part, éliminerait le tiers des croisements, en priorité parmi les 102 situés en zone urbaine.
+4. **Passages à niveau sécurisés.** Le corridor en compte 924. Il faudra en sécuriser 533 qui n'ont pas de barrières complètes. Un programme complémentaire, présenté à part, éliminerait le tiers des croisements par des ponts d'étagement pour améliorer davantage la sécurité.
 5. **Train pendulaire et voies plus inclinées dans les courbes.** Un train pendulaire incline sa caisse dans les courbes. De plus, on incline la voie au maximum standard du CN (dévers de 127 mm, soit 5 po) dans les courbes. Cela permet de faire en sorte que les passagers ne sentent pas la courbe et donc, que le train puisse la franchir plus vite.
 
-Les actions 1 à 3 réduisent la marge d'exploitation, soit l'écart entre le temps de parcours réel et la possibilité théorique fondée sur la géométrie de la voie. Les actions 4 et 5 accroissent cette possibilité théorique : le train pendulaire prend les courbes plus vite, et les passages sécurisés, avec le contrôle en cabine, autorisent 201 km/h. L'analyse des données et les conseils de notre expert ferroviaire [@dusablon2026] nous permettent de retenir une marge d'exploitation de 10 %, alignée sur la West Coast Main Line britannique, qui relie Londres à Manchester et Glasgow avec des trains pendulaires à 201 km/h sur des voies partagées avec les trains de marchandises. Nous estimons l'ordre de grandeur du coût de ces cinq actions à environ 4,5 G$ CA (section 9). Un programme distinct d'élimination du tiers des croisements par des ponts d'étagement, qui n'est pas nécessaire aux temps calculés ici, s'y ajouterait pour environ 8 G$ CA.
+Les actions 1 à 3 réduisent la marge d'exploitation, soit l'écart entre le temps de parcours réel et la possibilité théorique fondée sur la géométrie de la voie. Les actions 4 et 5 accroissent cette possibilité théorique : le train pendulaire prend les courbes plus vite, et les passages sécurisés, avec le contrôle en cabine, autorisent 201 km/h. L'analyse des données et les conseils de notre expert ferroviaire [@dusablon2026] nous permettent de retenir une marge d'exploitation de 10 %, alignée sur la West Coast Main Line britannique, qui relie Londres à Manchester et Glasgow avec des trains pendulaires à 201 km/h sur des voies partagées avec les trains de marchandises. Nous estimons le coût de ces cinq actions entre 7 et 8 G\$ CA (section 10). Techniquement, elles n'exigent de retirer aucun passage à niveau : des barrières complètes suffisent. Pour des raisons d'acceptabilité, de cohabitation avec les riverains et de modernisation du corridor, nous avons aussi chiffré un programme complémentaire d'élimination du tiers des croisements par des ponts d'étagement, pour environ 8,2 G\$ CA. Avec 20 % pour les imprévus, les deux volets représentent ensemble de 18 à 20 G\$ CA.
 
-Comme le montre la table qui suit, les actions proposées auront un impact significatif. Les postes se lisent sur le trajet complet Québec-Toronto ; la section 10 donne le détail en minutes, trajet par trajet.
+Comme le montre la table qui suit, les actions proposées auront un impact significatif. Les postes se lisent sur le trajet complet Québec-Toronto ; la section 11 donne le détail en minutes, trajet par trajet.
 
   | Facteur de réduction du temps de parcours | Part du gain |
 |---|---|
-| Cohabitation : doublement des voies, arbitrage, capacité libérée par la signalisation | 41 % |
-| Changement de classe de vitesse : passages à niveau sécurisés et contrôle en cabine | 32 % |
-| Train pendulaire et dévers | 21 % |
+| Cohabitation : doublement des voies, arbitrage, capacité libérée par la signalisation | 45 % |
+| Changement de classe de vitesse : passages à niveau sécurisés et contrôle en cabine | 30 % |
+| Train pendulaire et dévers | 19 % |
 | Zones urbaines modernisées | 6 % |
 
 ![Facteurs de réduction des temps de parcours, trajet par trajet. La barre pleine, incluant les parties colorées, est l'horaire actuel. Le segment sans couleur est le temps de l'emprise optimisée. Quatre facteurs se partagent le gain : la cohabitation, qui réunit le régime de circulation avec le fret et le doublement des voies ; le train pendulaire et les zones urbaines, comptés sous la classe de voie actuelle (153 km/h, 95 mi/h) ; et le changement de classe, soit ce que ces facteurs rapportent en plus une fois le plafond porté à 201 km/h grâce aux passages à niveau sécurisés et à la signalisation.](livrables/figure_gains.png)
@@ -72,14 +74,35 @@ Notre expert ferroviaire, Pierre DuSablon, a une longue expérience dans le doma
 
 **Analyse assistée par agents de codage (IA) des données satellites.** Comme VIA Rail ne fournit pas une géométrie suffisamment détaillée de sa voie, la géométrie du tracé vient des données ouvertes OpenStreetMap, appariées aux horaires de VIA. Ces deux sources publiques se complètent. Les horaires ouverts de VIA (le format GTFS, celui des applications de transport) disent quelles lignes le train emprunte et à quelle heure [@viarail2026gtfs]. La carte collaborative OpenStreetMap dit où les rails passent physiquement, à quelques mètres près [@osm2026geofabrik]. L'étude accroche le tracé de VIA sur la voie réelle d'OpenStreetMap et suit cette voie comme un train le ferait. Les passages à niveau viennent de l'inventaire officiel de Transports Canada [@tc2023inventairepn]. Le nombre de voies, lui, est détecté par la géométrie des voies parallèles dans la carte. La page de crédits décrit la méthode de travail avec les agents de codage.
 
+**Les ouvrages d'art des sections à doubler.** Doubler la voie demande aussi de doubler les ponts ferroviaires des sections à voie simple. Nous avons inventorié les ponts du corridor, puis retenu ceux qui se trouvent dans les sections à doubler : 78 ouvrages, pour un peu plus de 4 km de tablier. Le pont Victoria et le pont de Québec, situés dans les zones urbaines, ne sont pas comptés : ce sont des projets en soi. La section 10 tire de ce décompte le coût des ouvrages d'art.
+
+  | Liaison | Ouvrages | Moins de 20 m | Longueur | 20 m et plus | Longueur | Longueur totale |
+|---|---|---|---|---|---|---|
+| Montréal-Québec | 33 | 13 | 137 m | 20 | 1 944 m | 2 081 m |
+| Montréal-Ottawa | 15 | 5 | 70 m | 10 | 485 m | 555 m |
+| Ottawa-Toronto | 30 | 14 | 170 m | 16 | 1 331 m | 1 501 m |
+| Montréal-Toronto | 1 | 0 | 0 m | 1 | 22 m | 22 m |
+| Total, sans double compte | 78 | 32 | 377 m | 46 | 3 760 m | 4 137 m |
+
+Un ouvrage de 22 m appartient à deux liaisons ; le total ne le compte qu'une fois.
+
 ## Le modèle de temps
 
 Le temps de parcours d'un trajet est la somme de quatre morceaux :
 
 1. **les zones urbaines** (les approches de Montréal, Québec, Ottawa et Toronto) : intégrées sous le même calcul de vitesse que l'interurbain, en tenant compte toutefois des limitations particulières des approches de Montréal et de Québec ;
 2. **la zone interurbaine** (tout le reste) : en chaque point, le train roule à la plus basse de deux vitesses : celle que la courbe permet, et le plafond de 201 km/h (125 mi/h) établi. L'accélération et le freinage sont simulés avec des paramètres de puissance et de masse de rame référencés [@siemens2024chargerwsdot; @db2019icet411; @wikipedia2026class390] ;
-3. **les arrêts** : deux minutes d'immobilisation par gare intermédiaire, en plus du temps de freinage et de relance ;
+3. **les arrêts** : deux minutes d'immobilisation à chaque gare intermédiaire, en plus du temps de freinage et de relance ; la liste des gares suit ;
 4. **la marge d'exploitation** : 10 % du temps de base, fondée sur les normes internationales [@uic2000f451; @rfli2026tpr] et sur ce qui est déjà possible sur certains segments (Montréal-Ottawa, sur la voie simple détenue par VIA, opère avec 7 % de marge seulement).
+
+**Les gares desservies.** Chaque temps calculé comprend un arrêt à toutes les gares où s'arrête aujourd'hui au moins un train de VIA sur ce trajet [@viarail2026gtfs]. Le train de l'emprise optimisée dessert donc les mêmes villes qu'aujourd'hui, sans en sauter aucune :
+
+  | Trajet | Gares intermédiaires desservies |
+|---|---|
+| Montréal-Québec | Saint-Lambert, Saint-Hyacinthe, Drummondville, Charny, Sainte-Foy |
+| Montréal-Ottawa | Dorval, Coteau, Alexandria, Casselman |
+| Ottawa-Toronto | Fallowfield, Smiths Falls, Brockville, Gananoque, Kingston, Napanee, Belleville, Trenton Junction, Cobourg, Port Hope, Oshawa, Guildwood |
+| Montréal-Toronto | Dorval, Cornwall, Brockville, Kingston, Belleville, Cobourg, Oshawa, Guildwood |
 
 Une courbe de rayon R limite la vitesse selon la formule v = k·√R. Le coefficient k dépend de l'inclinaison de la voie et de la tolérance du train. Avec l'écartement effectif utilisé, cette formule reproduit exactement la méthode officielle du CN [@cn2002mr1305].
 
@@ -127,10 +150,10 @@ Nous calculons maintenant la marge réelle de chaque trajet, c'est-à-dire l'éc
 |---|---|---|---|
 | Montréal-Québec | 3 h 22 | 2 h 46 | 22 % (37 min) |
 | Montréal-Ottawa | 2 h 02 | 1 h 54 | 7 % (8 min) |
-| Ottawa-Toronto | 4 h 35 | 3 h 57 | 16 % (38 min) |
-| Montréal-Toronto | 5 h 18 | 4 h 43 | 12 % (35 min) |
+| Ottawa-Toronto | 4 h 35 | 4 h 01 | 14 % (34 min) |
+| Montréal-Toronto | 5 h 18 | 4 h 34 | 16 % (44 min) |
 
-Montréal-Toronto est déjà doublé. Son horaire porte pourtant encore 12 % de marge, contre la norme de 10 % et contre les 7 % de la voie simple de VIA entre Montréal et Ottawa. Le doublement existant rapproche donc de l'optimum sans l'atteindre. Un corridor à voie unique équipé d'évitements (des tronçons courts de deuxième voie où un train peut être mis en attente) est déjà, dans les faits, partiellement doublé. Une simulation montre que chaque tronçon de deuxième voie ajouté réduit le retard quand on procède en reliant des paires d'évitements existants [@sogin2013doublement]. C'est une pratique établie, notamment sur le corridor Chicago-Detroit, où l'étude fédérale retient exactement cette approche [@mdot2014tier1]. Notre expert ferroviaire arrive à la même conclusion pour Charny-Sainte-Rosalie, à partir du diagramme de voie du CN : relier les 18 évitements existants, soit environ 92 milles (148 km) de voie à construire, dont une pourrait être réservée en priorité à VIA [@dusablon2026]. Il est important aussi de prévoir des liaisons rapides entre les deux voies pour dépasser sans ralentir, des sections de troisième voie aux points de friction, et surtout un régime de cohabitation arbitré, qui pourrait être établi en donnant le rôle d'arbitre à l'Office des transports du Canada [@dick2019blocs; @orr2025wcml; @sogin2013doublement].
+Montréal-Toronto est déjà doublé. Son horaire porte pourtant encore 16 % de marge, contre la norme de 10 % et contre les 7 % de la voie simple de VIA entre Montréal et Ottawa. Le doublement existant rapproche donc de l'optimum sans l'atteindre. Un corridor à voie unique équipé d'évitements (des tronçons courts de deuxième voie où un train peut être mis en attente) est déjà, dans les faits, partiellement doublé. Une simulation montre que chaque tronçon de deuxième voie ajouté réduit le retard quand on procède en reliant des paires d'évitements existants [@sogin2013doublement]. C'est une pratique établie, notamment sur le corridor Chicago-Detroit, où l'étude fédérale retient exactement cette approche [@mdot2014tier1]. Notre expert ferroviaire arrive à la même conclusion pour Charny-Sainte-Rosalie, à partir du diagramme de voie du CN : relier les 18 évitements existants, soit environ 92 milles (148 km) de voie à construire, dont une pourrait être réservée en priorité à VIA [@dusablon2026]. Il est important aussi de prévoir des liaisons rapides entre les deux voies pour dépasser sans ralentir, des sections de troisième voie aux points de friction, et surtout un régime de cohabitation arbitré, qui pourrait être établi en donnant le rôle d'arbitre à l'Office des transports du Canada [@dick2019blocs; @orr2025wcml; @sogin2013doublement].
 
 **En bref : la voie double est plus performante sur la fiabilité et elle est la condition d'une meilleure cohabitation.** Aujourd'hui, chaque minute gagnée par le passager sur une voie simple est une minute prise au fret, et inversement : un jeu à somme nulle. Avec la deuxième voie, les deux circulations cessent de se disputer le même créneau.
 
@@ -156,9 +179,18 @@ Le 11 octobre 2024, le CN a imposé aux rames neuves de VIA un ralentissement à
 
 # Les passages à niveau
 
-Un passage à niveau est un croisement entre le rail et une route. Plus le train va vite, plus la règle est exigeante. Sur l'inventaire ouvert de Transports Canada [@tc2023inventairepn], on dénombre 924 passages physiques sur le corridor. Le tableau qui suit les répartit selon la vitesse que la géométrie permet au train pendulaire, au plafond de 201 km/h (125 mi/h) :
+Un passage à niveau est un croisement entre le rail et une route. Ces croisements représentent un risque auquel fait face le mécanicien du train. Plus le train va vite, plus ce risque grandit. La réglementation permet toutefois des passages à niveau jusqu'à 201 km/h, s'ils sont équipés de barrières automatiques : c'est ce qu'on appelle un corridor scellé. Pour aller au-delà de 201 km/h, le train ne doit plus croiser de routes. En Amérique du Nord, le seul train dans cette situation est l'Acela d'Amtrak, qui roule entre Boston, New York et Washington à une vitesse maximale de 241 km/h (150 mi/h) là où il n'y a pas de croisements routiers [@fra2000acela; @fra2010ptc]. Comme l'effort d'aller au-delà de 201 km/h ne rapporte pas de gains de temps importants, compte tenu des limites imposées par la géométrie de la voie (voir la section suivante), nous retenons la limite de 201 km/h.
 
-  | Bande d'exploitation | Passages (corridor dédoublonné) |
+Voici donc le barème des États-Unis [@ecfr213-347], cité ici comme référence en l'absence d'échelle canadienne équivalente :
+
+- **jusqu'à 153 km/h (95 mi/h)** : le régime actuel suffit ;
+- **154 à 177 km/h (96 à 110 mi/h)** : « corridor scellé ». Chaque passage est traité : barrières qui ferment les deux sens de la route (entrées et sorties), terre-pleins pour empêcher le contournement, détection d'obstacle. Cette modernisation est aussi soutenue par un argument de sécurité : le programme de référence, en Caroline du Nord, a sauvé au moins 19 vies de 1995 à 2004 selon l'évaluation fédérale [@bienaime2009sealed] ;
+- **178 à 201 km/h (111 à 125 mi/h)** : même traitement que le niveau précédent, mais avec une approbation de chaque passage par les autorités compétentes ;
+- **au-delà de 201 km/h : zéro passage à niveau,** public ou privé, sans exception [@ecfr213-347]. C'est le mur qui impose à un TGV comme ALTO une voie neuve et clôturée.
+
+Sur l'inventaire ouvert de Transports Canada [@tc2023inventairepn], on dénombre 924 passages à niveau sur l'ensemble du corridor. Selon les courbes, le train peut ou non y atteindre la vitesse maximale. Le tableau qui suit répartit les passages selon la vitesse que la géométrie de la voie autorise au train pendulaire, là où chacun se trouve :
+
+  | Bande d'exploitation | Passages à niveau |
 |---|---|
 | ≤ 153 km/h (95 mi/h) : régime actuel | 91 |
 | 154-177 km/h (96-110 mi/h) : corridor scellé | 161 |
@@ -166,7 +198,7 @@ Un passage à niveau est un croisement entre le rail et une route. Plus le train
 
 Les 833 passages des deux dernières lignes se trouvent là où le train peut physiquement dépasser 153 km/h : ce sont eux qu'il faut sceller. Parmi eux, 300 ont déjà un système complet de feux, cloches et barrières ; il faudra y ajouter les bras de sortie, les terre-pleins et la détection d'obstacle. Les 533 autres partent de plus loin : 475 n'ont aucune protection automatique, et 58 ont des feux et des cloches sans barrières. Enfin, 77 des 833 sont en zone urbaine et coûteront plus cher que les autres. Les 91 passages de la première ligne sont dans des sections où les courbes plafonnent de toute façon le train sous 153 km/h ; le régime actuel y suffit. L'inventaire complet, passage par passage, est dans le visualiseur de données joint.
 
-Par type d'accès, le corridor compte 355 passages publics et 569 passages privés ou de ferme :
+Le corridor compte 355 passages publics et 569 passages privés ou de ferme :
 
   | | Passages actuels | Sans barrières complètes | Ponts d'étagement proposés (un tiers) |
 |---|---|---|---|
@@ -174,35 +206,43 @@ Par type d'accès, le corridor compte 355 passages publics et 569 passages priv�
 | Passages privés ou de ferme | 569 | 563 | 190 |
 | Total | 924 | 575 | 308 |
 
-Il faudra équiper ou éliminer les 533 passages sans barrières complètes situés dans les sections rapides. Dans le but de renforcer encore plus la sécurité et d'améliorer la vitesse, nous proposons de construire 118 ponts d'étagement pour éliminer le tiers des croisements routiers publics, et 190 passages dénivelés pour remplacer le tiers des 569 traverses privées et de ferme. Notre expert ferroviaire recommande de regrouper certains accès agricoles en passages à usage commun, aménagés à des endroits stratégiques, ce qui réduirait le nombre d'ouvrages [@dusablon2026]. L'élimination de croisements aura aussi l'avantage d'éliminer les sifflements de train, qui dérangent les citoyens de façon importante.
+Il faudra équiper les 533 passages sans barrières complètes situés dans les sections rapides. Pour renforcer encore la sécurité, nous proposons un programme complémentaire : 118 ponts d'étagement pour éliminer le tiers des croisements routiers publics, et 190 passages dénivelés pour éliminer le tiers des 569 traverses privées et de ferme. Notre expert ferroviaire recommande de regrouper certains accès agricoles en passages à usage commun, aménagés à des endroits stratégiques, ce qui réduirait le nombre d'ouvrages à construire [@dusablon2026]. Ces ouvrages auraient aussi l'avantage d'éliminer les sifflements de train, qui dérangent les citoyens de façon importante : la règle prévoit que le mécanicien siffle à l'approche d'un passage tant qu'il n'a pas une garantie suffisante d'absence de risque d'accident.
 
-Le précédent domestique mérite d'être rappelé : le train Turbo des années 1970 détenait le record canadien de vitesse (226 km/h en essai) mais a été plafonné en service à 153 km/h, en bonne partie à cause de ses quelque 300 passages à niveau [@bateman2015; @canadianrail1976]. Le corridor bute sur ce mur depuis cinquante ans : un corridor scellé est la façon la plus économe de permettre une vitesse plus haute sans tout reconstruire.
-
-Comme le montre le barème suivant, il est possible d'atteindre 201 km/h en zone interurbaine, pour autant qu'il y ait des barrières automatiques à tous les croisements routiers. Voici le barème des États-Unis [@ecfr213-347], cité ici comme référence en l'absence d'échelle canadienne équivalente :
-
-- **jusqu'à 153 km/h (95 mi/h)** : le régime actuel suffit ;
-- **154 à 177 km/h (96 à 110 mi/h)** : « corridor scellé ». Chaque passage est traité : barrières qui ferment les deux sens de la route (entrées et sorties), terre-pleins pour empêcher le contournement, détection d'obstacle. Cette modernisation est aussi soutenue par un argument de sécurité : le programme de référence, en Caroline du Nord, a sauvé au moins 19 vies de 1995 à 2004 selon l'évaluation fédérale [@bienaime2009sealed] ;
-- **178 à 201 km/h (111 à 125 mi/h)** : même traitement que le niveau précédent, mais avec une approbation de chaque passage par les autorités compétentes ;
-- **au-delà de 201 km/h : zéro passage à niveau,** public ou privé, sans exception [@ecfr213-347]. C'est le mur qui impose à un TGV comme ALTO une voie neuve et clôturée.
-
-Même si nous proposons de nous en tenir à une vitesse maximale d'exploitation de 201 km/h, nous notons que la vitesse maximale du corridor du Nord-Est d'Amtrak est de 241 km/h (150 mi/h) [@fra2000acela; @fra2010ptc]. Ce train dépasse les 201 km/h parce qu'il n'y a pas de croisements routiers. La section suivante mesure ce que ce chantier rapporterait ici.
+Le précédent domestique mérite d'être rappelé : le train Turbo des années 1970 détenait le record canadien de vitesse (226 km/h en essai) mais a été plafonné en service à 153 km/h, en bonne partie à cause de ses quelque 300 passages à niveau [@bateman2015; @canadianrail1976]. Le corridor bute sur ce mur depuis cinquante ans : un corridor scellé, avec des barrières automatiques partout, est la façon la plus économe de permettre une vitesse plus haute sans tout reconstruire.
 
 # Et si on enlevait tous les passages à niveau?
 
-Le plafond de 201 km/h (125 mi/h) n'est requis que pour une raison : les passages à niveau. Supposons donc qu'on les enlève partout où ils bloquent, pour tester si le choix de vitesse plafond limite indûment la performance. La règle n'interdit les passages que sur les segments roulés à plus de 201 km/h : 627 des 924 passages du corridor se trouvent là où le tracé le permet [@ecfr213-347]. Ces 627 passages seraient dénivelés ou fermés, soit deux fois plus que ce que nous proposons ; les 297 autres garderaient des barrières, puisque le train ne peut pas dépasser 201 km/h dans ces sections à cause de la géométrie de la voie. Le mur tombe et le train peut alors monter à la marche de vitesse suivante, déjà prouvée en Amérique du Nord : 241 km/h (150 mi/h), la vitesse maximale du corridor du Nord-Est d'Amtrak [@fra2010ptc; @fra2000acela]. Combien de temps ce chantier achète-t-il?
+Le plafond de 201 km/h (125 mi/h) n'est requis que pour une raison : la présence de passages à niveau [@ecfr213-347]. Supposons donc qu'on les enlève partout où ils limitent la vitesse, afin de tester si le choix de vitesse plafond limite indûment la performance. 627 des 924 passages du corridor se trouvent là où la géométrie du tracé permet au train d'aller au-delà de 201 km/h. Ces 627 passages seraient remplacés par des ponts d'étagement, soit deux fois plus que ce que nous proposons ; les 297 autres garderaient des barrières, puisque le train ne peut pas dépasser 201 km/h dans ces sections à cause de la géométrie de la voie. Le mur tombe et le train peut alors monter à la marche de vitesse suivante, déjà prouvée en Amérique du Nord : 241 km/h (150 mi/h), la vitesse maximale du corridor du Nord-Est d'Amtrak [@fra2010ptc; @fra2000acela]. Combien de temps ce chantier achète-t-il?
 
   | Trajet | Emprise optimisée (201 km/h) | Sans passage à niveau (241 km/h) | Gain | ALTO annoncé |
 |---|---|---|---|---|
 | Montréal-Québec | 2 h 16 | 2 h 13 | 3 min | ~1 h 30 |
 | Montréal-Ottawa | 1 h 34 | 1 h 33 | 1 min | ~1 h |
-| Ottawa-Toronto | 3 h 34 | 3 h 26 | 7 min | ~2 h |
-| Montréal-Toronto | 4 h 04 | 3 h 52 | 12 min | 3 h |
+| Ottawa-Toronto | 3 h 38 | 3 h 30 | 8 min | ~2 h |
+| Montréal-Toronto | 3 h 54 | 3 h 42 | 12 min | 3 h |
 
 De bout en bout, Québec-Toronto pourrait y gagner 15 minutes.
 
 **Pourquoi si peu?** Parce qu'au-dessus de 201 km/h, ce ne sont plus les passages qui retiennent le train : ce sont les courbes. Le tracé n'offre qu'un nombre limité de sections assez droites pour porter 241 km/h, et le train n'y reste jamais longtemps.
 
-**La lecture d'investissement est donc simple.** Comme levier de temps, retirer ces 627 passages ne se justifie pas : des centaines d'ouvrages pour gagner 1 à 12 minutes, alors que le traitement des passages en place coûte une fraction de ce prix. Les retraits gardent leurs autres mérites, notamment la sécurité et la fin des sifflements, et c'est à ce titre que le programme de ponts d'étagement de la section précédente se justifie. Mais quiconque veut des minutes au-delà de l'emprise optimisée doit toucher au tracé lui-même, et c'est un autre projet : celui d'ALTO. Cette page établit l'écart entre les deux mondes.
+**La lecture d'investissement est donc simple.** Comme levier de temps, retirer ces 627 passages ne se justifie pas : des centaines d'ouvrages pour gagner 1 à 12 minutes, alors que la sécurisation des passages en place coûte une fraction de ce prix. Les retraits gardent toutefois leurs autres mérites, notamment la sécurité et la fin des sifflements, et c'est à ce titre que le programme de ponts d'étagement de la section précédente se justifie.
+
+# Et si on faisait un train express?
+
+Les temps de l'emprise optimisée comprennent un arrêt à chacune des 22 gares intermédiaires desservies aujourd'hui (section 2). Le projet ALTO, lui, prévoit sept gares : Québec, Trois-Rivières, Laval, Montréal, Ottawa, Peterborough et Toronto [@altotrain2026faq]. Une gare à Kingston est à l'étude [@tc2026altokingston]. Aucune des gares intermédiaires d'ALTO ne se trouve sur la voie actuelle de VIA. Un train express qui ne s'arrêterait qu'aux mêmes villes qu'ALTO roulerait donc sans arrêt entre les grandes villes. Supposons-le, avec la même voie, le même train et la même marge de 10 %. Combien de temps les arrêts coûtent-ils?
+
+  | Trajet | Emprise optimisée, toutes les gares | Express, sans arrêt | Gain | ALTO annoncé |
+|---|---|---|---|---|
+| Montréal-Québec | 2 h 16 | 1 h 58 | 18 min | ~1 h 30 |
+| Montréal-Ottawa | 1 h 34 | 1 h 20 | 14 min | ~1 h |
+| Ottawa-Toronto | 3 h 38 | 2 h 54 | 44 min | ~2 h |
+| Montréal-Toronto | 3 h 54 | 3 h 23 | 31 min | 3 h |
+
+De bout en bout, l'express Québec-Toronto ferait 5 h 31, contre 6 h 19 pour le train qui dessert toutes les gares.
+
+**Le prix d'un arrêt.** Chaque arrêt coûte environ trois à quatre minutes : le freinage, deux minutes en gare, puis la relance. Ottawa-Toronto compte douze gares intermédiaires, et ses arrêts pèsent 44 minutes. Si Kingston devenait une gare d'ALTO, l'express s'y arrêterait aussi, pour environ quatre minutes de plus.
+
+**Un express ne remplace pas l'omnibus, il s'y ajoute.** L'express rapproche l'emprise optimisée des temps d'ALTO, à 23 minutes près entre Montréal et Toronto, mais il laisse de côté les villes intermédiaires. Une grille qui alterne trains express et trains omnibus garde les deux avantages. Faire circuler des trains qui ne s'arrêtent pas aux mêmes gares sur la même voie demande toutefois des voies d'évitement pour les dépassements : c'est une question pour l'étude de circulation (section 12).
 
 # Le train pendulaire et le dévers
 
@@ -232,35 +272,38 @@ Le dévers actuel est une hypothèse, car aucun relevé public n'est disponible.
 
 Nous estimons ici l'ordre de grandeur du coût des actions proposées, sur les 991 km des trois liaisons Québec-Montréal, Montréal-Ottawa et Montréal-Toronto. Ce sont des coûts unitaires de planification, pas des devis : ils situent le projet, ils ne l'engagent pas. Chaque coût unitaire est rattaché à un précédent public ; quand il n'en existe pas, c'est dit.
 
-**Voie.** Le renouvellement de la voie courante (rails, traverses, ballast), hors ouvrages d'art, est évalué à 500 000 $ CA par kilomètre. Le premier tronçon de la réhabilitation du chemin de fer de la Gaspésie, 126 km pour 54,5 M$, revient à environ 430 000 $ par kilomètre [@mtmd2026gaspesie]. Comme le projet prévoit le remplacement d'une voie et l'ajout d'une deuxième dans l'emprise existante, nous prévoyons 991 km × 500 000 $ × 2 voies, soit environ 1 G$ CA. C'est une borne basse : dès qu'il faut reconstruire des ponts, le coût au kilomètre est multiplié, comme sur le Québec Central entre Lévis et Thetford Mines, où la reconstruction de 17 ponts porte le projet à près de 7 M$ par kilomètre [@mtmd2026quebeccentral].
+**Voie.** Le poste couvre deux opérations : remettre à niveau la voie existante sur les 991 km, et poser une deuxième voie sur les 407 km qui n'en ont qu'une. Nous les chiffrons avec les coûts unitaires de voie de l'étude de Hatch Mott MacDonald pour le ministère des Transports du Québec [@hatch2013voie], indexés de 2013 à 2025 avec l'indice implicite des prix de l'investissement dans les voies ferrées de Statistique Canada, qui a progressé de 42 % [@statcan2026ponts]. Une voie neuve sur remblai neuf coûte environ 2,4 M\$ par kilomètre, soit 1 G\$ pour la deuxième voie. Pour la voie existante, la fourchette va d'une réhabilitation, à 0,4 M\$ par kilomètre (0,4 G\$), à un renouvellement complet du rail, à 1,4 M\$ par kilomètre (1,4 G\$). Le poste voie va donc de 1,4 à 2,4 G\$, soit de 1,4 à 2,4 M\$ par kilomètre de corridor. À titre de comparaison, la réhabilitation du premier tronçon du chemin de fer de la Gaspésie, deux ponts compris, est revenue à environ 430 000 \$ par kilomètre [@mtmd2026gaspesie], près de notre coût de réhabilitation. Ces coûts unitaires sont des coûts directs, sans ingénierie ni imprévus : la marge de 20 % appliquée au total en tient lieu en partie.
 
-**Signalisation.** Amtrak installe le contrôle en cabine et renouvelle toute la signalisation du Downeaster, entre Brunswick (Maine) et Haverhill (Massachusetts), pour 51 M$ US sur un peu plus de 160 km [@schreiber2024downeaster; @amtrak2024ptc]. Cela revient à environ 0,45 M$ CA par kilomètre, signalisation complète comprise, soit environ 0,5 G$ CA pour les 991 km.
+**Ouvrages d'art.** Doubler la voie demande aussi de doubler les 78 ponts des sections à voie simple (section 2) : 32 ouvrages de moins de 20 m, 377 m au total, et 46 ouvrages de 20 m et plus, 3 760 m au total. Une table de coûts unitaires préparée par Hatch Mott MacDonald pour le ministère des Transports du Québec chiffre un pont ferroviaire neuf de 20 m à 5,5 M\$ et un pont de 350 m sur le Richelieu à 132 M\$ [@hatch2013couts]. Ramenés au mètre, ces devis valent 273 000 \$ et 377 000 \$, en dollars de 2013. Nous les indexons à 2025 avec l'indice implicite des prix de l'investissement dans les ponts de Statistique Canada, qui a progressé de 42 % sur la période [@statcan2026ponts] : 387 000 \$ et 535 000 \$ par mètre. Nous obtenons (377 m × 387 000 \$) + (3 760 m × 535 000 \$), soit environ 2,2 G\$ CA.
 
-**Trains.** Nous estimons le coût d'une flotte neuve à partir de la commande d'Amtrak de 28 rames pendulaires Avelia Liberty pour le corridor Boston-New York-Washington : 2 G$ US pour les rames seules, soit environ 2,7 G$ CA [@levy2016amtrak; @amtrak2016alstom]. L'investissement annoncé de 2,45 G$ US comprenait aussi des ateliers et des travaux de voie.
+**Signalisation.** Amtrak installe le contrôle en cabine et renouvelle toute la signalisation du Downeaster, entre Brunswick (Maine) et Haverhill (Massachusetts), pour 51 M\$ US sur un peu plus de 160 km [@schreiber2024downeaster; @amtrak2024ptc]. Cela revient à environ 0,45 M\$ CA par kilomètre, signalisation complète comprise, soit environ 0,5 G\$ CA pour les 991 km.
 
-**Passages à niveau.** Tel qu'indiqué à la section 6, nous proposons d'installer des barrières aux 533 croisements des sections rapides qui n'en sont pas équipés. Transports Canada rapporte un coût de 300 000 $ à 600 000 $, voire davantage, pour un système complet de feux, cloches et barrières [@canada2021passagesniveau] ; à 600 000 $ l'unité, nous obtenons un budget de 0,3 G$ CA. De plus, nous proposons de construire 118 ponts d'étagement pour éliminer le tiers des croisements routiers publics. Le coût d'un tel ouvrage varie beaucoup : environ 7 M$ pour la réfection d'un pont existant à Trois-Rivières [@constas2022etagement], mais de 60 à 100 M$ pour éliminer le passage à niveau du CN sur l'autoroute 20 à Saint-Hyacinthe, selon les estimations successives du ministère [@lorry2018sthyacinthe]. Nous retenons 50 M$ comme valeur moyenne de planification, soit 5,9 G$ CA. Nous proposons également 190 passages dénivelés pour remplacer le tiers des 569 traverses privées et de ferme, à 12 M$ chacun, soit 2,3 G$ CA ; aucun précédent public ne chiffre ce type d'ouvrage, et ce coût unitaire est une hypothèse de travail.
+**Trains.** Nous estimons le coût d'une flotte neuve à partir de la commande d'Amtrak de 28 rames pendulaires Avelia Liberty pour le corridor Boston-New York-Washington : 2 G\$ US pour les rames seules, soit environ 2,7 G\$ CA [@levy2016amtrak; @amtrak2016alstom]. L'investissement annoncé de 2,45 G\$ US comprenait aussi des ateliers et des travaux de voie.
 
-Ces ouvrages forment un programme à part. Ils ne sont pas nécessaires aux temps de parcours présentés ici : les barrières complètes suffisent au plafond de 201 km/h. Ils s'inscrivent plutôt dans une volonté de sécurité et de meilleure cohabitation avec les riverains de la ligne, et ils peuvent se décider site par site, au rythme des budgets. Les deux tableaux qui suivent les présentent donc séparément.
+**Passages à niveau.** Tel qu'indiqué à la section 6, nous proposons d'installer des barrières aux 533 croisements des sections rapides qui n'en sont pas équipés. Transports Canada rapporte un coût de 300 000 \$ à 600 000 \$, voire davantage, pour un système complet de feux, cloches et barrières [@canada2021passagesniveau] ; à 600 000 \$ l'unité, nous obtenons un budget de 0,3 G\$ CA. De plus, nous proposons de construire 118 ponts d'étagement pour éliminer le tiers des croisements routiers publics. Le coût d'un tel ouvrage varie beaucoup : environ 7 M\$ pour la réfection d'un pont existant à Trois-Rivières [@constas2022etagement], mais de 60 à 100 M\$ pour éliminer le passage à niveau du CN sur l'autoroute 20 à Saint-Hyacinthe, selon les estimations successives du ministère [@lorry2018sthyacinthe]. Nous retenons 50 M\$ comme valeur moyenne de planification, soit 5,9 G\$ CA. Nous proposons également 190 passages dénivelés pour remplacer le tiers des 569 traverses privées et de ferme, à 12 M\$ chacun, soit 2,3 G\$ CA ; aucun précédent public ne chiffre ce type d'ouvrage, et ce coût unitaire est une hypothèse de travail.
+
+Ces ouvrages forment un programme complémentaire. D'un point de vue technique, aucun passage n'a besoin d'être retiré : les barrières complètes suffisent au plafond de 201 km/h et aux temps de parcours présentés ici. Le programme répond plutôt à des raisons d'acceptabilité, de cohabitation avec les riverains de la ligne et de modernisation du corridor, et il peut se décider site par site, au rythme des budgets. Les deux tableaux qui suivent présentent donc les deux volets séparément.
 
 **Les cinq actions nécessaires aux temps de parcours calculés :**
 
-  | Composante du projet (991 km de voies) | Coût estimé (G$ CA) |
+  | Composante du projet (991 km de corridor) | Coût estimé (G\$ CA) |
 |---|---|
-| Rénovation de la voie et doublement, hors ouvrages d'art | 1,0 |
+| Voie : remise à niveau et deuxième voie | 1,4 à 2,4 |
+| Ouvrages d'art des sections à doubler, sauf les grands ponts | 2,2 |
 | Système de contrôle en cabine et signalisation | 0,5 |
 | Trains pendulaires | 2,7 |
 | Sécurisation de 533 croisements routiers | 0,3 |
-| Total des cinq actions | 4,5 |
+| Total des cinq actions | 7,1 à 8,1 |
 
-**Le programme d'élimination des croisements, en plus :**
+**Le programme complémentaire d'élimination des croisements :**
 
-  | Programme de ponts d'étagement | Coût estimé (G$ CA) |
+  | Programme de ponts d'étagement | Coût estimé (G\$ CA) |
 |---|---|
 | 118 ponts d'étagement, le tiers des croisements publics | 5,9 |
 | 190 passages dénivelés, le tiers des croisements privés et de ferme | 2,3 |
 | Total du programme | 8,2 |
 
-Les deux ensemble représentent environ 12,7 G$ CA.
+Les deux volets représentent ensemble de 15,3 à 16,3 G\$ CA. Avec une marge de 20 % pour les imprévus, le coût total du projet se situerait entre environ 18 et 20 G\$ CA.
 
 # Impacts des actions sur les temps de parcours
 
@@ -268,13 +311,13 @@ En appliquant la méthode de la section 2, nous obtenons les réductions de temp
 
   | Facteur (minutes gagnées, marge de 10 % incluse) | Montréal-Québec | Montréal-Ottawa | Montréal-Toronto | Québec-Toronto, bout en bout | Part du gain |
 |---|---|---|---|---|---|
-| Cohabitation : doublement, arbitrage, capacité de la signalisation | 38 | 9 | 20 | 58 | 41 % |
-| Changement de classe : passages à niveau sécurisés et contrôle en cabine | 12 | 6 | 34 | 46 | 32 % |
-| Train pendulaire et dévers | 13 | 11 | 16 | 29 | 21 % |
+| Cohabitation : doublement, arbitrage, capacité de la signalisation | 38 | 9 | 30 | 68 | 45 % |
+| Changement de classe : passages à niveau sécurisés et contrôle en cabine | 12 | 6 | 34 | 46 | 30 % |
+| Train pendulaire et dévers | 13 | 11 | 16 | 29 | 19 % |
 | Zones urbaines modernisées | 4 | 2 | 4 | 8 | 6 % |
-| Total du temps économisé | 67 | 28 | 74 | 141 | 100 % |
+| Total du temps économisé | 67 | 28 | 84 | 151 | 100 % |
 | Temps du trajet actuel | 3 h 22 | 2 h 02 | 5 h 18 | 8 h 50 | |
-| Temps sur l'emprise optimisée | 2 h 16 | 1 h 34 | 4 h 04 | 6 h 30 | |
+| Temps sur l'emprise optimisée | 2 h 16 | 1 h 34 | 3 h 54 | 6 h 19 | |
 
 Les tranches sont des attributions qui somment au gain, pas des mesures indépendantes. La signalisation apparaît dans deux postes : comme condition du changement de classe, où son effet sur la vitesse est mesuré, et comme levier de capacité dans la cohabitation, où son effet n'est pas isolé de celui du doublement et de l'arbitrage. Le pendulaire et les zones urbaines sont comptés sous la classe actuelle (153 km/h) ; le changement de classe est ce que l'interurbain rapporte en plus une fois le plafond porté à 201 km/h. Les temps de base sans marge et la méthode d'attribution sont dans le visualiseur de données joint.
 
@@ -299,7 +342,7 @@ L'étape suivante est une étude de circulation menée en collaboration avec le 
 
 # Annexe : avis de l'expert ferroviaire {-}
 
-> **Étude sur l'augmentation des vitesses et le doublement des voies entre Québec-Montréal et Montréal-Toronto**, par Pierre DuSablon, consultant en ingénierie de voies, avis daté du 4 septembre 2026 [@dusablon2026]. Pierre DuSablon a une longue expérience dans le domaine ferroviaire ; il a notamment été responsable des opérations du CN sur la section Montréal-Québec. Le texte qui suit est reproduit tel que remis par son auteur, à l'exception de coquilles de forme. Les comptes et les avis sont les siens : ils ont servi à valider les hypothèses du rapport, et ils ne remplacent pas les chiffres du rapport, qui viennent de l'analyse décrite à la section 2.
+> **Étude sur l'augmentation des vitesses et le doublement des voies entre Québec-Montréal et Montréal-Toronto**, par Pierre DuSablon, consultant en ingénierie de voies, avis daté du 4 septembre 2026 [@dusablon2026]. Pierre DuSablon a une longue expérience dans le domaine ferroviaire ; il a notamment été responsable des opérations du CN sur la section Montréal-Québec. Son avis porte sur Québec-Montréal, la section dont il a dirigé les opérations et dont il possède les diagrammes de voie. Le texte qui suit est sa version révisée et approuvée par lui en octobre 2026. Les comptes et les avis sont les siens : ils ont servi à valider les hypothèses du rapport, et ils ne remplacent pas les chiffres du rapport, qui viennent de l'analyse décrite à la section 2.
 
 ### 1. Objet de l'étude {-}
 
@@ -317,7 +360,7 @@ Principales infrastructures :
 - environ 20 viaducs ;
 - 4 ponts, dont le pont de Québec et le pont de la Chaudière, qui est actuellement à voie simple.
 
-Possibilités d'augmentation de la vitesse. L'augmentation importante de la vitesse est difficile à réaliser sur une grande partie de cette subdivision en raison de la présence de courbes à degré élevé et de la géographie accidentée en milieu urbain. Toutefois, entre la gare du Palais et le mille 10,9, où la voie est déjà double sur environ 5 milles, certains gains de temps pourraient être réalisés en éliminant des passages à niveau. Trois de ces passages sont piétonniers et deux autres sont associés à l'avenue Plante et au boulevard Père-Lelièvre. L'élimination de ces obstacles pourrait permettre un gain estimé à 3 à 4 minutes.
+Possibilités d'augmentation de la vitesse. L'augmentation importante de la vitesse est difficile à réaliser sur une grande partie de cette subdivision en raison de la présence de courbes à degré élevé et de la géographie accidentée en milieu urbain. Toutefois, entre la gare du Palais et le mille 10,9, où la voie est déjà double sur environ 5 milles, certains gains de temps pourraient être réalisés en remplaçant des passages à niveau par des ponts d'étagement. Trois de ces passages sont piétonniers et deux autres sont associés à l'avenue Plante et au boulevard Père-Lelièvre. L'élimination de ces obstacles pourrait permettre un gain estimé à 3 à 4 minutes.
 
 Au-delà du mille 10,9, le doublement de la voie sur environ 10,9 milles apparaît beaucoup plus difficile en raison du caractère urbain du secteur, de la géographie et du degré élevé de certaines courbes.
 
@@ -354,13 +397,11 @@ Selon l'analyse proposée, une fois certaines limites de courbure respectées, d
 
 ### 5. Passages à niveau, subdivision Drummondville {-}
 
-L'augmentation de la vitesse nécessiterait également une réduction du nombre de passages à niveau. Il serait particulièrement pertinent d'éliminer plusieurs passages à niveau situés en milieu rural. Certains passages à niveau urbains, notamment à Drummondville, pourraient toutefois être maintenus lorsque l'arrêt du train demeure nécessaire pour l'embarquement des passagers. Des systèmes de protection plus performants devraient également être étudiés, notamment des dispositifs qui sont des barrières impénétrables de protection utilisés ailleurs en Amérique du Nord et en Europe.
+L'augmentation de la vitesse nécessiterait la sécurisation de l'ensemble des passages à niveau. Certains passages à niveau urbains, notamment à Drummondville, pourraient toutefois être maintenus lorsque l'arrêt du train demeure nécessaire pour l'embarquement des passagers. Des systèmes de protection plus performants devraient également être implantés, notamment des dispositifs qui sont des barrières impénétrables de protection utilisés ailleurs en Amérique du Nord et en Europe. Il y a différentes avenues possibles pour sécuriser les passages à niveau :
 
-Passages à niveau de ferme et privés. Les passages à niveau de ferme et privés représentent une problématique particulière lorsque les vitesses dépassent 100 mi/h. Une solution pourrait consister à regrouper certains accès en créant des passages à usage commun, aménagés à des endroits stratégiques. Selon les coûts et les contraintes du terrain, ces passages pourraient être :
-
-- souterrains ;
-- aménagés par un chemin d'exploitation commun ;
-- ou protégés par des systèmes d'avertissement et des barrières.
+- passages souterrains ou ponts ;
+- systèmes d'avertissement et barrières ;
+- aménagement d'un chemin d'exploitation commun pour plusieurs voisins, sécurisé par l'une des options précédentes.
 
 ### 6. Sainte-Rosalie à Montréal {-}
 
@@ -368,7 +409,7 @@ Passages à niveau de ferme et privés. Les passages à niveau de ferme et priv�
 
 Pont Victoria à gare Centrale. La section comprise entre le pont Victoria et la gare Centrale demeure difficile à améliorer afin d'augmenter significativement la vitesse. La possibilité d'augmenter la vitesse sur cette subdivision repose principalement sur l'analyse des courbes, de leur degré et de leur élévation.
 
-Comme pour la subdivision Drummondville, l'élimination de certains passages à niveau, particulièrement en milieu rural, pourrait contribuer à réduire les contraintes imposées aux trains. Les passages à niveau situés dans les secteurs urbains, notamment à Saint-Hyacinthe, pourraient toutefois être conservés lorsque les arrêts pour les passagers sont nécessaires. Les passages à niveau privés et agricoles demeurent également un enjeu important lorsque les vitesses dépassent 100 mi/h.
+Comme pour la subdivision Drummondville, la sécurisation des passages à niveau pourrait contribuer à améliorer la vitesse. Les passages à niveau situés dans les secteurs urbains, notamment à Saint-Hyacinthe, pourraient toutefois être conservés lorsque les arrêts pour les passagers sont nécessaires.
 
 ### 7. Québec à Montréal : bilan sommaire {-}
 
@@ -387,7 +428,7 @@ Entre Québec et Montréal, la distance totale considérée est d'environ 167 mi
 L'analyse démontre que l'augmentation de la vitesse entre Québec et Montréal dépend en grande partie du doublement des voies. Les principaux facteurs à considérer sont :
 
 1. le degré des courbes et leur élévation ;
-2. l'élimination ou la sécurisation des passages à niveau ;
+2. la sécurisation des passages à niveau ;
 3. le raccordement des voies d'évitement existantes ;
 4. l'ajout de sections de deuxième voie ;
 5. la capacité des ponts et viaducs à recevoir une deuxième voie ;
@@ -401,7 +442,7 @@ Une première priorité pourrait être d'intervenir sur les secteurs où les inf
 
 Le corridor Québec-Montréal possède un potentiel important d'amélioration des temps de parcours, mais plusieurs contraintes techniques limitent actuellement l'augmentation des vitesses.
 
-Le doublement de la voie entre Québec et St-Hyacinthe apparaît nécessairement réalisable sur l'ensemble du parcours. Une approche progressive, combinant le raccordement des voies d'évitement, l'ajout de sections de deuxième voie, l'amélioration de l'élévation dans les courbes et la réduction du nombre de passages à niveau, pourrait toutefois permettre des gains de temps appréciables.
+Le doublement de la voie entre Québec et St-Hyacinthe apparaît nécessairement réalisable sur l'ensemble du parcours. Une approche progressive, combinant le raccordement des voies d'évitement, l'ajout de sections de deuxième voie, l'amélioration de l'élévation dans les courbes et la sécurisation des passages à niveau, pourrait toutefois permettre des gains de temps appréciables.
 
 Une étude technique détaillée devrait être réalisée pour chaque courbe afin de comparer précisément le degré de courbure, l'élévation disponible, le matériel roulant et la vitesse maximale admissible.
 
@@ -409,11 +450,29 @@ Il faut également souligner qu'au Canada, le réseau ferroviaire est encore loi
 
 \* La classe 5 permet 90 mi/h aux trains de voyageurs. La classe 5\* porte cette limite à 100 mi/h pour les trains de type LRC.
 
-En résumé, l'amélioration du corridor Québec-Montréal devrait privilégier une combinaison de travaux ciblés sur la voie, dont le doublement systématique de l'ensemble du parcours, l'élimination des principaux obstacles, l'amélioration des courbes et l'augmentation stratégique de la capacité.
+En résumé, l'amélioration du corridor Québec-Montréal devrait privilégier une combinaison de travaux ciblés sur la voie, dont le doublement systématique de l'ensemble du parcours, la sécurisation des passages à niveau, l'amélioration des courbes et l'augmentation stratégique de la capacité.
 
 Bien que je ne possède pas les diagrammes des voies sur les trajets de Montréal-Toronto et de Montréal-Ottawa, je déduis de mon analyse détaillée de la section Montréal-Québec qu'il est raisonnable d'affirmer que les mêmes stratégies utilisées entre Québec et Montréal peuvent y être mises en œuvre. Il faut toutefois noter qu'à l'exception de la section Westmount-gare Centrale, le reste des zones urbaines de ces deux corridors est plus rectiligne que dans les zones urbaines de la section Montréal-Québec. Cette réalité va permettre d'améliorer la vitesse dans ces zones urbaines par l'élimination de passages à niveau.
 
 *Pierre DuSablon, consultant en ingénierie de voies*
+
+# Vision Transport {-}
+
+Créée en 2013 sous le nom de Fondation Trains de nuit, l'organisme sans but lucratif constitué selon la Loi sur les compagnies, Partie 3 (RLRQ, c. C-38) a pour objectif la promotion des modes et services de transport innovants ferrés et guidés au Québec et sur le territoire nord-est de l'Amérique du Nord. Face à l'élargissement de son champ d'action, la Fondation est devenue Vision Transport en 2026.
+
+L'organisation privilégie l'utilisation comme ressources d'étudiants universitaires aux grades supérieurs afin qu'ils appliquent leurs connaissances à l'étude de cas réels, favorisant ainsi leur développement et leur apprentissage du milieu des transports de personnes. Elle peut aussi s'adjoindre les services de spécialistes en transport ou de professeurs d'université.
+
+Vision Transport a déjà réalisé une étude préliminaire d'achalandage pour un téléphérique. Elle a aussi dirigé une étude de faisabilité pour un train de passagers Montréal-Sherbrooke avec des connexions à Boston et à New York.
+
+Notre entreprise a réalisé plusieurs études sur les questions de transport guidé, notamment les suivantes :
+
+- Étude d'opportunité pour un train de passagers de nuit Montréal vers New York
+- Étude d'opportunité pour un train de passagers de nuit Montréal vers Boston
+- Étude de faisabilité d'un train de passagers Montréal-Sherbrooke
+- Étude d'intégration urbaine du projet structurant de l'Est de Montréal\*
+- Étude de balisage sur les possibilités d'un téléphérique Québec-Lévis\*
+
+\* Les deux études marquées d'un astérisque ont le même auteur principal (M. Duguay) et la même méthode de travail agentique décrite dans les Crédits.
 
 # Crédits {-}
 
@@ -421,7 +480,7 @@ Bien que je ne possède pas les diagrammes des voies sur les trajets de Montréa
 
 **Analyse, modélisation et rédaction.** Vincent Duguay, candidat à la maîtrise recherche à l'École nationale d'administration publique (ENAP).
 
-**Avis d'expert.** Pierre DuSablon, consultant en ingénierie de voies, ancien responsable des opérations du CN sur la section Montréal-Québec. Son avis du 4 septembre 2026 est reproduit intégralement en annexe, et son audit de terrain des courbes courtes, en août 2026, fonde la correction de la section 2. Les avis exprimés dans l'annexe sont les siens.
+**Avis d'expert.** Pierre DuSablon, consultant en ingénierie de voies, ancien responsable des opérations du CN sur la section Montréal-Québec. Son avis du 4 septembre 2026, dans sa version révisée et approuvée par lui en octobre 2026, est reproduit en annexe, et son audit de terrain des courbes courtes, en août 2026, fonde la correction de la section 2. Les avis exprimés dans l'annexe sont les siens.
 
 **Données.** Horaires ouverts de VIA Rail (GTFS) ; carte collaborative OpenStreetMap, extraits Québec et Ontario de Geofabrik ; inventaire des passages à niveau de Transports Canada ; méthode de calcul des vitesses en courbe du CN (circulaire MR 1305-0), fournie par un collaborateur du CN.
 

@@ -80,6 +80,7 @@ LABELS = {
     "blocs_urbains_blocs_libres.csv": "Blocs urbains, scénarios 2 et 3",
     "blocs_urbains_rectifies_blocs_libres.csv": "Blocs urbains, scénario 3",
     "sous_sections_montreal_quebec.csv": "Montréal-Québec par sous-section",
+    "train_express.csv": "Contre-hypothèse 2 : le train express",
 }
 
 QUOI = {
@@ -258,6 +259,10 @@ QUOI = {
         "Le trajet Montréal-Québec découpé à Saint-Hilaire, Saint-Hyacinthe et "
         "Drummondville : l'horaire d'aujourd'hui (VIA ; exo pour Saint-Hilaire, où VIA "
         "ne s'arrête pas) et le temps de passage sur l'emprise optimisée, marge comprise.",
+    "train_express.csv":
+        "Le même train sur la même voie modernisée, mais sans arrêt intermédiaire, comme ALTO qui ne "
+        "dessert que les grandes villes. L'écart avec l'emprise optimisée mesure le prix des arrêts dans "
+        "les villes intermédiaires.",
 }
 
 # Ordre d'apparition dans le menu déroulant : les tables du fil d'abord.

@@ -78,6 +78,8 @@ python scripts/23_figure_cellules.py        # figure : le 2×2 du corridor
 python scripts/24_figure_vs_auto.py         # figure : le train contre l'auto (4 trajets)
 python scripts/36_gains_urbains.py          # blocs urbains poste par poste : courbes, signalisation, mou (lu par le 32)
 python scripts/32_figure_gains.py           # figure : d'où viennent les minutes
+python scripts/37_sous_sections_mtlqc.py   # Montréal-Québec gare par gare (Saint-Hilaire, Saint-Hyacinthe, Drummondville)
+python scripts/38_train_express.py         # contre-hypothèse 2 : le train express, sans arrêt intermédiaire
 python scripts/35_figure_zoom_urbain.py     # figures : gros plans des blocs urbains Montréal / Québec
 python scripts/28_couverture.py             # couverture + vignette du visualiseur
 python scripts/29_rapport_html.py           # rapport.md → HTML à l'identité
