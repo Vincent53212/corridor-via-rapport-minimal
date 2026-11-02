@@ -74,7 +74,7 @@ Notre expert ferroviaire, Pierre DuSablon, a une longue expérience dans le doma
 
 **Analyse assistée par agents de codage (IA) des données satellites.** Comme VIA Rail ne fournit pas une géométrie suffisamment détaillée de sa voie, la géométrie du tracé vient des données ouvertes OpenStreetMap, appariées aux horaires de VIA. Ces deux sources publiques se complètent. Les horaires ouverts de VIA (le format GTFS, celui des applications de transport) disent quelles lignes le train emprunte et à quelle heure [@viarail2026gtfs]. La carte collaborative OpenStreetMap dit où les rails passent physiquement, à quelques mètres près [@osm2026geofabrik]. L'étude accroche le tracé de VIA sur la voie réelle d'OpenStreetMap et suit cette voie comme un train le ferait. Les passages à niveau viennent de l'inventaire officiel de Transports Canada [@tc2023inventairepn]. Le nombre de voies, lui, est détecté par la géométrie des voies parallèles dans la carte. La page de crédits décrit la méthode de travail avec les agents de codage.
 
-**Les ouvrages d'art des sections à doubler.** Doubler la voie demande aussi de doubler les ponts ferroviaires des sections à voie simple. Nous avons inventorié les ponts du corridor, puis retenu ceux qui se trouvent dans les sections à doubler : 78 ouvrages, pour un peu plus de 4 km de tablier. Le pont Victoria et le pont de Québec, situés dans les zones urbaines, ne sont pas comptés : ce sont des projets en soi. La section 10 tire de ce décompte le coût des ouvrages d'art.
+**Les ouvrages d'art des sections à doubler.** Doubler la voie demande aussi de doubler les ponts ferroviaires des sections à voie simple. Aucun inventaire officiel des ponts ferroviaires n'est public : ceux du CN, de VIA et des autres propriétaires ne sont pas publiés. Nous avons donc dressé notre propre inventaire en croisant deux sources indépendantes : les ponts étiquetés dans OpenStreetMap [@osm2026ponts] et les structures du Réseau ferroviaire national de Ressources naturelles Canada, figé en 2014 au Québec et en 2016 en Ontario [@rncan2016rfn]. Là où les deux sources divergeaient, l'imagerie satellite a tranché. L'inventaire compte 245 ponts sur les deux corridors, ponceaux exclus. Entre Québec et Montréal, il concorde avec le décompte de notre expert ferroviaire : 72 ouvrages, contre 71 dans son avis [@dusablon2026]. Sur les sections à voie simple, 79 ouvrages seraient à doubler. Nous en retirons le pont de Québec, qui ne porte qu'une voie : le doubler demanderait un nouveau franchissement, un projet en soi. Il reste 78 ouvrages, pour un peu plus de 4 km de tablier. La section 10 tire de ce décompte le coût des ouvrages d'art.
 
   | Liaison | Ouvrages | Moins de 20 m | Longueur | 20 m et plus | Longueur | Longueur totale |
 |---|---|---|---|---|---|---|
@@ -84,7 +84,7 @@ Notre expert ferroviaire, Pierre DuSablon, a une longue expérience dans le doma
 | Montréal-Toronto | 1 | 0 | 0 m | 1 | 22 m | 22 m |
 | Total, sans double compte | 78 | 32 | 377 m | 46 | 3 760 m | 4 137 m |
 
-Un ouvrage de 22 m appartient à deux liaisons ; le total ne le compte qu'une fois.
+Un ouvrage de 22 m, le viaduc de la rue Saint-Rémi à Montréal, appartient à deux liaisons ; le total ne le compte qu'une fois. Ce n'est pas un inventaire d'ingénierie : il ne donne ni la portée, ni le type, ni l'état des ouvrages. Six ouvrages qui portent déjà deux voies ne sont pas comptés, et dix ouvrages incertains, vus par une seule source, pourraient ajouter environ 200 m.
 
 ## Le modèle de temps
 
@@ -289,7 +289,7 @@ Ces ouvrages forment un programme complémentaire. D'un point de vue technique, 
   | Composante du projet (991 km de corridor) | Coût estimé (G\$ CA) |
 |---|---|
 | Voie : remise à niveau et deuxième voie | 1,4 à 2,4 |
-| Ouvrages d'art des sections à doubler, sauf les grands ponts | 2,2 |
+| Ouvrages d'art des sections à doubler, sauf le pont de Québec | 2,2 |
 | Système de contrôle en cabine et signalisation | 0,5 |
 | Trains pendulaires | 2,7 |
 | Sécurisation de 533 croisements routiers | 0,3 |

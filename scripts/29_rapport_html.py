@@ -146,7 +146,9 @@ def marquer_colonnes(html: str) -> str:
 
         return re.sub(r"<tr>(.*?)</tr>", par_ligne, table, flags=re.S)
 
-    return re.sub(r"<table>.*?</table>", par_table, html, flags=re.S)
+    # pandoc écrit <table style="width:100%;"> quand les lignes sont longues : la
+    # règle doit attraper les deux formes, sinon ces tables gardent leurs chiffres à gauche.
+    return re.sub(r"<table[^>]*>.*?</table>", par_table, html, flags=re.S)
 
 
 def ouvrir_sections(html: str) -> tuple[str, list[tuple[str, str, str]]]:
