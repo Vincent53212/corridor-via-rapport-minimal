@@ -263,8 +263,17 @@ tbody tr.total td{
   border-top:1.5px solid var(--encre);
   padding-top:7.5px; padding-bottom:7.5px;
 }
-tbody tr.total td:first-child{ padding-left:6px; }
-tbody tr.total td:last-child{ padding-right:6px; }
+/* En-têtes à deux niveaux (étape 29, « Groupe · sous-titre ») : le chapeau
+   coiffe ses colonnes d'un filet fin, interrompu entre deux groupes. */
+thead th.groupe{
+  text-align:center; border-bottom:none; padding-bottom:0;
+}
+thead th.groupe span{
+  display:block; margin-left:14px; padding-bottom:4px;
+  border-bottom:1px solid var(--encre-pale);
+}
+thead tr:first-child th:not([rowspan]):not(.groupe){ border-bottom:none; }
+thead tr.sous th{ padding-top:5px; }
 colgroup{ display:none; }
 /* Les largeurs en pourcentage de pandoc sont dérivées de la largeur du texte
    markdown, pas du contenu rendu : elles écrasent la première colonne des tables
@@ -2698,15 +2707,8 @@ m × 387 000 $) + (3 760 m × 535 000 $), soit environ 2,2 G$ CA.</p>
 <col style="width: 14%" />
 </colgroup>
 <thead>
-<tr>
-<th>Liaison</th>
-<th class="num">Ouvrages</th>
-<th class="num">Moins de 20 m</th>
-<th class="num">Longueur</th>
-<th class="num">20 m et plus</th>
-<th class="num">Longueur</th>
-<th class="num">Longueur totale</th>
-</tr>
+<tr><th rowspan="2">Liaison</th><th class="num" rowspan="2">Ouvrages</th><th class="groupe" colspan="2"><span>Moins de 20 m</span></th><th class="groupe" colspan="2"><span>20 m et plus</span></th><th class="num" rowspan="2">Longueur totale</th></tr>
+<tr class="sous"><th class="num">nombre</th><th class="num">longueur</th><th class="num">nombre</th><th class="num">longueur</th></tr>
 </thead>
 <tbody>
 <tr>

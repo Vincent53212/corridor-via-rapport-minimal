@@ -236,11 +236,41 @@ def images_en_ligne(html: str) -> str:
     return re.sub(r'<img src="([^"]+)"', repl, html)
 
 
+def grouper_entetes(html: str) -> str:
+    """En-têtes à deux niveaux. Dans rapport.md, un en-tête « Groupe · sous-titre »
+    (ex. « Moins de 20 m · nombre ») range la colonne sous un chapeau commun : les
+    colonnes voisines du même groupe partagent une cellule chapeau filetée, les
+    autres en-têtes occupent les deux rangées. Le Word garde l'en-tête à plat."""
+    def par_thead(m: re.Match) -> str:
+        ths = re.findall(r"<th([^>]*)>(.*?)</th>", m.group(1), re.S)
+        if not any(" · " in t for _, t in ths):
+            return m.group(0)
+        haut, bas, i = [], [], 0
+        while i < len(ths):
+            attrs, txt = ths[i]
+            if " · " not in txt:
+                haut.append(f'<th{attrs} rowspan="2">{txt}</th>')
+                i += 1
+                continue
+            groupe = txt.split(" · ")[0]
+            j = i
+            while j < len(ths) and ths[j][1].startswith(groupe + " · "):
+                a, t = ths[j]
+                bas.append(f"<th{a}>{t.split(' · ', 1)[1]}</th>")
+                j += 1
+            haut.append(f'<th class="groupe" colspan="{j - i}"><span>{groupe}</span></th>')
+            i = j
+        return ("<thead>\n<tr>" + "".join(haut) + "</tr>\n<tr class=\"sous\">"
+                + "".join(bas) + "</tr>\n</thead>")
+    return re.sub(r"<thead>\s*<tr>(.*?)</tr>\s*</thead>", par_thead, html, flags=re.S)
+
+
 def main() -> None:
     meta = entete_yaml()
     corps = corps_pandoc()
     corps, entrees = ouvrir_sections(corps)
     corps = marquer_colonnes(corps)
+    corps = grouper_entetes(corps)
     corps = images_en_ligne(corps)
 
     css = (IDENTITE_DIR / "rapport.css").read_text(encoding="utf-8")

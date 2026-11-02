@@ -268,7 +268,7 @@ Nous estimons ici l'ordre de grandeur du coût des actions proposées, sur les 9
 
 **Ouvrages d'art.** Doubler la voie demande aussi de doubler les 78 ponts des sections à voie simple (section 2) : 32 ouvrages de moins de 20 m, 377 m au total, et 46 ouvrages de 20 m et plus, 3 760 m au total. Une table de coûts unitaires préparée par Hatch Mott MacDonald pour le ministère des Transports du Québec chiffre un pont ferroviaire neuf de 20 m à 5,5 M\$ et un pont de 350 m sur le Richelieu à 132 M\$ [@hatch2013couts]. Ramenés au mètre, ces devis valent 273 000 \$ et 377 000 \$, en dollars de 2013. Nous les indexons à 2025 avec l'indice implicite des prix de l'investissement dans les ponts de Statistique Canada, qui a progressé de 42 % sur la période [@statcan2026ponts] : 387 000 \$ et 535 000 \$ par mètre. Nous obtenons (377 m × 387 000 \$) + (3 760 m × 535 000 \$), soit environ 2,2 G\$ CA.
 
-  | Liaison | Ouvrages | Moins de 20 m | Longueur | 20 m et plus | Longueur | Longueur totale |
+  | Liaison | Ouvrages | Moins de 20 m · nombre | Moins de 20 m · longueur | 20 m et plus · nombre | 20 m et plus · longueur | Longueur totale |
 |---|---|---|---|---|---|---|
 | Montréal-Québec | 33 | 13 | 137 m | 20 | 1 944 m | 2 081 m |
 | Montréal-Ottawa | 15 | 5 | 70 m | 10 | 485 m | 555 m |
