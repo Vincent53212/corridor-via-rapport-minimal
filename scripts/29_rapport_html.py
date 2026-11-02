@@ -141,7 +141,11 @@ def marquer_colonnes(html: str) -> str:
                                   cm.group(0), count=1)
                 return cm.group(0)
 
-            return "<tr>" + re.sub(r"<(t[hd])[^>]*>.*?</\1>", cellule, lg, flags=re.S) \
+            # Ligne de total : sa première cellule commence par « Total ».
+            premiere = re.search(r"<td[^>]*>(.*?)</td>", lg, re.S)
+            ouvre = '<tr class="total">' if premiere and \
+                sans_balises(premiere.group(1)).strip().startswith("Total") else "<tr>"
+            return ouvre + re.sub(r"<(t[hd])[^>]*>.*?</\1>", cellule, lg, flags=re.S) \
                    + "</tr>"
 
         return re.sub(r"<tr>(.*?)</tr>", par_ligne, table, flags=re.S)

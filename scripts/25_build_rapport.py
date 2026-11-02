@@ -34,5 +34,15 @@ for name in ("Normal", "Body Text", "First Paragraph"):
         doc.styles[name].paragraph_format.alignment = WD_ALIGN_PARAGRAPH.JUSTIFY
     except KeyError:
         pass
+# Lignes de total en gras, comme dans le PDF (première cellule « Total… »).
+n_totaux = 0
+for table in doc.tables:
+    for row in table.rows:
+        if row.cells and row.cells[0].text.strip().startswith("Total"):
+            n_totaux += 1
+            for cell in row.cells:
+                for par in cell.paragraphs:
+                    for run in par.runs:
+                        run.bold = True
 doc.save(str(DOCX))
-print(f"Écrit {DOCX.name} (corps justifié)")
+print(f"Écrit {DOCX.name} (corps justifié, {n_totaux} lignes de total en gras)")

@@ -256,9 +256,15 @@ td.num{ white-space:nowrap; }
 thead th{ white-space:normal; hyphens:none; }
 table{ table-layout:auto; max-width:100%; }
 tbody tr:last-child td{ border-bottom:1.5px solid var(--encre); }
-/* Ligne de total : le rapport n'en a pas de balisée, la règle est en réserve
-   pour le jour où une table en portera une. */
-tbody tr.total td{ font-weight:600; background:var(--sable); }
+/* Ligne de total : balisée par l'étape 29 (première cellule « Total… »).
+   Gras, fond sable et filet d'encre au-dessus, pour la détacher du détail. */
+tbody tr.total td{
+  font-weight:600; background:var(--sable);
+  border-top:1.5px solid var(--encre);
+  padding-top:7.5px; padding-bottom:7.5px;
+}
+tbody tr.total td:first-child{ padding-left:6px; }
+tbody tr.total td:last-child{ padding-right:6px; }
 colgroup{ display:none; }
 /* Les largeurs en pourcentage de pandoc sont dérivées de la largeur du texte
    markdown, pas du contenu rendu : elles écrasent la première colonne des tables
@@ -1681,83 +1687,8 @@ role="doc-biblioref">DuSablon, 2026</a>)</span>. Sur les sections à voie
 simple, 79 ouvrages seraient à doubler. Nous en retirons le pont de
 Québec, qui ne porte qu’une voie : le doubler demanderait un nouveau
 franchissement, un projet en soi. Il reste 78 ouvrages, pour un peu plus
-de 4 km de tablier. La section 10 tire de ce décompte le coût des
-ouvrages d’art.</p>
-<table style="width:100%;">
-<colgroup>
-<col style="width: 14%" />
-<col style="width: 14%" />
-<col style="width: 14%" />
-<col style="width: 14%" />
-<col style="width: 14%" />
-<col style="width: 14%" />
-<col style="width: 14%" />
-</colgroup>
-<thead>
-<tr>
-<th>Liaison</th>
-<th class="num">Ouvrages</th>
-<th class="num">Moins de 20 m</th>
-<th class="num">Longueur</th>
-<th class="num">20 m et plus</th>
-<th class="num">Longueur</th>
-<th class="num">Longueur totale</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>Montréal-Québec</td>
-<td class="num">33</td>
-<td class="num">13</td>
-<td class="num">137 m</td>
-<td class="num">20</td>
-<td class="num">1 944 m</td>
-<td class="num">2 081 m</td>
-</tr>
-<tr>
-<td>Montréal-Ottawa</td>
-<td class="num">15</td>
-<td class="num">5</td>
-<td class="num">70 m</td>
-<td class="num">10</td>
-<td class="num">485 m</td>
-<td class="num">555 m</td>
-</tr>
-<tr>
-<td>Ottawa-Toronto</td>
-<td class="num">30</td>
-<td class="num">14</td>
-<td class="num">170 m</td>
-<td class="num">16</td>
-<td class="num">1 331 m</td>
-<td class="num">1 501 m</td>
-</tr>
-<tr>
-<td>Montréal-Toronto</td>
-<td class="num">1</td>
-<td class="num">0</td>
-<td class="num">0 m</td>
-<td class="num">1</td>
-<td class="num">22 m</td>
-<td class="num">22 m</td>
-</tr>
-<tr>
-<td>Total, sans double compte</td>
-<td class="num">78</td>
-<td class="num">32</td>
-<td class="num">377 m</td>
-<td class="num">46</td>
-<td class="num">3 760 m</td>
-<td class="num">4 137 m</td>
-</tr>
-</tbody>
-</table>
-<p>Un ouvrage de 22 m, le viaduc de la rue Saint-Rémi à Montréal,
-appartient à deux liaisons ; le total ne le compte qu’une fois. Ce n’est
-pas un inventaire d’ingénierie : il ne donne ni la portée, ni le type,
-ni l’état des ouvrages. Six ouvrages qui portent déjà deux voies ne sont
-pas comptés, et dix ouvrages incertains, vus par une seule source,
-pourraient ajouter environ 200 m.</p>
+de 4 km de tablier. La section 10 détaille ce décompte et en tire le
+coût des ouvrages d’art.</p>
 </section>
 <section id="le-modèle-de-temps" class="level2">
 <h2>Le modèle de temps</h2>
@@ -1791,6 +1722,12 @@ chemins de fer, 2000</a>)</span> et sur ce qui est déjà possible sur
 certains segments (Montréal-Ottawa, sur la voie simple détenue par VIA,
 opère avec 7 % de marge seulement).</li>
 </ol>
+<p>Une courbe de rayon R limite la vitesse selon la formule v = k·√R. Le
+coefficient k dépend de l’inclinaison de la voie et de la tolérance du
+train. Avec l’écartement effectif utilisé, cette formule reproduit
+exactement la méthode officielle du CN <span class="citation"
+data-cites="cn2002mr1305">(<a href="#ref-cn2002mr1305"
+role="doc-biblioref">Canadien National, 2002</a>)</span>.</p>
 <p><strong>Les gares desservies.</strong> Chaque temps calculé comprend
 un arrêt à toutes les gares où s’arrête aujourd’hui au moins un train de
 VIA sur ce trajet <span class="citation"
@@ -1831,12 +1768,6 @@ Guildwood</td>
 </tr>
 </tbody>
 </table>
-<p>Une courbe de rayon R limite la vitesse selon la formule v = k·√R. Le
-coefficient k dépend de l’inclinaison de la voie et de la tolérance du
-train. Avec l’écartement effectif utilisé, cette formule reproduit
-exactement la méthode officielle du CN <span class="citation"
-data-cites="cn2002mr1305">(<a href="#ref-cn2002mr1305"
-role="doc-biblioref">Canadien National, 2002</a>)</span>.</p>
 <p><strong>Matériel roulant.</strong> L’hypothèse est qu’une rame
 actuelle de VIA (une locomotive Charger et cinq voitures Venture) porte
 8,4 W de puissance nominale par kilogramme de rame à vide ; le modèle
@@ -1905,10 +1836,20 @@ sont de la même famille que les nôtres : 36 minutes sur
 Londres-Manchester (environ 300 km), 42 sur Londres-Glasgow (environ 650
 km) <span class="citation" data-cites="nao2006wcml">(<a
 href="#ref-nao2006wcml" role="doc-biblioref">National Audit Office,
-2006</a>)</span>, contre 74 minutes calculées ici sur Montréal-Toronto
-(536 km). Le marché a suivi : sur Londres-Manchester, l’achalandage du
-train a crû de 77 % pendant que l’avion reculait de 27 % <span
-class="citation" data-cites="wcml2026wiki">(<a href="#ref-wcml2026wiki"
+2006</a>)</span>, contre 84 minutes calculées ici sur Montréal-Toronto
+(536 km). En proportion, les gains prévus par cette étude sont
+supérieurs à ceux de la West Coast Main Line pour un programme de
+modernisation similaire : 26 % du temps de parcours sur
+Montréal-Toronto, contre 22 % sur Londres-Manchester et 14 % sur
+Londres-Glasgow <span class="citation" data-cites="nao2006wcml">(<a
+href="#ref-nao2006wcml" role="doc-biblioref">National Audit Office,
+2006</a>)</span>. Cependant, considérant la cohabitation
+particulièrement dysfonctionnelle entre fret et passagers au Canada
+(voir sections 3 et 5), cet écart semble appuyer l’ordre de grandeur des
+résultats davantage qu’il ne les met en doute. Le marché a suivi : sur
+Londres-Manchester, l’achalandage du train a crû de 77 % pendant que
+l’avion reculait de 27 % <span class="citation"
+data-cites="wcml2026wiki">(<a href="#ref-wcml2026wiki"
 role="doc-biblioref">Wikipédia, 2026</a>)</span>. La mise en garde vaut
 aussi : le budget britannique a plus que triplé en cours de route, faute
 d’une portée verrouillée au départ <span class="citation"
@@ -1964,7 +1905,12 @@ pourrait permettre d’en bâtir une deuxième. Le programme proposé est
 simple : on double tout ce qui n’est pas déjà doublé, sauf les ouvrages
 majeurs comme les grands ponts. Le pont de Québec et le pont Victoria
 restent tels quels, par exemple : leur remplacement est un projet en
-soi. C’est une limite déclarée de l’analyse.</p>
+soi. C’est une limite déclarée de l’analyse. Il est à noter que, même
+sans reconstruction, l’intervalle entre les trains (et donc la capacité)
+peut être amélioré par la modernisation de la signalisation (voir
+section 4) <span class="citation" data-cites="dick2019blocs">(<a
+href="#ref-dick2019blocs" role="doc-biblioref">Dick et al.,
+2019</a>)</span>.</p>
 <p>En comparant les horaires de VIA sur les tronçons à voie simple de
 VIA, à voie simple du CN et à voie double du CN, on remarque que la
 variation entre les temps de trajet des différents départs est quatre
@@ -2241,8 +2187,8 @@ role="doc-biblioref">Parlement du Canada, 1996</a>)</span>. Ce pouvoir
 n’a simplement jamais servi, notamment parce qu’il ne s’applique pas aux
 contrats de cohabitation existants (le modèle VIA-CN du corridor) et
 qu’une orientation claire en faveur du service aux passagers n’a jamais
-été édictée. Ces deux enjeux peuvent aisément être corrigés, par
-règlement ou par projet de loi.</p>
+été édictée. Ces deux enjeux peuvent aisément être corrigés par un
+projet de loi, et probablement même par règlement.</p>
 </section>
 <section id="les-passages-à-niveau" class="level1">
 <div class="sec"><span class="k">06 · Action 4</span><h1>Les passages à niveau</h1></div>
@@ -2365,7 +2311,7 @@ ferme :</p>
 <td class="num">563</td>
 <td class="num">190</td>
 </tr>
-<tr>
+<tr class="total">
 <td>Total</td>
 <td class="num">924</td>
 <td class="num">575</td>
@@ -2395,10 +2341,11 @@ autorités compétentes, que le barème ci-dessus exige au-delà de 177
 km/h, aucun passage n’a besoin d’être retiré. C’est l’hypothèse retenue
 dans nos temps de parcours et dans nos coûts. En pratique, un
 regroupement de passages peut servir de solution de rechange, là où un
-passage ne serait pas approuvé ou pour réduire les coûts. Il devrait
-alors être volontaire et encadré : consentement du propriétaire, détour
-limité, passage conçu pour la largeur de la machinerie agricole et
-compensation.</p>
+passage ne serait pas approuvé ou pour réduire les coûts. Dans une
+perspective d’écoute face aux demandes de la société civile dans ce
+dossier, il devrait alors être volontaire et encadré : consentement du
+propriétaire, détour limité, passage conçu pour la largeur de la
+machinerie agricole et compensation.</p>
 <p>Le précédent domestique mérite d’être rappelé : le train Turbo des
 années 1970 détenait le record canadien de vitesse (226 km/h en essai)
 mais a été plafonné en service à 153 km/h, en bonne partie à cause de
@@ -2740,6 +2687,81 @@ période <span class="citation" data-cites="statcan2026ponts">(<a
 href="#ref-statcan2026ponts" role="doc-biblioref">Statistique Canada,
 2026</a>)</span> : 387 000 $ et 535 000 $ par mètre. Nous obtenons (377
 m × 387 000 $) + (3 760 m × 535 000 $), soit environ 2,2 G$ CA.</p>
+<table style="width:100%;">
+<colgroup>
+<col style="width: 14%" />
+<col style="width: 14%" />
+<col style="width: 14%" />
+<col style="width: 14%" />
+<col style="width: 14%" />
+<col style="width: 14%" />
+<col style="width: 14%" />
+</colgroup>
+<thead>
+<tr>
+<th>Liaison</th>
+<th class="num">Ouvrages</th>
+<th class="num">Moins de 20 m</th>
+<th class="num">Longueur</th>
+<th class="num">20 m et plus</th>
+<th class="num">Longueur</th>
+<th class="num">Longueur totale</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Montréal-Québec</td>
+<td class="num">33</td>
+<td class="num">13</td>
+<td class="num">137 m</td>
+<td class="num">20</td>
+<td class="num">1 944 m</td>
+<td class="num">2 081 m</td>
+</tr>
+<tr>
+<td>Montréal-Ottawa</td>
+<td class="num">15</td>
+<td class="num">5</td>
+<td class="num">70 m</td>
+<td class="num">10</td>
+<td class="num">485 m</td>
+<td class="num">555 m</td>
+</tr>
+<tr>
+<td>Ottawa-Toronto</td>
+<td class="num">30</td>
+<td class="num">14</td>
+<td class="num">170 m</td>
+<td class="num">16</td>
+<td class="num">1 331 m</td>
+<td class="num">1 501 m</td>
+</tr>
+<tr>
+<td>Montréal-Toronto</td>
+<td class="num">1</td>
+<td class="num">0</td>
+<td class="num">0 m</td>
+<td class="num">1</td>
+<td class="num">22 m</td>
+<td class="num">22 m</td>
+</tr>
+<tr class="total">
+<td>Total, sans double compte</td>
+<td class="num">78</td>
+<td class="num">32</td>
+<td class="num">377 m</td>
+<td class="num">46</td>
+<td class="num">3 760 m</td>
+<td class="num">4 137 m</td>
+</tr>
+</tbody>
+</table>
+<p>Un ouvrage de 22 m, le viaduc de la rue Saint-Rémi à Montréal,
+appartient à deux liaisons ; le total ne le compte qu’une fois. Ce n’est
+pas un inventaire d’ingénierie : il ne donne ni la portée, ni le type,
+ni l’état des ouvrages. Six ouvrages qui portent déjà deux voies ne sont
+pas comptés, et dix ouvrages incertains, vus par une seule source,
+pourraient ajouter environ 200 m.</p>
 <p><strong>Signalisation.</strong> Amtrak installe le contrôle en cabine
 et renouvelle toute la signalisation du Downeaster, entre Brunswick
 (Maine) et Haverhill (Massachusetts), pour 51 M$ US de 2024 sur un peu
@@ -2842,7 +2864,7 @@ séparément.</p>
 <td>Sécurisation de 533 croisements routiers</td>
 <td class="num">0,4</td>
 </tr>
-<tr>
+<tr class="total">
 <td>Total des cinq actions</td>
 <td class="num">7,8 à 8,8</td>
 </tr>
@@ -2871,15 +2893,17 @@ séparément.</p>
 ferme</td>
 <td class="num">2,3</td>
 </tr>
-<tr>
+<tr class="total">
 <td>Total du programme</td>
 <td class="num">8,2</td>
 </tr>
 </tbody>
 </table>
-<p>Les deux volets représentent ensemble de 16,0 à 17,0 G$ CA. Avec une
+<p>Les deux volets représentent ensemble de <span
+class="chiffre"><strong>16,0 à 17,0 G$ CA</strong></span>. Avec une
 marge de 20 % pour les imprévus, le coût total du projet se situerait
-entre environ 19 et 20 G$ CA.</p>
+entre environ <span class="chiffre"><strong>19 et 20 G$
+CA</strong></span>.</p>
 </section>
 <section id="impacts-des-actions-sur-les-temps-de-parcours"
 class="level1">
@@ -2947,7 +2971,7 @@ cabine</td>
 <td class="num">8</td>
 <td class="num">6 %</td>
 </tr>
-<tr>
+<tr class="total">
 <td>Total du temps économisé</td>
 <td class="num">67</td>
 <td class="num">28</td>
@@ -3359,10 +3383,11 @@ président-directeur général de Vision Transport : <a
 href="mailto:francoispepin56@gmail.com"
 class="email">francoispepin56@gmail.com</a></p>
 </blockquote>
-<p><strong>Direction du mandat.</strong> Vision Transport.</p>
-<p><strong>Analyse, modélisation et rédaction.</strong> Vincent Duguay,
-candidat à la maîtrise recherche à l’École nationale d’administration
-publique (ENAP).</p>
+<p><strong>Responsabilité du mandat et supervision.</strong> Vision
+Transport.</p>
+<p><strong>Direction technique et auteur principal.</strong> Vincent
+Duguay, étudiant au M. Sc. en administration publique et boursier CRSH à
+l’École nationale d’administration publique (ENAP).</p>
 <p><strong>Avis d’expert.</strong> Pierre DuSablon, consultant en
 ingénierie de voies, ancien responsable des opérations du CN sur la
 section Montréal-Québec. Son avis du 4 septembre 2026, dans sa version
@@ -3386,14 +3411,21 @@ ayant les capacités d’interagir en direct avec l’ordinateur, de créer
 des fichiers divers et de les manipuler librement. Concrètement, le
 travail technique est dirigé, supervisé et coréalisé par l’humain à
 toutes les étapes, tandis que le rapport est rédigé par l’IA sous
-direction humaine étroite, puis révisé ligne par ligne. Chaque processus
-ayant produit ce rapport étant une ligne de code documentée, ce
-fonctionnement permet un audit plus aisé du pipeline d’analyse ainsi que
-la standardisation des méthodes de production du savoir. L’appareil
-complet est au dossier : le dépôt de code versionné, le pipeline
-documenté étape par étape, le registre des sources, et le visualiseur
-joint, dont les vérifications recalculent les chiffres clés du rapport
-dans le navigateur du lecteur.</p>
+direction humaine étroite, puis révisé ligne par ligne. Plus
+précisément, les modèles ayant contribué à ce rapport sont les suivants,
+ordonnés selon l’ampleur de leur apport : pour le travail direct, Claude
+Opus 5.5, Fable 5, Opus 4.7, Fable 5.1, Opus 5, Sonnet 5.5, Opus 4.8
+(tous dans le harnais <em>Claude Code (CLI)</em>, selon un ensemble sur
+mesure de <em>skills</em>, d’outils et de connecteurs spécifique au
+travail du savoir) et pour des séances de remue-méninges, Gemini Flash
+3.7, Flash 3.6 et Flash 3.8 ont également été consultés pour assurer un
+certain pluralisme. Chaque processus ayant produit ce rapport étant une
+ligne de code documentée, ce fonctionnement permet un audit plus aisé du
+pipeline d’analyse ainsi que la standardisation des méthodes de
+production du savoir. L’appareil complet est au dossier : le dépôt de
+code versionné, le pipeline documenté étape par étape, le registre des
+sources, et le visualiseur joint, dont les vérifications recalculent les
+chiffres clés du rapport dans le navigateur du lecteur.</p>
 </section>
 <section id="références" class="level1 unnumbered">
 <div class="sec"><span class="k">16 · Sources</span><h1 class="unnumbered">Références</h1></div>

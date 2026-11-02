@@ -217,9 +217,15 @@ td.num{ white-space:nowrap; }
 thead th{ white-space:normal; hyphens:none; }
 table{ table-layout:auto; max-width:100%; }
 tbody tr:last-child td{ border-bottom:1.5px solid var(--encre); }
-/* Ligne de total : le rapport n'en a pas de balisée, la règle est en réserve
-   pour le jour où une table en portera une. */
-tbody tr.total td{ font-weight:600; background:var(--sable); }
+/* Ligne de total : balisée par l'étape 29 (première cellule « Total… »).
+   Gras, fond sable et filet d'encre au-dessus, pour la détacher du détail. */
+tbody tr.total td{
+  font-weight:600; background:var(--sable);
+  border-top:1.5px solid var(--encre);
+  padding-top:7.5px; padding-bottom:7.5px;
+}
+tbody tr.total td:first-child{ padding-left:6px; }
+tbody tr.total td:last-child{ padding-right:6px; }
 colgroup{ display:none; }
 /* Les largeurs en pourcentage de pandoc sont dérivées de la largeur du texte
    markdown, pas du contenu rendu : elles écrasent la première colonne des tables
