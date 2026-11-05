@@ -305,3 +305,21 @@ le W/kg à vide monte vers 12, ce qui renforce encore l'hypothèse).
 - `mtmd2026gaspesie` (433 k$/km, voie courante) et `mtmd2026quebeccentral` (6,85 M$/km avec 17 ponts) : le 500 000 $/km tient HORS ouvrages d'art seulement.
 
 **NON SOURCÉ (hypothèse de travail déclarée au rapport)** : passage dénivelé privé ou agricole à 12 M$ (aucun précédent public ; incohérent avec 7 M$ pour une réfection de pont routier ; coquille possible pour 1,2 M$, à confirmer avec François).
+
+## Ajouts du 2026-11-05 : le train diesel et la formule calée
+
+### `wikipedia2026class221`, `wikipedia2026icetd`, `wikipedia2026lrc`
+- **Appuie** : références du train diesel de 9,8 W/kg, sections 2 et 9.
+- **Statut** : VÉRIFIÉE par extraits de recherche (2026-11-05). **Source tertiaire** : remonter vers une fiche d'exploitant avant publication finale.
+
+### `via2018siemens`
+- **Appuie** : borne basse du coût des trains, section 10 (989 M$ pour 32 rames).
+- **Statut** : VÉRIFIÉE (2026-11-05, communiqué consulté).
+
+### `openmeteo2026altitude`
+- **Appuie** : pente, étape 1 du modèle de temps (étape 39 du pipeline).
+- **Statut** : VÉRIFIÉE (2026-11-05, données téléchargées et versionnées dans `intermediaires/`).
+
+### `markyt2026chronos`
+- **Appuie** : calage de la formule d'accélération, section 2.
+- **Statut** : **SOURCE FAIBLE**. Message de forum lu seulement dans deux extraits de moteur de recherche concordants : RailForums refuse l'accès automatisé. Auteur et chiffres confirmés, date non vérifiée. À remplacer par des courbes de constructeur.

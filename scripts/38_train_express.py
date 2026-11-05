@@ -23,6 +23,7 @@ from utils import DELIVERABLES                    # noqa: E402
 
 _spec = importlib.util.spec_from_file_location("m21", Path(__file__).parent / "21_tbase_bande.py")
 m21 = importlib.util.module_from_spec(_spec)
+sys.modules["m21"] = m21            # requis par @dataclass
 _spec.loader.exec_module(m21)
 
 MARGE = 1.10

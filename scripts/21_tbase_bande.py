@@ -5,34 +5,42 @@ Le modèle du rapport minimal (plan de match v3) :
     T(bande, scénario) = Σ blocs urbains figés (minutes actuelles GTFS)
                        + interurbain en PROFIL DYNAMIQUE (2026-08-08) : vitesse
                          limitée par min(v_geo_scenario(x), bande), accélération
-                         limitée par min(a0, (P/m)/v), freinage constant, arrêt
+                         limitée par la puissance au rail, la résistance et la
+                         pente (classe Rame), freinage constant, arrêt
                          complet (v=0) à chaque gare intermédiaire et aux
                          frontières des blocs urbains
                        + arrêts (immobilisation DWELL_MIN par arrêt interurbain ;
                          les phases d'accélération/freinage sont dans le profil)
                        [+ marge — encadrée à l'étape 4, PAS ajoutée ici]
 
-Paramètres de rame (HYPOTHÈSES déclarées, ADOSSÉES aux fiches réelles depuis le
-2026-08-25 — dossier : sources/recherche_poids_rames_2026-08-25.md) :
-  CONVENTION : puissance NOMINALE par tonne À VIDE (pas « au rail » : au rail,
-  la rame actuelle tomberait vers 6 W/kg une fois HEP et pertes retirés ; le
-  LRC sous cette même convention nominale/vide donne ~7,8, pas 6,5).
-  S1 : rame tractée type flotte actuelle (Charger + 5 Venture : 8,4 calculé,
-  viarail2024corridor + siemens2024chargerwsdot) — P/m 8,0 W/kg, a0 0,5, frein 0,5.
-  S2 et S3 : MÊME rame de référence, dimensionnée pour sa bande — P/m 12 W/kg
-  (bandes 160 à 241 : pendulaire moderne, encadré par ICE T 10,9 / Class 390
-  WCML 11,1 / ETR 610 13,1), 18 et 22 (bandes 250 et 300 : rame de CONCEPTION
-  300 km/h, fourchette observée 16,3-23,2, ICE 3 19,5 / TGV Duplex à vide
-  23,2 ; bandes non publiées au rapport) ; a0 0,6, frein 0,6.
+Paramètres de rame (décision Vincent du 2026-11-05, « la licorne ») :
+  Les 12 W/kg d'avant venaient de pendulaires ÉLECTRIQUES (ICE T, Class 390, ETR 610),
+  alors que le corridor n'est pas électrifié. Et l'ancienne formule a = min(a0, (P/m)/v)
+  n'avait ni résistance ni pente : contre les chronos d'une Class 221 réelle
+  (0-60/100/125 mi/h en 60/170/313 s) elle donnait 51/120/181 s.
+  S2 et S3 : rame pendulaire DIESEL-ÉLECTRIQUE de 9,8 W/kg nominaux (282 t, 2 764 kW),
+  entre la Class 221 (9,9) et l'ICE TD (9,7), les seuls pendulaires diesel à 200 km/h.
+  S1 : Charger + 5 Venture (3 132 kW, 374 t, 8,4 W/kg). Dossier :
+  sources/recherche_poids_rames_2026-08-25.md.
+  CONVENTION : les W/kg publiés sont NOMINAUX et À VIDE. Le calcul, lui, part de là
+  et retire tout ce qui n'arrive pas au rail (classe Rame) :
+      a = min(a0, [P_rail / v - R(V) - m g i] / (m * inertie))
+      P_rail = (P_nominale - P_hôtel) * rendement
+      R(V)   = (A + B V) m + 0,0463 CdA V²     (N, V en km/h, m en t)
+  Calage sur les chronos (étape 40) : rendement 0,88, A 12 N/t, B 0,06 N/t/(km/h),
+  inertie 1,04, CdA environ 11 m² par rame. Trois chronos pour autant de paramètres :
+  la forme tient, chaque valeur reste à confirmer par des courbes de constructeur.
+  Services de bord 40 kW par voiture, passagers +6 % de masse.
+  La vitesse limite tient jusqu'à ce que la QUEUE du train sorte de la restriction.
+  Pentes : relief Copernicus GLO-90 (étape 39), lissé sur 3 km.
+  La bande 241 garde la même rame : elle n'y arrive pas, sa puissance la plafonne vers
+  230 km/h, et c'est dit au rapport. Bandes 250 et 300 (non publiées) : rames de
+  CONCEPTION électriques, 18 et 22 W/kg.
   La bande 201 (125 mi/h) est le plafond des scénarios publiés (remodelage
   2026-08-24) : sommet de la marche du PTC certifié (précédents Brightline,
   NEC) et seuil au-delà duquel la règle américaine interdit tout passage à
   niveau. La bande 177 (110 mi/h, limite ITCS) reste calculée en référence.
-  (S2/S3 se définissent par l'insuffisance admise, pas par la motorisation :
-  une rame commune isole la variable géométrique. Le LRC historique ~6,5 W/kg
-  ajouterait ~3-5 min par tronçon : testé au script 26, exploratoire.)
-Validation : l'ancienne intégrale fluide + 5 min/arrêt donnait des totaux à
-±1-8 min de ceux-ci (voir 26) ; le forfait de 5 min valait ≈ dwell 2 + dynamique.
+  (S2/S3 se définissent par l'insuffisance admise, pas par la motorisation.)
 
 Décision structurante : les zones urbaines sont FIGÉES à l'horaire actuel. Aucun
 gain pendulaire/dévers n'y est compté, quel que soit le scénario ou la bande.
@@ -78,9 +86,12 @@ from __future__ import annotations
 
 import io
 import json
+import math
 import zipfile
+from dataclasses import dataclass
 from statistics import median
 
+import numpy as np
 import pandas as pd
 
 import os
@@ -121,24 +132,90 @@ if _OVERRIDE or _BLOCS_LIBRES:
 BANDES_KMH = [153, 160, 177, 201, 241, 250, 300]   # 153 = classe actuelle (95 mi/h), lue par le 32
 # 241 (150 mi/h) = sensibilité « zéro passage à niveau » : plafond prouvé du
 # NEC d'Amtrak (ACSES + cab signals, fra2010ptc) une fois le mur des passages
-# levé. Même rame pendulaire de référence (12 W/kg) : lecture conservatrice.
+# levé. Même rame pendulaire : sa puissance la plafonne vers 230 km/h.
 DWELL_MIN = 2.0               # immobilisation en gare (min/arrêt) ; la dynamique
                               # d'accélération/freinage est dans le profil simulé
 URBAN_SENS = 0.20             # sensibilité ±20 % sur les blocs urbains
 OTTAWA_WINDOW_KM = 10.0       # HYPOTHÈSE : fenêtre urbaine ±10 km autour d'Ottawa
 DX_M = 25.0                   # pas d'intégration du profil dynamique (m)
 CONTIG_TOL_KM = 0.05          # tolérance de contiguïté entre segments (50 m)
-# Paramètres de rame (HYPOTHÈSES, voir docstring). a0 = plafond d'accélération
-# (m/s²), ab = freinage service (m/s²) ; P/m (W/kg) fonction de la bande pour
-# S2/S3 : la rame de référence est dimensionnée pour sa bande (ordres de
-# grandeur : pendulaire 200-250 ≈ 12 ; matériel 250 ≈ 18 ; 300 ≈ 22 W/kg,
-# type ETR610 / Velaro / TGV). S1 = rame tractée actuelle, 8 W/kg à toute bande.
-TRAIN_A = {"S1": (0.5, 0.5), "S2": (0.6, 0.6), "S3": (0.6, 0.6)}
-def train_pm(scenario: str, bande: float) -> float:
+G = 9.81                      # m/s²
+
+
+@dataclass(frozen=True)
+class Rame:
+    """Une rame et tout ce que la formule d'accélération lui demande (voir docstring)."""
+    nom: str
+    p_kw: float                 # puissance nominale (moteur thermique, ou traction si électrique)
+    m_t: float                  # masse à vide (t)
+    hotel_kw: float             # services de bord, pris sur la même puissance
+    rendement: float            # de la puissance nette à la puissance au rail
+    cda_m2: float               # surface de traînée (coefficient × section)
+    longueur_m: float           # la queue doit sortir d'une restriction avant de relancer
+    a0: float                   # plafond d'accélération (m/s²)
+    ab: float                   # freinage de service (m/s²)
+    charge: float = 1.06        # passagers : +6 % de masse
+    inertie: float = 1.04       # masses tournantes
+    a_n_t: float = 12.0         # résistance de roulement constante (N/t)
+    b_n_t: float = 0.06         # résistance de roulement proportionnelle à V (N/t par km/h)
+
+    @property
+    def p_rail_w(self) -> float:
+        return (self.p_kw - self.hotel_kw) * 1e3 * self.rendement
+
+    @property
+    def m_kg(self) -> float:
+        return self.m_t * 1e3 * self.charge
+
+    def resistance_n(self, v_kmh: float) -> float:
+        mt = self.m_t * self.charge
+        return (self.a_n_t + self.b_n_t * v_kmh) * mt + 0.0463 * self.cda_m2 * v_kmh * v_kmh
+
+    def acceleration(self, v: float, pente: float = 0.0) -> float:
+        """m/s² à la vitesse v (m/s), pente i en m/m ; négative si la rame ne tient plus."""
+        m = self.m_kg
+        force = self.p_rail_w / v - self.resistance_n(v * 3.6) - m * G * pente
+        return min(self.a0, force / (m * self.inertie))
+
+    def vitesse_equilibre_kmh(self) -> float:
+        """Vitesse maximale en palier : la puissance au rail égale la résistance."""
+        v = 30.0
+        while v < 150.0 and self.p_rail_w / v > self.resistance_n(v * 3.6):
+            v += 0.1
+        return v * 3.6
+
+
+RAME_ACTUELLE = Rame("Charger + 5 Venture", p_kw=3132, m_t=374, hotel_kw=200, rendement=0.88,
+                     cda_m2=13.0, longueur_m=152, a0=0.5, ab=0.5)
+RAME_PENDULAIRE = Rame("pendulaire diesel-électrique de référence", p_kw=9.8 * 282, m_t=282, hotel_kw=200,
+                       rendement=0.88, cda_m2=11.0, longueur_m=116, a0=0.6, ab=0.6)
+# Rames de conception électriques, bandes non publiées.
+RAME_250 = Rame("conception 250 km/h, électrique", p_kw=18 * 400, m_t=400, hotel_kw=0, rendement=0.95,
+                cda_m2=16.0, longueur_m=200, a0=0.6, ab=0.6)
+RAME_300 = Rame("conception 300 km/h, électrique", p_kw=22 * 400, m_t=400, hotel_kw=0, rendement=0.95,
+                cda_m2=16.0, longueur_m=200, a0=0.6, ab=0.6)
+
+
+def rame_de(scenario: str, bande: float) -> Rame:
     if scenario == "S1":
-        return 8.0
-    return {153: 12.0, 160: 12.0, 177: 12.0, 201: 12.0, 241: 12.0, 250: 18.0,
-            300: 22.0}[int(bande)]
+        return RAME_ACTUELLE
+    return {250: RAME_250, 300: RAME_300}.get(int(bande), RAME_PENDULAIRE)
+
+
+_PENTES: dict[str, tuple[np.ndarray, np.ndarray]] = {}
+
+
+def pentes(t: str) -> tuple[np.ndarray, np.ndarray]:
+    """(km, pente en m/m) du tronçon, relief de l'étape 39 lissé sur 3 km."""
+    if t not in _PENTES:
+        d = json.load(open(INTERMEDIATES / f"relief_{t}.json", encoding="utf-8"))
+        km, z = np.array(d["km"]), np.array(d["z"])
+        n = len(z)
+        med = np.array([np.median(z[max(0, i - 2):min(n, i + 3)]) for i in range(n)])
+        lisse = np.convolve(np.pad(med, 3, mode="edge"), np.ones(7) / 7, mode="valid")
+        _PENTES[t] = km, np.gradient(lisse, km * 1000.0)
+    return _PENTES[t]
+
 
 # Blocs urbains ancrés sur des paires de gares GTFS : (tronçon, stop_id A, stop_id B,
 # nom, km_debut, km_fin). km relevés dans corridor_gtfs.geojson.
@@ -284,50 +361,61 @@ def _free_pieces(t: str, segs: list[dict], scenario: str, bande: float):
     return out
 
 
-def _dynamic_minutes(t: str, pieces, pm: float, a0: float, ab: float) -> float:
-    """Profil de vitesse deux passes (accélération / freinage) sur les tronçons
-    libres contigus, avec v=0 aux gares intermédiaires et aux frontières des
-    blocs urbains. Retourne les minutes de roulement (sans immobilisation)."""
-    import math
+def troncons_contigus(pieces) -> list[list[tuple[float, float, float]]]:
+    """Regroupe les morceaux libres en tronçons continus."""
     stretches: list[list[tuple[float, float, float]]] = []
     for seg in pieces:
         if stretches and abs(seg[0] - stretches[-1][-1][1]) < CONTIG_TOL_KM:
             stretches[-1].append(seg)
         else:
             stretches.append([seg])
-    stop_kms = [km for (_, km) in INTERMEDIATE_STOPS[t]]
-    total_s = 0.0
-    for stretch in stretches:
-        k0, k1 = stretch[0][0], stretch[-1][1]
-        n = max(2, int((k1 - k0) * 1000 / DX_M) + 1)
-        xs = [k0 + (k1 - k0) * i / (n - 1) for i in range(n)]
-        vlim = []
-        j = 0
-        for x in xs:
-            while j < len(stretch) - 1 and x > stretch[j][1] + 1e-9:
-                j += 1
-            vlim.append(stretch[j][2] / 3.6)
-        zero_at = {0, n - 1}
-        for skm in stop_kms:
-            if k0 - 1e-6 <= skm <= k1 + 1e-6:
-                zero_at.add(min(range(n), key=lambda i: abs(xs[i] - skm)))
-        v = vlim[:]
-        for i in zero_at:
+    return stretches
+
+
+def profil_vitesse(t: str, stretch, rame: Rame):
+    """Profil deux passes (accélération, freinage) sur un tronçon continu, v=0 aux
+    gares intermédiaires et aux deux bouts. Retourne (xs km, v m/s, dx m, indices d'arrêt)."""
+    k0, k1 = stretch[0][0], stretch[-1][1]
+    n = max(2, int((k1 - k0) * 1000 / DX_M) + 1)
+    xs = [k0 + (k1 - k0) * i / (n - 1) for i in range(n)]
+    dx = (k1 - k0) * 1000 / (n - 1)
+    vlim = []
+    j = 0
+    for x in xs:
+        while j < len(stretch) - 1 and x > stretch[j][1] + 1e-9:
+            j += 1
+        vlim.append(stretch[j][2] / 3.6)
+    w = int(round(rame.longueur_m / dx))      # la queue du train doit sortir de la restriction
+    if w > 0:
+        vlim = [min(vlim[max(0, i - w):i + 1]) for i in range(n)]
+    zero_at = {0, n - 1}
+    for (_, skm) in INTERMEDIATE_STOPS[t]:
+        if k0 - 1e-6 <= skm <= k1 + 1e-6:
+            zero_at.add(min(range(n), key=lambda i: abs(xs[i] - skm)))
+    i_pente = np.interp(xs, *pentes(t))
+    v = vlim[:]
+    for i in zero_at:
+        v[i] = 0.0
+    for i in range(1, n):
+        if i in zero_at:
             v[i] = 0.0
-        dx = (k1 - k0) * 1000 / (n - 1)
-        for i in range(1, n):
-            if i in zero_at:
-                v[i] = 0.0
-                continue
-            a = min(a0, pm / max(v[i - 1], 1.0))
-            v[i] = min(vlim[i], math.sqrt(v[i - 1] ** 2 + 2 * a * dx), v[i])
-        for i in range(n - 2, -1, -1):
-            if i in zero_at:
-                continue
-            v[i] = min(v[i], math.sqrt(v[i + 1] ** 2 + 2 * ab * dx))
-        for i in range(n - 1):
-            vm = max((v[i] + v[i + 1]) / 2, 0.5)
-            total_s += dx / vm
+            continue
+        a = rame.acceleration(max(v[i - 1], 1.0), float(i_pente[i]))
+        v[i] = min(vlim[i], math.sqrt(max(v[i - 1] ** 2 + 2 * a * dx, 1.0)), v[i])
+    for i in range(n - 2, -1, -1):
+        if i in zero_at:
+            continue
+        v[i] = min(v[i], math.sqrt(v[i + 1] ** 2 + 2 * rame.ab * dx))
+    return xs, v, dx, zero_at
+
+
+def _dynamic_minutes(t: str, pieces, rame: Rame) -> float:
+    """Minutes de roulement sur les tronçons libres (sans immobilisation en gare)."""
+    total_s = 0.0
+    for stretch in troncons_contigus(pieces):
+        _, v, dx, _ = profil_vitesse(t, stretch, rame)
+        for i in range(len(v) - 1):
+            total_s += dx / max((v[i] + v[i + 1]) / 2, 0.5)
     return total_s / 60.0
 
 
@@ -336,13 +424,11 @@ def integrate(t: str, segs: list[dict], scenario: str, bande: float) -> tuple[fl
 
     Interurbain : profil dynamique (accélération limitée par la puissance,
     freinage constant) sur v_lim = min(v_geo_scenario, bande), arrêt complet aux
-    gares intermédiaires ; paramètres de rame par scénario (TRAIN_DYN).
+    gares intermédiaires ; paramètres de rame par scénario (rame_de).
     Fenêtres km urbaines (Ottawa) : dx / min(v_geo_S1, bande), fluide — aucun
     gain de scénario. Blocs urbains GTFS exclus (minutes à l'horaire).
     """
-    a0, ab = TRAIN_A[scenario]
-    pm = train_pm(scenario, bande)
-    inter_min = _dynamic_minutes(t, _free_pieces(t, segs, scenario, bande), pm, a0, ab)
+    inter_min = _dynamic_minutes(t, _free_pieces(t, segs, scenario, bande), rame_de(scenario, bande))
     urb_km = [b for b in URBAN_KM_BLOCKS if b[0] == t]
     ottawa_min = 0.0
     for p in segs:
@@ -368,11 +454,10 @@ def bloc_minutes_figees(pair_minutes, by_t, block) -> float:
             if hi - lo > 1e-6:
                 pieces.append((lo, hi, min(p["vmax_S1_kmh"], 153.0)))
         pieces.sort()
-        a0, ab = TRAIN_A["S1"]
         saved = INTERMEDIATE_STOPS[t]
         INTERMEDIATE_STOPS[t] = []           # v=0 aux bouts du morceau suffit
         try:
-            m -= _dynamic_minutes(t, pieces, train_pm("S1", 153.0), a0, ab)
+            m -= _dynamic_minutes(t, pieces, RAME_ACTUELLE)
         finally:
             INTERMEDIATE_STOPS[t] = saved
     return m

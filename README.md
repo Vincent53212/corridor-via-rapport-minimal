@@ -69,6 +69,7 @@ python identite/fonts/_installer_polices.py # une fois : .ttf des figures
 python scripts/27_verif_identite.py         # garde-fou : doit afficher PASS
 python scripts/20_passages_niveau.py        # passages à niveau (bandes d'exploitation)
 python scripts/33_courbes_doublees.py       # segments rectifiés au doublement (APRÈS le 34)
+python scripts/39_relief_corridor.py        # une fois : relief aux 500 m, versionné dans intermediaires/
 python scripts/21_tbase_bande.py            # scénario 1 → temps_scenario_1.csv
 BLOCS_URBAINS=libres python scripts/21_tbase_bande.py   # scénario 2 → temps_scenario_2.csv
 SEGMENTS_OVERRIDE=intermediaires/segments_rectifies.geojson BLOCS_URBAINS=libres \
@@ -80,6 +81,7 @@ python scripts/36_gains_urbains.py          # blocs urbains poste par poste : co
 python scripts/32_figure_gains.py           # figure : d'où viennent les minutes
 python scripts/37_sous_sections_mtlqc.py   # Montréal-Québec gare par gare (Saint-Hilaire, Saint-Hyacinthe, Drummondville)
 python scripts/38_train_express.py         # contre-hypothèse 2 : le train express, sans arrêt intermédiaire
+python scripts/40_etapes_temps.py           # le modèle pas à pas, calage de la formule, sensibilités de traction
 python scripts/35_figure_zoom_urbain.py     # figures : gros plans des blocs urbains Montréal / Québec
 python scripts/28_couverture.py             # couverture + vignette du visualiseur
 python scripts/29_rapport_html.py           # rapport.md → HTML à l'identité
@@ -115,3 +117,4 @@ par l'étude est 177 km/h (limite ITCS), marqué d'un repère sur la couverture.
 - `_baseline_zones.py` : les zones de référence (Ottawa, Montréal, Kingston) gardent leurs vraies courbes.
 - `27_verif_identite.py` : la palette tient ses promesses. Distinction dE2000 des figurés en vision normale ET sous protanopie, deutéranopie et tritanopie ; clarté monotone des rampes ordonnées, pour qu'elles survivent au noir et blanc ; contraste WCAG AA des couples texte/fond employés.
 - Les vitesses publiées sont des plafonds géométriques, pas des promesses d'horaire.
+- Traction : la classe `Rame` du 21 porte toute la formule (puissance au rail, résistance, pente, longueur). Elle est calée sur des chronos réels de Class 221 par l'étape 40, qui échoue si ses étapes ne redonnent pas les temps publiés.

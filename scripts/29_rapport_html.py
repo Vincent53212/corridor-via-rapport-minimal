@@ -265,12 +265,26 @@ def grouper_entetes(html: str) -> str:
     return re.sub(r"<thead>\s*<tr>(.*?)</tr>\s*</thead>", par_thead, html, flags=re.S)
 
 
+def noeuds_chronologie(html: str) -> str:
+    """Ligne du temps verticale : dans un `::: {.chronologie}`, le numéro d'étape de la
+    première colonne devient un nœud posé sur le fil (rapport.css). Le Word garde un
+    tableau ordinaire."""
+    def par_div(m: re.Match) -> str:
+        bloc = re.sub(r"(<tr[^>]*>\s*<td[^>]*>)\s*(\d+)\s*(</td>)",
+                      r'\1<span class="noeud">\2</span>\3', m.group(0), flags=re.S)
+        # Une formule s'affiche ici sur sa propre ligne : le point qui la suit dans le
+        # markdown, utile au Word, resterait orphelin au début de la ligne suivante.
+        return re.sub(r"</code>\.\s*", "</code>", bloc)
+    return re.sub(r'<div class="chronologie">.*?</div>', par_div, html, flags=re.S)
+
+
 def main() -> None:
     meta = entete_yaml()
     corps = corps_pandoc()
     corps, entrees = ouvrir_sections(corps)
     corps = marquer_colonnes(corps)
     corps = grouper_entetes(corps)
+    corps = noeuds_chronologie(corps)
     corps = images_en_ligne(corps)
 
     css = (IDENTITE_DIR / "rapport.css").read_text(encoding="utf-8")

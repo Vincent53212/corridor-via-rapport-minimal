@@ -34,6 +34,7 @@ from utils import DELIVERABLES, RESOURCES         # noqa: E402
 
 _spec = importlib.util.spec_from_file_location("m21", Path(__file__).parent / "21_tbase_bande.py")
 m21 = importlib.util.module_from_spec(_spec)
+sys.modules["m21"] = m21            # requis par @dataclass
 _spec.loader.exec_module(m21)
 
 T = "MTL-QC"
@@ -79,43 +80,11 @@ def cumulative_profile() -> tuple[list[float], list[float]]:
     Même profil que 21_tbase_bande._dynamic_minutes, mais en gardant la courbe."""
     segs = m21.load_segments()[T]
     pieces = m21._free_pieces(T, segs, SCENARIO, BANDE)
-    a0, ab = m21.TRAIN_A[SCENARIO]
-    pm = m21.train_pm(SCENARIO, BANDE)
-    stop_kms = [km for (_, km) in m21.INTERMEDIATE_STOPS[T]]
-    stretches: list[list] = []
-    for seg in pieces:
-        if stretches and abs(seg[0] - stretches[-1][-1][1]) < m21.CONTIG_TOL_KM:
-            stretches[-1].append(seg)
-        else:
-            stretches.append([seg])
+    rame = m21.rame_de(SCENARIO, BANDE)
     xs_all, t_all, t = [], [], 0.0
-    for stretch in stretches:
-        k0, k1 = stretch[0][0], stretch[-1][1]
-        n = max(2, int((k1 - k0) * 1000 / m21.DX_M) + 1)
-        xs = [k0 + (k1 - k0) * i / (n - 1) for i in range(n)]
-        vlim, j = [], 0
-        for x in xs:
-            while j < len(stretch) - 1 and x > stretch[j][1] + 1e-9:
-                j += 1
-            vlim.append(stretch[j][2] / 3.6)
-        zero_at = {0, n - 1}
-        for skm in stop_kms:
-            if k0 - 1e-6 <= skm <= k1 + 1e-6:
-                zero_at.add(min(range(n), key=lambda i: abs(xs[i] - skm)))
-        v = vlim[:]
-        for i in zero_at:
-            v[i] = 0.0
-        dx = (k1 - k0) * 1000 / (n - 1)
-        for i in range(1, n):
-            if i in zero_at:
-                v[i] = 0.0
-                continue
-            a = min(a0, pm / max(v[i - 1], 1.0))
-            v[i] = min(vlim[i], math.sqrt(v[i - 1] ** 2 + 2 * a * dx), v[i])
-        for i in range(n - 2, -1, -1):
-            if i in zero_at:
-                continue
-            v[i] = min(v[i], math.sqrt(v[i + 1] ** 2 + 2 * ab * dx))
+    for stretch in m21.troncons_contigus(pieces):
+        xs, v, dx, zero_at = m21.profil_vitesse(T, stretch, rame)
+        n = len(xs)
         for i in range(n - 1):
             xs_all.append(xs[i])
             t_all.append(t)

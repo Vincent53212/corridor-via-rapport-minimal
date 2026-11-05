@@ -81,6 +81,9 @@ LABELS = {
     "blocs_urbains_rectifies_blocs_libres.csv": "Blocs urbains, scénario 3",
     "sous_sections_montreal_quebec.csv": "Montréal-Québec par sous-section",
     "train_express.csv": "Contre-hypothèse 2 : le train express",
+    "etapes_temps.csv": "Le modèle de temps, étape par étape",
+    "calage_traction.csv": "Calage de la formule sur des chronos réels",
+    "sensibilites_traction.csv": "Sensibilités de traction",
 }
 
 QUOI = {
@@ -263,6 +266,16 @@ QUOI = {
         "Le même train sur la même voie modernisée, mais sans arrêt intermédiaire, comme ALTO qui ne "
         "dessert que les grandes villes. L'écart avec l'emprise optimisée mesure le prix des arrêts dans "
         "les villes intermédiaires.",
+    "etapes_temps.csv":
+        "Le temps de chaque trajet à chaque étape du calcul : la vitesse des courbes seule, le plafond de "
+        "201 km/h, un vrai train qui accélère et freine, les arrêts, puis la marge. La dernière colonne "
+        "redonne le temps publié.",
+    "calage_traction.csv":
+        "La formule d'accélération contre les seuls chronos publics trouvés pour une Class 221 réelle, une "
+        "source anecdotique. L'ancienne formule, sans résistance à l'avancement, sert de comparaison.",
+    "sensibilites_traction.csv":
+        "L'effet de chaque hypothèse de traction sur les temps, marge comprise, et la fourchette réaliste "
+        "autour du train de référence : une ou deux locomotives, tolérance en courbe de 5 à 7 po.",
 }
 
 # Ordre d'apparition dans le menu déroulant : les tables du fil d'abord.

@@ -1,0 +1,5 @@
+﻿trajet;distance_km;n_arrets;vitesse_des_courbes_min;plafond_201_min;train_reel_sans_arret_min;arrets_compris_min;marge_10_pct_min
+Montréal-Québec;271.1;5;82.9;95.9;114.0;131.2;144.3
+Montréal-Ottawa;186.1;4;58.9;66.5;75.5;89.6;98.5
+Ottawa-Toronto;445.9;12;117.6;144.4;167.1;209.0;229.9
+Montréal-Toronto;540.1;8;133.8;171.2;193.0;223.6;245.9

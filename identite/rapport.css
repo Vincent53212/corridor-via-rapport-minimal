@@ -235,6 +235,47 @@ thead th.groupe span{
 }
 thead tr:first-child th:not([rowspan]):not(.groupe){ border-bottom:none; }
 thead tr.sous th{ padding-top:5px; }
+/* Ligne du temps verticale (`::: {.chronologie}`, étape 29). Le fil est dessiné
+   rangée par rangée sur toute la hauteur de la cellule : une rangée n'étant jamais
+   coupée, le fil s'arrête au bas d'une page et reprend en haut de la suivante, sous
+   l'en-tête répété, sans trou ni nœud orphelin. */
+p:has(+ .chronologie){ break-after:avoid; }
+.chronologie table{ margin:12px 0 14px; }
+.chronologie tr{ break-inside:avoid; }
+.chronologie thead th:first-child{ width:32px; text-align:center; padding-right:0; }
+.chronologie thead th:nth-child(2){ padding-left:12px; }
+.chronologie thead th:nth-child(n+3), .chronologie tbody td:nth-child(n+3){
+  text-align:right; white-space:nowrap; font-family:var(--font-courant);
+  font-variant-numeric:lining-nums tabular-nums;
+}
+.chronologie tbody td{ padding-top:10px; padding-bottom:11px; }
+.chronologie tbody td:nth-child(2){ padding-left:12px; }
+.chronologie tbody td:nth-child(3){ color:var(--encre-pale); }
+.chronologie tbody td:nth-child(4){ font-weight:600; }
+.chronologie tbody td:first-child{
+  position:relative; width:32px; padding:8px 0 0; text-align:center;
+  border-bottom:none; vertical-align:top;
+}
+.chronologie tbody td:first-child::before{
+  content:""; position:absolute; left:50%; top:0; bottom:0;
+  width:2px; margin-left:-1px; background:var(--accent);
+}
+.chronologie tbody tr:first-child td:first-child::before{ top:19px; }
+.chronologie tbody tr:last-child td:first-child::before{ bottom:auto; height:19px; }
+.chronologie .noeud{
+  position:relative; display:inline-block; width:22px; height:22px; line-height:22px;
+  border-radius:50%; background:var(--accent); color:#fff; text-align:center;
+  font:600 8.4pt/22px var(--font-courant);
+}
+.chronologie tbody td:nth-child(2) strong:first-child{
+  display:block; color:var(--accent); font-weight:600; margin-bottom:2px;
+}
+.chronologie code{
+  display:block; margin:5px 0; padding:5px 8px;
+  background:var(--sable); font-size:0.9em; white-space:normal;
+}
+.chronologie tbody tr:last-child td:nth-child(n+2){ background:var(--sable); }
+.insecable{ white-space:nowrap; }
 colgroup{ display:none; }
 /* Les largeurs en pourcentage de pandoc sont dérivées de la largeur du texte
    markdown, pas du contenu rendu : elles écrasent la première colonne des tables

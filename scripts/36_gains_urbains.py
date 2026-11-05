@@ -50,14 +50,13 @@ def bloc_minutes(t, segs, km0, km1, scenario, bande):
         if b - a > 1e-6:
             pieces.append((a, b, min(p[f"vmax_{scenario}_kmh"], bande)))
     pieces.sort()
-    a0, ab = m21.TRAIN_A[scenario]
-    pm = m21.train_pm(scenario, bande)
+    rame = m21.rame_de(scenario, bande)
     # gares intermédiaires strictement à l'intérieur du bloc
     inner = [km for (_, km) in m21.INTERMEDIATE_STOPS[t] if km0 + 0.1 < km < km1 - 0.1]
     saved = m21.INTERMEDIATE_STOPS[t]
     m21.INTERMEDIATE_STOPS[t] = [("x", km) for km in inner]
     try:
-        roul = m21._dynamic_minutes(t, pieces, pm, a0, ab)
+        roul = m21._dynamic_minutes(t, pieces, rame)
     finally:
         m21.INTERMEDIATE_STOPS[t] = saved
     return roul + m21.DWELL_MIN * len(inner), len(inner)

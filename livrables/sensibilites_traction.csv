@@ -1,0 +1,19 @@
+﻿cas;Montréal-Québec_min;Montréal-Québec_ecart_min;Montréal-Ottawa_min;Montréal-Ottawa_ecart_min;Ottawa-Toronto_min;Ottawa-Toronto_ecart_min;Montréal-Toronto_min;Montréal-Toronto_ecart_min
+Traînée plus faible (9 m²);143.8;-0.5;98.3;-0.3;229.1;-0.8;245.0;-0.9
+Traînée plus forte (14 m²);145.2;0.9;98.9;0.4;231.4;1.5;247.5;1.6
+Grand froid : services de bord à 400 kW;145.8;1.4;99.3;0.8;232.2;2.2;248.1;2.2
+Freinage à 0,5 m/s²;145.4;1.1;99.3;0.8;231.9;2.0;247.5;1.5
+Freinage à 0,8 m/s²;143.0;-1.3;97.5;-1.0;227.4;-2.5;244.0;-2.0
+Accélération maximale à 0,5 m/s²;144.7;0.4;98.8;0.3;230.8;0.8;246.5;0.6
+Accélération maximale à 0,8 m/s²;143.9;-0.4;98.1;-0.4;229.0;-0.9;245.3;-0.7
+Rendement de 0,85;144.9;0.6;98.8;0.3;230.8;0.9;246.8;0.9
+Rendement de 0,90;144.0;-0.4;98.3;-0.2;229.3;-0.6;245.4;-0.6
+Train diesel de 8,4 W/kg, même masse;147.4;3.1;100.3;1.8;234.9;5.0;250.7;4.8
+Train diesel de 12 W/kg, même masse (n'existe pas);141.2;-3.2;96.8;-1.7;225.1;-4.8;241.2;-4.7
+Arrêts à la médiane des horaires, gare par gare;145.4;1.1;98.5;0.0;236.0;6.1;252.5;6.6
+Une locomotive Charger et 5 voitures pendulaires (7,4 W/kg);148.9;4.5;101.1;2.6;237.1;7.2;252.5;6.6
+Deux locomotives Charger et 5 voitures pendulaires (11,5 W/kg);141.2;-3.1;96.8;-1.7;224.9;-5.0;240.8;-5.1
+Tolérance en courbe de 5 po;147.5;3.2;101.0;2.5;233.9;4.0;250.4;4.5
+Tolérance en courbe de 7 po;141.5;-2.9;96.3;-2.2;226.4;-3.5;241.9;-4.0
+Bas combiné : une locomotive, 5 po;152.1;7.8;103.5;5.0;241.0;11.1;257.2;11.3
+Haut combiné : deux locomotives, 7 po;138.4;-6.0;94.5;-4.0;221.4;-8.5;237.0;-9.0
