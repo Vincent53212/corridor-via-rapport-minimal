@@ -15,7 +15,7 @@
 //
 // La couverture est imprimée SÉPARÉMENT et sans pied : displayHeaderFooter ne se
 // conditionne pas page par page, et le pied se poserait sur son fond d'encre. On
-// recolle ensuite avec mutool ; `pageNumber` reste le folio du document complet.
+// la greffe ensuite sur le corps avec mutool, qui garde les liens ; `pageNumber` reste le folio du document complet.
 //
 // Tout passe par un dossier de travail ASCII hors OneDrive : mutool refuse les
 // chemins accentués, et ce dépôt vit sous « Contrat François Rebello ».
@@ -23,7 +23,7 @@
 //     node scripts/30_rapport_pdf.mjs
 
 import { execFileSync } from "node:child_process";
-import { existsSync, mkdirSync, copyFileSync, readFileSync, rmSync, statSync } from "node:fs";
+import { existsSync, mkdirSync, copyFileSync, readFileSync, rmSync, statSync, writeFileSync } from "node:fs";
 import { join, dirname } from "node:path";
 import { fileURLToPath } from "node:url";
 import { tmpdir } from "node:os";
@@ -45,6 +45,7 @@ const tTxt = join(TRAVAIL, "passe1.txt");
 const tCouv = join(TRAVAIL, "couverture.pdf");
 const tCorps = join(TRAVAIL, "corps.pdf");
 const tFinal = join(TRAVAIL, "final.pdf");
+const tGreffe = join(TRAVAIL, "greffe.js");
 
 const CHROMES = [
   "C:\\Program Files\\Google\\Chrome\\Application\\chrome.exe",
@@ -193,7 +194,15 @@ try {
 
   await page.pdf({ ...OPTS_COUVERTURE, pageRanges: "1", path: tCouv });
   await page.pdf({ ...OPTS, pageRanges: "2-", path: tCorps });
-  execFileSync("mutool", ["merge", "-o", tFinal, tCouv, tCorps],
+  // Greffe et non `mutool merge` : merge jette les annotations, donc tous les liens
+  // du document (renvois, citations, URL, sommaire). Le corps reste le document de
+  // base, avec ses liens et ses destinations ; seule la couverture y est insérée.
+  writeFileSync(tGreffe, `var corps = new PDFDocument(scriptArgs[0]);
+var couverture = new PDFDocument(scriptArgs[1]);
+corps.graftPage(0, couverture, 0);
+corps.save(scriptArgs[2], "garbage,compress");
+`);
+  execFileSync("mutool", ["run", tGreffe, tCorps, tCouv, tFinal],
                { stdio: "ignore", timeout: 120000 });
 
   // Contrôle : chaque folio annoncé porte bien son titre sur le PDF final.
@@ -224,6 +233,6 @@ try {
   console.log(`Écrit rapport_corridor.pdf (${(statSync(CIBLE).size / 1e6).toFixed(2)} Mo, ${nPages} pages)`);
 } finally {
   await navigateur.close();
-  for (const f of [tP1, tTxt, tCouv, tCorps, tFinal, tHtml, tHtml2])
+  for (const f of [tP1, tTxt, tCouv, tCorps, tFinal, tGreffe, tHtml, tHtml2])
     { try { rmSync(f, { force: true }); } catch { /* rien */ } }
 }

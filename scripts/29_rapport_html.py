@@ -176,7 +176,7 @@ def ouvrir_sections(html: str) -> tuple[str, list[tuple[str, str, str]]]:
         # La clé, elle, n'apparaît qu'à l'ouverture de la section et au sommaire,
         # et l'étape 30 neutralise la page du sommaire.
         entrees.append((cle, sans_balises(titre), cle))
-        return (f'<div class="sec"><span class="k">{cle}</span>'
+        return (f'<div class="sec" id="sec-{compteur}"><span class="k">{cle}</span>'
                 f'<h1{attrs}>{titre}</h1></div>')
 
     html = re.sub(r"<h1([^>]*)>(.*?)</h1>", repl, html, flags=re.S)
@@ -211,10 +211,10 @@ def couverture(meta: dict[str, str]) -> str:
 
 def sommaire(entrees: list[tuple[str, str, str]]) -> str:
     lignes = "\n".join(
-        f'<div class="toc-l"><span class="toc-k">{cle}</span>'
+        f'<a class="toc-l" href="#sec-{i}"><span class="toc-k">{cle}</span>'
         f'<span class="toc-t">{titre}</span><span class="toc-pts"></span>'
-        f'<span class="toc-folio" data-find="{trouve}">—</span></div>'
-        for cle, titre, trouve in entrees)
+        f'<span class="toc-folio" data-find="{trouve}">—</span></a>'
+        for i, (cle, titre, trouve) in enumerate(entrees, 1))
     return f"""<section class="sommaire">
 <h2>Table des matières</h2><div class="filet"></div>
 {lignes}
@@ -266,6 +266,35 @@ def grouper_entetes(html: str) -> str:
     return re.sub(r"<thead>\s*<tr>(.*?)</tr>\s*</thead>", par_thead, html, flags=re.S)
 
 
+def lier_renvois(html: str, n_sections: int) -> str:
+    """Chaque « section N » du texte devient un lien vers le N-ième titre. Le numéro
+    affiché sur l'ouverture de section vient du même compteur : le lien ne peut pas
+    pointer ailleurs. Un numéro sans section arrête le rendu. Les références à la fin
+    du document ne sont pas touchées : elles citent les sections d'autres textes."""
+    fin = html.find('<div id="refs"')
+    corps, reste = (html, "") if fin < 0 else (html[:fin], html[fin:])
+
+    def lien(n: str) -> str:
+        if not 1 <= int(n) <= n_sections:
+            sys.exit(f"renvoi vers une section qui n'existe pas : section {n}")
+        return f'<a class="renvoi" href="#sec-{n}">{n}</a>'
+
+    def texte(t: str) -> str:
+        return re.sub(r"\b(sections?)(\s+)(\d+)(?:(\s+et\s+)(\d+))?\b",
+                      lambda m: m.group(1) + m.group(2) + lien(m.group(3))
+                      + (m.group(4) + lien(m.group(5)) if m.group(5) else ""), t)
+
+    morceaux = re.split(r"(<[^>]+>)", corps)
+    dans_lien = 0
+    for i, m in enumerate(morceaux):
+        if i % 2:
+            # pandoc coupe ses lignes : l'attribut peut suivre « <a » après un saut de ligne
+            dans_lien += bool(re.match(r"<a\s", m)) - m.startswith("</a")
+        elif not dans_lien:
+            morceaux[i] = texte(m)
+    return "".join(morceaux) + reste
+
+
 def noeuds_chronologie(html: str) -> str:
     """Ligne du temps verticale : dans un `::: {.chronologie}`, le numéro d'étape de la
     première colonne devient un nœud posé sur le fil (rapport.css). Le Word garde un
@@ -286,6 +315,7 @@ def main() -> None:
     corps = marquer_colonnes(corps)
     corps = grouper_entetes(corps)
     corps = noeuds_chronologie(corps)
+    corps = lier_renvois(corps, len(re.findall(r'<div class="sec" id=', corps)))
     corps = images_en_ligne(corps)
 
     css = (IDENTITE_DIR / "rapport.css").read_text(encoding="utf-8")

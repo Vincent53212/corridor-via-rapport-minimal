@@ -118,6 +118,7 @@ body{
   font:600 7pt var(--font-courant); letter-spacing:0.13em; text-transform:uppercase;
   color:var(--accent); width:2.25in; flex:none; white-space:nowrap;
 }
+a.toc-l{ color:inherit; border-bottom:none; }
 .toc-t{ font:600 11pt var(--font-titre); }
 .toc-pts{ flex:1; border-bottom:1px dotted var(--encre-pale); margin:0 4px 3px; opacity:.55; }
 .toc-folio{

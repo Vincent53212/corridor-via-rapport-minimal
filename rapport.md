@@ -27,13 +27,13 @@ Sans offrir une vitesse équivalente à la prévision d'ALTO, l'amélioration de
 | [Ottawa-Toronto (442 km)]{.insecable} | ~4 h 20 | 4 h 35 | 3 h 50 | 3 h 04 | ~2 h |
 | [Montréal-Toronto (536 km)]{.insecable} | ~5 h 30 | 5 h 18 | 4 h 06 | 3 h 32 | 3 h |
 
-La colonne de l'express donne le même train sans aucun arrêt intermédiaire (section 8). Le temps en auto est une estimation à partir de la cartographie routière grand public, approximative. Les temps du projet ALTO viennent du promoteur [@altotrain2026faq] ; le 3 h Montréal-Toronto est d'ailleurs un engagement du gouvernement [@pmcanada2025alto]. De bout en bout, Québec-Toronto via Montréal passerait de 8 h 50 aujourd'hui à 6 h 40, avec dix minutes d'arrêt à Montréal, ou à 5 h 48 en express, contre environ 4 h 30 pour le projet ALTO.
+La colonne de l'express donne le même train sans aucun arrêt intermédiaire (section 9). Le temps en auto est une estimation à partir de la cartographie routière grand public, approximative. Les temps du projet ALTO viennent du promoteur [@altotrain2026faq] ; le 3 h Montréal-Toronto est d'ailleurs un engagement du gouvernement [@pmcanada2025alto]. De bout en bout, Québec-Toronto via Montréal passerait de 8 h 50 aujourd'hui à 6 h 40, avec dix minutes d'arrêt à Montréal, ou à 5 h 48 en express, contre environ 4 h 30 pour le projet ALTO.
 
 Aujourd'hui, le train fait à peu près jeu égal avec l'auto sur Montréal-Toronto et la perd nettement sur Montréal-Québec. Sur l'emprise optimisée, le train prend de 70 à 88 % du temps de l'auto selon le trajet : il devient plus rapide que l'auto partout.
 
-**Les villes intermédiaires.** Ces temps comprennent un arrêt à chacune des 22 gares intermédiaires où s'arrêtent aujourd'hui les trains de VIA, de Saint-Hyacinthe et Drummondville à Cornwall et Kingston (la liste complète est à la section 2). L'emprise optimisée améliore donc aussi le service ferroviaire des régions desservies par ces gares, alors que le projet ALTO prévoit sept gares sur l'ensemble de son réseau [@altotrain2026faq]. Un train express qui ne s'arrêterait qu'aux grandes villes gagnerait encore de 16 à 46 minutes selon le trajet (section 8).
+**Les villes intermédiaires.** Ces temps comprennent un arrêt à chacune des 22 gares intermédiaires où s'arrêtent aujourd'hui les trains de VIA, de Saint-Hyacinthe et Drummondville à Cornwall et Kingston (la liste complète est à la section 2). L'emprise optimisée améliore donc aussi le service ferroviaire des régions desservies par ces gares, alors que le projet ALTO prévoit sept gares sur l'ensemble de son réseau [@altotrain2026faq]. Un train express qui ne s'arrêterait qu'aux grandes villes gagnerait encore de 16 à 46 minutes selon le trajet (section 9).
 
-![Montréal-Québec : le train contre l'auto. La barre de l'emprise optimisée est un temps calculé selon la méthode de la section 2. La barre de l'express retire les arrêts intermédiaires (section 8). Le trait pointillé est le temps annoncé par ALTO. Temps auto : estimation à partir de la cartographie routière grand public (Google Maps), approximative.](livrables/figure_vs_auto_montreal_quebec.jpg)
+![Montréal-Québec : le train contre l'auto. La barre de l'emprise optimisée est un temps calculé selon la méthode de la section 2. La barre de l'express retire les arrêts intermédiaires (section 9). Le trait pointillé est le temps annoncé par ALTO. Temps auto : estimation à partir de la cartographie routière grand public (Google Maps), approximative.](livrables/figure_vs_auto_montreal_quebec.jpg)
 
 ![Montréal-Toronto : le train contre l'auto. Mêmes conventions.](livrables/figure_vs_auto_montreal_toronto.jpg)
 
@@ -49,9 +49,9 @@ Aujourd'hui, le train fait à peu près jeu égal avec l'auto sur Montréal-Toro
 2. **Une signalisation modernisée.** Grâce à l'installation d'un système de contrôle de train en cabine comme celui déjà utilisé aux États-Unis, la distance nécessaire entre les trains sera de beaucoup réduite, ce qui favorisera la cohabitation et permettra de donner la priorité aux trains de passagers, dont dépend leur ponctualité. Ce système autorise une vitesse maximale de 201 km/h (125 mi/h) quand la voie le permet.
 3. **Arbitrage de l'Office des transports du Canada.** Nous proposons de donner une orientation claire en faveur du service aux passagers, par règlement ou par projet de loi, dans le but de permettre à l'Office des transports du Canada d'exercer ses pouvoirs d'accorder à une compagnie le droit de rouler sur les rails d'une autre, d'en fixer les conditions et d'en fixer le prix [@otc2016circulation; @ltc1996art138], même lorsqu'ils s'appliquent aux contrats de cohabitation existants.
 4. **Passages à niveau sécurisés.** Le corridor en compte 924. Il faudra en sécuriser 533 qui n'ont pas de barrières complètes. Un programme complémentaire et optionnel, présenté à part, éliminerait le tiers des croisements par des ponts d'étagement pour améliorer davantage la sécurité.
-5. **Train pendulaire et voies plus inclinées dans les courbes.** Un train pendulaire incline sa caisse dans les courbes. De plus, on incline la voie au maximum standard du CN (dévers de 127 mm, soit 5 po) dans les courbes. Cela permet de faire en sorte que les passagers ne sentent pas la courbe et donc, que le train puisse la franchir plus vite. Comme le corridor n'est pas électrifié, ce train serait diesel, et il faudrait le commander sur mesure (section 9). La configuration retenue correspond à un train ayant déjà été en opération, la Class 221 britannique, non à un idéal théorique.
+5. **Train pendulaire et voies plus inclinées dans les courbes.** Un train pendulaire incline sa caisse dans les courbes. De plus, on incline la voie au maximum standard du CN (dévers de 127 mm, soit 5 po) dans les courbes. Cela permet de faire en sorte que les passagers ne sentent pas la courbe et donc, que le train puisse la franchir plus vite. Comme le corridor n'est pas électrifié, ce train serait diesel, et il faudrait le commander sur mesure (section 7). La configuration retenue correspond à un train ayant déjà été en opération, la Class 221 britannique, non à un idéal théorique.
 
-Les actions 1 à 3 réduisent la marge d'exploitation, soit l'écart entre le temps de parcours réel et la possibilité théorique fondée sur la géométrie de la voie. Les actions 4 et 5 accroissent cette possibilité théorique : le train pendulaire prend les courbes plus vite, et les passages sécurisés, avec le contrôle en cabine, autorisent 201 km/h. L'analyse des données et les conseils de notre expert ferroviaire [@dusablon2026] nous permettent de retenir une marge d'exploitation de 10 %, alignée sur la West Coast Main Line britannique, qui relie Londres à Manchester et Glasgow avec des trains pendulaires à 201 km/h sur des voies partagées avec les trains de marchandises. Nous estimons le coût de ces cinq actions entre 8 et 9 G\$ CA de 2025 (section 10). Techniquement, elles n'exigent de retirer aucun passage à niveau : des barrières complètes suffisent. Pour des raisons d'acceptabilité, de cohabitation avec les riverains et de modernisation du corridor, nous avons aussi chiffré un programme complémentaire d'élimination du tiers des croisements par des ponts d'étagement, pour environ 8,2 G\$ CA. Avec 20 % pour les imprévus, les deux volets représentent ensemble de 19 à 20 G\$ CA. Un second programme optionnel et indépendant, l'électrification du corridor, est examiné à la section 11.
+Les actions 1 à 3 réduisent la marge d'exploitation, soit l'écart entre le temps de parcours réel et la possibilité théorique fondée sur la géométrie de la voie. Les actions 4 et 5 accroissent cette possibilité théorique : le train pendulaire prend les courbes plus vite, et les passages sécurisés, avec le contrôle en cabine, autorisent 201 km/h. L'analyse des données et les conseils de notre expert ferroviaire [@dusablon2026] nous permettent de retenir une marge d'exploitation de 10 %, alignée sur la West Coast Main Line britannique, qui relie Londres à Manchester et Glasgow avec des trains pendulaires à 201 km/h sur des voies partagées avec les trains de marchandises. Nous estimons le coût de ces cinq actions entre 8 et 9 G\$ CA de 2025 (section 11). Techniquement, elles n'exigent de retirer aucun passage à niveau : des barrières complètes suffisent. Pour des raisons d'acceptabilité, de cohabitation avec les riverains et de modernisation du corridor, nous avons aussi chiffré un programme complémentaire d'élimination du tiers des croisements par des ponts d'étagement, pour environ 8,2 G\$ CA. Avec 20 % pour les imprévus, les deux volets représentent ensemble de 19 à 20 G\$ CA. Un second programme optionnel et indépendant, l'électrification du corridor, est examiné à la section 10.
 
 Comme le montre la table qui suit, les actions proposées auront un impact significatif. Les postes se lisent sur le trajet complet Québec-Toronto, jusqu'au train express ; la section 12 donne le détail en minutes, trajet par trajet.
 
@@ -75,7 +75,7 @@ Notre expert ferroviaire, Pierre DuSablon, a une longue expérience dans le doma
 
 **Analyse assistée par agents de codage (IA) des données satellites.** Comme VIA Rail ne fournit pas une géométrie suffisamment détaillée de sa voie, la géométrie du tracé vient des données ouvertes OpenStreetMap, appariées aux horaires de VIA. Ces deux sources publiques se complètent. Les horaires ouverts de VIA (le format GTFS, celui des applications de transport) disent quelles lignes le train emprunte et à quelle heure [@viarail2026gtfs]. La carte collaborative OpenStreetMap dit où les rails passent physiquement, à quelques mètres près [@osm2026geofabrik]. L'étude accroche le tracé de VIA sur la voie réelle d'OpenStreetMap et suit cette voie comme un train le ferait. Les passages à niveau viennent de l'inventaire officiel de Transports Canada [@tc2023inventairepn]. Le nombre de voies, lui, est détecté par la géométrie des voies parallèles dans la carte. La page de crédits décrit la méthode de travail avec les agents de codage.
 
-**Les ouvrages d'art des sections à doubler.** Doubler la voie demande aussi de doubler les ponts ferroviaires des sections à voie simple. Aucun inventaire officiel des ponts ferroviaires n'est public : ceux du CN, de VIA et des autres propriétaires ne sont pas publiés. Nous avons donc dressé notre propre inventaire en croisant deux sources indépendantes : les ponts étiquetés dans OpenStreetMap [@osm2026ponts] et les structures du Réseau ferroviaire national de Ressources naturelles Canada, figé en 2014 au Québec et en 2016 en Ontario [@rncan2016rfn]. Là où les deux sources divergeaient, l'imagerie satellite a tranché. L'inventaire compte 245 ponts sur les deux corridors, ponceaux exclus. Entre Québec et Montréal, il concorde avec le décompte de notre expert ferroviaire : 72 ouvrages, contre 71 dans son avis [@dusablon2026]. Sur les sections à voie simple, 79 ouvrages seraient à doubler. Nous en retirons le pont de Québec, qui ne porte qu'une voie : le doubler demanderait un nouveau franchissement, un projet en soi. Il reste 78 ouvrages, pour un peu plus de 4 km de tablier. La section 10 détaille ce décompte et en tire le coût des ouvrages d'art.
+**Les ouvrages d'art des sections à doubler.** Doubler la voie demande aussi de doubler les ponts ferroviaires des sections à voie simple. Aucun inventaire officiel des ponts ferroviaires n'est public : ceux du CN, de VIA et des autres propriétaires ne sont pas publiés. Nous avons donc dressé notre propre inventaire en croisant deux sources indépendantes : les ponts étiquetés dans OpenStreetMap [@osm2026ponts] et les structures du Réseau ferroviaire national de Ressources naturelles Canada, figé en 2014 au Québec et en 2016 en Ontario [@rncan2016rfn]. Là où les deux sources divergeaient, l'imagerie satellite a tranché. L'inventaire compte 245 ponts sur les deux corridors, ponceaux exclus. Entre Québec et Montréal, il concorde avec le décompte de notre expert ferroviaire : 72 ouvrages, contre 71 dans son avis [@dusablon2026]. Sur les sections à voie simple, 79 ouvrages seraient à doubler. Nous en retirons le pont de Québec, qui ne porte qu'une voie : le doubler demanderait un nouveau franchissement, un projet en soi. Il reste 78 ouvrages, pour un peu plus de 4 km de tablier. La section 11 détaille ce décompte et en tire le coût des ouvrages d'art.
 
 ## Le modèle de temps, étape par étape
 
@@ -86,7 +86,7 @@ Un temps de parcours se construit en six étapes. Le tableau qui suit les dérou
 | Étape | Ce que fait le modèle | Ajoute | Temps cumulé |
 |---|---------------------------------------------|-----|-----|
 | 1 | **Mesurer la voie.** Le tracé vient d'OpenStreetMap, accroché aux horaires de VIA. Nous en tirons le rayon de chaque courbe, et la pente à partir d'un modèle de relief [@openmeteo2026altitude]. Sur les segments courbes de moins de 900 m, le rayon est divisé par deux, par prudence (voir plus bas). | | 536 km |
-| 2 | **Limiter la vitesse dans chaque courbe.** Une courbe de rayon R limite la vitesse selon la formule `v = k·√R`. Le coefficient k dépend de l'inclinaison de la voie et de la tolérance du train : il vaut 4,82 pour le train pendulaire sur une voie au dévers maximal du CN (section 9). Avec l'écartement effectif utilisé, cette formule reproduit exactement la méthode officielle du CN [@cn2002mr1305]. Les approches de Montréal, Québec, Ottawa et Toronto suivent le même calcul : leurs courbes serrées y limitent déjà la vitesse. | 2 h 14 | 2 h 14 |
+| 2 | **Limiter la vitesse dans chaque courbe.** Une courbe de rayon R limite la vitesse selon la formule `v = k·√R`. Le coefficient k dépend de l'inclinaison de la voie et de la tolérance du train : il vaut 4,82 pour le train pendulaire sur une voie au dévers maximal du CN (section 7). Avec l'écartement effectif utilisé, cette formule reproduit exactement la méthode officielle du CN [@cn2002mr1305]. Les approches de Montréal, Québec, Ottawa et Toronto suivent le même calcul : leurs courbes serrées y limitent déjà la vitesse. | 2 h 14 | 2 h 14 |
 | 3 | **Plafonner à 201 km/h.** En chaque point, le train roule à la plus basse de deux vitesses : celle que la courbe permet, et le plafond de 201 km/h (125 mi/h) établi aux sections 4 et 6. À ce stade, le train changerait encore de vitesse instantanément. | +37 min | 2 h 51 |
 | 4 | **S'arrêter aux gares.** Montréal-Toronto compte huit gares intermédiaires. À chacune, le train reste immobile deux minutes, la médiane des horaires de VIA [@viarail2026gtfs]. Le freinage et la relance de ces arrêts sont comptés à l'étape suivante. | +16 min | 3 h 07 |
 | 5 | **Faire accélérer et freiner un vrai train.** Le train ralentit maintenant pour de vrai, avant chaque courbe et chaque gare, puis il relance. En chaque point, nous calculons ce qu'il peut faire : `accélération = (puissance au rail ÷ vitesse − résistance − pente) ÷ masse`. La puissance au rail est ce qui reste après les services de bord et les pertes de transmission. La résistance, surtout celle de l'air, grandit avec le carré de la vitesse. Sur le plat, le train accélère donc à 0,6 m/s² au démarrage, puis de moins en moins : environ 0,23 m/s² à 100 km/h, 0,10 à 160 km/h et 0,04 à 200 km/h. Il freine à 0,6 m/s². Après une courbe, il ne relance que lorsque sa queue en est sortie. | +37 min | 3 h 44 |
@@ -103,7 +103,7 @@ Un temps de parcours se construit en six étapes. Le tableau qui suit les dérou
 | [Ottawa-Toronto]{.insecable} | Fallowfield, Smiths Falls, Brockville, Gananoque, Kingston, Napanee, Belleville, Trenton Junction, Cobourg, Port Hope, Oshawa, Guildwood |
 | [Montréal-Toronto]{.insecable} | Dorval, Cornwall, Brockville, Kingston, Belleville, Cobourg, Oshawa, Guildwood |
 
-**Le train de référence.** Le corridor n'est pas électrifié : le train de référence est donc diesel-électrique. Nous le définissons par un niveau de performance, et non comme un modèle précis. Sa puissance nominale de 9,8 W par kilogramme de rame à vide se situe entre celles des deux seuls pendulaires diesel que nous connaissions à 200 km/h, la Class 221 britannique (9,9) et l'ICE TD allemand (9,7) [@wikipedia2026class221; @wikipedia2026icetd]. Sa masse et sa longueur sont celles de la Class 221. La section 9 explique pourquoi ce train reste à faire construire : il a existé, mais il n'est plus sur le marché tel quel.
+**Le train de référence.** Le corridor n'est pas électrifié : le train de référence est donc diesel-électrique. Nous le définissons par un niveau de performance, et non comme un modèle précis. Sa puissance nominale de 9,8 W par kilogramme de rame à vide se situe entre celles des deux seuls pendulaires diesel que nous connaissions à 200 km/h, la Class 221 britannique (9,9) et l'ICE TD allemand (9,7) [@wikipedia2026class221; @wikipedia2026icetd]. Sa masse et sa longueur sont celles de la Class 221. La section 7 explique pourquoi ce train reste à faire construire : il a existé, mais il n'est plus sur le marché tel quel.
 
 | | Train actuel de VIA | Train de référence |
 |---|---|---|
@@ -184,7 +184,7 @@ La signalisation permet de réduire l'espace-temps entre deux trains. La signali
 
 **Marche 1 : les signaux au sol.** Le mécanicien lit des signaux plantés le long de la voie et obéit lui-même. Rien à bord ne freine le train à sa place. C'est le régime actuel du corridor (la commande centralisée de la circulation, ou CCC [@cror2025]). Aux États-Unis, ce régime plafonne à 127 km/h : au-delà, la règle exige un équipement à bord [@cfr236-0]. Au Canada, la contrainte publiée est ailleurs : les classes de voie s'arrêtent à 153 km/h pour les voyageurs (161 km/h pour les trains LRC), et rouler plus vite exige un dossier approuvé par le ministre [@tc2022rrts].
 
-**Marche 2 : le contrôle en cabine PTC.** Un calculateur à bord connaît la limite à respecter et freine le train si le mécanicien ne le fait pas. Les signaux au sol restent en place : le fret circule comme avant et seuls les trains rapides embarquent le nouvel équipement. Ce système est prouvé en Amérique du Nord jusqu'au plafond retenu de 201 km/h, et au-delà (241 km/h) lorsque les passages à niveau sont retirés (section 7). Le régulateur américain l'a écrit lui-même : Amtrak exploite en sécurité entre 90 et 150 mi/h (jusqu'à 241 km/h) sur le Northeast Corridor, avec la signalisation de cabine et le système ACSES, un complément qui lit la limite de vitesse de chaque section dans des balises posées entre les rails et la fait respecter automatiquement [@fra2010ptc; @fra2000acela]. En Floride, Brightline roule à 201 km/h (125 mi/h) en service commercial sous l'I-ETMS, la variante de contrôle en cabine la plus répandue chez les chemins de fer nord-américains [@brightline2023; @fra2023brightlineptc]. Finalement, la West Coast Main Line britannique (elle aussi en cohabitation avec le fret) roule à 201 km/h avec des trains pendulaires et des signaux au sol, complétés d'une protection ponctuelle [@hoc2010wcml; @orr2024tps], soit une protection inférieure au contrôle en cabine proposé ici.
+**Marche 2 : le contrôle en cabine PTC.** Un calculateur à bord connaît la limite à respecter et freine le train si le mécanicien ne le fait pas. Les signaux au sol restent en place : le fret circule comme avant et seuls les trains rapides embarquent le nouvel équipement. Ce système est prouvé en Amérique du Nord jusqu'au plafond retenu de 201 km/h, et au-delà (241 km/h) lorsque les passages à niveau sont retirés (section 8). Le régulateur américain l'a écrit lui-même : Amtrak exploite en sécurité entre 90 et 150 mi/h (jusqu'à 241 km/h) sur le Northeast Corridor, avec la signalisation de cabine et le système ACSES, un complément qui lit la limite de vitesse de chaque section dans des balises posées entre les rails et la fait respecter automatiquement [@fra2010ptc; @fra2000acela]. En Floride, Brightline roule à 201 km/h (125 mi/h) en service commercial sous l'I-ETMS, la variante de contrôle en cabine la plus répandue chez les chemins de fer nord-américains [@brightline2023; @fra2023brightlineptc]. Finalement, la West Coast Main Line britannique (elle aussi en cohabitation avec le fret) roule à 201 km/h avec des trains pendulaires et des signaux au sol, complétés d'une protection ponctuelle [@hoc2010wcml; @orr2024tps], soit une protection inférieure au contrôle en cabine proposé ici.
 
 **Marche 3 : le contrôle intégral.** Le train reçoit sa permission de rouler par radio, en continu. Les signaux au sol deviennent inutiles [@ec2026etcs; @eu2023ccstsi]. C'est le standard des lignes à grande vitesse neuves, et ce que prévoit un projet comme ALTO. Sur une voie partagée, cela demanderait de remplacer toute la signalisation et de rééquiper tous les trains, passagers et fret.
 
@@ -200,7 +200,7 @@ Le 11 octobre 2024, le CN a imposé aux rames neuves de VIA un ralentissement à
 
 # Les passages à niveau
 
-Un passage à niveau est un croisement entre le rail et une route. Ces croisements représentent un risque auquel fait face le mécanicien du train. Plus le train va vite, plus ce risque grandit. La réglementation permet toutefois des passages à niveau jusqu'à 201 km/h, s'ils sont équipés de barrières automatiques : c'est ce qu'on appelle un corridor scellé. Pour aller au-delà de 201 km/h, le train ne doit plus croiser de routes. En Amérique du Nord, le seul train dans cette situation est l'Acela d'Amtrak, qui roule entre Boston, New York et Washington à une vitesse maximale de 241 km/h (150 mi/h) là où il n'y a pas de croisements routiers [@fra2000acela; @fra2010ptc]. Comme l'effort d'aller au-delà de 201 km/h ne rapporte pas de gains de temps importants, compte tenu des limites imposées par la géométrie de la voie et par la puissance du train (voir la section suivante), nous retenons la limite de 201 km/h.
+Un passage à niveau est un croisement entre le rail et une route. Ces croisements représentent un risque auquel fait face le mécanicien du train. Plus le train va vite, plus ce risque grandit. La réglementation permet toutefois des passages à niveau jusqu'à 201 km/h, s'ils sont équipés de barrières automatiques : c'est ce qu'on appelle un corridor scellé. Pour aller au-delà de 201 km/h, le train ne doit plus croiser de routes. En Amérique du Nord, le seul train dans cette situation est l'Acela d'Amtrak, qui roule entre Boston, New York et Washington à une vitesse maximale de 241 km/h (150 mi/h) là où il n'y a pas de croisements routiers [@fra2000acela; @fra2010ptc]. Comme l'effort d'aller au-delà de 201 km/h ne rapporte pas de gains de temps importants, compte tenu des limites imposées par la géométrie de la voie et par la puissance du train (voir la section 8), nous retenons la limite de 201 km/h.
 
 Voici donc le barème des États-Unis [@ecfr213-347], cité ici comme référence en l'absence d'échelle canadienne équivalente :
 
@@ -243,41 +243,7 @@ Ce programme s'ajoute aux cinq actions et il est optionnel : aucun passage n'a b
 | Passages privés ou de ferme | 569 | 190 |
 | Total | 924 | 308 |
 
-Notre expert ferroviaire recommande de regrouper certains accès agricoles en passages à usage commun, aménagés à des endroits stratégiques, ce qui réduirait le nombre d'ouvrages à construire [@dusablon2026]. Ces ouvrages auraient aussi l'avantage d'éliminer les sifflements de train, qui dérangent les citoyens de façon importante : la règle prévoit que le mécanicien siffle à l'approche d'un passage tant qu'il n'a pas une garantie suffisante d'absence de risque d'accident. La section 10 en donne le coût.
-
-# Et si on enlevait tous les passages à niveau?
-
-Le plafond de 201 km/h (125 mi/h) n'est requis que pour une raison : la présence de passages à niveau [@ecfr213-347]. Supposons donc qu'on les enlève partout où ils limitent la vitesse, afin de tester si le choix de vitesse plafond limite indûment la performance. 627 des 924 passages du corridor se trouvent là où la géométrie du tracé permet au train d'aller au-delà de 201 km/h. Ces 627 passages seraient remplacés par des ponts d'étagement, soit deux fois plus que ce que nous proposons ; les 297 autres garderaient des barrières, puisque le train ne peut pas dépasser 201 km/h dans ces sections à cause de la géométrie de la voie. Le mur tombe et le train peut alors viser la marche de vitesse suivante, déjà prouvée en Amérique du Nord : 241 km/h (150 mi/h), la vitesse maximale du corridor du Nord-Est d'Amtrak [@fra2010ptc; @fra2000acela]. Combien de temps ce chantier achète-t-il?
-
-  | Trajet | Emprise optimisée (201 km/h) | Sans passage à niveau (241 km/h) | Gain | ALTO annoncé |
-|---|---|---|---|---|
-| Montréal-Québec | 2 h 24 | 2 h 24 | moins de 1 min | ~1 h 30 |
-| Montréal-Ottawa | 1 h 39 | 1 h 39 | moins de 1 min | ~1 h |
-| Ottawa-Toronto | 3 h 50 | 3 h 49 | 1 min | ~2 h |
-| Montréal-Toronto | 4 h 06 | 4 h 02 | 4 min | 3 h |
-
-De bout en bout, Québec-Toronto pourrait y gagner 4 minutes.
-
-**Pourquoi si peu?** Parce qu'au-dessus de 201 km/h, ce ne sont plus les passages qui retiennent le train : ce sont les courbes et sa puissance. Le tracé n'offre qu'un nombre limité de sections assez droites pour porter 241 km/h, et le train n'y reste jamais longtemps. Notre train diesel n'atteindrait d'ailleurs pas 241 km/h : sa puissance le limite à environ 230 km/h en palier.
-
-**La lecture d'investissement est donc simple.** Comme levier de temps, retirer ces 627 passages ne se justifie pas : des centaines d'ouvrages pour gagner moins de 5 minutes, alors que la sécurisation des passages en place coûte une fraction de ce prix. Les retraits gardent toutefois leurs autres mérites, notamment la sécurité et la fin des sifflements, et c'est à ce titre que le programme de ponts d'étagement de la section précédente se justifie.
-
-# Et si on faisait un train express?
-
-Les temps de l'emprise optimisée comprennent un arrêt à chacune des 22 gares intermédiaires desservies aujourd'hui (section 2). Le projet ALTO, lui, prévoit sept gares : Québec, Trois-Rivières, Laval, Montréal, Ottawa, Peterborough et Toronto [@altotrain2026faq]. Une gare à Kingston est à l'étude [@tc2026altokingston]. Aucune des gares intermédiaires d'ALTO ne se trouve sur la voie actuelle de VIA. Un train express qui ne s'arrêterait qu'aux mêmes villes qu'ALTO roulerait donc sans arrêt entre les grandes villes. Supposons-le, avec la même voie, le même train et la même marge de 10 %. Combien de temps les arrêts coûtent-ils?
-
-  | Trajet | Emprise optimisée, toutes les gares | Express, sans arrêt | Gain | ALTO annoncé |
-|---|---|---|---|---|
-| Montréal-Québec | 2 h 24 | 2 h 05 | 19 min | ~1 h 30 |
-| Montréal-Ottawa | 1 h 39 | 1 h 23 | 16 min | ~1 h |
-| Ottawa-Toronto | 3 h 50 | 3 h 04 | 46 min | ~2 h |
-| Montréal-Toronto | 4 h 06 | 3 h 32 | 34 min | 3 h |
-
-De bout en bout, l'express Québec-Toronto ferait 5 h 48, contre 6 h 40 pour le train qui dessert toutes les gares.
-
-**Le prix d'un arrêt.** Chaque arrêt coûte environ quatre minutes : le freinage, deux minutes en gare, puis la relance. Ottawa-Toronto compte douze gares intermédiaires, et ses arrêts pèsent 46 minutes. Si Kingston devenait une gare d'ALTO, l'express s'y arrêterait aussi, pour environ quatre minutes de plus.
-
-**Un express ne remplace pas l'omnibus, il s'y ajoute.** L'express rapproche l'emprise optimisée des temps d'ALTO, à 32 minutes près entre Montréal et Toronto, mais il laisse de côté les villes intermédiaires. Une grille qui alterne trains express et trains omnibus garde les deux avantages. Faire circuler des trains qui ne s'arrêtent pas aux mêmes gares sur la même voie demande toutefois des voies d'évitement pour les dépassements : c'est une question pour l'étude de circulation (section 13).
+Notre expert ferroviaire recommande de regrouper certains accès agricoles en passages à usage commun, aménagés à des endroits stratégiques, ce qui réduirait le nombre d'ouvrages à construire [@dusablon2026]. Ces ouvrages auraient aussi l'avantage d'éliminer les sifflements de train, qui dérangent les citoyens de façon importante : la règle prévoit que le mécanicien siffle à l'approche d'un passage tant qu'il n'a pas une garantie suffisante d'absence de risque d'accident. La section 11 en donne le coût.
 
 # Le train pendulaire et le dévers
 
@@ -307,7 +273,69 @@ Le dévers actuel est une hypothèse, car aucun relevé public n'est disponible.
 
 Notre train de référence se situe au milieu de ce qui est réaliste en Amérique du Nord. Avec une seule locomotive Charger et cinq voitures pendulaires, les temps seraient environ 3 % plus longs ; avec deux locomotives, environ 2 % plus courts. En y ajoutant une tolérance en courbe de 5 ou de 7 po, Montréal-Toronto varierait de 3 h 57 à 4 h 17.
 
-**Et l'électrification?** Des lignes électrifiées partagées avec du fret lourd, ça existe. L'Inde fait rouler des trains à double conteneur sous une caténaire, avec un fil à environ 7,5 m du rail [@pib2019dfc]. Cette option sort du périmètre des cinq actions, mais c'est une possibilité : la section 10 la chiffre comme programme complémentaire, et la section 11 en fait une contre-hypothèse.
+**Et l'électrification?** Des lignes électrifiées partagées avec du fret lourd, ça existe. L'Inde fait rouler des trains à double conteneur sous une caténaire, avec un fil à environ 7,5 m du rail [@pib2019dfc]. Cette option sort du périmètre des cinq actions, mais c'est une possibilité : la section 10 en fait une contre-hypothèse, et la section 11 la chiffre comme programme complémentaire.
+
+# Et si on enlevait tous les passages à niveau?
+
+Le plafond de 201 km/h (125 mi/h) n'est requis que pour une raison : la présence de passages à niveau [@ecfr213-347]. Supposons donc qu'on les enlève partout où ils limitent la vitesse, afin de tester si le choix de vitesse plafond limite indûment la performance. 627 des 924 passages du corridor se trouvent là où la géométrie du tracé permet au train d'aller au-delà de 201 km/h. Ces 627 passages seraient remplacés par des ponts d'étagement, soit deux fois plus que ce que nous proposons ; les 297 autres garderaient des barrières, puisque le train ne peut pas dépasser 201 km/h dans ces sections à cause de la géométrie de la voie. Le mur tombe et le train peut alors viser la marche de vitesse suivante, déjà prouvée en Amérique du Nord : 241 km/h (150 mi/h), la vitesse maximale du corridor du Nord-Est d'Amtrak [@fra2010ptc; @fra2000acela]. Combien de temps ce chantier achète-t-il?
+
+  | Trajet | Emprise optimisée (201 km/h) | Sans passage à niveau (241 km/h) | Gain | ALTO annoncé |
+|---|---|---|---|---|
+| Montréal-Québec | 2 h 24 | 2 h 24 | moins de 1 min | ~1 h 30 |
+| Montréal-Ottawa | 1 h 39 | 1 h 39 | moins de 1 min | ~1 h |
+| Ottawa-Toronto | 3 h 50 | 3 h 49 | 1 min | ~2 h |
+| Montréal-Toronto | 4 h 06 | 4 h 02 | 4 min | 3 h |
+
+De bout en bout, Québec-Toronto pourrait y gagner 4 minutes.
+
+**Pourquoi si peu?** Parce qu'au-dessus de 201 km/h, ce ne sont plus les passages qui retiennent le train : ce sont les courbes et sa puissance. Le tracé n'offre qu'un nombre limité de sections assez droites pour porter 241 km/h, et le train n'y reste jamais longtemps. Notre train diesel n'atteindrait d'ailleurs pas 241 km/h : sa puissance le limite à environ 230 km/h en palier.
+
+**La lecture d'investissement est donc simple.** Comme levier de temps, retirer ces 627 passages ne se justifie pas : des centaines d'ouvrages pour gagner moins de 5 minutes, alors que la sécurisation des passages en place coûte une fraction de ce prix. Les retraits gardent toutefois leurs autres mérites, notamment la sécurité et la fin des sifflements, et c'est à ce titre que le programme de ponts d'étagement de la section 6 se justifie.
+
+# Et si on faisait un train express?
+
+Les temps de l'emprise optimisée comprennent un arrêt à chacune des 22 gares intermédiaires desservies aujourd'hui (section 2). Le projet ALTO, lui, prévoit sept gares : Québec, Trois-Rivières, Laval, Montréal, Ottawa, Peterborough et Toronto [@altotrain2026faq]. Une gare à Kingston est à l'étude [@tc2026altokingston]. Aucune des gares intermédiaires d'ALTO ne se trouve sur la voie actuelle de VIA. Un train express qui ne s'arrêterait qu'aux mêmes villes qu'ALTO roulerait donc sans arrêt entre les grandes villes. Supposons-le, avec la même voie, le même train et la même marge de 10 %. Combien de temps les arrêts coûtent-ils?
+
+  | Trajet | Emprise optimisée, toutes les gares | Express, sans arrêt | Gain | ALTO annoncé |
+|---|---|---|---|---|
+| Montréal-Québec | 2 h 24 | 2 h 05 | 19 min | ~1 h 30 |
+| Montréal-Ottawa | 1 h 39 | 1 h 23 | 16 min | ~1 h |
+| Ottawa-Toronto | 3 h 50 | 3 h 04 | 46 min | ~2 h |
+| Montréal-Toronto | 4 h 06 | 3 h 32 | 34 min | 3 h |
+
+De bout en bout, l'express Québec-Toronto ferait 5 h 48, contre 6 h 40 pour le train qui dessert toutes les gares.
+
+**Le prix d'un arrêt.** Chaque arrêt coûte environ quatre minutes : le freinage, deux minutes en gare, puis la relance. Ottawa-Toronto compte douze gares intermédiaires, et ses arrêts pèsent 46 minutes. Si Kingston devenait une gare d'ALTO, l'express s'y arrêterait aussi, pour environ quatre minutes de plus.
+
+**Un express ne remplace pas l'omnibus, il s'y ajoute.** L'express rapproche l'emprise optimisée des temps d'ALTO, à 32 minutes près entre Montréal et Toronto, mais il laisse de côté les villes intermédiaires. Une grille qui alterne trains express et trains omnibus garde les deux avantages. Faire circuler des trains qui ne s'arrêtent pas aux mêmes gares sur la même voie demande toutefois des voies d'évitement pour les dépassements : c'est une question pour l'étude de circulation (section 13).
+
+# Et si on électrifiait le corridor?
+
+Les cinq actions supposent un train diesel, puisque le corridor n'a pas de caténaire. La section 7 a évoqué l'électrification, et la section 11 la chiffre de 3 à 7 G\$ CA comme programme complémentaire. Comme l'élimination des croisements, elle est optionnelle : ce sont deux ajouts indépendants, et aucun n'est nécessaire aux temps de parcours de ce rapport. Supposons maintenant qu'on la réalise. Que rapporterait-elle?
+
+**Les temps.** Avec un train électrique de type Pendolino, sur la même voie et avec les mêmes arrêts, le gain reste modeste :
+
+| Trajet | Emprise optimisée, diesel | Électrique | Gain | ALTO annoncé |
+|---|---|---|---|---|
+| Montréal-Québec | 2 h 24 | 2 h 21 | 3 min | ~1 h 30 |
+| Montréal-Ottawa | 1 h 39 | 1 h 37 | 2 min | ~1 h |
+| Ottawa-Toronto | 3 h 50 | 3 h 45 | 5 min | ~2 h |
+| Montréal-Toronto | 4 h 06 | 4 h 00 | 6 min | 3 h |
+
+De bout en bout, Québec-Toronto passerait de 6 h 40 à 6 h 32.
+
+**Le train.** L'avantage principal n'est pas dans les minutes. Les pendulaires électriques existent et sont en service, alors que le pendulaire diesel reste à faire construire (section 7). Le poste des trains ne change pas : ses 3,4 G\$ (section 11) viennent déjà d'une commande de trains électriques.
+
+**Les coûts.** D'après les estimations de la section 11, l'électrification s'ajouterait aux cinq actions, avec ou sans le programme d'élimination des croisements :
+
+| Ensemble (G\$ CA de 2025) | Coût | Avec 20 % pour les imprévus |
+|---|---|---|
+| Cinq actions seules | 7,8 à 8,8 | 9 à 11 |
+| Cinq actions et élimination des croisements | 16,0 à 17,0 | 19 à 20 |
+| Cinq actions et électrification | 10,8 à 15,8 | 13 à 19 |
+| Cinq actions et les deux programmes | 19,0 à 24,0 | 23 à 29 |
+
+**La condition.** L'électrification demanderait l'accord du CN sur toute sa ligne, ce qui s'ajoute aux conditions des cinq actions.
 
 # Estimation des coûts
 
@@ -333,13 +361,13 @@ Ce n'est pas un inventaire d'ingénierie : il ne donne ni la portée, ni le type
 
 **Signalisation.** Amtrak installe le contrôle en cabine et renouvelle toute la signalisation du Downeaster, entre Brunswick (Maine) et Haverhill (Massachusetts), pour 51 M\$ US de 2024 sur un peu plus de 160 km [@schreiber2024downeaster; @amtrak2024ptc]. Converti au taux de change de 2024 [@bdc2026change] et indexé à 2025 avec l'indice des voies ferrées [@statcan2026ponts], cela revient à environ 0,45 M\$ CA par kilomètre, signalisation complète comprise, soit environ 0,4 G\$ CA pour les 991 km.
 
-**Trains.** Aucune rame pendulaire diesel n'étant offerte aujourd'hui (section 9), il n'existe pas de prix de catalogue. Deux commandes réelles encadrent ce coût. La borne basse est la commande de VIA : 32 rames diesel Siemens, non pendulaires, pour 989 M\$ CA de 2018 [@via2018siemens], soit environ 1,2 G\$ CA de 2025 avec l'indice des prix à la production du matériel roulant ferroviaire des États-Unis [@bls2026materielroulant]. La borne haute est la commande d'Amtrak de 28 rames pendulaires électriques Avelia Liberty pour le corridor Boston-New York-Washington : 2 G\$ US de 2016 pour les rames seules [@levy2016amtrak; @amtrak2016alstom]. Indexé à 2025 avec le même indice, en hausse de 23 %, et converti au taux de change moyen de 2025 [@bdc2026change], ce montant vaut environ 3,4 G\$ CA. L'investissement annoncé de 2,45 G\$ US comprenait aussi des ateliers et des travaux de voie. Une commande sur mesure, en petite série, coûterait cher : nous retenons la borne haute.
+**Trains.** Aucune rame pendulaire diesel n'étant offerte aujourd'hui (section 7), il n'existe pas de prix de catalogue. Deux commandes réelles encadrent ce coût. La borne basse est la commande de VIA : 32 rames diesel Siemens, non pendulaires, pour 989 M\$ CA de 2018 [@via2018siemens], soit environ 1,2 G\$ CA de 2025 avec l'indice des prix à la production du matériel roulant ferroviaire des États-Unis [@bls2026materielroulant]. La borne haute est la commande d'Amtrak de 28 rames pendulaires électriques Avelia Liberty pour le corridor Boston-New York-Washington : 2 G\$ US de 2016 pour les rames seules [@levy2016amtrak; @amtrak2016alstom]. Indexé à 2025 avec le même indice, en hausse de 23 %, et converti au taux de change moyen de 2025 [@bdc2026change], ce montant vaut environ 3,4 G\$ CA. L'investissement annoncé de 2,45 G\$ US comprenait aussi des ateliers et des travaux de voie. Une commande sur mesure, en petite série, coûterait cher : nous retenons la borne haute.
 
 **Passages à niveau.** Tel qu'indiqué à la section 6, nous proposons d'installer des barrières aux 533 croisements des sections rapides qui n'en sont pas équipés. Transports Canada rapporte en 2021 un coût de 300 000 \$ à 600 000 \$, voire davantage, pour un système complet de feux, cloches et barrières [@canada2021passagesniveau], soit de 350 000 \$ à 700 000 \$ en dollars de 2025 avec l'indice des voies ferrées [@statcan2026ponts] ; à 700 000 \$ l'unité, nous obtenons un budget de 0,4 G\$ CA. De plus, nous proposons de construire 118 ponts d'étagement pour éliminer le tiers des croisements routiers publics. Le coût d'un tel ouvrage varie beaucoup : environ 7 M\$ pour la réfection d'un pont existant à Trois-Rivières en 2022 [@constas2022etagement], mais de 60 à 100 M\$ pour éliminer le passage à niveau du CN sur l'autoroute 20 à Saint-Hyacinthe, selon les estimations successives du ministère en 2018 [@lorry2018sthyacinthe]. Indexés à 2025 avec l'indice des ponts [@statcan2026ponts], ces précédents valent environ 7 M\$ et de 80 à 130 M\$. Nous retenons 50 M\$ de 2025 comme valeur moyenne de planification, soit 5,9 G\$ CA. Nous proposons également 190 passages dénivelés pour remplacer le tiers des 569 traverses privées et de ferme, à 12 M\$ chacun, soit 2,3 G\$ CA ; aucun précédent public ne chiffre ce type d'ouvrage, et ce coût unitaire est une hypothèse de travail, qui ne peut donc pas être indexée.
 
 Ces ouvrages forment un programme complémentaire et optionnel. D'un point de vue technique, aucun passage n'a besoin d'être retiré : les barrières complètes suffisent au plafond de 201 km/h et aux temps de parcours présentés ici. Le programme répond plutôt à des raisons d'acceptabilité, de cohabitation avec les riverains de la ligne et de modernisation du corridor, et il peut se décider site par site, au rythme des budgets.
 
-**Électrification.** Un second programme complémentaire, lui aussi optionnel et indépendant du premier, électrifierait le corridor (section 9). Il faudrait poser une caténaire sur environ 2 000 km de voie, ajouter des sous-stations, dégager les ponts et les tunnels pour les wagons de marchandises, plus hauts que les voitures de voyageurs [@ecotrain2011, p. 17], et obtenir l'accord du CN. Cela coûterait de 3 à 7 G\$ CA de 2025. La borne basse vient d'EcoTrain : 2 010 M\$ de 2009 pour 2 421 km de voie et 30 sous-stations, sur une voie neuve sans fret [@ecotrain2011, p. 70], soit environ 1,3 M\$ de 2025 par kilomètre de voie. La borne haute vient de la cible de l'industrie britannique, jusqu'à 1,5 M£ de 2019 par kilomètre de voie pour un projet complexe [@ria2019electrification], soit environ 3,3 M\$ de 2025. L'expérience nord-américaine récente pointe plutôt vers le haut de cette fourchette, ou au-delà [@caltrain2022].
+**Électrification.** Un second programme complémentaire, lui aussi optionnel et indépendant du premier, électrifierait le corridor (section 7). Il faudrait poser une caténaire sur environ 2 000 km de voie, ajouter des sous-stations, dégager les ponts et les tunnels pour les wagons de marchandises, plus hauts que les voitures de voyageurs [@ecotrain2011, p. 17], et obtenir l'accord du CN. Cela coûterait de 3 à 7 G\$ CA de 2025. La borne basse vient d'EcoTrain : 2 010 M\$ de 2009 pour 2 421 km de voie et 30 sous-stations, sur une voie neuve sans fret [@ecotrain2011, p. 70], soit environ 1,3 M\$ de 2025 par kilomètre de voie. La borne haute vient de la cible de l'industrie britannique, jusqu'à 1,5 M£ de 2019 par kilomètre de voie pour un projet complexe [@ria2019electrification], soit environ 3,3 M\$ de 2025. L'expérience nord-américaine récente pointe plutôt vers le haut de cette fourchette, ou au-delà [@caltrain2022].
 
 Les tableaux qui suivent présentent séparément les cinq actions et les deux programmes complémentaires.
 
@@ -363,35 +391,7 @@ Les tableaux qui suivent présentent séparément les cinq actions et les deux p
 | Total, élimination des croisements | 8,2 |
 | Électrification du corridor | 3 à 7 |
 
-Les cinq actions et le programme d'élimination des croisements représentent ensemble de [**16,0 à 17,0 G\$ CA**]{.chiffre}. Avec une marge de 20 % pour les imprévus, le coût total du projet se situerait entre environ [**19 et 20 G\$ CA**]{.chiffre}. L'électrification n'est pas comprise dans ce total : elle s'y ajouterait de façon indépendante (section 11).
-
-# Et si on électrifiait le corridor?
-
-Les cinq actions supposent un train diesel, puisque le corridor n'a pas de caténaire. La section 9 a évoqué l'électrification, et la section 10 la chiffre de 3 à 7 G\$ CA comme programme complémentaire. Comme l'élimination des croisements, elle est optionnelle : ce sont deux ajouts indépendants, et aucun n'est nécessaire aux temps de parcours de ce rapport. Supposons maintenant qu'on la réalise. Que rapporterait-elle?
-
-**Les temps.** Avec un train électrique de type Pendolino, sur la même voie et avec les mêmes arrêts, le gain reste modeste :
-
-| Trajet | Emprise optimisée, diesel | Électrique | Gain | ALTO annoncé |
-|---|---|---|---|---|
-| Montréal-Québec | 2 h 24 | 2 h 21 | 3 min | ~1 h 30 |
-| Montréal-Ottawa | 1 h 39 | 1 h 37 | 2 min | ~1 h |
-| Ottawa-Toronto | 3 h 50 | 3 h 45 | 5 min | ~2 h |
-| Montréal-Toronto | 4 h 06 | 4 h 00 | 6 min | 3 h |
-
-De bout en bout, Québec-Toronto passerait de 6 h 40 à 6 h 32.
-
-**Le train.** L'avantage principal n'est pas dans les minutes. Les pendulaires électriques existent et sont en service, alors que le pendulaire diesel reste à faire construire (section 9). Le poste des trains ne change pas : ses 3,4 G\$ viennent déjà d'une commande de trains électriques.
-
-**Les coûts.** L'électrification s'ajouterait aux cinq actions, avec ou sans le programme d'élimination des croisements :
-
-| Ensemble (G\$ CA de 2025) | Coût | Avec 20 % pour les imprévus |
-|---|---|---|
-| Cinq actions seules | 7,8 à 8,8 | 9 à 11 |
-| Cinq actions et élimination des croisements | 16,0 à 17,0 | 19 à 20 |
-| Cinq actions et électrification | 10,8 à 15,8 | 13 à 19 |
-| Cinq actions et les deux programmes | 19,0 à 24,0 | 23 à 29 |
-
-**La condition.** L'électrification demanderait l'accord du CN sur toute sa ligne, ce qui s'ajoute aux conditions des cinq actions.
+Les cinq actions et le programme d'élimination des croisements représentent ensemble de [**16,0 à 17,0 G\$ CA**]{.chiffre}. Avec une marge de 20 % pour les imprévus, le coût total du projet se situerait entre environ [**19 et 20 G\$ CA**]{.chiffre}. L'électrification n'est pas comprise dans ce total : elle s'y ajouterait de façon indépendante (section 10).
 
 # Impacts des actions sur les temps de parcours
 
