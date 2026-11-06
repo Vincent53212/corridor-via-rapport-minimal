@@ -270,10 +270,17 @@ def grouper_entetes(html: str) -> str:
 def lier_renvois(html: str, n_sections: int) -> str:
     """Chaque « section N » du texte devient un lien vers le N-ième titre. Le numéro
     affiché sur l'ouverture de section vient du même compteur : le lien ne peut pas
-    pointer ailleurs. Un numéro sans section arrête le rendu. Les références à la fin
-    du document ne sont pas touchées : elles citent les sections d'autres textes."""
-    fin = html.find('<div id="refs"')
-    corps, reste = (html, "") if fin < 0 else (html[:fin], html[fin:])
+    pointer ailleurs. Un numéro sans section arrête le rendu. Les références ne sont
+    pas touchées : elles citent les sections d'autres textes. L'annexe 2, qui les suit,
+    l'est : la zone protégée s'arrête à la section suivante."""
+    debut = html.find('<div id="refs"')
+    reprise = html.find("<section", debut) if debut >= 0 else -1
+    if debut < 0:
+        avant, biblio, apres = html, "", ""
+    elif reprise < 0:
+        avant, biblio, apres = html[:debut], html[debut:], ""
+    else:
+        avant, biblio, apres = html[:debut], html[debut:reprise], html[reprise:]
 
     def lien(n: str) -> str:
         if not 1 <= int(n) <= n_sections:
@@ -285,15 +292,18 @@ def lier_renvois(html: str, n_sections: int) -> str:
                       lambda m: m.group(1) + m.group(2) + lien(m.group(3))
                       + (m.group(4) + lien(m.group(5)) if m.group(5) else ""), t)
 
-    morceaux = re.split(r"(<[^>]+>)", corps)
-    dans_lien = 0
-    for i, m in enumerate(morceaux):
-        if i % 2:
-            # pandoc coupe ses lignes : l'attribut peut suivre « <a » après un saut de ligne
-            dans_lien += bool(re.match(r"<a\s", m)) - m.startswith("</a")
-        elif not dans_lien:
-            morceaux[i] = texte(m)
-    return "".join(morceaux) + reste
+    def lier(corps: str) -> str:
+        morceaux = re.split(r"(<[^>]+>)", corps)
+        dans_lien = 0
+        for i, m in enumerate(morceaux):
+            if i % 2:
+                # pandoc coupe ses lignes : l'attribut peut suivre « <a » après un saut de ligne
+                dans_lien += bool(re.match(r"<a\s", m)) - m.startswith("</a")
+            elif not dans_lien:
+                morceaux[i] = texte(m)
+        return "".join(morceaux)
+
+    return lier(avant) + biblio + lier(apres)
 
 
 def noeuds_chronologie(html: str) -> str:

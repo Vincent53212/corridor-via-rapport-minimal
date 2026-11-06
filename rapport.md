@@ -127,7 +127,7 @@ Les valeurs du train actuel viennent de VIA et de Siemens [@viarail2024corridor;
 | 161 km/h (100 mi/h) | 170 s | 170 s |
 | 201 km/h (125 mi/h) | 313 s | 312 s |
 
-Trois chronos ne fixent pas chaque paramètre séparément : ils montrent que la forme de la formule tient. L'étude suivante devrait les remplacer par les courbes d'un constructeur. La section 12 donne l'effet de chaque hypothèse sur les temps. La section 15 regroupe tous les paramètres du modèle en tableaux.
+Trois chronos ne fixent pas chaque paramètre séparément : ils montrent que la forme de la formule tient. L'étude suivante devrait les remplacer par les courbes d'un constructeur. La section 12 donne l'effet de chaque hypothèse sur les temps. La section 18 regroupe tous les paramètres du modèle en tableaux.
 
 ## La marge d'exploitation de 10 %
 
@@ -576,7 +576,44 @@ Bien que je ne possède pas les diagrammes des voies sur les trajets de Montréa
 
 *Pierre DuSablon, consultant en ingénierie de voies*
 
-# Annexe : fiche technique {- .suite}
+# Vision Transport {- .suite}
+
+Créée en 2013 sous le nom de Fondation Trains de nuit, l'organisme sans but lucratif constitué selon la Loi sur les compagnies, Partie 3 (RLRQ, c. C-38) a pour objectif la promotion des modes et services de transport innovants ferrés et guidés au Québec et sur le territoire nord-est de l'Amérique du Nord. Face à l'élargissement de son champ d'action, la Fondation est devenue Vision Transport en 2026.
+
+L'organisation privilégie l'utilisation comme ressources d'étudiants universitaires aux grades supérieurs afin qu'ils appliquent leurs connaissances à l'étude de cas réels, favorisant ainsi leur développement et leur apprentissage du milieu des transports de personnes. Elle peut aussi s'adjoindre les services de spécialistes en transport ou de professeurs d'université.
+
+Vision Transport a déjà réalisé une étude préliminaire d'achalandage pour un téléphérique. Elle a aussi dirigé une étude de faisabilité pour un train de passagers Montréal-Sherbrooke avec des connexions à Boston et à New York.
+
+Notre organisme a réalisé plusieurs études sur les questions de transport guidé, notamment les suivantes :
+
+- Étude d'opportunité pour un train de passagers de nuit Montréal vers New York
+- Étude d'opportunité pour un train de passagers de nuit Montréal vers Boston
+- Étude de faisabilité d'un train de passagers Montréal-Sherbrooke
+- Étude d'intégration urbaine du projet structurant de l'Est de Montréal\*
+- Étude de balisage sur les possibilités d'un téléphérique Québec-Lévis\*
+
+\* Les deux études marquées d'un astérisque ont le même auteur principal (M. Duguay) et la même méthode de travail agentique décrite dans les Crédits.
+
+# Crédits {-}
+
+> **Personne-ressource pour les médias.** François Pépin, président-directeur général de Vision Transport : <francoispepin56@gmail.com>
+
+**Responsabilité du mandat et supervision.** Vision Transport.
+
+**Direction technique et auteur principal.** Vincent Duguay, étudiant au M. Sc. en administration publique et boursier CRSH à l'École nationale d'administration publique (ENAP).
+
+**Avis d'expert.** Pierre DuSablon, consultant en ingénierie de voies, ancien responsable des opérations du CN sur la section Montréal-Québec. Son avis du 4 septembre 2026, dans sa version révisée et approuvée par lui en octobre 2026, est reproduit à l'annexe 1, et son audit de terrain des courbes courtes, en août 2026, fonde la correction de la section 2. Les avis exprimés dans cette annexe sont les siens.
+
+**Données.** Horaires ouverts de VIA Rail (GTFS) ; carte collaborative OpenStreetMap, extraits Québec et Ontario de Geofabrik ; inventaire des passages à niveau de Transports Canada ; relief du modèle numérique de terrain Copernicus ; méthode de calcul des vitesses en courbe du CN (circulaire MR 1305-0), fournie par un collaborateur du CN.
+
+**Méthode de travail.** Dans un marché du conseil auprès des organisations publiques fortement bouleversé par l'intelligence artificielle, il nous apparaît essentiel d'expliciter la relation de travail avec l'IA, surtout considérant les différences énormes entre les IA conversationnelles offertes gratuitement et les modèles et harnais avancés utilisés ici. Ce rapport et ses analyses ont été produits à l'aide d'agents de codage, soit les IA les plus performantes disponibles ayant les capacités d'interagir en direct avec l'ordinateur, de créer des fichiers divers et de les manipuler librement. Concrètement, le travail technique est dirigé, supervisé et coréalisé par l'humain à toutes les étapes, tandis que le rapport est rédigé par l'IA sous direction humaine étroite, puis révisé ligne par ligne. Plus précisément, les modèles ayant contribué à ce rapport sont les suivants, ordonnés selon l'ampleur de leur apport : pour le travail direct, Claude Opus 5.5, Fable 5, Opus 4.7, Fable 5.1, Opus 5, Sonnet 5.5, Opus 4.8 (tous dans le harnais *Claude Code (CLI)*, selon un ensemble sur mesure de *skills*, d'outils et de connecteurs spécifique au travail du savoir) et pour des séances de remue-méninges, Gemini Flash 3.7, Flash 3.6 et Flash 3.8 ont également été consultés pour assurer un certain pluralisme. Chaque processus ayant produit ce rapport étant une ligne de code documentée, ce fonctionnement permet un audit plus aisé du pipeline d'analyse ainsi que la standardisation des méthodes de production du savoir. L'appareil complet est au dossier : le dépôt de code versionné, le pipeline documenté étape par étape, le registre des sources, et le visualiseur joint, dont les vérifications recalculent les chiffres clés du rapport dans le navigateur du lecteur.
+
+# Références
+
+::: {#refs}
+:::
+
+# Annexe : fiche technique {-}
 
 <!-- fiche:debut -->
 
@@ -893,37 +930,3 @@ Environnement : Python 3.12 (pandas, geopandas, shapely, numpy, scipy, matplotli
 :::
 
 <!-- fiche:fin -->
-
-# Vision Transport {- .suite}
-
-Créée en 2013 sous le nom de Fondation Trains de nuit, l'organisme sans but lucratif constitué selon la Loi sur les compagnies, Partie 3 (RLRQ, c. C-38) a pour objectif la promotion des modes et services de transport innovants ferrés et guidés au Québec et sur le territoire nord-est de l'Amérique du Nord. Face à l'élargissement de son champ d'action, la Fondation est devenue Vision Transport en 2026.
-
-L'organisation privilégie l'utilisation comme ressources d'étudiants universitaires aux grades supérieurs afin qu'ils appliquent leurs connaissances à l'étude de cas réels, favorisant ainsi leur développement et leur apprentissage du milieu des transports de personnes. Elle peut aussi s'adjoindre les services de spécialistes en transport ou de professeurs d'université.
-
-Vision Transport a déjà réalisé une étude préliminaire d'achalandage pour un téléphérique. Elle a aussi dirigé une étude de faisabilité pour un train de passagers Montréal-Sherbrooke avec des connexions à Boston et à New York.
-
-Notre organisme a réalisé plusieurs études sur les questions de transport guidé, notamment les suivantes :
-
-- Étude d'opportunité pour un train de passagers de nuit Montréal vers New York
-- Étude d'opportunité pour un train de passagers de nuit Montréal vers Boston
-- Étude de faisabilité d'un train de passagers Montréal-Sherbrooke
-- Étude d'intégration urbaine du projet structurant de l'Est de Montréal\*
-- Étude de balisage sur les possibilités d'un téléphérique Québec-Lévis\*
-
-\* Les deux études marquées d'un astérisque ont le même auteur principal (M. Duguay) et la même méthode de travail agentique décrite dans les Crédits.
-
-# Crédits {-}
-
-> **Personne-ressource pour les médias.** François Pépin, président-directeur général de Vision Transport : <francoispepin56@gmail.com>
-
-**Responsabilité du mandat et supervision.** Vision Transport.
-
-**Direction technique et auteur principal.** Vincent Duguay, étudiant au M. Sc. en administration publique et boursier CRSH à l'École nationale d'administration publique (ENAP).
-
-**Avis d'expert.** Pierre DuSablon, consultant en ingénierie de voies, ancien responsable des opérations du CN sur la section Montréal-Québec. Son avis du 4 septembre 2026, dans sa version révisée et approuvée par lui en octobre 2026, est reproduit en annexe, et son audit de terrain des courbes courtes, en août 2026, fonde la correction de la section 2. Les avis exprimés dans l'annexe sont les siens.
-
-**Données.** Horaires ouverts de VIA Rail (GTFS) ; carte collaborative OpenStreetMap, extraits Québec et Ontario de Geofabrik ; inventaire des passages à niveau de Transports Canada ; relief du modèle numérique de terrain Copernicus ; méthode de calcul des vitesses en courbe du CN (circulaire MR 1305-0), fournie par un collaborateur du CN.
-
-**Méthode de travail.** Dans un marché du conseil auprès des organisations publiques fortement bouleversé par l'intelligence artificielle, il nous apparaît essentiel d'expliciter la relation de travail avec l'IA, surtout considérant les différences énormes entre les IA conversationnelles offertes gratuitement et les modèles et harnais avancés utilisés ici. Ce rapport et ses analyses ont été produits à l'aide d'agents de codage, soit les IA les plus performantes disponibles ayant les capacités d'interagir en direct avec l'ordinateur, de créer des fichiers divers et de les manipuler librement. Concrètement, le travail technique est dirigé, supervisé et coréalisé par l'humain à toutes les étapes, tandis que le rapport est rédigé par l'IA sous direction humaine étroite, puis révisé ligne par ligne. Plus précisément, les modèles ayant contribué à ce rapport sont les suivants, ordonnés selon l'ampleur de leur apport : pour le travail direct, Claude Opus 5.5, Fable 5, Opus 4.7, Fable 5.1, Opus 5, Sonnet 5.5, Opus 4.8 (tous dans le harnais *Claude Code (CLI)*, selon un ensemble sur mesure de *skills*, d'outils et de connecteurs spécifique au travail du savoir) et pour des séances de remue-méninges, Gemini Flash 3.7, Flash 3.6 et Flash 3.8 ont également été consultés pour assurer un certain pluralisme. Chaque processus ayant produit ce rapport étant une ligne de code documentée, ce fonctionnement permet un audit plus aisé du pipeline d'analyse ainsi que la standardisation des méthodes de production du savoir. L'appareil complet est au dossier : le dépôt de code versionné, le pipeline documenté étape par étape, le registre des sources, et le visualiseur joint, dont les vérifications recalculent les chiffres clés du rapport dans le navigateur du lecteur.
-
-# Références
