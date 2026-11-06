@@ -19,7 +19,7 @@ import pandas as pd
 
 os.environ["BLOCS_URBAINS"] = "libres"          # configuration publiée (scénario 2)
 sys.path.insert(0, str(Path(__file__).parent))
-from scenarios import PLAFOND_PUBLIE              # noqa: E402
+from scenarios import PLAFOND_PUBLIE, marge_de    # noqa: E402
 from utils import DELIVERABLES                    # noqa: E402
 
 _spec = importlib.util.spec_from_file_location("m21", Path(__file__).parent / "21_tbase_bande.py")
@@ -27,7 +27,6 @@ m21 = importlib.util.module_from_spec(_spec)
 sys.modules["m21"] = m21            # requis par @dataclass
 _spec.loader.exec_module(m21)
 
-MARGE = 1.10
 SCENARIO, BANDE = "S2", float(PLAFOND_PUBLIE)
 LIBELLES = {"MTL-QC": "Montréal-Québec", "MTL-Ott": "Montréal-Ottawa",
             "Ott-TO": "Ottawa-Toronto", "MTL-TO": "Montréal-Toronto"}
@@ -50,12 +49,12 @@ def main() -> None:
         rows.append({"trajet": lib, "n_arrets_omnibus": len(arrets),
                      "gares_omnibus": ", ".join(n for n, _ in arrets),
                      "omnibus_base_min": ref.tbase_sans_marge_min,
-                     "omnibus_avec_marge_min": round(ref.tbase_sans_marge_min * MARGE, 1),
+                     "omnibus_avec_marge_min": round(ref.tbase_sans_marge_min * marge_de(t), 1),
                      "express_base_min": round(express, 1),
-                     "express_avec_marge_min": round(express * MARGE, 1),
-                     "gain_min": round((ref.tbase_sans_marge_min - express) * MARGE, 1),
+                     "express_avec_marge_min": round(express * marge_de(t), 1),
+                     "gain_min": round((ref.tbase_sans_marge_min - express) * marge_de(t), 1),
                      "source": "moteur de l'étape 21, S2 pendulaire, plafond publié, blocs urbains libres, "
-                               "aucun arrêt intermédiaire ; × 1,10"})
+                               "aucun arrêt intermédiaire ; × marge du trajet"})
     df = pd.DataFrame(rows)
     df.to_csv(OUT, sep=";", index=False, encoding="utf-8-sig")
     print(df[["trajet", "n_arrets_omnibus", "omnibus_avec_marge_min", "express_avec_marge_min", "gain_min"]]

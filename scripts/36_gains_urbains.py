@@ -36,10 +36,9 @@ from pathlib import Path
 
 sys.path.insert(0, str(Path(__file__).parent))
 m21 = importlib.import_module("21_tbase_bande")
-from scenarios import PLAFOND_PUBLIE
+from scenarios import PLAFOND_PUBLIE, marge_de
 from utils import DELIVERABLES
 
-MARGE = 1.10
 P_CLASSE, P_PLAFOND = 153, PLAFOND_PUBLIE
 
 
@@ -73,10 +72,11 @@ def main():
         A1, n = bloc_minutes(t, by_t[t], km0, km1, "S1", P_CLASSE)
         A2, _ = bloc_minutes(t, by_t[t], km0, km1, "S2", P_CLASSE)
         A2p, _ = bloc_minutes(t, by_t[t], km0, km1, "S2", P_PLAFOND)
-        gain = G - A2p * MARGE
-        cohab = G - A1 * MARGE
-        courbes = (A1 - A2) * MARGE
-        classe = (A2 - A2p) * MARGE
+        marge = marge_de(t)
+        gain = G - A2p * marge
+        cohab = G - A1 * marge
+        courbes = (A1 - A2) * marge
+        classe = (A2 - A2p) * marge
         ecr = 0.0
         if cohab < 0:
             ecr = -cohab

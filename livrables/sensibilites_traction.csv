@@ -1,24 +1,24 @@
 ﻿cas;Montréal-Québec_min;Montréal-Québec_ecart_min;Montréal-Ottawa_min;Montréal-Ottawa_ecart_min;Ottawa-Toronto_min;Ottawa-Toronto_ecart_min;Montréal-Toronto_min;Montréal-Toronto_ecart_min
-Traînée plus faible (9 m²);146.0;-0.3;99.0;-0.2;234.7;-0.4;253.8;-0.4
-Traînée plus forte (14 m²);146.7;0.5;99.4;0.3;235.7;0.7;255.0;0.7
-Grand froid : services de bord à 400 kW;147.3;1.1;99.8;0.6;236.7;1.6;255.7;1.5
-Freinage à 0,5 m/s²;147.2;1.0;99.9;0.7;236.9;1.9;255.7;1.4
-Freinage à 0,8 m/s²;145.0;-1.3;98.2;-0.9;232.7;-2.3;252.5;-1.8
-Accélération maximale à 0,5 m/s²;146.6;0.4;99.5;0.3;235.9;0.8;254.9;0.6
-Accélération maximale à 0,8 m/s²;145.8;-0.4;98.8;-0.4;234.1;-0.9;253.6;-0.7
-Rendement de 0,85;146.7;0.4;99.4;0.3;235.7;0.7;254.9;0.6
-Rendement de 0,90;146.0;-0.3;99.0;-0.2;234.6;-0.4;253.9;-0.4
-Train diesel de 8,4 W/kg, même masse;148.5;2.3;100.6;1.4;238.6;3.5;257.5;3.2
-Train diesel de 12 W/kg, même masse (n'existe pas);143.9;-2.4;97.8;-1.3;231.7;-3.4;251.2;-3.1
-Arrêts à la médiane des horaires, gare par gare;147.3;1.1;99.1;0.0;241.1;6.1;260.9;6.6
-Train électrique de type Pendolino, corridor électrifié;144.0;-2.2;97.7;-1.4;231.4;-3.6;250.9;-3.3
-Train électrique, 201 km/h partout;141.1;-5.2;96.6;-2.5;224.5;-10.6;240.4;-13.8
-Train électrique, 241 km/h, sans passage à niveau;140.0;-6.2;96.3;-2.9;220.8;-14.3;233.1;-21.1
-Train de référence, 201 km/h partout;144.3;-1.9;98.5;-0.6;229.9;-5.1;245.9;-8.3
-Train de référence, 241 km/h, sans passage à niveau;144.2;-2.0;98.5;-0.6;228.6;-6.4;242.4;-11.9
-Une locomotive Charger et 5 voitures pendulaires (7,4 W/kg);149.9;3.6;101.4;2.3;240.5;5.4;259.1;4.9
-Deux locomotives Charger et 5 voitures pendulaires (11,5 W/kg);144.1;-2.1;97.8;-1.3;231.8;-3.3;251.2;-3.0
-Tolérance en courbe de 5 po;149.3;3.0;101.6;2.5;238.6;3.5;258.3;4.0
-Tolérance en courbe de 7 po;143.5;-2.7;97.0;-2.1;232.0;-3.0;250.8;-3.4
-Bas combiné : une locomotive, 5 po;153.0;6.8;103.8;4.6;244.1;9.0;263.4;9.1
-Haut combiné : deux locomotives, 7 po;141.4;-4.8;95.6;-3.5;228.8;-6.3;247.9;-6.3
+Traînée plus faible (9 m²);146.0;-0.3;96.8;-0.2;234.7;-0.4;253.8;-0.4
+Traînée plus forte (14 m²);146.7;0.5;97.2;0.3;235.7;0.7;255.0;0.7
+Grand froid : services de bord à 400 kW;147.3;1.1;97.6;0.6;236.7;1.6;255.7;1.5
+Freinage à 0,5 m/s²;147.2;1.0;97.7;0.7;236.9;1.9;255.7;1.4
+Freinage à 0,8 m/s²;145.0;-1.3;96.1;-0.9;232.7;-2.3;252.5;-1.8
+Accélération maximale à 0,5 m/s²;146.6;0.4;97.3;0.3;235.9;0.8;254.9;0.6
+Accélération maximale à 0,8 m/s²;145.8;-0.4;96.6;-0.4;234.1;-0.9;253.6;-0.7
+Rendement de 0,85;146.7;0.4;97.2;0.3;235.7;0.7;254.9;0.6
+Rendement de 0,90;146.0;-0.3;96.8;-0.2;234.6;-0.4;253.9;-0.4
+Train diesel de 8,4 W/kg, même masse;148.5;2.3;98.4;1.4;238.6;3.5;257.5;3.2
+Train diesel de 12 W/kg, même masse (n'existe pas);143.9;-2.4;95.6;-1.3;231.7;-3.4;251.2;-3.1
+Arrêts à la médiane des horaires, gare par gare;147.3;1.1;97.0;0.0;241.1;6.1;260.9;6.6
+Train électrique de type Pendolino, corridor électrifié;144.0;-2.2;95.6;-1.4;231.4;-3.6;250.9;-3.3
+Train électrique, 201 km/h partout;141.1;-5.2;94.5;-2.4;224.5;-10.6;240.4;-13.8
+Train électrique, 241 km/h, sans passage à niveau;140.0;-6.2;94.2;-2.8;220.8;-14.3;233.1;-21.1
+Train de référence, 201 km/h partout;144.3;-1.9;96.4;-0.6;229.9;-5.1;245.9;-8.3
+Train de référence, 241 km/h, sans passage à niveau;144.2;-2.0;96.3;-0.6;228.6;-6.4;242.4;-11.9
+Une locomotive Charger et 5 voitures pendulaires (7,4 W/kg);149.9;3.6;99.2;2.2;240.5;5.4;259.1;4.9
+Deux locomotives Charger et 5 voitures pendulaires (11,5 W/kg);144.1;-2.1;95.7;-1.3;231.8;-3.3;251.2;-3.0
+Tolérance en courbe de 5 po;149.3;3.0;99.4;2.4;238.6;3.5;258.3;4.0
+Tolérance en courbe de 7 po;143.5;-2.7;94.9;-2.1;232.0;-3.0;250.8;-3.4
+Bas combiné : une locomotive, 5 po;153.0;6.8;101.5;4.5;244.1;9.0;263.4;9.1
+Haut combiné : deux locomotives, 7 po;141.4;-4.8;93.5;-3.4;228.8;-6.3;247.9;-6.3

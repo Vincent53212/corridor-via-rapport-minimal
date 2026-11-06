@@ -74,6 +74,7 @@ python scripts/21_tbase_bande.py            # scénario 1 → temps_scenario_1.c
 BLOCS_URBAINS=libres python scripts/21_tbase_bande.py   # scénario 2 → temps_scenario_2.csv
 SEGMENTS_OVERRIDE=intermediaires/segments_rectifies.geojson BLOCS_URBAINS=libres \
   python scripts/21_tbase_bande.py                  # scénario 3 → temps_scenario_3.csv
+python scripts/43_marges_arrets_egaux.py    # marge réelle et gain à arrêts égaux ; vérifie scenarios.MARGE_MESUREE (AVANT le 38)
 python scripts/22_marges_2x2.py             # médianes du 2×2 (lues par la figure 23)
 python scripts/23_figure_cellules.py        # figure : le 2×2 du corridor
 python scripts/38_train_express.py         # contre-hypothèse 2 : le train express, sans arrêt intermédiaire (lu par le 24 et le 32)

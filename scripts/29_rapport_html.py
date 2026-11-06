@@ -62,7 +62,8 @@ AVIS_SOMMAIRE = (
     "Les vitesses sont en km/h, suivies au besoin de l'équivalent en mi/h. "
     "Les temps de parcours publiés incluent une marge d'exploitation de 10 %, "
     "légèrement plus prudente que la médiane des règles publiées par les "
-    "gestionnaires de réseau et alignée sur le référent britannique."
+    "gestionnaires de réseau et alignée sur le référent britannique. "
+    "Sur Montréal-Ottawa, qui roule déjà avec moins, elle reste à 8 %."
 )
 
 

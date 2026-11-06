@@ -14,7 +14,7 @@ numbersections: true
 
 Le projet ALTO propose de construire environ 1 000 km de voies neuves pour relier Québec à Toronto à 300 km/h [@alto2025]. Cette étude répond à une question complémentaire : combien de temps le train prendrait-il sur l'emprise qui existe déjà, si on la modernisait?
 
-Une fois l'emprise optimisée, le train Montréal-Toronto via Kingston passerait de 5 h 18 aujourd'hui à 4 h 14, soit 1 h 04 de moins (−20 %). Près d'une heure serait aussi retirée du trajet Montréal-Québec, qui passerait de 3 h 22 à 2 h 26 (−28 %). Le temps de parcours Montréal-Ottawa, lui, serait réduit de 23 minutes (−19 %).
+Une fois l'emprise optimisée, le train Montréal-Toronto via Kingston passerait de 5 h 18 aujourd'hui à 4 h 14, soit 1 h 04 de moins (−20 %). Près d'une heure serait aussi retirée du trajet Montréal-Québec, qui passerait de 3 h 22 à 2 h 26 (−28 %). Le temps de parcours Montréal-Ottawa, lui, serait réduit de 25 minutes (−21 %).
 
 Sans offrir une vitesse équivalente à la prévision d'ALTO, l'amélioration de l'emprise existante offre un train compétitif, pour une fraction de l'effort, du temps et du coût. Cet investissement aurait aussi l'avantage d'améliorer la sécurité des opérations des trains de marchandises et de réduire les nuisances pour les populations avoisinantes du chemin de fer, notamment par la sécurisation des croisements routiers. À titre de repère, le promoteur d'ALTO estime son projet de 60 à 90 G\$ CA, et le directeur parlementaire du budget de 75 à 113 G\$ CA [@dpb2026alto]. La construction du premier tronçon doit commencer vers 2029-2030, et chaque phase durerait de 7 à 10 ans [@altotrain2026faq].
 
@@ -23,15 +23,17 @@ Sans offrir une vitesse équivalente à la prévision d'ALTO, l'amélioration de
   | Trajet | Auto (repère) | Voie actuelle | Emprise optimisée | Express, sans arrêt | ALTO annoncé |
 |---|---|---|---|---|---|
 | [Montréal-Québec (270 km)]{.insecable} | ~2 h 50 | 3 h 22 | 2 h 26 | 2 h 08 | ~1 h 30 |
-| [Montréal-Ottawa (185 km)]{.insecable} | ~2 h 20 | 2 h 02 | 1 h 39 | 1 h 24 | ~1 h |
+| [Montréal-Ottawa (185 km)]{.insecable} | ~2 h 20 | 2 h 02 | 1 h 37 | 1 h 22 | ~1 h |
 | [Ottawa-Toronto (442 km)]{.insecable} | ~4 h 20 | 4 h 35 | 3 h 55 | 3 h 10 | ~2 h |
 | [Montréal-Toronto (536 km)]{.insecable} | ~5 h 30 | 5 h 18 | 4 h 14 | 3 h 42 | 3 h |
 
 La colonne de l'express donne le même train sans aucun arrêt intermédiaire (section 9). Le temps en auto est une estimation à partir de la cartographie routière grand public, approximative. Les temps du projet ALTO viennent du promoteur [@altotrain2026faq] ; le 3 h Montréal-Toronto est d'ailleurs un engagement du gouvernement [@pmcanada2025alto]. À notre connaissance, le promoteur ne précise pas si ces temps comprennent une marge d'exploitation ; les nôtres en comprennent 10 %. De bout en bout, Québec-Toronto via Montréal passerait de 8 h 50 aujourd'hui à 6 h 51, avec dix minutes d'arrêt à Montréal, ou à 6 h 00 en express, contre environ 4 h 30 pour le projet ALTO.
 
-Aujourd'hui, le train fait à peu près jeu égal avec l'auto sur Montréal-Toronto et la perd nettement sur Montréal-Québec. Sur l'emprise optimisée, le train prend de 71 à 90 % du temps de l'auto selon le trajet : il devient plus rapide que l'auto partout.
+Aujourd'hui, le train fait à peu près jeu égal avec l'auto sur Montréal-Toronto et la perd nettement sur Montréal-Québec. Sur l'emprise optimisée, le train prend de 69 à 90 % du temps de l'auto selon le trajet : il devient plus rapide que l'auto partout.
 
 **Les villes intermédiaires.** Ces temps comprennent un arrêt à chacune des 22 gares intermédiaires où s'arrêtent aujourd'hui les trains de VIA, de Saint-Hyacinthe et Drummondville à Cornwall et Kingston (la liste complète est à la section 2). L'emprise optimisée améliore donc aussi le service ferroviaire des régions desservies par ces gares, alors que le projet ALTO prévoit sept gares sur l'ensemble de son réseau [@altotrain2026faq]. Un train express qui ne s'arrêterait qu'aux grandes villes gagnerait encore de 15 à 45 minutes selon le trajet (section 9).
+
+**Des gains prudents.** Notre train s'arrête plus souvent que le train médian d'aujourd'hui : 12 arrêts contre 7 sur Ottawa-Toronto, et 8 contre 6 sur Montréal-Toronto. C'est voulu : il s'arrête à toutes les gares à chaque passage, alors que les trains de VIA alternent aujourd'hui leurs arrêts d'un départ à l'autre. Les gains publiés sont donc prudents. À arrêts égaux, Ottawa-Toronto gagnerait de 47 à 60 minutes plutôt que 40, et Montréal-Toronto environ 1 h 12 plutôt que 1 h 04 (section 12).
 
 ![Montréal-Québec : le train contre l'auto. La barre de l'emprise optimisée est un temps calculé selon la méthode de la section 2. La barre de l'express retire les arrêts intermédiaires (section 9). Le trait pointillé est le temps annoncé par ALTO. Temps auto : estimation à partir de la cartographie routière grand public (Google Maps), approximative.](livrables/figure_vs_auto_montreal_quebec.jpg)
 
@@ -90,7 +92,7 @@ Un temps de parcours se construit en six étapes. Le tableau qui suit les dérou
 | 3 | **Plafonner à 177 km/h.** En chaque point, le train roule à la plus basse de deux vitesses : celle que la courbe permet, et le plafond de 177 km/h (110 mi/h) retenu à la section 6. À ce stade, le train changerait encore de vitesse instantanément. | +55 min | 3 h 09 |
 | 4 | **S'arrêter aux gares.** Montréal-Toronto compte huit gares intermédiaires. À chacune, le train reste immobile deux minutes, la médiane des horaires de VIA [@viarail2026gtfs]. Le freinage et la relance de ces arrêts sont comptés à l'étape suivante. | +16 min | 3 h 25 |
 | 5 | **Faire accélérer et freiner un vrai train.** Le train ralentit maintenant pour de vrai, avant chaque courbe et chaque gare, puis il relance. En chaque point, nous calculons ce qu'il peut faire : `accélération = (puissance au rail ÷ vitesse − résistance − pente) ÷ masse`. La puissance au rail est ce qui reste après les services de bord et les pertes de transmission. La résistance, surtout celle de l'air, grandit avec le carré de la vitesse. Sur le plat, le train accélère donc à 0,6 m/s² au démarrage, puis de moins en moins : environ 0,23 m/s² à 100 km/h, 0,10 à 160 km/h et 0,07 à 177 km/h. Il freine à 0,6 m/s². Après une courbe, il ne relance que lorsque sa queue en est sortie. | +26 min | 3 h 51 |
-| 6 | **Ajouter la marge d'exploitation.** Tout horaire garde un coussin pour absorber les aléas. Nous ajoutons 10 % au temps précédent, une valeur fondée sur les normes internationales [@uic2000f451; @rfli2026tpr] et sur ce qui est déjà possible sur certains segments : Montréal-Ottawa, en bonne partie sur la voie simple détenue par VIA, opère avec 5 % de marge seulement. | +23 min | 4 h 14 |
+| 6 | **Ajouter la marge d'exploitation.** Tout horaire garde un coussin pour absorber les aléas. Nous ajoutons 10 % au temps précédent, une valeur fondée sur les normes internationales [@uic2000f451; @rfli2026tpr]. Seule exception : Montréal-Ottawa roule déjà avec 8 %, et nous gardons cette marge. | +23 min | 4 h 14 |
 
 :::
 
@@ -131,9 +133,11 @@ Trois chronos ne fixent pas chaque paramètre séparément : ils montrent que la
 
 ## La marge d'exploitation de 10 %
 
-La marge est le coussin que l'horaire ajoute au temps de roulement pur. Les actions identifiées permettront de la réduire. L'étude a comparé les règles publiées des gestionnaires de réseau : la norme internationale donne 8 à 9 % aux vitesses analysées [@uic2000f451; @schittenhelm2011], la France 5 % sur ligne à grande vitesse et 12 % sur ligne classique [@sncf2023drr], la Suède 6 à 9 % selon le nombre de voies [@trafikverket2025jnb], le référentiel de planification britannique applique 10 % [@rfli2026tpr] et surtout, Montréal-Ottawa, en bonne partie sur la voie simple détenue par VIA, opère avec 5 % de marge seulement.
+La marge est le coussin que l'horaire ajoute au temps de roulement pur. Les actions identifiées permettront de la réduire. L'étude a comparé les règles publiées des gestionnaires de réseau : la norme internationale donne 8 à 9 % aux vitesses analysées [@uic2000f451; @schittenhelm2011], la France 5 % sur ligne à grande vitesse et 12 % sur ligne classique [@sncf2023drr], la Suède 6 à 9 % selon le nombre de voies [@trafikverket2025jnb], le référentiel de planification britannique applique 10 % [@rfli2026tpr] et surtout, Montréal-Ottawa, en bonne partie sur la voie simple détenue par VIA, opère avec 8 % de marge seulement.
 
 L'analyse des données et les conseils de notre expert ferroviaire [@dusablon2026] nous permettent de retenir une borne conservatrice de 10 % : légèrement plus prudent que la médiane, et aligné sur le référent britannique.
+
+**Une exception : Montréal-Ottawa.** Le projet ajoute de la capacité. Il n'a donc pas besoin de plus de coussin qu'aujourd'hui. Là où l'horaire porte déjà moins de 10 %, nous gardons sa marge. Seul Montréal-Ottawa est dans ce cas, à 8 % (section 3). Nous mesurons cette marge sur le trajet entier, pas section par section : l'horaire concentre son coussin à certains endroits.
 
 Le précédent qui valide l'ordre de grandeur vient du Royaume-Uni. La West Coast Main Line relie Londres à Manchester et Glasgow. C'est une ligne ancienne, partagée avec le fret. Plutôt que de la remplacer, le Royaume-Uni l'a modernisée de 1998 à 2008 : trains pendulaires relevés de 177 à 201 km/h sur la voie existante, avec signalisation relevée [@nao2006wcml]. Les gains sont de la même famille que les nôtres : 36 minutes sur Londres-Manchester (environ 300 km), 42 sur Londres-Glasgow (environ 650 km) [@nao2006wcml], contre 64 minutes calculées ici sur Montréal-Toronto (536 km). En proportion, les gains prévus par cette étude sont comparables à ceux de la West Coast Main Line, pour un programme de modernisation similaire : 20 % du temps de parcours sur Montréal-Toronto, contre 22 % sur Londres-Manchester et 14 % sur Londres-Glasgow [@nao2006wcml]. La West Coast Main Line partait toutefois de 177 km/h, alors que le corridor part de 153 km/h. Et la cohabitation entre fret et passagers est particulièrement dysfonctionnelle au Canada (voir sections 3 et 5). Ces deux différences semblent appuyer l'ordre de grandeur des résultats davantage qu'elles ne le mettent en doute. Le marché a suivi : sur Londres-Manchester, l'achalandage du train a crû de 77 % pendant que l'avion reculait de 27 % [@wcml2026wiki]. La mise en garde vaut aussi : le budget britannique a plus que triplé en cours de route, faute d'une portée verrouillée au départ [@nao2006wcml]. C'est précisément le rôle de l'étude qui devrait suivre.
 
@@ -167,18 +171,18 @@ En comparant les horaires de VIA sur les tronçons à voie simple de VIA, à voi
 
 Sur la voie double, tous les trains d'un même trajet font à peu près le même temps. Sur la voie simple du CN, l'horaire du même trajet varie de 8 à 16 minutes selon le départ : les attentes de croisement sont écrites dans la grille horaire elle-même. Le chiffre le plus instructif est ailleurs : sur une voie simple, l'horaire porte deux fois moins de marge chez VIA (29 %) que chez le CN (60 %). Le prix de la voie manquante reflète donc d'abord le prix du régime de cohabitation avec le fret : qui possède la voie et qui passe en premier.
 
-Nous calculons maintenant la marge réelle de chaque trajet, c'est-à-dire l'écart entre l'horaire d'aujourd'hui et le temps de base du train actuel, calculé avec les mêmes arrêts et les mêmes approches urbaines :
+Nous calculons maintenant la marge réelle de chaque trajet. Comme les trains de VIA alternent leurs arrêts d'un départ à l'autre, nous comparons chaque train de l'horaire au train actuel simulé avec exactement ses arrêts et les mêmes approches urbaines, puis nous gardons la médiane des trains :
 
-  | Trajet | Horaire actuel | Temps de base, train actuel | Marge réelle |
+  | Trajet | Horaire actuel | Arrêts du train médian | Marge réelle |
 |---|---|---|---|
-| Montréal-Québec | 3 h 22 | 2 h 50 | 19 % (33 min) |
-| Montréal-Ottawa | 2 h 02 | 1 h 56 | 5 % (6 min) |
-| Ottawa-Toronto | 4 h 35 | 4 h 07 | 12 % (29 min) |
-| Montréal-Toronto | 5 h 18 | 4 h 39 | 14 % (39 min) |
+| Montréal-Québec | 3 h 22 | 4 ou 5 | 19 % (33 min) |
+| Montréal-Ottawa | 2 h 02 | 3 | 8 % (9 min) |
+| Ottawa-Toronto | 4 h 35 | 7 | 19 % (46 min) |
+| Montréal-Toronto | 5 h 18 | 6 | 16 % (44 min) |
 
 Ces marges de trajet ne se comparent pas aux marges médianes du tableau précédent. Celles-ci portent sur des paires de gares, contre un temps sans accélération ni freinage. Les marges de trajet, elles, gardent les zones urbaines à leur horaire et simulent l'accélération et les arrêts.
 
-Montréal-Toronto est déjà doublé. Son horaire porte pourtant encore 14 % de marge, contre la norme de 10 % et contre les 5 % de la voie simple de VIA entre Montréal et Ottawa. Le doublement existant rapproche donc de l'optimum sans l'atteindre. Un corridor à voie unique équipé d'évitements (des tronçons courts de deuxième voie où un train peut être mis en attente) est déjà, dans les faits, partiellement doublé. Une simulation montre que chaque tronçon de deuxième voie ajouté réduit le retard quand on procède en reliant des paires d'évitements existants [@sogin2013doublement]. C'est une pratique établie, notamment sur le corridor Chicago-Detroit, où l'étude fédérale retient exactement cette approche [@mdot2014tier1]. Notre expert ferroviaire arrive à la même conclusion pour Charny-Sainte-Rosalie, à partir du diagramme de voie du CN : relier les 18 évitements existants, soit environ 92 milles (148 km) de voie à construire, dont une pourrait être réservée en priorité à VIA [@dusablon2026]. Il est important aussi de prévoir des liaisons rapides entre les deux voies pour dépasser sans ralentir, des sections de troisième voie aux points de friction, et surtout un régime de cohabitation arbitré, qui pourrait être établi en donnant le rôle d'arbitre à l'Office des transports du Canada [@dick2019blocs; @orr2025wcml; @sogin2013doublement].
+Montréal-Toronto est déjà doublé. Son horaire porte pourtant encore 16 % de marge, contre la norme de 10 % et contre les 8 % de la voie simple de VIA entre Montréal et Ottawa. Le doublement existant rapproche donc de l'optimum sans l'atteindre. Un corridor à voie unique équipé d'évitements (des tronçons courts de deuxième voie où un train peut être mis en attente) est déjà, dans les faits, partiellement doublé. Une simulation montre que chaque tronçon de deuxième voie ajouté réduit le retard quand on procède en reliant des paires d'évitements existants [@sogin2013doublement]. C'est une pratique établie, notamment sur le corridor Chicago-Detroit, où l'étude fédérale retient exactement cette approche [@mdot2014tier1]. Notre expert ferroviaire arrive à la même conclusion pour Charny-Sainte-Rosalie, à partir du diagramme de voie du CN : relier les 18 évitements existants, soit environ 92 milles (148 km) de voie à construire, dont une pourrait être réservée en priorité à VIA [@dusablon2026]. Il est important aussi de prévoir des liaisons rapides entre les deux voies pour dépasser sans ralentir, des sections de troisième voie aux points de friction, et surtout un régime de cohabitation arbitré, qui pourrait être établi en donnant le rôle d'arbitre à l'Office des transports du Canada [@dick2019blocs; @orr2025wcml; @sogin2013doublement].
 
 **En bref : la voie double est plus performante sur la fiabilité et elle est la condition d'une meilleure cohabitation.** Aujourd'hui, chaque minute gagnée par le passager sur une voie simple est une minute prise au fret, et inversement : un jeu à somme nulle. Avec la deuxième voie, les deux circulations cessent de se disputer le même créneau.
 
@@ -301,7 +305,7 @@ Le plafond de 177 km/h (110 mi/h) n'est requis que pour une raison : la présenc
   | Trajet | Emprise optimisée (177 km/h) | Sans passage à niveau (241 km/h) | Gain | ALTO annoncé |
 |---|---|---|---|---|
 | Montréal-Québec | 2 h 26 | 2 h 24 | 2 min | ~1 h 30 |
-| Montréal-Ottawa | 1 h 39 | 1 h 38 | 1 min | ~1 h |
+| Montréal-Ottawa | 1 h 37 | 1 h 36 | 1 min | ~1 h |
 | Ottawa-Toronto | 3 h 55 | 3 h 49 | 6 min | ~2 h |
 | Montréal-Toronto | 4 h 14 | 4 h 02 | 12 min | 3 h |
 
@@ -318,7 +322,7 @@ Les temps de l'emprise optimisée comprennent un arrêt à chacune des 22 gares 
   | Trajet | Emprise optimisée, toutes les gares | Express, sans arrêt | Gain | ALTO annoncé |
 |---|---|---|---|---|
 | Montréal-Québec | 2 h 26 | 2 h 08 | 18 min | ~1 h 30 |
-| Montréal-Ottawa | 1 h 39 | 1 h 24 | 15 min | ~1 h |
+| Montréal-Ottawa | 1 h 37 | 1 h 22 | 15 min | ~1 h |
 | Ottawa-Toronto | 3 h 55 | 3 h 10 | 45 min | ~2 h |
 | Montréal-Toronto | 4 h 14 | 3 h 42 | 32 min | 3 h |
 
@@ -337,7 +341,7 @@ Les cinq actions supposent un train diesel, puisque le corridor n'a pas de caté
 | Trajet | Emprise optimisée, diesel | Électrique | Gain | ALTO annoncé |
 |---|---|---|---|---|
 | Montréal-Québec | 2 h 26 | 2 h 24 | 2 min | ~1 h 30 |
-| Montréal-Ottawa | 1 h 39 | 1 h 38 | 1 min | ~1 h |
+| Montréal-Ottawa | 1 h 37 | 1 h 36 | 1 min | ~1 h |
 | Ottawa-Toronto | 3 h 55 | 3 h 51 | 4 min | ~2 h |
 | Montréal-Toronto | 4 h 14 | 4 h 11 | 3 min | 3 h |
 
@@ -416,30 +420,41 @@ Les cinq actions et le programme d'élimination des croisements représentent en
 
 En appliquant la méthode de la section 2, nous obtenons les réductions de temps suivantes sur chacun des trajets actuels. Les actions 1 à 3 sont regroupées, puisqu'elles agissent toutes sur le même facteur : la cohabitation. Le gain relié à la cohabitation est proportionnellement très élevé entre Montréal et Québec, puisque la voie y est simple sur une grande partie du trajet. À l'opposé, comme la voie entre Montréal et Ottawa est déjà en bonne partie contrôlée par VIA, le potentiel de gain relié à une meilleure cohabitation y est plus faible.
 
-  | Facteur (minutes gagnées, marge de 10 % incluse) | Montréal-Québec | Montréal-Ottawa | Montréal-Toronto | Québec-Toronto, bout en bout | Part du gain |
+  | Facteur (minutes gagnées, marge incluse) | Montréal-Québec | Montréal-Ottawa | Montréal-Toronto | Québec-Toronto, bout en bout | Part du gain |
 |---|---|---|---|---|---|
-| Cohabitation : doublement, arbitrage, capacité de la signalisation | 33 | 7 | 24 | 57 | 47 % |
+| Cohabitation : doublement, arbitrage, capacité de la signalisation | 33 | 10 | 24 | 57 | 47 % |
 | Changement de classe : passages à niveau sécurisés et contrôle en cabine | 6 | 3 | 18 | 23 | 20 % |
 | Train pendulaire et dévers | 13 | 11 | 18 | 32 | 26 % |
 | Zones urbaines modernisées | 4 | 2 | 4 | 8 | 7 % |
-| Total du temps économisé | 56 | 23 | 64 | 120 | 100 % |
+| Total du temps économisé | 56 | 25 | 64 | 120 | 100 % |
 | **Trajet express, sans arrêt intermédiaire** | **18** | **15** | **32** | **51** | |
-| Total avec le trajet express | 74 | 38 | 96 | 171 | |
+| Total avec le trajet express | 74 | 40 | 96 | 171 | |
 | Temps du trajet actuel | 3 h 22 | 2 h 02 | 5 h 18 | 8 h 50 | |
-| Temps sur l'emprise optimisée | 2 h 26 | 1 h 39 | 4 h 14 | 6 h 51 | |
-| Temps du train express | 2 h 08 | 1 h 24 | 3 h 42 | 6 h 00 | |
+| Temps sur l'emprise optimisée | 2 h 26 | 1 h 37 | 4 h 14 | 6 h 51 | |
+| Temps du train express | 2 h 08 | 1 h 22 | 3 h 42 | 6 h 00 | |
 
-Les tranches sont des attributions qui somment au gain, pas des mesures indépendantes. La signalisation apparaît dans deux postes : comme condition du changement de classe, où son effet sur la vitesse est mesuré, et comme levier de capacité dans la cohabitation, où son effet n'est pas isolé de celui du doublement et de l'arbitrage. Le pendulaire et les zones urbaines sont comptés sous la classe actuelle (153 km/h) ; le changement de classe est ce que l'interurbain rapporte en plus une fois le plafond porté à 177 km/h. Les parts de ce tableau portent sur le train qui dessert toutes les gares ; celles de L'essentiel vont jusqu'au train express, d'où des pourcentages différents. Les temps de base sans marge et la méthode d'attribution sont dans le visualiseur de données joint.
+Les tranches sont des attributions qui somment au gain, pas des mesures indépendantes. Les arrondis peuvent décaler une somme d'une minute. La signalisation apparaît dans deux postes : comme condition du changement de classe, où son effet sur la vitesse est mesuré, et comme levier de capacité dans la cohabitation, où son effet n'est pas isolé de celui du doublement et de l'arbitrage. Le pendulaire et les zones urbaines sont comptés sous la classe actuelle (153 km/h) ; le changement de classe est ce que l'interurbain rapporte en plus une fois le plafond porté à 177 km/h. Les parts de ce tableau portent sur le train qui dessert toutes les gares ; celles de L'essentiel vont jusqu'au train express, d'où des pourcentages différents. Les temps de base sans marge et la méthode d'attribution sont dans le visualiseur de données joint.
 
-**D'où vient la cohabitation?** Ce poste réunit deux choses. La première est l'interurbain : ce que l'horaire actuel porte au-delà d'une marge de 10 %, hors des zones urbaines. La seconde est le mou urbain : l'écart entre l'horaire actuel dans une zone urbaine et le temps qu'y ferait le train actuel, marge de 10 % comprise. Entre Montréal et Dorval, par exemple, l'horaire donne 23,5 minutes. Le train actuel y ferait 10,6 minutes, soit 11,7 avec la marge : le mou urbain vaut donc 11,8 minutes. Nous n'attribuons pas ce mou à une cause précise : il reflète la circulation des trains de banlieue, les aiguillages et l'attente aux abords des gares.
+**D'où vient la cohabitation?** Ce poste réunit deux choses. La première est l'interurbain : ce que l'horaire actuel porte au-delà de la marge retenue, hors des zones urbaines. La seconde est le mou urbain : l'écart entre l'horaire actuel dans une zone urbaine et le temps qu'y ferait le train actuel, marge de 10 % comprise. Entre Montréal et Dorval, par exemple, l'horaire donne 23,5 minutes. Le train actuel y ferait 10,6 minutes, soit 11,7 avec la marge de 10 % : le mou urbain vaut donc 11,8 minutes. Nous n'attribuons pas ce mou à une cause précise : il reflète la circulation des trains de banlieue, les aiguillages et l'attente aux abords des gares.
 
-| Minutes | Interurbain, au-delà de 10 % | Mou urbain | Cohabitation |
+| Minutes | Interurbain, au-delà de la marge | Mou urbain | Cohabitation |
 |---|---|---|---|
 | Montréal-Québec | 19 | 14 | 33 |
-| Montréal-Ottawa | −5 | 12 | 7 |
+| Montréal-Ottawa | −2 | 12 | 10 |
 | Montréal-Toronto | 7 | 17 | 24 |
 
-Le tableau des marges réelles de la section 3 garde les zones urbaines à leur horaire : ce mou y reste caché dans le temps de base. C'est pourquoi Montréal-Ottawa, à 5 % de marge, garde un gain de cohabitation : son horaire interurbain est déjà sous les 10 %, mais pas sa sortie de Montréal.
+Le tableau des marges réelles de la section 3 garde les zones urbaines à leur horaire : ce mou y reste caché dans le temps de base. C'est pourquoi Montréal-Ottawa garde un gain de cohabitation : il vient entièrement de sa sortie de Montréal, sur les voies du CN, et non de la voie simple de VIA. Le solde interurbain de ce trajet est même légèrement négatif, parce que notre train y fait plus d'arrêts que le train médian.
+
+**Des gains prudents.** Les gains de ce rapport comparent notre train à l'horaire médian de VIA. Or notre train s'arrête à toutes les gares à chaque passage, alors que les trains de VIA alternent leurs arrêts. Nous avons donc refait la comparaison à arrêts égaux, de trois façons : chaque train de l'horaire contre notre train avec les mêmes arrêts ; la tendance de l'horaire, prolongée jusqu'à tous les arrêts ; et les vrais trains qui font tous les arrêts, ou un de moins.
+
+  | Trajet | Arrêts · notre train | Arrêts · train médian | Gain publié | Gain à arrêts égaux · train par train | Gain à arrêts égaux · tendance | Gain à arrêts égaux · vrais trains |
+|---|---|---|---|---|---|---|
+| Montréal-Québec | 5 | 4 ou 5 | 56 min | 58 min | 60 min | 56 min |
+| Montréal-Ottawa | 4 | 3 | 25 min | 28 min | 27 min | 27 min |
+| Ottawa-Toronto | 12 | 7 | 40 min | 60 min | 59 min | 47 min |
+| Montréal-Toronto | 8 | 6 | 1 h 04 | 1 h 11 | 1 h 12 | 1 h 13 |
+
+Ce sont des ordres de grandeur : chaque trajet ne compte que de 12 à 21 trains. Sur Ottawa-Toronto, la dernière mesure repose sur quatre trains très dispersés, et le gain se situe entre 47 et 60 minutes. Dans l'horaire réel, un arrêt y coûte 3,3 minutes, contre 3,7 dans notre modèle. Le poste de cohabitation absorbe cet écart : il est donc prudent, lui aussi.
 
 **Un double rôle comme corridor de trains de banlieue?** Le trajet Montréal-Québec est celui où le gain est le plus grand. Le tableau qui suit donne le temps depuis Montréal jusqu'aux gares de Saint-Hilaire, de Saint-Hyacinthe et de Drummondville, puis jusqu'à Québec, arrêts intermédiaires compris.
 
@@ -452,7 +467,7 @@ Le tableau des marges réelles de la section 3 garde les zones urbaines à leur 
 
 VIA ne s'arrête pas à Saint-Hilaire. La ligne compare donc le train de banlieue exo, qui roule sur la même voie du CN jusqu'à son terminus de Mont-Saint-Hilaire avec cinq arrêts intermédiaires [@exo2026gtfs], au même service avec les mêmes arrêts sur l'emprise optimisée, avec une rame pendulaire. Un train de VIA qui passerait sans s'arrêter y serait en 21 minutes. Cette ligne se lit comme le potentiel d'un matériel roulant plus performant, pas comme un résultat des cinq actions : avec cinq arrêts en 35 km, le gain tient surtout à l'accélération et au freinage d'une rame légère. Le trajet est aussi presque entièrement en zone urbaine, où notre calcul ne simule ni la signalisation ni les autres trains. Le gros du gain se trouve entre Drummondville et Québec, sur la subdivision Drummondville, là où la voie est simple et la marge de l'horaire la plus forte : ce segment passerait de 2 h 08 à 1 h 29. Les temps d'aujourd'hui sont des médianes d'horaires par segment : ils ne s'additionnent pas exactement.
 
-**Sensibilités.** La délimitation des zones urbaines varie de ±20 % : effet de ±5 à ±9 minutes sur les temps avant marge. Côté traction, un grand froid, une traînée plus forte ou un freinage plus doux ajouteraient chacun jusqu'à 2 minutes par trajet, et un freinage plus franc en retrancherait autant. Un train de 8,4 W/kg au lieu de 9,8 ajouterait de 1 à 4 minutes. Reprendre les temps d'arrêt actuels des grandes gares, de 3 à 4 minutes à Dorval, Kingston, Fallowfield, Belleville et Oshawa, ajouterait environ 6 minutes sur Ottawa-Toronto et Montréal-Toronto. Une géométrie fine, qui lèverait la correction des courbes courtes, rendrait de 4 à 11 minutes par tronçon.
+**Sensibilités.** La délimitation des zones urbaines varie de ±20 % : effet de ±5 à ±9 minutes sur les temps avant marge. Côté traction, un grand froid, une traînée plus forte ou un freinage plus doux ajouteraient chacun jusqu'à 2 minutes par trajet, et un freinage plus franc en retrancherait autant. Un train de 8,4 W/kg au lieu de 9,8 ajouterait de 1 à 4 minutes. Reprendre les temps d'arrêt actuels des grandes gares, de 3 à 4 minutes à Dorval, Kingston, Fallowfield, Belleville et Oshawa, ajouterait environ 6 minutes sur Ottawa-Toronto et Montréal-Toronto. Une géométrie fine, qui lèverait la correction des courbes courtes, rendrait de 4 à 11 minutes par tronçon. Le risque le plus lourd est dans les zones urbaines : si le mou urbain n'était pas récupéré, Montréal-Toronto prendrait environ 4 h 31, Montréal-Québec 2 h 40 et Montréal-Ottawa 1 h 49.
 
 # Limites, et l'étude qu'il faut commander {.suite}
 
@@ -633,7 +648,7 @@ Cette fiche regroupe les paramètres du modèle, pour les experts qui voudront l
 | Accélération | `a = min(a0, (Pr/v − F − m·g·i) / (c·m))` | v en m/s ; i : pente ; c : coefficient d'inertie ; une accélération négative ralentit le train |
 | Freinage | `a = −ab` | constant, de service |
 | Temps de roulement | `T = Σ dx / v(x)` | pas de 25 m ; une passe d'accélération, puis une passe de freinage |
-| Temps publié | `(T + n·d) × 1,10` | n : arrêts ; d : immobilisation par arrêt |
+| Temps publié | `(T + n·d) × marge` | n : arrêts ; d : immobilisation par arrêt ; marge : 1,10, ou la marge actuelle si elle est plus basse |
 | Marge mesurée | `(H − B) / B` | H : médiane des horaires ; B : temps du train actuel, courbes et régime actuels, sans accélération |
 
 ## Les trains
@@ -733,6 +748,7 @@ Le dévers du train actuel est une hypothèse : le dévers réel du réseau n'es
 | Autres plafonds calculés | 153 · 160 · 201 · 241 km/h | Contre-hypothèses et sensibilités |
 | Immobilisation en gare | 2 min | Médiane des horaires de VIA |
 | Marge d'exploitation | 10 % | Sur le temps de roulement et les arrêts |
+| Marge de Montréal-Ottawa | 7,6 % | Sa marge actuelle à arrêts égaux, plus basse que 10 % |
 | Arrêt à Montréal, Québec-Toronto | 10 min | Hypothèse du trajet de bout en bout |
 | Fenêtre urbaine d'Ottawa | ±10 km | Hypothèse : aucune gare d'approche proche |
 | Délimitation des zones urbaines | ±20 % | Sensibilité de la section 12 |
@@ -744,9 +760,20 @@ Minutes cumulées, selon les étapes de la section 2.
 | Trajet | Distance (km) | Arrêts | Vitesse des courbes | Avec plafond | Avec arrêts | Vrai train | Avec marge |
 |---|---|---|---|---|---|---|---|
 | Montréal-Québec | 271,1 | 5 | 82,9 | 103,2 | 113,2 | 132,9 | 146,2 |
-| Montréal-Ottawa | 186,1 | 4 | 58,9 | 69,7 | 77,7 | 90,1 | 99,1 |
+| Montréal-Ottawa | 186,1 | 4 | 58,9 | 69,7 | 77,7 | 90,1 | 97,0 |
 | Ottawa-Toronto | 445,9 | 12 | 117,6 | 158,7 | 182,7 | 213,7 | 235,1 |
 | Montréal-Toronto | 540,1 | 8 | 133,8 | 189,4 | 205,4 | 231,2 | 254,3 |
+
+## Les arrêts et la marge réelle
+
+Chaque train de l'horaire contre le train actuel simulé avec ses propres arrêts, au régime actuel de 160 km/h. La marge retenue est de 10 %, ou la marge réelle si elle est plus basse.
+
+| Trajet | Trains | Combinaisons d'arrêts | Arrêts · notre train | Arrêts · train médian | Marge (%) · réelle | Marge (%) · retenue | Minutes par arrêt · horaire | Minutes par arrêt · modèle |
+|---|---|---|---|---|---|---|---|---|
+| Montréal-Québec | 14 | 3 | 5 | 4,5 | 19,3 | 10,0 | 3,5 | 3,6 |
+| Montréal-Ottawa | 14 | 4 | 4 | 3,0 | 7,6 | 7,6 | 2,5 | 3,4 |
+| Ottawa-Toronto | 21 | 19 | 12 | 7,0 | 18,9 | 10,0 | 3,3 | 3,7 |
+| Montréal-Toronto | 12 | 8 | 8 | 6,0 | 15,9 | 10,0 | 6,1 | 4,0 |
 
 ## Les zones urbaines
 
@@ -755,7 +782,7 @@ Minutes cumulées, selon les étapes de la section 2.
 | Montréal Central à pont Victoria (culée sud) | 5,5 | 11,8 | 5,1 | 6,2 | 4,3 |
 | Charny à Québec (pont de Québec, gare du Palais) | 24,8 | 33,0 | 22,7 | 8,0 | 19,4 |
 | Montréal Central à Dorval | 17,8 | 23,5 | 10,6 | 11,8 | 9,1 |
-| Guildwood à Toronto Union | 20,1 | 18,0 | 11,7 | 5,1 | 10,1 |
+| Guildwood à Toronto Union | 20,1 | 18,0 | 11,6 | 5,2 | 10,0 |
 
 ::: {.note-tableau}
 Le mou urbain est l'écart entre l'horaire et le temps du train actuel, marge de 10 % comprise (section 12). Les temps des trains sont sans marge. Ils ne simulent ni les aiguillages ni les autres trains.
@@ -806,7 +833,7 @@ Dollars canadiens de 2025, avant imprévus de 20 %. La section 11 donne les sour
 
 ## Les sensibilités
 
-Écart en minutes avec le temps publié, marge de 10 % comprise. Chaque ligne change une seule chose, sauf les deux cas combinés.
+Écart en minutes avec le temps publié, marge comprise. Chaque ligne change une seule chose, sauf les deux cas combinés.
 
 ::: {.coupable}
 
@@ -825,16 +852,16 @@ Dollars canadiens de 2025, avant imprévus de 20 %. La section 11 donne les sour
 | Train diesel de 12 W/kg, même masse (n'existe pas) | −2,4 | −1,3 | −3,4 | −3,1 |
 | Arrêts à la médiane des horaires, gare par gare | +1,1 | 0,0 | +6,1 | +6,6 |
 | Train électrique de type Pendolino, corridor électrifié | −2,2 | −1,4 | −3,6 | −3,3 |
-| Train électrique, 201 km/h partout | −5,2 | −2,5 | −10,6 | −13,8 |
-| Train électrique, 241 km/h, sans passage à niveau | −6,2 | −2,9 | −14,3 | −21,1 |
+| Train électrique, 201 km/h partout | −5,2 | −2,4 | −10,6 | −13,8 |
+| Train électrique, 241 km/h, sans passage à niveau | −6,2 | −2,8 | −14,3 | −21,1 |
 | Train de référence, 201 km/h partout | −1,9 | −0,6 | −5,1 | −8,3 |
 | Train de référence, 241 km/h, sans passage à niveau | −2,0 | −0,6 | −6,4 | −11,9 |
-| Une locomotive Charger et 5 voitures pendulaires (7,4 W/kg) | +3,6 | +2,3 | +5,4 | +4,9 |
+| Une locomotive Charger et 5 voitures pendulaires (7,4 W/kg) | +3,6 | +2,2 | +5,4 | +4,9 |
 | Deux locomotives Charger et 5 voitures pendulaires (11,5 W/kg) | −2,1 | −1,3 | −3,3 | −3,0 |
-| Tolérance en courbe de 5 po | +3,0 | +2,5 | +3,5 | +4,0 |
+| Tolérance en courbe de 5 po | +3,0 | +2,4 | +3,5 | +4,0 |
 | Tolérance en courbe de 7 po | −2,7 | −2,1 | −3,0 | −3,4 |
-| Bas combiné : une locomotive, 5 po | +6,8 | +4,6 | +9,0 | +9,1 |
-| Haut combiné : deux locomotives, 7 po | −4,8 | −3,5 | −6,3 | −6,3 |
+| Bas combiné : une locomotive, 5 po | +6,8 | +4,5 | +9,0 | +9,1 |
+| Haut combiné : deux locomotives, 7 po | −4,8 | −3,4 | −6,3 | −6,3 |
 
 :::
 
@@ -891,6 +918,7 @@ Les temps, les vitesses et les comptes publiés viennent de ces scripts. Ils son
 | `alignments.py` | Schéma commun des tracés. |
 | `33_courbes_doublees.py` | Sensibilité : courbes rectifiées aux sections doublées. Hors rapport. |
 | `21_tbase_bande.py` | Moteur : formule de traction, profil de vitesse et temps par trajet et par plafond. |
+| `43_marges_arrets_egaux.py` | Compare chaque train de l'horaire à un train qui fait les mêmes arrêts : marge réelle et gain. |
 | `22_marges_2x2.py` | Mesure la marge de chaque paire de gares selon le nombre de voies et le propriétaire. |
 | `38_train_express.py` | Calcule le train express, sans arrêt intermédiaire. |
 | `36_gains_urbains.py` | Décompose les zones urbaines : courbes, signalisation et mou urbain. |

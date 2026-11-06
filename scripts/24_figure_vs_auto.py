@@ -25,7 +25,7 @@ from pathlib import Path as _Path
 
 import matplotlib; matplotlib.use("Agg")
 import matplotlib.pyplot as plt
-from scenarios import PLAFOND_PUBLIE
+from scenarios import PLAFOND_PUBLIE, marge_de
 from utils import DELIVERABLES
 from identite import PAPIER, SCENARIOS, appliquer_rcparams, police_mono, police_titre
 
@@ -38,8 +38,6 @@ def hm(m):
     return f"{total // 60} h {total % 60:02d}"
 
 def pct(m, auto): return int(m / auto * 100 + 0.5)
-
-MARGE = 1.10   # point unique (décision 2026-08-24), voir docstring
 
 _LIV = _Path(__file__).resolve().parent.parent / "livrables"
 
@@ -56,7 +54,7 @@ _T3 = _lire("temps_scenario_3.csv")
 
 def _pt(table, troncon):
     """Temps publié (point) : T_base(pendulaire, plafond publié) × marge."""
-    return float(table[(troncon, "pendulaire", PLAFOND_PUBLIE)]["tbase_sans_marge_min"]) * MARGE
+    return float(table[(troncon, "pendulaire", PLAFOND_PUBLIE)]["tbase_sans_marge_min"]) * marge_de(troncon)
 
 def _horaire(troncon):
     return float(_T1[(troncon, "base", 160)]["t_horaire_actuel_min"])
@@ -130,7 +128,7 @@ for troncon, cle, title, repere, auto, rows in DATA:
     for s in ax.spines.values(): s.set_visible(False)
 
     fig.tight_layout(rect=(0, 0.075, 1, 0.845))
-    fig.text(0.008, 0.985, f"{title} : le train contre l'auto, marge de 10 % incluse",
+    fig.text(0.008, 0.985, f"{title} : le train contre l'auto, marge incluse",
              fontsize=13.5, ha="left", va="top", color=PAPIER["encre"],
              **police_titre(600))
     fig.text(0.008, 0.905,
@@ -139,7 +137,7 @@ for troncon, cle, title, repere, auto, rows in DATA:
              fontsize=8.0, ha="left", va="top", color=PAPIER["encre_pale"],
              **police_mono())
     fig.text(0.008, 0.012,
-             "Marge de 10 % sur le temps de base (médiane des règles publiées : 8 % ; "
+             "Marge de 10 %, ou marge actuelle si plus basse (médiane des règles publiées : 8 % ; "
              "référent britannique : 10 %). Repère ALTO : temps annoncé par le promoteur.",
              fontsize=7.6, ha="left", va="bottom", color=PAPIER["encre_pale"],
              **police_mono())

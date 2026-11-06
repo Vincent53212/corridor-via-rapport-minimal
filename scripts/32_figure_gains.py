@@ -53,14 +53,13 @@ import csv
 import matplotlib; matplotlib.use("Agg")
 import matplotlib.pyplot as plt
 
-from scenarios import PLAFOND_PUBLIE
+from scenarios import PLAFOND_PUBLIE, marge_de
 from utils import DELIVERABLES
 from identite import PAPIER, SCENARIOS, CELLULES, appliquer_rcparams, \
     police_mono, police_titre
 
 appliquer_rcparams(matplotlib)
 
-MARGE = 1.10                    # point unique (décision 2026-08-24)
 ARRET_MTL_MIN = 10.0            # HYPOTHÈSE : arrêt à Montréal du trajet composé
 P_CLASSE = 153                  # classe actuelle : 95 mi/h
 P_PLAFOND = PLAFOND_PUBLIE      # plafond du scénario publié
@@ -121,12 +120,13 @@ def decompose(troncons, label):
     U2p = S(_T2, "pendulaire", P_PLAFOND)
     arret = ARRET_MTL_MIN if len(troncons) > 1 else 0.0   # trajet composé
     H += arret
-    C = U2p * MARGE + arret
+    marge = marge_de(troncons[0])   # Québec-Toronto : deux tronçons à 10 %
+    C = U2p * marge + arret
     G = H - C
 
-    pend = (B1c - B2c) * MARGE
+    pend = (B1c - B2c) * marge
     urbain = sum(urb_courbes[t] + urb_sign[t] for t in troncons)
-    classe = (U2c - U2p) * MARGE - sum(urb_sign[t] for t in troncons)
+    classe = (U2c - U2p) * marge - sum(urb_sign[t] for t in troncons)
     cohab_brut = G - pend - urbain - classe
     cohab_urbain = sum(urb_cohab[t] for t in troncons)
     ecrasement = 0.0
@@ -167,16 +167,16 @@ for r in rows:
     r["express"] = _EXPRESS[r["trajet"]]
 
 # ---- CSV (une ligne par trajet × poste + contrôles)
-POSTES = [("temps_scenario_2_avec_marge", "C", f"temps_scenario_2.csv (pendulaire, {P_PLAFOND}) × 1,10"),
+POSTES = [("temps_scenario_2_avec_marge", "C", f"temps_scenario_2.csv (pendulaire, {P_PLAFOND}) × marge du trajet"),
           ("gain_cohabitation", "cohabitation",
-           "G − les trois autres postes : mou de l'horaire au-delà de 10 %, interurbain "
+           "G − les trois autres postes : mou de l'horaire au-delà de la marge, interurbain "
            "et zones urbaines ; doublement et régime réunis"),
-          ("gain_pendulaire", "pendulaire", "temps_scenario_1.csv (base − pendulaire, 153) × 1,10"),
+          ("gain_pendulaire", "pendulaire", "temps_scenario_1.csv (base − pendulaire, 153) × marge du trajet"),
           ("gain_zones_urbaines", "zones_urbaines",
            "gains_urbains.csv : courbes (pendulaire) + signalisation des blocs urbains, "
            "sans le mou de cohabitation"),
           ("gain_changement_classe", "classe",
-           f"temps_scenario_2.csv (pendulaire, 153 − {P_PLAFOND}) × 1,10 − signalisation urbaine : "
+           f"temps_scenario_2.csv (pendulaire, 153 − {P_PLAFOND}) × marge du trajet − signalisation urbaine : "
            "passages à niveau et signalisation, interurbain")]
 with open(DELIVERABLES / "decomposition_gains.csv", "w",
           encoding="utf-8-sig", newline="") as f:
@@ -197,9 +197,9 @@ with open(DELIVERABLES / "decomposition_gains.csv", "w",
                     "compté dans la cohabitation et non dans les zones urbaines"])
         w.writerow([r["trajet"], "info_cohabitation_mou_urbain", round(r["mou_urbain"], 1), "",
                     "écart entre l'horaire des zones urbaines et le temps du train actuel, marge de "
-                    "10 % comprise (gains_urbains.csv), sans plafond"])
+                    "comprise (gains_urbains.csv), sans plafond"])
         w.writerow([r["trajet"], "info_cohabitation_interurbain", round(r["cohab_interurbain"], 1), "",
-                    "le reste de la cohabitation : négatif si l'horaire interurbain porte moins de 10 %"])
+                    "le reste de la cohabitation : négatif si l'horaire interurbain porte moins que la marge"])
         w.writerow([r["trajet"], "controle_horaire_actuel_H", round(r["H"], 1),
                     "", "temps_scenario_1.csv (médiane GTFS)"])
         w.writerow([r["trajet"], "controle_gain_total_G", round(r["G"], 1),
@@ -282,7 +282,7 @@ handles = [plt.Rectangle((0, 0), 1, 1, facecolor="none",
            plt.Rectangle((0, 0), 1, 1, color=COL_URBAIN),
            plt.Rectangle((0, 0), 1, 1, color=COL_CLASSE)]
 leg = fig.legend(handles,
-                 ["Train express, marge de 10 % incluse (sans correction de courbes)",
+                 ["Train express, marge incluse (sans correction de courbes)",
                   "Trajet express : le même train, sans arrêt intermédiaire",
                   "Cohabitation : régime et doublement des voies, zones" + chr(10) +
                   "urbaines comprises",

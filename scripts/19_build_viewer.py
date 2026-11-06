@@ -36,7 +36,7 @@ from pathlib import Path
 sys.path.insert(0, str(Path(__file__).resolve().parent))
 from identite import (IDENTITE_DIR, PAPIER, VITESSE, VITESSE_COULEURS,
                       couleur_pour_vitesse, faces_polices, variables_css)
-from scenarios import PLAFOND_PUBLIE
+from scenarios import PLAFOND_PUBLIE, marge_de
 from utils import DELIVERABLES, PROJECT_ROOT
 
 SORTIE = DELIVERABLES / "visualiseur.html"
@@ -87,6 +87,7 @@ LABELS = {
     "sensibilites_traction.csv": "Sensibilités de traction",
     "passages_vitesse_reelle.csv": "Vitesse réelle du train à chaque passage",
     "passages_gain_vitesse.csv": "Ce que le programme complémentaire rachète",
+    "marges_arrets_egaux.csv": "Marges et gains à arrêts égaux",
 }
 
 QUOI = {
@@ -108,7 +109,7 @@ QUOI = {
         "Le temps de parcours calculé par intégration, sans marge, pour chaque tronçon "
         "et plafond de vitesse. La ligne pendulaire × 177 est le scénario 1 ; la "
         "colonne « horaire actuel » est le temps de VIA. Les temps publiés du rapport "
-        "sont ces temps de base multipliés par 1,10 (la marge).",
+        "sont ces temps de base multipliés par la marge : 1,10, ou 1,076 sur Montréal-Ottawa.",
     "temps_scenario_2.csv":
         "Même moteur, zones urbaines modernisées : les approches roulent ce que "
         "leur géométrie permet. Scénario 2.",
@@ -191,7 +192,7 @@ QUOI = {
         "Le temps de parcours calculé par intégration, sans marge, pour chaque tronçon "
         "et plafond de vitesse. La ligne pendulaire × 177 est le scénario 1 ; la "
         "colonne « horaire actuel » est le temps de VIA. Les temps publiés du rapport "
-        "sont ces temps de base multipliés par 1,10 (la marge).",
+        "sont ces temps de base multipliés par la marge : 1,10, ou 1,076 sur Montréal-Ottawa.",
     "temps_scenario_2.csv":
         "Même moteur, zones urbaines modernisées : les approches roulent ce que "
         "leur géométrie permet. Scénario 2.",
@@ -280,6 +281,9 @@ QUOI = {
         "La vitesse que le train de référence atteindrait vraiment à chaque passage à niveau, dans les "
         "deux sens, s'il pouvait rouler à 201 km/h, puis au plafond de 177 km/h. Elle est souvent plus "
         "basse que ce que les courbes permettent, à cause des gares et des courbes voisines.",
+    "marges_arrets_egaux.csv":
+        "Chaque train de l'horaire comparé à un train qui fait exactement les mêmes arrêts : "
+        "la marge réelle d'aujourd'hui et le gain du projet, trajet par trajet, par trois mesures.",
     "passages_gain_vitesse.csv":
         "Les minutes rachetées, trajet par trajet, en éliminant les passages où le train dépasserait "
         "177 km/h, tronçon par tronçon, du plus rentable au moins rentable.",
@@ -428,7 +432,7 @@ def temps_publie(csv_scenario: str, troncon: str = "MTL-TO") -> str:
     with (DELIVERABLES / csv_scenario).open(encoding="utf-8-sig", newline="") as f:
         for r in csv.DictReader(f, delimiter=";"):
             if (r["troncon"], r["scenario"], int(r["bande_kmh"])) == (troncon, "pendulaire", PLAFOND_PUBLIE):
-                m = round(float(r["tbase_sans_marge_min"]) * 1.10)
+                m = round(float(r["tbase_sans_marge_min"]) * marge_de(troncon))
                 return f"{m // 60} h {m % 60:02d}"
     sys.exit(f"temps introuvable : {csv_scenario} {troncon}")
 

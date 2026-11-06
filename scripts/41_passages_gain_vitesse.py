@@ -33,7 +33,7 @@ import pandas as pd
 
 os.environ["BLOCS_URBAINS"] = "libres"
 sys.path.insert(0, str(Path(__file__).parent))
-from scenarios import PLAFOND_PUBLIE              # noqa: E402
+from scenarios import PLAFOND_PUBLIE, marge_de    # noqa: E402
 from utils import DELIVERABLES                    # noqa: E402
 
 _spec = importlib.util.spec_from_file_location("m21", Path(__file__).parent / "21_tbase_bande.py")
@@ -42,7 +42,6 @@ sys.modules["m21"] = m21
 _spec.loader.exec_module(m21)
 
 PLAFOND_HAUT = 201.0
-MARGE = 1.10
 COUT_PONT, COUT_PRIVE = 50.0, 12.0     # M$ par ouvrage, section des coûts du rapport
 DECALAGE_TRONC_COMMUN = 94.0           # km Ott-TO -> km MTL-TO, à l'est de Brockville
 KM_BROCKVILLE_OTT = 110.0
@@ -103,7 +102,7 @@ def profil(t: str, limite_kmh: np.ndarray, inverse: bool = False) -> tuple[np.nd
 
 
 def temps_avec_marge(t: str, limite_kmh: np.ndarray) -> float:
-    return (profil(t, limite_kmh)[1] + len(m21.INTERMEDIATE_STOPS[t]) * m21.DWELL_MIN) * MARGE
+    return (profil(t, limite_kmh)[1] + len(m21.INTERMEDIATE_STOPS[t]) * m21.DWELL_MIN) * marge_de(t)
 
 
 def vitesses_reelles(d: pd.DataFrame, plafond: float) -> pd.Series:
@@ -205,7 +204,7 @@ def main() -> None:
     t_ctrl = temps_avec_marge("MTL-TO", np.minimum(GRILLES["MTL-TO"][1], PLAFOND_PUBLIE))
     pub = pd.read_csv(DELIVERABLES / "temps_scenario_2.csv", sep=";")
     ref = float(pub[(pub.troncon == "MTL-TO") & (pub.scenario == "pendulaire")
-                    & (pub.bande_kmh == int(PLAFOND_PUBLIE))].tbase_sans_marge_min.iloc[0]) * MARGE
+                    & (pub.bande_kmh == int(PLAFOND_PUBLIE))].tbase_sans_marge_min.iloc[0]) * marge_de("MTL-TO")
     assert abs(t_ctrl - ref) < 0.3, (t_ctrl, ref)
 
     o = troncons_rapides(s)

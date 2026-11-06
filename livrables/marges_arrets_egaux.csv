@@ -1,0 +1,5 @@
+﻿troncon;trajet;trains;combinaisons_arrets;arrets_notre_train;arrets_train_median;horaire_median_min;base_tous_arrets_min;marge_tous_arrets_pct;marge_arrets_egaux_pct;marge_arrets_egaux_min;marge_retenue_pct;notre_train_publie_min;gain_publie_min;gain_train_par_train_min;gain_tendance_horaire_min;gain_trains_complets_min;trains_complets;minutes_par_arret_horaire;minutes_par_arret_modele
+MTL-QC;Montréal-Québec;14;3;5;4.5;202.5;169.8;19.3;19.3;32.7;10.0;146.2;56.3;57.9;59.7;56.3;12;3.5;3.6
+MTL-Ott;Montréal-Ottawa;14;4;4;3.0;122.0;116.1;5.1;7.6;8.5;7.6;97.0;25.0;28.1;27.1;27.0;11;2.5;3.4
+Ott-TO;Ottawa-Toronto;21;19;12;7.0;275.0;246.5;11.6;18.9;45.9;10.0;235.1;39.9;60.2;59.4;46.9;4;3.3;3.7
+MTL-TO;Montréal-Toronto;12;8;8;6.0;318.0;279.4;13.8;15.9;43.7;10.0;254.3;63.7;71.2;72.5;72.7;5;6.1;4.0

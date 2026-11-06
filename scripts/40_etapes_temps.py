@@ -11,7 +11,7 @@ rapport et par le visualiseur :
   livrables/sensibilites_traction.csv : l'effet, en minutes marge comprise, de chaque
       hypothèse de traction.
 
-Configuration publiée : pendulaire, plafond publié, blocs urbains libres, marge 10 %.
+Configuration publiée : pendulaire, plafond publié, blocs urbains libres, marge du trajet.
 """
 from __future__ import annotations
 
@@ -26,7 +26,7 @@ import pandas as pd
 
 os.environ["BLOCS_URBAINS"] = "libres"
 sys.path.insert(0, str(Path(__file__).parent))
-from scenarios import PLAFOND_PUBLIE              # noqa: E402
+from scenarios import PLAFOND_PUBLIE, marge_de    # noqa: E402
 from utils import DELIVERABLES                    # noqa: E402
 
 _spec = importlib.util.spec_from_file_location("m21", Path(__file__).parent / "21_tbase_bande.py")
@@ -34,7 +34,6 @@ m21 = importlib.util.module_from_spec(_spec)
 sys.modules["m21"] = m21
 _spec.loader.exec_module(m21)
 
-MARGE = 1.10
 SCENARIO, BANDE = "S2", float(PLAFOND_PUBLIE)
 LIBELLES = {"MTL-QC": "Montréal-Québec", "MTL-Ott": "Montréal-Ottawa",
             "Ott-TO": "Ottawa-Toronto", "MTL-TO": "Montréal-Toronto"}
@@ -75,7 +74,7 @@ def temps(t: str, rame=R, bande=BANDE, scen=SCENARIO, arrets=None, insuffisance_
         segs = [dict(p, **{f"vmax_{scen}_kmh": p[f"vmax_{scen}_kmh"] * f}) for p in segs]
     inter = m21._dynamic_minutes(t, m21._free_pieces(t, segs, scen, bande), rame)
     immob = sum((arrets or {}).get(n, m21.DWELL_MIN) for n, _ in m21.INTERMEDIATE_STOPS[t])
-    return (inter + immob) * MARGE
+    return (inter + immob) * marge_de(t)
 
 
 def etapes() -> pd.DataFrame:
@@ -93,7 +92,7 @@ def etapes() -> pd.DataFrame:
                      "plafond_min": round(fluide(t, plafond), 1),
                      "immobilisation_en_gare_min": round(fluide(t, plafond) + immobile, 1),
                      "vrai_train_min": round(reel, 1),
-                     "marge_10_pct_min": round(reel * MARGE, 1)})
+                     "avec_marge_min": round(reel * marge_de(t), 1)})
     return pd.DataFrame(rows)
 
 

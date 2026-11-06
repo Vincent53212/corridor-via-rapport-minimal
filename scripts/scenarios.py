@@ -200,6 +200,20 @@ FENETRE_BIAIS_M = 900.0         # longueur de la fenêtre d'ajustement (04)
 # reste, tronçon par tronçon (étape 41). Tout script qui publie un temps lit cette constante.
 PLAFOND_PUBLIE = 177
 
+# Marge d'exploitation (décision Vincent, 2026-11-06) : 10 %, mais jamais plus que ce que
+# l'horaire porte déjà. Un projet qui ajoute de la capacité n'a pas besoin de plus de coussin
+# qu'aujourd'hui. La marge actuelle se lit au trajet entier, à arrêts égaux, pas par section :
+# l'horaire concentre son coussin à certains endroits. L'étape 43 la mesure et arrête le
+# pipeline si cette table ne lui correspond plus.
+MARGE_NORMALE = 1.10
+MARGE_MESUREE = {"MTL-Ott": 1.076}
+
+
+def marge_de(troncon: str) -> float:
+    """Multiplicateur de marge d'un trajet. Tout script qui publie un temps passe par ici."""
+    return MARGE_MESUREE.get(troncon, MARGE_NORMALE)
+
+
 # ⚠⚠ COLLISION DE SIGLES — LIRE AVANT DE TOUCHER. Depuis le remodelage du
 # 24 août, le RAPPORT publie une échelle « scénario 1 / 2 / 3 » (paliers
 # d'AMÉNAGEMENT, voir PALIERS ci-dessous) qui n'a RIEN à voir avec les ids

@@ -5,11 +5,13 @@ finit par diverger du code. Ici, les valeurs sont lues là où elles vivent (cla
 Rame, scenarios.py, constantes des étapes, CSV de résultats) et écrites dans
 rapport.md entre les repères <!-- fiche:debut --> et <!-- fiche:fin -->.
 
-Trois garde-fous arrêtent le script :
+Quatre garde-fous arrêtent le script :
   - un fichier de scripts/ absent du tableau des scripts ;
   - un montant de la table des coûts absent du texte de la section 11 (les coûts
     vivent dans ce texte, pas dans le code) ;
-  - une accélération publiée à l'étape 5 de la ligne du temps qui ne correspond plus.
+  - une accélération publiée à l'étape 5 de la ligne du temps qui ne correspond plus ;
+  - une marge, un gain à arrêts égaux ou une sensibilité du mou urbain, écrits à la main dans
+    le corps du rapport, qui ne correspondent plus au calcul.
 
 À lancer après 41 et avant 29. Ne jamais écrire de sigle interne (S1, S2, S3) ici.
 """
@@ -26,8 +28,8 @@ import pandas as pd
 
 ICI = Path(__file__).resolve().parent
 sys.path.insert(0, str(ICI))
-from scenarios import (FACTEUR_CORRECTION_R, FENETRE_BIAIS_M, PLAFOND_PUBLIE,    # noqa: E402
-                       SCENARIOS)
+from scenarios import (FACTEUR_CORRECTION_R, FENETRE_BIAIS_M, MARGE_NORMALE,     # noqa: E402
+                       PLAFOND_PUBLIE, SCENARIOS, marge_de)
 from utils import DELIVERABLES, EFFECTIVE_GAUGE_MM, G_ACCEL, PROJECT_ROOT        # noqa: E402
 
 _spec = importlib.util.spec_from_file_location("m40", ICI / "40_etapes_temps.py")
@@ -117,7 +119,7 @@ def formules() -> str:
          ["Freinage", "`a = −ab`", "constant, de service"],
          ["Temps de roulement", "`T = Σ dx / v(x)`",
           f"pas de {fr(m21.DX_M)} m ; une passe d'accélération, puis une passe de freinage"],
-         ["Temps publié", "`(T + n·d) × 1,10`", "n : arrêts ; d : immobilisation par arrêt"],
+         ["Temps publié", "`(T + n·d) × marge`", "n : arrêts ; d : immobilisation par arrêt ; marge : 1,10, ou la marge actuelle si elle est plus basse"],
          ["Marge mesurée", "`(H − B) / B`",
           "H : médiane des horaires ; B : temps du train actuel, courbes et régime actuels, sans accélération"]],
         [18, 30, 52])
@@ -249,7 +251,9 @@ def exploitation() -> str:
         ["Autres plafonds calculés", " · ".join(str(b) for b in bandes if b not in (PLAFOND_PUBLIE,)) + " km/h",
          "Contre-hypothèses et sensibilités"],
         ["Immobilisation en gare", f"{fr(m21.DWELL_MIN)} min", "Médiane des horaires de VIA"],
-        ["Marge d'exploitation", f"{fr((m40.MARGE - 1) * 100)} %", "Sur le temps de roulement et les arrêts"],
+        ["Marge d'exploitation", f"{fr((MARGE_NORMALE - 1) * 100)} %", "Sur le temps de roulement et les arrêts"],
+        ["Marge de Montréal-Ottawa", f"{fr((marge_de('MTL-Ott') - 1) * 100, 1)} %",
+         "Sa marge actuelle à arrêts égaux, plus basse que 10 %"],
         ["Arrêt à Montréal, Québec-Toronto", f"{fr(constante('32_figure_gains.py', 'ARRET_MTL_MIN'))} min",
          "Hypothèse du trajet de bout en bout"],
         ["Fenêtre urbaine d'Ottawa", f"±{fr(m21.OTTAWA_WINDOW_KM)} km", "Hypothèse : aucune gare d'approche proche"],
@@ -263,14 +267,29 @@ def etapes() -> str:
     rangees = [[t, fr(e.loc[t, "distance_km"], 1), fr(e.loc[t, "n_arrets"]),
                 fr(e.loc[t, "vitesse_des_courbes_min"], 1), fr(e.loc[t, "plafond_min"], 1),
                 fr(e.loc[t, "immobilisation_en_gare_min"], 1), fr(e.loc[t, "vrai_train_min"], 1),
-                fr(e.loc[t, "marge_10_pct_min"], 1)] for t in TRAJETS]
+                fr(e.loc[t, "avec_marge_min"], 1)] for t in TRAJETS]
     t1 = table(["Trajet", "Distance (km)", "Arrêts", "Vitesse des courbes", "Avec plafond", "Avec arrêts",
                 "Vrai train", "Avec marge"], rangees)
     return ("## Le temps, étape par étape\n\nMinutes cumulées, selon les étapes de la section 2.\n\n" + t1)
 
 
+def arrets() -> str:
+    a = csv("marges_arrets_egaux.csv").set_index("trajet")
+    rangees = [[t, fr(a.loc[t, "trains"]), fr(a.loc[t, "combinaisons_arrets"]), fr(a.loc[t, "arrets_notre_train"]),
+                fr(a.loc[t, "arrets_train_median"], 1), fr(a.loc[t, "marge_arrets_egaux_pct"], 1),
+                fr(a.loc[t, "marge_retenue_pct"], 1), fr(a.loc[t, "minutes_par_arret_horaire"], 1),
+                fr(a.loc[t, "minutes_par_arret_modele"], 1)] for t in TRAJETS]
+    t1 = table(["Trajet", "Trains", "Combinaisons d'arrêts", "Arrêts · notre train", "Arrêts · train médian",
+                "Marge (%) · réelle", "Marge (%) · retenue", "Minutes par arrêt · horaire",
+                "Minutes par arrêt · modèle"], rangees)
+    return ("## Les arrêts et la marge réelle\n\nChaque train de l'horaire contre le train actuel simulé avec ses "
+            "propres arrêts, au régime actuel de 160 km/h. La marge retenue est de 10 %, ou la marge réelle si elle "
+            "est plus basse.\n\n" + t1)
+
+
 def zones() -> str:
-    g = csv("gains_urbains.csv").drop_duplicates("bloc")
+    # keep="last" : les lignes de Montréal-Toronto, à 10 %, comme la note et la section 12.
+    g = csv("gains_urbains.csv").drop_duplicates("bloc", keep="last")
     rangees = [[r.bloc.replace(" ↔ ", " à "), fr(r.longueur_km, 1), fr(r.minutes_gtfs, 1),
                 fr(r.profil_actuel_153_min, 1), fr(r.gain_cohabitation_min, 1),
                 fr(r.profil_pendulaire_plafond_min, 1)] for r in g.itertuples()]
@@ -350,7 +369,7 @@ def sensibilites() -> str:
     s = csv("sensibilites_traction.csv")
     rangees = [[r["cas"]] + [fr(r[f"{t}_ecart_min"], 1, signe=True) for t in TRAJETS] for _, r in s.iterrows()]
     t1 = table(["Cas testé", "Mtl-Qc", "Mtl-Ott", "Ott-To", "Mtl-To"], rangees, [60, 10, 10, 10, 10])
-    return ("## Les sensibilités\n\nÉcart en minutes avec le temps publié, marge de 10 % comprise. Chaque ligne change "
+    return ("## Les sensibilités\n\nÉcart en minutes avec le temps publié, marge comprise. Chaque ligne change "
             "une seule chose, sauf les deux cas combinés.\n\n::: {.coupable}\n\n" + t1 + "\n\n:::")
 
 
@@ -393,6 +412,7 @@ SCRIPTS = {
         ("alignments.py", "Schéma commun des tracés."),
         ("33_courbes_doublees.py", "Sensibilité : courbes rectifiées aux sections doublées. Hors rapport."),
         ("21_tbase_bande.py", "Moteur : formule de traction, profil de vitesse et temps par trajet et par plafond."),
+        ("43_marges_arrets_egaux.py", "Compare chaque train de l'horaire à un train qui fait les mêmes arrêts : marge réelle et gain."),
         ("22_marges_2x2.py", "Mesure la marge de chaque paire de gares selon le nombre de voies et le propriétaire."),
         ("38_train_express.py", "Calcule le train express, sans arrêt intermédiaire."),
         ("36_gains_urbains.py", "Décompose les zones urbaines : courbes, signalisation et mou urbain."),
@@ -433,12 +453,45 @@ def scripts() -> str:
             "Node 24 avec Puppeteer pour le PDF, et pandoc 3 pour le texte et les citations.\n:::")
 
 
+def minutes(cellule: str) -> float:
+    """« 1 h 12 » ou « 58 min » en minutes."""
+    m = re.fullmatch(r"(\d+) h (\d+)", cellule.strip())
+    return int(m.group(1)) * 60 + int(m.group(2)) if m else float(cellule.split()[0])
+
+
+def verifier_texte() -> None:
+    """Les chiffres écrits à la main dans le corps du rapport doivent rester ceux du calcul."""
+    texte = RAPPORT.read_text(encoding="utf-8").split(DEBUT)[0]
+    a = csv("marges_arrets_egaux.csv").set_index("trajet")
+    for t in TRAJETS:
+        # 7 colonnes, et une dernière cellule en minutes : la table des ouvrages a aussi 7 colonnes.
+        lignes = [l for l in texte.splitlines() if l.startswith(f"| {t} | ") and l.count("|") == 8
+                  and re.search(r"\| (\d+ min|\d+ h \d+) \|$", l.strip())]
+        if len(lignes) != 1:
+            sys.exit(f"table des gains à arrêts égaux : ligne introuvable pour {t}")
+        c = [x.strip() for x in lignes[0].strip("|").split("|")]
+        for cellule, col in zip(c[3:], ("gain_publie_min", "gain_train_par_train_min",
+                                        "gain_tendance_horaire_min", "gain_trains_complets_min")):
+            if abs(minutes(cellule) - a.loc[t, col]) > 0.6:
+                sys.exit(f"{t}, {col} : {cellule} dans le texte, {a.loc[t, col]} au calcul")
+        marge = f"{round(a.loc[t, 'marge_arrets_egaux_pct'])} % ("
+        if not any(l.startswith(f"| {t} | ") and marge in l for l in texte.splitlines()):
+            sys.exit(f"{t} : marge réelle {marge} absente de la section 3")
+    d = csv("decomposition_gains.csv")
+    val = lambda t, p: float(d[(d.trajet == t) & (d.poste == p)].minutes.iloc[0])   # noqa: E731
+    for t in ("Québec-Montréal", "Montréal-Ottawa", "Montréal-Toronto"):
+        m = round(val(t, "temps_scenario_2_avec_marge") + val(t, "info_cohabitation_mou_urbain"))
+        if f"{m // 60} h {m % 60:02d}" not in texte:
+            sys.exit(f"sensibilité du mou urbain : {t} donnerait {m // 60} h {m % 60:02d}")
+
+
 def main() -> None:
+    verifier_texte()
     corps = "\n\n".join([
         "Cette fiche regroupe les paramètres du modèle, pour les experts qui voudront les vérifier ou refaire "
         "les calculs. Le code écrit lui-même ces tableaux à chaque compilation du rapport, sauf les coûts, repris "
         "de la section 11, et les versions des données. Ils montrent donc les valeurs réellement utilisées.",
-        formules(), trains(), courbes(), mesure(), exploitation(), etapes(), zones(), marges(), passages(),
+        formules(), trains(), courbes(), mesure(), exploitation(), etapes(), arrets(), zones(), marges(), passages(),
         couts(), sensibilites(), donnees(), scripts()])
     bloc = f"{DEBUT}\n\n::: {{.fiche}}\n\n{corps}\n\n:::\n\n{FIN}"
 
