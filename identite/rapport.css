@@ -135,6 +135,9 @@ a.toc-l{ color:inherit; border-bottom:none; }
 /* Chaque section de premier niveau ouvre une page. La première ne le fait pas :
    elle suit le sommaire, qui a déjà provoqué la coupure. */
 section.level1{ break-before:page; }
+/* Section courte qui suit une fin de section : elle commence sur la même page,
+   plutôt que de laisser une page presque vide (`{.suite}` dans rapport.md). */
+section.level1.suite{ break-before:auto; margin-top:30px; }
 .sec{
   display:flex; align-items:baseline; gap:14px;
   border-bottom:2px solid var(--encre); padding-bottom:8px; margin:0 0 18px;

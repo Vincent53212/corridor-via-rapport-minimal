@@ -14,7 +14,7 @@ et la même géométrie publiée que les scénarios :
              gare hors bloc pour Montréal : bloc_minutes_figees du 21)
     A1     = profil train actuel, plafond 153 km/h (classe actuelle)
     A2     = profil train pendulaire, plafond 153
-    A2p    = profil train pendulaire, plafond 201
+    A2p    = profil train pendulaire, plafond publié
 
     cohabitation urbaine = G − A1 × 1,10        (borné à ≥ 0)
     courbes (pendulaire)  = (A1 − A2) × 1,10
@@ -36,10 +36,11 @@ from pathlib import Path
 
 sys.path.insert(0, str(Path(__file__).parent))
 m21 = importlib.import_module("21_tbase_bande")
+from scenarios import PLAFOND_PUBLIE
 from utils import DELIVERABLES
 
 MARGE = 1.10
-P_CLASSE, P_PLAFOND = 153, 201
+P_CLASSE, P_PLAFOND = 153, PLAFOND_PUBLIE
 
 
 def bloc_minutes(t, segs, km0, km1, scenario, bande):
@@ -86,7 +87,7 @@ def main():
                      "minutes_gtfs": round(G, 1),
                      "profil_actuel_153_min": round(A1, 1),
                      "profil_pendulaire_153_min": round(A2, 1),
-                     "profil_pendulaire_201_min": round(A2p, 1),
+                     "profil_pendulaire_plafond_min": round(A2p, 1),
                      "gain_total_min": round(gain, 1),
                      "gain_cohabitation_min": round(cohab, 1),
                      "gain_courbes_min": round(courbes, 1),
@@ -101,7 +102,7 @@ def main():
     for r in rows:
         print(f"{r['troncon']:<8} {r['bloc']:<50} {r['minutes_gtfs']:>5} "
               f"{r['profil_actuel_153_min']:>5} {r['profil_pendulaire_153_min']:>5} "
-              f"{r['profil_pendulaire_201_min']:>5} | {r['gain_total_min']:>5} "
+              f"{r['profil_pendulaire_plafond_min']:>5} | {r['gain_total_min']:>5} "
               f"{r['gain_cohabitation_min']:>5} {r['gain_courbes_min']:>5} "
               f"{r['gain_signalisation_pn_min']:>5}")
     print(f"Écrit {out.name}")

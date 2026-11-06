@@ -193,6 +193,13 @@ FENETRE_BIAIS_M = 900.0         # longueur de la fenêtre d'ajustement (04)
 # l'écriture : le lecteur d'un CSV livré ne doit jamais rencontrer un sigle que
 # le rapport n'utilise plus. Un seul endroit pour la traduction : ici.
 #
+# Plafond du scénario publié (décision Vincent, 2026-11-06). Le train ne roule pas plus
+# vite que 177 km/h (110 mi/h) tant que des passages à niveau demeurent : au Canada,
+# DORS/2014-275 art. 29 interdit d'en construire au-delà, et aucun service nord-américain
+# trouvé ne franchit des passages à 201 km/h. Le programme complémentaire rachète le
+# reste, tronçon par tronçon (étape 41). Tout script qui publie un temps lit cette constante.
+PLAFOND_PUBLIE = 177
+
 # ⚠⚠ COLLISION DE SIGLES — LIRE AVANT DE TOUCHER. Depuis le remodelage du
 # 24 août, le RAPPORT publie une échelle « scénario 1 / 2 / 3 » (paliers
 # d'AMÉNAGEMENT, voir PALIERS ci-dessous) qui n'a RIEN à voir avec les ids
@@ -202,7 +209,7 @@ FENETRE_BIAIS_M = 900.0         # longueur de la fenêtre d'ajustement (04)
 # sigle interne dans un livrable.
 PUBLIC_IDS = {"S1": "base", "S2": "pendulaire", "S3": "reference-interne"}
 PUBLIC_LABELS = {"base": "Scénario de base (voie et train actuels)",
-                 "pendulaire": "Plafond géométrique pendulaire (moteur des scénarios 1 à 3, plafond 201)",
+                 "pendulaire": "Plafond géométrique pendulaire (moteur des scénarios 1 à 3, plafond 177)",
                  "reference-interne": "Référence interne (pendulaire 270 mm, hors rapport)"}
 
 # Paliers d'aménagement PUBLIÉS (l'échelle du rapport, remodelage du 24 août).

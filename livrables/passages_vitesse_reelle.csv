@@ -1,0 +1,925 @@
+﻿tc_number;troncon_principal;km;localisation;acces;protection;bande_pendulaire;vitesse_reelle_201_kmh;vitesse_reelle_177_kmh;depasserait_177;depasse_153_au_plafond
+14523;Ott-TO;43.36;Montague Boundary Rd;Public;Active - FLBG;178-201;201.0;177.0;True;True
+300161;Ott-TO;121.27;-;Private;Passive;178-201;166.3;166.3;False;True
+45935;MTL-Ott;121.4;-;Private;Passive;154-177;145.3;145.3;False;False
+52296;MTL-Ott;75.71;Farm Crossing;Private;Passive;178-201;149.3;149.3;False;False
+7998;Ott-TO;110.03;Perth St;Public;Active - FLBG;178-201;13.8;13.8;False;False
+142581;MTL-QC;34.63;Private;Private;Passive;178-201;104.7;104.7;False;False
+140736;MTL-QC;94.39;Private;Private;Passive;178-201;145.0;145.0;False;False
+7949;MTL-TO;108.53;Tenth St;Public;Active - FLBG;178-201;147.1;147.1;False;False
+52298;MTL-Ott;79.19;Farm Crossing;Private;Passive;178-201;169.6;169.6;False;True
+19660;Ott-TO;97.13;Fairfield Rd;Public;Active - FLBG;178-201;189.0;177.0;True;True
+51408;MTL-TO;59.0;Ferme;Private;Passive;154-177;170.6;170.6;False;True
+35919;Ott-TO;97.13;Laurier Blvd;Public;Active - FLBG;178-201;189.0;177.0;True;True
+45905;MTL-Ott;87.16;-;Private;Passive;154-177;160.2;160.2;False;True
+140744;MTL-QC;80.87;Private;Private;Passive;178-201;201.0;177.0;True;True
+4823;MTL-QC;132.42;Chemin Du 10 Rang;Public;Active - FLBG;178-201;162.0;162.0;False;True
+45686;MTL-TO;192.49;-;Private;Passive;178-201;194.4;177.0;True;True
+45884;MTL-Ott;87.16;-;Private;Passive;154-177;160.2;160.2;False;True
+8147;MTL-TO;378.16;2nd Dug Hill Rd (Trenton);Public;Active - FLBG;154-177;154.7;154.7;False;True
+45873;MTL-Ott;83.34;-;Private;Passive;≤153;123.7;123.7;False;False
+51934;Ott-TO;23.4;Farm Crossing;Private;Other;178-201;119.8;119.8;False;False
+36123;MTL-QC;251.48;Ch. Plage J.-Cartier;Public;Active - FLBG;178-201;70.2;70.2;False;False
+4815;MTL-QC;152.06;Chemin Des Cyprès;Public;Active - FLBG;178-201;78.5;78.5;False;False
+8069;MTL-TO;306.17;County Rd  7;Public;Active - FLBG;178-201;199.4;177.0;True;True
+52305;MTL-Ott;81.45;Farm Crossing;Private;Passive;≤153;145.7;145.7;False;False
+7991;MTL-TO;201.98;Oxford Ave;Public;Active - FLBG;≤153;118.1;118.1;False;False
+200;MTL-Ott;87.16;MacPhee Rd;Public;Active - FLBG;154-177;160.2;160.2;False;True
+45885;MTL-Ott;87.16;-;Private;Passive;154-177;160.2;160.2;False;True
+140732;MTL-QC;107.62;Private;Private;Passive;178-201;170.4;170.4;False;True
+52293;MTL-Ott;75.71;Farm Crossing;Private;Passive;178-201;149.3;149.3;False;False
+778613;MTL-Ott;140.26;Maria (Emergency Access road);Public;Active - FLBG;≤153;111.2;111.2;False;False
+45673;MTL-TO;174.21;-;Private;Passive;178-201;201.0;177.0;True;True
+45728;MTL-TO;259.23;-;Private;Passive;178-201;197.7;177.0;True;True
+45810;MTL-TO;173.68;-;Private;Passive;178-201;201.0;177.0;True;True
+45785;MTL-TO;388.28;Farm;Private;Passive;178-201;201.0;177.0;True;True
+45729;MTL-TO;259.23;-;Private;Passive;178-201;197.7;177.0;True;True
+140719;MTL-QC;121.71;Private;Private;Passive;178-201;106.5;106.5;False;False
+19654;Ott-TO;88.77;Rock Springs Rd;Public;Active - FLBG;178-201;201.0;177.0;True;True
+8168;MTL-TO;388.28;Durham St;Public;Active - FLBG;178-201;201.0;177.0;True;True
+237;MTL-Ott;143.84;Dunning Rd;Public;Active - FLBG;154-177;160.2;160.2;False;True
+140670;MTL-QC;152.06;Private;Private;Passive;178-201;78.5;78.5;False;False
+19639;Ott-TO;66.08;Lorne St;Public;Active - FLBG;≤153;72.7;72.7;False;False
+52306;MTL-Ott;82.05;Farm Crossing;Private;Passive;≤153;145.7;145.7;False;False
+300155;MTL-TO;215.43;-;Private;Passive;178-201;167.9;167.9;False;True
+52304;MTL-Ott;80.48;Farm Crossing;Private;Active - FLB;154-177;174.8;174.8;False;True
+45928;MTL-Ott;121.4;-;Private;Passive;154-177;145.3;145.3;False;False
+190;MTL-Ott;63.8;Montee Chenier;Public;Active - FLBG;178-201;113.0;113.0;False;False
+140679;MTL-QC;132.42;Private;Private;Passive;178-201;162.0;162.0;False;True
+140714;MTL-QC;121.71;Private;Private;Passive;178-201;106.5;106.5;False;False
+50848;MTL-Ott;75.71;Farm Crossing;Private;Other;178-201;149.3;149.3;False;False
+4810;MTL-QC;161.62;Chemin Du Domaine;Public;Active - FLBG;178-201;97.0;97.0;False;False
+52394;MTL-QC;34.63;-;Private;Passive;178-201;104.7;104.7;False;False
+140662;MTL-QC;170.87;Private;Private;Passive;154-177;88.2;88.2;False;False
+19642;Ott-TO;67.8;Eric Hutchinson Rd;Public;Active - FLBG;154-177;110.8;110.8;False;False
+4828;MTL-QC;129.5;Rue Beliveau;Public;Active - FLBG;≤153;141.6;141.6;False;False
+45731;MTL-TO;259.23;Farm Hose & Fields;Private;Passive;178-201;197.7;177.0;True;True
+52299;MTL-Ott;79.19;Farm Crossing;Private;Passive;178-201;169.6;169.6;False;True
+140638;MTL-QC;201.35;Private;Private;Passive;≤153;145.6;145.6;False;False
+142610;MTL-QC;20.19;Private;Private;Passive;178-201;153.8;153.8;False;True
+198;MTL-Ott;87.16;Rolland Masssie Rd;Public;Active - FLBG;154-177;160.2;160.2;False;True
+45939;MTL-Ott;140.85;-;Private;Passive;178-201;112.9;112.9;False;False
+140680;MTL-QC;132.42;Private;Private;Passive;178-201;162.0;162.0;False;True
+45901;MTL-Ott;87.16;-;Private;Passive;154-177;160.2;160.2;False;True
+8331;Ott-TO;421.81;Poplar Rd;Public;Active - FLBG;178-201;131.1;131.1;False;False
+7919;MTL-Ott;59.02;Riviere Delisle Sud;Public;Active - FLBG;154-177;168.6;168.6;False;True
+4857;MTL-QC;69.45;Rang Brodeur;Public;Active - FLBG;178-201;116.6;116.6;False;False
+14512;Ott-TO;19.54;Moodie Dr;Public;Active - FLBG;178-201;125.1;125.1;False;False
+52295;MTL-Ott;75.71;Farm Crossing;Private;Passive;178-201;149.3;149.3;False;False
+45929;MTL-Ott;121.4;-;Private;Passive;154-177;145.3;145.3;False;False
+4831;MTL-QC;126.24;Rang Des Martin;Public;Active - FLBG;178-201;104.6;104.6;False;False
+51759;Ott-TO;10.04;Transit Way;Private;Active - FLBG;178-201;113.4;113.4;False;False
+8158;Ott-TO;294.1;Ontario St (Reg)  (Bright;Public;Active - FLBG;178-201;201.0;177.0;True;True
+45683;MTL-TO;187.5;-;Private;Passive;178-201;201.0;177.0;True;True
+45927;MTL-Ott;121.4;-;Private;Passive;154-177;145.3;145.3;False;False
+205;MTL-Ott;102.69;Kenyon  Concession Road 4;Public;Active - FLBG;≤153;141.4;141.4;False;False
+253;MTL-Ott;143.84;Rd 43 (Ramsayville Road);Public;Active - FLBG;154-177;160.2;160.2;False;True
+300156;Ott-TO;121.27;-;Private;Passive;178-201;166.3;166.3;False;True
+8169;MTL-TO;403.37;Victoria St (Colborne);Public;Active - FLBG;178-201;201.0;177.0;True;True
+240;MTL-Ott;143.84;Buckland Rd;Public;Active - FLBG;154-177;160.2;160.2;False;True
+52300;MTL-Ott;79.19;Farm Crossing;Private;Passive;178-201;169.6;169.6;False;True
+4805;MTL-QC;175.01;Rue Principale;Public;Active - FLBG;154-177;108.4;108.4;False;False
+7923;MTL-TO;59.8;Rue Principale;Public;Active - FLBG;178-201;171.7;171.7;False;True
+8141;MTL-TO;370.75;Lester Rd;Public;Active - FLBG;178-201;200.1;177.0;True;True
+45906;MTL-Ott;99.84;-;Private;Passive;154-177;80.3;80.3;False;False
+7929;MTL-TO;59.8;1st Line Road;Public;Active - FLBG;178-201;171.7;171.7;False;True
+8248;Ott-TO;384.94;Parkway Rd;Public;Active - FLBG;≤153;143.5;143.5;False;False
+51502;MTL-QC;132.42;Ferme;Private;Passive;178-201;162.0;162.0;False;True
+214;MTL-Ott;117.27;Cumming Rd;Public;Active - FLBG;154-177;164.2;164.2;False;True
+4860;MTL-QC;69.45;Chemin 2E Rang Est;Public;Active - FLBG;178-201;116.6;116.6;False;False
+140643;MTL-QC;193.62;Private;Private;Passive;178-201;143.6;143.6;False;False
+7979;MTL-TO;177.79;Frederick St;Public;Active - FLBG;178-201;201.0;177.0;True;True
+140696;MTL-QC;132.42;Private;Private;Passive;178-201;162.0;162.0;False;True
+8065;Ott-TO;198.78;County Rd 6;Public;Active - FLBG;154-177;142.4;142.4;False;False
+50846;MTL-Ott;75.71;Farm Crossing;Private;Passive;178-201;149.3;149.3;False;False
+45691;MTL-TO;198.58;-;Private;Passive;178-201;201.0;177.0;True;True
+8149;MTL-TO;378.78;Morningstar Road;Public;Active - FLBG;178-201;156.0;156.0;False;True
+45907;MTL-Ott;99.84;-;Private;Passive;154-177;80.3;80.3;False;False
+142591;MTL-QC;34.63;Private;Private;Passive;178-201;104.7;104.7;False;False
+45735;MTL-TO;309.22;Private Drive;Private;Active - FLB;≤153;139.4;139.4;False;False
+45719;MTL-TO;190.83;-;Private;Passive;178-201;200.6;177.0;True;True
+8220;Ott-TO;356.48;East Townline Rd;Public;Active - FLBG;178-201;167.4;167.4;False;True
+19656;Ott-TO;90.22;Jellyby Rd;Public;Active - FLBG;178-201;199.9;177.0;True;True
+52301;MTL-Ott;79.55;Farm Crossing;Private;Passive;178-201;171.1;171.1;False;True
+45908;MTL-Ott;99.84;-;Private;Passive;154-177;80.3;80.3;False;False
+45740;Ott-TO;223.07;Farm;Private;Passive;≤153;141.7;141.7;False;False
+142605;MTL-QC;34.63;Private;Private;Passive;178-201;104.7;104.7;False;False
+7907;MTL-Ott;36.75;Perrot Blvd;Public;Active - FLBG;178-201;142.8;142.8;False;False
+19638;Ott-TO;66.08;Chambers St;Public;Active - FLBG;≤153;72.7;72.7;False;False
+52302;MTL-Ott;79.55;Farm Crossing;Private;Passive;178-201;171.1;171.1;False;True
+51662;MTL-Ott;87.16;Farm Crossing;Private;Other;154-177;160.2;160.2;False;True
+140765;MTL-QC;58.44;Private;Private;Passive;178-201;164.8;164.8;False;True
+45923;MTL-Ott;121.17;-;Private;Passive;≤153;144.3;144.3;False;False
+8155;Ott-TO;284.6;Lawson Settlement Rd;Public;Active - FLBG;178-201;156.5;156.5;False;True
+140726;MTL-QC;112.32;Private;Private;Passive;178-201;141.6;141.6;False;False
+50118;MTL-QC;132.42;Passage De Ferme;Private;Passive;178-201;162.0;162.0;False;True
+194;MTL-Ott;79.55;Montee De La Station (Route 425);Public;Active - FLBG;178-201;171.1;171.1;False;True
+140616;MTL-QC;201.75;Private;Private;Passive;154-177;150.0;150.0;False;False
+140667;MTL-QC;152.06;Private;Private;Passive;178-201;78.5;78.5;False;False
+45872;MTL-Ott;82.75;-;Private;Other;≤153;142.5;142.5;False;False
+140614;MTL-QC;201.75;Private;Private;Passive;154-177;150.0;150.0;False;False
+244;MTL-Ott;143.84;Sabourin Rd;Public;Active - FLBG;154-177;160.2;160.2;False;True
+8003;MTL-TO;221.84;County Rd  5;Public;Active - FLBG;178-201;201.0;177.0;True;True
+140760;MTL-QC;80.87;Private;Private;Passive;178-201;201.0;177.0;True;True
+45716;Ott-TO;160.49;-;Private;Active - FLB;154-177;153.9;153.9;False;True
+142571;MTL-QC;34.63;Private;Private;Passive;178-201;104.7;104.7;False;False
+142574;MTL-QC;34.63;Private;Private;Passive;178-201;104.7;104.7;False;False
+45756;MTL-TO;335.82;-;Private;Active - FLB;178-201;144.0;144.0;False;False
+45693;MTL-TO;199.7;-;Private;Passive;178-201;201.0;177.0;True;True
+52294;MTL-Ott;75.71;Farm Crossing;Private;Passive;178-201;149.3;149.3;False;False
+52502;MTL-Ott;63.8;Farm;Private;Passive;178-201;113.0;113.0;False;False
+52303;MTL-Ott;79.55;Farm Crossing;Private;Passive;178-201;171.1;171.1;False;True
+7970;MTL-TO;160.51;Brinston Road (C Rd 16);Public;Active - FLBG;178-201;201.0;177.0;True;True
+251;MTL-Ott;143.84;Farmers Way;Public;Active - FLBG;154-177;160.2;160.2;False;True
+300162;Ott-TO;119.27;-;Private;Active - FLB;178-201;156.7;156.7;False;True
+140654;MTL-QC;175.01;Private;Private;Passive;154-177;108.4;108.4;False;False
+7935;MTL-TO;97.22;Summerstown Rd (Cnty 27);Public;Active - FLBG;178-201;201.0;177.0;True;True
+14514;Ott-TO;23.4;Twin Elm Rd;Public;Active - FLBG;178-201;119.8;119.8;False;False
+142582;MTL-QC;34.63;Private;Private;Passive;178-201;104.7;104.7;False;False
+51497;MTL-QC;149.55;Ferme;Private;Passive;178-201;148.9;148.9;False;False
+50849;MTL-Ott;75.71;Farm Crossing;Private;Other;178-201;149.3;149.3;False;False
+8170;MTL-TO;403.37;Ontario St (Cnty 31) (Col;Public;Active - FLBG;178-201;201.0;177.0;True;True
+52289;MTL-Ott;75.71;Farm Crossing;Private;Passive;178-201;149.3;149.3;False;False
+140663;MTL-QC;170.87;Private;Private;Passive;154-177;88.2;88.2;False;False
+8028;MTL-TO;259.23;Findlay Station Rd;Public;Active - FLBG;178-201;197.7;177.0;True;True
+140713;MTL-QC;121.71;Private;Private;Passive;178-201;106.5;106.5;False;False
+45763;Ott-TO;252.89;-;Private;Active - FLB;178-201;153.7;153.7;False;True
+19658;Ott-TO;97.13;Consession 7;Public;Active - FLBG;178-201;189.0;177.0;True;True
+140618;MTL-QC;201.75;Private;Private;Passive;154-177;150.0;150.0;False;False
+45652;MTL-TO;59.8;-;Private;Passive;178-201;171.7;171.7;False;True
+141139;MTL-TO;59.8;Private;Private;Passive;178-201;171.7;171.7;False;True
+140624;MTL-QC;201.75;Private;Private;Passive;154-177;150.0;150.0;False;False
+8089;Ott-TO;234.18;Olivers Side Rd;Public;Active - FLBG;178-201;175.9;175.9;False;True
+8001;Ott-TO;114.67;Hallecks Rd;Public;Active - FLBG;178-201;170.4;170.4;False;True
+7939;MTL-TO;103.63;Purcell Rd;Public;Active - FLBG;≤153;142.4;142.4;False;False
+45953;MTL-Ott;143.84;-;Private;Passive;154-177;160.2;160.2;False;True
+45900;MTL-Ott;87.16;-;Private;Passive;154-177;160.2;160.2;False;True
+51937;Ott-TO;10.04;Farm Crossing;Private;Passive;178-201;113.4;113.4;False;False
+50843;MTL-Ott;75.71;Farm Crossing;Private;Passive;178-201;149.3;149.3;False;False
+300154;MTL-TO;215.43;-;Private;Passive;178-201;167.9;167.9;False;True
+4835;MTL-QC;116.22;Chemin Du 10E Rang;Public;Active - FLBG;154-177;143.7;143.7;False;False
+4813;MTL-QC;158.2;Chemin Des Jardins;Public;Active - FLBG;154-177;121.7;121.7;False;False
+45670;MTL-TO;174.21;-;Private;Passive;178-201;201.0;177.0;True;True
+45750;Ott-TO;241.67;Farm Crossing;Private;Active - FLB;178-201;144.1;144.1;False;False
+8071;Ott-TO;215.72;Townline Rd;Public;Active - FLBG;178-201;140.7;140.7;False;False
+45909;MTL-Ott;99.84;-;Private;Passive;154-177;80.3;80.3;False;False
+45891;MTL-Ott;87.16;-;Private;Passive;154-177;160.2;160.2;False;True
+50701;MTL-QC;20.19;Ferme;Private;Passive;178-201;153.8;153.8;False;True
+778976;MTL-TO;59.8;Ferme;Private;Passive;178-201;171.7;171.7;False;True
+140703;MTL-QC;132.42;Private;Private;Passive;178-201;162.0;162.0;False;True
+51495;MTL-QC;149.93;Ferme;Private;Passive;≤153;127.8;127.8;False;False
+140660;MTL-QC;175.01;Private;Private;Passive;154-177;108.4;108.4;False;False
+45926;MTL-Ott;121.4;-;Private;Passive;154-177;145.3;145.3;False;False
+197;MTL-Ott;87.16;Pitt St - Cnty 23;Public;Active - FLBG;154-177;160.2;160.2;False;True
+200739;MTL-QC;264.83;Passage Pieton/Velo;Public;Active - FLBG;178-201;141.9;141.9;False;False
+142592;MTL-QC;34.63;Private;Private;Passive;178-201;104.7;104.7;False;False
+140658;MTL-QC;175.01;Private;Private;Passive;154-177;108.4;108.4;False;False
+140715;MTL-QC;121.71;Private;Private;Passive;178-201;106.5;106.5;False;False
+45794;MTL-TO;403.37;-;Private;Active - FLB;178-201;201.0;177.0;True;True
+7918;MTL-TO;59.0;Rte Riviere Delisle;Public;Active - FLBG;154-177;170.6;170.6;False;True
+140672;MTL-QC;147.97;Private;Private;Passive;178-201;201.0;177.0;True;True
+45913;MTL-Ott;102.69;Farm Field To Field;Private;Active - FLB;≤153;141.4;141.4;False;False
+45744;MTL-TO;327.93;Farm Crossing;Private;Active - FLB;178-201;179.1;177.0;True;True
+140648;MTL-QC;175.01;Private;Private;Passive;154-177;108.4;108.4;False;False
+4841;MTL-QC;110.88;Chemin Du 7E Rang;Public;Active - FLBG;≤153;113.5;113.5;False;False
+140762;MTL-QC;66.89;Private;Private;Passive;178-201;146.2;146.2;False;False
+45888;MTL-Ott;87.16;-;Private;Passive;154-177;160.2;160.2;False;True
+52283;MTL-Ott;75.71;Farm Crossing;Private;Passive;178-201;149.3;149.3;False;False
+140751;MTL-QC;80.87;Private;Private;Passive;178-201;201.0;177.0;True;True
+52484;MTL-Ott;63.8;Farm;Private;Passive;178-201;113.0;113.0;False;False
+142580;MTL-QC;34.63;Private;Private;Passive;178-201;104.7;104.7;False;False
+45703;MTL-TO;245.26;-;Private;Passive;178-201;201.0;177.0;True;True
+45784;MTL-TO;388.28;Farm;Private;Passive;178-201;201.0;177.0;True;True
+300242;MTL-TO;220.67;-;Private;Passive;178-201;156.8;156.8;False;True
+50981;MTL-QC;147.97;Privé;Private;Passive;178-201;201.0;177.0;True;True
+45899;MTL-Ott;87.16;-;Private;Passive;154-177;160.2;160.2;False;True
+140724;MTL-QC;116.22;Private;Private;Passive;154-177;143.7;143.7;False;False
+140745;MTL-QC;80.87;Private;Private;Passive;178-201;201.0;177.0;True;True
+51757;Ott-TO;264.76;Farm Xng;Private;Passive;178-201;189.9;177.0;True;True
+45904;MTL-Ott;87.16;-;Private;Passive;154-177;160.2;160.2;False;True
+45787;Ott-TO;294.1;Farm;Private;Passive;178-201;201.0;177.0;True;True
+4854;MTL-QC;80.87;Chemin Duncan;Public;Active - FLBG;178-201;201.0;177.0;True;True
+45955;MTL-Ott;143.84;-;Private;Passive;154-177;160.2;160.2;False;True
+13971;MTL-QC;7.07;Rue St-Georges;Public;Active - FLBG;178-201;122.8;122.8;False;False
+52503;MTL-Ott;63.8;Farm;Private;Passive;178-201;113.0;113.0;False;False
+7931;MTL-TO;59.8;Fraser Rd;Public;Active - FLBG;178-201;171.7;171.7;False;True
+45882;MTL-Ott;87.16;-;Private;Passive;154-177;160.2;160.2;False;True
+14527;Ott-TO;49.09;Rosedale Rd;Public;Active - FLBG;178-201;186.7;177.0;True;True
+14522;Ott-TO;43.36;Dwyer Hill Rd;Public;Active - FLBG;178-201;201.0;177.0;True;True
+45799;Ott-TO;360.52;Farm Crossing;Private;Passive;178-201;178.7;177.0;True;True
+140749;MTL-QC;80.87;Private;Private;Passive;178-201;201.0;177.0;True;True
+140693;MTL-QC;132.42;Private;Private;Passive;178-201;162.0;162.0;False;True
+300164;MTL-TO;212.2;-;Private;Active - FLB;178-201;149.4;149.4;False;False
+140753;MTL-QC;80.87;Private;Private;Passive;178-201;201.0;177.0;True;True
+4817;MTL-QC;149.93;Rue Principale;Public;Active - FLBG;≤153;127.8;127.8;False;False
+4861;MTL-QC;69.45;Rang Ste-Charlotte;Public;Active - FLBG;178-201;116.6;116.6;False;False
+45931;MTL-Ott;121.4;-;Private;Passive;154-177;145.3;145.3;False;False
+8330;MTL-TO;516.0;Morningside Dr;Public;Active - FLBG;178-201;136.3;136.3;False;False
+45751;MTL-TO;335.82;Farm Crossing;Private;Active - FLB;178-201;144.0;144.0;False;False
+50847;MTL-Ott;75.71;Farm Crossing;Private;Other;178-201;149.3;149.3;False;False
+140678;MTL-QC;132.42;Private;Private;Passive;178-201;162.0;162.0;False;True
+8180;Ott-TO;330.51;D'Arcy St;Public;Active - FLBG;178-201;155.6;155.6;False;True
+7920;MTL-TO;59.8;Rue Sauve;Public;Active - FLBG;178-201;171.7;171.7;False;True
+777228;Ott-TO;336.72;Private Drive;Private;Passive;178-201;145.1;145.1;False;False
+45893;MTL-Ott;87.16;-;Private;Passive;154-177;160.2;160.2;False;True
+140729;MTL-QC;112.32;Private;Private;Passive;178-201;141.6;141.6;False;False
+779122;MTL-TO;59.8;-;Private;Passive;178-201;171.7;171.7;False;True
+45662;MTL-TO;139.16;-;Private;Passive;178-201;201.0;177.0;True;True
+779121;MTL-TO;59.8;-;Private;Passive;178-201;171.7;171.7;False;True
+300176;MTL-TO;221.84;Farm;Private;Passive;178-201;201.0;177.0;True;True
+8068;MTL-TO;306.17;Ham Rd;Public;Active - FLBG;178-201;199.4;177.0;True;True
+8026;MTL-TO;256.33;Boundry Rd;Public;Active - FLBG;178-201;200.1;177.0;True;True
+8154;Ott-TO;284.6;Stoney Point Rd;Public;Active - FLBG;178-201;156.5;156.5;False;True
+45760;Ott-TO;241.67;-;Private;Passive;178-201;144.1;144.1;False;False
+50941;MTL-Ott;63.8;Farm Crossing;Private;Other;178-201;113.0;113.0;False;False
+45878;MTL-Ott;84.15;-;Private;Passive;≤153;124.7;124.7;False;False
+140706;MTL-QC;131.88;Private;Private;Passive;154-177;161.0;161.0;False;True
+223;MTL-Ott;128.75;Rue Principale St (Casselman);Public;Active - FLBG;154-177;160.0;160.0;False;True
+52287;MTL-Ott;74.98;Farm Crossing;Private;Passive;≤153;148.8;148.8;False;False
+8173;MTL-TO;403.37;Wicklow Beach Rd;Public;Active - FLBG;178-201;201.0;177.0;True;True
+300175;MTL-TO;221.84;-;Private;Passive;178-201;201.0;177.0;True;True
+141138;MTL-TO;59.8;Private;Private;Passive;178-201;171.7;171.7;False;True
+45911;MTL-Ott;102.69;Farm Field To Field (limited use WS with walk);Private;Active - FLB;≤153;141.4;141.4;False;False
+140712;MTL-QC;121.71;Private;Private;Passive;178-201;106.5;106.5;False;False
+45932;MTL-Ott;121.4;-;Private;Passive;154-177;145.3;145.3;False;False
+142589;MTL-QC;34.63;Private;Private;Passive;178-201;104.7;104.7;False;False
+4812;MTL-QC;160.84;Chemin De L'Eglise;Public;Active - FLBG;≤153;96.2;96.2;False;False
+7969;MTL-TO;139.16;Flagg Rd;Public;Active - FLBG;178-201;201.0;177.0;True;True
+45811;MTL-TO;108.53;-;Private;Passive;178-201;147.1;147.1;False;False
+4834;MTL-QC;116.22;Route Mitchell;Public;Active - FLB;154-177;143.7;143.7;False;False
+300120;Ott-TO;255.11;-;Private;Passive;178-201;139.5;139.5;False;False
+7926;MTL-TO;59.8;4Th Line Rd;Public;Active - FLBG;178-201;171.7;171.7;False;True
+8325;Ott-TO;418.36;Chesterton Shores Rd;Public;Active - FLBG;178-201;162.0;162.0;False;True
+19643;Ott-TO;69.48;Mccaw Rd;Public;Active - FLBG;178-201;171.9;171.9;False;True
+200510;MTL-QC;264.83;Passage Pieton/Velo;Public;Active - FLBG;178-201;141.9;141.9;False;False
+140722;MTL-QC;121.0;Private;Private;Passive;≤153;105.8;105.8;False;False
+45676;MTL-TO;174.21;-;Private;Passive;178-201;201.0;177.0;True;True
+45674;MTL-TO;174.21;-;Private;Passive;178-201;201.0;177.0;True;True
+140687;MTL-QC;132.42;Private;Private;Passive;178-201;162.0;162.0;False;True
+142587;MTL-QC;34.63;Private;Private;Passive;178-201;104.7;104.7;False;False
+610826;MTL-TO;358.95;Kurt Kaiser'S Rd;Private;Passive;178-201;198.0;177.0;True;True
+51505;MTL-QC;132.42;Ferme;Private;Passive;178-201;162.0;162.0;False;True
+45892;MTL-Ott;87.16;-;Private;Passive;154-177;160.2;160.2;False;True
+19650;Ott-TO;75.3;Bates Rd;Public;Active - FLBG;178-201;201.0;177.0;True;True
+8235;Ott-TO;369.39;Cobbledick Rd;Public;Active - FLBG;178-201;156.7;156.7;False;True
+45924;MTL-Ott;121.4;-;Private;Passive;154-177;145.3;145.3;False;False
+4818;MTL-QC;132.42;Chemin Du 2E Rang;Public;Active - FLBG;178-201;162.0;162.0;False;True
+140664;MTL-QC;170.87;Private;Private;Passive;154-177;88.2;88.2;False;False
+19661;Ott-TO;97.13;Centennial Rd;Public;Active - FLBG;178-201;189.0;177.0;True;True
+45727;Ott-TO;165.06;Farm Xng;Private;Passive;178-201;197.9;177.0;True;True
+51504;MTL-QC;132.42;Ferme;Private;Passive;178-201;162.0;162.0;False;True
+14509;Ott-TO;10.04;Jockvale Rd;Public;Active - FLBG;178-201;113.4;113.4;False;False
+140718;MTL-QC;121.71;Private;Private;Passive;178-201;106.5;106.5;False;False
+235;MTL-Ott;143.84;St Thomas Rd;Public;Active - FLBG;154-177;160.2;160.2;False;True
+140685;MTL-QC;132.42;Private;Private;Passive;178-201;162.0;162.0;False;True
+140743;MTL-QC;80.87;Private;Private;Passive;178-201;201.0;177.0;True;True
+45930;MTL-Ott;121.4;-;Private;Passive;154-177;145.3;145.3;False;False
+51971;Ott-TO;75.3;Farm Crossing;Private;Other;178-201;201.0;177.0;True;True
+7913;MTL-TO;46.39;Rte St-Gregoire;Public;Passive;178-201;201.0;177.0;True;True
+8034;Ott-TO;176.12;Station Rd;Public;Active - FLBG;178-201;150.0;150.0;False;False
+8327;MTL-TO;515.43;Beechgrove Dr;Public;Active - FLBG;≤153;136.3;136.3;False;False
+52290;MTL-Ott;75.71;Farm Crossing;Private;Passive;178-201;149.3;149.3;False;False
+45890;MTL-Ott;87.16;-;Private;Passive;154-177;160.2;160.2;False;True
+140755;MTL-QC;80.87;Private;Private;Passive;178-201;201.0;177.0;True;True
+19657;Ott-TO;95.04;Cnty Rd 28 (New Dublin Rd;Public;Active - FLBG;154-177;144.0;144.0;False;False
+45950;MTL-Ott;143.84;-;Private;Passive;154-177;160.2;160.2;False;True
+142602;MTL-QC;34.63;Private;Private;Passive;178-201;104.7;104.7;False;False
+52491;MTL-Ott;63.8;Farm;Private;Passive;178-201;113.0;113.0;False;False
+300163;MTL-TO;212.2;-;Private;Passive;178-201;149.4;149.4;False;False
+140701;MTL-QC;132.42;Private;Private;Passive;178-201;162.0;162.0;False;True
+300181;Ott-TO;133.08;Farm;Private;Active - FLB;178-201;191.1;177.0;True;True
+142590;MTL-QC;34.63;Private;Private;Passive;178-201;104.7;104.7;False;False
+142599;MTL-QC;34.63;Private;Private;Passive;178-201;104.7;104.7;False;False
+52486;MTL-Ott;63.8;Farm;Private;Passive;178-201;113.0;113.0;False;False
+142595;MTL-QC;34.63;Private;Private;Passive;178-201;104.7;104.7;False;False
+8005;MTL-TO;226.44;Escott/Young Rd;Public;Active - FLBG;178-201;185.2;177.0;True;True
+8178;MTL-TO;424.68;Brook Rd N (Cnty 20);Public;Active - FLBG;178-201;146.2;146.2;False;False
+189;MTL-Ott;62.75;Rue Delisle;Public;Active - FLBG;≤153;85.9;85.9;False;False
+140623;MTL-QC;201.75;Private;Private;Passive;154-177;150.0;150.0;False;False
+300172;Ott-TO;127.29;Farm;Private;Passive;178-201;191.8;177.0;True;True
+45949;MTL-Ott;143.84;-;Private;Passive;154-177;160.2;160.2;False;True
+4845;MTL-QC;100.3;Rue Brock;Public;Active - FLBG;≤153;68.3;68.3;False;False
+140695;MTL-QC;132.42;Private;Private;Passive;178-201;162.0;162.0;False;True
+212;MTL-Ott;117.27;Main St - Cnty 20  (Maxville);Public;Active - FLBG;154-177;164.2;164.2;False;True
+7902;MTL-TO;27.96;Woodland Avenue;Public;Active - FLBG;178-201;186.4;177.0;True;True
+140694;MTL-QC;132.42;Private;Private;Passive;178-201;162.0;162.0;False;True
+51663;MTL-Ott;143.84;Farm Crossing;Private;Other;154-177;160.2;160.2;False;True
+19649;Ott-TO;75.3;Ireland Rd;Public;Active - FLBG;178-201;201.0;177.0;True;True
+4855;MTL-QC;80.87;Route 239;Public;Active - FLBG;178-201;201.0;177.0;True;True
+52488;MTL-Ott;63.8;Farm;Private;Passive;178-201;113.0;113.0;False;False
+140619;MTL-QC;201.75;Private;Private;Passive;154-177;150.0;150.0;False;False
+49324;Ott-TO;383.31;Waste Disposal Road;Private;Active - FLBG;≤153;144.2;144.2;False;False
+140733;MTL-QC;102.27;Private;Private;Passive;≤153;135.7;135.7;False;False
+242;MTL-Ott;143.84;Sand Rd;Public;Active - FLBG;154-177;160.2;160.2;False;True
+140620;MTL-QC;201.75;Private;Private;Passive;154-177;150.0;150.0;False;False
+19652;Ott-TO;83.28;Yule Rd;Public;Active - FLBG;178-201;201.0;177.0;True;True
+36260;MTL-TO;31.48;Morgan Rue;Public;Active - FLBG;178-201;197.9;177.0;True;True
+140612;MTL-QC;243.87;Private;Private;Passive;≤153;135.5;135.5;False;False
+4816;MTL-QC;151.28;Rang De La Rivîere;Public;Active - FLBG;≤153;77.5;77.5;False;False
+19636;Ott-TO;66.08;William St;Public;Active - FLBG;≤153;72.7;72.7;False;False
+52485;MTL-Ott;63.8;Farm;Private;Passive;178-201;113.0;113.0;False;False
+45937;MTL-Ott;128.75;-;Private;Passive;154-177;160.0;160.0;False;True
+142588;MTL-QC;34.63;Private;Private;Passive;178-201;104.7;104.7;False;False
+45736;MTL-TO;309.87;Farm;Private;Passive;178-201;140.0;140.0;False;False
+140674;MTL-QC;132.42;Private;Private;Passive;178-201;162.0;162.0;False;True
+14518;Ott-TO;27.04;Mcbean St;Public;Active - FLBG;178-201;173.4;173.4;False;True
+142583;MTL-QC;34.63;Private;Private;Passive;178-201;104.7;104.7;False;False
+45881;MTL-Ott;86.9;-;Private;Passive;178-201;161.5;161.5;False;True
+8428;MTL-QC;269.05;Piste Cyclo-Piéton;Public;Active - FLBG;178-201;69.6;69.6;False;False
+45667;MTL-TO;172.09;-;Private;Passive;178-201;201.0;177.0;True;True
+140665;MTL-QC;170.87;Private;Private;Passive;154-177;88.2;88.2;False;False
+45954;MTL-Ott;143.84;-;Private;Passive;154-177;160.2;160.2;False;True
+140631;MTL-QC;201.75;Private;Private;Passive;154-177;150.0;150.0;False;False
+46391;MTL-QC;124.95;Route Bureau;Public;Active - FLBG;≤153;114.1;114.1;False;False
+50125;MTL-QC;20.19;-;Private;Passive;178-201;153.8;153.8;False;True
+14519;Ott-TO;33.57;Kettles Rd;Public;Active - FLBG;178-201;201.0;177.0;True;True
+45749;MTL-TO;335.82;Farm Crossing;Private;Active - FLB;178-201;144.0;144.0;False;False
+45646;MTL-TO;59.8;-;Private;Passive;178-201;171.7;171.7;False;True
+45762;Ott-TO;241.67;-;Private;Passive;178-201;144.1;144.1;False;False
+19641;Ott-TO;67.8;County Rd 17 (Jasper Ave);Public;Active - FLBG;154-177;110.8;110.8;False;False
+52500;MTL-Ott;63.8;Farm;Private;Passive;178-201;113.0;113.0;False;False
+142569;MTL-QC;34.63;Private;Private;Passive;178-201;104.7;104.7;False;False
+52282;MTL-Ott;74.98;Farm Crossing;Private;Passive;≤153;148.8;148.8;False;False
+51818;Ott-TO;165.06;Farm Crossing;Private;Passive;178-201;197.9;177.0;True;True
+8152;Ott-TO;284.6;Flindall Rd;Public;Active - FLBG;178-201;156.5;156.5;False;True
+8009;MTL-TO;240.16;Kidd Rd S.  (Ervens Rd);Public;Active - FLBG;178-201;197.1;177.0;True;True
+45933;MTL-Ott;121.4;-;Private;Passive;154-177;145.3;145.3;False;False
+224;MTL-Ott;128.75;St Isidore St (Casselman);Public;Active - FLBG;154-177;160.0;160.0;False;True
+45741;MTL-TO;322.8;-;Private;Active - FLB;178-201;143.3;143.3;False;False
+52489;MTL-Ott;63.8;Farm;Private;Passive;178-201;113.0;113.0;False;False
+226;MTL-Ott;128.75;Dollard St (Casselman);Public;Active - FLBG;154-177;160.0;160.0;False;True
+610917;MTL-QC;34.63;-;Private;Passive;178-201;104.7;104.7;False;False
+140730;MTL-QC;112.32;Private;Private;Passive;178-201;141.6;141.6;False;False
+45895;MTL-Ott;87.16;-;Private;Passive;154-177;160.2;160.2;False;True
+50369;MTL-QC;258.36;Private;Private;Passive;178-201;133.5;133.5;False;False
+8150;MTL-TO;378.78;Tate Rd;Public;Active - FLBG;178-201;156.0;156.0;False;True
+4850;MTL-QC;95.52;Chemin Du 5E Rang;Public;Active - FLBG;178-201;154.5;154.5;False;True
+140676;MTL-QC;132.42;Private;Private;Passive;178-201;162.0;162.0;False;True
+50980;MTL-QC;147.55;Privé;Private;Passive;178-201;201.0;177.0;True;True
+4840;MTL-QC;112.32;Route 122;Public;Active - FLBG;178-201;141.6;141.6;False;False
+140630;MTL-QC;201.75;Private;Private;Passive;154-177;150.0;150.0;False;False
+52496;MTL-Ott;63.8;Farm;Private;Passive;178-201;113.0;113.0;False;False
+140700;MTL-QC;132.42;Private;Private;Passive;178-201;162.0;162.0;False;True
+52505;MTL-Ott;79.19;Farm;Private;Passive;178-201;169.6;169.6;False;True
+142600;MTL-QC;34.63;Private;Private;Passive;178-201;104.7;104.7;False;False
+140683;MTL-QC;132.42;Private;Private;Passive;178-201;162.0;162.0;False;True
+51936;Ott-TO;19.54;Farm Crossing;Private;Passive;178-201;125.1;125.1;False;False
+14515;Ott-TO;27.04;Barnsdale Rd;Public;Active - FLBG;178-201;173.4;173.4;False;True
+8329;Ott-TO;421.81;Manse Rd;Public;Active - FLBG;178-201;131.1;131.1;False;False
+45738;Ott-TO;215.72;Farm;Private;Passive;178-201;140.7;140.7;False;False
+140632;MTL-QC;201.75;Private;Private;Passive;154-177;150.0;150.0;False;False
+50629;MTL-QC;20.19;Boulevard De Boucherville;Public;Active - FLBG;178-201;153.8;153.8;False;True
+4833;MTL-QC;121.71;Rang St Joseph;Public;Active - FLBG;178-201;106.5;106.5;False;False
+45915;MTL-Ott;106.16;-;Private;Passive;178-201;109.0;109.0;False;False
+51935;Ott-TO;23.4;Farm Crossing;Private;Passive;178-201;119.8;119.8;False;False
+141137;MTL-Ott;59.82;Private;Private;Passive;178-201;126.4;126.4;False;False
+140673;MTL-QC;147.97;Private;Private;Passive;178-201;201.0;177.0;True;True
+45672;MTL-TO;174.21;-;Private;Passive;178-201;201.0;177.0;True;True
+36581;Ott-TO;75.3;County Rd16 (Jasper);Public;Active - FLBG;178-201;201.0;177.0;True;True
+8165;MTL-TO;388.28;Peters Rd;Public;Active - FLBG;178-201;201.0;177.0;True;True
+19662;Ott-TO;97.13;Parkedale Ave;Public;Active - FLBG;178-201;189.0;177.0;True;True
+140728;MTL-QC;112.32;Private;Private;Passive;178-201;141.6;141.6;False;False
+140666;MTL-QC;152.06;Private;Private;Passive;178-201;78.5;78.5;False;False
+45656;MTL-TO;59.8;-;Private;Passive;178-201;171.7;171.7;False;True
+52494;MTL-Ott;63.8;Farm;Private;Passive;178-201;113.0;113.0;False;False
+51503;MTL-QC;132.42;Ferme;Private;Passive;178-201;162.0;162.0;False;True
+4851;MTL-QC;90.53;Chemin Du 7E Rang;Public;Active - FLBG;178-201;162.7;162.7;False;True
+140635;MTL-QC;201.75;Private;Private;Passive;154-177;150.0;150.0;False;False
+8226;MTL-TO;455.15;Lakeshore Rd;Public;Active - FLBG;178-201;180.0;177.0;True;True
+52487;MTL-Ott;63.8;Farm;Private;Passive;178-201;113.0;113.0;False;False
+45692;MTL-TO;198.58;-;Private;Passive;178-201;201.0;177.0;True;True
+8222;Ott-TO;358.09;Elliot Rd;Public;Active - FLBG;178-201;166.8;166.8;False;True
+19645;Ott-TO;72.97;Kitley Line 1;Public;Active - FLBG;178-201;201.0;177.0;True;True
+7972;MTL-TO;164.47;Broken 2nd Rd;Public;Active - FLBG;178-201;201.0;177.0;True;True
+140735;MTL-QC;94.39;Private;Private;Passive;178-201;145.0;145.0;False;False
+4848;MTL-QC;96.87;Rue Notre-Dame;Public;Active - FLBG;178-201;149.1;149.1;False;False
+7961;MTL-TO;124.32;Wales Rd;Public;Active - FLBG;178-201;149.7;149.7;False;False
+140688;MTL-QC;132.42;Private;Private;Passive;178-201;162.0;162.0;False;True
+140757;MTL-QC;80.87;Private;Private;Passive;178-201;201.0;177.0;True;True
+140636;MTL-QC;201.75;Private;Private;Passive;154-177;150.0;150.0;False;False
+45914;MTL-Ott;104.31;-;Private;Passive;154-177;120.5;120.5;False;False
+8090;Ott-TO;236.47;Deseronto Rd (Cnty 10);Public;Active - FLBG;154-177;156.2;156.2;False;True
+45947;MTL-Ott;143.84;-;Private;Passive;154-177;160.2;160.2;False;True
+8093;Ott-TO;241.67;Wymans Rd;Public;Active - FLBG;178-201;144.1;144.1;False;False
+46458;MTL-QC;8.01;Seigneurial Blvd;Public;Active - FLBG;178-201;172.3;172.3;False;True
+4843;MTL-QC;103.57;3Ième Rang Simpson;Public;Active - FLBG;178-201;135.7;135.7;False;False
+45912;MTL-Ott;102.69;Farm Field To Field (limited use WS with walk);Private;Active - FLB;≤153;141.4;141.4;False;False
+140682;MTL-QC;132.42;Private;Private;Passive;178-201;162.0;162.0;False;True
+4866;MTL-QC;34.63;Des Seigneurs Est;Public;Active - FLBG;178-201;104.7;104.7;False;False
+140669;MTL-QC;152.06;Private;Private;Passive;178-201;78.5;78.5;False;False
+140748;MTL-QC;80.87;Private;Private;Passive;178-201;201.0;177.0;True;True
+779165;MTL-TO;215.43;Private;Private;Other;178-201;167.9;167.9;False;True
+209;MTL-Ott;109.79;Cnty Rd 30  (Greenfield);Public;Active - FLBG;≤153;143.6;143.6;False;False
+45804;Ott-TO;362.97;-;Private;Passive;178-201;187.2;177.0;True;True
+45010;MTL-QC;264.83;Passage Pieton/Velo;Public;Active - FLBG;178-201;141.9;141.9;False;False
+228;MTL-Ott;140.85;Route 500 W (Cnty 3);Public;Active - FLBG;178-201;112.9;112.9;False;False
+45710;MTL-TO;245.26;Farm Field;Private;Active - FLB;178-201;201.0;177.0;True;True
+140705;MTL-QC;131.88;Private;Private;Passive;154-177;161.0;161.0;False;True
+300507;MTL-TO;370.75;Hamiilton Rd  (Twp Rd);Public;Active - FLBG;178-201;200.1;177.0;True;True
+140689;MTL-QC;132.42;Private;Private;Passive;178-201;162.0;162.0;False;True
+140716;MTL-QC;121.71;Private;Private;Passive;178-201;106.5;106.5;False;False
+45711;MTL-TO;252.6;Pykeview Dr.;Private;Active - FLB;≤153;142.5;142.5;False;False
+140768;MTL-QC;58.44;Private;Private;Passive;178-201;164.8;164.8;False;True
+50839;MTL-Ott;63.8;Farm Crossing;Private;Other;178-201;113.0;113.0;False;False
+610808;MTL-QC;80.87;-;Private;Passive;178-201;201.0;177.0;True;True
+45919;MTL-Ott;114.96;-;Private;Passive;≤153;106.2;106.2;False;False
+4865;MTL-QC;34.63;Rue Guy;Public;Active - FLBG;178-201;104.7;104.7;False;False
+8324;Ott-TO;417.05;Rodd Ave;Public;Active - FLBG;≤153;145.2;145.2;False;False
+45723;MTL-TO;256.33;Farm Crossing;Private;Passive;178-201;200.1;177.0;True;True
+45650;MTL-TO;59.8;-;Private;Passive;178-201;171.7;171.7;False;True
+140727;MTL-QC;112.32;Private;Private;Passive;178-201;141.6;141.6;False;False
+141136;MTL-Ott;59.82;Private;Private;Passive;178-201;126.4;126.4;False;False
+8010;MTL-TO;240.16;Kyes Rd;Public;Active - FLBG;178-201;197.1;177.0;True;True
+45938;MTL-Ott;140.26;-;Private;Passive;≤153;111.2;111.2;False;False
+140656;MTL-QC;175.01;Private;Private;Passive;154-177;108.4;108.4;False;False
+45806;Ott-TO;362.97;-;Private;Passive;178-201;187.2;177.0;True;True
+246;MTL-Ott;143.84;Boundary Rd (County Rd 41);Public;Active - FLBG;154-177;160.2;160.2;False;True
+45677;MTL-TO;174.21;-;Private;Passive;178-201;201.0;177.0;True;True
+140690;MTL-QC;132.42;Private;Private;Passive;178-201;162.0;162.0;False;True
+142567;MTL-QC;34.63;Private;Private;Passive;178-201;104.7;104.7;False;False
+610805;MTL-QC;147.97;Privé;Private;Passive;178-201;201.0;177.0;True;True
+8161;MTL-TO;388.28;Union Rd;Public;Active - FLBG;178-201;201.0;177.0;True;True
+45649;MTL-TO;59.8;-;Private;Passive;178-201;171.7;171.7;False;True
+140731;MTL-QC;108.15;Private;Private;Passive;178-201;173.1;173.1;False;True
+213;MTL-Ott;117.27;Prince St (Maxville);Public;Active - FLBG;154-177;164.2;164.2;False;True
+241;MTL-Ott;143.84;Frank Kenny Rd;Public;Active - FLBG;154-177;160.2;160.2;False;True
+4842;MTL-QC;107.62;4Ième Rang St-Hilaire;Public;Active - FLBG;178-201;170.4;170.4;False;True
+7914;MTL-TO;46.39;Rte St-Fereol;Public;Active - FLBG;178-201;201.0;177.0;True;True
+51500;MTL-QC;132.42;Ferme;Private;Passive;178-201;162.0;162.0;False;True
+140641;MTL-QC;193.62;Private;Private;Passive;178-201;143.6;143.6;False;False
+4858;MTL-QC;69.45;Rang St-Augustin;Public;Active - FLBG;178-201;116.6;116.6;False;False
+50944;MTL-Ott;102.69;Farm Crossing;Private;Active - FLB;≤153;141.4;141.4;False;False
+50841;MTL-Ott;63.8;Farm Crossing;Private;Other;178-201;113.0;113.0;False;False
+8027;MTL-TO;256.33;Best Chase Rd;Public;Active - FLBG;178-201;200.1;177.0;True;True
+45898;MTL-Ott;87.16;-;Private;Passive;154-177;160.2;160.2;False;True
+8130;Ott-TO;263.35;Moira St;Public;Active - FLBG;178-201;118.9;118.9;False;False
+45874;MTL-Ott;83.34;-;Private;Passive;≤153;123.7;123.7;False;False
+140746;MTL-QC;80.87;Private;Private;Passive;178-201;201.0;177.0;True;True
+200738;MTL-QC;258.36;Passage Pieton/Velo;Public;Active - FLB;178-201;133.5;133.5;False;False
+45941;MTL-Ott;143.84;-;Private;Passive;154-177;160.2;160.2;False;True
+8070;Ott-TO;215.72;Mcintyre Rd;Public;Active - FLBG;178-201;140.7;140.7;False;False
+45920;MTL-Ott;115.49;-;Private;Passive;≤153;106.2;106.2;False;False
+192;MTL-Ott;63.8;Chemin Ste-Marie;Public;Active - FLBG;178-201;113.0;113.0;False;False
+7983;MTL-TO;183.98;Sophia St  (Prescott);Public;Active - FLBG;178-201;144.2;144.2;False;False
+140738;MTL-QC;93.75;Private;Private;Passive;≤153;144.2;144.2;False;False
+142601;MTL-QC;34.63;Private;Private;Passive;178-201;104.7;104.7;False;False
+201;MTL-Ott;98.44;McCormick Rd;Public;Active - FLBG;≤153;107.6;107.6;False;False
+140720;MTL-QC;121.71;Private;Private;Passive;178-201;106.5;106.5;False;False
+142608;MTL-QC;20.19;Private;Private;Passive;178-201;153.8;153.8;False;True
+777111;MTL-TO;104.91;Private Driveway;Private;Passive;178-201;150.2;150.2;False;False
+45801;MTL-TO;456.43;-;Private;Active - FLB;178-201;184.2;177.0;True;True
+45721;Ott-TO;162.17;Farm;Private;Passive;178-201;200.3;177.0;True;True
+45897;MTL-Ott;87.16;-;Private;Passive;154-177;160.2;160.2;False;True
+8167;Ott-TO;294.1;Colton St;Public;Active - FLBG;178-201;201.0;177.0;True;True
+8004;MTL-TO;221.84;Quabbin Rd  (Cnty 4);Public;Active - FLBG;178-201;201.0;177.0;True;True
+140752;MTL-QC;80.87;Private;Private;Passive;178-201;201.0;177.0;True;True
+140686;MTL-QC;132.42;Private;Private;Passive;178-201;162.0;162.0;False;True
+45922;MTL-Ott;115.82;-;Private;Passive;178-201;128.1;128.1;False;False
+238;MTL-Ott;143.84;Devine Rd;Public;Active - FLBG;154-177;160.2;160.2;False;True
+140659;MTL-QC;175.01;Private;Private;Passive;154-177;108.4;108.4;False;False
+45896;MTL-Ott;87.16;-;Private;Passive;154-177;160.2;160.2;False;True
+45918;MTL-Ott;114.96;-;Private;Passive;≤153;106.2;106.2;False;False
+8230;MTL-TO;461.29;Metcalfe St;Public;Active - FLBG;≤153;153.1;153.1;False;False
+221;MTL-Ott;128.75;7th Concession (Route 700);Public;Active - FLBG;154-177;160.0;160.0;False;True
+45680;MTL-TO;177.79;-;Private;Passive;178-201;201.0;177.0;True;True
+140615;MTL-QC;201.75;Private;Private;Passive;154-177;150.0;150.0;False;False
+300180;MTL-TO;227.24;Farm;Private;Active - FLB;178-201;188.5;177.0;True;True
+45754;Ott-TO;241.67;-;Private;Active - FLB;178-201;144.1;144.1;False;False
+51756;Ott-TO;264.76;Farm Xng;Private;Passive;178-201;189.9;177.0;True;True
+300538;MTL-TO;476.6;-;Private;Passive;≤153;148.4;148.4;False;False
+45802;MTL-TO;456.43;-;Private;Active - FLB;178-201;184.2;177.0;True;True
+140707;MTL-QC;130.43;Private;Private;Passive;178-201;132.1;132.1;False;False
+7916;MTL-Ott;46.41;Rte St-Emmanuel;Public;Active - FLBG;178-201;201.0;177.0;True;True
+142593;MTL-QC;34.63;Private;Private;Passive;178-201;104.7;104.7;False;False
+142573;MTL-QC;34.63;Private;Private;Passive;178-201;104.7;104.7;False;False
+4856;MTL-QC;80.87;Rang De L'Eglise;Public;Active - FLBG;178-201;201.0;177.0;True;True
+19651;Ott-TO;75.3;Weedmark Rd;Public;Active - FLBG;178-201;201.0;177.0;True;True
+45651;MTL-TO;59.8;-;Private;Passive;178-201;171.7;171.7;False;True
+7930;MTL-TO;59.8;Main St (Lancaster) HWY 34;Public;Active - FLBG;178-201;171.7;171.7;False;True
+14507;Ott-TO;10.04;Fallowfield Rd;Public;Active - FLBG;178-201;113.4;113.4;False;False
+45647;MTL-TO;59.8;-;Private;Passive;178-201;171.7;171.7;False;True
+233;MTL-Ott;143.84;Main St;Public;Active - FLBG;154-177;160.2;160.2;False;True
+8191;MTL-TO;428.0;Ontario St;Public;Active - FLBG;178-201;146.3;146.3;False;False
+141135;MTL-Ott;46.41;Private;Private;Passive;178-201;201.0;177.0;True;True
+45748;Ott-TO;241.67;Private;Private;Active - FLB;178-201;144.1;144.1;False;False
+140617;MTL-QC;201.75;Private;Private;Passive;154-177;150.0;150.0;False;False
+4836;MTL-QC;116.22;Blake Road;Private;Passive;154-177;143.7;143.7;False;False
+46233;MTL-TO;59.0;-;Private;Passive;154-177;170.6;170.6;False;True
+34927;MTL-QC;62.09;De La Traverse;Public;Active - FLBG;≤153;118.3;118.3;False;False
+8064;Ott-TO;198.78;Coronation Blvd (Cnty 24);Public;Active - FLBG;154-177;142.4;142.4;False;False
+45658;MTL-TO;59.8;-;Private;Passive;178-201;171.7;171.7;False;True
+229;MTL-Ott;143.84;Faucher-Baker Rds;Public;Active - FLBG;154-177;160.2;160.2;False;True
+247;MTL-Ott;143.84;Eighth Line Rd;Public;Active - FLBG;154-177;160.2;160.2;False;True
+210;MTL-Ott;113.13;County Rd 22;Public;Active - FLBG;154-177;135.7;135.7;False;False
+140725;MTL-QC;112.32;Private;Private;Passive;178-201;141.6;141.6;False;False
+140698;MTL-QC;132.42;Private;Private;Passive;178-201;162.0;162.0;False;True
+50935;MTL-Ott;75.71;Farm Crossing;Private;Other;178-201;149.3;149.3;False;False
+45945;MTL-Ott;143.84;-;Private;Passive;154-177;160.2;160.2;False;True
+7908;MTL-Ott;36.75;3 Ieme Avenue;Public;Active - FLBG;178-201;142.8;142.8;False;False
+140702;MTL-QC;132.42;Private;Private;Passive;178-201;162.0;162.0;False;True
+45660;MTL-TO;124.32;-;Private;Passive;178-201;149.7;149.7;False;False
+7959;MTL-TO;108.53;Avonmore Rd (Cnty 15);Public;Active - FLBG;178-201;147.1;147.1;False;False
+51496;MTL-QC;149.55;Ferme;Private;Passive;178-201;148.9;148.9;False;False
+45880;MTL-Ott;85.54;-;Private;Passive;178-201;142.8;142.8;False;False
+8166;MTL-TO;388.28;Blyth Park Rd;Public;Active - FLBG;178-201;201.0;177.0;True;True
+45724;Ott-TO;165.06;Farm Crossing;Private;Passive;178-201;197.9;177.0;True;True
+45796;MTL-TO;422.31;-;Private;Active - FLB;178-201;201.0;177.0;True;True
+140711;MTL-QC;121.71;Private;Private;Passive;178-201;106.5;106.5;False;False
+45708;MTL-TO;245.26;Farm House & Fields;Private;Active - FLB;178-201;201.0;177.0;True;True
+140737;MTL-QC;93.75;Private;Private;Passive;≤153;144.2;144.2;False;False
+7928;MTL-TO;59.8;2Nd Line Rd - Cnty 26;Public;Active - FLBG;178-201;171.7;171.7;False;True
+4837;MTL-QC;115.88;Chemin Du 9E Rang;Public;Active - FLBG;≤153;142.6;142.6;False;False
+208;MTL-Ott;109.07;Kenyon Concession Road 5;Public;Active - FLBG;≤153;140.7;140.7;False;False
+200508;MTL-QC;246.69;Passage Pieton/Velo;Public;Active - FLB;154-177;74.1;74.1;False;False
+45732;Ott-TO;209.02;-;Private;Passive;178-201;188.2;177.0;True;True
+300124;Ott-TO;264.76;Farm Xng;Private;Passive;178-201;189.9;177.0;True;True
+200568;MTL-QC;100.3;Rue Lindsay;Public;Active - FLBG;≤153;68.3;68.3;False;False
+227;MTL-Ott;140.85;Lafontaine Rd;Public;Active - FLBG;178-201;112.9;112.9;False;False
+8196;MTL-TO;430.89;Bob Carr Rd;Private;Passive;178-201;144.2;144.2;False;False
+142594;MTL-QC;34.63;Private;Private;Passive;178-201;104.7;104.7;False;False
+45690;MTL-TO;198.21;-;Private;Passive;178-201;201.0;177.0;True;True
+142579;MTL-QC;34.63;Private;Private;Passive;178-201;104.7;104.7;False;False
+45883;MTL-Ott;87.16;-;Private;Passive;154-177;160.2;160.2;False;True
+140655;MTL-QC;175.01;Private;Private;Passive;154-177;108.4;108.4;False;False
+140717;MTL-QC;121.71;Private;Private;Passive;178-201;106.5;106.5;False;False
+52497;MTL-Ott;63.8;Farm;Private;Passive;178-201;113.0;113.0;False;False
+45803;MTL-TO;457.14;-;Private;Passive;178-201;187.2;177.0;True;True
+300167;Ott-TO;160.49;-;Private;Passive;178-201;153.9;153.9;False;True
+8157;MTL-TO;388.28;Prince Edward-Cnty 63 (Br;Public;Active - FLBG;178-201;201.0;177.0;True;True
+140750;MTL-QC;80.87;Private;Private;Passive;178-201;201.0;177.0;True;True
+51507;MTL-QC;132.42;Ferme;Private;Passive;178-201;162.0;162.0;False;True
+140668;MTL-QC;152.06;Private;Private;Passive;178-201;78.5;78.5;False;False
+52501;MTL-Ott;63.8;Farm;Private;Passive;178-201;113.0;113.0;False;False
+14529;Ott-TO;63.0;Hwy   15;Public;Active - FLBG;178-201;142.1;142.1;False;False
+50834;MTL-Ott;63.8;Farm Crossing;Private;Passive;178-201;113.0;113.0;False;False
+778926;MTL-TO;174.21;-;Private;Passive;178-201;201.0;177.0;True;True
+45737;Ott-TO;215.72;Farm;Private;Passive;178-201;140.7;140.7;False;False
+45921;MTL-Ott;115.82;-;Private;Passive;178-201;128.1;128.1;False;False
+52285;MTL-Ott;75.71;Farm Crossing;Private;Passive;178-201;149.3;149.3;False;False
+140754;MTL-QC;80.87;Private;Private;Passive;178-201;201.0;177.0;True;True
+8234;Ott-TO;369.39;Toronto St;Public;Active - FLBG;178-201;156.7;156.7;False;True
+45944;MTL-Ott;143.84;-;Private;Passive;154-177;160.2;160.2;False;True
+300165;MTL-TO;208.92;-;Private;Passive;178-201;173.4;173.4;False;True
+8162;Ott-TO;294.1;Hunt Club Rd;Public;Active - FLBG;178-201;201.0;177.0;True;True
+8512;MTL-QC;262.77;Boul Pere Lelievre;Public;Active - FLBG;178-201;91.1;91.1;False;False
+300177;MTL-TO;221.84;Farm;Private;Passive;178-201;201.0;177.0;True;True
+45755;Ott-TO;241.67;-;Private;Active - FLB;178-201;144.1;144.1;False;False
+140671;MTL-QC;152.06;Private;Private;Passive;178-201;78.5;78.5;False;False
+14516;Ott-TO;27.04;Eagleson Rd;Public;Active - FLBG;178-201;173.4;173.4;False;True
+140763;MTL-QC;66.89;Private;Private;Passive;178-201;146.2;146.2;False;False
+8335;Ott-TO;426.53;Golf Club Rd;Public;Active - FLBG;178-201;113.1;113.1;False;False
+45681;MTL-TO;182.49;-;Private;Other;178-201;149.3;149.3;False;False
+45886;MTL-Ott;87.16;-;Private;Passive;154-177;160.2;160.2;False;True
+140740;MTL-QC;80.87;Private;Private;Passive;178-201;201.0;177.0;True;True
+610807;MTL-QC;80.87;-;Private;Passive;178-201;201.0;177.0;True;True
+45661;MTL-TO;139.16;-;Private;Passive;178-201;201.0;177.0;True;True
+140723;MTL-QC;120.48;Private;Private;Passive;≤153;113.1;113.1;False;False
+45875;MTL-Ott;83.34;-;Private;Passive;≤153;123.7;123.7;False;False
+140625;MTL-QC;201.75;Private;Private;Passive;154-177;150.0;150.0;False;False
+142575;MTL-QC;34.63;Private;Private;Passive;178-201;104.7;104.7;False;False
+195;MTL-Ott;80.48;Ch. Du 4E Rang;Public;Active - FLBG;154-177;174.8;174.8;False;True
+140646;MTL-QC;175.01;Private;Private;Passive;154-177;108.4;108.4;False;False
+8238;MTL-TO;469.92;Port Darlington Rd;Public;Active - FLBG;178-201;156.8;156.8;False;True
+7981;MTL-TO;183.98;Boundary St  (Prescott);Public;Active - FLBG;178-201;144.2;144.2;False;False
+300981;Ott-TO;109.07;Hislop Ave;Public;Active - FLBG;≤153;68.7;68.7;False;False
+7977;MTL-TO;173.68;Blair Rd;Public;Active - FLBG;178-201;201.0;177.0;True;True
+232;MTL-Ott;143.84;Rue Des Pins (Rd 200);Public;Active - FLBG;154-177;160.2;160.2;False;True
+8008;MTL-TO;234.59;Prince St (Cnty 3);Public;Active - FLBG;178-201;201.0;177.0;True;True
+45936;MTL-Ott;128.75;-;Private;Passive;154-177;160.0;160.0;False;True
+14513;Ott-TO;23.4;Cambrian Rd;Public;Active - FLBG;178-201;119.8;119.8;False;False
+45726;MTL-TO;259.23;Farm Xng;Private;Passive;178-201;197.7;177.0;True;True
+8007;MTL-TO;234.59;Blue Mountain Rd;Public;Active - FLBG;178-201;201.0;177.0;True;True
+8198;MTL-TO;436.02;Hope St South;Public;Active - FLBG;178-201;180.0;177.0;True;True
+216;MTL-Ott;126.54;McNeil Rd;Public;Active - FLBG;≤153;104.7;104.7;False;False
+13953;MTL-QC;31.33;Rue Ste-Anne;Public;Active - FLBG;154-177;92.5;92.5;False;False
+46169;MTL-TO;289.69;Private;Private;Passive;≤153;138.2;138.2;False;False
+19653;Ott-TO;83.28;Island Rd;Public;Active - FLBG;178-201;201.0;177.0;True;True
+45655;MTL-TO;59.8;-;Private;Passive;178-201;171.7;171.7;False;True
+45664;MTL-TO;139.16;-;Private;Passive;178-201;201.0;177.0;True;True
+140756;MTL-QC;80.87;Private;Private;Passive;178-201;201.0;177.0;True;True
+13961;MTL-QC;20.19;Rue Robert;Public;Active - FLBG;178-201;153.8;153.8;False;True
+140741;MTL-QC;80.87;Private;Private;Passive;178-201;201.0;177.0;True;True
+8031;MTL-TO;270.28;John F. Scott;Public;Active - FLBG;178-201;149.9;149.9;False;False
+8054;MTL-TO;284.58;Counter St;Public;Active - FLBG;178-201;113.0;113.0;False;False
+52495;MTL-Ott;63.8;Farm;Private;Passive;178-201;113.0;113.0;False;False
+140634;MTL-QC;201.75;Private;Private;Passive;154-177;150.0;150.0;False;False
+45778;MTL-TO;358.95;Farm Xng;Private;Passive;178-201;198.0;177.0;True;True
+52499;MTL-Ott;63.8;Farm;Private;Passive;178-201;113.0;113.0;False;False
+140677;MTL-QC;132.42;Private;Private;Passive;178-201;162.0;162.0;False;True
+140681;MTL-QC;132.42;Private;Private;Passive;178-201;162.0;162.0;False;True
+45675;MTL-TO;174.21;-;Private;Passive;178-201;201.0;177.0;True;True
+13948;MTL-QC;34.63;Chemin St-Simon;Public;Active - FLBG;178-201;104.7;104.7;False;False
+46776;MTL-QC;20.19;Boul Du Millénaire;Public;Active - FLBG;178-201;153.8;153.8;False;True
+142584;MTL-QC;34.63;Private;Private;Passive;178-201;104.7;104.7;False;False
+140691;MTL-QC;132.42;Private;Private;Passive;178-201;162.0;162.0;False;True
+45733;Ott-TO;212.01;Farm;Private;Passive;178-201;198.9;177.0;True;True
+4859;MTL-QC;69.45;Rang Ste-Helene;Public;Active - FLBG;178-201;116.6;116.6;False;False
+8332;MTL-TO;516.0;Galloway Rd;Public;Active - FLBG;178-201;136.3;136.3;False;False
+249;MTL-Ott;143.84;Russell Rd 26;Public;Active - FLBG;154-177;160.2;160.2;False;True
+140649;MTL-QC;175.01;Private;Private;Passive;154-177;108.4;108.4;False;False
+45745;MTL-TO;328.33;-;Private;Active - FLB;178-201;180.4;177.0;True;True
+140650;MTL-QC;175.01;Private;Private;Passive;154-177;108.4;108.4;False;False
+45946;MTL-Ott;143.84;-;Private;Passive;154-177;160.2;160.2;False;True
+193;MTL-Ott;63.8;Chemin De Beaujeu;Public;Active - FLBG;178-201;113.0;113.0;False;False
+140684;MTL-QC;132.42;Private;Private;Passive;178-201;162.0;162.0;False;True
+8160;Ott-TO;294.1;Huff Rd;Public;Active - FLBG;178-201;201.0;177.0;True;True
+140747;MTL-QC;80.87;Private;Private;Passive;178-201;201.0;177.0;True;True
+191;MTL-Ott;63.8;Route Cite Des Jeunes (340);Public;Active - FLBG;178-201;113.0;113.0;False;False
+778869;MTL-QC;58.44;-;Private;Passive;178-201;164.8;164.8;False;True
+140739;MTL-QC;80.87;Private;Private;Passive;178-201;201.0;177.0;True;True
+50255;MTL-TO;245.26;Farm Xng;Private;Passive;178-201;201.0;177.0;True;True
+8012;MTL-TO;245.26;Hiscocks Rd (Cnty 34);Public;Active - FLBG;178-201;201.0;177.0;True;True
+4852;MTL-QC;90.53;Chemin Du 8E Rang;Public;Active - FLBG;178-201;162.7;162.7;False;True
+8063;MTL-TO;291.69;Collins Bay Rd;Public;Active - FLBG;≤153;136.9;136.9;False;False
+200725;MTL-QC;260.9;Passage Pieton/Velo;Public;Active - FLB;≤153;89.1;89.1;False;False
+140651;MTL-QC;175.01;Private;Private;Passive;154-177;108.4;108.4;False;False
+8137;Ott-TO;264.76;Aikins Road;Public;Active - FLBG;178-201;189.9;177.0;True;True
+14505;Ott-TO;10.04;Merivale Rd;Public;Active - FLBG;178-201;113.4;113.4;False;False
+19647;Ott-TO;75.3;Kilmarnock Rd;Public;Active - FLBG;178-201;201.0;177.0;True;True
+300158;Ott-TO;121.27;-;Private;Passive;178-201;166.3;166.3;False;True
+140613;MTL-QC;242.36;Private;Private;Other;178-201;184.1;177.0;True;True
+779146;MTL-Ott;107.73;Road allowance - Greenfield;Private;Other;178-201;156.2;156.2;False;True
+252;MTL-Ott;143.84;Anderson Rd  27;Public;Active - FLBG;154-177;160.2;160.2;False;True
+8229;Ott-TO;367.12;Riley Rd;Public;Active - FLBG;≤153;152.4;152.4;False;False
+140697;MTL-QC;132.42;Private;Private;Passive;178-201;162.0;162.0;False;True
+45782;MTL-TO;370.75;Farm Xng;Private;Passive;178-201;200.1;177.0;True;True
+45798;MTL-TO;448.4;-;Private;Passive;178-201;158.7;158.7;False;True
+140758;MTL-QC;80.87;Private;Private;Passive;178-201;201.0;177.0;True;True
+14517;Ott-TO;27.04;Ottawa St;Public;Active - FLBG;178-201;173.4;173.4;False;True
+45790;Ott-TO;294.1;Farm;Private;Passive;178-201;201.0;177.0;True;True
+140652;MTL-QC;175.01;Private;Private;Passive;154-177;108.4;108.4;False;False
+52383;MTL-TO;325.25;Farm;Private;Active - FLB;178-201;190.2;177.0;True;True
+45777;MTL-TO;349.25;-;Private;Other;178-201;139.7;139.7;False;False
+300153;MTL-TO;215.43;-;Private;Passive;178-201;167.9;167.9;False;True
+7995;MTL-TO;203.21;Ormond St;Public;Active - FLBG;≤153;118.6;118.6;False;False
+7915;MTL-Ott;46.41;Rte St-Dominique;Public;Active - FLBG;178-201;201.0;177.0;True;True
+140692;MTL-QC;132.42;Private;Private;Passive;178-201;162.0;162.0;False;True
+7922;MTL-TO;59.8;Chemin St-Thomas;Public;Active - FLBG;178-201;171.7;171.7;False;True
+236;MTL-Ott;143.84;Russland Rd;Public;Active - FLBG;154-177;160.2;160.2;False;True
+300179;MTL-TO;221.84;-;Private;Passive;178-201;201.0;177.0;True;True
+8193;MTL-TO;428.63;Burnham St;Public;Active - FLBG;≤153;141.5;141.5;False;False
+4864;MTL-QC;58.44;4 Ieme Rang;Public;Active - FLBG;178-201;164.8;164.8;False;True
+140721;MTL-QC;121.0;Private;Private;Passive;≤153;105.8;105.8;False;False
+8096;Ott-TO;241.67;Shannonville Rd (Twp Rd);Public;Active - FLBG;178-201;144.1;144.1;False;False
+45665;MTL-TO;164.47;-;Private;Passive;178-201;201.0;177.0;True;True
+45789;MTL-TO;388.28;Farm;Private;Passive;178-201;201.0;177.0;True;True
+4863;MTL-QC;64.16;Rang St-Georges;Public;Active - FLBG;≤153;148.1;148.1;False;False
+45757;MTL-TO;335.82;-;Private;Passive;178-201;144.0;144.0;False;False
+14526;Ott-TO;49.09;Holbrook Rd;Public;Active - FLBG;178-201;186.7;177.0;True;True
+140699;MTL-QC;132.42;Private;Private;Passive;178-201;162.0;162.0;False;True
+300170;Ott-TO;125.95;-;Private;Active - FLB;154-177;156.5;156.5;False;True
+199;MTL-Ott;87.16;Massiedale Rd;Public;Active - FLBG;154-177;160.2;160.2;False;True
+142596;MTL-QC;34.63;Private;Private;Passive;178-201;104.7;104.7;False;False
+142607;MTL-QC;34.63;Private;Private;Passive;178-201;104.7;104.7;False;False
+140653;MTL-QC;175.01;Private;Private;Passive;154-177;108.4;108.4;False;False
+140637;MTL-QC;201.35;Private;Private;Passive;≤153;145.6;145.6;False;False
+46658;Ott-TO;252.89;Farm Crossing;Private;Active - FLB;178-201;153.7;153.7;False;True
+778867;MTL-QC;69.45;-;Private;Passive;178-201;116.6;116.6;False;False
+51405;MTL-TO;57.98;Ferme;Private;Passive;178-201;201.0;177.0;True;True
+51506;MTL-QC;132.42;Ferme;Private;Passive;178-201;162.0;162.0;False;True
+140628;MTL-QC;201.75;Private;Private;Passive;154-177;150.0;150.0;False;False
+245;MTL-Ott;143.84;Carlsbad Lane;Public;Active - FLBG;154-177;160.2;160.2;False;True
+19646;Ott-TO;72.97;Jasper Rd - Cnty 17;Public;Active - FLBG;178-201;201.0;177.0;True;True
+45663;MTL-TO;139.16;-;Private;Passive;178-201;201.0;177.0;True;True
+7987;MTL-TO;192.49;Brockem Rd;Public;Active - FLBG;178-201;194.4;177.0;True;True
+8030;Ott-TO;165.06;Joyceville Rd;Public;Active - FLBG;178-201;197.9;177.0;True;True
+14506;Ott-TO;10.04;Woodroffe Rd;Public;Active - FLBG;178-201;113.4;113.4;False;False
+140704;MTL-QC;132.42;Private;Private;Passive;178-201;162.0;162.0;False;True
+13955;MTL-QC;31.33;Montee Des Trente;Public;Active - FLBG;154-177;92.5;92.5;False;False
+4809;MTL-QC;161.62;Chemin Belgique;Public;Active - FLBG;178-201;97.0;97.0;False;False
+140710;MTL-QC;130.43;Private;Private;Passive;178-201;132.1;132.1;False;False
+140661;MTL-QC;174.42;Private;Private;Passive;≤153;108.1;108.1;False;False
+300174;MTL-TO;221.45;Farm;Private;Passive;178-201;191.6;177.0;True;True
+51498;MTL-QC;132.42;Ferme;Private;Passive;178-201;162.0;162.0;False;True
+140675;MTL-QC;132.42;Private;Private;Passive;178-201;162.0;162.0;False;True
+300122;Ott-TO;264.76;Zebedee'S Rd;Private;Active - FLBG;178-201;189.9;177.0;True;True
+46226;MTL-QC;147.55;Privé;Private;Passive;178-201;201.0;177.0;True;True
+4792;MTL-QC;175.01;Rang 16  Est;Public;Active - FLBG;154-177;108.4;108.4;False;False
+142598;MTL-QC;34.63;Private;Private;Passive;178-201;104.7;104.7;False;False
+45775;Ott-TO;255.11;Private Access;Private;Active - FLB;178-201;139.5;139.5;False;False
+239;MTL-Ott;143.84;Rockdale Dr - Cnty 33;Public;Active - FLBG;154-177;160.2;160.2;False;True
+217;MTL-Ott;127.34;Valley St;Public;Active - FLBG;178-201;105.1;105.1;False;False
+218;MTL-Ott;128.38;Rue Labrosse - Cnty 15;Public;Active - FLBG;178-201;161.1;161.1;False;True
+300159;MTL-TO;215.43;-;Private;Passive;178-201;167.9;167.9;False;True
+215;MTL-Ott;121.4;Hwy  138;Public;Active - FLBG;154-177;145.3;145.3;False;False
+8072;Ott-TO;215.72;Big Creek Rd;Public;Active - FLBG;178-201;140.7;140.7;False;False
+45697;MTL-TO;234.59;Farm;Private;Active - FLB;178-201;201.0;177.0;True;True
+7925;MTL-TO;59.8;5th Line Rd;Public;Active - FLBG;178-201;171.7;171.7;False;True
+8236;MTL-TO;467.17;Bennets Rd;Public;Active - FLBG;178-201;180.2;177.0;True;True
+45730;Ott-TO;165.06;-;Private;Passive;178-201;197.9;177.0;True;True
+140633;MTL-QC;201.75;Private;Private;Passive;154-177;150.0;150.0;False;False
+14521;Ott-TO;33.57;O'Neill Rd;Public;Active - FLBG;178-201;201.0;177.0;True;True
+4788;MTL-QC;193.62;Route Trepanier;Public;Active - FLBG;178-201;143.6;143.6;False;False
+140759;MTL-QC;80.87;Private;Private;Passive;178-201;201.0;177.0;True;True
+45752;Ott-TO;241.67;-;Private;Active - FLB;178-201;144.1;144.1;False;False
+778864;MTL-QC;80.87;-;Private;Passive;178-201;201.0;177.0;True;True
+45766;Ott-TO;255.11;Private Road;Private;Active - FLB;178-201;139.5;139.5;False;False
+52498;MTL-Ott;63.8;Farm;Private;Passive;178-201;113.0;113.0;False;False
+45889;MTL-Ott;87.16;-;Private;Passive;154-177;160.2;160.2;False;True
+45916;MTL-Ott;106.16;-;Private;Passive;178-201;109.0;109.0;False;False
+52382;MTL-TO;325.25;Farm;Private;Active - FLB;178-201;190.2;177.0;True;True
+45653;MTL-TO;59.8;-;Private;Passive;178-201;171.7;171.7;False;True
+50370;MTL-QC;262.77;Passage Privé;Private;Passive;178-201;91.1;91.1;False;False
+45698;Ott-TO;146.0;-;Private;Active - FLB;178-201;186.2;177.0;True;True
+45917;MTL-Ott;106.16;-;Private;Passive;178-201;109.0;109.0;False;False
+52392;MTL-QC;34.63;-;Private;Passive;178-201;104.7;104.7;False;False
+4821;MTL-QC;132.42;Rue Vigneault;Public;Active - FLBG;178-201;162.0;162.0;False;True
+140622;MTL-QC;201.75;Private;Private;Passive;154-177;150.0;150.0;False;False
+13951;MTL-QC;34.63;Chemin Rouillard;Public;Active - FLBG;178-201;104.7;104.7;False;False
+45759;MTL-TO;335.82;-;Private;Active - FLB;178-201;144.0;144.0;False;False
+46171;Ott-TO;255.11;Private Road;Private;Active - FLBG;178-201;139.5;139.5;False;False
+4844;MTL-QC;100.3;Rue Heriot;Public;Active - FLBG;≤153;68.3;68.3;False;False
+142578;MTL-QC;34.63;Private;Private;Passive;178-201;104.7;104.7;False;False
+45694;Ott-TO;140.43;Farm;Private;Active - FLB;178-201;201.0;177.0;True;True
+45679;MTL-TO;177.79;-;Private;Passive;178-201;201.0;177.0;True;True
+234;MTL-Ott;143.84;Chem. Limoges  (Cnty 5);Public;Active - FLBG;154-177;160.2;160.2;False;True
+8171;Ott-TO;309.19;Townline Rd (Lakeport Rd);Public;Active - FLBG;178-201;201.0;177.0;True;True
+8504;MTL-QC;264.83;Avenue Plante;Public;Active - FLBG;178-201;141.9;141.9;False;False
+50254;MTL-TO;252.6;Farm Xng;Private;Active - FLB;≤153;142.5;142.5;False;False
+52292;MTL-Ott;75.71;Farm Crossing;Private;Passive;178-201;149.3;149.3;False;False
+300160;MTL-TO;215.43;-;Private;Passive;178-201;167.9;167.9;False;True
+52393;MTL-QC;34.63;Greenbank Road (Diversion);Private;Passive;178-201;104.7;104.7;False;False
+45695;Ott-TO;140.43;Farm;Private;Active - FLB;178-201;201.0;177.0;True;True
+7996;MTL-TO;203.9;Park St;Public;Active - FLBG;≤153;113.4;113.4;False;False
+45770;Ott-TO;255.11;Farm Crossing;Private;Active - FLB;178-201;139.5;139.5;False;False
+140657;MTL-QC;175.01;Private;Private;Passive;154-177;108.4;108.4;False;False
+13950;MTL-QC;34.63;Chemin Benoit;Public;Active - FLBG;178-201;104.7;104.7;False;False
+14525;Ott-TO;49.09;Weedmark Rd;Public;Active - FLBG;178-201;186.7;177.0;True;True
+610806;MTL-QC;132.42;Ferme;Private;Passive;178-201;162.0;162.0;False;True
+8172;Ott-TO;309.19;Thomas Rd;Public;Active - FLBG;178-201;201.0;177.0;True;True
+45666;MTL-TO;172.09;-;Private;Passive;178-201;201.0;177.0;True;True
+45678;MTL-TO;177.69;-;Private;Passive;178-201;201.0;177.0;True;True
+140627;MTL-QC;201.75;Private;Private;Passive;154-177;150.0;150.0;False;False
+7940;MTL-TO;104.91;Boundary Rd;Public;Active - FLBG;178-201;150.2;150.2;False;False
+142606;MTL-QC;34.63;Private;Private;Passive;178-201;104.7;104.7;False;False
+45715;MTL-TO;254.66;-;Private;Active - FLB;154-177;153.9;153.9;False;True
+45767;Ott-TO;255.11;Private Road;Private;Active - FLB;178-201;139.5;139.5;False;False
+10336;MTL-QC;245.52;Chemin de Charny;Public;Active - FLBG;≤153;85.5;85.5;False;False
+45786;Ott-TO;294.1;Farm;Private;Passive;178-201;201.0;177.0;True;True
+52492;MTL-Ott;63.8;Farm;Private;Passive;178-201;113.0;113.0;False;False
+219;MTL-Ott;128.75;Eighth Rd (Route 800);Public;Active - FLBG;154-177;160.0;160.0;False;True
+51509;MTL-QC;132.42;Ferme;Private;Passive;178-201;162.0;162.0;False;True
+8098;Ott-TO;255.11;Mitchell'S Sideroad;Public;Active - FLBG;178-201;139.5;139.5;False;False
+8214;Ott-TO;345.35;Haskall Rd;Public;Active - FLBG;178-201;133.1;133.1;False;False
+8250;Ott-TO;390.05;Wilson Rd South;Public;Active - FLBG;178-201;148.4;148.4;False;False
+46278;MTL-QC;20.19;-;Private;Passive;178-201;153.8;153.8;False;True
+52483;MTL-Ott;63.8;Pepiniere;Private;Other;178-201;113.0;113.0;False;False
+4819;MTL-QC;132.42;Rte Bussiere;Private;Passive;178-201;162.0;162.0;False;True
+51407;MTL-TO;57.98;Ferme;Private;Passive;178-201;201.0;177.0;True;True
+300978;Ott-TO;19.54;Strandherd Dr;Public;Active - FLBG;178-201;125.1;125.1;False;False
+4787;MTL-QC;201.75;Route Du Village;Public;Active - FLBG;154-177;150.0;150.0;False;False
+7924;MTL-TO;59.8;Ste-Claire Road;Public;Active - FLBG;178-201;171.7;171.7;False;True
+45797;Ott-TO;345.35;-;Private;Passive;178-201;133.1;133.1;False;False
+52504;MTL-Ott;63.8;Farm;Private;Passive;178-201;113.0;113.0;False;False
+8745;MTL-Ott;62.75;Rue Lippée;Public;Active - FLBG;≤153;85.9;85.9;False;False
+7964;MTL-TO;138.73;Nudell Bush Anderson Rd;Public;Active - FLBG;178-201;201.0;177.0;True;True
+45764;MTL-TO;347.03;Farm Access;Private;Active - FLB;178-201;153.9;153.9;False;True
+8138;Ott-TO;264.76;Whites Road;Public;Active - FLBG;178-201;189.9;177.0;True;True
+50697;MTL-QC;34.63;Ferme;Private;Other;178-201;104.7;104.7;False;False
+8164;Ott-TO;294.1;Bellamy Rd;Public;Active - FLBG;178-201;201.0;177.0;True;True
+45788;Ott-TO;294.1;Farm;Private;Passive;178-201;201.0;177.0;True;True
+142585;MTL-QC;34.63;Private;Private;Passive;178-201;104.7;104.7;False;False
+4853;MTL-QC;80.87;Chemin Du 10E Rang;Public;Active - FLBG;178-201;201.0;177.0;True;True
+45702;MTL-TO;240.16;-;Private;Active - FLB;178-201;197.1;177.0;True;True
+50699;MTL-QC;20.19;Ferme;Private;Passive;178-201;153.8;153.8;False;True
+45800;MTL-TO;455.15;Private Farm Entrance;Private;Active - FLBG;178-201;180.0;177.0;True;True
+248;MTL-Ott;143.84;Hall Rd;Public;Active - FLBG;154-177;160.2;160.2;False;True
+7994;MTL-TO;203.21;Bartholomew St;Public;Active - FLBG;≤153;118.6;118.6;False;False
+45688;MTL-TO;197.42;-;Private;Passive;178-201;201.0;177.0;True;True
+46221;MTL-QC;270.61;Pssage Privé Daishowa Cie;Private;Other;≤153;87.3;87.3;False;False
+140766;MTL-QC;58.44;Private;Private;Passive;178-201;164.8;164.8;False;True
+51406;MTL-Ott;58.0;Ferme;Private;Passive;178-201;201.0;177.0;True;True
+142572;MTL-QC;34.63;Private;Private;Passive;178-201;104.7;104.7;False;False
+200728;MTL-QC;259.57;Passage Pieton/Velo;Public;Active - FLB;≤153;136.4;136.4;False;False
+4820;MTL-QC;132.42;Rue Principale;Public;Active - FLBG;178-201;162.0;162.0;False;True
+13949;MTL-QC;34.63;Chemin Petit Rang;Public;Active - FLBG;178-201;104.7;104.7;False;False
+13947;MTL-QC;34.63;Ch. Du Grand Rang;Public;Active - FLBG;178-201;104.7;104.7;False;False
+50845;MTL-Ott;75.71;Farm Crossing;Private;Other;178-201;149.3;149.3;False;False
+7921;MTL-TO;59.8;Chemin Ste-Catherine;Public;Active - FLBG;178-201;171.7;171.7;False;True
+10337;MTL-QC;245.52;Rue De La Traverse;Public;Active - FLBG;≤153;85.5;85.5;False;False
+8011;MTL-TO;245.26;Cliff Rd;Public;Active - FLBG;178-201;201.0;177.0;True;True
+45768;Ott-TO;255.11;Farm Crossing;Private;Active - FLB;178-201;139.5;139.5;False;False
+140626;MTL-QC;201.75;Private;Private;Passive;154-177;150.0;150.0;False;False
+19659;Ott-TO;97.13;6Th Concession;Public;Active - FLBG;178-201;189.0;177.0;True;True
+142597;MTL-QC;34.63;Private;Private;Passive;178-201;104.7;104.7;False;False
+779408;MTL-QC;20.19;-;Public;Active - FLBG;178-201;153.8;153.8;False;True
+19664;Ott-TO;109.07;Central Ave West;Public;Active - FLBG;≤153;68.7;68.7;False;False
+7973;MTL-TO;164.47;Marine Station Rd;Public;Active - FLBG;178-201;201.0;177.0;True;True
+45701;Ott-TO;146.0;Farm;Private;Active - FLB;178-201;186.2;177.0;True;True
+51508;MTL-QC;132.42;Ferme;Private;Passive;178-201;162.0;162.0;False;True
+36583;MTL-Ott;84.15;Glen Robertson Road (County Rd 10);Public;Active - FLBG;≤153;124.7;124.7;False;False
+47891;MTL-TO;288.99;Frontenac;Public;Active - FLBG;≤153;141.9;141.9;False;False
+1833;MTL-QC;246.03;Avenue Des Eglises;Public;Active - FLBG;≤153;72.5;72.5;False;False
+50694;MTL-QC;34.63;Ferme;Private;Passive;178-201;104.7;104.7;False;False
+140639;MTL-QC;200.93;Private;Private;Passive;≤153;148.7;148.7;False;False
+45774;MTL-TO;349.25;Private Access;Private;Active - FLB;178-201;139.7;139.7;False;False
+142586;MTL-QC;34.63;Private;Private;Passive;178-201;104.7;104.7;False;False
+140764;MTL-QC;66.89;Private;Private;Passive;178-201;146.2;146.2;False;False
+4814;MTL-QC;158.2;Chemin De La Rivière;Public;Passive;154-177;121.7;121.7;False;False
+140642;MTL-QC;193.62;Private;Private;Passive;178-201;143.6;143.6;False;False
+19644;Ott-TO;69.48;Kitley South Elmsley Townline Rd;Public;Active - FLBG;178-201;171.9;171.9;False;True
+610809;MTL-QC;58.44;Privé;Private;Passive;178-201;164.8;164.8;False;True
+45747;MTL-TO;333.17;Farm;Private;Active - FLB;178-201;168.6;168.6;False;True
+45765;MTL-TO;347.03;Private Access;Private;Active - FLB;178-201;153.9;153.9;False;True
+142577;MTL-QC;34.63;Private;Private;Passive;178-201;104.7;104.7;False;False
+142568;MTL-QC;34.63;Private;Private;Passive;178-201;104.7;104.7;False;False
+8029;Ott-TO;165.06;Hitchcock Rd;Public;Active - FLBG;178-201;197.9;177.0;True;True
+140644;MTL-QC;193.62;Private;Private;Passive;178-201;143.6;143.6;False;False
+8174;Ott-TO;309.19;Station Rd;Public;Active - FLBG;178-201;201.0;177.0;True;True
+50700;MTL-QC;20.19;Ferme;Private;Passive;178-201;153.8;153.8;False;True
+45758;Ott-TO;241.67;-;Private;Passive;178-201;144.1;144.1;False;False
+7985;MTL-TO;187.72;South Campbell Rd;Public;Active - FLBG;178-201;201.0;177.0;True;True
+4806;MTL-QC;175.01;Chemin Petit 9E Rang;Public;Active - FLBG;154-177;108.4;108.4;False;False
+45669;MTL-TO;174.21;-;Private;Passive;178-201;201.0;177.0;True;True
+140629;MTL-QC;201.75;Private;Private;Passive;154-177;150.0;150.0;False;False
+45668;MTL-TO;174.21;-;Private;Passive;178-201;201.0;177.0;True;True
+140621;MTL-QC;201.75;Private;Private;Passive;154-177;150.0;150.0;False;False
+8131;Ott-TO;263.35;Geddes St;Public;Active - FLBG;178-201;118.9;118.9;False;False
+8097;Ott-TO;252.89;Farm Crossing;Private;Active - FLB;178-201;153.7;153.7;False;True
+140769;MTL-QC;58.44;Private;Private;Passive;178-201;164.8;164.8;False;True
+7984;MTL-TO;183.98;Merwin Lane Rd;Public;Active - FLBG;178-201;144.2;144.2;False;False
+8135;Ott-TO;264.76;Township Rd;Public;Passive;178-201;189.9;177.0;True;True
+8002;MTL-TO;215.43;Yonge Mills Rd;Public;Active - FLBG;178-201;167.9;167.9;False;True
+45687;MTL-TO;197.42;-;Private;Passive;178-201;201.0;177.0;True;True
+4786;MTL-QC;210.97;Boul St-Joseph;Public;Active - FLBG;≤153;105.6;105.6;False;False
+8176;Ott-TO;327.23;Pentecostal Rd;Public;Active - FLBG;178-201;201.0;177.0;True;True
+140709;MTL-QC;130.43;Private;Private;Passive;178-201;132.1;132.1;False;False
+610825;MTL-Ott;43.79;-;Private;Passive;178-201;201.0;177.0;True;True
+140645;MTL-QC;193.62;Private;Private;Passive;178-201;143.6;143.6;False;False
+7917;MTL-TO;57.16;Rue Germain;Public;Active - FLBG;178-201;201.0;177.0;True;True
+19665;Ott-TO;109.79;Front Ave;Public;Active - FLBG;≤153;58.8;58.8;False;False
+10475;MTL-TO;4.2;Rue St-Ambroise;Public;Active - FLBG;≤153;118.0;118.0;False;False
+140708;MTL-QC;130.43;Private;Private;Passive;178-201;132.1;132.1;False;False
+4862;MTL-QC;66.89;Ch. Rang St-Edouard;Public;Active - FLBG;178-201;146.2;146.2;False;False
+50698;MTL-QC;34.63;Privé;Private;Other;178-201;104.7;104.7;False;False
+45671;MTL-TO;174.21;416??????;Private;Passive;178-201;201.0;177.0;True;True
+45902;Ott-TO;33.57;Private;Private;Passive;178-201;201.0;177.0;True;True
+7927;MTL-TO;59.8;3rd Line Rd (Bainsville);Public;Active - FLBG;178-201;171.7;171.7;False;True
+8073;Ott-TO;215.72;Perry Rd;Public;Active - FLBG;178-201;140.7;140.7;False;False
+7963;MTL-TO;133.82;Aultsville Rd;Public;Active - FLBG;178-201;201.0;177.0;True;True
+7989;MTL-TO;196.45;Maitland Rd (Cnty 15)(Mai;Public;Active - FLBG;178-201;201.0;177.0;True;True
+142576;MTL-QC;34.63;Private;Private;Passive;178-201;104.7;104.7;False;False
+230;MTL-Ott;143.84;Calypso Rd. (Route 300);Public;Active - FLBG;154-177;160.2;160.2;False;True
+45657;MTL-TO;59.8;-;Private;Passive;178-201;171.7;171.7;False;True
+140647;MTL-QC;175.01;Private;Private;Passive;154-177;108.4;108.4;False;False
+46170;Ott-TO;255.11;Farm Road;Private;Active - FLB;178-201;139.5;139.5;False;False
+52381;MTL-TO;325.25;Grand Boulevard Nord;Private;Active - FLB;178-201;190.2;177.0;True;True
+7952;MTL-TO;108.53;Tollgate Rd;Public;Active - FLBG;178-201;147.1;147.1;False;False
+7986;MTL-TO;187.72;Blue Church Rd ((Cnty 31);Public;Active - FLBG;178-201;201.0;177.0;True;True
+11829;MTL-Ott;183.98;Michael St;Public;Active - FLBG;178-201;122.1;122.1;False;False
+7956;MTL-TO;108.53;Power Dam Rd;Public;Active - FLBG;178-201;147.1;147.1;False;False
+45705;MTL-TO;245.26;Farm;Private;Passive;178-201;201.0;177.0;True;True
+8139;MTL-TO;370.75;Meyers Creek Rd;Public;Active - FLBG;178-201;200.1;177.0;True;True
+300246;MTL-TO;240.16;-;Private;Active - FLB;178-201;197.1;177.0;True;True
+45753;Ott-TO;241.67;-;Private;Active - FLB;178-201;144.1;144.1;False;False
+7957;MTL-TO;108.53;Cornwall Centre Rd;Public;Active - FLBG;178-201;147.1;147.1;False;False
+202;MTL-Ott;99.84;Main St N- Cnty 34 (Alexandria);Public;Active - FLBG;154-177;80.3;80.3;False;False
+45739;MTL-TO;316.29;Farm;Private;Passive;≤153;142.1;142.1;False;False
+140640;MTL-QC;193.62;Private;Private;Passive;178-201;143.6;143.6;False;False
+13946;MTL-QC;34.63;Grand Range Road;Public;Active - FLBG;178-201;104.7;104.7;False;False
+45685;MTL-TO;192.49;-;Private;Passive;178-201;194.4;177.0;True;True
+300157;MTL-TO;215.43;-;Private;Passive;178-201;167.9;167.9;False;True
+7966;MTL-TO;139.16;Church Rd (Cnty 8);Public;Active - FLBG;178-201;201.0;177.0;True;True
+8108;MTL-TO;349.25;Elmwood Dr;Public;Active - FLBG;178-201;139.7;139.7;False;False
+7958;MTL-TO;108.53;Richmond Dr;Public;Active - FLBG;178-201;147.1;147.1;False;False
+46277;MTL-QC;34.63;Privé;Private;Passive;178-201;104.7;104.7;False;False
+7990;MTL-TO;199.7;Sharpe's Lane;Public;Active - FLBG;178-201;201.0;177.0;True;True
+46225;MTL-QC;175.01;-;Private;Passive;154-177;108.4;108.4;False;False
+51510;MTL-QC;69.45;Ferme;Private;Other;178-201;116.6;116.6;False;False
+45772;Ott-TO;255.11;Airport Road;Private;Active - FLBG;178-201;139.5;139.5;False;False
+45704;Ott-TO;151.1;Farm;Private;Passive;178-201;200.8;177.0;True;True
+4789;MTL-QC;193.62;Route De La Station;Public;Active - FLBG;178-201;143.6;143.6;False;False
+19029;MTL-TO;378.78;Lawson Settlement Road;Public;Active - FLBG;178-201;156.0;156.0;False;True
+10492;MTL-TO;5.37;Rue De Courcelle;Public;Active - FLBG;178-201;119.3;119.3;False;False
+4807;MTL-QC;173.48;Rue St-Albert;Public;Active - FLBG;≤153;139.2;139.2;False;False
+46657;MTL-TO;192.49;Private Crossing;Private;Passive;178-201;194.4;177.0;True;True
+19053;MTL-TO;424.68;Brook Road North;Public;Active - FLBG;178-201;146.2;146.2;False;False
+45689;MTL-TO;198.58;-;Private;Passive;178-201;201.0;177.0;True;True
+19051;MTL-TO;421.4;Pentecostal Road;Public;Active - FLBG;178-201;201.0;177.0;True;True
+45761;MTL-TO;335.82;-;Private;Passive;178-201;144.0;144.0;False;False
+19047;MTL-TO;403.37;Thomas Road;Public;Active - FLBG;178-201;201.0;177.0;True;True
+4808;MTL-QC;170.87;Chemin Belgique;Public;Active - FLBG;154-177;88.2;88.2;False;False
+19022;MTL-TO;378.78;Morningstar Road;Public;Active - FLBG;178-201;156.0;156.0;False;True
+19031;Ott-TO;294.1;Prince Edward St (Reg 64);Public;Active - FLBG;178-201;201.0;177.0;True;True
+19049;MTL-TO;403.37;Station Road ;Public;Active - FLBG;178-201;201.0;177.0;True;True
+19055;Ott-TO;330.51;Darcy Street;Public;Active - FLBG;178-201;155.6;155.6;False;True
+19023;Ott-TO;284.6;Tate Rd;Public;Active - FLBG;178-201;156.5;156.5;False;True
+19059;MTL-TO;428.0;Ontario Street;Public;Active - FLBG;178-201;146.3;146.3;False;False
+19048;Ott-TO;309.19;Lakeport Rd (Cnty 31);Public;Active - FLBG;178-201;201.0;177.0;True;True
+610804;MTL-QC;201.13;Privé;Private;Passive;≤153;144.3;144.3;False;False
+52490;MTL-Ott;63.8;Farm;Private;Passive;178-201;113.0;113.0;False;False
+51821;Ott-TO;328.14;Farm Crossing;Private;Passive;178-201;201.0;177.0;True;True
+19032;MTL-TO;388.28;Ontario St (Reg Xx);Public;Active - FLBG;178-201;201.0;177.0;True;True
+51827;MTL-TO;403.37;Farm Crossing;Private;Passive;178-201;201.0;177.0;True;True
+19025;MTL-TO;378.78;Flindall Rd;Public;Active - FLBG;178-201;156.0;156.0;False;True
+19057;MTL-TO;427.45;George Street;Public;Active - FLBG;≤153;142.4;142.4;False;False
+49246;Ott-TO;362.26;-;Private;Passive;178-201;183.7;177.0;True;True
+52201;Ott-TO;360.52;Farm Crossing;Private;Passive;178-201;178.7;177.0;True;True
+19027;MTL-TO;378.78;Stoney Point Rd (Brighton);Public;Active - FLBG;178-201;156.0;156.0;False;True
+19080;Ott-TO;356.48;East Townline Road;Public;Active - FLB;178-201;167.4;167.4;False;True
+300294;Ott-TO;365.25;-;Private;Passive;≤153;142.5;142.5;False;False
+52202;Ott-TO;360.98;Private Farm Entrance;Private;Passive;178-201;179.2;177.0;True;True
+19073;Ott-TO;345.35;Brand Road (Lot 14-15 Concession 1);Public;Active - FLB;178-201;133.1;133.1;False;False
+19086;MTL-TO;455.15;Glovers Road (Lakeshore Road);Public;Active - FLB;178-201;180.0;177.0;True;True
+19087;Ott-TO;365.91;Lakeshore Road (Stephenson);Public;Active - FLBG;≤153;143.0;143.0;False;False
+19034;Ott-TO;294.1;Huff Road;Public;Active - FLB;178-201;201.0;177.0;True;True

@@ -11,7 +11,7 @@ rapport et par le visualiseur :
   livrables/sensibilites_traction.csv : l'effet, en minutes marge comprise, de chaque
       hypothèse de traction.
 
-Configuration publiée : pendulaire, plafond 201 km/h, blocs urbains libres, marge 10 %.
+Configuration publiée : pendulaire, plafond publié, blocs urbains libres, marge 10 %.
 """
 from __future__ import annotations
 
@@ -26,6 +26,7 @@ import pandas as pd
 
 os.environ["BLOCS_URBAINS"] = "libres"
 sys.path.insert(0, str(Path(__file__).parent))
+from scenarios import PLAFOND_PUBLIE              # noqa: E402
 from utils import DELIVERABLES                    # noqa: E402
 
 _spec = importlib.util.spec_from_file_location("m21", Path(__file__).parent / "21_tbase_bande.py")
@@ -34,7 +35,7 @@ sys.modules["m21"] = m21
 _spec.loader.exec_module(m21)
 
 MARGE = 1.10
-SCENARIO, BANDE = "S2", 201.0
+SCENARIO, BANDE = "S2", float(PLAFOND_PUBLIE)
 LIBELLES = {"MTL-QC": "Montréal-Québec", "MTL-Ott": "Montréal-Ottawa",
             "Ott-TO": "Ottawa-Toronto", "MTL-TO": "Montréal-Toronto"}
 BY_T = m21.load_segments()
@@ -73,7 +74,7 @@ def etapes() -> pd.DataFrame:
         rows.append({"trajet": lib, "distance_km": round(max(b for _, b, _ in libres), 1),
                      "n_arrets": n,
                      "vitesse_des_courbes_min": round(fluide(t, libres), 1),
-                     "plafond_201_min": round(fluide(t, plafond), 1),
+                     "plafond_min": round(fluide(t, plafond), 1),
                      "immobilisation_en_gare_min": round(fluide(t, plafond) + immobile, 1),
                      "vrai_train_min": round(reel, 1),
                      "marge_10_pct_min": round(reel * MARGE, 1)})
@@ -130,6 +131,10 @@ def sensibilites() -> pd.DataFrame:
         ("Train diesel de 12 W/kg, même masse (n'existe pas)", dict(rame=replace(R, p_kw=12 * 282))),
         ("Arrêts à la médiane des horaires, gare par gare", dict(arrets=ARRETS_GTFS)),
         ("Train électrique de type Pendolino, corridor électrifié", dict(rame=pendolino)),
+        ("Train électrique, 201 km/h partout", dict(rame=pendolino, bande=201.0)),
+        ("Train électrique, 241 km/h, sans passage à niveau", dict(rame=pendolino, bande=241.0)),
+        ("Train de référence, 201 km/h partout", dict(bande=201.0)),
+        ("Train de référence, 241 km/h, sans passage à niveau", dict(bande=241.0)),
         ("Une locomotive Charger et 5 voitures pendulaires (7,4 W/kg)", dict(rame=un)),
         ("Deux locomotives Charger et 5 voitures pendulaires (11,5 W/kg)", dict(rame=deux)),
         ("Tolérance en courbe de 5 po", dict(insuffisance_mm=127)),
@@ -153,7 +158,7 @@ def main() -> None:
     print(e.to_string(index=False))
     pub = pd.read_csv(DELIVERABLES / "temps_scenario_2.csv", sep=";")
     for t, lib in LIBELLES.items():
-        ref = pub[(pub.troncon == t) & (pub.scenario == "pendulaire") & (pub.bande_kmh == 201)]
+        ref = pub[(pub.troncon == t) & (pub.scenario == "pendulaire") & (pub.bande_kmh == PLAFOND_PUBLIE)]
         attendu = float(ref.tbase_sans_marge_min.iloc[0])
         obtenu = float(e[e.trajet == lib].vrai_train_min.iloc[0])
         assert abs(attendu - obtenu) < 0.15, (t, attendu, obtenu)

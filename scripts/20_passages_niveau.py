@@ -20,9 +20,9 @@ passage, appliquée aux DEUX sorties (par_bande et tri) — un assert le garanti
 
 Bandes d'EXPLOITATION du rapport (en plus des bandes géométriques) :
   bande_base       : min(vmax_S1, 160) — le régime d'aujourd'hui
-  bande_pendulaire : min(vmax_S2, 201) — le train pendulaire (moteur commun des
-                     scénarios 1 à 3), plafonné à 201 km/h (125 mi/h) : sommet
-                     de la marche du PTC certifié et seuil passages à niveau.
+  bande_pendulaire : min(vmax_S2, 201) — ce que les COURBES permettent au train
+                     pendulaire, jusqu'à 201 km/h (125 mi/h). Le scénario publié
+                     plafonne à 177 km/h ; l'étape 41 mesure la vitesse réelle.
                      Les comptes de passages sont IDENTIQUES pour les trois
                      scénarios publiés (même plafond 201).
 
@@ -262,10 +262,9 @@ def main() -> None:
     n_a_equiper = n_scelle - n_flbg
     n_complexe = int(scelle["intervention"].str.startswith("complexe").sum())
     expl = (
-        f"train pendulaire, plafond 201 km/h / 125 mi/h (identique pour les "
-        f"scénarios 1 à 3) : {n_scelle} passages en zone 154-201 à sceller, "
-        f"dont {n_haut} en bande 178-201 (approbation fédérale du dispositif "
-        f"en plus, précédent 49 CFR 213.347(b)) ; {n_flbg} déjà équipés d'un "
+        f"train pendulaire, selon ce que les courbes permettent : {n_scelle} passages "
+        f"en zone 154-201 à sceller, dont {n_haut} en bande géométrique 178-201 "
+        f"(l'étape 41 mesure où le train y dépasserait vraiment 177 km/h) ; {n_flbg} déjà équipés d'un "
         f"système complet feux-cloches-barrières (FLBG) et {n_a_equiper} à "
         f"équiper ; {n_complexe} en contexte complexe ; "
         f"{int((first['bande_pendulaire'] == '≤153').sum())} restent ≤153"
@@ -294,11 +293,10 @@ Le 49 CFR est cité comme PRÉCÉDENT réglementaire nord-américain ; il ne
 s'applique pas de plein droit au Canada.
 
 Bandes d'EXPLOITATION (colonnes bande_base / bande_pendulaire) : la base est
-le régime d'aujourd'hui (la voie actuelle, plafonnée à 160 km/h) ; le train
-pendulaire des scénarios 1 à 3 est plafonné à 201 km/h (125 mi/h), sommet de
-la marche du PTC certifié (précédents Brightline et Northeast Corridor) et
-seuil au-delà duquel le précédent américain interdit tout passage à niveau.
-Les comptes sont identiques pour les trois scénarios publiés (même plafond).
+le régime d'aujourd'hui (la voie actuelle, plafonnée à 160 km/h) ; la colonne
+pendulaire dit ce que les courbes permettent, jusqu'à 201 km/h (125 mi/h). Le
+scénario publié plafonne à 177 km/h (110 mi/h) ; passages_vitesse_reelle.csv
+donne la vitesse que le train atteindrait vraiment à chaque passage.
 {expl}.
 
 Total corridor DÉDOUBLONNÉ : un même passage physique (TC Number) emprunté par

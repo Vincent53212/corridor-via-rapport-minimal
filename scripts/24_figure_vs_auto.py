@@ -25,6 +25,7 @@ from pathlib import Path as _Path
 
 import matplotlib; matplotlib.use("Agg")
 import matplotlib.pyplot as plt
+from scenarios import PLAFOND_PUBLIE
 from utils import DELIVERABLES
 from identite import PAPIER, SCENARIOS, appliquer_rcparams, police_mono, police_titre
 
@@ -54,8 +55,8 @@ _T2 = _lire("temps_scenario_2.csv")
 _T3 = _lire("temps_scenario_3.csv")
 
 def _pt(table, troncon):
-    """Temps publié (point) : T_base(pendulaire, 201) × marge."""
-    return float(table[(troncon, "pendulaire", 201)]["tbase_sans_marge_min"]) * MARGE
+    """Temps publié (point) : T_base(pendulaire, plafond publié) × marge."""
+    return float(table[(troncon, "pendulaire", PLAFOND_PUBLIE)]["tbase_sans_marge_min"]) * MARGE
 
 def _horaire(troncon):
     return float(_T1[(troncon, "base", 160)]["t_horaire_actuel_min"])

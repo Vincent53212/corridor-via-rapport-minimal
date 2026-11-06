@@ -8,7 +8,7 @@ Saint-Hyacinthe (km 53,2) et Drummondville (km 100,0), et compare :
     où VIA passe sans arrêt, la médiane des trains de banlieue exo (ligne
     Mont-Saint-Hilaire, ressources/exo_trains_GTFS.zip) ;
   - emprise optimisée : temps de passage cumulés du moteur de l'étape 21 dans la
-    configuration publiée (S2 pendulaire, plafond 201 km/h, blocs urbains libres),
+    configuration publiée (S2 pendulaire, plafond publié, blocs urbains libres),
     × 1,10 de marge. Les sous-sections vont du départ d'une gare à l'arrivée à la
     suivante ; le total Montréal-Québec ajoute les deux immobilisations (2 min)
     à Saint-Hyacinthe et à Drummondville. Sa somme est le temps publié (135,7 min).
@@ -30,6 +30,7 @@ import pandas as pd
 
 os.environ["BLOCS_URBAINS"] = "libres"          # configuration publiée (scénario 2)
 sys.path.insert(0, str(Path(__file__).parent))
+from scenarios import PLAFOND_PUBLIE              # noqa: E402
 from utils import DELIVERABLES, RESOURCES         # noqa: E402
 
 _spec = importlib.util.spec_from_file_location("m21", Path(__file__).parent / "21_tbase_bande.py")
@@ -39,7 +40,7 @@ _spec.loader.exec_module(m21)
 
 T = "MTL-QC"
 MARGE = 1.10
-SCENARIO, BANDE = "S2", 201.0
+SCENARIO, BANDE = "S2", float(PLAFOND_PUBLIE)
 GARES = [("Saint-Hilaire", 34.59, False), ("Saint-Hyacinthe", 53.24, True),
          ("Drummondville", 100.01, True), ("Québec", 269.85, False)]
 VIA_IDS = {"Montréal": "226", "Saint-Hyacinthe": "631", "Drummondville": "630", "Québec": "628"}
@@ -100,7 +101,7 @@ def main() -> None:
     xs, tc = cumulative_profile()
     total_base = tc[-1]                                    # = tbase du CSV publié (123,4)
     pub = pd.read_csv(DELIVERABLES / "temps_scenario_2.csv", sep=";")
-    ref = float(pub[(pub.troncon == T) & (pub.scenario == "pendulaire") & (pub.bande_kmh == 201)]
+    ref = float(pub[(pub.troncon == T) & (pub.scenario == "pendulaire") & (pub.bande_kmh == PLAFOND_PUBLIE)]
                 .tbase_sans_marge_min.iloc[0])
     assert abs(total_base - ref) < 0.15, (total_base, ref)
 

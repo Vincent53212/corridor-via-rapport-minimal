@@ -82,6 +82,7 @@ python scripts/36_gains_urbains.py          # blocs urbains poste par poste : co
 python scripts/32_figure_gains.py           # figure : d'où viennent les minutes
 python scripts/37_sous_sections_mtlqc.py   # Montréal-Québec gare par gare (Saint-Hilaire, Saint-Hyacinthe, Drummondville)
 python scripts/40_etapes_temps.py           # le modèle pas à pas, calage de la formule, sensibilités de traction
+python scripts/41_passages_gain_vitesse.py  # vitesse réelle à chaque passage, minutes rachetées par le programme complémentaire
 python scripts/35_figure_zoom_urbain.py     # figures : gros plans des blocs urbains Montréal / Québec
 python scripts/28_couverture.py             # couverture + vignette du visualiseur
 python scripts/29_rapport_html.py           # rapport.md → HTML à l'identité
@@ -109,7 +110,7 @@ Deux règles de lecture que le document tient partout : Fraunces porte le propos
 IBM Plex Mono porte la mesure ; l'acier dit le réseau, le chaud dit la
 contrainte. La rampe des bandes de vitesse est divergente et s'articule sur
 200 km/h (la grille physique des classes A-F) ; le plafond d'exploitation retenu
-par l'étude est 177 km/h (limite ITCS), marqué d'un repère sur la couverture.
+par l'étude est 177 km/h (`scenarios.PLAFOND_PUBLIE`), marqué d'un repère sur la couverture.
 
 ## Garde-fous
 

@@ -12,27 +12,27 @@ exactement au gain, pas des mesures indépendantes) :
     B1(p)  = T_base(voie et train actuels, plafond p)      temps_scenario_1.csv, base
     B2(p)  = T_base(train pendulaire, blocs figés, p)       temps_scenario_1.csv, pendulaire
     U2(p)  = T_base(train pendulaire, blocs libres, p)      temps_scenario_2.csv, pendulaire
-    C      = U2(201) × 1,10  = temps publié du scénario 2
+    C      = U2(plafond) × 1,10  = temps publié du scénario 2
     G      = H − C, décomposé en :
 
     1) cohabitation : voir après 4) (c'est le reste).
     2) train pendulaire  = [B1(153) − B2(153)] × 1,10     (sous la classe actuelle)
     3) zones urbaines    = Σ blocs (courbes + signalisation), gains_urbains.csv
        (étape 36 : profil roulé À L'INTÉRIEUR de chaque bloc urbain ;
-       courbes = train pendulaire sous 153, signalisation = 153 → 201).
+       courbes = train pendulaire sous 153, signalisation = 153 → plafond).
        Décision Vincent 2026-09-06 : le mou de cohabitation que porte l'horaire
        urbain (l'essentiel de l'écart horaire ↔ géométrie en ville) N'EST PAS un
        gain « zones urbaines » : il retourne à la cohabitation.
     4) changement de classe (passages à niveau et signalisation, interurbain)
-                         = [U2(153) − U2(201)] × 1,10 − Σ blocs signalisation
+                         = [U2(153) − U2(plafond)] × 1,10 − Σ blocs signalisation
        = ce que les facteurs précédents rapportent EN PLUS une fois le
-       plafond porté de 153 à 201 km/h, hors la part urbaine déjà comptée en 3).
+       plafond porté de 153 à 177 km/h, hors la part urbaine déjà comptée en 3).
     1) cohabitation      = G − 2) − 3) − 4)   (borné à ≥ 0)
        = H − B1(153) × 1,10 en interurbain, plus le mou urbain ; réunit le
        DOUBLEMENT et le RÉGIME de cohabitation (part rachetée par le doublement
        estimée à part : 2×2, ligne info du CSV).
 
-    Somme 1)+2)+3)+4) = H − U2(201) × 1,10 = G par construction.
+    Somme 1)+2)+3)+4) = H − U2(plafond) × 1,10 = G par construction.
     Si 1) sort négatif (l'horaire porte MOINS de 10 % de marge), 1) est nul et
     2)-4) sont réduits au prorata pour que la somme reste G (écrasement tracé
     au CSV).
@@ -53,6 +53,7 @@ import csv
 import matplotlib; matplotlib.use("Agg")
 import matplotlib.pyplot as plt
 
+from scenarios import PLAFOND_PUBLIE
 from utils import DELIVERABLES
 from identite import PAPIER, SCENARIOS, CELLULES, appliquer_rcparams, \
     police_mono, police_titre
@@ -62,7 +63,7 @@ appliquer_rcparams(matplotlib)
 MARGE = 1.10                    # point unique (décision 2026-08-24)
 ARRET_MTL_MIN = 10.0            # HYPOTHÈSE : arrêt à Montréal du trajet composé
 P_CLASSE = 153                  # classe actuelle : 95 mi/h
-P_PLAFOND = 201                 # plafond des scénarios publiés (125 mi/h)
+P_PLAFOND = PLAFOND_PUBLIE      # plafond du scénario publié
 
 
 def _lire(nom):
@@ -142,6 +143,7 @@ def decompose(troncons, label):
             "cohabitation": cohab, "pendulaire": pend, "zones_urbaines": urbain,
             "classe": classe, "doublement_inclus": doublement,
             "cohab_urbain": min(cohab_urbain, cohab),
+            "mou_urbain": cohab_urbain, "cohab_interurbain": cohab - cohab_urbain,
             "ecrasement_min": ecrasement}
 
 
@@ -165,7 +167,7 @@ for r in rows:
     r["express"] = _EXPRESS[r["trajet"]]
 
 # ---- CSV (une ligne par trajet × poste + contrôles)
-POSTES = [("temps_scenario_2_avec_marge", "C", "temps_scenario_2.csv (pendulaire, 201) × 1,10"),
+POSTES = [("temps_scenario_2_avec_marge", "C", f"temps_scenario_2.csv (pendulaire, {P_PLAFOND}) × 1,10"),
           ("gain_cohabitation", "cohabitation",
            "G − les trois autres postes : mou de l'horaire au-delà de 10 %, interurbain "
            "et zones urbaines ; doublement et régime réunis"),
@@ -174,7 +176,7 @@ POSTES = [("temps_scenario_2_avec_marge", "C", "temps_scenario_2.csv (pendulaire
            "gains_urbains.csv : courbes (pendulaire) + signalisation des blocs urbains, "
            "sans le mou de cohabitation"),
           ("gain_changement_classe", "classe",
-           "temps_scenario_2.csv (pendulaire, 153 − 201) × 1,10 − signalisation urbaine : "
+           f"temps_scenario_2.csv (pendulaire, 153 − {P_PLAFOND}) × 1,10 − signalisation urbaine : "
            "passages à niveau et signalisation, interurbain")]
 with open(DELIVERABLES / "decomposition_gains.csv", "w",
           encoding="utf-8-sig", newline="") as f:
@@ -193,6 +195,11 @@ with open(DELIVERABLES / "decomposition_gains.csv", "w",
                     round(r["cohab_urbain"], 1), "",
                     "mou de l'horaire actuel dans les blocs urbains (gains_urbains.csv), "
                     "compté dans la cohabitation et non dans les zones urbaines"])
+        w.writerow([r["trajet"], "info_cohabitation_mou_urbain", round(r["mou_urbain"], 1), "",
+                    "écart entre l'horaire des zones urbaines et le temps du train actuel, marge de "
+                    "10 % comprise (gains_urbains.csv), sans plafond"])
+        w.writerow([r["trajet"], "info_cohabitation_interurbain", round(r["cohab_interurbain"], 1), "",
+                    "le reste de la cohabitation : négatif si l'horaire interurbain porte moins de 10 %"])
         w.writerow([r["trajet"], "controle_horaire_actuel_H", round(r["H"], 1),
                     "", "temps_scenario_1.csv (médiane GTFS)"])
         w.writerow([r["trajet"], "controle_gain_total_G", round(r["G"], 1),
@@ -219,7 +226,7 @@ def hm(m):
 # Format pleine largeur de page (7,4 po), polices dimensionnées pour cette
 # largeur : barres espacées, facteurs sur deux lignes sous chaque barre,
 # légende en colonne (remodelage du 3 septembre) ; la note est passée à la légende du rapport.
-fig, ax = plt.subplots(figsize=(7.4, 7.0), dpi=250)
+fig, ax = plt.subplots(figsize=(7.4, 7.4), dpi=250)
 ylabels = []
 DY_LIGNE = 0.17      # une ligne de texte, en unités de l'axe
 for yi, r in enumerate(reversed(rows)):
@@ -283,14 +290,14 @@ leg = fig.legend(handles,
                   "Zones urbaines modernisées : courbes et signalisation" + chr(10) +
                   "seulement, sans le mou de cohabitation",
                   "Changement de classe : passages à niveau et signalisation," + chr(10) +
-                  "de 153 à 201 km/h (125 mi/h)"],
+                  "de 153 à 177 km/h (110 mi/h)"],
                  loc="upper left", bbox_to_anchor=(0.004, 0.895), ncol=1,
                  frameon=False, handlelength=1.6, labelspacing=0.55,
                  prop={"family": "IBM Plex Mono", "size": 8.8})
 for txt in leg.get_texts():
     txt.set_color(PAPIER["encre_douce"])
 
-fig.tight_layout(rect=(0, 0.01, 1, 0.64))
+fig.tight_layout(rect=(0, 0.0, 1, 0.665))
 fig.text(0.008, 0.985, "Facteurs de réduction des temps de parcours",
          fontsize=15, ha="left", va="top", color=PAPIER["encre"],
          **police_titre(600))

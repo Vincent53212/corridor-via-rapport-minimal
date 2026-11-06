@@ -36,10 +36,9 @@ Paramètres de rame (décision Vincent du 2026-11-05, « la licorne ») :
   La bande 241 garde la même rame : elle n'y arrive pas, sa puissance la plafonne vers
   230 km/h, et c'est dit au rapport. Bandes 250 et 300 (non publiées) : rames de
   CONCEPTION électriques, 18 et 22 W/kg.
-  La bande 201 (125 mi/h) est le plafond des scénarios publiés (remodelage
-  2026-08-24) : sommet de la marche du PTC certifié (précédents Brightline,
-  NEC) et seuil au-delà duquel la règle américaine interdit tout passage à
-  niveau. La bande 177 (110 mi/h, limite ITCS) reste calculée en référence.
+  La bande 177 (110 mi/h) est le plafond du scénario publié depuis le 2026-11-06
+  (scenarios.PLAFOND_PUBLIE). La bande 201 (125 mi/h, sommet de la marche du PTC
+  certifié) reste calculée : c'est ce que le programme complémentaire rachète.
   (S2/S3 se définissent par l'insuffisance admise, pas par la motorisation.)
 
 Décision structurante : les zones urbaines sont FIGÉES à l'horaire actuel. Aucun

@@ -1853,7 +1853,7 @@
       <else-if variable="URL">
         <group delimiter=" ">
           <choose>
-            <if match="none" variable="issued status">
+            <if variable="accessed">
               <text term="retrieved" text-case="capitalize-first"/>
               <group delimiter=", ">
                 <date form="text" variable="accessed"/>

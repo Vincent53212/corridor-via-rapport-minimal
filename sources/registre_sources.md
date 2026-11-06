@@ -335,3 +335,14 @@ le W/kg à vide monte vers 12, ce qui renforce encore l'hypothèse).
 Calcul : 2 × 991 km = 1 982 km de voie. EcoTrain : 0,83 M$ × 1,619 = 1,34 M$/km, soit 2,7 G$. RIA, projet complexe : 1,5 M£ × 1,6945 × 1,301 = 3,31 M$/km, soit 6,6 G$ ; projet simple : 0,75 M£, soit 1,65 M$/km et 3,3 G$. Fourchette publiée : de 3 à 7 G$.
 
 Contre-hypothèse 3 (section 11) : électrification et élimination des croisements sont deux ajouts indépendants (précision de Vincent, 5 nov.). Temps : `sensibilites_traction.csv`, train électrique de type Pendolino (5 160 kW, 466 t). Totaux : 7,8 à 8,8 ; + 8,2 = 16,0 à 17,0 ; + 3 à 7 = 10,8 à 15,8 ; les deux = 19,0 à 24,0 ; × 1,2 = 9,4 à 10,6 ; 19,2 à 20,4 ; 13,0 à 19,0 ; 22,8 à 28,8.
+
+## Ajouts du 2026-11-06 : relecture du 5 novembre
+
+- `dors2014275`, `ltc1996art152`, `lc2007ch19art55` : VÉRIFIÉES, textes de loi lus.
+- `ferroequus2003` : VÉRIFIÉE par notre recherche ARLEcan (`arlecan-research/art138-droits-circulation-2026-08-18/`).
+- `otc2023via` : dossier 23-28548 vu au portail de l'Office ; « toujours pendant » repose sur les sources les plus récentes trouvées, sans décision repérée.
+- `via2019rapportannuel` : VÉRIFIÉE, PDF lu (68 % en 2019 ; concorde avec CBC).
+- `illinois2023lincoln` : VÉRIFIÉE, communiqué lu. Les 1,96 G$ US incluent trains et gares : ne pas en tirer un coût au kilomètre de voie.
+- `ulster2023quietzone` : lue dans un extrait de recherche. **Source modeste.** Complément de 500 000 $ CA par passage : 360 000 $ US × 1,35, arrondi.
+- `railwayage2024brightline` (156 passages) : lue dans un extrait de recherche, le site refusant l'accès automatisé.
+- `dpb2026alto` : **source secondaire**. Le rapport du DPB n'a pas été trouvé en ligne ; remonter à l'original avant publication finale.

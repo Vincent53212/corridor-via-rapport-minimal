@@ -1,37 +1,45 @@
 ﻿trajet;poste;minutes;part_pct_du_gain;source
-Québec-Toronto (via Montréal);temps_scenario_2_avec_marge;400.3;;temps_scenario_2.csv (pendulaire, 201) × 1,10
-Québec-Toronto (via Montréal);gain_cohabitation;56.7;43.6;"G − les trois autres postes : mou de l'horaire au-delà de 10 %, interurbain et zones urbaines ; doublement et régime réunis"
-Québec-Toronto (via Montréal);gain_pendulaire;31.8;24.4;temps_scenario_1.csv (base − pendulaire, 153) × 1,10
-Québec-Toronto (via Montréal);gain_zones_urbaines;8.1;6.2;gains_urbains.csv : courbes (pendulaire) + signalisation des blocs urbains, sans le mou de cohabitation
-Québec-Toronto (via Montréal);gain_changement_classe;33.6;25.8;temps_scenario_2.csv (pendulaire, 153 − 201) × 1,10 − signalisation urbaine : passages à niveau et signalisation, interurbain
+Québec-Toronto (via Montréal);temps_scenario_2_avec_marge;410.5;;temps_scenario_2.csv (pendulaire, 177) × 1,10
+Québec-Toronto (via Montréal);gain_cohabitation;56.7;47.3;"G − les trois autres postes : mou de l'horaire au-delà de 10 %, interurbain et zones urbaines ; doublement et régime réunis"
+Québec-Toronto (via Montréal);gain_pendulaire;31.8;26.5;temps_scenario_1.csv (base − pendulaire, 153) × 1,10
+Québec-Toronto (via Montréal);gain_zones_urbaines;8.1;6.8;gains_urbains.csv : courbes (pendulaire) + signalisation des blocs urbains, sans le mou de cohabitation
+Québec-Toronto (via Montréal);gain_changement_classe;23.4;19.5;temps_scenario_2.csv (pendulaire, 153 − 177) × 1,10 − signalisation urbaine : passages à niveau et signalisation, interurbain
 Québec-Toronto (via Montréal);info_cohabitation_dont_doublement;22.1;;"part de la cohabitation que le doublement rachète : (médiane simple-CN − médiane double-CN) × Σ T_base des paires simple-CN (marges_2x2_synthese.csv, marges_par_intergare.csv) ; le reste est l'objet de l'étude de circulation"
 Québec-Toronto (via Montréal);info_cohabitation_dont_zones_urbaines;31.2;;mou de l'horaire actuel dans les blocs urbains (gains_urbains.csv), compté dans la cohabitation et non dans les zones urbaines
+Québec-Toronto (via Montréal);info_cohabitation_mou_urbain;31.2;;écart entre l'horaire des zones urbaines et le temps du train actuel, marge de 10 % comprise (gains_urbains.csv), sans plafond
+Québec-Toronto (via Montréal);info_cohabitation_interurbain;25.5;;le reste de la cohabitation : négatif si l'horaire interurbain porte moins de 10 %
 Québec-Toronto (via Montréal);controle_horaire_actuel_H;530.5;;temps_scenario_1.csv (médiane GTFS)
-Québec-Toronto (via Montréal);controle_gain_total_G;130.2;;"H − C ; somme des quatre parts = G par construction"
-Québec-Montréal;temps_scenario_2_avec_marge;144.3;;temps_scenario_2.csv (pendulaire, 201) × 1,10
-Québec-Montréal;gain_cohabitation;32.7;56.2;"G − les trois autres postes : mou de l'horaire au-delà de 10 %, interurbain et zones urbaines ; doublement et régime réunis"
-Québec-Montréal;gain_pendulaire;13.4;23.1;temps_scenario_1.csv (base − pendulaire, 153) × 1,10
-Québec-Montréal;gain_zones_urbaines;4.5;7.7;gains_urbains.csv : courbes (pendulaire) + signalisation des blocs urbains, sans le mou de cohabitation
-Québec-Montréal;gain_changement_classe;7.6;13.0;temps_scenario_2.csv (pendulaire, 153 − 201) × 1,10 − signalisation urbaine : passages à niveau et signalisation, interurbain
+Québec-Toronto (via Montréal);controle_gain_total_G;120.0;;"H − C ; somme des quatre parts = G par construction"
+Québec-Montréal;temps_scenario_2_avec_marge;146.2;;temps_scenario_2.csv (pendulaire, 177) × 1,10
+Québec-Montréal;gain_cohabitation;32.7;58.0;"G − les trois autres postes : mou de l'horaire au-delà de 10 %, interurbain et zones urbaines ; doublement et régime réunis"
+Québec-Montréal;gain_pendulaire;13.4;23.8;temps_scenario_1.csv (base − pendulaire, 153) × 1,10
+Québec-Montréal;gain_zones_urbaines;4.5;8.0;gains_urbains.csv : courbes (pendulaire) + signalisation des blocs urbains, sans le mou de cohabitation
+Québec-Montréal;gain_changement_classe;5.7;10.2;temps_scenario_2.csv (pendulaire, 153 − 177) × 1,10 − signalisation urbaine : passages à niveau et signalisation, interurbain
 Québec-Montréal;info_cohabitation_dont_doublement;22.1;;"part de la cohabitation que le doublement rachète : (médiane simple-CN − médiane double-CN) × Σ T_base des paires simple-CN (marges_2x2_synthese.csv, marges_par_intergare.csv) ; le reste est l'objet de l'étude de circulation"
 Québec-Montréal;info_cohabitation_dont_zones_urbaines;14.2;;mou de l'horaire actuel dans les blocs urbains (gains_urbains.csv), compté dans la cohabitation et non dans les zones urbaines
+Québec-Montréal;info_cohabitation_mou_urbain;14.2;;écart entre l'horaire des zones urbaines et le temps du train actuel, marge de 10 % comprise (gains_urbains.csv), sans plafond
+Québec-Montréal;info_cohabitation_interurbain;18.5;;le reste de la cohabitation : négatif si l'horaire interurbain porte moins de 10 %
 Québec-Montréal;controle_horaire_actuel_H;202.5;;temps_scenario_1.csv (médiane GTFS)
-Québec-Montréal;controle_gain_total_G;58.2;;"H − C ; somme des quatre parts = G par construction"
-Montréal-Toronto;temps_scenario_2_avec_marge;246.0;;temps_scenario_2.csv (pendulaire, 201) × 1,10
-Montréal-Toronto;gain_cohabitation;24.1;33.4;"G − les trois autres postes : mou de l'horaire au-delà de 10 %, interurbain et zones urbaines ; doublement et régime réunis"
-Montréal-Toronto;gain_pendulaire;18.4;25.5;temps_scenario_1.csv (base − pendulaire, 153) × 1,10
-Montréal-Toronto;gain_zones_urbaines;3.6;5.0;gains_urbains.csv : courbes (pendulaire) + signalisation des blocs urbains, sans le mou de cohabitation
-Montréal-Toronto;gain_changement_classe;26.0;36.1;temps_scenario_2.csv (pendulaire, 153 − 201) × 1,10 − signalisation urbaine : passages à niveau et signalisation, interurbain
+Québec-Montréal;controle_gain_total_G;56.3;;"H − C ; somme des quatre parts = G par construction"
+Montréal-Toronto;temps_scenario_2_avec_marge;254.3;;temps_scenario_2.csv (pendulaire, 177) × 1,10
+Montréal-Toronto;gain_cohabitation;24.1;37.8;"G − les trois autres postes : mou de l'horaire au-delà de 10 %, interurbain et zones urbaines ; doublement et régime réunis"
+Montréal-Toronto;gain_pendulaire;18.4;28.8;temps_scenario_1.csv (base − pendulaire, 153) × 1,10
+Montréal-Toronto;gain_zones_urbaines;3.6;5.7;gains_urbains.csv : courbes (pendulaire) + signalisation des blocs urbains, sans le mou de cohabitation
+Montréal-Toronto;gain_changement_classe;17.6;27.7;temps_scenario_2.csv (pendulaire, 153 − 177) × 1,10 − signalisation urbaine : passages à niveau et signalisation, interurbain
 Montréal-Toronto;info_cohabitation_dont_doublement;0.0;;"part de la cohabitation que le doublement rachète : (médiane simple-CN − médiane double-CN) × Σ T_base des paires simple-CN (marges_2x2_synthese.csv, marges_par_intergare.csv) ; le reste est l'objet de l'étude de circulation"
 Montréal-Toronto;info_cohabitation_dont_zones_urbaines;17.0;;mou de l'horaire actuel dans les blocs urbains (gains_urbains.csv), compté dans la cohabitation et non dans les zones urbaines
+Montréal-Toronto;info_cohabitation_mou_urbain;17.0;;écart entre l'horaire des zones urbaines et le temps du train actuel, marge de 10 % comprise (gains_urbains.csv), sans plafond
+Montréal-Toronto;info_cohabitation_interurbain;7.1;;le reste de la cohabitation : négatif si l'horaire interurbain porte moins de 10 %
 Montréal-Toronto;controle_horaire_actuel_H;318.0;;temps_scenario_1.csv (médiane GTFS)
-Montréal-Toronto;controle_gain_total_G;72.0;;"H − C ; somme des quatre parts = G par construction"
-Montréal-Ottawa;temps_scenario_2_avec_marge;98.6;;temps_scenario_2.csv (pendulaire, 201) × 1,10
-Montréal-Ottawa;gain_cohabitation;7.0;29.8;"G − les trois autres postes : mou de l'horaire au-delà de 10 %, interurbain et zones urbaines ; doublement et régime réunis"
-Montréal-Ottawa;gain_pendulaire;11.1;47.4;temps_scenario_1.csv (base − pendulaire, 153) × 1,10
-Montréal-Ottawa;gain_zones_urbaines;1.7;7.3;gains_urbains.csv : courbes (pendulaire) + signalisation des blocs urbains, sans le mou de cohabitation
-Montréal-Ottawa;gain_changement_classe;3.6;15.5;temps_scenario_2.csv (pendulaire, 153 − 201) × 1,10 − signalisation urbaine : passages à niveau et signalisation, interurbain
+Montréal-Toronto;controle_gain_total_G;63.7;;"H − C ; somme des quatre parts = G par construction"
+Montréal-Ottawa;temps_scenario_2_avec_marge;99.1;;temps_scenario_2.csv (pendulaire, 177) × 1,10
+Montréal-Ottawa;gain_cohabitation;7.0;30.5;"G − les trois autres postes : mou de l'horaire au-delà de 10 %, interurbain et zones urbaines ; doublement et régime réunis"
+Montréal-Ottawa;gain_pendulaire;11.1;48.5;temps_scenario_1.csv (base − pendulaire, 153) × 1,10
+Montréal-Ottawa;gain_zones_urbaines;1.7;7.4;gains_urbains.csv : courbes (pendulaire) + signalisation des blocs urbains, sans le mou de cohabitation
+Montréal-Ottawa;gain_changement_classe;3.1;13.5;temps_scenario_2.csv (pendulaire, 153 − 177) × 1,10 − signalisation urbaine : passages à niveau et signalisation, interurbain
 Montréal-Ottawa;info_cohabitation_dont_doublement;0.0;;"part de la cohabitation que le doublement rachète : (médiane simple-CN − médiane double-CN) × Σ T_base des paires simple-CN (marges_2x2_synthese.csv, marges_par_intergare.csv) ; le reste est l'objet de l'étude de circulation"
 Montréal-Ottawa;info_cohabitation_dont_zones_urbaines;7.0;;mou de l'horaire actuel dans les blocs urbains (gains_urbains.csv), compté dans la cohabitation et non dans les zones urbaines
+Montréal-Ottawa;info_cohabitation_mou_urbain;11.8;;écart entre l'horaire des zones urbaines et le temps du train actuel, marge de 10 % comprise (gains_urbains.csv), sans plafond
+Montréal-Ottawa;info_cohabitation_interurbain;-4.8;;le reste de la cohabitation : négatif si l'horaire interurbain porte moins de 10 %
 Montréal-Ottawa;controle_horaire_actuel_H;122.0;;temps_scenario_1.csv (médiane GTFS)
-Montréal-Ottawa;controle_gain_total_G;23.4;;"H − C ; somme des quatre parts = G par construction"
+Montréal-Ottawa;controle_gain_total_G;22.9;;"H − C ; somme des quatre parts = G par construction"
