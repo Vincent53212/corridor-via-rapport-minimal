@@ -63,7 +63,7 @@ Comme le montre la table qui suit, les actions proposées auront un impact signi
 | Zones urbaines modernisées | 4 % |
 | **Trajet express : ~53 min** | **29 %** |
 
-![Facteurs de réduction des temps de parcours, trajet par trajet. La barre pleine, incluant les parties colorées, est l'horaire actuel. Le segment sans couleur est le temps de l'emprise optimisée. Quatre facteurs se partagent le gain : la cohabitation, qui réunit le régime de circulation avec le fret et le doublement des voies ; le train pendulaire et les zones urbaines, comptés sous la classe de voie actuelle (153 km/h, 95 mi/h) ; et le changement de classe, soit ce que ces facteurs rapportent en plus une fois le plafond porté à 201 km/h grâce aux passages à niveau sécurisés et à la signalisation.](livrables/figure_gains.png)
+![Facteurs de réduction des temps de parcours, trajet par trajet. La barre pleine, incluant les parties colorées, est l'horaire actuel. Le segment sans couleur est le temps du train express. Cinq facteurs se partagent le gain : le trajet express, soit ce que le train gagne en supprimant ses arrêts intermédiaires ; la cohabitation, qui réunit le régime de circulation avec le fret et le doublement des voies ; le train pendulaire et les zones urbaines, comptés sous la classe de voie actuelle (153 km/h, 95 mi/h) ; et le changement de classe, soit ce que ces facteurs rapportent en plus une fois le plafond porté à 201 km/h grâce aux passages à niveau sécurisés et à la signalisation.](livrables/figure_gains.png)
 
 # Comment nous avons mesuré
 

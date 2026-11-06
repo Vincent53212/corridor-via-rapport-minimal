@@ -76,7 +76,7 @@ SEGMENTS_OVERRIDE=intermediaires/segments_rectifies.geojson BLOCS_URBAINS=libres
   python scripts/21_tbase_bande.py                  # scénario 3 → temps_scenario_3.csv
 python scripts/22_marges_2x2.py             # médianes du 2×2 (lues par la figure 23)
 python scripts/23_figure_cellules.py        # figure : le 2×2 du corridor
-python scripts/38_train_express.py         # contre-hypothèse 2 : le train express, sans arrêt intermédiaire
+python scripts/38_train_express.py         # contre-hypothèse 2 : le train express, sans arrêt intermédiaire (lu par le 24 et le 32)
 python scripts/24_figure_vs_auto.py         # figure : le train contre l'auto (4 trajets, lit le 38)
 python scripts/36_gains_urbains.py          # blocs urbains poste par poste : courbes, signalisation, mou (lu par le 32)
 python scripts/32_figure_gains.py           # figure : d'où viennent les minutes

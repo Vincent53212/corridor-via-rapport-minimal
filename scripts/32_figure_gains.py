@@ -153,6 +153,17 @@ TRAJETS = [
 ]
 rows = [decompose(tr, lab) for tr, lab in TRAJETS]
 
+# Le trajet express (étape 38, à lancer AVANT celle-ci) : ce que le train gagne encore en
+# supprimant ses arrêts intermédiaires. Il se lit dans la figure seulement : le CSV de
+# décomposition reste celui du train qui dessert toutes les gares.
+with open(DELIVERABLES / "train_express.csv", encoding="utf-8-sig", newline="") as _f:
+    _exp = {r["trajet"]: float(r["gain_min"]) for r in csv.DictReader(_f, delimiter=";")}
+_EXPRESS = {"Québec-Montréal": _exp["Montréal-Québec"], "Montréal-Toronto": _exp["Montréal-Toronto"],
+            "Montréal-Ottawa": _exp["Montréal-Ottawa"],
+            "Québec-Toronto (via Montréal)": _exp["Montréal-Québec"] + _exp["Montréal-Toronto"]}
+for r in rows:
+    r["express"] = _EXPRESS[r["trajet"]]
+
 # ---- CSV (une ligne par trajet × poste + contrôles)
 POSTES = [("temps_scenario_2_avec_marge", "C", "temps_scenario_2.csv (pendulaire, 201) × 1,10"),
           ("gain_cohabitation", "cohabitation",
@@ -208,22 +219,27 @@ def hm(m):
 # Format pleine largeur de page (7,4 po), polices dimensionnées pour cette
 # largeur : barres espacées, facteurs sur deux lignes sous chaque barre,
 # légende en colonne (remodelage du 3 septembre) ; la note est passée à la légende du rapport.
-fig, ax = plt.subplots(figsize=(7.4, 6.2), dpi=250)
+fig, ax = plt.subplots(figsize=(7.4, 7.0), dpi=250)
 ylabels = []
+DY_LIGNE = 0.17      # une ligne de texte, en unités de l'axe
 for yi, r in enumerate(reversed(rows)):
     y = yi
     x = 0.0
-    # le temps qui reste (scénario 2) : barre évidée (résultat, pas un gain)
-    ax.barh(y, r["C"], left=x, height=0.42, facecolor="none",
+    # le temps qui reste (train express) : barre évidée (résultat, pas un gain)
+    reste = r["C"] - r["express"]
+    ax.barh(y, reste, left=x, height=0.42, facecolor="none",
             edgecolor=PAPIER["encre_douce"], linewidth=1.4)
-    ax.text(r["C"] / 2, y, hm(r["C"]), ha="center", va="center",
+    ax.text(reste / 2, y, hm(reste), ha="center", va="center",
             fontsize=10, color=PAPIER["encre"], **police_mono())
-    x += r["C"]
+    x += reste
+    ax.barh(y, r["express"], left=x, height=0.42, facecolor="none", hatch="/////",
+            edgecolor=PAPIER["encre_douce"], linewidth=0.8)
+    x_gains = x
+    x += r["express"]
     tranches = [(r["classe"], COL_CLASSE, "changement de classe"),
                 (r["zones_urbaines"], COL_URBAIN, "zones urbaines"),
                 (r["pendulaire"], COL_PEND, "pendulaire"),
                 (r["cohabitation"], COL_COHAB, "cohabitation")]
-    x_gains = x
     for val, col, nom in tranches:
         if val < 0.5:
             continue
@@ -233,7 +249,9 @@ for yi, r in enumerate(reversed(rows)):
             fontsize=9.6, color=PAPIER["encre_pale"], linespacing=1.25, **police_mono())
     items = [f"{nom} −{val:.0f} min" for val, _c, nom in tranches if val >= 0.5]
     detail = " · ".join(items[:2]) + (chr(10) + " · ".join(items[2:]) if items[2:] else "")
-    ax.text(x_gains, y - 0.30, detail, ha="left", va="top", linespacing=1.35,
+    ax.text(x_gains, y - 0.27, f"trajet express −{r['express']:.0f} min", ha="left", va="top",
+            fontsize=8.6, color=PAPIER["encre"], **police_mono("semibold"))
+    ax.text(x_gains, y - 0.27 - DY_LIGNE, detail, ha="left", va="top", linespacing=1.35,
             fontsize=8.6, color=PAPIER["encre_douce"], **police_mono())
     ylabels.append(r["trajet"].replace(" (via Montréal)", chr(10) + "(via Montréal)"))
 
@@ -242,7 +260,7 @@ ax.set_yticklabels(ylabels, fontsize=10.2, color=PAPIER["encre_douce"],
                    linespacing=1.25, **police_mono())
 ax.tick_params(axis="y", length=0, pad=10)
 ax.set_xlim(0, max(r["H"] for r in rows) * 1.34)
-ax.set_ylim(-0.75, len(rows) - 0.45)
+ax.set_ylim(-0.92, len(rows) - 0.45)
 ax.set_xticks([])
 for s_ in ax.spines.values():
     s_.set_visible(False)
@@ -250,12 +268,15 @@ for s_ in ax.spines.values():
 # légende des tranches, en colonne
 handles = [plt.Rectangle((0, 0), 1, 1, facecolor="none",
                          edgecolor=PAPIER["encre_douce"], linewidth=1.4),
+           plt.Rectangle((0, 0), 1, 1, facecolor="none", hatch="/////",
+                         edgecolor=PAPIER["encre_douce"], linewidth=0.8),
            plt.Rectangle((0, 0), 1, 1, color=COL_COHAB),
            plt.Rectangle((0, 0), 1, 1, color=COL_PEND),
            plt.Rectangle((0, 0), 1, 1, color=COL_URBAIN),
            plt.Rectangle((0, 0), 1, 1, color=COL_CLASSE)]
 leg = fig.legend(handles,
-                 ["Emprise optimisée, marge de 10 % incluse (sans correction de courbes)",
+                 ["Train express, marge de 10 % incluse (sans correction de courbes)",
+                  "Trajet express : le même train, sans arrêt intermédiaire",
                   "Cohabitation : régime et doublement des voies, zones" + chr(10) +
                   "urbaines comprises",
                   "Train pendulaire, sous la classe actuelle (153 km/h, 95 mi/h)",
@@ -269,7 +290,7 @@ leg = fig.legend(handles,
 for txt in leg.get_texts():
     txt.set_color(PAPIER["encre_douce"])
 
-fig.tight_layout(rect=(0, 0.01, 1, 0.62))
+fig.tight_layout(rect=(0, 0.01, 1, 0.64))
 fig.text(0.008, 0.985, "Facteurs de réduction des temps de parcours",
          fontsize=15, ha="left", va="top", color=PAPIER["encre"],
          **police_titre(600))
