@@ -273,7 +273,7 @@ Le dévers actuel est une hypothèse, car aucun relevé public n'est disponible.
 
 Notre train de référence se situe au milieu de ce qui est réaliste en Amérique du Nord. Avec une seule locomotive Charger et cinq voitures pendulaires, les temps seraient environ 3 % plus longs ; avec deux locomotives, environ 2 % plus courts. En y ajoutant une tolérance en courbe de 5 ou de 7 po, Montréal-Toronto varierait de 3 h 57 à 4 h 17.
 
-**Et l'électrification?** Des lignes électrifiées partagées avec du fret lourd, ça existe. L'Inde fait rouler des trains à double conteneur sous une caténaire, avec un fil à environ 7,5 m du rail [@pib2019dfc]. Cette option sort du périmètre des cinq actions, mais c'est une possibilité : la section 10 en fait une contre-hypothèse, et la section 11 la chiffre comme programme complémentaire.
+**Et l'électrification?** Des lignes électrifiées partagées avec du fret lourd, ça existe. L'Inde fait rouler des trains à double conteneur sous une caténaire, avec un fil à environ 7,5 m du rail [@pib2019dfc]. Cette option sort du périmètre des cinq actions, mais c'est une possibilité : la section 10 la chiffre comme contre-hypothèse, et la section 11 l'inclut parmi les programmes complémentaires.
 
 # Et si on enlevait tous les passages à niveau?
 
@@ -311,7 +311,7 @@ De bout en bout, l'express Québec-Toronto ferait 5 h 48, contre 6 h 40 pour le 
 
 # Et si on électrifiait le corridor?
 
-Les cinq actions supposent un train diesel, puisque le corridor n'a pas de caténaire. La section 7 a évoqué l'électrification, et la section 11 la chiffre de 3 à 7 G\$ CA comme programme complémentaire. Comme l'élimination des croisements, elle est optionnelle : ce sont deux ajouts indépendants, et aucun n'est nécessaire aux temps de parcours de ce rapport. Supposons maintenant qu'on la réalise. Que rapporterait-elle?
+Les cinq actions supposent un train diesel, puisque le corridor n'a pas de caténaire. La section 7 a évoqué l'électrification. Comme l'élimination des croisements, elle est un programme complémentaire et optionnel (section 11) : ce sont deux ajouts indépendants, et aucun n'est nécessaire aux temps de parcours de ce rapport. Supposons maintenant qu'on la réalise. Que rapporterait-elle?
 
 **Les temps.** Avec un train électrique de type Pendolino, sur la même voie et avec les mêmes arrêts, le gain reste modeste :
 
@@ -326,14 +326,7 @@ De bout en bout, Québec-Toronto passerait de 6 h 40 à 6 h 32.
 
 **Le train.** L'avantage principal n'est pas dans les minutes. Les pendulaires électriques existent et sont en service, alors que le pendulaire diesel reste à faire construire (section 7). Le poste des trains ne change pas : ses 3,4 G\$ (section 11) viennent déjà d'une commande de trains électriques.
 
-**Les coûts.** D'après les estimations de la section 11, l'électrification s'ajouterait aux cinq actions, avec ou sans le programme d'élimination des croisements :
-
-| Ensemble (G\$ CA de 2025) | Coût | Avec 20 % pour les imprévus |
-|---|---|---|
-| Cinq actions seules | 7,8 à 8,8 | 9 à 11 |
-| Cinq actions et élimination des croisements | 16,0 à 17,0 | 19 à 20 |
-| Cinq actions et électrification | 10,8 à 15,8 | 13 à 19 |
-| Cinq actions et les deux programmes | 19,0 à 24,0 | 23 à 29 |
+**Le coût.** Il faudrait poser une caténaire sur environ 2 000 km de voie, ajouter des sous-stations, dégager les ponts et les tunnels pour les wagons de marchandises, plus hauts que les voitures de voyageurs [@ecotrain2011, p. 17]. Cela coûterait de 3 à 7 G\$ CA de 2025. La borne basse vient d'EcoTrain : 2 010 M\$ de 2009 pour 2 421 km de voie et 30 sous-stations, sur une voie neuve sans fret [@ecotrain2011, p. 70], soit environ 1,3 M\$ de 2025 par kilomètre de voie. La borne haute vient de la cible de l'industrie britannique, jusqu'à 1,5 M£ de 2019 par kilomètre de voie pour un projet complexe [@ria2019electrification], soit environ 3,3 M\$ de 2025. L'expérience nord-américaine récente pointe plutôt vers le haut de cette fourchette, ou au-delà [@caltrain2022].
 
 **La condition.** L'électrification demanderait l'accord du CN sur toute sa ligne, ce qui s'ajoute aux conditions des cinq actions.
 
@@ -367,7 +360,7 @@ Ce n'est pas un inventaire d'ingénierie : il ne donne ni la portée, ni le type
 
 Ces ouvrages forment un programme complémentaire et optionnel. D'un point de vue technique, aucun passage n'a besoin d'être retiré : les barrières complètes suffisent au plafond de 201 km/h et aux temps de parcours présentés ici. Le programme répond plutôt à des raisons d'acceptabilité, de cohabitation avec les riverains de la ligne et de modernisation du corridor, et il peut se décider site par site, au rythme des budgets.
 
-**Électrification.** Un second programme complémentaire, lui aussi optionnel et indépendant du premier, électrifierait le corridor (section 7). Il faudrait poser une caténaire sur environ 2 000 km de voie, ajouter des sous-stations, dégager les ponts et les tunnels pour les wagons de marchandises, plus hauts que les voitures de voyageurs [@ecotrain2011, p. 17], et obtenir l'accord du CN. Cela coûterait de 3 à 7 G\$ CA de 2025. La borne basse vient d'EcoTrain : 2 010 M\$ de 2009 pour 2 421 km de voie et 30 sous-stations, sur une voie neuve sans fret [@ecotrain2011, p. 70], soit environ 1,3 M\$ de 2025 par kilomètre de voie. La borne haute vient de la cible de l'industrie britannique, jusqu'à 1,5 M£ de 2019 par kilomètre de voie pour un projet complexe [@ria2019electrification], soit environ 3,3 M\$ de 2025. L'expérience nord-américaine récente pointe plutôt vers le haut de cette fourchette, ou au-delà [@caltrain2022].
+**Électrification.** Un second programme complémentaire, lui aussi optionnel et indépendant du premier, électrifierait le corridor, pour un coût de 3 à 7 G\$ CA de 2025. La section 10 détaille cette estimation.
 
 Les tableaux qui suivent présentent séparément les cinq actions et les deux programmes complémentaires.
 
@@ -391,7 +384,14 @@ Les tableaux qui suivent présentent séparément les cinq actions et les deux p
 | Total, élimination des croisements | 8,2 |
 | Électrification du corridor | 3 à 7 |
 
-Les cinq actions et le programme d'élimination des croisements représentent ensemble de [**16,0 à 17,0 G\$ CA**]{.chiffre}. Avec une marge de 20 % pour les imprévus, le coût total du projet se situerait entre environ [**19 et 20 G\$ CA**]{.chiffre}. L'électrification n'est pas comprise dans ce total : elle s'y ajouterait de façon indépendante (section 10).
+Les cinq actions et le programme d'élimination des croisements représentent ensemble de [**16,0 à 17,0 G\$ CA**]{.chiffre}. Avec une marge de 20 % pour les imprévus, le coût total du projet se situerait entre environ [**19 et 20 G\$ CA**]{.chiffre}. L'électrification n'est pas comprise dans ce total : elle s'y ajouterait de façon indépendante (section 10). Comme les deux programmes complémentaires sont optionnels et indépendants, quatre ensembles sont possibles :
+
+| Ensemble (G\$ CA de 2025) | Coût | Avec 20 % pour les imprévus |
+|---|---|---|
+| Cinq actions seules | 7,8 à 8,8 | 9 à 11 |
+| Cinq actions et élimination des croisements | 16,0 à 17,0 | 19 à 20 |
+| Cinq actions et électrification | 10,8 à 15,8 | 13 à 19 |
+| Cinq actions et les deux programmes | 19,0 à 24,0 | 23 à 29 |
 
 # Impacts des actions sur les temps de parcours
 
