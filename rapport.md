@@ -49,9 +49,9 @@ Aujourd'hui, le train fait à peu près jeu égal avec l'auto sur Montréal-Toro
 2. **Une signalisation modernisée.** Grâce à l'installation d'un système de contrôle de train en cabine comme celui déjà utilisé aux États-Unis, la distance nécessaire entre les trains sera de beaucoup réduite, ce qui favorisera la cohabitation et permettra de donner la priorité aux trains de passagers, dont dépend leur ponctualité. Ce système autorise une vitesse maximale de 201 km/h (125 mi/h) quand la voie le permet.
 3. **Arbitrage de l'Office des transports du Canada.** Nous proposons de donner une orientation claire en faveur du service aux passagers, par règlement ou par projet de loi, dans le but de permettre à l'Office des transports du Canada d'exercer ses pouvoirs d'accorder à une compagnie le droit de rouler sur les rails d'une autre, d'en fixer les conditions et d'en fixer le prix [@otc2016circulation; @ltc1996art138], même lorsqu'ils s'appliquent aux contrats de cohabitation existants.
 4. **Passages à niveau sécurisés.** Le corridor en compte 924. Il faudra en sécuriser 533 qui n'ont pas de barrières complètes. Un programme complémentaire et optionnel, présenté à part, éliminerait le tiers des croisements par des ponts d'étagement pour améliorer davantage la sécurité.
-5. **Train pendulaire et voies plus inclinées dans les courbes.** Un train pendulaire incline sa caisse dans les courbes. De plus, on incline la voie au maximum standard du CN (dévers de 127 mm, soit 5 po) dans les courbes. Cela permet de faire en sorte que les passagers ne sentent pas la courbe et donc, que le train puisse la franchir plus vite. Comme le corridor n'est pas électrifié, ce train serait diesel, et il faudrait le commander sur mesure (section 9). La configuration retenue correspond à un train ayant déjà été en opération, non à un idéal théorique (modèle et corridor).
+5. **Train pendulaire et voies plus inclinées dans les courbes.** Un train pendulaire incline sa caisse dans les courbes. De plus, on incline la voie au maximum standard du CN (dévers de 127 mm, soit 5 po) dans les courbes. Cela permet de faire en sorte que les passagers ne sentent pas la courbe et donc, que le train puisse la franchir plus vite. Comme le corridor n'est pas électrifié, ce train serait diesel, et il faudrait le commander sur mesure (section 9). La configuration retenue correspond à un train ayant déjà été en opération, la Class 221 britannique, non à un idéal théorique.
 
-Les actions 1 à 3 réduisent la marge d'exploitation, soit l'écart entre le temps de parcours réel et la possibilité théorique fondée sur la géométrie de la voie. Les actions 4 et 5 accroissent cette possibilité théorique : le train pendulaire prend les courbes plus vite, et les passages sécurisés, avec le contrôle en cabine, autorisent 201 km/h. L'analyse des données et les conseils de notre expert ferroviaire [@dusablon2026] nous permettent de retenir une marge d'exploitation de 10 %, alignée sur la West Coast Main Line britannique, qui relie Londres à Manchester et Glasgow avec des trains pendulaires à 201 km/h sur des voies partagées avec les trains de marchandises. Nous estimons le coût de ces cinq actions entre 8 et 9 G\$ CA de 2025 (section 10). Techniquement, elles n'exigent de retirer aucun passage à niveau : des barrières complètes suffisent. Pour des raisons d'acceptabilité, de cohabitation avec les riverains et de modernisation du corridor, nous avons aussi chiffré un programme complémentaire d'élimination du tiers des croisements par des ponts d'étagement, pour environ 8,2 G\$ CA. Avec 20 % pour les imprévus, les deux volets représentent ensemble de 19 à 20 G\$ CA. Un second programme optionnel, l'électrification du corridor, est examiné à la section 11.
+Les actions 1 à 3 réduisent la marge d'exploitation, soit l'écart entre le temps de parcours réel et la possibilité théorique fondée sur la géométrie de la voie. Les actions 4 et 5 accroissent cette possibilité théorique : le train pendulaire prend les courbes plus vite, et les passages sécurisés, avec le contrôle en cabine, autorisent 201 km/h. L'analyse des données et les conseils de notre expert ferroviaire [@dusablon2026] nous permettent de retenir une marge d'exploitation de 10 %, alignée sur la West Coast Main Line britannique, qui relie Londres à Manchester et Glasgow avec des trains pendulaires à 201 km/h sur des voies partagées avec les trains de marchandises. Nous estimons le coût de ces cinq actions entre 8 et 9 G\$ CA de 2025 (section 10). Techniquement, elles n'exigent de retirer aucun passage à niveau : des barrières complètes suffisent. Pour des raisons d'acceptabilité, de cohabitation avec les riverains et de modernisation du corridor, nous avons aussi chiffré un programme complémentaire d'élimination du tiers des croisements par des ponts d'étagement, pour environ 8,2 G\$ CA. Avec 20 % pour les imprévus, les deux volets représentent ensemble de 19 à 20 G\$ CA. Un second programme optionnel et indépendant, l'électrification du corridor, est examiné à la section 11.
 
 Comme le montre la table qui suit, les actions proposées auront un impact significatif. Les postes se lisent sur le trajet complet Québec-Toronto, jusqu'au train express ; la section 12 donne le détail en minutes, trajet par trajet.
 
@@ -339,7 +339,7 @@ Ce n'est pas un inventaire d'ingénierie : il ne donne ni la portée, ni le type
 
 Ces ouvrages forment un programme complémentaire et optionnel. D'un point de vue technique, aucun passage n'a besoin d'être retiré : les barrières complètes suffisent au plafond de 201 km/h et aux temps de parcours présentés ici. Le programme répond plutôt à des raisons d'acceptabilité, de cohabitation avec les riverains de la ligne et de modernisation du corridor, et il peut se décider site par site, au rythme des budgets.
 
-**Électrification.** Un second programme complémentaire, lui aussi optionnel, électrifierait le corridor (section 9). Il faudrait poser une caténaire sur environ 2 000 km de voie, ajouter des sous-stations, dégager les ponts et les tunnels pour les wagons de marchandises, plus hauts que les voitures de voyageurs [@ecotrain2011, p. 17], et obtenir l'accord du CN. Cela coûterait de 3 à 7 G\$ CA de 2025. La borne basse vient d'EcoTrain : 2 010 M\$ de 2009 pour 2 421 km de voie et 30 sous-stations, sur une voie neuve sans fret [@ecotrain2011, p. 70], soit environ 1,3 M\$ de 2025 par kilomètre de voie. La borne haute vient de la cible de l'industrie britannique, jusqu'à 1,5 M£ de 2019 par kilomètre de voie pour un projet complexe [@ria2019electrification], soit environ 3,3 M\$ de 2025. L'expérience nord-américaine récente pointe plutôt vers le haut de cette fourchette, ou au-delà [@caltrain2022].
+**Électrification.** Un second programme complémentaire, lui aussi optionnel et indépendant du premier, électrifierait le corridor (section 9). Il faudrait poser une caténaire sur environ 2 000 km de voie, ajouter des sous-stations, dégager les ponts et les tunnels pour les wagons de marchandises, plus hauts que les voitures de voyageurs [@ecotrain2011, p. 17], et obtenir l'accord du CN. Cela coûterait de 3 à 7 G\$ CA de 2025. La borne basse vient d'EcoTrain : 2 010 M\$ de 2009 pour 2 421 km de voie et 30 sous-stations, sur une voie neuve sans fret [@ecotrain2011, p. 70], soit environ 1,3 M\$ de 2025 par kilomètre de voie. La borne haute vient de la cible de l'industrie britannique, jusqu'à 1,5 M£ de 2019 par kilomètre de voie pour un projet complexe [@ria2019electrification], soit environ 3,3 M\$ de 2025. L'expérience nord-américaine récente pointe plutôt vers le haut de cette fourchette, ou au-delà [@caltrain2022].
 
 Les tableaux qui suivent présentent séparément les cinq actions et les deux programmes complémentaires.
 
@@ -363,11 +363,11 @@ Les tableaux qui suivent présentent séparément les cinq actions et les deux p
 | Total, élimination des croisements | 8,2 |
 | Électrification du corridor | 3 à 7 |
 
-Les cinq actions et le programme d'élimination des croisements représentent ensemble de [**16,0 à 17,0 G\$ CA**]{.chiffre}. Avec une marge de 20 % pour les imprévus, le coût total du projet se situerait entre environ [**19 et 20 G\$ CA**]{.chiffre}. L'électrification n'est pas comprise dans ce total : la section 11 examine son échange contre une partie du programme d'élimination des croisements.
+Les cinq actions et le programme d'élimination des croisements représentent ensemble de [**16,0 à 17,0 G\$ CA**]{.chiffre}. Avec une marge de 20 % pour les imprévus, le coût total du projet se situerait entre environ [**19 et 20 G\$ CA**]{.chiffre}. L'électrification n'est pas comprise dans ce total : elle s'y ajouterait de façon indépendante (section 11).
 
 # Et si on électrifiait le corridor?
 
-Les cinq actions supposent un train diesel, puisque le corridor n'a pas de caténaire. La section 9 a évoqué l'électrification, et la section 10 la chiffre de 3 à 7 G\$ CA comme programme complémentaire. Supposons maintenant qu'on la réalise, et qu'on la paie en réduisant de 50 à 75 % le programme d'élimination des croisements. Ce programme étant optionnel, les temps de parcours n'en dépendent pas. Que change cet échange?
+Les cinq actions supposent un train diesel, puisque le corridor n'a pas de caténaire. La section 9 a évoqué l'électrification, et la section 10 la chiffre de 3 à 7 G\$ CA comme programme complémentaire. Comme l'élimination des croisements, elle est optionnelle : ce sont deux ajouts indépendants, et aucun n'est nécessaire aux temps de parcours de ce rapport. Supposons maintenant qu'on la réalise. Que rapporterait-elle?
 
 **Les temps.** Avec un train électrique de type Pendolino, sur la même voie et avec les mêmes arrêts, le gain reste modeste :
 
@@ -382,17 +382,16 @@ De bout en bout, Québec-Toronto passerait de 6 h 40 à 6 h 32.
 
 **Le train.** L'avantage principal n'est pas dans les minutes. Les pendulaires électriques existent et sont en service, alors que le pendulaire diesel reste à faire construire (section 9). Le poste des trains ne change pas : ses 3,4 G\$ viennent déjà d'une commande de trains électriques.
 
-**Les coûts.** Retirer de 50 à 75 % du programme d'élimination des croisements libère de 4,1 à 6,2 G\$ CA, soit à peu près le coût de l'électrification :
+**Les coûts.** L'électrification s'ajouterait aux cinq actions, avec ou sans le programme d'élimination des croisements :
 
-| Poste (G\$ CA de 2025) | Projet de base | Contre-hypothèse 3 |
+| Ensemble (G\$ CA de 2025) | Coût | Avec 20 % pour les imprévus |
 |---|---|---|
-| Cinq actions | 7,8 à 8,8 | 7,8 à 8,8 |
-| Élimination des croisements | 8,2 | 2,1 à 4,1 |
-| Électrification du corridor | | 3 à 7 |
-| Total | 16,0 à 17,0 | 12,9 à 19,9 |
-| Total avec 20 % pour les imprévus | 19 à 20 | 15 à 24 |
+| Cinq actions seules | 7,8 à 8,8 | 9 à 11 |
+| Cinq actions et élimination des croisements | 16,0 à 17,0 | 19 à 20 |
+| Cinq actions et électrification | 10,8 à 15,8 | 13 à 19 |
+| Cinq actions et les deux programmes | 19,0 à 24,0 | 23 à 29 |
 
-**Ce qu'on y perd.** Le programme d'élimination compterait de 77 à 154 ouvrages au lieu de 308. Ailleurs, les barrières resteraient, mais les croisements aussi, avec leurs sifflements et leur risque résiduel. L'électrification ajouterait de plus une condition : l'accord du CN sur toute sa ligne. Cet échange est donc un arbitrage entre la sécurité aux croisements d'un côté, et un train qui existe déjà de l'autre.
+**La condition.** L'électrification demanderait l'accord du CN sur toute sa ligne, ce qui s'ajoute aux conditions des cinq actions.
 
 # Impacts des actions sur les temps de parcours
 

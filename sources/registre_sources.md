@@ -334,4 +334,4 @@ le W/kg à vide monte vers 12, ce qui renforce encore l'hypothèse).
 
 Calcul : 2 × 991 km = 1 982 km de voie. EcoTrain : 0,83 M$ × 1,619 = 1,34 M$/km, soit 2,7 G$. RIA, projet complexe : 1,5 M£ × 1,6945 × 1,301 = 3,31 M$/km, soit 6,6 G$ ; projet simple : 0,75 M£, soit 1,65 M$/km et 3,3 G$. Fourchette publiée : de 3 à 7 G$.
 
-Contre-hypothèse 3 (section 11, demande de Vincent du 5 nov.) : programme réduit de 50 à 75 % : 8,2 × 0,25 = 2,05 G$ ; 8,2 × 0,5 = 4,1 G$ ; libère de 4,1 à 6,15 G$. Temps : `sensibilites_traction.csv`, train électrique de type Pendolino (5 160 kW, 466 t). Totaux : 7,8 + 2,1 + 3 = 12,9 ; 8,8 + 4,1 + 7 = 19,9 ; × 1,2 = 15,4 et 23,9.
+Contre-hypothèse 3 (section 11) : électrification et élimination des croisements sont deux ajouts indépendants (précision de Vincent, 5 nov.). Temps : `sensibilites_traction.csv`, train électrique de type Pendolino (5 160 kW, 466 t). Totaux : 7,8 à 8,8 ; + 8,2 = 16,0 à 17,0 ; + 3 à 7 = 10,8 à 15,8 ; les deux = 19,0 à 24,0 ; × 1,2 = 9,4 à 10,6 ; 19,2 à 20,4 ; 13,0 à 19,0 ; 22,8 à 28,8.
