@@ -260,6 +260,19 @@ td.num{ white-space:nowrap; }
 thead th{ white-space:normal; hyphens:none; }
 table{ table-layout:auto; max-width:100%; }
 tbody tr:last-child td{ border-bottom:1.5px solid var(--encre); }
+/* Annexe 2, fiche technique : tableaux denses, pour experts. Seuls les tableaux
+   .coupable (scripts, sensibilités) peuvent se couper entre deux pages : ils ne
+   tiendraient pas d'un bloc. Leur en-tête se répète. */
+.fiche table{ font-size:8pt; margin-bottom:12px; }
+.fiche .coupable table{ break-inside:auto; }
+.fiche thead{ display:table-header-group; }
+.fiche tr{ break-inside:avoid; }
+.fiche thead th{ font-size:6.6pt; letter-spacing:0.05em; padding:4px 7px 4px 0; }
+.fiche tbody td{ padding:3px 7px 3px 0; }
+.fiche h2{ margin-top:16px; }
+.fiche p{ break-inside:avoid; break-after:avoid; }
+.fiche td.num + td:not(.num), .fiche th.num + th:not(.num){ padding-left:14px; }
+.fiche code{ font-size:7.4pt; white-space:nowrap; }
 /* Ligne de total : balisée par l'étape 29 (première cellule « Total… »).
    Gras, fond sable et filet d'encre au-dessus, pour la détacher du détail. */
 tbody tr.total td{
@@ -1443,10 +1456,11 @@ p{ orphans:2; widows:2; }
 <a class="toc-l" href="#sec-11"><span class="toc-k">11 · Les coûts</span><span class="toc-t">Estimation des coûts</span><span class="toc-pts"></span><span class="toc-folio" data-find="11 · Les coûts">—</span></a>
 <a class="toc-l" href="#sec-12"><span class="toc-k">12 · Les gains</span><span class="toc-t">Impacts des actions sur les temps de parcours</span><span class="toc-pts"></span><span class="toc-folio" data-find="12 · Les gains">—</span></a>
 <a class="toc-l" href="#sec-13"><span class="toc-k">13 · Ce qui reste à faire</span><span class="toc-t">Limites, et l’étude qu’il faut commander</span><span class="toc-pts"></span><span class="toc-folio" data-find="13 · Ce qui reste à faire">—</span></a>
-<a class="toc-l" href="#sec-14"><span class="toc-k">14 · Annexe</span><span class="toc-t">Annexe : avis de l’expert ferroviaire</span><span class="toc-pts"></span><span class="toc-folio" data-find="14 · Annexe">—</span></a>
-<a class="toc-l" href="#sec-15"><span class="toc-k">15 · Le mandant</span><span class="toc-t">Vision Transport</span><span class="toc-pts"></span><span class="toc-folio" data-find="15 · Le mandant">—</span></a>
-<a class="toc-l" href="#sec-16"><span class="toc-k">16 · Crédits</span><span class="toc-t">Crédits</span><span class="toc-pts"></span><span class="toc-folio" data-find="16 · Crédits">—</span></a>
-<a class="toc-l" href="#sec-17"><span class="toc-k">17 · Sources</span><span class="toc-t">Références</span><span class="toc-pts"></span><span class="toc-folio" data-find="17 · Sources">—</span></a>
+<a class="toc-l" href="#sec-14"><span class="toc-k">14 · Annexe 1</span><span class="toc-t">Annexe : avis de l’expert ferroviaire</span><span class="toc-pts"></span><span class="toc-folio" data-find="14 · Annexe 1">—</span></a>
+<a class="toc-l" href="#sec-15"><span class="toc-k">15 · Annexe 2</span><span class="toc-t">Annexe : fiche technique</span><span class="toc-pts"></span><span class="toc-folio" data-find="15 · Annexe 2">—</span></a>
+<a class="toc-l" href="#sec-16"><span class="toc-k">16 · Le mandant</span><span class="toc-t">Vision Transport</span><span class="toc-pts"></span><span class="toc-folio" data-find="16 · Le mandant">—</span></a>
+<a class="toc-l" href="#sec-17"><span class="toc-k">17 · Crédits</span><span class="toc-t">Crédits</span><span class="toc-pts"></span><span class="toc-folio" data-find="17 · Crédits">—</span></a>
+<a class="toc-l" href="#sec-18"><span class="toc-k">18 · Sources</span><span class="toc-t">Références</span><span class="toc-pts"></span><span class="toc-folio" data-find="18 · Sources">—</span></a>
 <div class="avis">Les vitesses sont en km/h, suivies au besoin de l'équivalent en mi/h. Les temps de parcours publiés incluent une marge d'exploitation de 10 %, légèrement plus prudente que la médiane des règles publiées par les gestionnaires de réseau et alignée sur le référent britannique.</div>
 </section>
 <section id="lessentiel" class="level1">
@@ -2053,7 +2067,8 @@ atteindre 201 km/h.</p>
 <p>Trois chronos ne fixent pas chaque paramètre séparément : ils
 montrent que la forme de la formule tient. L’étude suivante devrait les
 remplacer par les courbes d’un constructeur. La section <a class="renvoi" href="#sec-12">12</a> donne l’effet
-de chaque hypothèse sur les temps.</p>
+de chaque hypothèse sur les temps. La section <a class="renvoi" href="#sec-15">15</a> regroupe tous les
+paramètres du modèle en tableaux.</p>
 </section>
 <section id="la-marge-dexploitation-de-10" class="level2">
 <h2>La marge d’exploitation de 10 %</h2>
@@ -3800,7 +3815,7 @@ role="doc-biblioref">DuSablon, 2026</a>)</span>.</p>
 </section>
 <section id="annexe-avis-de-lexpert-ferroviaire"
 class="level1 unnumbered">
-<div class="sec" id="sec-14"><span class="k">14 · Annexe</span><h1 class="unnumbered">Annexe : avis de l’expert ferroviaire</h1></div>
+<div class="sec" id="sec-14"><span class="k">14 · Annexe 1</span><h1 class="unnumbered">Annexe : avis de l’expert ferroviaire</h1></div>
 <blockquote>
 <p><strong>Étude sur l’augmentation des vitesses et le doublement des
 voies entre Québec-Montréal et Montréal-Toronto</strong>, par Pierre
@@ -4044,8 +4059,1485 @@ ces zones urbaines par l’élimination de passages à niveau.</p>
 <p><em>Pierre DuSablon, consultant en ingénierie de voies</em></p>
 </section>
 </section>
+<section id="annexe-fiche-technique" class="level1 unnumbered suite">
+<div class="sec" id="sec-15"><span class="k">15 · Annexe 2</span><h1 class="unnumbered suite">Annexe : fiche technique</h1></div>
+<!-- fiche:debut -->
+<div class="fiche">
+<p>Cette fiche regroupe les paramètres du modèle, pour les experts qui
+voudront les vérifier ou refaire les calculs. Le code écrit lui-même ces
+tableaux à chaque compilation du rapport, sauf les coûts, repris de la
+section <a class="renvoi" href="#sec-11">11</a>, et les versions des données. Ils montrent donc les valeurs
+réellement utilisées.</p>
+<section id="les-formules" class="level2">
+<h2>Les formules</h2>
+<table>
+<colgroup>
+<col style="width: 18%" />
+<col style="width: 30%" />
+<col style="width: 52%" />
+</colgroup>
+<thead>
+<tr>
+<th>Grandeur</th>
+<th>Formule</th>
+<th>Unités et notes</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Vitesse en courbe</td>
+<td><code>v = k·√R</code></td>
+<td>v en km/h, R en m</td>
+</tr>
+<tr>
+<td>Coefficient de courbe</td>
+<td><code>k = 3,6·√(g·(h + I) / G)</code></td>
+<td>h : dévers ; I : insuffisance de dévers ; G = 1 524 mm, écartement
+effectif ; g = 9,81 m/s²</td>
+</tr>
+<tr>
+<td>Degré de courbure</td>
+<td><code>D = 2·asin(15,24 / R)</code></td>
+<td>corde de 100 pi ; R en m</td>
+</tr>
+<tr>
+<td>Puissance au rail</td>
+<td><code>Pr = (P − Pb)·r</code></td>
+<td>P : puissance nominale ; Pb : services de bord ; r : rendement</td>
+</tr>
+<tr>
+<td>Résistance à l’avancement</td>
+<td><code>F = (A + B·V)·m + 0,0463·S·V²</code></td>
+<td>N ; V en km/h ; m en t ; S : surface de traînée (m²) ; 0,0463
+suppose un air à 1,2 kg/m³</td>
+</tr>
+<tr>
+<td>Accélération</td>
+<td><code>a = min(a0, (Pr/v − F − m·g·i) / (c·m))</code></td>
+<td>v en m/s ; i : pente ; c : coefficient d’inertie ; une accélération
+négative ralentit le train</td>
+</tr>
+<tr>
+<td>Freinage</td>
+<td><code>a = −ab</code></td>
+<td>constant, de service</td>
+</tr>
+<tr>
+<td>Temps de roulement</td>
+<td><code>T = Σ dx / v(x)</code></td>
+<td>pas de 25 m ; une passe d’accélération, puis une passe de
+freinage</td>
+</tr>
+<tr>
+<td>Temps publié</td>
+<td><code>(T + n·d) × 1,10</code></td>
+<td>n : arrêts ; d : immobilisation par arrêt</td>
+</tr>
+<tr>
+<td>Marge mesurée</td>
+<td><code>(H − B) / B</code></td>
+<td>H : médiane des horaires ; B : temps du train actuel, courbes et
+régime actuels, sans accélération</td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="les-trains" class="level2">
+<h2>Les trains</h2>
+<table>
+<colgroup>
+<col style="width: 34%" />
+<col style="width: 13%" />
+<col style="width: 13%" />
+<col style="width: 13%" />
+<col style="width: 13%" />
+<col style="width: 14%" />
+</colgroup>
+<thead>
+<tr>
+<th>Paramètre</th>
+<th class="num">Train actuel</th>
+<th class="num">Référence</th>
+<th class="num">1 Charger + 5</th>
+<th class="num">2 Charger + 5</th>
+<th class="num">Électrique</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Puissance nominale (kW)</td>
+<td class="num">3 132</td>
+<td class="num">2 764</td>
+<td class="num">3 132</td>
+<td class="num">6 264</td>
+<td class="num">5 160</td>
+</tr>
+<tr>
+<td>Masse à vide (t)</td>
+<td class="num">374</td>
+<td class="num">282</td>
+<td class="num">424</td>
+<td class="num">544</td>
+<td class="num">466</td>
+</tr>
+<tr>
+<td>Puissance nominale par masse (W/kg)</td>
+<td class="num">8,4</td>
+<td class="num">9,8</td>
+<td class="num">7,4</td>
+<td class="num">11,5</td>
+<td class="num">11,1</td>
+</tr>
+<tr>
+<td>Services de bord (kW)</td>
+<td class="num">200</td>
+<td class="num">200</td>
+<td class="num">200</td>
+<td class="num">200</td>
+<td class="num">0</td>
+</tr>
+<tr>
+<td>Rendement de transmission</td>
+<td class="num">0,88</td>
+<td class="num">0,88</td>
+<td class="num">0,88</td>
+<td class="num">0,88</td>
+<td class="num">0,95</td>
+</tr>
+<tr>
+<td>Puissance au rail (kW)</td>
+<td class="num">2 580</td>
+<td class="num">2 256</td>
+<td class="num">2 580</td>
+<td class="num">5 336</td>
+<td class="num">4 902</td>
+</tr>
+<tr>
+<td>Passagers et bagages (% de la masse)</td>
+<td class="num">6</td>
+<td class="num">6</td>
+<td class="num">6</td>
+<td class="num">6</td>
+<td class="num">6</td>
+</tr>
+<tr>
+<td>Masse en service (t)</td>
+<td class="num">396</td>
+<td class="num">299</td>
+<td class="num">449</td>
+<td class="num">577</td>
+<td class="num">494</td>
+</tr>
+<tr>
+<td>Coefficient d’inertie</td>
+<td class="num">1,04</td>
+<td class="num">1,04</td>
+<td class="num">1,04</td>
+<td class="num">1,04</td>
+<td class="num">1,04</td>
+</tr>
+<tr>
+<td>Résistance A (N/t)</td>
+<td class="num">12</td>
+<td class="num">12</td>
+<td class="num">12</td>
+<td class="num">12</td>
+<td class="num">12</td>
+</tr>
+<tr>
+<td>Résistance B (N/t par km/h)</td>
+<td class="num">0,06</td>
+<td class="num">0,06</td>
+<td class="num">0,06</td>
+<td class="num">0,06</td>
+<td class="num">0,06</td>
+</tr>
+<tr>
+<td>Surface de traînée (m²)</td>
+<td class="num">13</td>
+<td class="num">11</td>
+<td class="num">13</td>
+<td class="num">15</td>
+<td class="num">16</td>
+</tr>
+<tr>
+<td>Longueur (m)</td>
+<td class="num">152</td>
+<td class="num">116</td>
+<td class="num">152</td>
+<td class="num">174</td>
+<td class="num">215</td>
+</tr>
+<tr>
+<td>Accélération maximale (m/s²)</td>
+<td class="num">0,5</td>
+<td class="num">0,6</td>
+<td class="num">0,6</td>
+<td class="num">0,6</td>
+<td class="num">0,6</td>
+</tr>
+<tr>
+<td>Freinage de service (m/s²)</td>
+<td class="num">0,5</td>
+<td class="num">0,6</td>
+<td class="num">0,6</td>
+<td class="num">0,6</td>
+<td class="num">0,6</td>
+</tr>
+<tr>
+<td>Vitesse d’équilibre en palier (km/h)</td>
+<td class="num">227</td>
+<td class="num">232</td>
+<td class="num">224</td>
+<td class="num">276</td>
+<td class="num">266</td>
+</tr>
+</tbody>
+</table>
+<div class="note-tableau">
+<p>Train actuel : Charger et 5 voitures Venture. Référence : la rame
+pendulaire de la section <a class="renvoi" href="#sec-2">2</a>. Les colonnes Charger sont des tests de la
+section <a class="renvoi" href="#sec-12">12</a> : une ou deux locomotives de 120 t et 5 voitures pendulaires
+de 60,8 t, soit une voiture Venture et environ 10 t de pendulation.
+Électrique : type Pendolino, contre-hypothèse 3 ; sa puissance de
+traction est déjà nette des services de bord. Le calage de la section <a class="renvoi" href="#sec-2">2</a>
+utilise deux Class 221 couplées : 5 220 kW, 564 t, 18 m² de traînée,
+sans passagers.</p>
+</div>
+<p><strong>Accélération selon la vitesse (m/s², train chargé).</strong>
+Elle sort de la formule d’accélération. Une valeur négative veut dire
+que le train ne tient plus cette vitesse.</p>
+<table>
+<colgroup>
+<col style="width: 20%" />
+<col style="width: 20%" />
+<col style="width: 20%" />
+<col style="width: 20%" />
+<col style="width: 20%" />
+</colgroup>
+<thead>
+<tr>
+<th class="num">Vitesse (km/h)</th>
+<th class="num">Train actuel</th>
+<th class="num">Référence</th>
+<th class="num">Référence, rampe de 1 %</th>
+<th class="num">Électrique</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="num">0</td>
+<td class="num">0,50</td>
+<td class="num">0,60</td>
+<td class="num">0,60</td>
+<td class="num">0,60</td>
+</tr>
+<tr>
+<td class="num">50</td>
+<td class="num">0,43</td>
+<td class="num">0,50</td>
+<td class="num">0,41</td>
+<td class="num">0,60</td>
+</tr>
+<tr>
+<td class="num">100</td>
+<td class="num">0,19</td>
+<td class="num">0,23</td>
+<td class="num">0,13</td>
+<td class="num">0,31</td>
+</tr>
+<tr>
+<td class="num">130</td>
+<td class="num">0,13</td>
+<td class="num">0,15</td>
+<td class="num">0,06</td>
+<td class="num">0,22</td>
+</tr>
+<tr>
+<td class="num">160</td>
+<td class="num">0,08</td>
+<td class="num">0,10</td>
+<td class="num">0,01</td>
+<td class="num">0,16</td>
+</tr>
+<tr>
+<td class="num">177</td>
+<td class="num">0,06</td>
+<td class="num">0,07</td>
+<td class="num">−0,02</td>
+<td class="num">0,13</td>
+</tr>
+<tr>
+<td class="num">201</td>
+<td class="num">0,03</td>
+<td class="num">0,04</td>
+<td class="num">−0,05</td>
+<td class="num">0,09</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Temps et distance de manœuvre.</strong></p>
+<table>
+<colgroup>
+<col style="width: 20%" />
+<col style="width: 20%" />
+<col style="width: 20%" />
+<col style="width: 20%" />
+<col style="width: 20%" />
+</colgroup>
+<thead>
+<tr><th rowspan="2">Manœuvre, en palier</th><th class="groupe" colspan="2"><span>Train actuel</span></th><th class="groupe" colspan="2"><span>Référence</span></th></tr>
+<tr class="sous"><th class="num">secondes</th><th class="num">mètres</th><th class="num">secondes</th><th class="num">mètres</th></tr>
+</thead>
+<tbody>
+<tr>
+<td>De 0 à 100 km/h</td>
+<td class="num">78</td>
+<td class="num">1 303</td>
+<td class="num">66</td>
+<td class="num">1 111</td>
+</tr>
+<tr>
+<td>De 0 à 153 km/h</td>
+<td class="num">189</td>
+<td class="num">5 311</td>
+<td class="num">159</td>
+<td class="num">4 471</td>
+</tr>
+<tr>
+<td>De 0 à 177 km/h</td>
+<td class="num">278</td>
+<td class="num">9 421</td>
+<td class="num">232</td>
+<td class="num">7 824</td>
+</tr>
+<tr>
+<td>Freinage de 177 km/h à l’arrêt</td>
+<td class="num">98</td>
+<td class="num">2 417</td>
+<td class="num">82</td>
+<td class="num">2 014</td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="les-courbes" class="level2">
+<h2>Les courbes</h2>
+<table style="width:100%;">
+<colgroup>
+<col style="width: 10%" />
+<col style="width: 10%" />
+<col style="width: 10%" />
+<col style="width: 10%" />
+<col style="width: 10%" />
+<col style="width: 10%" />
+<col style="width: 10%" />
+<col style="width: 10%" />
+<col style="width: 10%" />
+<col style="width: 10%" />
+</colgroup>
+<thead>
+<tr><th rowspan="2">Jeu</th><th class="groupe" colspan="2"><span>Dévers</span></th><th class="groupe" colspan="2"><span>Insuffisance</span></th><th class="num" rowspan="2">Latérale (m/s²)</th><th class="num" rowspan="2">k</th><th class="groupe" colspan="3"><span>Rayon minimal (m)</span></th></tr>
+<tr class="sous"><th class="num">mm</th><th class="num">po</th><th class="num">mm</th><th class="num">po</th><th class="num">100 km/h</th><th class="num">153 km/h</th><th class="num">177 km/h</th></tr>
+</thead>
+<tbody>
+<tr>
+<td>Train actuel</td>
+<td class="num">100</td>
+<td class="num">3,9</td>
+<td class="num">76</td>
+<td class="num">3,0</td>
+<td class="num">1,13</td>
+<td class="num">3,83</td>
+<td class="num">681</td>
+<td class="num">1 594</td>
+<td class="num">2 134</td>
+</tr>
+<tr>
+<td>Référence</td>
+<td class="num">127</td>
+<td class="num">5,0</td>
+<td class="num">152</td>
+<td class="num">6,0</td>
+<td class="num">1,80</td>
+<td class="num">4,82</td>
+<td class="num">430</td>
+<td class="num">1 006</td>
+<td class="num">1 346</td>
+</tr>
+<tr>
+<td>Test : tolérance de 5 po</td>
+<td class="num">127</td>
+<td class="num">5,0</td>
+<td class="num">127</td>
+<td class="num">5,0</td>
+<td class="num">1,64</td>
+<td class="num">4,60</td>
+<td class="num">472</td>
+<td class="num">1 105</td>
+<td class="num">1 479</td>
+</tr>
+<tr>
+<td>Test : tolérance de 7 po</td>
+<td class="num">127</td>
+<td class="num">5,0</td>
+<td class="num">178</td>
+<td class="num">7,0</td>
+<td class="num">1,96</td>
+<td class="num">5,04</td>
+<td class="num">393</td>
+<td class="num">920</td>
+<td class="num">1 231</td>
+</tr>
+</tbody>
+</table>
+<div class="note-tableau">
+<p>Le dévers du train actuel est une hypothèse : le dévers réel du
+réseau n’est pas publié. Le dévers de la référence, 5 po, est le maximum
+standard du CN. Son insuffisance de 6 po est celle que le CN accorde au
+LRC.</p>
+</div>
+<table>
+<colgroup>
+<col style="width: 25%" />
+<col style="width: 25%" />
+<col style="width: 25%" />
+<col style="width: 25%" />
+</colgroup>
+<thead>
+<tr>
+<th class="num">Rayon (m)</th>
+<th class="num">Degré de courbure (°)</th>
+<th class="num">Train actuel (km/h)</th>
+<th class="num">Référence (km/h)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="num">300</td>
+<td class="num">5,82</td>
+<td class="num">66</td>
+<td class="num">84</td>
+</tr>
+<tr>
+<td class="num">400</td>
+<td class="num">4,37</td>
+<td class="num">77</td>
+<td class="num">96</td>
+</tr>
+<tr>
+<td class="num">600</td>
+<td class="num">2,91</td>
+<td class="num">94</td>
+<td class="num">118</td>
+</tr>
+<tr>
+<td class="num">900</td>
+<td class="num">1,94</td>
+<td class="num">115</td>
+<td class="num">145</td>
+</tr>
+<tr>
+<td class="num">1 200</td>
+<td class="num">1,46</td>
+<td class="num">133</td>
+<td class="num">167</td>
+</tr>
+<tr>
+<td class="num">1 800</td>
+<td class="num">0,97</td>
+<td class="num">163</td>
+<td class="num">205</td>
+</tr>
+<tr>
+<td class="num">2 400</td>
+<td class="num">0,73</td>
+<td class="num">188</td>
+<td class="num">236</td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="la-mesure-de-la-voie" class="level2">
+<h2>La mesure de la voie</h2>
+<table>
+<colgroup>
+<col style="width: 36%" />
+<col style="width: 16%" />
+<col style="width: 48%" />
+</colgroup>
+<thead>
+<tr>
+<th>Paramètre</th>
+<th>Valeur</th>
+<th>Rôle</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Rééchantillonnage du tracé</td>
+<td>10 m</td>
+<td>Un point de mesure à chaque pas</td>
+</tr>
+<tr>
+<td>Lissage de position</td>
+<td>30 m</td>
+<td>Retire le bruit de la carte</td>
+</tr>
+<tr>
+<td>Fenêtre du cercle ajusté</td>
+<td>900 m</td>
+<td>Plancher de 300 m sur un tronçon court</td>
+</tr>
+<tr>
+<td>Filtre médian</td>
+<td>50 m</td>
+<td>Appliqué au rayon, après l’ajustement</td>
+</tr>
+<tr>
+<td>Rayon minimal plausible</td>
+<td>100 m</td>
+<td>Plancher physique</td>
+</tr>
+<tr>
+<td>Rayon maximal</td>
+<td>50 000 m</td>
+<td>Au-delà, la voie est droite</td>
+</tr>
+<tr>
+<td>Longueur minimale d’un segment</td>
+<td>200 m</td>
+<td>Fusion des segments plus courts</td>
+</tr>
+<tr>
+<td>Rayon retenu par segment</td>
+<td>10e centile</td>
+<td>Prudent : proche du point le plus serré du segment</td>
+</tr>
+<tr>
+<td>Correction des courbes courtes</td>
+<td>R × 0,5</td>
+<td>Segment courbe de moins de 900 m ; vitesse × 0,71</td>
+</tr>
+<tr>
+<td>Pas du relief</td>
+<td>500 m</td>
+<td>Modèle Copernicus GLO-90</td>
+</tr>
+<tr>
+<td>Lissage du relief</td>
+<td>3 km</td>
+<td>Médiane sur 5 points, puis moyenne sur 7 points</td>
+</tr>
+<tr>
+<td>Écart maximal entre deux voies</td>
+<td>7 m</td>
+<td>Tracés alignés à moins de 25° ; espacement mesuré d’environ 4 m</td>
+</tr>
+<tr>
+<td>Rattachement d’un passage au tracé</td>
+<td>75 m</td>
+<td>Sensibilité à 25 m et 125 m</td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="lexploitation" class="level2">
+<h2>L’exploitation</h2>
+<table>
+<colgroup>
+<col style="width: 36%" />
+<col style="width: 24%" />
+<col style="width: 40%" />
+</colgroup>
+<thead>
+<tr>
+<th>Paramètre</th>
+<th class="num">Valeur</th>
+<th>Note</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Plafond publié</td>
+<td class="num">177 km/h</td>
+<td>110 mi/h, tant que des passages à niveau demeurent</td>
+</tr>
+<tr>
+<td>Classe de voie actuelle</td>
+<td class="num">153 km/h</td>
+<td>95 mi/h</td>
+</tr>
+<tr>
+<td>Régime actuel, calcul des marges</td>
+<td class="num">160 km/h</td>
+<td>Borne du temps de base à la section <a class="renvoi" href="#sec-3">3</a></td>
+</tr>
+<tr>
+<td>Autres plafonds calculés</td>
+<td class="num">153 · 160 · 201 · 241 km/h</td>
+<td>Contre-hypothèses et sensibilités</td>
+</tr>
+<tr>
+<td>Immobilisation en gare</td>
+<td class="num">2 min</td>
+<td>Médiane des horaires de VIA</td>
+</tr>
+<tr>
+<td>Marge d’exploitation</td>
+<td class="num">10 %</td>
+<td>Sur le temps de roulement et les arrêts</td>
+</tr>
+<tr>
+<td>Arrêt à Montréal, Québec-Toronto</td>
+<td class="num">10 min</td>
+<td>Hypothèse du trajet de bout en bout</td>
+</tr>
+<tr>
+<td>Fenêtre urbaine d’Ottawa</td>
+<td class="num">±10 km</td>
+<td>Hypothèse : aucune gare d’approche proche</td>
+</tr>
+<tr>
+<td>Délimitation des zones urbaines</td>
+<td class="num">±20 %</td>
+<td>Sensibilité de la section <a class="renvoi" href="#sec-12">12</a></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="le-temps-étape-par-étape" class="level2">
+<h2>Le temps, étape par étape</h2>
+<p>Minutes cumulées, selon les étapes de la section <a class="renvoi" href="#sec-2">2</a>.</p>
+<table>
+<colgroup>
+<col style="width: 12%" />
+<col style="width: 12%" />
+<col style="width: 12%" />
+<col style="width: 12%" />
+<col style="width: 12%" />
+<col style="width: 12%" />
+<col style="width: 12%" />
+<col style="width: 12%" />
+</colgroup>
+<thead>
+<tr>
+<th>Trajet</th>
+<th class="num">Distance (km)</th>
+<th class="num">Arrêts</th>
+<th class="num">Vitesse des courbes</th>
+<th class="num">Avec plafond</th>
+<th class="num">Avec arrêts</th>
+<th class="num">Vrai train</th>
+<th class="num">Avec marge</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Montréal-Québec</td>
+<td class="num">271,1</td>
+<td class="num">5</td>
+<td class="num">82,9</td>
+<td class="num">103,2</td>
+<td class="num">113,2</td>
+<td class="num">132,9</td>
+<td class="num">146,2</td>
+</tr>
+<tr>
+<td>Montréal-Ottawa</td>
+<td class="num">186,1</td>
+<td class="num">4</td>
+<td class="num">58,9</td>
+<td class="num">69,7</td>
+<td class="num">77,7</td>
+<td class="num">90,1</td>
+<td class="num">99,1</td>
+</tr>
+<tr>
+<td>Ottawa-Toronto</td>
+<td class="num">445,9</td>
+<td class="num">12</td>
+<td class="num">117,6</td>
+<td class="num">158,7</td>
+<td class="num">182,7</td>
+<td class="num">213,7</td>
+<td class="num">235,1</td>
+</tr>
+<tr>
+<td>Montréal-Toronto</td>
+<td class="num">540,1</td>
+<td class="num">8</td>
+<td class="num">133,8</td>
+<td class="num">189,4</td>
+<td class="num">205,4</td>
+<td class="num">231,2</td>
+<td class="num">254,3</td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="les-zones-urbaines" class="level2">
+<h2>Les zones urbaines</h2>
+<table style="width:100%;">
+<colgroup>
+<col style="width: 16%" />
+<col style="width: 16%" />
+<col style="width: 16%" />
+<col style="width: 16%" />
+<col style="width: 16%" />
+<col style="width: 16%" />
+</colgroup>
+<thead>
+<tr>
+<th>Zone</th>
+<th class="num">Longueur (km)</th>
+<th class="num">Horaire actuel (min)</th>
+<th class="num">Train actuel (min)</th>
+<th class="num">Mou urbain (min)</th>
+<th class="num">Référence (min)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Montréal Central à pont Victoria (culée sud)</td>
+<td class="num">5,5</td>
+<td class="num">11,8</td>
+<td class="num">5,1</td>
+<td class="num">6,2</td>
+<td class="num">4,3</td>
+</tr>
+<tr>
+<td>Charny à Québec (pont de Québec, gare du Palais)</td>
+<td class="num">24,8</td>
+<td class="num">33,0</td>
+<td class="num">22,7</td>
+<td class="num">8,0</td>
+<td class="num">19,4</td>
+</tr>
+<tr>
+<td>Montréal Central à Dorval</td>
+<td class="num">17,8</td>
+<td class="num">23,5</td>
+<td class="num">10,6</td>
+<td class="num">11,8</td>
+<td class="num">9,1</td>
+</tr>
+<tr>
+<td>Guildwood à Toronto Union</td>
+<td class="num">20,1</td>
+<td class="num">18,0</td>
+<td class="num">11,7</td>
+<td class="num">5,1</td>
+<td class="num">10,1</td>
+</tr>
+</tbody>
+</table>
+<div class="note-tableau">
+<p>Le mou urbain est l’écart entre l’horaire et le temps du train
+actuel, marge de 10 % comprise (section <a class="renvoi" href="#sec-12">12</a>). Les temps des trains sont
+sans marge. Ils ne simulent ni les aiguillages ni les autres trains.</p>
+</div>
+</section>
+<section id="les-marges-mesurées" class="level2">
+<h2>Les marges mesurées</h2>
+<p>Marge par paire de gares adjacentes, sur le cœur du corridor.</p>
+<table style="width:100%;">
+<colgroup>
+<col style="width: 14%" />
+<col style="width: 14%" />
+<col style="width: 14%" />
+<col style="width: 14%" />
+<col style="width: 14%" />
+<col style="width: 14%" />
+<col style="width: 14%" />
+</colgroup>
+<thead>
+<tr>
+<th>Famille de voie</th>
+<th class="num">Paires de gares</th>
+<th class="num">Médiane (%)</th>
+<th class="num">1er quartile</th>
+<th class="num">3e quartile</th>
+<th class="num">Minimum</th>
+<th class="num">Maximum</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Voie double, CN</td>
+<td class="num">11</td>
+<td class="num">32,6</td>
+<td class="num">30,0</td>
+<td class="num">35,0</td>
+<td class="num">24,8</td>
+<td class="num">84,2</td>
+</tr>
+<tr>
+<td>Voie simple, VIA</td>
+<td class="num">5</td>
+<td class="num">28,6</td>
+<td class="num">16,1</td>
+<td class="num">46,9</td>
+<td class="num">13,4</td>
+<td class="num">60,7</td>
+</tr>
+<tr>
+<td>Voie simple, CN</td>
+<td class="num">2</td>
+<td class="num">59,8</td>
+<td class="num">57,0</td>
+<td class="num">62,6</td>
+<td class="num">54,2</td>
+<td class="num">65,4</td>
+</tr>
+</tbody>
+</table>
+<div class="note-tableau">
+<p>Une paire entre dans une famille si au moins 70 % de sa longueur a le
+même état de voie. La famille voie simple du CN ne compte que deux
+paires : sa médiane est indicative.</p>
+</div>
+</section>
+<section id="les-passages-à-niveau-1" class="level2">
+<h2>Les passages à niveau</h2>
+<table>
+<colgroup>
+<col style="width: 80%" />
+<col style="width: 20%" />
+</colgroup>
+<thead>
+<tr>
+<th>Catégorie</th>
+<th class="num">Nombre</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Passages du corridor (355 publics, 569 privés ou de ferme)</td>
+<td class="num">924</td>
+</tr>
+<tr>
+<td>Passages où les courbes permettent plus de 153 km/h, à sceller</td>
+<td class="num">833</td>
+</tr>
+<tr>
+<td>Parmi eux, sans barrières complètes</td>
+<td class="num">533</td>
+</tr>
+<tr>
+<td>Passages où le train dépasse réellement 153 km/h</td>
+<td class="num">480</td>
+</tr>
+<tr>
+<td>Passages où les courbes permettent plus de 177 km/h</td>
+<td class="num">672</td>
+</tr>
+<tr>
+<td>Passages où le train dépasse réellement 177 km/h (100 publics, 138
+privés)</td>
+<td class="num">238</td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="les-coûts-unitaires" class="level2">
+<h2>Les coûts unitaires</h2>
+<p>Dollars canadiens de 2025, avant imprévus de 20 %. La section <a class="renvoi" href="#sec-11">11</a>
+donne les sources et le détail de l’indexation.</p>
+<table>
+<colgroup>
+<col style="width: 30%" />
+<col style="width: 14%" />
+<col style="width: 16%" />
+<col style="width: 10%" />
+<col style="width: 30%" />
+</colgroup>
+<thead>
+<tr>
+<th>Poste</th>
+<th>Quantité</th>
+<th>Coût unitaire</th>
+<th class="num">Total (G$)</th>
+<th>Base</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Deuxième voie</td>
+<td>407 km</td>
+<td>2,4 M$/km</td>
+<td class="num">0,98</td>
+<td>Hatch Mott MacDonald 2013, +42 %</td>
+</tr>
+<tr>
+<td>Renouvellement du rail</td>
+<td>1 101 km</td>
+<td>1,4 M$/km</td>
+<td class="num">1,54</td>
+<td>Hatch Mott MacDonald 2013, +42 %</td>
+</tr>
+<tr>
+<td>Ponts de moins de 20 m</td>
+<td>377 m</td>
+<td>0,387 M$/m</td>
+<td class="num">0,15</td>
+<td>Hatch Mott MacDonald 2013, +42 %</td>
+</tr>
+<tr>
+<td>Ponts de 20 m et plus</td>
+<td>3 760 m</td>
+<td>0,535 M$/m</td>
+<td class="num">2,01</td>
+<td>Hatch Mott MacDonald 2013, +42 %</td>
+</tr>
+<tr>
+<td>Signalisation</td>
+<td>1 101 km</td>
+<td>0,45 M$/km</td>
+<td class="num">0,50</td>
+<td>Downeaster 2024, indice et change</td>
+</tr>
+<tr>
+<td>Trains pendulaires diesel</td>
+<td>Forfait</td>
+<td>Borne haute</td>
+<td class="num">3,40</td>
+<td>Avelia Liberty 2016, +23 %, change</td>
+</tr>
+<tr>
+<td>Passages sans barrières complètes</td>
+<td>533 passages</td>
+<td>1,2 M$</td>
+<td class="num">0,64</td>
+<td>Transports Canada 2021, Ulster 2023</td>
+</tr>
+<tr>
+<td>Passages déjà équipés</td>
+<td>300 passages</td>
+<td>0,50 M$</td>
+<td class="num">0,15</td>
+<td>Ulster 2023, source modeste</td>
+</tr>
+<tr>
+<td>Ponts d’étagement, programme</td>
+<td>118 ouvrages</td>
+<td>50 M$</td>
+<td class="num">5,90</td>
+<td>Valeur moyenne de planification</td>
+</tr>
+<tr>
+<td>Passages dénivelés, programme</td>
+<td>190 ouvrages</td>
+<td>12 M$</td>
+<td class="num">2,28</td>
+<td>Hypothèse de travail, sans précédent</td>
+</tr>
+<tr>
+<td>Électrification, programme</td>
+<td>2 200 km</td>
+<td>Fourchette</td>
+<td class="num">3 à 7</td>
+<td>EcoTrain 2009 et RIA 2019 (section <a class="renvoi" href="#sec-10">10</a>)</td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="les-sensibilités" class="level2">
+<h2>Les sensibilités</h2>
+<p>Écart en minutes avec le temps publié, marge de 10 % comprise. Chaque
+ligne change une seule chose, sauf les deux cas combinés.</p>
+<div class="coupable">
+<table style="width:100%;">
+<colgroup>
+<col style="width: 60%" />
+<col style="width: 10%" />
+<col style="width: 10%" />
+<col style="width: 10%" />
+<col style="width: 10%" />
+</colgroup>
+<thead>
+<tr>
+<th>Cas testé</th>
+<th class="num">Mtl-Qc</th>
+<th class="num">Mtl-Ott</th>
+<th class="num">Ott-To</th>
+<th class="num">Mtl-To</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Traînée plus faible (9 m²)</td>
+<td class="num">−0,3</td>
+<td class="num">−0,2</td>
+<td class="num">−0,4</td>
+<td class="num">−0,4</td>
+</tr>
+<tr>
+<td>Traînée plus forte (14 m²)</td>
+<td class="num">+0,5</td>
+<td class="num">+0,3</td>
+<td class="num">+0,7</td>
+<td class="num">+0,7</td>
+</tr>
+<tr>
+<td>Grand froid : services de bord à 400 kW</td>
+<td class="num">+1,1</td>
+<td class="num">+0,6</td>
+<td class="num">+1,6</td>
+<td class="num">+1,5</td>
+</tr>
+<tr>
+<td>Freinage à 0,5 m/s²</td>
+<td class="num">+1,0</td>
+<td class="num">+0,7</td>
+<td class="num">+1,9</td>
+<td class="num">+1,4</td>
+</tr>
+<tr>
+<td>Freinage à 0,8 m/s²</td>
+<td class="num">−1,3</td>
+<td class="num">−0,9</td>
+<td class="num">−2,3</td>
+<td class="num">−1,8</td>
+</tr>
+<tr>
+<td>Accélération maximale à 0,5 m/s²</td>
+<td class="num">+0,4</td>
+<td class="num">+0,3</td>
+<td class="num">+0,8</td>
+<td class="num">+0,6</td>
+</tr>
+<tr>
+<td>Accélération maximale à 0,8 m/s²</td>
+<td class="num">−0,4</td>
+<td class="num">−0,4</td>
+<td class="num">−0,9</td>
+<td class="num">−0,7</td>
+</tr>
+<tr>
+<td>Rendement de 0,85</td>
+<td class="num">+0,4</td>
+<td class="num">+0,3</td>
+<td class="num">+0,7</td>
+<td class="num">+0,6</td>
+</tr>
+<tr>
+<td>Rendement de 0,90</td>
+<td class="num">−0,3</td>
+<td class="num">−0,2</td>
+<td class="num">−0,4</td>
+<td class="num">−0,4</td>
+</tr>
+<tr>
+<td>Train diesel de 8,4 W/kg, même masse</td>
+<td class="num">+2,3</td>
+<td class="num">+1,4</td>
+<td class="num">+3,5</td>
+<td class="num">+3,2</td>
+</tr>
+<tr>
+<td>Train diesel de 12 W/kg, même masse (n’existe pas)</td>
+<td class="num">−2,4</td>
+<td class="num">−1,3</td>
+<td class="num">−3,4</td>
+<td class="num">−3,1</td>
+</tr>
+<tr>
+<td>Arrêts à la médiane des horaires, gare par gare</td>
+<td class="num">+1,1</td>
+<td class="num">0,0</td>
+<td class="num">+6,1</td>
+<td class="num">+6,6</td>
+</tr>
+<tr>
+<td>Train électrique de type Pendolino, corridor électrifié</td>
+<td class="num">−2,2</td>
+<td class="num">−1,4</td>
+<td class="num">−3,6</td>
+<td class="num">−3,3</td>
+</tr>
+<tr>
+<td>Train électrique, 201 km/h partout</td>
+<td class="num">−5,2</td>
+<td class="num">−2,5</td>
+<td class="num">−10,6</td>
+<td class="num">−13,8</td>
+</tr>
+<tr>
+<td>Train électrique, 241 km/h, sans passage à niveau</td>
+<td class="num">−6,2</td>
+<td class="num">−2,9</td>
+<td class="num">−14,3</td>
+<td class="num">−21,1</td>
+</tr>
+<tr>
+<td>Train de référence, 201 km/h partout</td>
+<td class="num">−1,9</td>
+<td class="num">−0,6</td>
+<td class="num">−5,1</td>
+<td class="num">−8,3</td>
+</tr>
+<tr>
+<td>Train de référence, 241 km/h, sans passage à niveau</td>
+<td class="num">−2,0</td>
+<td class="num">−0,6</td>
+<td class="num">−6,4</td>
+<td class="num">−11,9</td>
+</tr>
+<tr>
+<td>Une locomotive Charger et 5 voitures pendulaires (7,4 W/kg)</td>
+<td class="num">+3,6</td>
+<td class="num">+2,3</td>
+<td class="num">+5,4</td>
+<td class="num">+4,9</td>
+</tr>
+<tr>
+<td>Deux locomotives Charger et 5 voitures pendulaires (11,5 W/kg)</td>
+<td class="num">−2,1</td>
+<td class="num">−1,3</td>
+<td class="num">−3,3</td>
+<td class="num">−3,0</td>
+</tr>
+<tr>
+<td>Tolérance en courbe de 5 po</td>
+<td class="num">+3,0</td>
+<td class="num">+2,5</td>
+<td class="num">+3,5</td>
+<td class="num">+4,0</td>
+</tr>
+<tr>
+<td>Tolérance en courbe de 7 po</td>
+<td class="num">−2,7</td>
+<td class="num">−2,1</td>
+<td class="num">−3,0</td>
+<td class="num">−3,4</td>
+</tr>
+<tr>
+<td>Bas combiné : une locomotive, 5 po</td>
+<td class="num">+6,8</td>
+<td class="num">+4,6</td>
+<td class="num">+9,0</td>
+<td class="num">+9,1</td>
+</tr>
+<tr>
+<td>Haut combiné : deux locomotives, 7 po</td>
+<td class="num">−4,8</td>
+<td class="num">−3,5</td>
+<td class="num">−6,3</td>
+<td class="num">−6,3</td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+<section id="les-données" class="level2">
+<h2>Les données</h2>
+<table>
+<colgroup>
+<col style="width: 36%" />
+<col style="width: 30%" />
+<col style="width: 34%" />
+</colgroup>
+<thead>
+<tr>
+<th>Donnée</th>
+<th>Version</th>
+<th>Usage</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Horaires de VIA (GTFS)</td>
+<td>Flux du 18 mars au 18 juillet 2026</td>
+<td>Gares, tracés, temps actuels, immobilisations</td>
+</tr>
+<tr>
+<td>Horaires archivés de VIA (GTFS)</td>
+<td>Flux du 19 janvier 2023</td>
+<td>Test de robustesse des marges</td>
+</tr>
+<tr>
+<td>OpenStreetMap, extraits Geofabrik</td>
+<td>Extraits du 10 mai 2026</td>
+<td>Géométrie de la voie, nombre de voies</td>
+</tr>
+<tr>
+<td>Inventaire des passages à niveau</td>
+<td>Transports Canada, mise à jour 2023</td>
+<td>Localisation, accès, protection</td>
+</tr>
+<tr>
+<td>Relief Copernicus GLO-90, via Open-Meteo</td>
+<td>Téléchargé le 5 novembre 2026</td>
+<td>Pentes du modèle de traction</td>
+</tr>
+<tr>
+<td>Horaires d’exo (GTFS)</td>
+<td>Version du 10 septembre 2026</td>
+<td>Comparaison de Saint-Hilaire, section <a class="renvoi" href="#sec-12">12</a></td>
+</tr>
+<tr>
+<td>Circulaire MR 1305-0 du CN</td>
+<td>Décembre 2002</td>
+<td>Calcul des vitesses en courbe, dévers maximal, insuffisance</td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="les-scripts" class="level2">
+<h2>Les scripts</h2>
+<p>Les temps, les vitesses et les comptes publiés viennent de ces
+scripts. Ils sont listés dans leur ordre d’exécution. Le numéro du
+fichier indique seulement l’ordre de sa création.</p>
+<p><strong>Mesure de la voie.</strong></p>
+<div class="coupable">
+<table>
+<colgroup>
+<col style="width: 34%" />
+<col style="width: 66%" />
+</colgroup>
+<thead>
+<tr>
+<th>Script</th>
+<th>Ce qu’il fait</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>01_extract_corridor.py</code></td>
+<td>Tire des horaires de VIA les quatre trajets du corridor et l’ordre
+de leurs gares.</td>
+</tr>
+<tr>
+<td><code>02_build_rail_graph.py</code></td>
+<td>Bâtit le graphe ferroviaire à partir des extraits OpenStreetMap du
+Québec et de l’Ontario.</td>
+</tr>
+<tr>
+<td><code>03_match_gtfs_to_osm.py</code></td>
+<td>Accroche le tracé de VIA à la voie réelle, sans sauter d’une voie
+parallèle à l’autre.</td>
+</tr>
+<tr>
+<td><code>04_compute_curvature.py</code></td>
+<td>Calcule le rayon de courbure par ajustement d’un cercle le long du
+tracé.</td>
+</tr>
+<tr>
+<td><code>_baseline_zones.py</code></td>
+<td>Garde-fou : vérifie la courbure mesurée sur trois zones
+témoins.</td>
+</tr>
+<tr>
+<td><code>05_segment_and_classify.py</code></td>
+<td>Découpe le tracé en segments et calcule la vitesse permise par
+chaque jeu de dévers.</td>
+</tr>
+<tr>
+<td><code>34_correction_courtes.py</code></td>
+<td>Applique la correction des courbes courtes et écrit les segments
+publiés.</td>
+</tr>
+<tr>
+<td><code>31_biais_segments_courts.py</code></td>
+<td>Mesure le biais de la fenêtre de 900 m sur les segments courts.</td>
+</tr>
+<tr>
+<td><code>06_synthese_troncon.py</code></td>
+<td>Résume les classes de vitesse par tronçon et repère les
+goulots.</td>
+</tr>
+<tr>
+<td><code>07_render_outputs.py</code></td>
+<td>Produit la carte, le KMZ et le CSV des segments.</td>
+</tr>
+<tr>
+<td><code>11_target_speed_to_km.py</code></td>
+<td>Donne les kilomètres restants sous chaque vitesse cible.</td>
+</tr>
+<tr>
+<td><code>12_sections_a_rectifier_pdf.py</code></td>
+<td>Liste les sections sous 201 km/h. Hors rapport.</td>
+</tr>
+<tr>
+<td><code>13_track_count.py</code></td>
+<td>Compte les voies en détectant les tracés parallèles dans
+OpenStreetMap.</td>
+</tr>
+<tr>
+<td><code>14_synthese_voies.py</code></td>
+<td>Agrège voie simple et voie double sans double compte, et sort les
+kilomètres à doubler.</td>
+</tr>
+<tr>
+<td><code>15_carte_voies.py</code></td>
+<td>Dessine la carte des voies.</td>
+</tr>
+<tr>
+<td><code>20_passages_niveau.py</code></td>
+<td>Rattache l’inventaire de Transports Canada au tracé et classe chaque
+passage.</td>
+</tr>
+<tr>
+<td><code>39_relief_corridor.py</code></td>
+<td>Télécharge le relief le long des quatre trajets.</td>
+</tr>
+</tbody>
+</table>
+</div>
+<p><strong>Temps de parcours.</strong></p>
+<div class="coupable">
+<table>
+<colgroup>
+<col style="width: 34%" />
+<col style="width: 66%" />
+</colgroup>
+<thead>
+<tr>
+<th>Script</th>
+<th>Ce qu’il fait</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>scenarios.py</code></td>
+<td>Source unique des jeux de dévers, du coefficient k et du plafond
+publié.</td>
+</tr>
+<tr>
+<td><code>utils.py</code></td>
+<td>Constantes, conversions d’unités et chemins partagés.</td>
+</tr>
+<tr>
+<td><code>alignments.py</code></td>
+<td>Schéma commun des tracés.</td>
+</tr>
+<tr>
+<td><code>33_courbes_doublees.py</code></td>
+<td>Sensibilité : courbes rectifiées aux sections doublées. Hors
+rapport.</td>
+</tr>
+<tr>
+<td><code>21_tbase_bande.py</code></td>
+<td>Moteur : formule de traction, profil de vitesse et temps par trajet
+et par plafond.</td>
+</tr>
+<tr>
+<td><code>22_marges_2x2.py</code></td>
+<td>Mesure la marge de chaque paire de gares selon le nombre de voies et
+le propriétaire.</td>
+</tr>
+<tr>
+<td><code>38_train_express.py</code></td>
+<td>Calcule le train express, sans arrêt intermédiaire.</td>
+</tr>
+<tr>
+<td><code>36_gains_urbains.py</code></td>
+<td>Décompose les zones urbaines : courbes, signalisation et mou
+urbain.</td>
+</tr>
+<tr>
+<td><code>37_sous_sections_mtlqc.py</code></td>
+<td>Détaille Montréal-Québec, gare par gare.</td>
+</tr>
+<tr>
+<td><code>40_etapes_temps.py</code></td>
+<td>Refait le modèle pas à pas, le calage et les sensibilités. Échoue si
+les temps publiés changent.</td>
+</tr>
+<tr>
+<td><code>41_passages_gain_vitesse.py</code></td>
+<td>Calcule la vitesse réelle à chaque passage et les minutes rachetées
+par le programme.</td>
+</tr>
+<tr>
+<td><code>26_test_accel_exploratoire.py</code></td>
+<td>Trace historique d’un test de l’accélération. Hors rapport.</td>
+</tr>
+</tbody>
+</table>
+</div>
+<p><strong>Figures, rapport et contrôles.</strong></p>
+<div class="coupable">
+<table>
+<colgroup>
+<col style="width: 34%" />
+<col style="width: 66%" />
+</colgroup>
+<thead>
+<tr>
+<th>Script</th>
+<th>Ce qu’il fait</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>23_figure_cellules.py</code></td>
+<td>Figure des familles de voie.</td>
+</tr>
+<tr>
+<td><code>24_figure_vs_auto.py</code></td>
+<td>Figures du train contre l’auto, une par trajet.</td>
+</tr>
+<tr>
+<td><code>32_figure_gains.py</code></td>
+<td>Figure des facteurs de réduction et décomposition des gains.</td>
+</tr>
+<tr>
+<td><code>35_figure_zoom_urbain.py</code></td>
+<td>Gros plans des zones urbaines. Hors rapport.</td>
+</tr>
+<tr>
+<td><code>28_couverture.py</code></td>
+<td>Couverture du rapport, dessinée à partir du tracé mesuré.</td>
+</tr>
+<tr>
+<td><code>42_fiche_technique.py</code></td>
+<td>Écrit cette annexe à partir du code et des résultats.</td>
+</tr>
+<tr>
+<td><code>identite.py</code></td>
+<td>Lit la charte graphique.</td>
+</tr>
+<tr>
+<td><code>27_verif_identite.py</code></td>
+<td>Garde-fou : contrôle la palette, le daltonisme et le contraste.</td>
+</tr>
+<tr>
+<td><code>29_rapport_html.py</code></td>
+<td>Compose le rapport en HTML à partir du texte source.</td>
+</tr>
+<tr>
+<td><code>30_rapport_pdf.mjs</code></td>
+<td>Produit le PDF paginé, avec ses liens et son sommaire.</td>
+</tr>
+<tr>
+<td><code>25_build_rapport.py</code></td>
+<td>Produit la version Word.</td>
+</tr>
+<tr>
+<td><code>18_export_xlsx.py</code></td>
+<td>Exporte les CSV en classeurs Excel filtrables.</td>
+</tr>
+<tr>
+<td><code>19_build_viewer.py</code></td>
+<td>Compose le visualiseur de données et vérifie ses chiffres contre le
+rapport.</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="note-tableau">
+<p>Environnement : Python 3.12 (pandas, geopandas, shapely, numpy,
+scipy, matplotlib), Node 24 avec Puppeteer pour le PDF, et pandoc 3 pour
+le texte et les citations.</p>
+</div>
+</section>
+</div>
+<!-- fiche:fin -->
+</section>
 <section id="vision-transport" class="level1 unnumbered suite">
-<div class="sec" id="sec-15"><span class="k">15 · Le mandant</span><h1 class="unnumbered suite">Vision Transport</h1></div>
+<div class="sec" id="sec-16"><span class="k">16 · Le mandant</span><h1 class="unnumbered suite">Vision Transport</h1></div>
 <p>Créée en 2013 sous le nom de Fondation Trains de nuit, l’organisme
 sans but lucratif constitué selon la Loi sur les compagnies, Partie 3
 (RLRQ, c. C-38) a pour objectif la promotion des modes et services de
@@ -4081,7 +5573,7 @@ principal (M. Duguay) et la même méthode de travail agentique décrite
 dans les Crédits.</p>
 </section>
 <section id="crédits" class="level1 unnumbered">
-<div class="sec" id="sec-16"><span class="k">16 · Crédits</span><h1 class="unnumbered">Crédits</h1></div>
+<div class="sec" id="sec-17"><span class="k">17 · Crédits</span><h1 class="unnumbered">Crédits</h1></div>
 <blockquote>
 <p><strong>Personne-ressource pour les médias.</strong> François Pépin,
 président-directeur général de Vision Transport : <a
@@ -4134,7 +5626,7 @@ sources, et le visualiseur joint, dont les vérifications recalculent les
 chiffres clés du rapport dans le navigateur du lecteur.</p>
 </section>
 <section id="références" class="level1 unnumbered">
-<div class="sec" id="sec-17"><span class="k">17 · Sources</span><h1 class="unnumbered">Références</h1></div>
+<div class="sec" id="sec-18"><span class="k">18 · Sources</span><h1 class="unnumbered">Références</h1></div>
 <div id="refs" class="references csl-bib-body hanging-indent"
 data-entry-spacing="0" data-line-spacing="2" role="list">
 <div id="ref-alstom2005pendolino" class="csl-entry" role="listitem">

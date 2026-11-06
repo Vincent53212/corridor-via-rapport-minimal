@@ -40,6 +40,22 @@ LIBELLES = {"MTL-QC": "Montréal-Québec", "MTL-Ott": "Montréal-Ottawa",
             "Ott-TO": "Ottawa-Toronto", "MTL-TO": "Montréal-Toronto"}
 BY_T = m21.load_segments()
 R = m21.RAME_PENDULAIRE
+# Rames des tests, au niveau du module : l'étape 42 les affiche dans la fiche technique.
+# Calage : deux Class 221 couplées, puissance réduite à 700 ch par moteur (chronos du forum).
+DOUBLE_221 = m21.Rame("deux Class 221 couplées, réglage 700 ch", p_kw=5220, m_t=564, hotel_kw=200,
+                      rendement=0.88, cda_m2=18.0, longueur_m=232, a0=0.6, ab=0.6, charge=1.0)
+# Configurations réalistes en Amérique du Nord : voiture Venture (50,8 t) plus environ
+# 10 t de pendulation (écart par voiture entre les Class 220 et 221), Charger 120 t.
+MASSE_VOITURE_T = 50.8 + 10.0
+MASSE_CHARGER_T = 120.0
+PENDOLINO = m21.Rame("Pendolino électrique", p_kw=5160, m_t=466, hotel_kw=0, rendement=0.95,
+                     cda_m2=16.0, longueur_m=215, a0=0.6, ab=0.6)
+UN_CHARGER = m21.Rame("1 Charger + 5 voitures pendulaires", p_kw=3132,
+                      m_t=MASSE_CHARGER_T + 5 * MASSE_VOITURE_T, hotel_kw=200,
+                      rendement=0.88, cda_m2=13.0, longueur_m=152, a0=0.6, ab=0.6)
+DEUX_CHARGER = m21.Rame("2 Charger + 5 voitures pendulaires", p_kw=6264,
+                        m_t=2 * MASSE_CHARGER_T + 5 * MASSE_VOITURE_T, hotel_kw=200,
+                        rendement=0.88, cda_m2=15.0, longueur_m=174, a0=0.6, ab=0.6)
 # Médianes des horaires de VIA par gare, là où elles diffèrent de 2 min (GTFS, 2026).
 ARRETS_GTFS = {"Dorval": 4, "Kingston": 4, "Fallowfield": 4, "Belleville": 3, "Oshawa": 3,
                "Sainte-Foy": 3, "Coteau": 1, "Casselman": 1, "Napanee": 1.5}
@@ -96,27 +112,17 @@ def chrono(acc, cibles_mph=(60, 100, 125)) -> dict[int, float]:
 
 
 def calage() -> pd.DataFrame:
-    double_221 = m21.Rame("deux Class 221 couplées, réglage 700 ch", p_kw=5220, m_t=564, hotel_kw=200,
-                          rendement=0.88, cda_m2=18.0, longueur_m=232, a0=0.6, ab=0.6, charge=1.0)
-    pm = 5220 / 564
+    pm = DOUBLE_221.p_kw / DOUBLE_221.m_t
     cas = [("Chronos relevés", {60: 60, 100: 170, 125: 313}),
            ("Ancienne formule, sans résistance", chrono(lambda v: min(0.6, pm / v))),
-           ("Formule calée", chrono(double_221.acceleration))]
+           ("Formule calée", chrono(DOUBLE_221.acceleration))]
     return pd.DataFrame([{"cas": n, "0_60_mph_s": c[60], "0_100_mph_s": c[100], "0_125_mph_s": c[125]}
                          for n, c in cas])
 
 
 def sensibilites() -> pd.DataFrame:
     ref = {t: temps(t) for t in LIBELLES}
-    # Configurations réalistes en Amérique du Nord : voiture Venture (50,8 t) plus environ
-    # 10 t de pendulation (écart par voiture entre les Class 220 et 221), Charger 120 t.
-    voiture = 50.8 + 10.0
-    pendolino = m21.Rame("Pendolino électrique", p_kw=5160, m_t=466, hotel_kw=0, rendement=0.95,
-                         cda_m2=16.0, longueur_m=215, a0=0.6, ab=0.6)
-    un = m21.Rame("1 Charger + 5 voitures pendulaires", p_kw=3132, m_t=120 + 5 * voiture, hotel_kw=200,
-                  rendement=0.88, cda_m2=13.0, longueur_m=152, a0=0.6, ab=0.6)
-    deux = m21.Rame("2 Charger + 5 voitures pendulaires", p_kw=6264, m_t=240 + 5 * voiture, hotel_kw=200,
-                    rendement=0.88, cda_m2=15.0, longueur_m=174, a0=0.6, ab=0.6)
+    pendolino, un, deux = PENDOLINO, UN_CHARGER, DEUX_CHARGER
     cas = [
         ("Traînée plus faible (9 m²)", dict(rame=replace(R, cda_m2=9.0))),
         ("Traînée plus forte (14 m²)", dict(rame=replace(R, cda_m2=14.0))),

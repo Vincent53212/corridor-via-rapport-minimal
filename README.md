@@ -83,6 +83,7 @@ python scripts/32_figure_gains.py           # figure : d'où viennent les minute
 python scripts/37_sous_sections_mtlqc.py   # Montréal-Québec gare par gare (Saint-Hilaire, Saint-Hyacinthe, Drummondville)
 python scripts/40_etapes_temps.py           # le modèle pas à pas, calage de la formule, sensibilités de traction
 python scripts/41_passages_gain_vitesse.py  # vitesse réelle à chaque passage, minutes rachetées par le programme complémentaire
+python scripts/42_fiche_technique.py       # annexe 2 : écrit les tableaux de paramètres dans rapport.md (AVANT le 29)
 python scripts/35_figure_zoom_urbain.py     # figures : gros plans des blocs urbains Montréal / Québec
 python scripts/28_couverture.py             # couverture + vignette du visualiseur
 python scripts/29_rapport_html.py           # rapport.md → HTML à l'identité

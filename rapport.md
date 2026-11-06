@@ -127,7 +127,7 @@ Les valeurs du train actuel viennent de VIA et de Siemens [@viarail2024corridor;
 | 161 km/h (100 mi/h) | 170 s | 170 s |
 | 201 km/h (125 mi/h) | 313 s | 312 s |
 
-Trois chronos ne fixent pas chaque paramètre séparément : ils montrent que la forme de la formule tient. L'étude suivante devrait les remplacer par les courbes d'un constructeur. La section 12 donne l'effet de chaque hypothèse sur les temps.
+Trois chronos ne fixent pas chaque paramètre séparément : ils montrent que la forme de la formule tient. L'étude suivante devrait les remplacer par les courbes d'un constructeur. La section 12 donne l'effet de chaque hypothèse sur les temps. La section 15 regroupe tous les paramètres du modèle en tableaux.
 
 ## La marge d'exploitation de 10 %
 
@@ -575,6 +575,324 @@ En résumé, l'amélioration du corridor Québec-Montréal devrait privilégier 
 Bien que je ne possède pas les diagrammes des voies sur les trajets de Montréal-Toronto et de Montréal-Ottawa, je déduis de mon analyse détaillée de la section Montréal-Québec qu'il est raisonnable d'affirmer que les mêmes stratégies utilisées entre Québec et Montréal peuvent y être mises en œuvre. Il faut toutefois noter qu'à l'exception de la section Westmount-gare Centrale, le reste des zones urbaines de ces deux corridors est plus rectiligne que dans les zones urbaines de la section Montréal-Québec. Cette réalité va permettre d'améliorer la vitesse dans ces zones urbaines par l'élimination de passages à niveau.
 
 *Pierre DuSablon, consultant en ingénierie de voies*
+
+# Annexe : fiche technique {- .suite}
+
+<!-- fiche:debut -->
+
+::: {.fiche}
+
+Cette fiche regroupe les paramètres du modèle, pour les experts qui voudront les vérifier ou refaire les calculs. Le code écrit lui-même ces tableaux à chaque compilation du rapport, sauf les coûts, repris de la section 11, et les versions des données. Ils montrent donc les valeurs réellement utilisées.
+
+## Les formules
+
+| Grandeur | Formule | Unités et notes |
+|------------------|------------------------------|----------------------------------------------------|
+| Vitesse en courbe | `v = k·√R` | v en km/h, R en m |
+| Coefficient de courbe | `k = 3,6·√(g·(h + I) / G)` | h : dévers ; I : insuffisance de dévers ; G = 1 524 mm, écartement effectif ; g = 9,81 m/s² |
+| Degré de courbure | `D = 2·asin(15,24 / R)` | corde de 100 pi ; R en m |
+| Puissance au rail | `Pr = (P − Pb)·r` | P : puissance nominale ; Pb : services de bord ; r : rendement |
+| Résistance à l'avancement | `F = (A + B·V)·m + 0,0463·S·V²` | N ; V en km/h ; m en t ; S : surface de traînée (m²) ; 0,0463 suppose un air à 1,2 kg/m³ |
+| Accélération | `a = min(a0, (Pr/v − F − m·g·i) / (c·m))` | v en m/s ; i : pente ; c : coefficient d'inertie ; une accélération négative ralentit le train |
+| Freinage | `a = −ab` | constant, de service |
+| Temps de roulement | `T = Σ dx / v(x)` | pas de 25 m ; une passe d'accélération, puis une passe de freinage |
+| Temps publié | `(T + n·d) × 1,10` | n : arrêts ; d : immobilisation par arrêt |
+| Marge mesurée | `(H − B) / B` | H : médiane des horaires ; B : temps du train actuel, courbes et régime actuels, sans accélération |
+
+## Les trains
+
+| Paramètre | Train actuel | Référence | 1 Charger + 5 | 2 Charger + 5 | Électrique |
+|----------------------------------|-------------|-------------|-------------|-------------|--------------|
+| Puissance nominale (kW) | 3 132 | 2 764 | 3 132 | 6 264 | 5 160 |
+| Masse à vide (t) | 374 | 282 | 424 | 544 | 466 |
+| Puissance nominale par masse (W/kg) | 8,4 | 9,8 | 7,4 | 11,5 | 11,1 |
+| Services de bord (kW) | 200 | 200 | 200 | 200 | 0 |
+| Rendement de transmission | 0,88 | 0,88 | 0,88 | 0,88 | 0,95 |
+| Puissance au rail (kW) | 2 580 | 2 256 | 2 580 | 5 336 | 4 902 |
+| Passagers et bagages (% de la masse) | 6 | 6 | 6 | 6 | 6 |
+| Masse en service (t) | 396 | 299 | 449 | 577 | 494 |
+| Coefficient d'inertie | 1,04 | 1,04 | 1,04 | 1,04 | 1,04 |
+| Résistance A (N/t) | 12 | 12 | 12 | 12 | 12 |
+| Résistance B (N/t par km/h) | 0,06 | 0,06 | 0,06 | 0,06 | 0,06 |
+| Surface de traînée (m²) | 13 | 11 | 13 | 15 | 16 |
+| Longueur (m) | 152 | 116 | 152 | 174 | 215 |
+| Accélération maximale (m/s²) | 0,5 | 0,6 | 0,6 | 0,6 | 0,6 |
+| Freinage de service (m/s²) | 0,5 | 0,6 | 0,6 | 0,6 | 0,6 |
+| Vitesse d'équilibre en palier (km/h) | 227 | 232 | 224 | 276 | 266 |
+
+::: {.note-tableau}
+Train actuel : Charger et 5 voitures Venture. Référence : la rame pendulaire de la section 2. Les colonnes Charger sont des tests de la section 12 : une ou deux locomotives de 120 t et 5 voitures pendulaires de 60,8 t, soit une voiture Venture et environ 10 t de pendulation. Électrique : type Pendolino, contre-hypothèse 3 ; sa puissance de traction est déjà nette des services de bord. Le calage de la section 2 utilise deux Class 221 couplées : 5 220 kW, 564 t, 18 m² de traînée, sans passagers.
+:::
+
+**Accélération selon la vitesse (m/s², train chargé).** Elle sort de la formule d'accélération. Une valeur négative veut dire que le train ne tient plus cette vitesse.
+
+| Vitesse (km/h) | Train actuel | Référence | Référence, rampe de 1 % | Électrique |
+|---|---|---|---|---|
+| 0 | 0,50 | 0,60 | 0,60 | 0,60 |
+| 50 | 0,43 | 0,50 | 0,41 | 0,60 |
+| 100 | 0,19 | 0,23 | 0,13 | 0,31 |
+| 130 | 0,13 | 0,15 | 0,06 | 0,22 |
+| 160 | 0,08 | 0,10 | 0,01 | 0,16 |
+| 177 | 0,06 | 0,07 | −0,02 | 0,13 |
+| 201 | 0,03 | 0,04 | −0,05 | 0,09 |
+
+**Temps et distance de manœuvre.**
+
+| Manœuvre, en palier | Train actuel · secondes | Train actuel · mètres | Référence · secondes | Référence · mètres |
+|---|---|---|---|---|
+| De 0 à 100 km/h | 78 | 1 303 | 66 | 1 111 |
+| De 0 à 153 km/h | 189 | 5 311 | 159 | 4 471 |
+| De 0 à 177 km/h | 278 | 9 421 | 232 | 7 824 |
+| Freinage de 177 km/h à l'arrêt | 98 | 2 417 | 82 | 2 014 |
+
+## Les courbes
+
+| Jeu | Dévers · mm | Dévers · po | Insuffisance · mm | Insuffisance · po | Latérale (m/s²) | k | Rayon minimal (m) · 100 km/h | Rayon minimal (m) · 153 km/h | Rayon minimal (m) · 177 km/h |
+|---|---|---|---|---|---|---|---|---|---|
+| Train actuel | 100 | 3,9 | 76 | 3,0 | 1,13 | 3,83 | 681 | 1 594 | 2 134 |
+| Référence | 127 | 5,0 | 152 | 6,0 | 1,80 | 4,82 | 430 | 1 006 | 1 346 |
+| Test : tolérance de 5 po | 127 | 5,0 | 127 | 5,0 | 1,64 | 4,60 | 472 | 1 105 | 1 479 |
+| Test : tolérance de 7 po | 127 | 5,0 | 178 | 7,0 | 1,96 | 5,04 | 393 | 920 | 1 231 |
+
+::: {.note-tableau}
+Le dévers du train actuel est une hypothèse : le dévers réel du réseau n'est pas publié. Le dévers de la référence, 5 po, est le maximum standard du CN. Son insuffisance de 6 po est celle que le CN accorde au LRC.
+:::
+
+| Rayon (m) | Degré de courbure (°) | Train actuel (km/h) | Référence (km/h) |
+|---|---|---|---|
+| 300 | 5,82 | 66 | 84 |
+| 400 | 4,37 | 77 | 96 |
+| 600 | 2,91 | 94 | 118 |
+| 900 | 1,94 | 115 | 145 |
+| 1 200 | 1,46 | 133 | 167 |
+| 1 800 | 0,97 | 163 | 205 |
+| 2 400 | 0,73 | 188 | 236 |
+
+## La mesure de la voie
+
+| Paramètre | Valeur | Rôle |
+|------------------------------------|----------------|------------------------------------------------|
+| Rééchantillonnage du tracé | 10 m | Un point de mesure à chaque pas |
+| Lissage de position | 30 m | Retire le bruit de la carte |
+| Fenêtre du cercle ajusté | 900 m | Plancher de 300 m sur un tronçon court |
+| Filtre médian | 50 m | Appliqué au rayon, après l'ajustement |
+| Rayon minimal plausible | 100 m | Plancher physique |
+| Rayon maximal | 50 000 m | Au-delà, la voie est droite |
+| Longueur minimale d'un segment | 200 m | Fusion des segments plus courts |
+| Rayon retenu par segment | 10e centile | Prudent : proche du point le plus serré du segment |
+| Correction des courbes courtes | R × 0,5 | Segment courbe de moins de 900 m ; vitesse × 0,71 |
+| Pas du relief | 500 m | Modèle Copernicus GLO-90 |
+| Lissage du relief | 3 km | Médiane sur 5 points, puis moyenne sur 7 points |
+| Écart maximal entre deux voies | 7 m | Tracés alignés à moins de 25° ; espacement mesuré d'environ 4 m |
+| Rattachement d'un passage au tracé | 75 m | Sensibilité à 25 m et 125 m |
+
+## L'exploitation
+
+| Paramètre | Valeur | Note |
+|------------------------------------|------------------------|----------------------------------------|
+| Plafond publié | 177 km/h | 110 mi/h, tant que des passages à niveau demeurent |
+| Classe de voie actuelle | 153 km/h | 95 mi/h |
+| Régime actuel, calcul des marges | 160 km/h | Borne du temps de base à la section 3 |
+| Autres plafonds calculés | 153 · 160 · 201 · 241 km/h | Contre-hypothèses et sensibilités |
+| Immobilisation en gare | 2 min | Médiane des horaires de VIA |
+| Marge d'exploitation | 10 % | Sur le temps de roulement et les arrêts |
+| Arrêt à Montréal, Québec-Toronto | 10 min | Hypothèse du trajet de bout en bout |
+| Fenêtre urbaine d'Ottawa | ±10 km | Hypothèse : aucune gare d'approche proche |
+| Délimitation des zones urbaines | ±20 % | Sensibilité de la section 12 |
+
+## Le temps, étape par étape
+
+Minutes cumulées, selon les étapes de la section 2.
+
+| Trajet | Distance (km) | Arrêts | Vitesse des courbes | Avec plafond | Avec arrêts | Vrai train | Avec marge |
+|---|---|---|---|---|---|---|---|
+| Montréal-Québec | 271,1 | 5 | 82,9 | 103,2 | 113,2 | 132,9 | 146,2 |
+| Montréal-Ottawa | 186,1 | 4 | 58,9 | 69,7 | 77,7 | 90,1 | 99,1 |
+| Ottawa-Toronto | 445,9 | 12 | 117,6 | 158,7 | 182,7 | 213,7 | 235,1 |
+| Montréal-Toronto | 540,1 | 8 | 133,8 | 189,4 | 205,4 | 231,2 | 254,3 |
+
+## Les zones urbaines
+
+| Zone | Longueur (km) | Horaire actuel (min) | Train actuel (min) | Mou urbain (min) | Référence (min) |
+|---|---|---|---|---|---|
+| Montréal Central à pont Victoria (culée sud) | 5,5 | 11,8 | 5,1 | 6,2 | 4,3 |
+| Charny à Québec (pont de Québec, gare du Palais) | 24,8 | 33,0 | 22,7 | 8,0 | 19,4 |
+| Montréal Central à Dorval | 17,8 | 23,5 | 10,6 | 11,8 | 9,1 |
+| Guildwood à Toronto Union | 20,1 | 18,0 | 11,7 | 5,1 | 10,1 |
+
+::: {.note-tableau}
+Le mou urbain est l'écart entre l'horaire et le temps du train actuel, marge de 10 % comprise (section 12). Les temps des trains sont sans marge. Ils ne simulent ni les aiguillages ni les autres trains.
+:::
+
+## Les marges mesurées
+
+Marge par paire de gares adjacentes, sur le cœur du corridor.
+
+| Famille de voie | Paires de gares | Médiane (%) | 1er quartile | 3e quartile | Minimum | Maximum |
+|---|---|---|---|---|---|---|
+| Voie double, CN | 11 | 32,6 | 30,0 | 35,0 | 24,8 | 84,2 |
+| Voie simple, VIA | 5 | 28,6 | 16,1 | 46,9 | 13,4 | 60,7 |
+| Voie simple, CN | 2 | 59,8 | 57,0 | 62,6 | 54,2 | 65,4 |
+
+::: {.note-tableau}
+Une paire entre dans une famille si au moins 70 % de sa longueur a le même état de voie. La famille voie simple du CN ne compte que deux paires : sa médiane est indicative.
+:::
+
+## Les passages à niveau
+
+| Catégorie | Nombre |
+|--------------------------------------------------------------------------------|--------------------|
+| Passages du corridor (355 publics, 569 privés ou de ferme) | 924 |
+| Passages où les courbes permettent plus de 153 km/h, à sceller | 833 |
+| Parmi eux, sans barrières complètes | 533 |
+| Passages où le train dépasse réellement 153 km/h | 480 |
+| Passages où les courbes permettent plus de 177 km/h | 672 |
+| Passages où le train dépasse réellement 177 km/h (100 publics, 138 privés) | 238 |
+
+## Les coûts unitaires
+
+Dollars canadiens de 2025, avant imprévus de 20 %. La section 11 donne les sources et le détail de l'indexation.
+
+| Poste | Quantité | Coût unitaire | Total (G\$) | Base |
+|------------------------------|--------------|----------------|----------|------------------------------|
+| Deuxième voie | 407 km | 2,4 M\$/km | 0,98 | Hatch Mott MacDonald 2013, +42 % |
+| Renouvellement du rail | 1 101 km | 1,4 M\$/km | 1,54 | Hatch Mott MacDonald 2013, +42 % |
+| Ponts de moins de 20 m | 377 m | 0,387 M\$/m | 0,15 | Hatch Mott MacDonald 2013, +42 % |
+| Ponts de 20 m et plus | 3 760 m | 0,535 M\$/m | 2,01 | Hatch Mott MacDonald 2013, +42 % |
+| Signalisation | 1 101 km | 0,45 M\$/km | 0,50 | Downeaster 2024, indice et change |
+| Trains pendulaires diesel | Forfait | Borne haute | 3,40 | Avelia Liberty 2016, +23 %, change |
+| Passages sans barrières complètes | 533 passages | 1,2 M\$ | 0,64 | Transports Canada 2021, Ulster 2023 |
+| Passages déjà équipés | 300 passages | 0,50 M\$ | 0,15 | Ulster 2023, source modeste |
+| Ponts d'étagement, programme | 118 ouvrages | 50 M\$ | 5,90 | Valeur moyenne de planification |
+| Passages dénivelés, programme | 190 ouvrages | 12 M\$ | 2,28 | Hypothèse de travail, sans précédent |
+| Électrification, programme | 2 200 km | Fourchette | 3 à 7 | EcoTrain 2009 et RIA 2019 (section 10) |
+
+## Les sensibilités
+
+Écart en minutes avec le temps publié, marge de 10 % comprise. Chaque ligne change une seule chose, sauf les deux cas combinés.
+
+::: {.coupable}
+
+| Cas testé | Mtl-Qc | Mtl-Ott | Ott-To | Mtl-To |
+|------------------------------------------------------------|----------|----------|----------|----------|
+| Traînée plus faible (9 m²) | −0,3 | −0,2 | −0,4 | −0,4 |
+| Traînée plus forte (14 m²) | +0,5 | +0,3 | +0,7 | +0,7 |
+| Grand froid : services de bord à 400 kW | +1,1 | +0,6 | +1,6 | +1,5 |
+| Freinage à 0,5 m/s² | +1,0 | +0,7 | +1,9 | +1,4 |
+| Freinage à 0,8 m/s² | −1,3 | −0,9 | −2,3 | −1,8 |
+| Accélération maximale à 0,5 m/s² | +0,4 | +0,3 | +0,8 | +0,6 |
+| Accélération maximale à 0,8 m/s² | −0,4 | −0,4 | −0,9 | −0,7 |
+| Rendement de 0,85 | +0,4 | +0,3 | +0,7 | +0,6 |
+| Rendement de 0,90 | −0,3 | −0,2 | −0,4 | −0,4 |
+| Train diesel de 8,4 W/kg, même masse | +2,3 | +1,4 | +3,5 | +3,2 |
+| Train diesel de 12 W/kg, même masse (n'existe pas) | −2,4 | −1,3 | −3,4 | −3,1 |
+| Arrêts à la médiane des horaires, gare par gare | +1,1 | 0,0 | +6,1 | +6,6 |
+| Train électrique de type Pendolino, corridor électrifié | −2,2 | −1,4 | −3,6 | −3,3 |
+| Train électrique, 201 km/h partout | −5,2 | −2,5 | −10,6 | −13,8 |
+| Train électrique, 241 km/h, sans passage à niveau | −6,2 | −2,9 | −14,3 | −21,1 |
+| Train de référence, 201 km/h partout | −1,9 | −0,6 | −5,1 | −8,3 |
+| Train de référence, 241 km/h, sans passage à niveau | −2,0 | −0,6 | −6,4 | −11,9 |
+| Une locomotive Charger et 5 voitures pendulaires (7,4 W/kg) | +3,6 | +2,3 | +5,4 | +4,9 |
+| Deux locomotives Charger et 5 voitures pendulaires (11,5 W/kg) | −2,1 | −1,3 | −3,3 | −3,0 |
+| Tolérance en courbe de 5 po | +3,0 | +2,5 | +3,5 | +4,0 |
+| Tolérance en courbe de 7 po | −2,7 | −2,1 | −3,0 | −3,4 |
+| Bas combiné : une locomotive, 5 po | +6,8 | +4,6 | +9,0 | +9,1 |
+| Haut combiné : deux locomotives, 7 po | −4,8 | −3,5 | −6,3 | −6,3 |
+
+:::
+
+## Les données
+
+| Donnée | Version | Usage |
+|------------------------------------|------------------------------|----------------------------------|
+| Horaires de VIA (GTFS) | Flux du 18 mars au 18 juillet 2026 | Gares, tracés, temps actuels, immobilisations |
+| Horaires archivés de VIA (GTFS) | Flux du 19 janvier 2023 | Test de robustesse des marges |
+| OpenStreetMap, extraits Geofabrik | Extraits du 10 mai 2026 | Géométrie de la voie, nombre de voies |
+| Inventaire des passages à niveau | Transports Canada, mise à jour 2023 | Localisation, accès, protection |
+| Relief Copernicus GLO-90, via Open-Meteo | Téléchargé le 5 novembre 2026 | Pentes du modèle de traction |
+| Horaires d'exo (GTFS) | Version du 10 septembre 2026 | Comparaison de Saint-Hilaire, section 12 |
+| Circulaire MR 1305-0 du CN | Décembre 2002 | Calcul des vitesses en courbe, dévers maximal, insuffisance |
+
+## Les scripts
+
+Les temps, les vitesses et les comptes publiés viennent de ces scripts. Ils sont listés dans leur ordre d'exécution. Le numéro du fichier indique seulement l'ordre de sa création.
+
+**Mesure de la voie.**
+
+::: {.coupable}
+
+| Script | Ce qu'il fait |
+|----------------------------------|------------------------------------------------------------------|
+| `01_extract_corridor.py` | Tire des horaires de VIA les quatre trajets du corridor et l'ordre de leurs gares. |
+| `02_build_rail_graph.py` | Bâtit le graphe ferroviaire à partir des extraits OpenStreetMap du Québec et de l'Ontario. |
+| `03_match_gtfs_to_osm.py` | Accroche le tracé de VIA à la voie réelle, sans sauter d'une voie parallèle à l'autre. |
+| `04_compute_curvature.py` | Calcule le rayon de courbure par ajustement d'un cercle le long du tracé. |
+| `_baseline_zones.py` | Garde-fou : vérifie la courbure mesurée sur trois zones témoins. |
+| `05_segment_and_classify.py` | Découpe le tracé en segments et calcule la vitesse permise par chaque jeu de dévers. |
+| `34_correction_courtes.py` | Applique la correction des courbes courtes et écrit les segments publiés. |
+| `31_biais_segments_courts.py` | Mesure le biais de la fenêtre de 900 m sur les segments courts. |
+| `06_synthese_troncon.py` | Résume les classes de vitesse par tronçon et repère les goulots. |
+| `07_render_outputs.py` | Produit la carte, le KMZ et le CSV des segments. |
+| `11_target_speed_to_km.py` | Donne les kilomètres restants sous chaque vitesse cible. |
+| `12_sections_a_rectifier_pdf.py` | Liste les sections sous 201 km/h. Hors rapport. |
+| `13_track_count.py` | Compte les voies en détectant les tracés parallèles dans OpenStreetMap. |
+| `14_synthese_voies.py` | Agrège voie simple et voie double sans double compte, et sort les kilomètres à doubler. |
+| `15_carte_voies.py` | Dessine la carte des voies. |
+| `20_passages_niveau.py` | Rattache l'inventaire de Transports Canada au tracé et classe chaque passage. |
+| `39_relief_corridor.py` | Télécharge le relief le long des quatre trajets. |
+
+:::
+
+**Temps de parcours.**
+
+::: {.coupable}
+
+| Script | Ce qu'il fait |
+|----------------------------------|------------------------------------------------------------------|
+| `scenarios.py` | Source unique des jeux de dévers, du coefficient k et du plafond publié. |
+| `utils.py` | Constantes, conversions d'unités et chemins partagés. |
+| `alignments.py` | Schéma commun des tracés. |
+| `33_courbes_doublees.py` | Sensibilité : courbes rectifiées aux sections doublées. Hors rapport. |
+| `21_tbase_bande.py` | Moteur : formule de traction, profil de vitesse et temps par trajet et par plafond. |
+| `22_marges_2x2.py` | Mesure la marge de chaque paire de gares selon le nombre de voies et le propriétaire. |
+| `38_train_express.py` | Calcule le train express, sans arrêt intermédiaire. |
+| `36_gains_urbains.py` | Décompose les zones urbaines : courbes, signalisation et mou urbain. |
+| `37_sous_sections_mtlqc.py` | Détaille Montréal-Québec, gare par gare. |
+| `40_etapes_temps.py` | Refait le modèle pas à pas, le calage et les sensibilités. Échoue si les temps publiés changent. |
+| `41_passages_gain_vitesse.py` | Calcule la vitesse réelle à chaque passage et les minutes rachetées par le programme. |
+| `26_test_accel_exploratoire.py` | Trace historique d'un test de l'accélération. Hors rapport. |
+
+:::
+
+**Figures, rapport et contrôles.**
+
+::: {.coupable}
+
+| Script | Ce qu'il fait |
+|----------------------------------|------------------------------------------------------------------|
+| `23_figure_cellules.py` | Figure des familles de voie. |
+| `24_figure_vs_auto.py` | Figures du train contre l'auto, une par trajet. |
+| `32_figure_gains.py` | Figure des facteurs de réduction et décomposition des gains. |
+| `35_figure_zoom_urbain.py` | Gros plans des zones urbaines. Hors rapport. |
+| `28_couverture.py` | Couverture du rapport, dessinée à partir du tracé mesuré. |
+| `42_fiche_technique.py` | Écrit cette annexe à partir du code et des résultats. |
+| `identite.py` | Lit la charte graphique. |
+| `27_verif_identite.py` | Garde-fou : contrôle la palette, le daltonisme et le contraste. |
+| `29_rapport_html.py` | Compose le rapport en HTML à partir du texte source. |
+| `30_rapport_pdf.mjs` | Produit le PDF paginé, avec ses liens et son sommaire. |
+| `25_build_rapport.py` | Produit la version Word. |
+| `18_export_xlsx.py` | Exporte les CSV en classeurs Excel filtrables. |
+| `19_build_viewer.py` | Compose le visualiseur de données et vérifie ses chiffres contre le rapport. |
+
+:::
+
+::: {.note-tableau}
+Environnement : Python 3.12 (pandas, geopandas, shapely, numpy, scipy, matplotlib), Node 24 avec Puppeteer pour le PDF, et pandoc 3 pour le texte et les citations.
+:::
+
+:::
+
+<!-- fiche:fin -->
 
 # Vision Transport {- .suite}
 

@@ -26,7 +26,7 @@ import json
 from utils import INTERMEDIATES, SEGMENTS_PUBLIES_GEOJSON
 
 RECOUVREMENT_MIN = 0.70
-PLAFOND = 201.0     # plafond des scénarios publiés (remodelage 2026-08-24)
+PLAFOND = 201.0     # sensibilité hors rapport, restée à 201 km/h (plafond publié : scenarios.PLAFOND_PUBLIE)
 # Périmètre du rapport : les quatre trajets du cœur. Le sud-ouest ontarien a
 # aussi de la voie simple, mais il est hors des tables publiées ; l'inclure
 # gonflerait le kilométrage annoncé de la sensibilité (audit 2026-08-17).

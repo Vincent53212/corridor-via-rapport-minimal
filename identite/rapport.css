@@ -221,6 +221,19 @@ td.num{ white-space:nowrap; }
 thead th{ white-space:normal; hyphens:none; }
 table{ table-layout:auto; max-width:100%; }
 tbody tr:last-child td{ border-bottom:1.5px solid var(--encre); }
+/* Annexe 2, fiche technique : tableaux denses, pour experts. Seuls les tableaux
+   .coupable (scripts, sensibilités) peuvent se couper entre deux pages : ils ne
+   tiendraient pas d'un bloc. Leur en-tête se répète. */
+.fiche table{ font-size:8pt; margin-bottom:12px; }
+.fiche .coupable table{ break-inside:auto; }
+.fiche thead{ display:table-header-group; }
+.fiche tr{ break-inside:avoid; }
+.fiche thead th{ font-size:6.6pt; letter-spacing:0.05em; padding:4px 7px 4px 0; }
+.fiche tbody td{ padding:3px 7px 3px 0; }
+.fiche h2{ margin-top:16px; }
+.fiche p{ break-inside:avoid; break-after:avoid; }
+.fiche td.num + td:not(.num), .fiche th.num + th:not(.num){ padding-left:14px; }
+.fiche code{ font-size:7.4pt; white-space:nowrap; }
 /* Ligne de total : balisée par l'étape 29 (première cellule « Total… »).
    Gras, fond sable et filet d'encre au-dessus, pour la détacher du détail. */
 tbody tr.total td{
