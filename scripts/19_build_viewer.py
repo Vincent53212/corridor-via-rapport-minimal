@@ -268,8 +268,8 @@ QUOI = {
         "les villes intermédiaires.",
     "etapes_temps.csv":
         "Le temps de chaque trajet à chaque étape du calcul : la vitesse des courbes seule, le plafond de "
-        "201 km/h, un vrai train qui accélère et freine, les arrêts, puis la marge. La dernière colonne "
-        "redonne le temps publié.",
+        "201 km/h, l'immobilisation en gare, un vrai train qui accélère et freine, puis la marge. La dernière "
+        "colonne redonne le temps publié.",
     "calage_traction.csv":
         "La formule d'accélération contre les seuls chronos publics trouvés pour une Class 221 réelle, une "
         "source anecdotique. L'ancienne formule, sans résistance à l'avancement, sert de comparaison.",

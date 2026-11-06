@@ -276,6 +276,13 @@ p:has(+ .chronologie){ break-after:avoid; }
 }
 .chronologie tbody tr:last-child td:nth-child(n+2){ background:var(--sable); }
 .insecable{ white-space:nowrap; }
+/* Note collée sous un tableau (`::: {.note-tableau}`) : le tableau reste autoportant. */
+table:has(+ .note-tableau){ break-after:avoid; margin-bottom:0; }
+.note-tableau{ break-before:avoid; break-inside:avoid; margin:4px 0 12px; }
+.note-tableau p{
+  font:400 7.6pt/1.5 var(--font-courant); color:var(--encre-pale);
+  text-align:left; margin:0;
+}
 colgroup{ display:none; }
 /* Les largeurs en pourcentage de pandoc sont dérivées de la largeur du texte
    markdown, pas du contenu rendu : elles écrasent la première colonne des tables

@@ -38,6 +38,7 @@ SURTITRES = {
     "Les passages à niveau": "Action 4",
     "Et si on enlevait tous les passages à niveau?": "Contre-hypothèse 1",
     "Et si on faisait un train express?": "Contre-hypothèse 2",
+    "Et si on électrifiait le corridor?": "Contre-hypothèse 3",
     "Le train pendulaire et le dévers": "Action 5",
     "Estimation des coûts": "Les coûts",
     "Impacts des actions sur les temps de parcours": "Les gains",

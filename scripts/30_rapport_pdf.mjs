@@ -96,7 +96,7 @@ const PIED = bande("top", "0.79in") + bande("bottom", "0.86in") + `
             border-top:.5pt solid #D2CAB6;padding-top:2.4mm;
             display:flex;justify-content:space-between;align-items:baseline;">
   <span>Corridor Qu&#233;bec-Toronto &nbsp;&#183;&nbsp; Ce que la voie existante permet
-        &nbsp;&#183;&nbsp; Vincent Duguay / Vision Transport</span>
+        &nbsp;&#183;&nbsp; Vision Transport</span>
   <span class="pageNumber"></span>
 </div>`;
 

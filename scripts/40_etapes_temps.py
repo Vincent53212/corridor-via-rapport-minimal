@@ -67,22 +67,16 @@ def etapes() -> pd.DataFrame:
         segs = BY_T[t]
         libres = m21._free_pieces(t, segs, SCENARIO, 999.0)
         plafond = m21._free_pieces(t, segs, SCENARIO, BANDE)
-        sauve = m21.INTERMEDIATE_STOPS[t]
-        m21.INTERMEDIATE_STOPS[t] = []
-        try:
-            train = m21._dynamic_minutes(t, plafond, R)
-        finally:
-            m21.INTERMEDIATE_STOPS[t] = sauve
-        roulage = m21._dynamic_minutes(t, plafond, R)
-        n = len(sauve)
-        arrets = roulage + n * m21.DWELL_MIN
+        n = len(m21.INTERMEDIATE_STOPS[t])
+        immobile = n * m21.DWELL_MIN
+        reel = m21._dynamic_minutes(t, plafond, R) + immobile
         rows.append({"trajet": lib, "distance_km": round(max(b for _, b, _ in libres), 1),
                      "n_arrets": n,
                      "vitesse_des_courbes_min": round(fluide(t, libres), 1),
                      "plafond_201_min": round(fluide(t, plafond), 1),
-                     "train_reel_sans_arret_min": round(train, 1),
-                     "arrets_compris_min": round(arrets, 1),
-                     "marge_10_pct_min": round(arrets * MARGE, 1)})
+                     "immobilisation_en_gare_min": round(fluide(t, plafond) + immobile, 1),
+                     "vrai_train_min": round(reel, 1),
+                     "marge_10_pct_min": round(reel * MARGE, 1)})
     return pd.DataFrame(rows)
 
 
@@ -116,6 +110,8 @@ def sensibilites() -> pd.DataFrame:
     # Configurations réalistes en Amérique du Nord : voiture Venture (50,8 t) plus environ
     # 10 t de pendulation (écart par voiture entre les Class 220 et 221), Charger 120 t.
     voiture = 50.8 + 10.0
+    pendolino = m21.Rame("Pendolino électrique", p_kw=5160, m_t=466, hotel_kw=0, rendement=0.95,
+                         cda_m2=16.0, longueur_m=215, a0=0.6, ab=0.6)
     un = m21.Rame("1 Charger + 5 voitures pendulaires", p_kw=3132, m_t=120 + 5 * voiture, hotel_kw=200,
                   rendement=0.88, cda_m2=13.0, longueur_m=152, a0=0.6, ab=0.6)
     deux = m21.Rame("2 Charger + 5 voitures pendulaires", p_kw=6264, m_t=240 + 5 * voiture, hotel_kw=200,
@@ -133,6 +129,7 @@ def sensibilites() -> pd.DataFrame:
         ("Train diesel de 8,4 W/kg, même masse", dict(rame=replace(R, p_kw=8.4 * 282))),
         ("Train diesel de 12 W/kg, même masse (n'existe pas)", dict(rame=replace(R, p_kw=12 * 282))),
         ("Arrêts à la médiane des horaires, gare par gare", dict(arrets=ARRETS_GTFS)),
+        ("Train électrique de type Pendolino, corridor électrifié", dict(rame=pendolino)),
         ("Une locomotive Charger et 5 voitures pendulaires (7,4 W/kg)", dict(rame=un)),
         ("Deux locomotives Charger et 5 voitures pendulaires (11,5 W/kg)", dict(rame=deux)),
         ("Tolérance en courbe de 5 po", dict(insuffisance_mm=127)),
@@ -158,7 +155,7 @@ def main() -> None:
     for t, lib in LIBELLES.items():
         ref = pub[(pub.troncon == t) & (pub.scenario == "pendulaire") & (pub.bande_kmh == 201)]
         attendu = float(ref.tbase_sans_marge_min.iloc[0])
-        obtenu = float(e[e.trajet == lib].arrets_compris_min.iloc[0])
+        obtenu = float(e[e.trajet == lib].vrai_train_min.iloc[0])
         assert abs(attendu - obtenu) < 0.15, (t, attendu, obtenu)
 
     c = calage()

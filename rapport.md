@@ -14,26 +14,26 @@ numbersections: true
 
 Le projet ALTO propose de construire environ 1 000 km de voies neuves pour relier Québec à Toronto à 300 km/h [@alto2025]. Cette étude répond à une question complémentaire : combien de temps le train prendrait-il sur l'emprise qui existe déjà, si on la modernisait?
 
-Une fois l'emprise optimisée, le train Montréal-Toronto via Kingston passerait de 5 h 18 aujourd'hui à 4 h 06, soit 1 h 12 de moins. Près d'une heure serait aussi retirée du trajet Montréal-Québec, qui passerait de 3 h 22 à 2 h 24. Le temps de parcours Montréal-Ottawa, lui, serait réduit de 23 minutes.
+Une fois l'emprise optimisée, le train Montréal-Toronto via Kingston passerait de 5 h 18 aujourd'hui à 4 h 06, soit 1 h 12 de moins (−23 %). Près d'une heure serait aussi retirée du trajet Montréal-Québec, qui passerait de 3 h 22 à 2 h 24 (−29 %). Le temps de parcours Montréal-Ottawa, lui, serait réduit de 23 minutes (−19 %).
 
 Sans offrir une vitesse équivalente à la prévision d'ALTO, l'amélioration de l'emprise existante offre un train compétitif, pour une fraction de l'effort, du temps et du coût. Cet investissement aurait aussi l'avantage d'améliorer la sécurité des opérations des trains de marchandises et de réduire les nuisances pour les populations avoisinantes du chemin de fer, notamment par la sécurisation des croisements routiers.
 
-**Temps de parcours et vitesse moyenne commerciale.**
+**Temps de parcours.**
 
-  | Trajet | Auto (repère) | Voie actuelle | Emprise optimisée | ALTO annoncé |
-|---|---|---|---|---|
-| Montréal-Québec (270 km) | ~2 h 50 | 3 h 22 (80 km/h) | 2 h 24 (112 km/h) | ~1 h 30 |
-| Montréal-Ottawa (185 km) | ~2 h 20 | 2 h 02 (91 km/h) | 1 h 39 (113 km/h) | ~1 h |
-| Ottawa-Toronto (442 km) | ~4 h 20 | 4 h 35 (96 km/h) | 3 h 50 (115 km/h) | ~2 h |
-| Montréal-Toronto (536 km) | ~5 h 30 | 5 h 18 (101 km/h) | 4 h 06 (131 km/h) | 3 h |
+  | Trajet | Auto (repère) | Voie actuelle | Emprise optimisée | Express, sans arrêt | ALTO annoncé |
+|---|---|---|---|---|---|
+| [Montréal-Québec (270 km)]{.insecable} | ~2 h 50 | 3 h 22 | 2 h 24 | 2 h 05 | ~1 h 30 |
+| [Montréal-Ottawa (185 km)]{.insecable} | ~2 h 20 | 2 h 02 | 1 h 39 | 1 h 23 | ~1 h |
+| [Ottawa-Toronto (442 km)]{.insecable} | ~4 h 20 | 4 h 35 | 3 h 50 | 3 h 04 | ~2 h |
+| [Montréal-Toronto (536 km)]{.insecable} | ~5 h 30 | 5 h 18 | 4 h 06 | 3 h 32 | 3 h |
 
-Entre parenthèses : la vitesse commerciale moyenne, c'est-à-dire la distance divisée par le temps de parcours complet, arrêts et marge compris. Le temps en auto est une estimation à partir de la cartographie routière grand public, approximative. Les temps du projet ALTO viennent du promoteur [@altotrain2026faq] ; le 3 h Montréal-Toronto est d'ailleurs un engagement du gouvernement [@pmcanada2025alto]. De bout en bout, Québec-Toronto via Montréal passerait de 8 h 50 aujourd'hui à 6 h 40, avec dix minutes d'arrêt à Montréal, contre environ 4 h 30 pour le projet ALTO.
+La colonne de l'express donne le même train sans aucun arrêt intermédiaire (section 8). Le temps en auto est une estimation à partir de la cartographie routière grand public, approximative. Les temps du projet ALTO viennent du promoteur [@altotrain2026faq] ; le 3 h Montréal-Toronto est d'ailleurs un engagement du gouvernement [@pmcanada2025alto]. De bout en bout, Québec-Toronto via Montréal passerait de 8 h 50 aujourd'hui à 6 h 40, avec dix minutes d'arrêt à Montréal, ou à 5 h 48 en express, contre environ 4 h 30 pour le projet ALTO.
 
 Aujourd'hui, le train fait à peu près jeu égal avec l'auto sur Montréal-Toronto et la perd nettement sur Montréal-Québec. Sur l'emprise optimisée, le train prend de 70 à 88 % du temps de l'auto selon le trajet : il devient plus rapide que l'auto partout.
 
 **Les villes intermédiaires.** Ces temps comprennent un arrêt à chacune des 22 gares intermédiaires où s'arrêtent aujourd'hui les trains de VIA, de Saint-Hyacinthe et Drummondville à Cornwall et Kingston (la liste complète est à la section 2). L'emprise optimisée améliore donc aussi le service ferroviaire des régions desservies par ces gares, alors que le projet ALTO prévoit sept gares sur l'ensemble de son réseau [@altotrain2026faq]. Un train express qui ne s'arrêterait qu'aux grandes villes gagnerait encore de 16 à 46 minutes selon le trajet (section 8).
 
-![Montréal-Québec : le train contre l'auto. La barre de l'emprise optimisée est un temps calculé selon la méthode de la section 2. Le trait pointillé est le temps annoncé par ALTO. Temps auto : estimation à partir de la cartographie routière grand public (Google Maps), approximative.](livrables/figure_vs_auto_montreal_quebec.jpg)
+![Montréal-Québec : le train contre l'auto. La barre de l'emprise optimisée est un temps calculé selon la méthode de la section 2. La barre de l'express retire les arrêts intermédiaires (section 8). Le trait pointillé est le temps annoncé par ALTO. Temps auto : estimation à partir de la cartographie routière grand public (Google Maps), approximative.](livrables/figure_vs_auto_montreal_quebec.jpg)
 
 ![Montréal-Toronto : le train contre l'auto. Mêmes conventions.](livrables/figure_vs_auto_montreal_toronto.jpg)
 
@@ -41,26 +41,27 @@ Aujourd'hui, le train fait à peu près jeu égal avec l'auto sur Montréal-Toro
 
 ![Ottawa-Toronto : le train contre l'auto. Mêmes conventions.](livrables/figure_vs_auto_ottawa_toronto.jpg)
 
-**Gain d'achalandage.** Cette optimisation pourrait permettre un gain d'achalandage très important, même si la vitesse n'est pas celle d'un TGV. Selon l'étude EcoTrain commandée par les gouvernements du Québec, de l'Ontario et du Canada, l'option à 200 km/h récupère 92 % de l'achalandage prévu pour l'option à 300 km/h, d'après les prévisions de son tableau 5-7 (10,2 contre 11,1 millions de voyageurs en 2031) [@ecotrain2011, p. 54].
+**Gain d'achalandage.** Cette optimisation pourrait permettre un gain d'achalandage très important, même si la vitesse n'est pas celle d'un TGV. Selon l'étude EcoTrain commandée par les gouvernements du Québec, de l'Ontario et du Canada, l'option à 200 km/h récupère 92 % de l'achalandage prévu pour l'option à 300 km/h, d'après les prévisions de son tableau 5-7 (10,2 contre 11,1 millions de voyageurs en 2031) [@ecotrain2011, p. 54]. Bien que la modernisation proposée ne soit pas identique à ce scénario, il permet d'illustrer que la haute vitesse semble générer des gains d'achalandage fortement décroissants au-delà de la compétitivité avec l'auto.
 
 **Les actions pour réduire le temps de trajet.** La réduction du temps de parcours est réalisable grâce aux cinq actions suivantes.
 
 1. **Doublement des voies.** La voie est simple sur 31 % du trajet. Un doublement permettrait une cohabitation où le passager et le fret gagnent tous les deux, au lieu de se voler des minutes.
 2. **Une signalisation modernisée.** Grâce à l'installation d'un système de contrôle de train en cabine comme celui déjà utilisé aux États-Unis, la distance nécessaire entre les trains sera de beaucoup réduite, ce qui favorisera la cohabitation et permettra de donner la priorité aux trains de passagers, dont dépend leur ponctualité. Ce système autorise une vitesse maximale de 201 km/h (125 mi/h) quand la voie le permet.
 3. **Arbitrage de l'Office des transports du Canada.** Nous proposons de donner une orientation claire en faveur du service aux passagers, par règlement ou par projet de loi, dans le but de permettre à l'Office des transports du Canada d'exercer ses pouvoirs d'accorder à une compagnie le droit de rouler sur les rails d'une autre, d'en fixer les conditions et d'en fixer le prix [@otc2016circulation; @ltc1996art138], même lorsqu'ils s'appliquent aux contrats de cohabitation existants.
-4. **Passages à niveau sécurisés.** Le corridor en compte 924. Il faudra en sécuriser 533 qui n'ont pas de barrières complètes. Un programme complémentaire, présenté à part, éliminerait le tiers des croisements par des ponts d'étagement pour améliorer davantage la sécurité.
-5. **Train pendulaire et voies plus inclinées dans les courbes.** Un train pendulaire incline sa caisse dans les courbes. De plus, on incline la voie au maximum standard du CN (dévers de 127 mm, soit 5 po) dans les courbes. Cela permet de faire en sorte que les passagers ne sentent pas la courbe et donc, que le train puisse la franchir plus vite. Comme le corridor n'est pas électrifié, ce train serait diesel, et il faudrait le commander sur mesure (section 9).
+4. **Passages à niveau sécurisés.** Le corridor en compte 924. Il faudra en sécuriser 533 qui n'ont pas de barrières complètes. Un programme complémentaire et optionnel, présenté à part, éliminerait le tiers des croisements par des ponts d'étagement pour améliorer davantage la sécurité.
+5. **Train pendulaire et voies plus inclinées dans les courbes.** Un train pendulaire incline sa caisse dans les courbes. De plus, on incline la voie au maximum standard du CN (dévers de 127 mm, soit 5 po) dans les courbes. Cela permet de faire en sorte que les passagers ne sentent pas la courbe et donc, que le train puisse la franchir plus vite. Comme le corridor n'est pas électrifié, ce train serait diesel, et il faudrait le commander sur mesure (section 9). La configuration retenue correspond à un train ayant déjà été en opération, non à un idéal théorique (modèle et corridor).
 
-Les actions 1 à 3 réduisent la marge d'exploitation, soit l'écart entre le temps de parcours réel et la possibilité théorique fondée sur la géométrie de la voie. Les actions 4 et 5 accroissent cette possibilité théorique : le train pendulaire prend les courbes plus vite, et les passages sécurisés, avec le contrôle en cabine, autorisent 201 km/h. L'analyse des données et les conseils de notre expert ferroviaire [@dusablon2026] nous permettent de retenir une marge d'exploitation de 10 %, alignée sur la West Coast Main Line britannique, qui relie Londres à Manchester et Glasgow avec des trains pendulaires à 201 km/h sur des voies partagées avec les trains de marchandises. Nous estimons le coût de ces cinq actions entre 8 et 9 G\$ CA de 2025 (section 10). Techniquement, elles n'exigent de retirer aucun passage à niveau : des barrières complètes suffisent. Pour des raisons d'acceptabilité, de cohabitation avec les riverains et de modernisation du corridor, nous avons aussi chiffré un programme complémentaire d'élimination du tiers des croisements par des ponts d'étagement, pour environ 8,2 G\$ CA. Avec 20 % pour les imprévus, les deux volets représentent ensemble de 19 à 20 G\$ CA.
+Les actions 1 à 3 réduisent la marge d'exploitation, soit l'écart entre le temps de parcours réel et la possibilité théorique fondée sur la géométrie de la voie. Les actions 4 et 5 accroissent cette possibilité théorique : le train pendulaire prend les courbes plus vite, et les passages sécurisés, avec le contrôle en cabine, autorisent 201 km/h. L'analyse des données et les conseils de notre expert ferroviaire [@dusablon2026] nous permettent de retenir une marge d'exploitation de 10 %, alignée sur la West Coast Main Line britannique, qui relie Londres à Manchester et Glasgow avec des trains pendulaires à 201 km/h sur des voies partagées avec les trains de marchandises. Nous estimons le coût de ces cinq actions entre 8 et 9 G\$ CA de 2025 (section 10). Techniquement, elles n'exigent de retirer aucun passage à niveau : des barrières complètes suffisent. Pour des raisons d'acceptabilité, de cohabitation avec les riverains et de modernisation du corridor, nous avons aussi chiffré un programme complémentaire d'élimination du tiers des croisements par des ponts d'étagement, pour environ 8,2 G\$ CA. Avec 20 % pour les imprévus, les deux volets représentent ensemble de 19 à 20 G\$ CA. Un second programme optionnel, l'électrification du corridor, est examiné à la section 11.
 
-Comme le montre la table qui suit, les actions proposées auront un impact significatif. Les postes se lisent sur le trajet complet Québec-Toronto ; la section 11 donne le détail en minutes, trajet par trajet.
+Comme le montre la table qui suit, les actions proposées auront un impact significatif. Les postes se lisent sur le trajet complet Québec-Toronto, jusqu'au train express ; la section 12 donne le détail en minutes, trajet par trajet.
 
-  | Facteur de réduction du temps de parcours | Part du gain |
+  | Facteur de réduction du temps de parcours | Part du gain, train express |
 |---|---|
-| Cohabitation : doublement des voies, arbitrage, capacité libérée par la signalisation | 44 % |
-| Changement de classe de vitesse : passages à niveau sécurisés et contrôle en cabine | 26 % |
-| Train pendulaire et dévers | 24 % |
-| Zones urbaines modernisées | 6 % |
+| Cohabitation : doublement des voies, arbitrage, capacité libérée par la signalisation | 31 % |
+| Changement de classe de vitesse : passages à niveau sécurisés et contrôle en cabine | 19 % |
+| Train pendulaire et dévers | 17 % |
+| Zones urbaines modernisées | 4 % |
+| **Trajet express : ~53 min** | **29 %** |
 
 ![Facteurs de réduction des temps de parcours, trajet par trajet. La barre pleine, incluant les parties colorées, est l'horaire actuel. Le segment sans couleur est le temps de l'emprise optimisée. Quatre facteurs se partagent le gain : la cohabitation, qui réunit le régime de circulation avec le fret et le doublement des voies ; le train pendulaire et les zones urbaines, comptés sous la classe de voie actuelle (153 km/h, 95 mi/h) ; et le changement de classe, soit ce que ces facteurs rapportent en plus une fois le plafond porté à 201 km/h grâce aux passages à niveau sécurisés et à la signalisation.](livrables/figure_gains.png)
 
@@ -87,8 +88,8 @@ Un temps de parcours se construit en six étapes. Le tableau qui suit les dérou
 | 1 | **Mesurer la voie.** Le tracé vient d'OpenStreetMap, accroché aux horaires de VIA. Nous en tirons le rayon de chaque courbe, et la pente à partir d'un modèle de relief [@openmeteo2026altitude]. Sur les segments courbes de moins de 900 m, le rayon est divisé par deux, par prudence (voir plus bas). | | 536 km |
 | 2 | **Limiter la vitesse dans chaque courbe.** Une courbe de rayon R limite la vitesse selon la formule `v = k·√R`. Le coefficient k dépend de l'inclinaison de la voie et de la tolérance du train : il vaut 4,82 pour le train pendulaire sur une voie au dévers maximal du CN (section 9). Avec l'écartement effectif utilisé, cette formule reproduit exactement la méthode officielle du CN [@cn2002mr1305]. Les approches de Montréal, Québec, Ottawa et Toronto suivent le même calcul : leurs courbes serrées y limitent déjà la vitesse. | 2 h 14 | 2 h 14 |
 | 3 | **Plafonner à 201 km/h.** En chaque point, le train roule à la plus basse de deux vitesses : celle que la courbe permet, et le plafond de 201 km/h (125 mi/h) établi aux sections 4 et 6. À ce stade, le train changerait encore de vitesse instantanément. | +37 min | 2 h 51 |
-| 4 | **Faire accélérer et freiner un vrai train.** En chaque point, nous calculons ce que le train peut faire : `accélération = (puissance au rail ÷ vitesse − résistance − pente) ÷ masse`. La puissance au rail est ce qui reste après les services de bord et les pertes de transmission. La résistance, surtout celle de l'air, grandit avec le carré de la vitesse : plus le train va vite, moins il lui reste de force pour accélérer. Après une courbe, il ne relance que lorsque sa queue en est sortie. Il freine à 0,6 m/s². | +22 min | 3 h 13 |
-| 5 | **S'arrêter aux gares.** À chaque gare intermédiaire, le train freine jusqu'à l'arrêt, reste immobile deux minutes, puis relance. Deux minutes, c'est la médiane des horaires de VIA [@viarail2026gtfs]. Montréal-Toronto compte huit gares intermédiaires. | +31 min | 3 h 44 |
+| 4 | **S'arrêter aux gares.** Montréal-Toronto compte huit gares intermédiaires. À chacune, le train reste immobile deux minutes, la médiane des horaires de VIA [@viarail2026gtfs]. Le freinage et la relance de ces arrêts sont comptés à l'étape suivante. | +16 min | 3 h 07 |
+| 5 | **Faire accélérer et freiner un vrai train.** Le train ralentit maintenant pour de vrai, avant chaque courbe et chaque gare, puis il relance. En chaque point, nous calculons ce qu'il peut faire : `accélération = (puissance au rail ÷ vitesse − résistance − pente) ÷ masse`. La puissance au rail est ce qui reste après les services de bord et les pertes de transmission. La résistance, surtout celle de l'air, grandit avec le carré de la vitesse. Sur le plat, le train accélère donc à 0,6 m/s² au démarrage, puis de moins en moins : environ 0,23 m/s² à 100 km/h, 0,10 à 160 km/h et 0,04 à 200 km/h. Il freine à 0,6 m/s². Après une courbe, il ne relance que lorsque sa queue en est sortie. | +37 min | 3 h 44 |
 | 6 | **Ajouter la marge d'exploitation.** Tout horaire garde un coussin pour absorber les aléas. Nous ajoutons 10 % au temps précédent, une valeur fondée sur les normes internationales [@uic2000f451; @rfli2026tpr] et sur ce qui est déjà possible sur certains segments : Montréal-Ottawa, sur la voie simple détenue par VIA, opère avec 5 % de marge seulement. | +22 min | 4 h 06 |
 
 :::
@@ -102,7 +103,7 @@ Un temps de parcours se construit en six étapes. Le tableau qui suit les dérou
 | [Ottawa-Toronto]{.insecable} | Fallowfield, Smiths Falls, Brockville, Gananoque, Kingston, Napanee, Belleville, Trenton Junction, Cobourg, Port Hope, Oshawa, Guildwood |
 | [Montréal-Toronto]{.insecable} | Dorval, Cornwall, Brockville, Kingston, Belleville, Cobourg, Oshawa, Guildwood |
 
-**Le train de référence.** Le corridor n'est pas électrifié : le train de référence est donc diesel-électrique. Nous le définissons par un niveau de performance, et non comme un modèle précis. Sa puissance nominale de 9,8 W par kilogramme de rame à vide se situe entre celles des deux seuls pendulaires diesel que nous connaissions à 200 km/h, la Class 221 britannique (9,9) et l'ICE TD allemand (9,7) [@wikipedia2026class221; @wikipedia2026icetd]. Sa masse et sa longueur sont celles de la Class 221. La section 9 explique pourquoi ce train reste à faire construire.
+**Le train de référence.** Le corridor n'est pas électrifié : le train de référence est donc diesel-électrique. Nous le définissons par un niveau de performance, et non comme un modèle précis. Sa puissance nominale de 9,8 W par kilogramme de rame à vide se situe entre celles des deux seuls pendulaires diesel que nous connaissions à 200 km/h, la Class 221 britannique (9,9) et l'ICE TD allemand (9,7) [@wikipedia2026class221; @wikipedia2026icetd]. Sa masse et sa longueur sont celles de la Class 221. La section 9 explique pourquoi ce train reste à faire construire : il a existé, mais il n'est plus sur le marché tel quel.
 
 | | Train actuel de VIA | Train de référence |
 |---|---|---|
@@ -118,7 +119,7 @@ Un temps de parcours se construit en six étapes. Le tableau qui suit les dérou
 
 Les valeurs du train actuel viennent de VIA et de Siemens [@viarail2024corridor; @siemens2024chargerwsdot; @wikipedia2026charger; @wikipedia2026venture]. La puissance au rail retire 200 kW pour les services de bord (40 kW par voiture) et 12 % de pertes de transmission. La masse en service ajoute 6 % pour les passagers et leurs bagages. La masse des voitures Venture vient d'une source secondaire, corroborée à 1 % près par la fiche officielle de la locomotive.
 
-**Une formule vérifiée sur un vrai train.** Pour tester la formule de l'étape 4, nous l'avons comparée à une Class 221 réelle. Les seuls chronos publics que nous ayons trouvés viennent d'un forum de passionnés : deux rames couplées, à puissance réduite [@markyt2026chronos]. C'est une source faible, mais elle permet le test. La formule reproduit ces chronos à 1 % près, avec un rendement de transmission de 0,88 et une traînée de l'air d'environ 11 m² par rame. Sans la résistance, elle aurait donné 3 min 01 au lieu de 5 min 13 pour atteindre 201 km/h.
+**Une formule vérifiée sur un vrai train.** Pour tester la formule de l'étape 5, nous l'avons comparée à une Class 221 réelle. Les seuls chronos publics que nous ayons trouvés viennent d'un forum de passionnés : deux rames couplées, à puissance réduite [@markyt2026chronos]. C'est une source faible, mais elle permet le test. La formule reproduit ces chronos à 1 % près, avec un rendement de transmission de 0,88 et une traînée de l'air d'environ 11 m² par rame. Sans la résistance, elle aurait donné 3 min 01 au lieu de 5 min 13 pour atteindre 201 km/h.
 
 | Départ arrêté jusqu'à | Chrono relevé | Formule du modèle |
 |---|---|---|
@@ -126,7 +127,7 @@ Les valeurs du train actuel viennent de VIA et de Siemens [@viarail2024corridor;
 | 161 km/h (100 mi/h) | 170 s | 170 s |
 | 201 km/h (125 mi/h) | 313 s | 312 s |
 
-Trois chronos ne fixent pas chaque paramètre séparément : ils montrent que la forme de la formule tient. L'étude suivante devrait les remplacer par les courbes d'un constructeur. La section 11 donne l'effet de chaque hypothèse sur les temps.
+Trois chronos ne fixent pas chaque paramètre séparément : ils montrent que la forme de la formule tient. L'étude suivante devrait les remplacer par les courbes d'un constructeur. La section 12 donne l'effet de chaque hypothèse sur les temps.
 
 ## La marge d'exploitation de 10 %
 
@@ -220,17 +221,29 @@ Les 833 passages des deux dernières lignes se trouvent là où le train peut ph
 
 Le corridor compte 355 passages publics et 569 passages privés ou de ferme :
 
-  | | Passages actuels | Sans barrières complètes | Ponts d'étagement proposés (un tiers) |
-|---|---|---|---|
-| Passages publics | 355 | 12 | 118 |
-| Passages privés ou de ferme | 569 | 563 | 190 |
-| Total | 924 | 575 | 308 |
+  | | Passages actuels | Sans barrières complètes |
+|---|---|---|
+| Passages publics | 355 | 12 |
+| Passages privés ou de ferme | 569 | 563 |
+| Total | 924 | 575 |
 
-Il faudra équiper les 533 passages sans barrières complètes situés dans les sections rapides. Pour renforcer encore la sécurité, nous proposons un programme complémentaire : 118 ponts d'étagement pour éliminer le tiers des croisements routiers publics, et 190 passages dénivelés pour éliminer le tiers des 569 traverses privées et de ferme. Notre expert ferroviaire recommande de regrouper certains accès agricoles en passages à usage commun, aménagés à des endroits stratégiques, ce qui réduirait le nombre d'ouvrages à construire [@dusablon2026]. Ces ouvrages auraient aussi l'avantage d'éliminer les sifflements de train, qui dérangent les citoyens de façon importante : la règle prévoit que le mécanicien siffle à l'approche d'un passage tant qu'il n'a pas une garantie suffisante d'absence de risque d'accident.
+Il faudra équiper les 533 passages sans barrières complètes situés dans les sections rapides.
 
 **Les passages de ferme.** Des 533 passages à sécuriser, 523 sont privés ou de ferme, dont 226 entre Montréal et Québec. Équiper un chemin de ferme peu fréquenté de barrières complètes est inhabituel, mais pas exclu. Sous réserve de l'approbation de chaque passage par les autorités compétentes, que le barème ci-dessus exige au-delà de 177 km/h, aucun passage n'a besoin d'être retiré. C'est l'hypothèse retenue dans nos temps de parcours et dans nos coûts. En pratique, un regroupement de passages peut servir de solution de rechange, là où un passage ne serait pas approuvé ou pour réduire les coûts. Dans une perspective d'écoute face aux demandes de la société civile dans ce dossier, il devrait alors être volontaire et encadré : consentement du propriétaire, détour limité, passage conçu pour la largeur de la machinerie agricole et compensation.
 
 Le précédent domestique mérite d'être rappelé : le train Turbo des années 1970 détenait le record canadien de vitesse (226 km/h en essai) mais a été plafonné en service à 153 km/h, en bonne partie à cause de ses quelque 300 passages à niveau [@bateman2015; @canadianrail1976]. Le corridor bute sur ce mur depuis cinquante ans : un corridor scellé, avec des barrières automatiques partout, est la façon la plus économe de permettre une vitesse plus haute sans tout reconstruire.
+
+## Un programme complémentaire, optionnel
+
+Ce programme s'ajoute aux cinq actions et il est optionnel : aucun passage n'a besoin d'être retiré pour atteindre les temps de parcours de ce rapport. Pour renforcer encore la sécurité, il éliminerait le tiers des croisements : 118 ponts d'étagement pour les croisements routiers publics, et 190 passages dénivelés pour les traverses privées et de ferme.
+
+| | Passages actuels | Ouvrages proposés (un tiers) |
+|---|---|---|
+| Passages publics | 355 | 118 |
+| Passages privés ou de ferme | 569 | 190 |
+| Total | 924 | 308 |
+
+Notre expert ferroviaire recommande de regrouper certains accès agricoles en passages à usage commun, aménagés à des endroits stratégiques, ce qui réduirait le nombre d'ouvrages à construire [@dusablon2026]. Ces ouvrages auraient aussi l'avantage d'éliminer les sifflements de train, qui dérangent les citoyens de façon importante : la règle prévoit que le mécanicien siffle à l'approche d'un passage tant qu'il n'a pas une garantie suffisante d'absence de risque d'accident. La section 10 en donne le coût.
 
 # Et si on enlevait tous les passages à niveau?
 
@@ -264,7 +277,7 @@ De bout en bout, l'express Québec-Toronto ferait 5 h 48, contre 6 h 40 pour le 
 
 **Le prix d'un arrêt.** Chaque arrêt coûte environ quatre minutes : le freinage, deux minutes en gare, puis la relance. Ottawa-Toronto compte douze gares intermédiaires, et ses arrêts pèsent 46 minutes. Si Kingston devenait une gare d'ALTO, l'express s'y arrêterait aussi, pour environ quatre minutes de plus.
 
-**Un express ne remplace pas l'omnibus, il s'y ajoute.** L'express rapproche l'emprise optimisée des temps d'ALTO, à 32 minutes près entre Montréal et Toronto, mais il laisse de côté les villes intermédiaires. Une grille qui alterne trains express et trains omnibus garde les deux avantages. Faire circuler des trains qui ne s'arrêtent pas aux mêmes gares sur la même voie demande toutefois des voies d'évitement pour les dépassements : c'est une question pour l'étude de circulation (section 12).
+**Un express ne remplace pas l'omnibus, il s'y ajoute.** L'express rapproche l'emprise optimisée des temps d'ALTO, à 32 minutes près entre Montréal et Toronto, mais il laisse de côté les villes intermédiaires. Une grille qui alterne trains express et trains omnibus garde les deux avantages. Faire circuler des trains qui ne s'arrêtent pas aux mêmes gares sur la même voie demande toutefois des voies d'évitement pour les dépassements : c'est une question pour l'étude de circulation (section 13).
 
 # Le train pendulaire et le dévers
 
@@ -290,9 +303,11 @@ Le dévers actuel est une hypothèse, car aucun relevé public n'est disponible.
 
 **Pourquoi pas un pendulaire européen plus agressif?** Parce qu'un matériel plus incliné sortirait du précédent nord-américain et ouvrirait un front d'approbation nouveau, pour un gain de temps mince. Une réserve à garder en tête : VIA a retiré le mécanisme d'inclinaison du LRC lors de sa remise à neuf, pour économiser l'entretien [@via2009lrc]. Un pendulaire use davantage le rail en courbe qu'un train régulier : l'analyse suppose un entretien et des inspections à la hauteur, ce qui impose nécessairement des coûts supplémentaires et une entente avec le propriétaire de la voie.
 
-**Un train diesel, à faire construire.** Le corridor n'est pas électrifié, et ce rapport n'en fait pas une condition. Or les pendulaires modernes sont presque tous électriques : 10,9 W/kg pour l'ICE T allemand [@db2019icet411; @austriaforum2026icet], 11,1 pour le Pendolino de la West Coast Main Line [@wikipedia2026class390] et 13,1 pour l'ETR 610 [@alstom2005pendolino; @wikipedia2026newpendolino]. Sans caténaire, ils ne peuvent pas rouler ici. Deux pendulaires diesel ont toutefois roulé à 200 km/h : la Class 221 britannique et l'ICE TD allemand, à un peu moins de 10 W/kg [@wikipedia2026class221; @wikipedia2026icetd]. Ce sont nos références, mais pas une solution toute faite : l'ICE TD a été retiré du service, et les Class 221 de CrossCountry ont perdu leur pendulation pour réduire l'entretien. À notre connaissance, aucun constructeur n'offre aujourd'hui de pendulaire diesel à 200 km/h. Il faudrait le commander sur mesure et le faire homologuer en Amérique du Nord. C'est le principal risque du projet du côté du matériel roulant. Le LRC était lui aussi diesel, mais il a plafonné à 160 km/h en service [@wikipedia2026lrc] : nous ne retenons de lui que sa tolérance en courbe.
+**Un train diesel, à faire construire.** Le corridor n'est pas électrifié, et ce rapport n'en fait pas une condition. Or les pendulaires modernes sont presque tous électriques : puissance de 10,9 W/kg pour l'ICE T allemand [@db2019icet411; @austriaforum2026icet], 11,1 pour le Pendolino de la West Coast Main Line [@wikipedia2026class390] et 13,1 pour l'ETR 610 [@alstom2005pendolino; @wikipedia2026newpendolino]. Sans caténaire, ils ne peuvent pas rouler ici. Deux pendulaires diesel ont toutefois roulé à 200 km/h : la Class 221 britannique et l'ICE TD allemand, à un peu moins de 10 W/kg [@wikipedia2026class221; @wikipedia2026icetd]. Ce sont nos références, mais pas une solution toute faite : l'ICE TD a été retiré du service, et les Class 221 de CrossCountry ont perdu leur pendulation pour réduire l'entretien. À notre connaissance, aucun constructeur n'offre aujourd'hui de pendulaire diesel à 200 km/h. Il faudrait le commander sur mesure et le faire homologuer en Amérique du Nord. C'est le principal risque du projet du côté du matériel roulant. Le LRC était lui aussi diesel, mais il a plafonné à 160 km/h en service [@wikipedia2026lrc] : nous ne retenons de lui que sa tolérance en courbe.
 
 Notre train de référence se situe au milieu de ce qui est réaliste en Amérique du Nord. Avec une seule locomotive Charger et cinq voitures pendulaires, les temps seraient environ 3 % plus longs ; avec deux locomotives, environ 2 % plus courts. En y ajoutant une tolérance en courbe de 5 ou de 7 po, Montréal-Toronto varierait de 3 h 57 à 4 h 17.
+
+**Et l'électrification?** Des lignes électrifiées partagées avec du fret lourd, ça existe. L'Inde fait rouler des trains à double conteneur sous une caténaire, avec un fil à environ 7,5 m du rail [@pib2019dfc]. Cette option sort du périmètre des cinq actions, mais c'est une possibilité : la section 10 la chiffre comme programme complémentaire, et la section 11 en fait une contre-hypothèse.
 
 # Estimation des coûts
 
@@ -310,7 +325,11 @@ Nous estimons ici l'ordre de grandeur du coût des actions proposées, sur les 9
 | Montréal-Toronto | 1 | 0 | 0 m | 1 | 22 m | 22 m |
 | Total, sans double compte | 78 | 32 | 377 m | 46 | 3 760 m | 4 137 m |
 
-Un ouvrage de 22 m, le viaduc de la rue Saint-Rémi à Montréal, appartient à deux liaisons ; le total ne le compte qu'une fois. Ce n'est pas un inventaire d'ingénierie : il ne donne ni la portée, ni le type, ni l'état des ouvrages. Six ouvrages qui portent déjà deux voies ne sont pas comptés, et dix ouvrages incertains, vus par une seule source, pourraient ajouter environ 200 m.
+::: {.note-tableau}
+Double compte : le viaduc de la rue Saint-Rémi (22 m), commun à deux liaisons, n'est compté qu'une fois.
+:::
+
+Ce n'est pas un inventaire d'ingénierie : il ne donne ni la portée, ni le type, ni l'état des ouvrages. Six ouvrages qui portent déjà deux voies ne sont pas comptés, et dix ouvrages incertains, vus par une seule source, pourraient ajouter environ 200 m.
 
 **Signalisation.** Amtrak installe le contrôle en cabine et renouvelle toute la signalisation du Downeaster, entre Brunswick (Maine) et Haverhill (Massachusetts), pour 51 M\$ US de 2024 sur un peu plus de 160 km [@schreiber2024downeaster; @amtrak2024ptc]. Converti au taux de change de 2024 [@bdc2026change] et indexé à 2025 avec l'indice des voies ferrées [@statcan2026ponts], cela revient à environ 0,45 M\$ CA par kilomètre, signalisation complète comprise, soit environ 0,4 G\$ CA pour les 991 km.
 
@@ -318,7 +337,11 @@ Un ouvrage de 22 m, le viaduc de la rue Saint-Rémi à Montréal, appartient à 
 
 **Passages à niveau.** Tel qu'indiqué à la section 6, nous proposons d'installer des barrières aux 533 croisements des sections rapides qui n'en sont pas équipés. Transports Canada rapporte en 2021 un coût de 300 000 \$ à 600 000 \$, voire davantage, pour un système complet de feux, cloches et barrières [@canada2021passagesniveau], soit de 350 000 \$ à 700 000 \$ en dollars de 2025 avec l'indice des voies ferrées [@statcan2026ponts] ; à 700 000 \$ l'unité, nous obtenons un budget de 0,4 G\$ CA. De plus, nous proposons de construire 118 ponts d'étagement pour éliminer le tiers des croisements routiers publics. Le coût d'un tel ouvrage varie beaucoup : environ 7 M\$ pour la réfection d'un pont existant à Trois-Rivières en 2022 [@constas2022etagement], mais de 60 à 100 M\$ pour éliminer le passage à niveau du CN sur l'autoroute 20 à Saint-Hyacinthe, selon les estimations successives du ministère en 2018 [@lorry2018sthyacinthe]. Indexés à 2025 avec l'indice des ponts [@statcan2026ponts], ces précédents valent environ 7 M\$ et de 80 à 130 M\$. Nous retenons 50 M\$ de 2025 comme valeur moyenne de planification, soit 5,9 G\$ CA. Nous proposons également 190 passages dénivelés pour remplacer le tiers des 569 traverses privées et de ferme, à 12 M\$ chacun, soit 2,3 G\$ CA ; aucun précédent public ne chiffre ce type d'ouvrage, et ce coût unitaire est une hypothèse de travail, qui ne peut donc pas être indexée.
 
-Ces ouvrages forment un programme complémentaire. D'un point de vue technique, aucun passage n'a besoin d'être retiré : les barrières complètes suffisent au plafond de 201 km/h et aux temps de parcours présentés ici. Le programme répond plutôt à des raisons d'acceptabilité, de cohabitation avec les riverains de la ligne et de modernisation du corridor, et il peut se décider site par site, au rythme des budgets. Les deux tableaux qui suivent présentent donc les deux volets séparément.
+Ces ouvrages forment un programme complémentaire et optionnel. D'un point de vue technique, aucun passage n'a besoin d'être retiré : les barrières complètes suffisent au plafond de 201 km/h et aux temps de parcours présentés ici. Le programme répond plutôt à des raisons d'acceptabilité, de cohabitation avec les riverains de la ligne et de modernisation du corridor, et il peut se décider site par site, au rythme des budgets.
+
+**Électrification.** Un second programme complémentaire, lui aussi optionnel, électrifierait le corridor (section 9). Il faudrait poser une caténaire sur environ 2 000 km de voie, ajouter des sous-stations, dégager les ponts et les tunnels pour les wagons de marchandises, plus hauts que les voitures de voyageurs [@ecotrain2011, p. 17], et obtenir l'accord du CN. Cela coûterait de 3 à 7 G\$ CA de 2025. La borne basse vient d'EcoTrain : 2 010 M\$ de 2009 pour 2 421 km de voie et 30 sous-stations, sur une voie neuve sans fret [@ecotrain2011, p. 70], soit environ 1,3 M\$ de 2025 par kilomètre de voie. La borne haute vient de la cible de l'industrie britannique, jusqu'à 1,5 M£ de 2019 par kilomètre de voie pour un projet complexe [@ria2019electrification], soit environ 3,3 M\$ de 2025. L'expérience nord-américaine récente pointe plutôt vers le haut de cette fourchette, ou au-delà [@caltrain2022].
+
+Les tableaux qui suivent présentent séparément les cinq actions et les deux programmes complémentaires.
 
 **Les cinq actions nécessaires aux temps de parcours calculés :**
 
@@ -331,15 +354,45 @@ Ces ouvrages forment un programme complémentaire. D'un point de vue technique, 
 | Sécurisation de 533 croisements routiers | 0,4 |
 | Total des cinq actions | 7,8 à 8,8 |
 
-**Le programme complémentaire d'élimination des croisements :**
+**Les programmes complémentaires et optionnels :**
 
-  | Programme de ponts d'étagement | Coût estimé (G\$ CA) |
+  | Programme | Coût estimé (G\$ CA) |
 |---|---|
 | 118 ponts d'étagement, le tiers des croisements publics | 5,9 |
 | 190 passages dénivelés, le tiers des croisements privés et de ferme | 2,3 |
-| Total du programme | 8,2 |
+| Total, élimination des croisements | 8,2 |
+| Électrification du corridor | 3 à 7 |
 
-Les deux volets représentent ensemble de [**16,0 à 17,0 G\$ CA**]{.chiffre}. Avec une marge de 20 % pour les imprévus, le coût total du projet se situerait entre environ [**19 et 20 G\$ CA**]{.chiffre}.
+Les cinq actions et le programme d'élimination des croisements représentent ensemble de [**16,0 à 17,0 G\$ CA**]{.chiffre}. Avec une marge de 20 % pour les imprévus, le coût total du projet se situerait entre environ [**19 et 20 G\$ CA**]{.chiffre}. L'électrification n'est pas comprise dans ce total : la section 11 examine son échange contre une partie du programme d'élimination des croisements.
+
+# Et si on électrifiait le corridor?
+
+Les cinq actions supposent un train diesel, puisque le corridor n'a pas de caténaire. La section 9 a évoqué l'électrification, et la section 10 la chiffre de 3 à 7 G\$ CA comme programme complémentaire. Supposons maintenant qu'on la réalise, et qu'on la paie en réduisant de 50 à 75 % le programme d'élimination des croisements. Ce programme étant optionnel, les temps de parcours n'en dépendent pas. Que change cet échange?
+
+**Les temps.** Avec un train électrique de type Pendolino, sur la même voie et avec les mêmes arrêts, le gain reste modeste :
+
+| Trajet | Emprise optimisée, diesel | Électrique | Gain | ALTO annoncé |
+|---|---|---|---|---|
+| Montréal-Québec | 2 h 24 | 2 h 21 | 3 min | ~1 h 30 |
+| Montréal-Ottawa | 1 h 39 | 1 h 37 | 2 min | ~1 h |
+| Ottawa-Toronto | 3 h 50 | 3 h 45 | 5 min | ~2 h |
+| Montréal-Toronto | 4 h 06 | 4 h 00 | 6 min | 3 h |
+
+De bout en bout, Québec-Toronto passerait de 6 h 40 à 6 h 32.
+
+**Le train.** L'avantage principal n'est pas dans les minutes. Les pendulaires électriques existent et sont en service, alors que le pendulaire diesel reste à faire construire (section 9). Le poste des trains ne change pas : ses 3,4 G\$ viennent déjà d'une commande de trains électriques.
+
+**Les coûts.** Retirer de 50 à 75 % du programme d'élimination des croisements libère de 4,1 à 6,2 G\$ CA, soit à peu près le coût de l'électrification :
+
+| Poste (G\$ CA de 2025) | Projet de base | Contre-hypothèse 3 |
+|---|---|---|
+| Cinq actions | 7,8 à 8,8 | 7,8 à 8,8 |
+| Élimination des croisements | 8,2 | 2,1 à 4,1 |
+| Électrification du corridor | | 3 à 7 |
+| Total | 16,0 à 17,0 | 12,9 à 19,9 |
+| Total avec 20 % pour les imprévus | 19 à 20 | 15 à 24 |
+
+**Ce qu'on y perd.** Le programme d'élimination compterait de 77 à 154 ouvrages au lieu de 308. Ailleurs, les barrières resteraient, mais les croisements aussi, avec leurs sifflements et leur risque résiduel. L'électrification ajouterait de plus une condition : l'accord du CN sur toute sa ligne. Cet échange est donc un arbitrage entre la sécurité aux croisements d'un côté, et un train qui existe déjà de l'autre.
 
 # Impacts des actions sur les temps de parcours
 
@@ -352,12 +405,15 @@ En appliquant la méthode de la section 2, nous obtenons les réductions de temp
 | Train pendulaire et dévers | 13 | 11 | 18 | 31 | 24 % |
 | Zones urbaines modernisées | 4 | 2 | 4 | 8 | 6 % |
 | Total du temps économisé | 58 | 23 | 72 | 130 | 100 % |
+| **Trajet express, sans arrêt intermédiaire** | **19** | **16** | **34** | **53** | |
+| Total avec le trajet express | 77 | 39 | 106 | 183 | |
 | Temps du trajet actuel | 3 h 22 | 2 h 02 | 5 h 18 | 8 h 50 | |
 | Temps sur l'emprise optimisée | 2 h 24 | 1 h 39 | 4 h 06 | 6 h 40 | |
+| Temps du train express | 2 h 05 | 1 h 23 | 3 h 32 | 5 h 48 | |
 
 Les tranches sont des attributions qui somment au gain, pas des mesures indépendantes. La signalisation apparaît dans deux postes : comme condition du changement de classe, où son effet sur la vitesse est mesuré, et comme levier de capacité dans la cohabitation, où son effet n'est pas isolé de celui du doublement et de l'arbitrage. Le pendulaire et les zones urbaines sont comptés sous la classe actuelle (153 km/h) ; le changement de classe est ce que l'interurbain rapporte en plus une fois le plafond porté à 201 km/h. Les temps de base sans marge et la méthode d'attribution sont dans le visualiseur de données joint.
 
-**Montréal-Québec, gare par gare.** Le trajet Montréal-Québec est celui où le gain est le plus grand. Le tableau qui suit donne le temps depuis Montréal jusqu'aux gares de Saint-Hilaire, de Saint-Hyacinthe et de Drummondville, puis jusqu'à Québec, arrêts intermédiaires compris.
+**Un double rôle comme corridor de trains de banlieue?** Le trajet Montréal-Québec est celui où le gain est le plus grand. Le tableau qui suit donne le temps depuis Montréal jusqu'aux gares de Saint-Hilaire, de Saint-Hyacinthe et de Drummondville, puis jusqu'à Québec, arrêts intermédiaires compris.
 
   | Depuis Montréal jusqu'à | Distance | Aujourd'hui | Emprise optimisée |
 |---|---|---|---|

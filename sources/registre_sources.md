@@ -323,3 +323,15 @@ le W/kg à vide monte vers 12, ce qui renforce encore l'hypothèse).
 ### `markyt2026chronos`
 - **Appuie** : calage de la formule d'accélération, section 2.
 - **Statut** : **SOURCE FAIBLE**. Message de forum lu seulement dans deux extraits de moteur de recherche concordants : RailForums refuse l'accès automatisé. Auteur et chiffres confirmés, date non vérifiée. À remplacer par des courbes de constructeur.
+
+## Ajouts du 2026-11-05 (bis) : coût d'une électrification, hors périmètre
+
+- `ecotrain2011` : tableau 6-1 (p. 70), alimentation et distribution d'énergie E300+ : 2 010 M$ de 2009 ; 2 421 km de voie simple et 30 sous-stations (annexe des caractéristiques, PDF p. 88) ; § 2.2.5.1 (p. 17) sur la hauteur de la caténaire avec le fret. VÉRIFIÉE (PDF lu).
+- Indice « Lignes de chemins de fer », 36-10-0608-01 : 2009 0,8424 ; 2019 1,0489 ; 2025 1,3642 (vecteurs v1043025761 / v1043238281). Facteurs 1,619 (2009-2025) et 1,301 (2019-2025).
+- `ria2019electrification` : VÉRIFIÉE par trois résumés concordants (Railway Gazette, IRJ, RIA) ; le PDF n'a pas pu être téléchargé par script.
+- `pib2019dfc` : hauteur de 7,4 m lue dans un extrait du communiqué ; d'autres sources donnent 7,45 à 7,57 m, d'où « environ 7,5 m ».
+- `caltrain2022` : lue dans un extrait de recherche.
+
+Calcul : 2 × 991 km = 1 982 km de voie. EcoTrain : 0,83 M$ × 1,619 = 1,34 M$/km, soit 2,7 G$. RIA, projet complexe : 1,5 M£ × 1,6945 × 1,301 = 3,31 M$/km, soit 6,6 G$ ; projet simple : 0,75 M£, soit 1,65 M$/km et 3,3 G$. Fourchette publiée : de 3 à 7 G$.
+
+Contre-hypothèse 3 (section 11, demande de Vincent du 5 nov.) : programme réduit de 50 à 75 % : 8,2 × 0,25 = 2,05 G$ ; 8,2 × 0,5 = 4,1 G$ ; libère de 4,1 à 6,15 G$. Temps : `sensibilites_traction.csv`, train électrique de type Pendolino (5 160 kW, 466 t). Totaux : 7,8 + 2,1 + 3 = 12,9 ; 8,8 + 4,1 + 7 = 19,9 ; × 1,2 = 15,4 et 23,9.

@@ -205,12 +205,10 @@ def hm(m):
     return f"{total // 60} h {total % 60:02d}"
 
 
-import textwrap
-
 # Format pleine largeur de page (7,4 po), polices dimensionnées pour cette
 # largeur : barres espacées, facteurs sur deux lignes sous chaque barre,
-# légende en colonne, note repliée (remodelage du 3 septembre).
-fig, ax = plt.subplots(figsize=(7.4, 7.4), dpi=250)
+# légende en colonne (remodelage du 3 septembre) ; la note est passée à la légende du rapport.
+fig, ax = plt.subplots(figsize=(7.4, 6.2), dpi=250)
 ylabels = []
 for yi, r in enumerate(reversed(rows)):
     y = yi
@@ -259,7 +257,7 @@ handles = [plt.Rectangle((0, 0), 1, 1, facecolor="none",
 leg = fig.legend(handles,
                  ["Emprise optimisée, marge de 10 % incluse (sans correction de courbes)",
                   "Cohabitation : régime et doublement des voies, zones" + chr(10) +
-                  "urbaines comprises (voir la note)",
+                  "urbaines comprises",
                   "Train pendulaire, sous la classe actuelle (153 km/h, 95 mi/h)",
                   "Zones urbaines modernisées : courbes et signalisation" + chr(10) +
                   "seulement, sans le mou de cohabitation",
@@ -271,7 +269,7 @@ leg = fig.legend(handles,
 for txt in leg.get_texts():
     txt.set_color(PAPIER["encre_douce"])
 
-fig.tight_layout(rect=(0, 0.19, 1, 0.68))
+fig.tight_layout(rect=(0, 0.01, 1, 0.62))
 fig.text(0.008, 0.985, "Facteurs de réduction des temps de parcours",
          fontsize=15, ha="left", va="top", color=PAPIER["encre"],
          **police_titre(600))
@@ -280,21 +278,6 @@ fig.text(0.008, 0.945,
          "qui somment au gain, pas des mesures indépendantes",
          fontsize=8.8, ha="left", va="top", color=PAPIER["encre_pale"],
          linespacing=1.3, **police_mono())
-_d = {r["trajet"]: r for r in rows}
-note = ("Note. Cohabitation = ce que l'horaire d'aujourd'hui porte au-delà d'une marge de "
-        "10 %, train et voie actuels, en interurbain comme dans les zones urbaines (où c'est "
-        f"la plus grande part de l'écart : {_d['Québec-Montréal']['cohab_urbain']:.0f} min sur "
-        "Québec-Montréal). Elle réunit le régime de circulation avec le fret et le doublement "
-        "des voies : d'après le 2×2 (section 3), le doublement peut en racheter une bonne part "
-        f"(environ {_d['Québec-Montréal']['doublement_inclus']:.0f} min sur Québec-Montréal) ; "
-        "le reste relève de l'étude de circulation. Zones urbaines = courbes prises par le "
-        "pendulaire et signalisation dans les approches de Montréal, Québec et Toronto. "
-        "Pendulaire et zones urbaines sont comptés sous la classe actuelle (153 km/h) ; "
-        "« changement de classe » est ce que l'interurbain rapporte en plus une fois le "
-        "plafond porté à 201 km/h, ce qui exige le corridor scellé et le contrôle en cabine.")
-fig.text(0.008, 0.165, chr(10).join(textwrap.wrap(note, 94)),
-         fontsize=8.4, ha="left", va="top", color=PAPIER["encre_douce"],
-         linespacing=1.45, **police_mono())
 fig.savefig(DELIVERABLES / "figure_gains.png", bbox_inches="tight",
             facecolor=PAPIER["fond"])
 

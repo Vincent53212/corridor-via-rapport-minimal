@@ -4,12 +4,9 @@ Remodelage du 3 septembre (décision Vincent) : la planche 2×2 était illisible
 une fois réduite à la largeur de la page ; chaque trajet a maintenant sa figure
 pleine largeur, en JPEG : livrables/figure_vs_auto_<trajet>.jpg.
 
-Cinq barres par trajet : l'auto (repère évidé), l'horaire VIA d'aujourd'hui,
-puis les trois scénarios publiés (échelle du rapport, moteur pendulaire interne
-S2 plafonné 201 km/h / 125 mi/h — remodelage 2026-08-24) :
-  scénario 1 = temps_scenario_1.csv (blocs urbains figés)
-  scénario 2 = temps_scenario_2.csv (zones urbaines modernisées)
-  scénario 3 = temps_scenario_3.csv (+ courbes corrigées au doublement)
+Quatre barres par trajet : l'auto (repère évidé), l'horaire VIA d'aujourd'hui,
+l'emprise optimisée (temps_scenario_2.csv) et le train express, sans arrêt
+intermédiaire (train_express.csv, étape 38, à lancer AVANT celle-ci).
 
 Temps publiés EN POINT : T_base × 1,10 (décision 2026-08-24 : marge unique de
 10 %, légèrement plus conservatrice que la médiane des règles publiées et
@@ -74,11 +71,20 @@ ALTO_MIN = {"MTL-QC": 90, "MTL-TO": 180, "MTL-Ott": 60, "Ott-TO": 120}
 # optimisée (moteur interne S2 : pendulaire, dévers, PN, signalisation, zones
 # urbaines modernisées). Les temps des scénarios 1 et 3 restent dans les CSV.
 OPT_LBL = "Emprise optimisée"
+EXP_LBL = "Express, sans arrêt"
+
+def _express():
+    with open(_LIV / "train_express.csv", encoding="utf-8-sig", newline="") as f:
+        return {r["trajet"]: float(r["express_avec_marge_min"]) for r in _csv.DictReader(f, delimiter=";")}
+
+_EXP = _express()
+_NOMS = {"MTL-QC": "Montréal-Québec", "MTL-TO": "Montréal-Toronto", "MTL-Ott": "Montréal-Ottawa", "Ott-TO": "Ottawa-Toronto"}
 
 def panel(troncon, cle, titre, repere):
     return (troncon, cle, titre, repere, AUTO_MIN[troncon], [
         ("VIA aujourd'hui", _horaire(troncon)),
-        (OPT_LBL, _pt(_T2, troncon))])
+        (OPT_LBL, _pt(_T2, troncon)),
+        (EXP_LBL, _EXP[_NOMS[troncon]])])
 
 DATA = [
  panel("MTL-QC",  "montreal_quebec",  "Montréal-Québec",  "auto ≈ 2 h 50, approx."),
@@ -87,13 +93,13 @@ DATA = [
  panel("Ott-TO",  "ottawa_toronto",   "Ottawa-Toronto",   "auto ≈ 4 h 20, approx."),
 ]
 COLS = {"auto": SCENARIOS["auto"], "VIA aujourd'hui": SCENARIOS["actuel"],
-        OPT_LBL: SCENARIOS["S2"]}
+        OPT_LBL: SCENARIOS["S2"], EXP_LBL: SCENARIOS["S3"]}
 
 # Une figure par trajet : 7,4 po de large (la justification de la page est
 # 6,8 po), 250 dpi, JPEG. Les corps de texte sont dimensionnés pour cette
 # largeur d'impression, pas pour une planche réduite.
 for troncon, cle, title, repere, auto, rows in DATA:
-    fig, ax = plt.subplots(figsize=(7.4, 2.9), dpi=250)
+    fig, ax = plt.subplots(figsize=(7.4, 3.3), dpi=250)
     labels = ["Auto"] + [r[0] for r in rows]
     vals = [auto] + [v for _, v in rows]
     cols = [COLS["auto"]] + [COLS[r[0]] for r in rows]
